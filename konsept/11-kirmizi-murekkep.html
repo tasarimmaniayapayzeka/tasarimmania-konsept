@@ -1,0 +1,2362 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TasarımMania — Kırmızı Mürekkep | 360° Dijital Ajans</title>
+<meta name="description" content="TasarımMania: İstanbul Bakırköy merkezli 360 derece dijital ajans. Web tasarım &amp; yazılım, mobil uygulama, Meta &amp; Google Ads, video prodüksiyon ve çok dilli SEO. Markanızı silinmez mürekkeple yazıyoruz.">
+<meta name="theme-color" content="#ED1E24">
+<meta name="author" content="TasarımMania">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="TasarımMania — Kırmızı Mürekkep | 360° Dijital Ajans">
+<meta property="og:description" content="Web &amp; yazılım, mobil uygulama, performans pazarlaması, video prodüksiyon ve çok dilli SEO. Tek çatı, tek ekip, ölçülebilir sonuç.">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TasarımMania — 15 ana sayfa konsepti">
+<meta property="og:url" content="https://tasarimmania.com/">
+<link rel="canonical" href="https://tasarimmania.com/">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TasarımMania — Kırmızı Mürekkep | 360° Dijital Ajans">
+<meta name="twitter:description" content="Web &amp; yazılım, mobil uygulama, performans pazarlaması, video prodüksiyon ve çok dilli SEO.">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta name="twitter:image:alt" content="TasarımMania — 15 ana sayfa konsepti">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23ED1E24'/%3E%3Cpath fill='%23FAF8F5' d='M13 7 L33 32 L13 57 H30 L50 32 L30 7 Z'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   TASARIMMANIA — KONSEPT 11 : KIRMIZI MÜREKKEP
+   Kâğıt zemin, mürekkep siyahı tipografi, tek aksan #ED1E24.
+   Omurga motif: logonun kırmızı çift-ok / chevron formu.
+   ============================================================ */
+
+:root{
+  --paper:#FAF8F5;
+  --paper-2:#F1ECE5;
+  --paper-3:#E6DFD5;
+  --ink:#0E0E0E;
+  --ink-2:#4A4844;
+  --ink-3:#6B665E;
+  --red:#ED1E24;
+  --red-dark:#B8141A;
+  --red-light:#FF4D52;
+  --warm:#FF6B3D;
+
+  --disp:'Anton', 'Arial Narrow', Impact, sans-serif;
+  --blk:'Archivo Black', 'Arial Black', sans-serif;
+  --body:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono:'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+
+  --hdr-h:74px;
+  --chev:44px;          /* chevron derinliği */
+  --wrap:1280px;
+  --ease:cubic-bezier(.76,0,.24,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+html,body{max-width:100%;overflow-x:hidden;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{max-width:100%;display:block;height:auto;}
+a{color:inherit;text-decoration:none;}
+button,input,select,textarea{font:inherit;color:inherit;}
+h1,h2,h3,h4,p,figure,blockquote{margin:0;}
+ul,ol{margin:0;padding:0;list-style:none;}
+
+::selection{background:var(--red);color:#fff;}
+
+:focus-visible{outline:3px solid var(--red);outline-offset:3px;}
+
+.wrap{width:min(var(--wrap), 100% - 56px);margin-inline:auto;}
+@media(max-width:640px){ .wrap{width:min(var(--wrap), 100% - 32px);} }
+
+.skip{
+  position:fixed;left:-9999px;top:10px;z-index:999;
+  background:var(--ink);color:var(--paper);padding:12px 18px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+}
+.skip:focus{left:10px;}
+
+/* ---------- ortak tipografi ---------- */
+.lbl{
+  font-family:var(--mono);font-size:11px;font-weight:700;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--ink-3);
+  display:inline-flex;align-items:center;gap:9px;
+}
+.lbl .chev{width:11px;height:11px;color:var(--red);flex:none;}
+.num{
+  font-family:var(--disp);font-size:clamp(2.6rem,6vw,5.2rem);line-height:.82;
+  letter-spacing:-.02em;color:var(--paper-3);
+}
+.h2{
+  font-family:var(--disp);
+  font-size:clamp(2.4rem, 6.4vw, 5.6rem);
+  line-height:.88;letter-spacing:-.015em;text-transform:uppercase;
+  overflow-wrap:break-word;
+}
+.h2 em{font-style:normal;color:var(--red);}
+.lead{
+  font-size:clamp(1rem,1.15vw,1.15rem);color:var(--ink-2);max-width:62ch;line-height:1.65;
+}
+.chev{display:inline-block;width:14px;height:14px;flex:none;}
+
+/* ---------- butonlar ---------- */
+.btn{
+  --cut:12px;
+  display:inline-flex;align-items:center;gap:11px;
+  padding:17px 26px;
+  font-family:var(--mono);font-size:12.5px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  border:0;cursor:pointer;position:relative;overflow:hidden;
+  clip-path:polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+  transition:color .3s var(--ease), background .3s var(--ease);
+  background:var(--red);color:#fff;
+  white-space:nowrap;
+}
+.btn .chev{position:relative;z-index:2;transition:transform .35s var(--ease);}
+.btn span{position:relative;z-index:2;}
+.btn::before{
+  content:'';position:absolute;inset:-2px -12%;
+  background:var(--ink);z-index:1;
+  transform:translateX(-112%) skewX(-14deg);
+  transition:transform .45s var(--ease);
+}
+.btn:hover::before,.btn:focus-visible::before{transform:translateX(0) skewX(-14deg);}
+.btn:hover .chev,.btn:focus-visible .chev{transform:translateX(5px);}
+.btn--ink{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink);}
+.btn--ink::before{background:var(--red);}
+.btn--ink:hover,.btn--ink:focus-visible{color:#fff;}
+.btn--paper{background:var(--paper);color:var(--ink);}
+.btn--paper::before{background:var(--ink);}
+.btn--paper:hover,.btn--paper:focus-visible{color:var(--paper);}
+.btn--sm{padding:12px 18px;font-size:11px;--cut:9px;}
+
+/* ---------- ilerleme çubuğu ---------- */
+.prog{
+  position:fixed;top:0;left:0;right:0;height:4px;z-index:120;
+  background:rgba(14,14,14,.07);pointer-events:none;
+}
+.prog i{
+  display:block;height:100%;width:0%;background:var(--red);
+  clip-path:polygon(0 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+}
+
+/* ---------- header ---------- */
+.hdr{
+  position:fixed;top:0;left:0;right:0;z-index:110;
+  height:var(--hdr-h);
+  display:flex;align-items:center;
+  background:rgba(250,248,245,.86);
+  backdrop-filter:saturate(1.4) blur(12px);
+  -webkit-backdrop-filter:saturate(1.4) blur(12px);
+  border-bottom:2px solid var(--ink);
+  transition:height .3s var(--ease), box-shadow .3s var(--ease);
+}
+.hdr.is-small{height:62px;box-shadow:0 10px 30px -22px rgba(14,14,14,.6);}
+.hdr__in{display:flex;align-items:center;gap:26px;width:min(var(--wrap),100% - 56px);margin-inline:auto;}
+@media(max-width:640px){ .hdr__in{width:min(var(--wrap),100% - 32px);} }
+.hdr__logo{display:flex;align-items:center;flex:none;}
+.hdr__logo img{height:32px;width:auto;}
+.hdr.is-small .hdr__logo img{height:27px;transition:height .3s var(--ease);}
+.hdr__nav{display:flex;align-items:center;gap:4px;margin-left:auto;}
+.hdr__nav a{
+  font-family:var(--mono);font-size:11.5px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;
+  padding:10px 13px;position:relative;color:var(--ink-2);
+  transition:color .25s var(--ease);
+}
+.hdr__nav a::after{
+  content:'';position:absolute;left:13px;right:13px;bottom:4px;height:2px;
+  background:var(--red);transform:scaleX(0);transform-origin:0 50%;
+  transition:transform .35s var(--ease);
+}
+.hdr__nav a:hover,.hdr__nav a:focus-visible{color:var(--ink);}
+.hdr__nav a:hover::after,.hdr__nav a:focus-visible::after{transform:scaleX(1);}
+.hdr__cta{margin-left:10px;}
+.hdr__tel{
+  font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;
+  display:inline-flex;align-items:center;gap:8px;color:var(--ink);
+  padding:8px 0;
+}
+.hdr__tel .chev{color:var(--red);width:11px;height:11px;}
+.burger{
+  display:none;margin-left:auto;width:48px;height:44px;background:var(--ink);
+  border:0;cursor:pointer;position:relative;
+  clip-path:polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+}
+.burger i{
+  position:absolute;left:13px;right:13px;height:2.5px;background:var(--paper);
+  transition:transform .3s var(--ease), opacity .2s linear;
+}
+.burger i:nth-child(1){top:15px;}
+.burger i:nth-child(2){top:21px;}
+.burger i:nth-child(3){top:27px;}
+.burger[aria-expanded="true"] i:nth-child(1){transform:translateY(6px) rotate(45deg);}
+.burger[aria-expanded="true"] i:nth-child(2){opacity:0;}
+.burger[aria-expanded="true"] i:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+
+/* Menü + telefon + CTA yan yana sığmadan burger'a geç (981-1100 arası taşıyordu) */
+@media(max-width:1180px){ .hdr__tel{display:none;} }
+@media(max-width:1060px){
+  .hdr__nav,.hdr__cta{display:none;}
+  .burger{display:block;}
+}
+
+/* ---------- mobil menü ---------- */
+.mnav{
+  position:fixed;inset:0;z-index:109;
+  background:var(--paper);
+  visibility:hidden;opacity:0;pointer-events:none;
+  transition:opacity .3s var(--ease), visibility 0s linear .3s;
+  padding:calc(var(--hdr-h) + 26px) 0 40px;
+  overflow-y:auto;overflow-x:hidden;
+}
+.mnav.is-open{visibility:visible;opacity:1;pointer-events:auto;transition:opacity .3s var(--ease), visibility 0s;}
+.mnav__ink{
+  position:absolute;top:0;bottom:0;left:-20%;width:140%;background:var(--red);
+  transform:translateX(-120%) skewX(-14deg);pointer-events:none;z-index:4;
+}
+.mnav.is-open .mnav__ink{transform:translateX(120%) skewX(-14deg);transition:transform .8s var(--ease);}
+.mnav ul{display:flex;flex-direction:column;}
+.mnav li{border-bottom:2px solid rgba(14,14,14,.12);}
+.mnav li a{
+  display:flex;align-items:baseline;gap:16px;padding:18px 0;
+  font-family:var(--disp);font-size:clamp(1.8rem,9vw,2.6rem);
+  text-transform:uppercase;letter-spacing:-.01em;line-height:1;
+}
+.mnav li a b{font-family:var(--mono);font-size:12px;color:var(--red);letter-spacing:.1em;}
+.mnav__foot{margin-top:30px;display:flex;flex-direction:column;gap:14px;}
+.mnav__foot .btn{justify-content:center;}
+.mnav__meta{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.06em;line-height:1.9;}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;
+  padding:calc(var(--hdr-h) + 54px) 0 82px;
+  min-height:100vh;
+  min-height:100svh;
+  display:flex;align-items:center;
+  overflow:hidden;
+  border-bottom:2px solid var(--ink);
+}
+#inkfield{
+  position:absolute;inset:0;width:100%;height:100%;
+  display:block;z-index:0;
+}
+.hero__noise{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(120% 90% at 50% 20%, rgba(250,248,245,0) 45%, rgba(250,248,245,.72) 100%),
+    radial-gradient(55% 45% at 6% 94%, rgba(237,30,36,.10), transparent 70%);
+}
+.hero__in{position:relative;z-index:3;}
+.hero__meta{
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  padding-bottom:22px;margin-bottom:26px;border-bottom:2px solid var(--ink);
+}
+.hero h1{
+  font-family:var(--disp);text-transform:uppercase;
+  line-height:.86;letter-spacing:-.02em;
+  display:flex;flex-direction:column;gap:0;
+  margin-bottom:34px;
+}
+.hero__l1{font-size:clamp(2.7rem,9vw,8rem);}
+.hero__l3{font-size:clamp(2rem,6.6vw,5.7rem);margin-top:14px;}
+.hero__l3 em{font-style:normal;color:var(--red);}
+
+/* dev kırmızı chevron blok */
+.hero__block{
+  --c:var(--chev);
+  position:relative;margin-top:10px;
+  background:var(--red);
+  padding:calc(var(--c) + 14px) 4% calc(var(--c) + 20px);
+  clip-path:polygon(0 0, 50% var(--c), 100% 0, 100% calc(100% - var(--c)), 50% 100%, 0 calc(100% - var(--c)));
+  display:flex;justify-content:center;align-items:center;
+  isolation:isolate;
+}
+.hero__block::before{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(100deg,var(--red-dark) 0%,var(--red) 45%,var(--warm) 130%);
+}
+.hero__block span{
+  color:#fff;font-size:clamp(3rem,12vw,9.6rem);line-height:.84;
+  letter-spacing:-.025em;text-align:center;
+  text-shadow:0 6px 0 rgba(0,0,0,.10);
+}
+.hero__grid{
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:44px;align-items:start;
+}
+.hero__ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px;}
+.hero__chips{display:flex;flex-direction:column;gap:2px;border-top:2px solid var(--ink);}
+.hero__chip{
+  display:flex;align-items:baseline;gap:14px;padding:15px 0;
+  border-bottom:1px solid rgba(14,14,14,.16);
+}
+.hero__chip b{font-family:var(--disp);font-size:1.9rem;line-height:1;letter-spacing:-.01em;}
+.hero__chip i{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);}
+.hero__scroll{
+  margin-top:44px;display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-3);
+}
+.hero__scroll .chev{color:var(--red);transform:rotate(90deg);animation:nudge 1.9s var(--ease) infinite;}
+@keyframes nudge{0%,100%{transform:rotate(90deg) translateX(0)}50%{transform:rotate(90deg) translateX(6px)}}
+
+@media(max-width:900px){
+  .hero__grid{grid-template-columns:minmax(0,1fr);gap:30px;}
+  .hero__block{--c:26px;}
+  .hero{min-height:auto;padding-top:calc(var(--hdr-h) + 34px);}
+}
+
+/* ============================================================
+   REVEAL — kırmızı mürekkep silme geçişi
+   ============================================================ */
+.reveal{position:relative;overflow:hidden;}
+.wipe{
+  position:absolute;top:-4%;bottom:-4%;left:-18%;width:136%;
+  background:var(--red);z-index:9;pointer-events:none;
+  transform:translateX(-125%) skewX(-13deg);
+}
+.wipe--ink{background:var(--ink);}
+html.js .reveal.is-in .wipe{transform:translateX(125%) skewX(-13deg);transition:transform .9s var(--ease);}
+html.js .reveal > .wrap,
+html.js .reveal > .band__in{opacity:0;transform:translateY(22px);}
+html.js .reveal.is-in > .wrap,
+html.js .reveal.is-in > .band__in{opacity:1;transform:none;transition:opacity .6s ease .3s, transform .7s var(--ease) .3s;}
+
+/* ============================================================
+   GÜVEN ŞERİDİ
+   ============================================================ */
+.strip{
+  background:var(--ink);color:var(--paper);
+  padding:0;border-bottom:2px solid var(--ink);
+}
+.strip .wrap{width:100%;padding:0;}
+.marq{
+  display:flex;overflow:hidden;width:100%;
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+}
+.marq__t{
+  display:flex;flex:none;align-items:center;gap:34px;padding:20px 17px;
+  animation:marq 34s linear infinite;
+}
+.marq.is-paused .marq__t{animation-play-state:paused;}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+.marq span{
+  font-family:var(--mono);font-size:12px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;white-space:nowrap;
+  display:inline-flex;align-items:center;gap:34px;
+}
+.marq span .chev{color:var(--red);width:12px;height:12px;}
+
+/* ============================================================
+   HİZMETLER
+   ============================================================ */
+.sec{padding:clamp(72px,9vw,132px) 0;position:relative;}
+.sec__head{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,auto);
+  gap:26px;align-items:end;margin-bottom:clamp(38px,5vw,64px);
+  border-bottom:2px solid var(--ink);padding-bottom:26px;
+}
+@media(max-width:760px){ .sec__head{grid-template-columns:minmax(0,1fr);} }
+
+.svcs{background:var(--paper);border-bottom:2px solid var(--ink);}
+.svc-list{border-top:2px solid var(--ink);}
+.svc{
+  position:relative;overflow:hidden;
+  border-bottom:2px solid var(--ink);
+  clip-path:polygon(0 0, 100% 0, 100% 100%, 30px 100%, 0 calc(100% - 30px));
+}
+.svc__ink{
+  position:absolute;top:-2px;bottom:-2px;left:-14%;width:128%;
+  background:var(--red);z-index:0;pointer-events:none;
+  transform:translateX(-115%) skewX(-9deg);
+  transition:transform .58s var(--ease);
+}
+.svc.is-on .svc__ink{transform:translateX(0) skewX(-9deg);}
+.svc.is-off .svc__ink{transform:translateX(115%) skewX(-9deg);}
+.svc.no-trans .svc__ink{transition:none;}
+.svc__in{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:auto 92px minmax(0,1fr) minmax(0,1.05fr) auto;
+  gap:0 30px;align-items:center;
+  padding:34px 8px 34px 0;
+  transition:color .35s var(--ease), padding-left .45s var(--ease);
+}
+.svc:hover .svc__in,.svc.is-on .svc__in{color:#fff;padding-left:16px;}
+.svc__no{
+  font-family:var(--disp);font-size:clamp(1.9rem,3vw,2.9rem);line-height:1;
+  color:var(--paper-3);letter-spacing:-.02em;transition:color .35s var(--ease);
+  min-width:70px;
+}
+.svc.is-on .svc__no{color:rgba(255,255,255,.55);}
+.svc__ico{
+  width:92px;height:92px;display:grid;place-items:center;
+  background:var(--ink);
+  clip-path:polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+  transition:background .35s var(--ease), transform .45s var(--ease);
+}
+.svc__ico img{width:64px;height:64px;object-fit:contain;filter:saturate(.92) contrast(1.06);}
+.svc.is-on .svc__ico{background:#0E0E0E;transform:translateY(-4px);}
+.svc__ttl{
+  font-family:var(--disp);text-transform:uppercase;
+  font-size:clamp(1.5rem,2.9vw,2.55rem);line-height:.95;letter-spacing:-.015em;
+}
+.svc__ttl small{
+  display:block;font-family:var(--mono);font-size:11px;font-weight:700;
+  letter-spacing:.2em;color:var(--red);margin-top:9px;transition:color .35s var(--ease);
+}
+.svc.is-on .svc__ttl small{color:rgba(255,255,255,.82);}
+.svc__txt p{font-size:14.6px;color:var(--ink-2);line-height:1.6;transition:color .35s var(--ease);}
+.svc.is-on .svc__txt p{color:rgba(255,255,255,.9);}
+.svc__txt ul{display:flex;flex-wrap:wrap;gap:7px 16px;margin-top:13px;}
+.svc__txt li{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);
+  transition:color .35s var(--ease);
+}
+.svc__txt li .chev{width:9px;height:9px;color:var(--red);transition:color .35s var(--ease);}
+.svc.is-on .svc__txt li{color:rgba(255,255,255,.78);}
+.svc.is-on .svc__txt li .chev{color:#fff;}
+.svc__go{
+  width:56px;height:56px;display:grid;place-items:center;flex:none;
+  box-shadow:inset 0 0 0 2px rgba(14,14,14,.22);
+  clip-path:polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+  transition:box-shadow .35s var(--ease), transform .45s var(--ease);
+}
+.svc__go .chev{width:18px;height:18px;color:var(--red);transition:color .35s var(--ease);}
+.svc.is-on .svc__go{box-shadow:inset 0 0 0 2px rgba(255,255,255,.55);transform:translateX(8px);}
+.svc.is-on .svc__go .chev{color:#fff;}
+.svc__link{position:absolute;inset:0;z-index:3;}
+.svc__link span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+
+@media(max-width:1100px){
+  .svc__in{grid-template-columns:auto 78px minmax(0,1fr) auto;gap:0 22px;}
+  .svc__no{grid-column:1;grid-row:1;}
+  .svc__ico{grid-column:2;grid-row:1;width:78px;height:78px;}
+  .svc__ico img{width:54px;height:54px;}
+  .svc__ttl{grid-column:3;grid-row:1;}
+  .svc__go{grid-column:4;grid-row:1;}
+  .svc__txt{grid-column:1 / -1;grid-row:2;margin-top:18px;}
+}
+@media(max-width:640px){
+  .svc__in{grid-template-columns:auto minmax(0,1fr);gap:0 16px;padding:26px 4px;}
+  .svc__no{grid-column:1;grid-row:1;min-width:0;font-size:1.5rem;}
+  .svc__ico{grid-column:2;grid-row:1;width:56px;height:56px;justify-self:end;}
+  .svc__ico img{width:38px;height:38px;}
+  .svc__ttl{grid-column:1 / -1;grid-row:2;margin-top:14px;}
+  .svc__txt{grid-column:1 / -1;grid-row:3;margin-top:14px;}
+  .svc__go{display:none;}
+  .svc{clip-path:polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px));}
+}
+
+/* ============================================================
+   NEDEN BİZ
+   ============================================================ */
+.why{background:var(--ink);color:var(--paper);border-bottom:2px solid var(--ink);}
+.why .h2{color:var(--paper);}
+.why .lead{color:rgba(250,248,245,.72);}
+.why .lbl{color:rgba(250,248,245,.5);}
+.why-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;
+  background:rgba(250,248,245,.16);border:2px solid rgba(250,248,245,.16);
+}
+.why-cell{
+  background:var(--ink);padding:32px 26px;position:relative;overflow:hidden;
+  transition:background .35s var(--ease);
+}
+.why-cell::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--red);
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .45s var(--ease);
+}
+.why-cell:hover::after{transform:scaleX(1);}
+.why-cell:hover{background:#161616;}
+.why-cell b{
+  display:flex;align-items:center;gap:11px;
+  font-family:var(--blk);font-size:15px;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:12px;
+}
+.why-cell b .chev{color:var(--red);width:15px;height:15px;}
+.why-cell p{font-size:14.5px;color:rgba(250,248,245,.68);line-height:1.62;}
+.why-cell i{
+  font-style:normal;position:absolute;top:18px;right:22px;
+  font-family:var(--disp);font-size:2.4rem;color:rgba(250,248,245,.09);line-height:1;
+}
+@media(max-width:900px){ .why-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media(max-width:560px){ .why-grid{grid-template-columns:minmax(0,1fr);} }
+
+.why-split{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;align-items:center;
+  margin-top:56px;padding-top:44px;border-top:2px solid rgba(250,248,245,.18);
+}
+@media(max-width:860px){ .why-split{grid-template-columns:minmax(0,1fr);gap:30px;} }
+.why-split h3{
+  font-family:var(--disp);font-size:clamp(1.8rem,4vw,3.2rem);text-transform:uppercase;
+  line-height:.95;letter-spacing:-.015em;
+}
+.why-split h3 em{font-style:normal;color:var(--red);}
+.stack{display:flex;flex-direction:column;gap:12px;}
+.stack-row{
+  display:flex;align-items:center;gap:16px;
+  padding:15px 20px;background:rgba(250,248,245,.05);
+  clip-path:polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%);
+  transition:background .3s var(--ease), transform .35s var(--ease);
+}
+.stack-row:hover{background:var(--red);transform:translateX(8px);}
+.stack-row b{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--red);transition:color .3s;}
+.stack-row:hover b{color:#fff;}
+.stack-row p{font-size:14px;color:rgba(250,248,245,.8);}
+.stack-row:hover p{color:#fff;}
+
+/* ============================================================
+   RAKAMLAR
+   ============================================================ */
+.stats{background:var(--paper-2);border-bottom:2px solid var(--ink);}
+.stats-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;
+  background:var(--ink);border:2px solid var(--ink);
+}
+.stat{
+  background:var(--paper);padding:38px 28px;position:relative;overflow:hidden;
+  clip-path:polygon(0 0, 100% 0, 100% 100%, 26px 100%, 0 calc(100% - 26px));
+}
+.stat b{
+  display:block;font-family:var(--disp);
+  font-size:clamp(2.6rem,5.6vw,4.6rem);line-height:.9;letter-spacing:-.03em;
+  color:var(--ink);
+}
+.stat b i{font-style:normal;color:var(--red);}
+.stat span{
+  display:block;margin-top:12px;
+  font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+.stat p{margin-top:9px;font-size:13.6px;color:var(--ink-2);line-height:1.55;}
+.stat::before{
+  content:'';position:absolute;top:0;left:0;width:0;height:5px;background:var(--red);
+  transition:width .7s var(--ease);
+}
+.stats.is-in .stat::before{width:100%;}
+@media(max-width:860px){ .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media(max-width:520px){ .stats-grid{grid-template-columns:minmax(0,1fr);} }
+
+/* ============================================================
+   İŞLER
+   ============================================================ */
+.works{background:var(--paper);border-bottom:2px solid var(--ink);}
+.works-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;
+}
+@media(max-width:1000px){ .works-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media(max-width:640px){ .works-grid{grid-template-columns:minmax(0,1fr);} }
+.work{
+  position:relative;overflow:hidden;
+  border:2px solid var(--ink);background:var(--paper);
+  padding:26px 24px 24px;
+  clip-path:polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%);
+  transition:transform .4s var(--ease);
+  display:flex;flex-direction:column;min-height:280px;
+}
+.work:hover{transform:translateY(-6px);}
+.work__ink{
+  position:absolute;top:-6%;bottom:-6%;left:-16%;width:132%;background:var(--red);
+  transform:translateX(-118%) skewX(-12deg);transition:transform .55s var(--ease);z-index:0;
+}
+.work:hover .work__ink,.work:focus-within .work__ink{transform:translateX(0) skewX(-12deg);}
+.work > *{position:relative;z-index:2;transition:color .35s var(--ease);}
+.work:hover,.work:focus-within{color:#fff;}
+.work__no{
+  font-family:var(--disp);font-size:2.1rem;line-height:1;color:var(--paper-3);
+  transition:color .35s var(--ease);
+}
+.work:hover .work__no{color:rgba(255,255,255,.5);}
+.work__tag{
+  font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--red);margin-top:16px;transition:color .35s var(--ease);
+}
+.work:hover .work__tag{color:#fff;}
+.work h3{
+  font-family:var(--disp);text-transform:uppercase;font-size:1.55rem;line-height:1;
+  letter-spacing:-.01em;margin-top:10px;
+}
+.work p{font-size:14px;color:var(--ink-2);margin-top:12px;line-height:1.6;}
+.work:hover p{color:rgba(255,255,255,.9);}
+.work__res{
+  margin-top:auto;padding-top:20px;display:flex;align-items:center;gap:11px;
+  border-top:2px solid rgba(14,14,14,.16);transition:border-color .35s var(--ease);
+}
+.work:hover .work__res{border-top-color:rgba(255,255,255,.4);}
+.work__res .chev{color:var(--red);width:16px;height:16px;transition:color .35s var(--ease);}
+.work:hover .work__res .chev{color:#fff;}
+.work__res b{font-family:var(--blk);font-size:15.5px;letter-spacing:-.01em;line-height:1.25;}
+
+/* ============================================================
+   SÜREÇ — chevron şerit
+   ============================================================ */
+.proc{background:var(--paper-2);border-bottom:2px solid var(--ink);}
+.ribbon{display:flex;gap:0;margin-bottom:34px;}
+.ribbon .step{
+  flex:1 1 0;min-width:0;
+  background:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+  padding:26px 20px 26px 40px;margin-left:-16px;position:relative;
+  clip-path:polygon(0 0, calc(100% - 24px) 0, 100% 50%, calc(100% - 24px) 100%, 0 100%, 24px 50%);
+  transition:background .35s var(--ease), color .35s var(--ease);
+}
+.ribbon .step:first-child{margin-left:0;padding-left:24px;clip-path:polygon(0 0, calc(100% - 24px) 0, 100% 50%, calc(100% - 24px) 100%, 0 100%);}
+.ribbon .step:hover,.ribbon .step.is-on{background:var(--red);color:#fff;}
+.step b{
+  display:block;font-family:var(--mono);font-size:11px;font-weight:700;
+  letter-spacing:.22em;color:var(--red);margin-bottom:10px;transition:color .35s var(--ease);
+}
+.step:hover b,.step.is-on b{color:rgba(255,255,255,.85);}
+.step h3{font-family:var(--disp);text-transform:uppercase;font-size:1.2rem;line-height:1;letter-spacing:-.01em;}
+.step p{font-size:13.2px;color:var(--ink-2);margin-top:9px;line-height:1.5;transition:color .35s var(--ease);}
+.step:hover p,.step.is-on p{color:rgba(255,255,255,.9);}
+@media(max-width:1000px){
+  .ribbon{flex-direction:column;gap:8px;}
+  .ribbon .step{
+    margin-left:0;padding:22px 24px 34px;
+    clip-path:polygon(0 0, 100% 0, 100% calc(100% - 20px), 50% 100%, 0 calc(100% - 20px));
+    border:2px solid var(--ink);
+  }
+  .ribbon .step:first-child{padding-left:24px;clip-path:polygon(0 0, 100% 0, 100% calc(100% - 20px), 50% 100%, 0 calc(100% - 20px));}
+}
+.proc-note{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  padding:22px 26px;background:var(--ink);color:var(--paper);
+  clip-path:polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+.proc-note .chev{color:var(--red);width:18px;height:18px;}
+.proc-note p{font-size:14.5px;color:rgba(250,248,245,.82);}
+.proc-note b{font-family:var(--blk);font-size:13px;letter-spacing:.02em;}
+
+/* ============================================================
+   YORUMLAR
+   ============================================================ */
+.test{background:var(--paper);border-bottom:2px solid var(--ink);}
+.test-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
+@media(max-width:940px){ .test-grid{grid-template-columns:minmax(0,1fr);} }
+.quote{
+  border:2px solid var(--ink);background:var(--paper);padding:30px 26px 24px;
+  position:relative;display:flex;flex-direction:column;
+  clip-path:polygon(0 0, 100% 0, 100% 100%, 30px 100%, 0 calc(100% - 30px));
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.quote:hover{transform:translateY(-6px);box-shadow:inset 0 -7px 0 0 var(--red), inset 0 0 0 2px rgba(237,30,36,.25);}
+.quote figcaption{margin-top:auto;}
+.quote__mark{
+  position:absolute;top:-2px;right:0;width:64px;height:64px;background:var(--red);
+  display:grid;place-items:center;
+  clip-path:polygon(0 0, 100% 0, 100% 100%, 100% 100%, 22px 100%);
+}
+.quote__mark .chev{color:#fff;width:20px;height:20px;}
+.quote p{font-size:15.4px;line-height:1.68;color:var(--ink);padding-right:56px;}
+.quote footer{
+  margin-top:auto;padding-top:20px;display:flex;align-items:center;gap:13px;
+  border-top:2px solid rgba(14,14,14,.14);
+}
+.quote__av{
+  width:44px;height:44px;flex:none;background:var(--ink);color:#fff;
+  display:grid;place-items:center;font-family:var(--blk);font-size:14px;
+  clip-path:polygon(0 0, 100% 0, 100% calc(100% - 11px), calc(100% - 11px) 100%, 0 100%);
+}
+.quote__who b{display:block;font-family:var(--blk);font-size:13.5px;letter-spacing:-.01em;}
+.quote__who span{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);}
+.stars{display:flex;gap:3px;margin-bottom:14px;}
+.stars i{width:11px;height:11px;background:var(--red);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);}
+
+/* ============================================================
+   BÜYÜK CTA BANDI
+   ============================================================ */
+.band{
+  --c:56px;
+  background:var(--red);color:#fff;position:relative;overflow:hidden;
+  padding:calc(var(--c) + 60px) 0 calc(var(--c) + 64px);
+  clip-path:polygon(0 0, 50% var(--c), 100% 0, 100% calc(100% - var(--c)), 50% 100%, 0 calc(100% - var(--c)));
+  margin-top:-2px;
+}
+.band::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(115deg,var(--red-dark),var(--red) 48%,var(--warm) 135%);
+  z-index:0;
+}
+.band__in{position:relative;z-index:3;width:min(var(--wrap),100% - 56px);margin-inline:auto;text-align:center;}
+@media(max-width:640px){ .band__in{width:min(var(--wrap),100% - 32px);} .band{--c:28px;} }
+.band h2{
+  font-family:var(--disp);text-transform:uppercase;
+  font-size:clamp(2.1rem,7vw,5.6rem);line-height:.9;letter-spacing:-.02em;
+  overflow-wrap:break-word;
+}
+.band p{
+  margin:20px auto 0;max-width:56ch;font-size:clamp(1rem,1.2vw,1.16rem);
+  color:rgba(255,255,255,.92);line-height:1.62;
+}
+.band__ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px;}
+.band__strip{
+  margin-top:36px;display:flex;justify-content:center;gap:12px 30px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(255,255,255,.78);
+}
+.band__strip span{display:inline-flex;align-items:center;gap:8px;}
+.band__strip .chev{width:11px;height:11px;color:#fff;}
+
+/* ============================================================
+   İLETİŞİM + FORM
+   ============================================================ */
+.cont{background:var(--paper);border-bottom:2px solid var(--ink);}
+.cont-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:44px;align-items:start;}
+@media(max-width:940px){ .cont-grid{grid-template-columns:minmax(0,1fr);gap:34px;} }
+.info{display:flex;flex-direction:column;gap:2px;border-top:2px solid var(--ink);}
+.info-row{
+  display:grid;grid-template-columns:34px minmax(0,1fr);gap:16px;
+  padding:20px 0;border-bottom:1px solid rgba(14,14,14,.16);align-items:start;
+}
+.info-row .chev{color:var(--red);width:17px;height:17px;margin-top:4px;}
+.info-row b{display:block;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px;}
+.info-row p,.info-row a{font-family:var(--blk);font-size:15.5px;letter-spacing:-.01em;line-height:1.42;}
+.info-row a:hover{color:var(--red);}
+.info-row small{display:block;font-family:var(--body);font-weight:400;font-size:13.4px;color:var(--ink-2);margin-top:5px;letter-spacing:0;}
+.info-cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;}
+
+.form-wrap{position:relative;border:2px solid var(--ink);background:var(--paper);}
+.form-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:var(--red);}
+.form-hd{padding:26px 28px 0;}
+.form-hd h3{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.5rem,3vw,2.2rem);line-height:.96;letter-spacing:-.015em;}
+.form-hd p{font-size:13.8px;color:var(--ink-2);margin-top:9px;}
+form.tm{padding:22px 28px 28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+@media(max-width:620px){ form.tm{grid-template-columns:minmax(0,1fr);padding:20px 20px 24px;} .form-hd{padding:22px 20px 0;} }
+.fld{display:flex;flex-direction:column;gap:7px;min-width:0;}
+.fld--full{grid-column:1 / -1;}
+.fld label{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);}
+.fld label i{color:var(--red);font-style:normal;}
+.fld input,.fld select,.fld textarea{
+  width:100%;max-width:100%;
+  background:var(--paper-2);border:2px solid transparent;border-bottom:2px solid rgba(14,14,14,.3);
+  padding:13px 14px;font-size:14.6px;font-family:var(--body);
+  transition:border-color .25s var(--ease), background .25s var(--ease);
+  border-radius:0;
+}
+.fld textarea{resize:vertical;min-height:104px;}
+.fld select{appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,var(--red) 50%),linear-gradient(135deg,var(--red) 50%,transparent 50%);
+  background-position:calc(100% - 20px) 20px, calc(100% - 14px) 20px;
+  background-size:6px 6px,6px 6px;background-repeat:no-repeat;
+  padding-right:40px;
+}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--red);background:#fff;}
+.fld [aria-invalid="true"]{border-color:var(--red-dark);background:rgba(237,30,36,.07);}
+.err{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--red-dark);text-transform:uppercase;min-height:0;}
+.check{display:flex;gap:12px;align-items:flex-start;grid-column:1 / -1;}
+.check input{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--red);}
+.check span{font-size:12.6px;color:var(--ink-2);line-height:1.55;}
+.form-actions{grid-column:1 / -1;display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:4px;}
+.form-actions small{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);text-transform:uppercase;}
+.ok{
+  position:absolute;inset:0;background:var(--paper);z-index:6;
+  display:none;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:44px 28px;
+}
+.ok.is-show{display:flex;}
+.ok:focus{outline:none;}
+/* Başarı ekranı açıkken altındaki form klavye odağına takılmasın */
+.form-wrap.is-done > form.tm{visibility:hidden;}
+.ok__mark{
+  width:88px;height:88px;background:var(--red);display:grid;place-items:center;margin-bottom:22px;
+  clip-path:polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%);
+}
+.ok__mark .chev{width:34px;height:34px;color:#fff;}
+.ok h3{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.6rem,4vw,2.6rem);line-height:.95;}
+.ok p{margin-top:12px;font-size:14.6px;color:var(--ink-2);max-width:44ch;}
+.ok .btn{margin-top:24px;}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.ftr{background:var(--ink);color:var(--paper);position:relative;overflow:hidden;padding:64px 0 0;}
+.ftr__grid{
+  display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.1fr);
+  gap:38px;padding-bottom:48px;border-bottom:2px solid rgba(250,248,245,.18);
+}
+@media(max-width:940px){ .ftr__grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media(max-width:560px){ .ftr__grid{grid-template-columns:minmax(0,1fr);gap:28px;} }
+.ftr__logo img{height:34px;width:auto;}
+.ftr__brand p{margin-top:18px;font-size:14px;color:rgba(250,248,245,.68);max-width:38ch;line-height:1.62;}
+.ftr h4{
+  font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--red);margin-bottom:16px;
+}
+.ftr li{margin-bottom:9px;}
+.ftr li a,.ftr li span{
+  display:inline-flex;align-items:center;gap:9px;font-size:13.8px;color:rgba(250,248,245,.75);
+  transition:color .25s var(--ease), transform .25s var(--ease);
+}
+.ftr li a:hover{color:#fff;transform:translateX(4px);}
+.ftr li .chev{width:9px;height:9px;color:var(--red);}
+.ftr__word{
+  font-family:var(--disp);text-transform:uppercase;
+  font-size:clamp(2rem,11.2vw,9.6rem);line-height:.9;letter-spacing:-.03em;
+  white-space:nowrap;color:transparent;
+  -webkit-text-stroke:1.5px rgba(250,248,245,.3);
+  padding:34px 0 10px;text-align:center;
+}
+.ftr__bar{
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding:20px 0 26px;border-top:2px solid rgba(250,248,245,.18);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(250,248,245,.5);
+}
+.ftr__note{
+  background:var(--red);color:#fff;text-align:center;padding:12px 16px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+}
+
+/* ---------- WhatsApp ---------- */
+.wa{
+  position:fixed;right:18px;bottom:18px;z-index:105;
+  display:flex;align-items:center;gap:10px;
+  transition:transform .3s var(--ease);
+}
+.wa:hover{transform:translateY(-4px);}
+.wa__btn{
+  width:60px;height:60px;flex:none;background:var(--red);display:grid;place-items:center;
+  clip-path:polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+  box-shadow:0 14px 34px -12px rgba(237,30,36,.85);
+  transition:background .3s var(--ease);
+}
+.wa:hover .wa__btn,.wa:focus-visible .wa__btn{background:var(--ink);}
+.wa svg{width:30px;height:30px;fill:#fff;}
+.wa__tip{
+  white-space:nowrap;background:var(--ink);color:#fff;
+  font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  padding:9px 13px;opacity:0;transform:translateX(10px);pointer-events:none;
+  transition:opacity .3s var(--ease), transform .3s var(--ease);
+  clip-path:polygon(0 0, 100% 0, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+.wa:hover .wa__tip,.wa:focus-visible .wa__tip{opacity:1;transform:translateX(0);}
+@media(max-width:560px){ .wa{right:14px;bottom:14px;} .wa__btn{width:54px;height:54px;} .wa__tip{display:none;} }
+
+/* ---------- imleç chevron ---------- */
+.cursor{
+  position:fixed;top:0;left:0;width:26px;height:26px;z-index:130;
+  pointer-events:none;opacity:0;transition:opacity .3s ease;
+  will-change:transform;
+}
+.cursor svg{width:100%;height:100%;fill:var(--red);}
+.cursor.is-on{opacity:.85;}
+@media(hover:none),(pointer:coarse){ .cursor{display:none;} }
+
+/* ---------- erişilebilirlik / hareket ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{
+    animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;scroll-behavior:auto !important;
+  }
+  html.js .reveal > .wrap,html.js .reveal > .band__in{opacity:1 !important;transform:none !important;}
+  .wipe,.cursor{display:none !important;}
+  .marq__t{animation:none !important;}
+}
+</style>
+  <meta property="og:image:secure_url" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+</head>
+<body>
+
+<a class="skip" href="#icerik">İçeriğe geç</a>
+
+<div class="prog" aria-hidden="true"><i id="progBar"></i></div>
+
+<!-- ============ SVG SEMBOL DEPOSU ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M3.5 1.5 L13.8 12 L3.5 22.5 H9.9 L20.2 12 L9.9 1.5 Z"/></symbol>
+  <symbol id="i-chev2" viewBox="0 0 24 24"><path d="M0.5 1.5 L9.5 12 L0.5 22.5 H5.5 L14.5 12 L5.5 1.5 Z M9.5 1.5 L18.5 12 L9.5 22.5 H14.5 L23.5 12 L14.5 1.5 Z"/></symbol>
+</svg>
+
+<!-- ============ 1. ÜST MENÜ ============ -->
+<header class="hdr" id="hdr">
+  <div class="hdr__in">
+    <a class="hdr__logo" href="#icerik" aria-label="TasarımMania ana sayfa">
+      <img src="../assets/logo/logo-koyu-yazi.png" width="412" height="68" alt="TasarımMania">
+    </a>
+
+    <nav class="hdr__nav" aria-label="Ana menü">
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#neden">Neden Biz</a>
+      <a href="#isler">İşler</a>
+      <a href="#surec">Süreç</a>
+      <a href="#iletisim">İletişim</a>
+    </nav>
+
+    <a class="hdr__tel" href="tel:+905386999666">
+      <svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>0538 699 96 66
+    </a>
+
+    <a class="btn btn--sm hdr__cta" href="#teklif">
+      <span>Teklif Al</span>
+      <svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>
+    </a>
+
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mobilMenu" aria-label="Menüyü aç">
+      <i></i><i></i><i></i>
+    </button>
+  </div>
+</header>
+
+<!-- ============ MOBİL MENÜ ============ -->
+<nav class="mnav" id="mobilMenu" aria-label="Mobil menü" aria-hidden="true">
+  <span class="mnav__ink" aria-hidden="true"></span>
+  <div class="wrap" style="position:relative;z-index:6">
+    <ul>
+      <li><a href="#hizmetler"><b>01</b>Hizmetler</a></li>
+      <li><a href="#neden"><b>02</b>Neden Biz</a></li>
+      <li><a href="#isler"><b>03</b>İşler</a></li>
+      <li><a href="#surec"><b>04</b>Süreç</a></li>
+      <li><a href="#yorumlar"><b>05</b>Yorumlar</a></li>
+      <li><a href="#iletisim"><b>06</b>İletişim</a></li>
+    </ul>
+    <div class="mnav__foot">
+      <a class="btn" href="#teklif"><span>Ücretsiz Teklif Al</span><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></a>
+      <a class="btn btn--ink" href="tel:+905386999666"><span>0538 699 96 66</span><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></a>
+      <p class="mnav__meta">
+        Zeytinlik Mah. Pancar Sk. No:19-11<br>Bakırköy / İstanbul<br>
+        Hafta içi 09:00–19:00 · Cumartesi 10:00–16:00
+      </p>
+    </div>
+  </div>
+</nav>
+
+<main id="icerik">
+
+<!-- ============ 2. HERO ============ -->
+<section class="hero" id="hero">
+  <canvas id="inkfield" aria-hidden="true"></canvas>
+  <div class="hero__noise" aria-hidden="true"></div>
+
+  <div class="wrap hero__in">
+    <div class="hero__meta">
+      <span class="lbl"><svg class="chev" aria-hidden="true"><use href="#i-chev2"></use></svg>İstanbul · Bakırköy — 360° Dijital Ajans</span>
+      <span class="lbl">Web · Mobil · Reklam · Video · SEO</span>
+    </div>
+
+    <h1>
+      <span class="hero__l1">Markanızı</span>
+      <span class="hero__block"><span>Silinmez</span></span>
+      <span class="hero__l3">Mürekkeple <em>Yazıyoruz</em></span>
+    </h1>
+
+    <div class="hero__grid">
+      <div>
+        <p class="lead">
+          Kurumsal siteden e-ticarete, mobil uygulamadan performans reklamlarına, reklam filminden
+          çok dilli SEO'ya kadar; dijitalde ihtiyacınız olan her şeyi <strong>tek çatı altında</strong>
+          üretiyoruz. Ajans değiştirmeden, brief tekrar anlatmadan, sonucu tek panodan izleyerek.
+        </p>
+        <div class="hero__ctas">
+          <a class="btn" href="#teklif"><span>Ücretsiz Teklif Al</span><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></a>
+          <a class="btn btn--ink" href="#isler"><span>İşlerimizi Gör</span><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></a>
+        </div>
+        <span class="hero__scroll">Kaydır <svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+      </div>
+
+      <div class="hero__chips">
+        <div class="hero__chip"><b>12</b><i>Yıllık saha deneyimi</i></div>
+        <div class="hero__chip"><b>480+</b><i>Tamamlanan proje</i></div>
+        <div class="hero__chip"><b>26</b><i>Ülkede kampanya yönetimi</i></div>
+        <div class="hero__chip"><b>9</b><i>Dilde SEO &amp; içerik</i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. GÜVEN ŞERİDİ ============ -->
+<section class="strip reveal" aria-label="Çalıştığımız kanallar ve teknolojiler">
+  <span class="wipe" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="marq" id="marq">
+      <div class="marq__t" aria-hidden="false">
+        <span>Meta Ads<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>Google Ads<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>GA4 &amp; Looker<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>Shopify<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>WooCommerce<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>React Native<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>Next.js<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>WordPress<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>TikTok Ads<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>YouTube<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>Instagram<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>Semrush<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+      </div>
+      <div class="marq__t" aria-hidden="true">
+        <span>Meta Ads<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>Google Ads<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>GA4 &amp; Looker<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>Shopify<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>WooCommerce<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>React Native<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>Next.js<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>WordPress<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>TikTok Ads<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>YouTube<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>Instagram<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+        <span>Semrush<svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. HİZMETLER ============ -->
+<section class="sec svcs reveal" id="hizmetler">
+  <span class="wipe" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <span class="lbl"><svg class="chev" aria-hidden="true"><use href="#i-chev2"></use></svg>Bölüm 01 — Hizmetler</span>
+        <h2 class="h2" style="margin-top:16px">Beş Ana Hat,<br><em>Tek Mürekkep</em></h2>
+      </div>
+      <p class="lead" style="max-width:44ch">
+        Her hizmet ayrı bir ekip tarafından değil, aynı stratejiyi bilen tek bir ekip tarafından
+        yürütülüyor. Reklam ne söylüyorsa site onu satıyor, video onu anlatıyor, SEO onu büyütüyor.
+      </p>
+    </div>
+
+    <div class="svc-list">
+
+      <article class="svc" data-svc>
+        <span class="svc__ink" aria-hidden="true"></span>
+        <div class="svc__in">
+          <div class="svc__no">01</div>
+          <div class="svc__ico"><img src="../assets/icon-web.png" width="256" height="256" alt="" loading="lazy" decoding="async"></div>
+          <h3 class="svc__ttl">Web Tasarım<br>&amp; Yazılım<small>Kurumsal · E-ticaret · Uygulama</small></h3>
+          <div class="svc__txt">
+            <p>Kurumsal siteden e-ticarete, özel web uygulamasından yapay zekâ entegrasyonuna kadar; hızlı açılan, arama motorunun sevdiği ve gerçekten satan sistemler kuruyoruz.</p>
+            <ul>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Kurumsal web sitesi</li>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>E-ticaret (Shopify / WooCommerce)</li>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Özel web uygulaması &amp; panel</li>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Yapay zekâ entegrasyonları</li>
+            </ul>
+          </div>
+          <div class="svc__go"><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></div>
+        </div>
+        <a class="svc__link" href="#teklif"><span>Web tasarım ve yazılım için teklif al</span></a>
+      </article>
+
+      <article class="svc" data-svc>
+        <span class="svc__ink" aria-hidden="true"></span>
+        <div class="svc__in">
+          <div class="svc__no">02</div>
+          <div class="svc__ico"><img src="../assets/icon-mobil.png" width="256" height="256" alt="" loading="lazy" decoding="async"></div>
+          <h3 class="svc__ttl">Mobil<br>Uygulama<small>iOS &amp; Android · Mağaza Yayını</small></h3>
+          <div class="svc__txt">
+            <p>iOS ve Android'de tek kod tabanıyla hızlı, gerektiğinde native performansla derin; kurgudan mağaza yayınına ve sürüm yönetimine kadar uçtan uca üretim.</p>
+            <ul>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>React Native &amp; native geliştirme</li>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>App Store &amp; Play Store yayın</li>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Push bildirim &amp; analitik kurulumu</li>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Sürüm bakımı ve büyütme</li>
+            </ul>
+          </div>
+          <div class="svc__go"><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></div>
+        </div>
+        <a class="svc__link" href="#teklif"><span>Mobil uygulama için teklif al</span></a>
+      </article>
+
+      <article class="svc" data-svc>
+        <span class="svc__ink" aria-hidden="true"></span>
+        <div class="svc__in">
+          <div class="svc__no">03</div>
+          <div class="svc__ico"><img src="../assets/icon-reklam.png" width="256" height="256" alt="" loading="lazy" decoding="async"></div>
+          <h3 class="svc__ttl">Dijital<br>Pazarlama<small>Meta Ads · Google Ads · Sosyal</small></h3>
+          <div class="svc__txt">
+            <p>Bütçeyi harcamıyoruz, yönetiyoruz. Kreatif testinden dönüşüm optimizasyonuna kadar her adım ölçülü; her kuruşun karşılığı haftalık raporda net.</p>
+            <ul>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Meta Ads &amp; Google Ads</li>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Performans &amp; dönüşüm optimizasyonu</li>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Sosyal medya yönetimi</li>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Yurt dışı (global) kampanyalar</li>
+            </ul>
+          </div>
+          <div class="svc__go"><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></div>
+        </div>
+        <a class="svc__link" href="#teklif"><span>Dijital pazarlama için teklif al</span></a>
+      </article>
+
+      <article class="svc" data-svc>
+        <span class="svc__ink" aria-hidden="true"></span>
+        <div class="svc__in">
+          <div class="svc__no">04</div>
+          <div class="svc__ico"><img src="../assets/icon-video.png" width="256" height="256" alt="" loading="lazy" decoding="async"></div>
+          <h3 class="svc__ttl">Video<br>Prodüksiyon<small>Reklam Filmi · YouTube · Reels</small></h3>
+          <div class="svc__txt">
+            <p>Reklam filminden ürün videosuna, YouTube serisinden Instagram Reels'e; yapay zekâ destekli hızlı prodüksiyonla ayda onlarca içerik, tek marka diliyle.</p>
+            <ul>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Reklam filmi &amp; marka filmi</li>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Ürün ve tanıtım videosu</li>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>YouTube &amp; Instagram içerik üretimi</li>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>AI destekli prodüksiyon &amp; seslendirme</li>
+            </ul>
+          </div>
+          <div class="svc__go"><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></div>
+        </div>
+        <a class="svc__link" href="#teklif"><span>Video prodüksiyon için teklif al</span></a>
+      </article>
+
+      <article class="svc" data-svc>
+        <span class="svc__ink" aria-hidden="true"></span>
+        <div class="svc__in">
+          <div class="svc__no">05</div>
+          <div class="svc__ico"><img src="../assets/icon-seo.png" width="256" height="256" alt="" loading="lazy" decoding="async"></div>
+          <h3 class="svc__ttl">SEO<br>Hizmetleri<small>Teknik · Yerel · Çok Dilli</small></h3>
+          <div class="svc__txt">
+            <p>Teknik altyapıdan içerik stratejisine, mahalle ölçeğindeki yerel aramadan hreflang'li uluslararası yapıya; kalıcı ve bileşik büyüyen organik trafik.</p>
+            <ul>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Teknik SEO &amp; site sağlığı</li>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>İçerik stratejisi &amp; kümeleme</li>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Yerel SEO (İşletme Profili)</li>
+              <li><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Uluslararası &amp; çok dilli SEO</li>
+            </ul>
+          </div>
+          <div class="svc__go"><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></div>
+        </div>
+        <a class="svc__link" href="#teklif"><span>SEO hizmetleri için teklif al</span></a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. NEDEN BİZ ============ -->
+<section class="sec why reveal" id="neden">
+  <span class="wipe" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="sec__head" style="border-bottom-color:rgba(250,248,245,.2)">
+      <div>
+        <span class="lbl"><svg class="chev" aria-hidden="true"><use href="#i-chev2"></use></svg>Bölüm 02 — Neden TasarımMania</span>
+        <h2 class="h2" style="margin-top:16px">Beş Ajans Yerine<br><em>Tek Çatı</em></h2>
+      </div>
+      <p class="lead" style="max-width:44ch">
+        Farklı ajanslarla çalışmanın gerçek maliyeti fatura değil; kaybolan brief, birbirini tutmayan
+        mesaj ve kimsenin sahiplenmediği sonuçtur. Biz zinciri tek elde tutuyoruz.
+      </p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-cell"><i>01</i>
+        <b><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Tek Ekip, Tek Sorumlu</b>
+        <p>Projenizin başında tek bir yönetici var. Reklamı, siteyi, videoyu ve SEO'yu aynı kişi koordine eder; arada kaybolan iş olmaz.</p>
+      </div>
+      <div class="why-cell"><i>02</i>
+        <b><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Şeffaf Raporlama</b>
+        <p>Haftalık özet, aylık derinlemesine rapor. Reklam hesapları sizin adınıza açılır; her veri size ait, her panele erişiminiz var.</p>
+      </div>
+      <div class="why-cell"><i>03</i>
+        <b><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Ölçülebilir Kurgu</b>
+        <p>GA4, sunucu taraflı olay takibi ve dönüşüm eşlemesi ilk günden kurulur. "Sanırım iyi gidiyor" cümlesini kullanmıyoruz.</p>
+      </div>
+      <div class="why-cell"><i>04</i>
+        <b><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Yurt Dışı Deneyimi</b>
+        <p>Almanya'dan Körfez'e 26 ülkede kampanya yönettik. Pazar, dil, ödeme ve mevzuat farkını baştan hesaba katıyoruz.</p>
+      </div>
+      <div class="why-cell"><i>05</i>
+        <b><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Üretim Hızı</b>
+        <p>Yapay zekâ destekli prodüksiyon hattı sayesinde kreatif testi haftalarca değil günler içinde dönüyor.</p>
+      </div>
+      <div class="why-cell"><i>06</i>
+        <b><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Devir Teslim Net</b>
+        <p>Kod, tasarım dosyaları, alan adı ve tüm hesaplar sizin. İş biterse bile arkanızda çalışan bir sistem kalır.</p>
+      </div>
+    </div>
+
+    <div class="why-split">
+      <div>
+        <h3>360° dediğimizde<br>kastettiğimiz şey:<br><em>zincirin tamamı.</em></h3>
+        <p class="lead" style="margin-top:20px">
+          Bir kampanyanın sonucu, en zayıf halkası kadar iyidir. Reklam mükemmel olabilir; açılış sayfası
+          yavaşsa kaybedersiniz. Site harika olabilir; kimse bulmuyorsa kaybedersiniz.
+          Bu yüzden halkaları tek tek değil, birlikte kuruyoruz.
+        </p>
+      </div>
+      <div class="stack">
+        <div class="stack-row"><b>01</b><p>Strateji &amp; konumlandırma — kime, ne vaatle satıyoruz?</p></div>
+        <div class="stack-row"><b>02</b><p>Site / uygulama — vaadi dönüşüme çeviren altyapı.</p></div>
+        <div class="stack-row"><b>03</b><p>Kreatif &amp; video — mesajı taşıyan görsel dil.</p></div>
+        <div class="stack-row"><b>04</b><p>Reklam &amp; medya planı — doğru kitleye, doğru bütçeyle.</p></div>
+        <div class="stack-row"><b>05</b><p>SEO &amp; içerik — reklam durunca da gelen trafik.</p></div>
+        <div class="stack-row"><b>06</b><p>Ölçüm &amp; optimizasyon — her ay bir öncekinden iyi.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. RAKAMLAR ============ -->
+<section class="sec stats reveal" id="rakamlar" aria-label="Rakamlarla TasarımMania">
+  <span class="wipe" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <span class="lbl"><svg class="chev" aria-hidden="true"><use href="#i-chev2"></use></svg>Bölüm 03 — Rakamlar</span>
+        <h2 class="h2" style="margin-top:16px">Sözden Çok<br><em>Kanıt</em></h2>
+      </div>
+      <p class="lead" style="max-width:42ch">
+        On iki yılda biriken saha verisi. Aşağıdaki rakamlar demo amaçlı temsilîdir; gerçek projede
+        kendi verilerinizle yer alır.
+      </p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat">
+        <b><span data-count="480" data-dur="1500">480</span><i>+</i></b>
+        <span>Tamamlanan proje</span>
+        <p>Web, mobil, reklam ve prodüksiyon işlerinin toplamı.</p>
+      </div>
+      <div class="stat">
+        <b><span data-count="12" data-dur="1200">12</span></b>
+        <span>Yıllık deneyim</span>
+        <p>2014'ten bu yana kesintisiz üretim ve kampanya yönetimi.</p>
+      </div>
+      <div class="stat">
+        <b><span data-count="26" data-dur="1300">26</span></b>
+        <span>Ülkede kampanya</span>
+        <p>Avrupa, Körfez ve Kuzey Amerika pazarlarında aktif yönetim.</p>
+      </div>
+      <div class="stat">
+        <b><span data-count="42" data-dec="1" data-dur="1500">4,2</span><i>x</i></b>
+        <span>Ortalama ROAS</span>
+        <p>E-ticaret müşterilerimizin son 12 aylık ağırlıklı ortalaması.</p>
+      </div>
+      <div class="stat">
+        <b><span data-count="68" data-dur="1400">68</span><i>M+</i></b>
+        <span>Video görüntülenme</span>
+        <p>YouTube, Instagram ve TikTok'ta üretilen içeriklerin toplamı.</p>
+      </div>
+      <div class="stat">
+        <b><span data-count="94" data-dur="1400">94</span><i>%</i></b>
+        <span>Devam eden iş birliği</span>
+        <p>İlk yılın sonunda çalışmaya devam eden müşteri oranı.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. SEÇİLİ İŞLER ============ -->
+<section class="sec works reveal" id="isler">
+  <span class="wipe" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <span class="lbl"><svg class="chev" aria-hidden="true"><use href="#i-chev2"></use></svg>Bölüm 04 — Seçili İşler</span>
+        <h2 class="h2" style="margin-top:16px">Kâğıt Üstünde Değil,<br><em>Panoda</em></h2>
+      </div>
+      <p class="lead" style="max-width:44ch">
+        Altı farklı sektör, altı farklı hedef. Ortak nokta: işe başlarken tanımlanmış tek bir
+        ana metrik ve o metriğe kilitlenen bir ekip.
+      </p>
+    </div>
+
+    <div class="works-grid">
+
+      <article class="work">
+        <span class="work__ink" aria-hidden="true"></span>
+        <div class="work__no">01</div>
+        <div class="work__tag">Sağlık Turizmi · Klinik</div>
+        <h3>Randevu Motoru</h3>
+        <p>Çok dilli klinik sitesi, WhatsApp entegre randevu akışı ve Meta Ads huni kurulumu. Formu 3 adımdan 1 adıma indirdik.</p>
+        <div class="work__res">
+          <svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>
+          <b>Randevu formu dönüşümü <span style="white-space:nowrap">+%214</span></b>
+        </div>
+      </article>
+
+      <article class="work">
+        <span class="work__ink" aria-hidden="true"></span>
+        <div class="work__no">02</div>
+        <div class="work__tag">E-Ticaret · Ev Tekstili</div>
+        <h3>Shopify Yeniden Doğuş</h3>
+        <p>Tema baştan yazıldı, ürün akışı sadeleşti, Google Shopping ve Meta katalog kampanyaları birlikte kurgulandı.</p>
+        <div class="work__res">
+          <svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>
+          <b>4 ayda ROAS <span style="white-space:nowrap">5,8x</span></b>
+        </div>
+      </article>
+
+      <article class="work">
+        <span class="work__ink" aria-hidden="true"></span>
+        <div class="work__no">03</div>
+        <div class="work__tag">Mobil · Fitness</div>
+        <h3>Antrenman Uygulaması</h3>
+        <p>React Native ile iOS + Android, abonelik altyapısı, ilerleme takibi ve mağaza optimizasyonu (ASO) dahil.</p>
+        <div class="work__res">
+          <svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>
+          <b>120.000 indirme · 4,7 puan</b>
+        </div>
+      </article>
+
+      <article class="work">
+        <span class="work__ink" aria-hidden="true"></span>
+        <div class="work__no">04</div>
+        <div class="work__tag">B2B · Endüstriyel Makine</div>
+        <h3>Dokuz Dilde İhracat</h3>
+        <p>Hreflang mimarisi, teknik doküman kütüphanesi ve ülke bazlı teklif formlarıyla Avrupa pazarına açılma.</p>
+        <div class="work__res">
+          <svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>
+          <b>Organik trafik <span style="white-space:nowrap">+%318</span></b>
+        </div>
+      </article>
+
+      <article class="work">
+        <span class="work__ink" aria-hidden="true"></span>
+        <div class="work__no">05</div>
+        <div class="work__tag">Restoran Zinciri · Yerel SEO</div>
+        <h3>Yedi Şube, Yedi Profil</h3>
+        <p>Her şube için ayrı Google İşletme Profili, konum sayfaları, yorum yönetimi ve yerel bağlantı çalışması.</p>
+        <div class="work__res">
+          <svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>
+          <b>Yol tarifi istekleri <span style="white-space:nowrap">+%176</span></b>
+        </div>
+      </article>
+
+      <article class="work">
+        <span class="work__ink" aria-hidden="true"></span>
+        <div class="work__no">06</div>
+        <div class="work__tag">Kozmetik · Video Prodüksiyon</div>
+        <h3>Aylık 24 İçerik</h3>
+        <p>Stüdyo çekimi + AI destekli varyasyon üretimiyle Reels ve YouTube Shorts serisi; tek çekimden onlarca kurgu.</p>
+        <div class="work__res">
+          <svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>
+          <b>12,4M görüntülenme / 6 ay</b>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. SÜREÇ ============ -->
+<section class="sec proc reveal" id="surec">
+  <span class="wipe" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <span class="lbl"><svg class="chev" aria-hidden="true"><use href="#i-chev2"></use></svg>Bölüm 05 — Çalışma Süreci</span>
+        <h2 class="h2" style="margin-top:16px">Beş Adım,<br><em>Sürprizsiz</em></h2>
+      </div>
+      <p class="lead" style="max-width:42ch">
+        Her adımın çıktısı, süresi ve onay noktası baştan bellidir. Ne zaman ne olacağını
+        tahmin etmek zorunda kalmazsınız.
+      </p>
+    </div>
+
+    <ol class="ribbon" id="ribbon">
+      <li class="step is-on">
+        <b>01 · 3 GÜN</b>
+        <h3>Keşif</h3>
+        <p>Hedef, rakip, mevcut veri ve bütçe. Neyi ölçeceğimize birlikte karar veririz.</p>
+      </li>
+      <li class="step">
+        <b>02 · 1 HAFTA</b>
+        <h3>Strateji</h3>
+        <p>Kanal planı, mesaj hiyerarşisi, içerik takvimi ve ölçüm kurgusu yazılı hale gelir.</p>
+      </li>
+      <li class="step">
+        <b>03 · 2-3 HAFTA</b>
+        <h3>Tasarım</h3>
+        <p>Arayüz, kreatif ve prodüksiyon şablonları; onaydan önce tıklanabilir prototip.</p>
+      </li>
+      <li class="step">
+        <b>04 · 3-6 HAFTA</b>
+        <h3>Üretim</h3>
+        <p>Kod, video, reklam kurulumu ve içerik. Haftalık demo, haftalık geri bildirim.</p>
+      </li>
+      <li class="step">
+        <b>05 · SÜREKLİ</b>
+        <h3>Büyüme</h3>
+        <p>Test, optimizasyon, raporlama. Her ay bir önceki ayın verisiyle yön düzeltmesi.</p>
+      </li>
+    </ol>
+
+    <div class="proc-note">
+      <svg class="chev" aria-hidden="true"><use href="#i-chev2"></use></svg>
+      <b>İlk görüşme ücretsizdir.</b>
+      <p>Projeyi dinler, uygun olmadığımızı düşünürsek bunu ilk gün söyleriz — sonra değil.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. YORUMLAR ============ -->
+<section class="sec test reveal" id="yorumlar">
+  <span class="wipe" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <span class="lbl"><svg class="chev" aria-hidden="true"><use href="#i-chev2"></use></svg>Bölüm 06 — Müşteri Yorumları</span>
+        <h2 class="h2" style="margin-top:16px">Ne Anlattığımızı Değil,<br><em>Ne Yaptığımızı</em> Söylüyorlar</h2>
+      </div>
+      <p class="lead" style="max-width:40ch">
+        Aşağıdaki yorumlar demo sürüm için temsilîdir; yayın öncesi gerçek müşteri
+        görüşleriyle değiştirilecektir.
+      </p>
+    </div>
+
+    <div class="test-grid">
+      <figure class="quote">
+        <span class="quote__mark" aria-hidden="true"><svg class="chev"><use href="#i-chev2"></use></svg></span>
+        <div class="stars" aria-label="5 üzerinden 5"><i></i><i></i><i></i><i></i><i></i></div>
+        <blockquote><p>Üç ayrı firmayla çalışıyorduk; site bir yerde, reklam başka yerde, video bambaşka yerdeydi. Tek ekibe geçtikten sonra en büyük kazancımız zaman oldu. İkinci ayda reklam maliyetimiz belirgin şekilde düştü.</p></blockquote>
+        <figcaption>
+          <footer>
+            <span class="quote__av" aria-hidden="true">SK</span>
+            <span class="quote__who"><b>Serkan Kaplan</b><span>Kurucu · E-ticaret</span></span>
+          </footer>
+        </figcaption>
+      </figure>
+
+      <figure class="quote">
+        <span class="quote__mark" aria-hidden="true"><svg class="chev"><use href="#i-chev2"></use></svg></span>
+        <div class="stars" aria-label="5 üzerinden 5"><i></i><i></i><i></i><i></i><i></i></div>
+        <blockquote><p>Yurt dışı kampanyalarında en çok zorlandığımız konu dildi. Sadece çeviri yapmadılar; her ülke için ayrı mesaj kurdular. Almanya'daki dönüşüm oranımız Türkiye'yi geçti, bunu beklemiyorduk.</p></blockquote>
+        <figcaption>
+          <footer>
+            <span class="quote__av" aria-hidden="true">EA</span>
+            <span class="quote__who"><b>Elif Arslan</b><span>Pazarlama Müdürü · Sanayi</span></span>
+          </footer>
+        </figcaption>
+      </figure>
+
+      <figure class="quote">
+        <span class="quote__mark" aria-hidden="true"><svg class="chev"><use href="#i-chev2"></use></svg></span>
+        <div class="stars" aria-label="5 üzerinden 5"><i></i><i></i><i></i><i></i><i></i></div>
+        <blockquote><p>Uygulamamızı iki ayda mağazaya çıkardılar ve süreç boyunca her hafta çalışan bir sürüm gördük. Sunum değil, gerçek ürün. Yayından sonra da bizi bırakmadılar, bu bizim için en kıymetlisi.</p></blockquote>
+        <figcaption>
+          <footer>
+            <span class="quote__av" aria-hidden="true">MD</span>
+            <span class="quote__who"><b>Murat Demirtaş</b><span>Genel Müdür · Spor</span></span>
+          </footer>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. BÜYÜK CTA BANDI ============ -->
+<section class="band reveal" id="cta-band">
+  <span class="wipe wipe--ink" aria-hidden="true"></span>
+  <div class="band__in">
+    <h2>Projenizi Anlatın,<br>Gerisini Biz Yazalım</h2>
+    <p>
+      48 saat içinde kapsam, takvim ve net bütçe içeren bir teklif hazırlıyoruz.
+      İlk görüşme ücretsiz, taahhüt yok.
+    </p>
+    <div class="band__ctas">
+      <a class="btn btn--paper" href="#teklif"><span>Teklif Formunu Doldur</span><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></a>
+      <a class="btn btn--paper" href="https://wa.me/905386999666" target="_blank" rel="noopener"><span>WhatsApp'tan Yaz</span><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></a>
+      <a class="btn btn--paper" href="tel:+905386999666"><span>0538 699 96 66</span><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></a>
+    </div>
+    <div class="band__strip">
+      <span><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>48 saatte teklif</span>
+      <span><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Sabit fiyat, sürpriz yok</span>
+      <span><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Hesaplar size ait</span>
+      <span><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Aylık raporlama</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. İLETİŞİM + FORM ============ -->
+<section class="sec cont reveal" id="iletisim">
+  <span class="wipe" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <span class="lbl"><svg class="chev" aria-hidden="true"><use href="#i-chev2"></use></svg>Bölüm 07 — İletişim</span>
+        <h2 class="h2" style="margin-top:16px">Mürekkebi<br><em>Hazırlayalım</em></h2>
+      </div>
+      <p class="lead" style="max-width:42ch">
+        Formu doldurun ya da doğrudan arayın. Aynı gün dönüş yapıyor, 48 saat içinde
+        yazılı teklifi gönderiyoruz.
+      </p>
+    </div>
+
+    <div class="cont-grid">
+      <div>
+        <div class="info">
+          <div class="info-row">
+            <svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>
+            <div>
+              <b>Telefon</b>
+              <a href="tel:+905386999666">0538 699 96 66</a>
+              <small>Hafta içi 09:00–19:00 · Cumartesi 10:00–16:00</small>
+            </div>
+          </div>
+          <div class="info-row">
+            <svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>
+            <div>
+              <b>WhatsApp</b>
+              <a href="https://wa.me/905386999666" target="_blank" rel="noopener">wa.me/905386999666</a>
+              <small>Brief, dosya ve hızlı sorular için en pratik kanal.</small>
+            </div>
+          </div>
+          <div class="info-row">
+            <svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>
+            <div>
+              <b>Adres</b>
+              <p>Zeytinlik Mah. Pancar Sk. No:19-11</p>
+              <small>Bakırköy / İstanbul — randevuyla ofis görüşmesi.</small>
+            </div>
+          </div>
+          <div class="info-row">
+            <svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>
+            <div>
+              <b>Çalışma Saatleri</b>
+              <p>Hafta içi 09:00 – 19:00</p>
+              <small>Cumartesi 10:00 – 16:00 · Pazar kapalı</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-cta">
+          <a class="btn" href="https://wa.me/905386999666" target="_blank" rel="noopener"><span>WhatsApp'tan Yaz</span><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></a>
+          <a class="btn btn--ink" href="tel:+905386999666"><span>Hemen Ara</span><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></a>
+        </div>
+      </div>
+
+      <div class="form-wrap" id="teklif">
+        <div class="form-hd">
+          <h3>Teklif Formu</h3>
+          <p>Yıldızlı alanlar zorunludur. Bilgileriniz yalnızca teklif hazırlamak için kullanılır.</p>
+        </div>
+
+        <form class="tm" id="teklifForm" novalidate>
+          <div class="fld">
+            <label for="f-ad">Ad Soyad <i>*</i></label>
+            <input id="f-ad" name="ad" type="text" autocomplete="name" required placeholder="Adınız ve soyadınız">
+            <span class="err" id="e-ad" role="alert"></span>
+          </div>
+          <div class="fld">
+            <label for="f-firma">Firma / Marka</label>
+            <input id="f-firma" name="firma" type="text" autocomplete="organization" placeholder="Firma adı">
+            <span class="err" id="e-firma"></span>
+          </div>
+          <div class="fld">
+            <label for="f-mail">E-posta <i>*</i></label>
+            <input id="f-mail" name="eposta" type="email" autocomplete="email" required placeholder="ornek@firma.com">
+            <span class="err" id="e-mail" role="alert"></span>
+          </div>
+          <div class="fld">
+            <label for="f-tel">Telefon <i>*</i></label>
+            <input id="f-tel" name="telefon" type="tel" autocomplete="tel" required placeholder="05xx xxx xx xx">
+            <span class="err" id="e-tel" role="alert"></span>
+          </div>
+          <div class="fld">
+            <label for="f-hizmet">İlgilendiğiniz Hizmet <i>*</i></label>
+            <select id="f-hizmet" name="hizmet" required>
+              <option value="">Seçiniz…</option>
+              <option>Web Tasarım &amp; Yazılım</option>
+              <option>Mobil Uygulama</option>
+              <option>Dijital Pazarlama (Meta / Google Ads)</option>
+              <option>Video Prodüksiyon</option>
+              <option>SEO Hizmetleri</option>
+              <option>360° Tam Paket</option>
+            </select>
+            <span class="err" id="e-hizmet" role="alert"></span>
+          </div>
+          <div class="fld">
+            <label for="f-butce">Tahmini Bütçe</label>
+            <select id="f-butce" name="butce">
+              <option value="">Belirtmek istemiyorum</option>
+              <option>50.000 ₺ altı</option>
+              <option>50.000 – 150.000 ₺</option>
+              <option>150.000 – 400.000 ₺</option>
+              <option>400.000 ₺ üzeri</option>
+              <option>Aylık retainer (sürekli çalışma)</option>
+            </select>
+            <span class="err" id="e-butce"></span>
+          </div>
+          <div class="fld fld--full">
+            <label for="f-mesaj">Projeniz hakkında kısaca <i>*</i></label>
+            <textarea id="f-mesaj" name="mesaj" required placeholder="Hedefiniz, mevcut durumunuz ve varsa takviminiz…"></textarea>
+            <span class="err" id="e-mesaj" role="alert"></span>
+          </div>
+
+          <label class="check" for="f-kvkk">
+            <input id="f-kvkk" name="kvkk" type="checkbox" required>
+            <span>Kişisel verilerimin teklif hazırlama amacıyla işlenmesini kabul ediyorum. <i style="color:var(--red);font-style:normal">*</i></span>
+          </label>
+          <span class="err" id="e-kvkk" role="alert" style="grid-column:1 / -1"></span>
+
+          <div class="form-actions">
+            <button class="btn" type="submit" id="gonder">
+              <span id="gonderTxt">Teklif İste</span>
+              <svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>
+            </button>
+            <small>Ortalama dönüş süresi: 4 saat</small>
+          </div>
+        </form>
+
+        <div class="ok" id="okPanel" role="status" aria-live="polite" tabindex="-1">
+          <span class="ok__mark" aria-hidden="true"><svg class="chev"><use href="#i-chev2"></use></svg></span>
+          <h3>Mürekkep Kâğıda Değdi</h3>
+          <p id="okTxt">Talebiniz bize ulaştı. En geç 48 saat içinde kapsam, takvim ve bütçe içeren teklifinizi göndereceğiz.</p>
+          <button class="btn btn--ink" type="button" id="yeniden"><span>Yeni Talep Gönder</span><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 12. FOOTER ============ -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__grid">
+      <div class="ftr__brand">
+        <span class="ftr__logo"><img src="../assets/logo/logo-beyaz-yazi.png" width="412" height="68" alt="TasarımMania" loading="lazy" decoding="async"></span>
+        <p>
+          İstanbul Bakırköy merkezli 360 derece dijital ajans. Web ve mobil yazılım,
+          performans pazarlaması, video prodüksiyon ve çok dilli SEO tek çatı altında.
+        </p>
+      </div>
+
+      <div>
+        <h4>Hizmetler</h4>
+        <ul>
+          <li><a href="#hizmetler"><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Web Tasarım &amp; Yazılım</a></li>
+          <li><a href="#hizmetler"><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Mobil Uygulama</a></li>
+          <li><a href="#hizmetler"><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Dijital Pazarlama</a></li>
+          <li><a href="#hizmetler"><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Video Prodüksiyon</a></li>
+          <li><a href="#hizmetler"><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>SEO Hizmetleri</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Kurumsal</h4>
+        <ul>
+          <li><a href="#neden"><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Neden Biz</a></li>
+          <li><a href="#isler"><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Seçili İşler</a></li>
+          <li><a href="#surec"><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Çalışma Süreci</a></li>
+          <li><a href="#yorumlar"><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Müşteri Yorumları</a></li>
+          <li><a href="#teklif"><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Teklif Al</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>İletişim</h4>
+        <ul>
+          <li><a href="tel:+905386999666"><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>0538 699 96 66</a></li>
+          <li><a href="https://wa.me/905386999666" target="_blank" rel="noopener"><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>WhatsApp</a></li>
+          <li><span><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Zeytinlik Mah. Pancar Sk. No:19-11</span></li>
+          <li><span><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Bakırköy / İstanbul</span></li>
+          <li><span><svg class="chev" aria-hidden="true"><use href="#i-chev"></use></svg>Hafta içi 09:00–19:00</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ftr__word" aria-hidden="true">TASARIMMANIA</div>
+
+    <div class="ftr__bar">
+      <span>© <span data-year>2026</span> TasarımMania — Tüm hakları saklıdır.</span>
+      <span>Konsept 11 · Kırmızı Mürekkep</span>
+    </div>
+  </div>
+  <div class="ftr__note">Demo sürümü — rakamlar ve referanslar temsilidir.</div>
+</footer>
+
+<a class="wa" href="https://wa.me/905386999666" target="_blank" rel="noopener" aria-label="WhatsApp'tan yazın">
+  <span class="wa__tip" aria-hidden="true">WhatsApp'tan Yaz</span>
+  <span class="wa__btn"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.04 3.2c-7.06 0-12.8 5.74-12.8 12.8 0 2.26.6 4.47 1.73 6.42L3.2 28.8l6.55-1.72a12.74 12.74 0 0 0 6.29 1.64h.01c7.06 0 12.8-5.74 12.8-12.8 0-3.42-1.33-6.64-3.75-9.06a12.72 12.72 0 0 0-9.06-3.66zm0 23.02h-.01c-1.98 0-3.92-.53-5.62-1.54l-.4-.24-4.15 1.09 1.11-4.05-.26-.42a10.6 10.6 0 0 1-1.63-5.66c0-5.87 4.78-10.64 10.65-10.64 2.85 0 5.52 1.11 7.53 3.12a10.57 10.57 0 0 1 3.12 7.53c0 5.87-4.78 10.81-10.34 10.81zm5.84-7.98c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.71.16s-.82 1.04-1 1.25c-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.85-1.59-1.89-1.78-2.21-.19-.32-.02-.5.14-.66.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.72-.98-2.35-.26-.62-.52-.54-.71-.55l-.61-.01c-.21 0-.56.08-.85.4s-1.11 1.09-1.11 2.65 1.14 3.08 1.29 3.29c.16.21 2.24 3.42 5.43 4.8.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.89-.77 2.15-1.52.27-.74.27-1.38.19-1.51-.08-.13-.29-.21-.61-.37z"/></svg></span>
+</a>
+
+<div class="cursor" id="cursor" aria-hidden="true">
+  <svg viewBox="0 0 24 24"><use href="#i-chev2"></use></svg>
+</div>
+
+<script>
+"use strict";
+(function(){
+
+  var docEl = document.documentElement;
+  docEl.classList.add('js');
+
+  var reduce = false;
+  try{
+    reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }catch(e){ reduce = false; }
+
+  /* =========================================================
+     1) HEADER + İLERLEME ÇUBUĞU
+     ========================================================= */
+  var hdr = document.getElementById('hdr');
+  var progBar = document.getElementById('progBar');
+
+  function onScroll(){
+    var y = window.pageYOffset || docEl.scrollTop || 0;
+    if(hdr){
+      if(y > 40){ hdr.classList.add('is-small'); }
+      else { hdr.classList.remove('is-small'); }
+    }
+    if(progBar){
+      var h = (docEl.scrollHeight - docEl.clientHeight);
+      var r = h > 0 ? (y / h) : 0;
+      if(r < 0){ r = 0; } if(r > 1){ r = 1; }
+      progBar.style.width = (r * 100).toFixed(2) + '%';
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll, {passive:true});
+  onScroll();
+
+  /* =========================================================
+     2) YUMUŞAK ÇAPA KAYDIRMA (sabit menü payı ile)
+     ========================================================= */
+  function headerH(){
+    return hdr ? hdr.getBoundingClientRect().height : 70;
+  }
+  document.addEventListener('click', function(ev){
+    var a = ev.target && ev.target.closest ? ev.target.closest('a[href^="#"]') : null;
+    if(!a){ return; }
+    var id = a.getAttribute('href');
+    if(!id || id === '#' || id.length < 2){ return; }
+    var t = null;
+    try{ t = document.querySelector(id); }catch(e){ t = null; }
+    if(!t){ return; }
+    ev.preventDefault();
+    closeMenu();
+    var top = t.getBoundingClientRect().top + (window.pageYOffset || 0) - headerH() - 12;
+    if(top < 0){ top = 0; }
+    try{
+      window.scrollTo({top:top, behavior: reduce ? 'auto' : 'smooth'});
+    }catch(e){
+      window.scrollTo(0, top);
+    }
+    if(id === '#teklif'){
+      window.setTimeout(function(){
+        var first = document.getElementById('f-ad');
+        if(first){ try{ first.focus({preventScroll:true}); }catch(e2){ first.focus(); } }
+      }, reduce ? 60 : 620);
+    }
+  });
+
+  /* =========================================================
+     3) MOBİL MENÜ
+     ========================================================= */
+  var burger = document.getElementById('burger');
+  var mnav = document.getElementById('mobilMenu');
+  var menuOpen = false;
+  var mnavLinks = mnav ? mnav.querySelectorAll('a, button') : [];
+
+  /* Kapalıyken klavye odağı görünmez linklere gitmesin */
+  function setMenuFocusable(on){
+    for(var i = 0; i < mnavLinks.length; i++){
+      if(on){ mnavLinks[i].removeAttribute('tabindex'); }
+      else { mnavLinks[i].setAttribute('tabindex','-1'); }
+    }
+  }
+  setMenuFocusable(false);
+
+  function openMenu(){
+    if(!mnav || !burger){ return; }
+    menuOpen = true;
+    mnav.classList.add('is-open');
+    mnav.setAttribute('aria-hidden','false');
+    burger.setAttribute('aria-expanded','true');
+    burger.setAttribute('aria-label','Menüyü kapat');
+    document.body.style.overflow = 'hidden';
+    setMenuFocusable(true);
+  }
+  function closeMenu(){
+    if(!mnav || !burger || !menuOpen){ return; }
+    menuOpen = false;
+    mnav.classList.remove('is-open');
+    mnav.setAttribute('aria-hidden','true');
+    burger.setAttribute('aria-expanded','false');
+    burger.setAttribute('aria-label','Menüyü aç');
+    document.body.style.overflow = '';
+    setMenuFocusable(false);
+  }
+  if(burger){
+    burger.addEventListener('click', function(){
+      if(menuOpen){ closeMenu(); } else { openMenu(); }
+    });
+  }
+  document.addEventListener('keydown', function(ev){
+    if(ev.key === 'Escape' && menuOpen){
+      closeMenu();
+      if(burger){ burger.focus(); }
+    }
+  });
+  window.addEventListener('resize', function(){
+    if(window.innerWidth > 1060 && menuOpen){ closeMenu(); }
+  }, {passive:true});
+
+  /* =========================================================
+     4) MÜREKKEP SİLME — bölüm açılışları
+     ========================================================= */
+  var reveals = document.querySelectorAll('.reveal');
+  if(reveals.length){
+    if(!('IntersectionObserver' in window) || reduce){
+      for(var r0 = 0; r0 < reveals.length; r0++){ reveals[r0].classList.add('is-in'); }
+    } else {
+      var revObs = new IntersectionObserver(function(entries){
+        for(var i = 0; i < entries.length; i++){
+          if(entries[i].isIntersecting){
+            entries[i].target.classList.add('is-in');
+            revObs.unobserve(entries[i].target);
+          }
+        }
+      }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+      for(var r1 = 0; r1 < reveals.length; r1++){ revObs.observe(reveals[r1]); }
+
+      /* Emniyet supabı: gözlemci hiç tetiklenmezse içerik görünmez kalmasın */
+      var revealAllTimer = window.setTimeout(function(){
+        for(var i = 0; i < reveals.length; i++){
+          var el = reveals[i];
+          if(el.classList.contains('is-in')){ continue; }
+          var rr = el.getBoundingClientRect();
+          if(rr.top < (window.innerHeight || 800)){ el.classList.add('is-in'); }
+        }
+      }, 2200);
+      var hardFail = window.setTimeout(function(){
+        for(var j = 0; j < reveals.length; j++){ reveals[j].classList.add('is-in'); }
+      }, 9000);
+      window.addEventListener('pagehide', function(){
+        window.clearTimeout(revealAllTimer);
+        window.clearTimeout(hardFail);
+      });
+    }
+  }
+
+  /* =========================================================
+     5) HİZMET KARTLARI — kırmızı chevron "yalama"
+     ========================================================= */
+  var svcs = document.querySelectorAll('[data-svc]');
+  for(var s = 0; s < svcs.length; s++){
+    (function(card){
+      var ink = card.querySelector('.svc__ink');
+      function on(){
+        card.classList.remove('no-trans');
+        card.classList.remove('is-off');
+        card.classList.add('is-on');
+      }
+      function off(){
+        if(!card.classList.contains('is-on')){ return; }
+        card.classList.remove('is-on');
+        card.classList.add('is-off');
+      }
+      card.addEventListener('mouseenter', on);
+      card.addEventListener('mouseleave', off);
+      card.addEventListener('focusin', on);
+      card.addEventListener('focusout', function(ev){
+        if(!card.contains(ev.relatedTarget)){ off(); }
+      });
+      if(ink){
+        ink.addEventListener('transitionend', function(){
+          if(card.classList.contains('is-off')){
+            card.classList.add('no-trans');
+            card.classList.remove('is-off');
+            /* reflow: geri sıçramayı engelle */
+            void card.offsetWidth;
+            window.setTimeout(function(){ card.classList.remove('no-trans'); }, 20);
+          }
+        });
+      }
+    })(svcs[s]);
+  }
+
+  /* =========================================================
+     6) SÜREÇ ŞERİDİ — otomatik ilerleyen aktif adım
+     ========================================================= */
+  var ribbon = document.getElementById('ribbon');
+  if(ribbon){
+    var steps = ribbon.querySelectorAll('.step');
+    var stepIdx = 0;
+    var stepTimer = null;
+    var ribbonVisible = false;
+
+    function tickStep(){
+      if(!steps.length){ return; }
+      for(var k = 0; k < steps.length; k++){ steps[k].classList.remove('is-on'); }
+      steps[stepIdx].classList.add('is-on');
+      stepIdx = (stepIdx + 1) % steps.length;
+    }
+    function startSteps(){
+      if(stepTimer || reduce || !ribbonVisible || document.hidden){ return; }
+      stepTimer = window.setInterval(tickStep, 2600);
+    }
+    function stopSteps(){
+      if(stepTimer){ window.clearInterval(stepTimer); stepTimer = null; }
+    }
+    if('IntersectionObserver' in window){
+      var ribObs = new IntersectionObserver(function(es){
+        for(var i = 0; i < es.length; i++){
+          ribbonVisible = es[i].isIntersecting;
+          if(ribbonVisible){ startSteps(); } else { stopSteps(); }
+        }
+      }, {threshold:0.2});
+      ribObs.observe(ribbon);
+    }
+    for(var st = 0; st < steps.length; st++){
+      steps[st].addEventListener('mouseenter', stopSteps);
+      steps[st].addEventListener('mouseleave', startSteps);
+    }
+    document.addEventListener('visibilitychange', function(){
+      if(document.hidden){ stopSteps(); } else { startSteps(); }
+    });
+  }
+
+  /* =========================================================
+     7) GÜVEN ŞERİDİ — sekme/görünürlük duraklatma
+     ========================================================= */
+  var marq = document.getElementById('marq');
+  if(marq){
+    var marqVisible = true;
+    function syncMarq(){
+      if(document.hidden || !marqVisible){ marq.classList.add('is-paused'); }
+      else { marq.classList.remove('is-paused'); }
+    }
+    if('IntersectionObserver' in window){
+      var mObs = new IntersectionObserver(function(es){
+        for(var i = 0; i < es.length; i++){ marqVisible = es[i].isIntersecting; }
+        syncMarq();
+      }, {threshold:0});
+      mObs.observe(marq);
+    }
+    document.addEventListener('visibilitychange', syncMarq);
+    syncMarq();
+  }
+
+  /* =========================================================
+     8) SAYAÇLAR
+     ========================================================= */
+  var counters = document.querySelectorAll('[data-count]');
+  function runCounter(el){
+    var target = parseFloat(el.getAttribute('data-count'));
+    if(isNaN(target)){ return; }
+    var dec = parseInt(el.getAttribute('data-dec') || '0', 10);
+    var dur = parseInt(el.getAttribute('data-dur') || '1400', 10);
+    var final = dec > 0 ? (target / Math.pow(10, dec)) : target;
+    var t0 = 0;
+    function fmt(v){
+      var out = dec > 0 ? v.toFixed(dec).replace('.', ',') : String(Math.round(v));
+      if(dec === 0 && final >= 1000){
+        out = Math.round(v).toLocaleString('tr-TR');
+      }
+      return out;
+    }
+    function frame(ts){
+      if(!t0){ t0 = ts; }
+      var p = (ts - t0) / dur;
+      if(p > 1){ p = 1; }
+      var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(final * e);
+      if(p < 1){ window.requestAnimationFrame(frame); }
+      else { el.textContent = fmt(final); }
+    }
+    window.requestAnimationFrame(frame);
+  }
+  if(counters.length && !reduce && 'IntersectionObserver' in window){
+    var cObs = new IntersectionObserver(function(es){
+      for(var i = 0; i < es.length; i++){
+        if(es[i].isIntersecting){
+          runCounter(es[i].target);
+          cObs.unobserve(es[i].target);
+        }
+      }
+    }, {threshold:0.45});
+    for(var c = 0; c < counters.length; c++){ cObs.observe(counters[c]); }
+  }
+
+  /* =========================================================
+     9) TEKLİF FORMU
+     ========================================================= */
+  var form = document.getElementById('teklifForm');
+  var formWrap = document.getElementById('teklif');
+  var okPanel = document.getElementById('okPanel');
+  var okTxt = document.getElementById('okTxt');
+  var yeniden = document.getElementById('yeniden');
+  var gonder = document.getElementById('gonder');
+  var gonderTxt = document.getElementById('gonderTxt');
+
+  function setErr(inputId, errId, msg){
+    var inp = document.getElementById(inputId);
+    var err = document.getElementById(errId);
+    if(err){ err.textContent = msg || ''; }
+    if(inp){
+      if(msg){ inp.setAttribute('aria-invalid','true'); }
+      else { inp.removeAttribute('aria-invalid'); }
+    }
+  }
+  function validEmail(v){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+  }
+  function validPhone(v){
+    var d = v.replace(/[^0-9]/g,'');
+    return d.length >= 10 && d.length <= 15;
+  }
+
+  if(form){
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var ok = true;
+      var firstBad = null;
+
+      var ad = document.getElementById('f-ad');
+      var mail = document.getElementById('f-mail');
+      var tel = document.getElementById('f-tel');
+      var hiz = document.getElementById('f-hizmet');
+      var msg = document.getElementById('f-mesaj');
+      var kvkk = document.getElementById('f-kvkk');
+
+      if(ad && ad.value.trim().length < 3){ setErr('f-ad','e-ad','Lütfen ad ve soyadınızı yazın.'); ok = false; firstBad = firstBad || ad; }
+      else { setErr('f-ad','e-ad',''); }
+
+      if(mail && !validEmail(mail.value.trim())){ setErr('f-mail','e-mail','Geçerli bir e-posta adresi girin.'); ok = false; firstBad = firstBad || mail; }
+      else { setErr('f-mail','e-mail',''); }
+
+      if(tel && !validPhone(tel.value.trim())){ setErr('f-tel','e-tel','Geçerli bir telefon numarası girin.'); ok = false; firstBad = firstBad || tel; }
+      else { setErr('f-tel','e-tel',''); }
+
+      if(hiz && hiz.value === ''){ setErr('f-hizmet','e-hizmet','Bir hizmet seçin.'); ok = false; firstBad = firstBad || hiz; }
+      else { setErr('f-hizmet','e-hizmet',''); }
+
+      if(msg && msg.value.trim().length < 12){ setErr('f-mesaj','e-mesaj','Projenizi birkaç cümleyle anlatın (en az 12 karakter).'); ok = false; firstBad = firstBad || msg; }
+      else { setErr('f-mesaj','e-mesaj',''); }
+
+      if(kvkk && !kvkk.checked){ setErr('f-kvkk','e-kvkk','Devam etmek için onay kutusunu işaretleyin.'); ok = false; firstBad = firstBad || kvkk; }
+      else { setErr('f-kvkk','e-kvkk',''); }
+
+      if(!ok){
+        if(firstBad){ try{ firstBad.focus(); }catch(e){} }
+        return;
+      }
+
+      if(gonder){ gonder.disabled = true; }
+      if(gonderTxt){ gonderTxt.textContent = 'Gönderiliyor…'; }
+
+      window.setTimeout(function(){
+        if(okTxt && ad){
+          var isim = ad.value.trim().split(/\s+/)[0];
+          okTxt.textContent = isim + ', talebiniz bize ulaştı. En geç 48 saat içinde kapsam, takvim ve bütçe içeren teklifinizi göndereceğiz. Acele ediyorsanız 0538 699 96 66 numarasından ulaşabilirsiniz.';
+        }
+        if(formWrap){ formWrap.classList.add('is-done'); }
+        if(okPanel){
+          okPanel.classList.add('is-show');
+          try{ okPanel.focus({preventScroll:true}); }catch(e3){}
+        }
+        if(gonder){ gonder.disabled = false; }
+        if(gonderTxt){ gonderTxt.textContent = 'Teklif İste'; }
+      }, 850);
+    });
+  }
+
+  if(yeniden){
+    yeniden.addEventListener('click', function(){
+      if(okPanel){ okPanel.classList.remove('is-show'); }
+      if(formWrap){ formWrap.classList.remove('is-done'); }
+      if(form){ form.reset(); }
+      var ids = [['f-ad','e-ad'],['f-mail','e-mail'],['f-tel','e-tel'],['f-hizmet','e-hizmet'],['f-mesaj','e-mesaj'],['f-kvkk','e-kvkk']];
+      for(var i = 0; i < ids.length; i++){ setErr(ids[i][0], ids[i][1], ''); }
+      var first = document.getElementById('f-ad');
+      if(first){ first.focus(); }
+    });
+  }
+
+  /* =========================================================
+     10) MÜREKKEP CHEVRON ALANI (Canvas 2D) + İMLEÇ
+     ========================================================= */
+  var canvas = document.getElementById('inkfield');
+  var cursor = document.getElementById('cursor');
+  var hero = document.getElementById('hero');
+  var ctx = null;
+  var cw = 0, ch = 0, dpr = 1;
+  var cells = [];
+  var cellSize = 40;
+  var mouse = {x:-9999, y:-9999, active:false};
+  var cur = {x:-100, y:-100, tx:-100, ty:-100, a:0, ta:0};
+  var heroVisible = true;
+  var rafId = 0;
+  var running = false;
+  var lastMove = 0;
+  var t = 0;
+  var fine = false;
+  try{
+    fine = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  }catch(e){ fine = false; }
+
+  function setupCanvas(){
+    if(!canvas || !hero){ return false; }
+    try{
+      ctx = canvas.getContext('2d');
+    }catch(e){ ctx = null; }
+    if(!ctx){ return false; }
+    var rect = hero.getBoundingClientRect();
+    cw = Math.max(1, Math.round(rect.width));
+    ch = Math.max(1, Math.round(rect.height));
+    var isSmall = cw < 720;
+    dpr = Math.min(window.devicePixelRatio || 1, isSmall ? 1.5 : 2);
+    canvas.width = Math.round(cw * dpr);
+    canvas.height = Math.round(ch * dpr);
+    canvas.style.width = cw + 'px';
+    canvas.style.height = ch + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cellSize = isSmall ? 54 : (cw < 1100 ? 46 : 40);
+    buildCells();
+    return true;
+  }
+
+  function buildCells(){
+    cells = [];
+    /* Geniş ekranlarda kare sayısını sınırla: her karede binlerce stroke çizmeyelim */
+    var MAXC = 900;
+    while(((Math.ceil(cw / cellSize) + 1) * (Math.ceil(ch / cellSize) + 1)) > MAXC && cellSize < 120){
+      cellSize += 4;
+    }
+    var cols = Math.ceil(cw / cellSize) + 1;
+    var rows = Math.ceil(ch / cellSize) + 1;
+    var offX = (cw - (cols - 1) * cellSize) / 2;
+    var offY = (ch - (rows - 1) * cellSize) / 2;
+    for(var r = 0; r < rows; r++){
+      for(var c = 0; c < cols; c++){
+        cells.push({
+          x: offX + c * cellSize,
+          y: offY + r * cellSize,
+          seed: (c * 0.31 + r * 0.47)
+        });
+      }
+    }
+  }
+
+  function drawChev(x, y, size, ang, alpha, mix){
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(ang);
+    ctx.beginPath();
+    ctx.moveTo(-size * 0.42, -size * 0.52);
+    ctx.lineTo(size * 0.44, 0);
+    ctx.lineTo(-size * 0.42, size * 0.52);
+    ctx.lineWidth = Math.max(1, size * 0.2);
+    ctx.lineCap = 'butt';
+    ctx.lineJoin = 'miter';
+    if(mix > 0.02){
+      var rr = Math.round(14 + (237 - 14) * mix);
+      var gg = Math.round(14 + (30 - 14) * mix);
+      var bb = Math.round(14 + (36 - 14) * mix);
+      ctx.strokeStyle = 'rgba(' + rr + ',' + gg + ',' + bb + ',' + alpha.toFixed(3) + ')';
+    } else {
+      ctx.strokeStyle = 'rgba(14,14,14,' + alpha.toFixed(3) + ')';
+    }
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function paint(){
+    if(!ctx){ return; }
+    ctx.clearRect(0, 0, cw, ch);
+    var R = Math.min(280, Math.max(150, cw * 0.18));
+    var R2 = R * R;
+    for(var i = 0; i < cells.length; i++){
+      var p = cells[i];
+      var wave = Math.sin(p.x * 0.009 + p.y * 0.012 + t * 0.65) * 0.85
+               + Math.cos(p.y * 0.016 - t * 0.4) * 0.28;
+      var ang = wave;
+      var alpha = 0.10 + Math.abs(Math.sin(wave)) * 0.05;
+      var size = cellSize * 0.44;
+      var mix = 0;
+
+      if(mouse.active){
+        var dx = mouse.x - p.x;
+        var dy = mouse.y - p.y;
+        var d2 = dx * dx + dy * dy;
+        if(d2 < R2){
+          var d = Math.sqrt(d2);
+          var f = 1 - (d / R);
+          f = f * f;
+          ang = Math.atan2(dy, dx) * f + ang * (1 - f);
+          size = cellSize * (0.44 + f * 0.46);
+          alpha = alpha + f * 0.78;
+          mix = f;
+        }
+      }
+      if(alpha > 1){ alpha = 1; }
+      drawChev(p.x, p.y, size, ang, alpha, mix);
+    }
+  }
+
+  function loop(){
+    rafId = 0;
+    if(!running){ return; }
+
+    t += 0.012;
+
+    if(heroVisible && ctx){ paint(); }
+
+    if(cursor && fine){
+      cur.x += (cur.tx - cur.x) * 0.18;
+      cur.y += (cur.ty - cur.y) * 0.18;
+      var da = cur.ta - cur.a;
+      while(da > Math.PI){ da -= Math.PI * 2; }
+      while(da < -Math.PI){ da += Math.PI * 2; }
+      cur.a += da * 0.15;
+      cursor.style.transform = 'translate3d(' + (cur.x - 13) + 'px,' + (cur.y - 13) + 'px,0) rotate(' + cur.a + 'rad)';
+    }
+
+    var now = Date.now();
+    if(!heroVisible && (now - lastMove) > 1400){
+      running = false;
+      return;
+    }
+    rafId = window.requestAnimationFrame(loop);
+  }
+
+  function start(){
+    if(running || reduce || document.hidden){ return; }
+    running = true;
+    if(!rafId){ rafId = window.requestAnimationFrame(loop); }
+  }
+  function stop(){
+    running = false;
+    if(rafId){ window.cancelAnimationFrame(rafId); rafId = 0; }
+  }
+
+  if(canvas && hero){
+    var okCanvas = false;
+    try{ okCanvas = setupCanvas(); }catch(e){ okCanvas = false; }
+
+    if(!okCanvas){
+      /* Yedek: saf CSS chevron dokusu */
+      canvas.style.display = 'none';
+      hero.style.backgroundImage =
+        'repeating-linear-gradient(115deg, rgba(237,30,36,.07) 0 2px, transparent 2px 26px),' +
+        'radial-gradient(70% 60% at 20% 20%, rgba(237,30,36,.10), transparent 65%)';
+    } else if(reduce){
+      /* Hareket azaltılmış: tek kare, döngü yok */
+      try{ paint(); }catch(e2){}
+    } else {
+      if('IntersectionObserver' in window){
+        var hObs = new IntersectionObserver(function(es){
+          for(var i = 0; i < es.length; i++){
+            heroVisible = es[i].isIntersecting;
+            if(heroVisible){ start(); }
+          }
+        }, {threshold:0});
+        hObs.observe(hero);
+      }
+
+      window.addEventListener('pointermove', function(ev){
+        lastMove = Date.now();
+        if(fine){
+          var vx = ev.clientX - cur.tx;
+          var vy = ev.clientY - cur.ty;
+          if((vx * vx + vy * vy) > 6){ cur.ta = Math.atan2(vy, vx); }
+          cur.tx = ev.clientX;
+          cur.ty = ev.clientY;
+          if(cursor){ cursor.classList.add('is-on'); }
+        }
+        if(hero){
+          var hr = hero.getBoundingClientRect();
+          var mx = ev.clientX - hr.left;
+          var my = ev.clientY - hr.top;
+          if(mx >= -60 && my >= -60 && mx <= hr.width + 60 && my <= hr.height + 60){
+            mouse.x = mx; mouse.y = my; mouse.active = true;
+          } else {
+            mouse.active = false;
+          }
+        }
+        start();
+      }, {passive:true});
+
+      window.addEventListener('pointerleave', function(){
+        mouse.active = false;
+        if(cursor){ cursor.classList.remove('is-on'); }
+      }, {passive:true});
+
+      window.addEventListener('scroll', function(){
+        lastMove = Date.now();
+        mouse.active = false;
+        start();
+      }, {passive:true});
+
+      var rsz = null;
+      window.addEventListener('resize', function(){
+        if(rsz){ window.clearTimeout(rsz); }
+        rsz = window.setTimeout(function(){
+          try{ setupCanvas(); }catch(e){}
+          lastMove = Date.now();
+          start();
+        }, 180);
+      }, {passive:true});
+
+      document.addEventListener('visibilitychange', function(){
+        if(document.hidden){
+          stop();
+        } else {
+          /* sekmeye dönünce YENİDEN BAŞLAT */
+          lastMove = Date.now();
+          start();
+        }
+      });
+
+      /* Web fontları yüklenince hero yüksekliği değişir; tuvali yeniden ölç */
+      function remeasure(){
+        try{ setupCanvas(); }catch(e){}
+        lastMove = Date.now();
+        start();
+      }
+      window.addEventListener('load', remeasure);
+      if(document.fonts && document.fonts.ready && document.fonts.ready.then){
+        document.fonts.ready.then(remeasure).catch(function(){});
+      }
+
+      lastMove = Date.now();
+      start();
+    }
+  }
+
+  /* =========================================================
+     11) YATAY TAŞMA KORUMASI (geliştirme yardımcısı)
+     ========================================================= */
+  function overflowCheck(){
+    var w = docEl.clientWidth;
+    if(!w){ return; }
+    if(docEl.scrollWidth > w + 1){
+      if(window.console && window.console.warn){
+        window.console.warn('[TasarımMania] Yatay taşma: scrollWidth=' + docEl.scrollWidth + ' clientWidth=' + w);
+      }
+    }
+  }
+  window.addEventListener('load', function(){
+    window.setTimeout(overflowCheck, 260);
+  });
+
+  /* =========================================================
+     12) YIL
+     ========================================================= */
+  var yearNodes = document.querySelectorAll('[data-year]');
+  for(var y = 0; y < yearNodes.length; y++){
+    yearNodes[y].textContent = String(new Date().getFullYear());
+  }
+
+})();
+</script>
+
+</body>
+</html>

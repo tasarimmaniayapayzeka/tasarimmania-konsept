@@ -19,8 +19,11 @@
 "use strict";
 var SLUGS = [
  '01-noir-shader','02-isvicre-grid','03-bento-os','04-izometrik-sehir','05-sinema-showreel',
- '06-veri-merkezi','07-krom-sivi','08-luks-editorial','09-yatay-yolculuk','10-kinetik-deste'
+ '06-veri-merkezi','07-krom-sivi','08-luks-editorial','09-yatay-yolculuk','10-kinetik-deste',
+ '11-kirmizi-murekkep','12-mor-aurora','13-duotone-riso','14-mor-kristal','15-kirmizi-yayin'
 ];
+// 11-15 marka renkleri dalgası: gerçek logo + #ED1E24 zorunlu
+var MARKA_DALGASI = /^1[1-5]-/;
 var WIDTHS = [390, 768, 1440];
 
 // Metin icinde bulunmasi zorunlu icerik kontrolleri
@@ -88,6 +91,16 @@ function olc(w){
     r.reducedMotion = rm;
     // mobil menu var mi (390'da gizli bir tetikleyici)
     r.mobilMenu = !!d.querySelector('.burger,[class*="burger"],[class*="hamburger"],[aria-label*="enü"],[aria-label*="enu"]');
+
+    // --- marka kontrolleri (11-15 icin zorunlu, digerlerinde bilgi amacli) ---
+    var kaynak = d.documentElement.outerHTML;
+    var logoImg = d.querySelectorAll('img[src*="assets/logo/"]');
+    r.logoAdet   = logoImg.length;
+    r.logoYuklu  = Array.prototype.filter.call(logoImg, function(i){ return i.complete && i.naturalWidth > 0; }).length;
+    r.logoYollar = Array.prototype.map.call(logoImg, function(i){ return i.getAttribute('src'); });
+    r.markaKirmizi   = (kaynak.match(/ED1E24/gi) || []).length;
+    r.uydurmaKirmizi = (kaynak.match(/#(FF0000|E74C3C|DC2626|EF4444|F44336)\b/gi) || []).length;
+    r.sahteRozet = /TM<\/|>TM</.test(kaynak) && r.logoAdet === 0;
   }
   return r;
 }

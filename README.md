@@ -1,11 +1,12 @@
-# TasarımMania — 10 Ana Sayfa Konsepti
+# TasarımMania — 15 Ana Sayfa Konsepti
 
-tasarimmania.com'un yeni sitesi için hazırlanan keşif çalışması. On ayrı ana sayfa konsepti,
+tasarimmania.com'un yeni sitesi için hazırlanan keşif çalışması. On beş ayrı ana sayfa konsepti,
 her biri **ayrı bir sanat yönetimi ve ayrı bir teknik imza** ile.
 
-**Galeri:** `index.html` — on konsepti canlı önizlemeyle yan yana gösterir.
+**Canlı:** https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/
+**Galeri:** `index.html` — on beş konsepti canlı önizlemeyle yan yana gösterir.
 
-## Konseptler
+## Birinci dalga — serbest sanat yönetimi (01–10)
 
 | # | Konsept | Karakter | Teknik imza |
 |---|---------|----------|-------------|
@@ -19,6 +20,26 @@ her biri **ayrı bir sanat yönetimi ve ayrı bir teknik imza** ile.
 | 08 | Lüks Editoryal | Espresso + altın, serif | Sessiz lüks, altın çizgi çizimleri |
 | 09 | Yatay Yolculuk | Gece mavisi + mercan | Sticky yatay scroll, beş durak |
 | 10 | Kinetik Deste | Cesur renk blokları | 3D kart destesinin grid'e toplanması + FLIP filtre |
+
+## İkinci dalga — marka renkleri (11–15)
+
+Bu beşi markanın **kendi kimliği** üzerine kuruldu: gerçek logo dosyaları (`assets/logo/`) ve
+logodan piksel düzeyinde ölçülen marka kırmızısı **`#ED1E24`** kullanıldı. Logonun kırmızı
+çift-ok (chevron) formu bazı konseptlerde yapısal motife dönüştürüldü.
+
+| # | Konsept | Karakter | Teknik imza |
+|---|---------|----------|-------------|
+| 11 | Kırmızı Mürekkep | Kağıt beyazı + marka kırmızısı | Chevron geometrisi + kırmızı mürekkep wipe geçişleri |
+| 12 | Mor Aurora | Koyu mor, cam kartlar | Ham WebGL aurora gradyan ağı + cam kart 3D tilt |
+| 13 | Duotone Riso | Krem kağıt, iki mürekkep | Canvas halftone duotone + kasıtlı baskı kayması |
+| 14 | Mor Kristal | Patlıcan karası, lüks teknoloji | Saf CSS 3D fasetli kristaller + kırmızı enerji çekirdeği |
+| 15 | Kırmızı Yayın | Siyah + kırmızı, yayın grafikleri | Alt bant animasyonları + canlı ticker + kırmızı wipe |
+
+## Marka
+
+- **Kırmızı:** `#ED1E24` (logodan ölçüldü)
+- **Logo:** `assets/logo/logo-koyu-yazi.png` (açık zeminler), `logo-beyaz-yazi.png` (koyu zeminler),
+  `logo-kare.png` (ikon)
 
 ## Kapsanan hizmetler
 
@@ -38,8 +59,9 @@ SEO ve yurt dışı / çok dilli kampanya yönetimi.
 ## Klasörler
 
 ```
-index.html          galeri (10 konseptin canlı önizlemesi)
-konsept/            10 ana sayfa konsepti
+index.html          galeri (15 konseptin canlı önizlemesi)
+konsept/            15 ana sayfa konsepti
+assets/logo/        gerçek marka logosu (3 varyant)
 assets/             3D ikonlar (256px, optimize)
 assets/tam-cozunurluk/  aynı ikonların 1024px şeffaf orijinalleri
 _test/kontrol.html  çok genişlikli otomatik kontrol koşumu
