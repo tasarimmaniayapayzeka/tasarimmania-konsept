@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Konsept Kontrol Koşumu</title>
+<style>
+  body{font:13px/1.5 monospace;background:#0b0b0d;color:#ddd;padding:20px}
+  #out{white-space:pre-wrap}
+  #stage{position:fixed;left:-99999px;top:0}
+  iframe{border:0;background:#fff}
+</style>
+</head>
+<body>
+<h1>Konsept kontrol koşumu</h1>
+<div id="out">Başlatılıyor…</div>
+<div id="stage"><iframe id="fr"></iframe></div>
+
+<script>
+"use strict";
+var SLUGS = [
+ '01-noir-shader','02-isvicre-grid','03-bento-os','04-izometrik-sehir','05-sinema-showreel',
+ '06-veri-merkezi','07-krom-sivi','08-luks-editorial','09-yatay-yolculuk','10-kinetik-deste'
+];
+var WIDTHS = [390, 768, 1440];
+
+// Metin icinde bulunmasi zorunlu icerik kontrolleri
+var GEREKLI = [
+  ['mobil',   /mobil\s*uygulama/i],
+  ['seo',     /\bSEO\b/i],
+  ['video',   /video\s*prod/i],
+  ['ads',     /google\s*ads/i],
+  ['meta',    /meta\s*(ads|business)/i],
+  ['web',     /(web\s*tasarım|web\s*&|yazılım)/i],
+  ['tel',     /0538\s*699\s*96\s*66/],
+  ['adres',   /bakırköy/i],
+  ['demoNot', /temsil/i]
+];
+
+var fr = document.getElementById('fr');
+var out = document.getElementById('out');
+var RESULTS = [];
+
+function loadFrame(src, w){
+  return new Promise(function(res){
+    fr.style.width = w + 'px';
+    fr.style.height = '900px';
+    var done = false;
+    function finish(){ if(done) return; done = true; setTimeout(res, 450); }
+    fr.onload = finish;
+    fr.src = src;
+    setTimeout(finish, 6000); // güvenlik
+  });
+}
+
+function olc(w){
+  var d = fr.contentDocument, win = fr.contentWindow;
+  if(!d || !d.documentElement) return {hata:'belge okunamadı'};
+  var de = d.documentElement;
+  var r = {
+    w: w,
+    scrollW: de.scrollWidth,
+    clientW: de.clientWidth,
+    tasma: de.scrollWidth - de.clientWidth,
+    yukseklik: d.body ? d.body.scrollHeight : 0
+  };
+  if(w === WIDTHS[WIDTHS.length-1]){
+    var txt = d.body ? d.body.innerText : '';
+    r.bolum   = d.querySelectorAll('section').length;
+    r.harici  = Array.prototype.map.call(d.querySelectorAll('script[src]'), function(s){ return s.src; });
+    r.form    = d.querySelectorAll('form').length;
+    r.tel     = !!d.querySelector('a[href^="tel:"]');
+    r.wa      = !!d.querySelector('a[href*="wa.me"]');
+    r.canvas  = d.querySelectorAll('canvas').length;
+    r.metinUz = txt.length;
+    r.baslik  = d.title;
+    r.zemin   = win.getComputedStyle(d.body).backgroundColor;
+    r.eksik   = GEREKLI.filter(function(g){ return !g[1].test(txt); }).map(function(g){ return g[0]; });
+    // reduced-motion kurali var mi?
+    var rm = false;
+    try {
+      Array.prototype.forEach.call(d.styleSheets, function(ss){
+        try { Array.prototype.forEach.call(ss.cssRules, function(rule){
+          if(rule.conditionText && /prefers-reduced-motion/.test(rule.conditionText)) rm = true;
+          if(rule.media && /prefers-reduced-motion/.test(rule.media.mediaText)) rm = true;
+        }); } catch(e){}
+      });
+    } catch(e){}
+    r.reducedMotion = rm;
+    // mobil menu var mi (390'da gizli bir tetikleyici)
+    r.mobilMenu = !!d.querySelector('.burger,[class*="burger"],[class*="hamburger"],[aria-label*="enü"],[aria-label*="enu"]');
+  }
+  return r;
+}
+
+(async function(){
+  for(var i=0;i<SLUGS.length;i++){
+    var slug = SLUGS[i];
+    var kayit = { slug: slug, olcumler: [] };
+    for(var j=0;j<WIDTHS.length;j++){
+      out.textContent = 'Ölçülüyor: ' + slug + ' @ ' + WIDTHS[j] + 'px  (' + (i+1) + '/' + SLUGS.length + ')';
+      await loadFrame('../konsept/' + slug + '.html', WIDTHS[j]);
+      kayit.olcumler.push(olc(WIDTHS[j]));
+    }
+    RESULTS.push(kayit);
+  }
+  window.__SONUC__ = RESULTS;
+  window.__BITTI__ = true;
+  out.textContent = 'BİTTİ\n' + JSON.stringify(RESULTS, null, 1);
+})();
+</script>
+</body>
+</html>

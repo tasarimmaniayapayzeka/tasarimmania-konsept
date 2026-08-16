@@ -1,0 +1,2134 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TasarımMania — Beğenilen değil, satan iş üretiyoruz | 360° Dijital Ajans</title>
+<meta name="description" content="TasarımMania: İstanbul Bakırköy merkezli 360 derece dijital prodüksiyon stüdyosu. Web tasarım & yazılım, mobil uygulama, dijital pazarlama, video prodüksiyon ve SEO tek çatı altında.">
+<meta name="theme-color" content="#F4F1E9">
+<meta name="author" content="TasarımMania">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="TasarımMania — Beğenilen değil, satan iş üretiyoruz">
+<meta property="og:description" content="Web, mobil, reklam, video ve SEO tek çatı altında. İstanbul merkezli 360 derece dijital prodüksiyon stüdyosu.">
+<meta property="og:url" content="https://www.tasarimmania.com/">
+<meta property="og:image" content="https://www.tasarimmania.com/og/tasarimmania-kapak.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TasarımMania — 360 derece dijital prodüksiyon stüdyosu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.tasarimmania.com/og/tasarimmania-kapak.jpg">
+<meta name="twitter:title" content="TasarımMania — 360° Dijital Prodüksiyon Stüdyosu">
+<meta name="twitter:description" content="Beğenilen değil, satan iş üretiyoruz. Web · Mobil · Reklam · Video · SEO">
+
+<!-- Inline SVG favicon (data URI) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230D0D0C'/%3E%3Crect x='8' y='10' width='20' height='28' fill='%232B4BF2' transform='rotate(-10 18 24)'/%3E%3Crect x='24' y='16' width='20' height='28' fill='%23FF5C1A' transform='rotate(6 34 30)'/%3E%3Crect x='36' y='24' width='20' height='28' fill='%23E9FF5A' transform='rotate(-4 46 38)'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   0. TOKENLAR & RESET
+   ============================================================ */
+:root{
+  --ink:#0D0D0C;
+  --paper:#F4F1E9;
+  --paper-2:#EAE6DA;
+  --blue:#2B4BF2;
+  --orange:#FF5C1A;
+  --lemon:#E9FF5A;
+  --blue-soft:#8FA4FF;
+  --white:#FFFFFF;
+  --hair:1px solid var(--ink);
+  --gut:clamp(16px,4vw,56px);
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --ease-pop:cubic-bezier(.2,1.2,.3,1);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px;
+  line-height:1.55;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+h1,h2,h3,h4{margin:0;font-family:"Archivo Black",Impact,sans-serif;font-weight:400;line-height:.92;letter-spacing:-.02em;text-transform:uppercase}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+::selection{background:var(--lemon);color:var(--ink)}
+
+.wrap{width:100%;max-width:1440px;margin:0 auto;padding-inline:var(--gut)}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--paper);padding:12px 18px;z-index:999}
+.skip:focus{left:8px;top:8px}
+
+/* Kinetik tipografi yardımcıları */
+.out{color:transparent;-webkit-text-stroke:2px var(--ink);paint-order:stroke fill}
+@supports not (-webkit-text-stroke:1px black){.out{color:var(--ink)}}
+.blk{display:inline-block;padding:0 .16em .06em;transform:skewX(-4deg)}
+.blk>span{display:inline-block;transform:skewX(4deg)}
+.blk--blue{background:var(--blue);color:var(--paper)}
+.blk--orange{background:var(--orange);color:var(--ink)}
+.blk--lemon{background:var(--lemon);color:var(--ink)}
+.blk--ink{background:var(--ink);color:var(--lemon)}
+
+/* ============================================================
+   1. ÜST MENÜ (sabit) + BİRİNCİL CTA
+   ============================================================ */
+.hdr{
+  position:fixed;inset:0 0 auto 0;z-index:120;
+  background:var(--paper);
+  border-bottom:var(--hair);
+  transition:transform .35s var(--ease);
+}
+.hdr__in{display:flex;align-items:center;gap:14px;height:64px}
+.logo{display:flex;align-items:center;gap:9px;flex:0 0 auto}
+.logo__mark{width:26px;height:26px;flex:0 0 auto}
+.logo__txt{font-family:"Archivo Black",Impact,sans-serif;font-size:1.02rem;letter-spacing:-.03em;text-transform:uppercase;white-space:nowrap}
+.logo__txt em{font-style:normal;color:var(--blue)}
+.nav{display:flex;align-items:center;gap:4px;margin-left:auto}
+.nav a{
+  font-size:.82rem;font-weight:600;padding:8px 11px;
+  border:1px solid transparent;transition:background .18s,color .18s,border-color .18s;
+}
+.nav a:hover{background:var(--ink);color:var(--paper)}
+.hdr__cta{
+  margin-left:10px;background:var(--blue);color:var(--white);
+  font-weight:800;font-size:.84rem;padding:11px 20px;border:var(--hair);
+  box-shadow:4px 4px 0 var(--ink);transition:transform .16s var(--ease),box-shadow .16s var(--ease),background .18s;
+  white-space:nowrap;
+}
+.hdr__cta:hover{background:var(--orange);color:var(--ink);transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.hdr__cta:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.burger{display:none;margin-left:auto;width:44px;height:44px;border:var(--hair);align-items:center;justify-content:center;flex-direction:column;gap:5px;background:var(--paper)}
+.burger span{display:block;width:20px;height:2px;background:var(--ink);transition:transform .25s var(--ease),opacity .2s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.mnav{
+  display:none;position:fixed;inset:64px 0 0 0;z-index:119;
+  background:var(--paper);border-top:var(--hair);
+  padding:22px var(--gut) 40px;overflow-y:auto;
+}
+.mnav.is-open{display:block}
+.mnav a{display:block;font-family:"Archivo Black",Impact,sans-serif;font-size:clamp(1.5rem,7vw,2.2rem);text-transform:uppercase;padding:12px 0;border-bottom:var(--hair)}
+.mnav a:nth-child(odd){color:var(--blue)}
+.mnav__foot{margin-top:24px;display:grid;gap:10px}
+.mnav__foot a{font-family:Inter,sans-serif;font-size:.95rem;border:none;padding:6px 0;color:var(--ink)!important}
+
+/* ============================================================
+   2. HERO — KİNETİK KART DESTESİ
+   ============================================================ */
+.hero{
+  position:relative;padding-top:64px;overflow:hidden;
+  border-bottom:var(--hair);
+  background:
+    linear-gradient(180deg,var(--paper) 0%,var(--paper) 60%,var(--paper-2) 100%);
+}
+.hero__grid-bg{
+  position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(var(--paper-2) 1px,transparent 1px),linear-gradient(90deg,var(--paper-2) 1px,transparent 1px);
+  background-size:64px 64px;
+}
+.hero__in{position:relative;padding-block:clamp(34px,6vw,70px) clamp(30px,5vw,60px)}
+.hero__top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,320px);gap:clamp(18px,3vw,44px);align-items:end}
+.hero h1{font-size:clamp(2.5rem,10.4vw,8.4rem);letter-spacing:-.035em}
+.hero h1 .ln{display:block}
+.hero h1 .ln+.ln{margin-top:.04em}
+.hero__lede{border-left:4px solid var(--orange);padding-left:16px;font-size:clamp(.94rem,1.5vw,1.06rem);max-width:44ch}
+.hero__lede strong{font-weight:800}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-weight:800;font-size:.95rem;padding:15px 26px;border:var(--hair);
+  box-shadow:5px 5px 0 var(--ink);
+  transition:transform .16s var(--ease),box-shadow .16s var(--ease),background .2s,color .2s;
+}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.btn--pri{background:var(--orange);color:var(--ink)}
+.btn--pri:hover{background:var(--lemon)}
+.btn--sec{background:var(--paper);color:var(--ink)}
+.btn--sec:hover{background:var(--ink);color:var(--paper)}
+.btn--blue{background:var(--blue);color:var(--white)}
+.btn--blue:hover{background:var(--lemon);color:var(--ink)}
+.btn--lemon{background:var(--lemon);color:var(--ink)}
+.btn__ar{font-family:"JetBrains Mono",monospace;font-weight:700}
+.hero__micro{margin-top:14px;font-size:.8rem;opacity:.72;display:flex;align-items:center;gap:8px}
+.hero__micro b{font-weight:700;opacity:1}
+
+/* 3D sahne */
+.stage{
+  position:relative;width:100%;
+  height:clamp(340px,50vh,540px);
+  margin-top:clamp(26px,4vw,46px);
+  perspective:1250px;perspective-origin:50% 46%;
+}
+.deck{
+  position:absolute;inset:0;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.kcard{
+  position:absolute;left:50%;top:50%;
+  /* JS ölçümü gelene kadar da doğru dursun diye varsayılan ölçüler */
+  width:150px;height:196px;margin-left:-75px;margin-top:-98px;
+  transform-style:preserve-3d;
+  border:2px solid var(--ink);
+  box-shadow:0 18px 34px rgba(13,13,12,.16);
+  display:flex;flex-direction:column;justify-content:space-between;
+  gap:6px;padding:14px;overflow:hidden;
+  will-change:transform;
+}
+.kcard__n{font-family:"JetBrains Mono",monospace;font-size:.66rem;font-weight:700;letter-spacing:.14em}
+.kcard__t{font-family:"Archivo Black",Impact,sans-serif;font-size:clamp(.7rem,2.4vw,1.12rem);line-height:.95;text-transform:uppercase;letter-spacing:-.02em;overflow-wrap:anywhere}
+.kcard__m{font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.1em;opacity:.85;overflow-wrap:anywhere}
+.kc--blue{background:var(--blue);color:var(--white)}
+.kc--orange{background:var(--orange);color:var(--ink)}
+.kc--lemon{background:var(--lemon);color:var(--ink)}
+.kc--ink{background:var(--ink);color:var(--paper)}
+.kc--paper{background:var(--white);color:var(--ink)}
+.kc--paper2{background:var(--paper-2);color:var(--ink)}
+.stage__hint{
+  position:absolute;left:50%;bottom:2px;transform:translateX(-50%);
+  z-index:5;background:var(--paper);border:var(--hair);padding:6px 12px;
+  transition:opacity .3s;
+}
+.stage__hint.is-off{opacity:0}
+
+/* ============================================================
+   3. MARQUEE ŞERİTLERİ
+   ============================================================ */
+.mq{overflow:hidden;border-block:var(--hair);background:var(--ink);color:var(--paper)}
+.mq--blue{background:var(--blue);color:var(--white);border-top:0}
+.mq--lemon{background:var(--lemon);color:var(--ink)}
+.mq--paper{background:var(--paper);color:var(--ink)}
+.mq__track{display:flex;width:max-content;animation:mqmove var(--dur,26s) linear infinite}
+.mq--rev .mq__track{animation-direction:reverse}
+.mq__grp{display:flex;align-items:center;flex:0 0 auto}
+.mq__i{
+  display:flex;align-items:center;gap:16px;flex:0 0 auto;
+  font-family:"Archivo Black",Impact,sans-serif;text-transform:uppercase;
+  font-size:clamp(1.05rem,2.6vw,2.1rem);letter-spacing:-.02em;
+  padding:12px 20px;line-height:1.15;
+}
+.mq__i i{font-style:normal;font-size:.55em;opacity:.65}
+.mq--sm .mq__i{font-size:clamp(.72rem,1.4vw,.86rem);font-family:"JetBrains Mono",monospace;letter-spacing:.18em;padding:10px 18px}
+@keyframes mqmove{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+
+/* ============================================================
+   BÖLÜM ORTAK
+   ============================================================ */
+.sec{padding-block:clamp(52px,7vw,110px);border-bottom:var(--hair);position:relative;overflow:hidden}
+.sec--ink{background:var(--ink);color:var(--paper)}
+.sec--paper2{background:var(--paper-2)}
+.sec--blue{background:var(--blue);color:var(--white)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;border:var(--hair);padding:7px 14px;margin-bottom:18px;background:var(--lemon);color:var(--ink)}
+.sec--ink .eyebrow{border-color:var(--paper)}
+.h2{font-size:clamp(1.9rem,6vw,4.6rem);letter-spacing:-.035em}
+.sub{margin-top:16px;max-width:62ch;font-size:clamp(.95rem,1.4vw,1.08rem);opacity:.86}
+.sec--ink .sub{opacity:.78}
+.sec__head{margin-bottom:clamp(28px,4vw,52px)}
+.sec__head--split{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(16px,3vw,40px);align-items:end}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.is-in{opacity:1;transform:none}
+
+/* ============================================================
+   4. GÜVEN ŞERİDİ
+   ============================================================ */
+.trust{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-left:var(--hair);border-top:var(--hair)}
+.trust__i{border-right:var(--hair);border-bottom:var(--hair);padding:20px 16px;display:flex;flex-direction:column;gap:8px;min-height:118px;background:var(--paper)}
+.trust__i:nth-child(3n+2){background:var(--paper-2)}
+.trust__i b{font-family:"Archivo Black",Impact,sans-serif;font-size:clamp(1rem,1.7vw,1.28rem);text-transform:uppercase;letter-spacing:-.02em;line-height:.98}
+.trust__i span{font-size:.76rem;opacity:.72;line-height:1.35}
+.trust__ico{width:26px;height:26px}
+
+/* ============================================================
+   5. SORUN + KİM İÇİN DEĞİLİZ
+   ============================================================ */
+.pain{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--paper)}
+.pain__i{border-bottom:2px solid var(--paper);border-right:2px solid var(--paper);padding:26px 22px}
+.pain__i:last-child{border-right:0}
+.pain__q{font-family:"Archivo Black",Impact,sans-serif;font-size:clamp(1.1rem,2.2vw,1.6rem);text-transform:uppercase;line-height:1;margin-bottom:12px;color:var(--lemon)}
+.pain__i p{font-size:.94rem;opacity:.8}
+.notfor{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(18px,3vw,44px);margin-top:clamp(34px,5vw,64px);align-items:start}
+.notfor h3{font-size:clamp(1.3rem,3vw,2.2rem);color:var(--orange)}
+.notfor ul{display:grid;gap:10px}
+.notfor li{display:flex;gap:12px;font-size:.95rem;opacity:.85;border-bottom:1px solid rgba(244,241,233,.16);padding-bottom:10px}
+.notfor li b{color:var(--orange);font-family:"JetBrains Mono",monospace;flex:0 0 auto}
+
+/* ============================================================
+   6. HİZMETLER — FİLTRE ÇİPLERİ + FLIP + 3D KART ÇEVİRME
+   ============================================================ */
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:clamp(20px,3vw,34px)}
+.chip{
+  border:var(--hair);padding:10px 17px;font-weight:700;font-size:.85rem;
+  background:var(--paper);box-shadow:3px 3px 0 var(--ink);
+  transition:transform .14s var(--ease),box-shadow .14s var(--ease),background .18s,color .18s;
+}
+.chip:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink);background:var(--lemon)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);box-shadow:3px 3px 0 var(--blue)}
+.chip__c{font-family:"JetBrains Mono",monospace;font-size:.7rem;opacity:.6;margin-left:6px}
+
+.sgrid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-auto-rows:186px;grid-auto-flow:row dense;gap:14px;
+}
+.svc{perspective:1400px;grid-row:span 1}
+.svc.is-main{grid-row:span 2}
+.svc.is-hidden{display:none}
+.svc__in{
+  position:relative;width:100%;height:100%;
+  transform-style:preserve-3d;
+  transition:transform .62s var(--ease);
+}
+.svc:hover .svc__in,.svc:focus-within .svc__in,.svc.is-flipped .svc__in{transform:rotateY(180deg)}
+.svc__f,.svc__b{
+  position:absolute;inset:0;
+  -webkit-backface-visibility:hidden;backface-visibility:hidden;
+  border:2px solid var(--ink);
+  display:flex;flex-direction:column;
+  padding:18px;
+}
+.svc__b{transform:rotateY(180deg);background:var(--ink);color:var(--paper);justify-content:space-between}
+.svc__f{background:var(--paper);justify-content:space-between}
+.svc.is-main .svc__f{box-shadow:7px 7px 0 var(--ink)}
+.svc--blue .svc__f{background:var(--blue);color:var(--white)}
+.svc--orange .svc__f{background:var(--orange);color:var(--ink)}
+.svc--lemon .svc__f{background:var(--lemon);color:var(--ink)}
+.svc--ink .svc__f{background:var(--ink);color:var(--paper)}
+.svc--paper2 .svc__f{background:var(--paper-2);color:var(--ink)}
+.svc__top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.svc__n{font-family:"JetBrains Mono",monospace;font-size:.68rem;font-weight:700;letter-spacing:.14em;opacity:.75}
+.svc__badge{font-family:"JetBrains Mono",monospace;font-size:.56rem;letter-spacing:.14em;border:1.5px solid currentColor;padding:3px 7px;white-space:nowrap}
+.svc__t{font-family:"Archivo Black",Impact,sans-serif;text-transform:uppercase;letter-spacing:-.025em;line-height:.94;font-size:clamp(1.02rem,2vw,1.62rem)}
+.svc.is-main .svc__t{font-size:clamp(1.32rem,2.7vw,2.15rem)}
+.svc__d{font-size:.84rem;opacity:.88;margin-top:8px;line-height:1.42}
+.svc__b h4{font-size:1rem;color:var(--lemon);margin-bottom:8px}
+.svc__b ul{display:grid;gap:6px;font-size:.8rem;opacity:.9}
+.svc__b li{display:flex;gap:8px}
+.svc__b li::before{content:"→";color:var(--orange);flex:0 0 auto}
+.svc__cta{
+  display:inline-flex;align-items:center;gap:8px;align-self:flex-start;
+  background:var(--lemon);color:var(--ink);font-weight:800;font-size:.8rem;
+  padding:10px 15px;border:2px solid var(--lemon);margin-top:10px;
+  transition:background .18s,color .18s;
+}
+.svc__cta:hover{background:var(--orange);border-color:var(--orange)}
+.svc__hint{font-family:"JetBrains Mono",monospace;font-size:.56rem;letter-spacing:.14em;opacity:.6}
+.svc__empty{grid-column:1/-1;padding:40px;border:2px dashed var(--ink);text-align:center;font-weight:700}
+
+/* ============================================================
+   7. NEDEN BİZ
+   ============================================================ */
+.why{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px}
+.why__i{grid-column:span 4;border:2px solid var(--ink);padding:24px 22px;background:var(--paper);display:flex;flex-direction:column;gap:10px;min-height:200px}
+.why__i--wide{grid-column:span 6}
+.why__i--big{grid-column:span 6;background:var(--blue);color:var(--white);box-shadow:8px 8px 0 var(--ink)}
+.why__i--lemon{background:var(--lemon)}
+.why__i--ink{background:var(--ink);color:var(--paper)}
+.why__k{font-family:"Archivo Black",Impact,sans-serif;font-size:clamp(1.9rem,4.6vw,3.4rem);line-height:.86;letter-spacing:-.04em}
+.why__i h3{font-size:clamp(1.02rem,1.8vw,1.35rem)}
+.why__i p{font-size:.88rem;opacity:.86;line-height:1.45}
+
+/* ============================================================
+   8. RAKAMLAR
+   ============================================================ */
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--paper);border-left:2px solid var(--paper)}
+.num{border-right:2px solid var(--paper);border-bottom:2px solid var(--paper);padding:26px 20px}
+.num__v{font-family:"Archivo Black",Impact,sans-serif;font-size:clamp(2.3rem,6.4vw,4.6rem);line-height:.86;letter-spacing:-.045em;color:var(--lemon)}
+.num:nth-child(2) .num__v{color:var(--orange)}
+.num:nth-child(3) .num__v{color:var(--paper)}
+.num:nth-child(4) .num__v{color:var(--blue-soft)}
+.num__l{margin-top:12px;font-size:.86rem;opacity:.8;line-height:1.4}
+.bars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:clamp(30px,4vw,52px)}
+.bar{border:2px solid rgba(244,241,233,.28);padding:16px}
+.bar__h{display:flex;justify-content:space-between;font-size:.76rem;opacity:.8;margin-bottom:10px;gap:8px}
+.bar__t{height:12px;background:rgba(244,241,233,.14);position:relative;overflow:hidden}
+.bar__f{position:absolute;inset:0 auto 0 0;width:0;background:var(--lemon);transition:width 1.2s var(--ease)}
+.bar:nth-child(2) .bar__f{background:var(--orange)}
+.bar:nth-child(3) .bar__f{background:var(--blue-soft)}
+.bar:nth-child(4) .bar__f{background:var(--paper)}
+
+/* ============================================================
+   9. SEÇİLİ İŞLER
+   ============================================================ */
+.works{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.work{border:2px solid var(--ink);background:var(--paper);display:flex;flex-direction:column;transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
+.work:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+.work__vis{height:150px;position:relative;overflow:hidden;border-bottom:2px solid var(--ink)}
+.work__vis svg{width:100%;height:100%}
+.work__body{padding:18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.work__tag{font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.14em;border:1.5px solid var(--ink);padding:3px 7px;align-self:flex-start}
+.work h3{font-size:clamp(1rem,1.7vw,1.24rem)}
+.work p{font-size:.85rem;opacity:.8;line-height:1.45}
+.work__res{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px;padding-top:6px}
+.work__r{background:var(--ink);color:var(--lemon);font-family:"JetBrains Mono",monospace;font-size:.66rem;font-weight:700;padding:6px 9px;letter-spacing:.06em}
+.work__r--o{background:var(--orange);color:var(--ink)}
+.work__r--b{background:var(--blue);color:var(--white)}
+
+/* ============================================================
+   10. SÜREÇ
+   ============================================================ */
+.steps{border-top:var(--hair)}
+.step{
+  display:grid;grid-template-columns:minmax(90px,.55fr) minmax(0,1.6fr) minmax(0,1.1fr) minmax(0,.7fr);
+  gap:clamp(12px,2.4vw,32px);align-items:start;
+  padding:26px 0;border-bottom:var(--hair);position:relative;
+  transition:background .2s,padding-inline .25s var(--ease);
+}
+.step:hover{background:var(--lemon);padding-inline:14px}
+.step__n{font-family:"Archivo Black",Impact,sans-serif;font-size:clamp(2.2rem,6vw,4.6rem);line-height:.8;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:2px var(--ink)}
+.step:hover .step__n{color:var(--blue);-webkit-text-stroke:2px var(--blue)}
+.step h3{font-size:clamp(1.05rem,2.2vw,1.65rem)}
+.step p{font-size:.88rem;opacity:.82;margin-top:8px;line-height:1.45}
+.step__meta{display:grid;gap:6px;font-size:.78rem}
+.step__meta b{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.14em;opacity:.6;display:block}
+.step__time{font-family:"Archivo Black",Impact,sans-serif;font-size:clamp(.95rem,1.7vw,1.2rem);white-space:nowrap}
+
+/* ============================================================
+   11. YORUMLAR
+   ============================================================ */
+.tsts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.tst{border:2px solid var(--ink);background:var(--paper);padding:24px;display:flex;flex-direction:column;gap:16px}
+.tst:nth-child(2){background:var(--lemon)}
+.tst__q{font-family:"Archivo Black",Impact,sans-serif;font-size:2.6rem;line-height:.6;color:var(--orange)}
+.tst p{font-size:.95rem;line-height:1.5}
+.tst__w{margin-top:auto;display:flex;align-items:center;gap:12px;border-top:var(--hair);padding-top:14px}
+.tst__av{width:42px;height:42px;flex:0 0 auto;border:2px solid var(--ink);display:grid;place-items:center;font-family:"Archivo Black",Impact,sans-serif;font-size:.9rem;background:var(--blue);color:var(--white)}
+.tst:nth-child(2) .tst__av{background:var(--ink);color:var(--lemon)}
+.tst:nth-child(3) .tst__av{background:var(--orange);color:var(--ink)}
+.tst__w b{display:block;font-size:.9rem}
+.tst__w span{font-size:.76rem;opacity:.7}
+
+/* ============================================================
+   12. BÜYÜK CTA BANDI
+   ============================================================ */
+.band{background:var(--blue);color:var(--white);border-bottom:var(--hair);overflow:hidden;position:relative}
+.band__in{padding-block:clamp(48px,7vw,96px);position:relative;z-index:2}
+.band h2{font-size:clamp(2rem,7.4vw,6rem);letter-spacing:-.04em}
+.band__row{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;align-items:center}
+.band__note{font-size:.85rem;opacity:.85;max-width:34ch}
+.band__deco{position:absolute;right:-60px;top:-40px;width:420px;height:420px;opacity:.16;pointer-events:none}
+
+/* ============================================================
+   13. İTİRAZLAR / SSS
+   ============================================================ */
+.faq{border-top:var(--hair);max-width:960px}
+.faq__i{border-bottom:var(--hair)}
+.faq__q{width:100%;display:flex;gap:16px;align-items:center;justify-content:space-between;padding:20px 0;text-align:left;font-family:"Archivo Black",Impact,sans-serif;text-transform:uppercase;font-size:clamp(.94rem,1.9vw,1.32rem);letter-spacing:-.02em;line-height:1.1}
+.faq__q:hover{color:var(--blue)}
+.faq__ic{flex:0 0 auto;width:30px;height:30px;border:var(--hair);display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-weight:700;transition:transform .3s var(--ease),background .2s}
+.faq__i.is-open .faq__ic{transform:rotate(45deg);background:var(--lemon)}
+.faq__a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq__a p{padding:0 0 20px;font-size:.94rem;opacity:.84;max-width:70ch}
+
+/* ============================================================
+   14. İLETİŞİM + FORM
+   ============================================================ */
+.contact{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(20px,3vw,44px);align-items:start}
+.cinfo{display:grid;gap:12px}
+.cinfo__i{border:2px solid var(--ink);padding:18px;background:var(--paper);display:flex;gap:14px;align-items:flex-start;transition:background .2s}
+.cinfo__i:hover{background:var(--lemon)}
+.cinfo__i b{display:block;font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.14em;opacity:.6;margin-bottom:5px}
+.cinfo__i span{font-size:.98rem;font-weight:600;line-height:1.35}
+.cinfo__ic{width:24px;height:24px;flex:0 0 auto;margin-top:2px}
+
+.form{border:2px solid var(--ink);background:var(--paper);box-shadow:10px 10px 0 var(--ink);padding:clamp(20px,3vw,34px);position:relative}
+.form__hd{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+.form h3{font-size:clamp(1.2rem,2.6vw,1.9rem)}
+.form__prog{display:flex;gap:6px;margin:16px 0 20px}
+.form__pb{height:6px;flex:1;background:var(--paper-2);border:1px solid var(--ink)}
+.form__pb.is-on{background:var(--blue)}
+.fstep{display:none;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.fstep.is-on{display:grid}
+.f{display:flex;flex-direction:column;gap:6px}
+.f--full{grid-column:1/-1}
+.f label{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.14em;font-weight:700}
+.f label i{color:var(--orange);font-style:normal}
+.f input,.f select,.f textarea{
+  font:inherit;font-size:.94rem;padding:13px 14px;border:2px solid var(--ink);
+  background:var(--white);color:var(--ink);width:100%;border-radius:0;
+  transition:box-shadow .16s,border-color .16s;
+}
+.f textarea{resize:vertical;min-height:104px}
+.f select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 6l5 5 5-5' fill='none' stroke='%230D0D0C' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:15px;padding-right:38px}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;box-shadow:4px 4px 0 var(--blue)}
+.f.has-err input,.f.has-err select,.f.has-err textarea{border-color:var(--orange);box-shadow:4px 4px 0 var(--orange)}
+.f__err{font-size:.72rem;color:#C3350B;font-weight:700;display:none}
+.f.has-err .f__err{display:block}
+.f--chk{flex-direction:row;align-items:flex-start;gap:10px}
+.f--chk input{width:20px;height:20px;flex:0 0 auto;margin-top:2px;accent-color:var(--blue)}
+.f--chk span{font-size:.78rem;opacity:.8;line-height:1.4}
+.form__row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:18px}
+.form__hint{font-size:.76rem;opacity:.7}
+.form__ok{display:none;text-align:center;padding:24px 6px}
+.form__ok.is-on{display:block}
+.form__ok .tick{width:76px;height:76px;margin:0 auto 18px;border:3px solid var(--ink);background:var(--lemon);display:grid;place-items:center}
+.form__ok h3{margin-bottom:10px;font-size:clamp(1.3rem,3vw,2.1rem)}
+.form__ok p{font-size:.95rem;opacity:.84;max-width:46ch;margin:0 auto}
+.form__ok .form__row{justify-content:center}
+
+/* ============================================================
+   15. FOOTER + SABİT BUTONLAR
+   ============================================================ */
+.ftr{background:var(--ink);color:var(--paper);padding-block:clamp(44px,6vw,80px) 26px}
+.ftr__top{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
+.ftr__brand .logo__txt{font-size:1.4rem;color:var(--paper)}
+.ftr__brand p{font-size:.88rem;opacity:.72;margin-top:14px;max-width:34ch}
+.ftr h4{font-size:.95rem;color:var(--lemon);margin-bottom:14px}
+.ftr ul{display:grid;gap:9px}
+.ftr li a,.ftr li{font-size:.86rem;opacity:.76;transition:opacity .18s,color .18s}
+.ftr li a:hover{opacity:1;color:var(--lemon)}
+.ftr__bot{margin-top:clamp(30px,4vw,54px);padding-top:20px;border-top:1px solid rgba(244,241,233,.2);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.ftr__bot p{font-size:.76rem;opacity:.6}
+.ftr__demo{border:1px solid rgba(244,241,233,.35);padding:7px 12px;font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.1em;opacity:.72}
+
+.wa{
+  position:fixed;right:16px;bottom:16px;z-index:130;
+  width:56px;height:56px;background:#25D366;border:2px solid var(--ink);
+  display:grid;place-items:center;box-shadow:4px 4px 0 var(--ink);
+  transition:transform .18s var(--ease-pop),box-shadow .18s;
+}
+.wa:hover{transform:translate(-2px,-2px) scale(1.04);box-shadow:7px 7px 0 var(--ink)}
+.wa svg{width:30px;height:30px}
+.mbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:128;border-top:2px solid var(--ink);background:var(--paper)}
+.mbar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:15px 8px;font-weight:800;font-size:.88rem}
+.mbar a:first-child{background:var(--ink);color:var(--paper)}
+.mbar a:last-child{background:var(--orange);color:var(--ink);border-left:2px solid var(--ink)}
+
+/* ============================================================
+   16. DUYARLI DÜZEN
+   ============================================================ */
+@media (max-width:1180px){
+  .trust{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .why__i,.why__i--wide,.why__i--big{grid-column:span 6}
+}
+@media (max-width:1024px){
+  .nav{display:none}
+  .hdr__cta{display:none}
+  .burger{display:flex}
+  .hero__top{grid-template-columns:1fr}
+  .sec__head--split{grid-template-columns:1fr}
+  .sgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .works{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tsts{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+  .ftr__top{grid-template-columns:1fr 1fr}
+  .bars{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .step{grid-template-columns:minmax(70px,.5fr) minmax(0,1.6fr);row-gap:10px}
+  .step__meta,.step__time{grid-column:2}
+}
+@media (max-width:760px){
+  .trust{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pain{grid-template-columns:1fr}
+  .pain__i{border-right:0}
+  .notfor{grid-template-columns:1fr}
+  .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .why__i,.why__i--wide,.why__i--big{grid-column:span 12}
+  .mbar{display:flex}
+  body{padding-bottom:58px}
+  .wa{bottom:74px;width:50px;height:50px}
+}
+@media (max-width:620px){
+  .sgrid{grid-template-columns:1fr;grid-auto-rows:auto}
+  .svc,.svc.is-main{grid-row:span 1}
+  .svc__in{min-height:250px}
+  .svc.is-main .svc__in{min-height:290px}
+  .works{grid-template-columns:1fr}
+  .fstep{grid-template-columns:1fr}
+  .ftr__top{grid-template-columns:1fr}
+  .bars{grid-template-columns:1fr}
+  .hero__ctas .btn{flex:1 1 100%;justify-content:center}
+}
+@media (max-width:400px){
+  .trust{grid-template-columns:1fr}
+}
+
+/* Mobilde 3D kart çevirmeyi dokunmayla yönet */
+@media (hover:none){
+  .svc:hover .svc__in{transform:none}
+  .svc.is-flipped .svc__in{transform:rotateY(180deg)}
+}
+
+/* ============================================================
+   17. HAREKET AZALTMA
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .mq__track{animation:none}
+  .rv{opacity:1;transform:none}
+  .svc__in{transition:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#icerik">İçeriğe geç</a>
+
+<!-- ============================================================
+     1. SABİT ÜST MENÜ
+     ============================================================ -->
+<header class="hdr" id="hdr">
+  <div class="wrap hdr__in">
+    <a class="logo" href="#top" aria-label="TasarımMania ana sayfa">
+      <svg class="logo__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect x="4" y="12" width="20" height="30" fill="#2B4BF2" stroke="#0D0D0C" stroke-width="3" transform="rotate(-11 14 27)"/>
+        <rect x="22" y="16" width="20" height="30" fill="#FF5C1A" stroke="#0D0D0C" stroke-width="3" transform="rotate(5 32 31)"/>
+        <rect x="38" y="20" width="20" height="30" fill="#E9FF5A" stroke="#0D0D0C" stroke-width="3" transform="rotate(-4 48 35)"/>
+      </svg>
+      <span class="logo__txt">Tasarım<em>Mania</em></span>
+    </a>
+
+    <nav class="nav" aria-label="Ana menü">
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#neden-biz">Neden Biz</a>
+      <a href="#isler">İşler</a>
+      <a href="#surec">Süreç</a>
+      <a href="#sss">SSS</a>
+      <a href="#iletisim">İletişim</a>
+    </nav>
+    <a class="hdr__cta" href="#iletisim">Teklif Al</a>
+
+    <button class="burger" id="burger" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mnav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobil menü -->
+<nav class="mnav" id="mnav" aria-label="Mobil menü">
+  <a href="#hizmetler">Hizmetler</a>
+  <a href="#neden-biz">Neden Biz</a>
+  <a href="#isler">İşler</a>
+  <a href="#surec">Süreç</a>
+  <a href="#sss">SSS</a>
+  <a href="#iletisim">İletişim</a>
+  <div class="mnav__foot">
+    <a href="tel:+905386999666">Telefon: 0538 699 96 66</a>
+    <a href="https://wa.me/905386999666" target="_blank" rel="noopener">WhatsApp'tan yazın</a>
+    <a href="#iletisim" class="btn btn--pri" style="justify-content:center;margin-top:6px">Teklif Al <span class="btn__ar">→</span></a>
+  </div>
+</nav>
+
+<main id="icerik">
+<span id="top"></span>
+
+<!-- ============================================================
+     2. HERO — KİNETİK KART DESTESİ
+     ============================================================ -->
+<section class="hero" aria-labelledby="hero-t">
+  <div class="hero__grid-bg" aria-hidden="true"></div>
+  <div class="wrap hero__in">
+
+    <div class="hero__top">
+      <div>
+        <p class="mono" style="margin-bottom:14px">İstanbul · Bakırköy — 360° Dijital Prodüksiyon Stüdyosu</p>
+        <h1 id="hero-t">
+          <span class="ln"><span class="out">Beğenilen</span></span>
+          <span class="ln"><span class="blk blk--blue"><span>değil</span></span></span>
+          <span class="ln">Satan <span class="blk blk--orange"><span>iş</span></span></span>
+          <span class="ln">Üretiyoruz<span style="color:var(--orange)">.</span></span>
+        </h1>
+      </div>
+      <div>
+        <p class="hero__lede">
+          Web, mobil, reklam, video ve SEO <strong>tek çatı altında</strong>.
+          Kampanyayı biz kurarız; sonucu sizin ciro tablonuz söyler.
+          Yurt dışı kampanya ve çok dilli SEO dahil.
+        </p>
+        <div class="hero__ctas">
+          <a class="btn btn--pri" href="#iletisim">Ücretsiz Strateji Görüşmesi <span class="btn__ar">→</span></a>
+          <a class="btn btn--sec" href="#isler">İşleri İncele</a>
+        </div>
+        <p class="hero__micro"><b>40 saniye.</b> Formda 3 soru var. Ortalama yanıt süremiz 2 saat.</p>
+      </div>
+    </div>
+
+    <!-- 3D sahne: kartlar dağınık başlar, scroll ile grid'e toplanır -->
+    <div class="stage" id="stage" aria-hidden="true">
+      <div class="deck" id="deck">
+        <article class="kcard kc--blue"   data-k="0"><span class="kcard__n">01</span><span class="kcard__t">Web<br>Tasarım</span><span class="kcard__m">Kurumsal · E-ticaret</span></article>
+        <article class="kcard kc--orange" data-k="1"><span class="kcard__n">02</span><span class="kcard__t">Mobil<br>Uygulama</span><span class="kcard__m">iOS · Android</span></article>
+        <article class="kcard kc--lemon"  data-k="2"><span class="kcard__n">03</span><span class="kcard__t">Dijital<br>Pazarlama</span><span class="kcard__m">Meta · Google</span></article>
+        <article class="kcard kc--ink"    data-k="3"><span class="kcard__n">04</span><span class="kcard__t">Video<br>Prodüksiyon</span><span class="kcard__m">Reklam · İçerik</span></article>
+        <article class="kcard kc--paper"  data-k="4"><span class="kcard__n">05</span><span class="kcard__t">SEO<br>Hizmetleri</span><span class="kcard__m">Teknik · Çok dilli</span></article>
+        <article class="kcard kc--paper2" data-k="5"><span class="kcard__n">06</span><span class="kcard__t">AI<br>Entegrasyon</span><span class="kcard__m">Asistan · Otomasyon</span></article>
+      </div>
+      <p class="mono stage__hint" id="stageHint">↓ Kaydırın — deste yerine otursun</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     3. MARQUEE ŞERİDİ #1
+     ============================================================ -->
+<div class="mq mq--blue js-mq" style="--dur:30s" aria-hidden="true">
+  <div class="mq__track">
+    <div class="mq__grp">
+      <span class="mq__i">Web Tasarım &amp; Yazılım <i>✱</i></span>
+      <span class="mq__i">Mobil Uygulama <i>✱</i></span>
+      <span class="mq__i">Dijital Pazarlama <i>✱</i></span>
+      <span class="mq__i">Video Prodüksiyon <i>✱</i></span>
+      <span class="mq__i">SEO Hizmetleri <i>✱</i></span>
+      <span class="mq__i">Yurt Dışı Kampanya <i>✱</i></span>
+    </div>
+    <div class="mq__grp">
+      <span class="mq__i">Web Tasarım &amp; Yazılım <i>✱</i></span>
+      <span class="mq__i">Mobil Uygulama <i>✱</i></span>
+      <span class="mq__i">Dijital Pazarlama <i>✱</i></span>
+      <span class="mq__i">Video Prodüksiyon <i>✱</i></span>
+      <span class="mq__i">SEO Hizmetleri <i>✱</i></span>
+      <span class="mq__i">Yurt Dışı Kampanya <i>✱</i></span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     4. GÜVEN ŞERİDİ
+     ============================================================ -->
+<section class="sec" aria-labelledby="guven-t" style="padding-block:clamp(34px,4.5vw,64px)">
+  <div class="wrap">
+    <h2 id="guven-t" class="mono" style="margin-bottom:20px;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.18em">
+      Çalıştığımız platformlar &amp; kanallar — 2013'ten beri
+    </h2>
+    <div class="trust">
+      <div class="trust__i rv">
+        <svg class="trust__ico" viewBox="0 0 24 24" fill="none" stroke="#2B4BF2" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18M9 21V9"/></svg>
+        <b>Meta Business</b><span>Facebook &amp; Instagram reklam yönetimi, katalog, CAPI kurulumu</span>
+      </div>
+      <div class="trust__i rv">
+        <svg class="trust__ico" viewBox="0 0 24 24" fill="none" stroke="#FF5C1A" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+        <b>Google Ads &amp; GA4</b><span>Arama, PMax, YouTube; sunucu taraflı dönüşüm ölçümü</span>
+      </div>
+      <div class="trust__i rv">
+        <svg class="trust__ico" viewBox="0 0 24 24" fill="none" stroke="#0D0D0C" stroke-width="2" aria-hidden="true"><path d="M4 20V8l8-5 8 5v12"/><path d="M9 20v-7h6v7"/></svg>
+        <b>WordPress &amp; Woo</b><span>Kurumsal site, e-ticaret, özel eklenti geliştirme</span>
+      </div>
+      <div class="trust__i rv">
+        <svg class="trust__ico" viewBox="0 0 24 24" fill="none" stroke="#2B4BF2" stroke-width="2" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+        <b>App Store &amp; Play</b><span>Yayın süreci, ASO, sürüm yönetimi, kilometre taşı takibi</span>
+      </div>
+      <div class="trust__i rv">
+        <svg class="trust__ico" viewBox="0 0 24 24" fill="none" stroke="#FF5C1A" stroke-width="2" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg>
+        <b>YouTube &amp; Reels</b><span>Reklam filmi, ürün videosu, sürekli içerik üretimi</span>
+      </div>
+      <div class="trust__i rv">
+        <svg class="trust__ico" viewBox="0 0 24 24" fill="none" stroke="#0D0D0C" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg>
+        <b>Search Console</b><span>Teknik SEO, hreflang, çok dilli yapı, indeksleme sağlığı</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. SORUN + KİM İÇİN DEĞİLİZ
+     ============================================================ -->
+<section class="sec sec--ink" aria-labelledby="sorun-t">
+  <div class="wrap">
+    <div class="sec__head">
+      <span class="eyebrow mono">Tanıdık geliyor mu?</span>
+      <h2 class="h2" id="sorun-t">Bütçe <span class="blk blk--orange"><span>artıyor</span></span><br>teklif sayısı sabit.</h2>
+      <p class="sub">Çoğu marka bize aynı üç cümleyle geliyor. Bu bölümde kendimizden hiç bahsetmiyoruz — sadece geldiğiniz yeri adlandırıyoruz.</p>
+    </div>
+
+    <div class="pain">
+      <div class="pain__i rv">
+        <p class="pain__q">"Rapor geliyor, para gelmiyor."</p>
+        <p>Tıklama, erişim, etkileşim… Tablolar dolu ama satış ekibinin telefonu çalmıyor. Ölçülen şeyle kazanılan şey aynı değil.</p>
+      </div>
+      <div class="pain__i rv">
+        <p class="pain__q">"Her iş ayrı firmada."</p>
+        <p>Site bir ajansta, reklam başka yerde, video freelancer'da. Kimse diğerinin verisini görmüyor; arada kaybolan bütçeyi kimse sahiplenmiyor.</p>
+      </div>
+      <div class="pain__i rv">
+        <p class="pain__q">"Yurt dışına açılamıyoruz."</p>
+        <p>Site tek dilde, hreflang yok, kampanya Türkiye'ye kilitli. İhracat hedefi var ama dijital altyapı sınırın dışına çıkamıyor.</p>
+      </div>
+    </div>
+
+    <div class="notfor rv">
+      <h3>Kim için<br>değiliz?</h3>
+      <ul>
+        <li><b>01</b><span>Bu ay verip bu ay sonuç bekleyen, 90 günlük plana sabrı olmayan markalar.</span></li>
+        <li><b>02</b><span>Ölçüm kurmamıza izin vermeyen, reklam hesabı ve analitik erişimini paylaşmayan işletmeler.</span></li>
+        <li><b>03</b><span>"En ucuzu kim yaparsa" diye ilerleyen, işi fiyat üzerinden satın alan projeler.</span></li>
+        <li><b>04</b><span>Mevzuata aykırı vaat yazmamızı isteyen sağlık, finans veya gıda markaları.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. HİZMETLER — FİLTRE ÇİPLERİ + FLIP + 3D KART ÇEVİRME
+     ============================================================ -->
+<section class="sec" id="hizmetler" aria-labelledby="hiz-t">
+  <div class="wrap">
+    <div class="sec__head sec__head--split">
+      <div>
+        <span class="eyebrow mono">Sayfanın kalbi — 5 ana hizmet</span>
+        <h2 class="h2" id="hiz-t">Tek <span class="blk blk--blue"><span>çatı</span></span><br>beş <span class="out">motor</span>.</h2>
+      </div>
+      <p class="sub">
+        Filtreye dokunun; deste yeniden dizilsin. Kartın üstüne gelin (veya dokunun) — arkasında ne yaptığımız,
+        neyi teslim ettiğimiz ve bir sonraki adım yazıyor.
+      </p>
+    </div>
+
+    <!-- Filtre çipleri -->
+    <div class="chips" role="group" aria-label="Hizmet filtreleri" id="chips">
+      <button class="chip" data-cat="all" aria-pressed="true">Tümü <span class="chip__c">12</span></button>
+      <button class="chip" data-cat="web" aria-pressed="false">Web &amp; Yazılım <span class="chip__c">3</span></button>
+      <button class="chip" data-cat="mobil" aria-pressed="false">Mobil <span class="chip__c">2</span></button>
+      <button class="chip" data-cat="pazarlama" aria-pressed="false">Dijital Pazarlama <span class="chip__c">2</span></button>
+      <button class="chip" data-cat="video" aria-pressed="false">Video <span class="chip__c">2</span></button>
+      <button class="chip" data-cat="seo" aria-pressed="false">SEO <span class="chip__c">3</span></button>
+    </div>
+
+    <!-- FLIP ile yeniden dizilen kart ızgarası -->
+    <div class="sgrid" id="sgrid" aria-live="polite">
+
+      <!-- 1. ANA -->
+      <article class="svc is-main svc--blue" data-cat="web" tabindex="0">
+        <div class="svc__in">
+          <div class="svc__f">
+            <div class="svc__top"><span class="svc__n">HİZMET 01</span><span class="svc__badge">ANA HİZMET</span></div>
+            <div>
+              <h3 class="svc__t">Web Tasarım<br>&amp; Yazılım</h3>
+              <p class="svc__d">Kurumsal site, e-ticaret ve özel web uygulamaları. Hız, dönüşüm ve arama motoru sağlığı ilk günden mimariye yazılır.</p>
+              <p class="svc__hint" style="margin-top:12px">↻ Detay için üzerine gelin</p>
+            </div>
+          </div>
+          <div class="svc__b">
+            <div>
+              <h4>Ne teslim ediyoruz</h4>
+              <ul>
+                <li>Kurumsal site &amp; çok dilli yapı</li>
+                <li>WooCommerce / özel e-ticaret altyapısı</li>
+                <li>Özel web uygulaması ve panel geliştirme</li>
+                <li>AI entegrasyonları: asistan, öneri, otomasyon</li>
+                <li>Core Web Vitals ve teknik borç temizliği</li>
+              </ul>
+            </div>
+            <a class="svc__cta" href="#iletisim">Site projemi konuşalım <span class="btn__ar">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. ANA -->
+      <article class="svc is-main svc--orange" data-cat="mobil" tabindex="0">
+        <div class="svc__in">
+          <div class="svc__f">
+            <div class="svc__top"><span class="svc__n">HİZMET 02</span><span class="svc__badge">ANA HİZMET</span></div>
+            <div>
+              <h3 class="svc__t">Mobil<br>Uygulama</h3>
+              <p class="svc__d">iOS ve Android. React Native ya da native — hangisi projenizin ömrünü uzatıyorsa onu öneririz, gerekçesiyle birlikte.</p>
+              <p class="svc__hint" style="margin-top:12px">↻ Detay için üzerine gelin</p>
+            </div>
+          </div>
+          <div class="svc__b">
+            <div>
+              <h4>Ne teslim ediyoruz</h4>
+              <ul>
+                <li>Ürün akışı, wireframe ve tıklanabilir prototip</li>
+                <li>React Native veya native geliştirme</li>
+                <li>API tasarımı ve mevcut sisteme entegrasyon</li>
+                <li>App Store &amp; Play Store yayın süreci</li>
+                <li>Sürüm bakımı, çökme takibi, mağaza optimizasyonu</li>
+              </ul>
+            </div>
+            <a class="svc__cta" href="#iletisim">Uygulama fikrimi anlatayım <span class="btn__ar">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. ANA -->
+      <article class="svc is-main svc--lemon" data-cat="pazarlama" tabindex="0">
+        <div class="svc__in">
+          <div class="svc__f">
+            <div class="svc__top"><span class="svc__n">HİZMET 03</span><span class="svc__badge">ANA HİZMET</span></div>
+            <div>
+              <h3 class="svc__t">Dijital<br>Pazarlama</h3>
+              <p class="svc__d">Meta Ads, Google Ads ve performans pazarlaması. Bütçeyi büyütmeden dönüşüm oranını büyütmeye odaklanırız.</p>
+              <p class="svc__hint" style="margin-top:12px">↻ Detay için üzerine gelin</p>
+            </div>
+          </div>
+          <div class="svc__b">
+            <div>
+              <h4>Ne teslim ediyoruz</h4>
+              <ul>
+                <li>Meta Ads &amp; Google Ads kurulum ve yönetimi</li>
+                <li>Huni kurgusu, açılış sayfası ve A/B testi</li>
+                <li>Sosyal medya yönetimi ve içerik takvimi</li>
+                <li>Yurt dışı (global) kampanya yönetimi</li>
+                <li>Tek ekran raporlama: harcanan / kazandıran / kesilen</li>
+              </ul>
+            </div>
+            <a class="svc__cta" href="#iletisim">Reklam hesabımı denetleyin <span class="btn__ar">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. ANA -->
+      <article class="svc is-main svc--ink" data-cat="video" tabindex="0">
+        <div class="svc__in">
+          <div class="svc__f">
+            <div class="svc__top"><span class="svc__n">HİZMET 04</span><span class="svc__badge">ANA HİZMET</span></div>
+            <div>
+              <h3 class="svc__t">Video<br>Prodüksiyon</h3>
+              <p class="svc__d">Reklam filmi, ürün videosu, YouTube ve Instagram içeriği. AI destekli prodüksiyonla çekim maliyetini aşağı çekiyoruz.</p>
+              <p class="svc__hint" style="margin-top:12px">↻ Detay için üzerine gelin</p>
+            </div>
+          </div>
+          <div class="svc__b">
+            <div>
+              <h4>Ne teslim ediyoruz</h4>
+              <ul>
+                <li>Reklam filmi: senaryo, çekim, kurgu, seslendirme</li>
+                <li>Ürün videosu ve 3D/AI destekli görsel üretim</li>
+                <li>YouTube &amp; Instagram sürekli içerik serisi</li>
+                <li>Reels / Shorts dikey format uyarlamaları</li>
+                <li>Çok dilli altyazı ve yerelleştirme</li>
+              </ul>
+            </div>
+            <a class="svc__cta" href="#iletisim">Video ihtiyacımı yazayım <span class="btn__ar">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5. ANA -->
+      <article class="svc is-main svc--paper2" data-cat="seo" tabindex="0">
+        <div class="svc__in">
+          <div class="svc__f">
+            <div class="svc__top"><span class="svc__n">HİZMET 05</span><span class="svc__badge">ANA HİZMET</span></div>
+            <div>
+              <h3 class="svc__t">SEO<br>Hizmetleri</h3>
+              <p class="svc__d">Teknik SEO, içerik stratejisi, yerel SEO ve uluslararası çok dilli SEO. Organik teklif sayısını artırmak tek hedef.</p>
+              <p class="svc__hint" style="margin-top:12px">↻ Detay için üzerine gelin</p>
+            </div>
+          </div>
+          <div class="svc__b">
+            <div>
+              <h4>Ne teslim ediyoruz</h4>
+              <ul>
+                <li>Teknik tarama, indeksleme ve hız düzeltmeleri</li>
+                <li>Anahtar kelime haritası ve içerik stratejisi</li>
+                <li>Yerel SEO &amp; Google İşletme Profili yönetimi</li>
+                <li>Uluslararası/çok dilli yapı: hreflang, dil sürümleri</li>
+                <li>Yapısal veri (schema.org) ve AI görünürlük katmanı</li>
+              </ul>
+            </div>
+            <a class="svc__cta" href="#iletisim">Ücretsiz teknik tarama iste <span class="btn__ar">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ALT YETENEKLER -->
+      <article class="svc" data-cat="web" tabindex="0">
+        <div class="svc__in">
+          <div class="svc__f">
+            <div class="svc__top"><span class="svc__n">A-01</span></div>
+            <div><h3 class="svc__t">E-Ticaret Altyapısı</h3><p class="svc__d">Katalog, ödeme, kargo ve ERP entegrasyonu; sepet terk oranını düşüren akış.</p></div>
+          </div>
+          <div class="svc__b">
+            <div><h4>Kapsam</h4><ul><li>Ürün-varyant mimarisi</li><li>Ödeme &amp; kargo entegrasyonu</li><li>Sepet ve ödeme akışı optimizasyonu</li></ul></div>
+            <a class="svc__cta" href="#iletisim">Konuşalım <span class="btn__ar">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc" data-cat="web" tabindex="0">
+        <div class="svc__in">
+          <div class="svc__f">
+            <div class="svc__top"><span class="svc__n">A-02</span></div>
+            <div><h3 class="svc__t">AI Entegrasyonları</h3><p class="svc__d">Site içi asistan, otomatik teklif ön eleme, içerik üretim hattı ve iç otomasyon.</p></div>
+          </div>
+          <div class="svc__b">
+            <div><h4>Kapsam</h4><ul><li>Sektöre özel AI asistan</li><li>Form öncesi nitelendirme</li><li>İçerik ve raporlama otomasyonu</li></ul></div>
+            <a class="svc__cta" href="#iletisim">Konuşalım <span class="btn__ar">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc" data-cat="mobil" tabindex="0">
+        <div class="svc__in">
+          <div class="svc__f">
+            <div class="svc__top"><span class="svc__n">A-03</span></div>
+            <div><h3 class="svc__t">Mağaza Yayın &amp; ASO</h3><p class="svc__d">App Store ve Play Store yayın süreci, red gerekçesi çözümü, mağaza optimizasyonu.</p></div>
+          </div>
+          <div class="svc__b">
+            <div><h4>Kapsam</h4><ul><li>Yayın dosyaları ve gizlilik beyanı</li><li>Red gerekçesi giderme</li><li>Görsel, açıklama ve anahtar kelime testi</li></ul></div>
+            <a class="svc__cta" href="#iletisim">Konuşalım <span class="btn__ar">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc" data-cat="pazarlama" tabindex="0">
+        <div class="svc__in">
+          <div class="svc__f">
+            <div class="svc__top"><span class="svc__n">A-04</span></div>
+            <div><h3 class="svc__t">Yurt Dışı Kampanya</h3><p class="svc__d">Avrupa ve Körfez pazarlarında dil, para birimi ve kültür uyumlu reklam yönetimi.</p></div>
+          </div>
+          <div class="svc__b">
+            <div><h4>Kapsam</h4><ul><li>Pazar bazlı bütçe dağılımı</li><li>Yerel dilde reklam metni</li><li>Ülke bazlı dönüşüm ölçümü</li></ul></div>
+            <a class="svc__cta" href="#iletisim">Konuşalım <span class="btn__ar">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc" data-cat="video" tabindex="0">
+        <div class="svc__in">
+          <div class="svc__f">
+            <div class="svc__top"><span class="svc__n">A-05</span></div>
+            <div><h3 class="svc__t">YouTube &amp; Instagram İçerik</h3><p class="svc__d">Aylık içerik serisi: format kurgusu, çekim, kurgu, kapak ve yayın takvimi.</p></div>
+          </div>
+          <div class="svc__b">
+            <div><h4>Kapsam</h4><ul><li>Kanal formatı ve içerik takvimi</li><li>Seri çekim ve kurgu</li><li>Kapak, başlık ve tıklama testi</li></ul></div>
+            <a class="svc__cta" href="#iletisim">Konuşalım <span class="btn__ar">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc" data-cat="seo" tabindex="0">
+        <div class="svc__in">
+          <div class="svc__f">
+            <div class="svc__top"><span class="svc__n">A-06</span></div>
+            <div><h3 class="svc__t">Çok Dilli &amp; Uluslararası SEO</h3><p class="svc__d">Hreflang mimarisi, dil sürümü stratejisi ve pazar bazlı içerik planı.</p></div>
+          </div>
+          <div class="svc__b">
+            <div><h4>Kapsam</h4><ul><li>Dil/ülke URL mimarisi</li><li>Yerelleştirilmiş içerik üretimi</li><li>Pazar bazlı sıralama takibi</li></ul></div>
+            <a class="svc__cta" href="#iletisim">Konuşalım <span class="btn__ar">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc" data-cat="seo" tabindex="0">
+        <div class="svc__in">
+          <div class="svc__f">
+            <div class="svc__top"><span class="svc__n">A-07</span></div>
+            <div><h3 class="svc__t">Yerel SEO</h3><p class="svc__d">Google İşletme Profili, harita sıralaması, şube bazlı sayfa ve yorum yönetimi.</p></div>
+          </div>
+          <div class="svc__b">
+            <div><h4>Kapsam</h4><ul><li>İşletme profili optimizasyonu</li><li>Şube/lokasyon sayfaları</li><li>Yorum ve soru-cevap yönetimi</li></ul></div>
+            <a class="svc__cta" href="#iletisim">Konuşalım <span class="btn__ar">→</span></a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7. NEDEN BİZ
+     ============================================================ -->
+<section class="sec sec--paper2" id="neden-biz" aria-labelledby="neden-t">
+  <div class="wrap">
+    <div class="sec__head sec__head--split">
+      <div>
+        <span class="eyebrow mono">Farkımız</span>
+        <h2 class="h2" id="neden-t">Beş firma <span class="out">yerine</span><br>bir <span class="blk blk--ink"><span>ekip</span></span>.</h2>
+      </div>
+      <p class="sub">Site, reklam, video ve SEO aynı masada oturunca arada kaybolan bütçe kalmıyor. Tek sözleşme, tek fatura, tek sorumlu.</p>
+    </div>
+
+    <div class="why">
+      <div class="why__i why__i--big rv">
+        <span class="why__k">360°</span>
+        <h3>Tek çatı, tek sorumlu</h3>
+        <p>Web, mobil, reklam, video ve SEO tek ekipten çıkar. "O bizim işimiz değil" cümlesini duymazsınız; kimin ne zaman ne teslim edeceği baştan yazılıdır.</p>
+      </div>
+      <div class="why__i why__i--wide why__i--lemon rv">
+        <span class="why__k">Kod</span>
+        <h3>Teknik derinlik, ajans süsü değil</h3>
+        <p>Ekipte gerçek geliştirici var. Tema satın alıp üstüne isim yazmıyoruz; altyapıyı biz kuruyor, hızı biz ölçüyor, teknik borcu biz temizliyoruz.</p>
+      </div>
+      <div class="why__i rv">
+        <span class="why__k">18</span>
+        <h3>Ülkede kampanya</h3>
+        <p>Avrupa ve Körfez pazarlarında dil, para birimi ve mevzuat uyumlu kampanya yönetimi. Çok dilli SEO altyapısıyla birlikte.</p>
+      </div>
+      <div class="why__i why__i--ink rv">
+        <span class="why__k">Sizin</span>
+        <h3>Hesaplar sizin adınıza</h3>
+        <p>Reklam hesabı, alan adı, analitik ve mağaza hesapları sizin adınıza açılır. Yarın ayrılsanız her şey elinizde kalır — veriyle kimseyi rehin almayız.</p>
+      </div>
+      <div class="why__i rv">
+        <span class="why__k">Aylık</span>
+        <h3>Uzun kilit yok</h3>
+        <p>12 aylık zorunlu sözleşmeye bağlamıyoruz. Aylık ilerler, çıkış koşulunu ilk gün yazarız. Kalmanız sonuçtan olsun, maddeden değil.</p>
+      </div>
+      <div class="why__i why__i--wide rv">
+        <span class="why__k">2 saat</span>
+        <h3>Yanıt süresi taahhüdü</h3>
+        <p>Mesai içinde gelen her talebe ortalama 2 saat içinde gerçek bir insan döner. Toplantı trafiğinde kaybolan brief, cevapsız kalan e-posta yok.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8. RAKAMLAR (animasyonlu sayaçlar + çubuklar)
+     ============================================================ -->
+<section class="sec sec--ink" id="rakamlar" aria-labelledby="rak-t">
+  <div class="wrap">
+    <div class="sec__head">
+      <span class="eyebrow mono">Rakamlarla</span>
+      <h2 class="h2" id="rak-t">Sözden çok <span class="blk blk--lemon"><span>tablo</span></span>.</h2>
+    </div>
+
+    <div class="nums" id="nums">
+      <div class="num rv"><div class="num__v"><span data-count="240" data-suffix="+">0</span></div><p class="num__l">Tamamlanan proje — kurumsal site, e-ticaret, uygulama ve kampanya</p></div>
+      <div class="num rv"><div class="num__v"><span data-count="18" data-suffix="">0</span></div><p class="num__l">Kampanya yönettiğimiz ülke sayısı (Avrupa &amp; Körfez ağırlıklı)</p></div>
+      <div class="num rv"><div class="num__v"><span data-count="41" data-suffix=" mn₺">0</span></div><p class="num__l">Son 12 ayda müşterilerimizde ölçülen ek ciro toplamı</p></div>
+      <div class="num rv"><div class="num__v"><span data-count="27" data-suffix=" ay">0</span></div><p class="num__l">Ortalama müşteri kalış süresi — işi bırakmayan ajans</p></div>
+    </div>
+
+    <div class="bars" id="bars">
+      <div class="bar rv"><div class="bar__h"><span>Organik teklif artışı</span><b>+214%</b></div><div class="bar__t"><span class="bar__f" data-w="86"></span></div></div>
+      <div class="bar rv"><div class="bar__h"><span>Ortalama ROAS iyileşmesi</span><b>2,1 → 4,8</b></div><div class="bar__t"><span class="bar__f" data-w="72"></span></div></div>
+      <div class="bar rv"><div class="bar__h"><span>Sayfa hızı skoru (mobil)</span><b>38 → 94</b></div><div class="bar__t"><span class="bar__f" data-w="94"></span></div></div>
+      <div class="bar rv"><div class="bar__h"><span>Müşteri edinme maliyeti</span><b>-37%</b></div><div class="bar__t"><span class="bar__f" data-w="63"></span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     9. SEÇİLİ İŞLER
+     ============================================================ -->
+<section class="sec" id="isler" aria-labelledby="isler-t">
+  <div class="wrap">
+    <div class="sec__head sec__head--split">
+      <div>
+        <span class="eyebrow mono">Seçili işler</span>
+        <h2 class="h2" id="isler-t">Sorun → <span class="blk blk--orange"><span>Yaptığımız</span></span><br><span class="out">Sonuç</span>.</h2>
+      </div>
+      <p class="sub">Altı temsili vaka. Her birinde ne bulduğumuzu, neyi değiştirdiğimizi ve hangi metriğin kıpırdadığını yazdık.</p>
+    </div>
+
+    <div class="works">
+
+      <article class="work rv">
+        <div class="work__vis">
+          <svg viewBox="0 0 400 150" aria-hidden="true"><rect width="400" height="150" fill="#2B4BF2"/><path d="M0 120 L60 92 L120 104 L180 62 L240 74 L300 34 L360 46 L400 22" fill="none" stroke="#E9FF5A" stroke-width="5"/><g fill="#E9FF5A"><circle cx="120" cy="104" r="6"/><circle cx="240" cy="74" r="6"/><circle cx="360" cy="46" r="6"/></g><rect x="16" y="16" width="60" height="10" fill="#FF5C1A"/></svg>
+        </div>
+        <div class="work__body">
+          <span class="work__tag">MOBİLYA · İHRACAT</span>
+          <h3>4 dilli kurumsal site + uluslararası SEO</h3>
+          <p>Tek dilli, yavaş ve arama motorunda görünmeyen bir siteyi 4 dilli yapıya taşıdık; hreflang mimarisi ve pazar bazlı içerik planı kurduk.</p>
+          <div class="work__res"><span class="work__r">Organik teklif ×3,4</span><span class="work__r work__r--o">4 dil canlı</span></div>
+        </div>
+      </article>
+
+      <article class="work rv">
+        <div class="work__vis">
+          <svg viewBox="0 0 400 150" aria-hidden="true"><rect width="400" height="150" fill="#F4F1E9"/><g fill="#FF5C1A"><rect x="24" y="86" width="42" height="48"/><rect x="80" y="66" width="42" height="68"/><rect x="136" y="94" width="42" height="40"/></g><g fill="#0D0D0C"><rect x="192" y="46" width="42" height="88"/><rect x="248" y="30" width="42" height="104"/><rect x="304" y="14" width="42" height="120"/></g><rect x="24" y="16" width="70" height="8" fill="#2B4BF2"/></svg>
+        </div>
+        <div class="work__body">
+          <span class="work__tag">SAĞLIK · KLİNİK</span>
+          <h3>Mevzuata uygun içerik + yerel SEO</h3>
+          <p>Tanıtım yönetmeliğine uygun içerik mimarisi, şube bazlı lokasyon sayfaları ve Google İşletme Profili düzeni kurduk.</p>
+          <div class="work__res"><span class="work__r">Randevu formu +168%</span><span class="work__r work__r--b">Harita ilk 3</span></div>
+        </div>
+      </article>
+
+      <article class="work rv">
+        <div class="work__vis">
+          <svg viewBox="0 0 400 150" aria-hidden="true"><rect width="400" height="150" fill="#E9FF5A"/><circle cx="200" cy="75" r="52" fill="none" stroke="#0D0D0C" stroke-width="14"/><path d="M200 23 A52 52 0 0 1 246 100" fill="none" stroke="#2B4BF2" stroke-width="14"/><path d="M200 23 A52 52 0 0 1 200 127" fill="none" stroke="#FF5C1A" stroke-width="14" opacity=".9"/><rect x="20" y="18" width="54" height="9" fill="#0D0D0C"/></svg>
+        </div>
+        <div class="work__body">
+          <span class="work__tag">E-TİCARET · EV TEKSTİLİ</span>
+          <h3>Meta + Google birleşik performans</h3>
+          <p>Katalog, sunucu taraflı ölçüm ve ürün bazlı bütçe dağılımını yeniden kurduk; açılış sayfalarını A/B testiyle sadeleştirdik.</p>
+          <div class="work__res"><span class="work__r work__r--o">ROAS 2,1 → 4,8</span><span class="work__r">Sepet terk -22%</span></div>
+        </div>
+      </article>
+
+      <article class="work rv">
+        <div class="work__vis">
+          <svg viewBox="0 0 400 150" aria-hidden="true"><rect width="400" height="150" fill="#0D0D0C"/><g stroke="#E9FF5A" stroke-width="3" fill="none"><path d="M30 120 L110 60 L190 96 L270 40 L350 70"/></g><g fill="#FF5C1A"><rect x="26" y="26" width="26" height="26"/><rect x="62" y="26" width="26" height="26"/></g><g fill="#2B4BF2"><rect x="300" y="100" width="70" height="26"/></g><text x="30" y="146" fill="#F4F1E9" font-size="11" font-family="monospace">DE · NL · BE</text></svg>
+        </div>
+        <div class="work__body">
+          <span class="work__tag">B2B · ENDÜSTRİYEL MAKİNE</span>
+          <h3>Almanya &amp; Hollanda talep kampanyası</h3>
+          <p>Yerel dilde reklam metni, ülke bazlı açılış sayfası ve teklif formunu 3 adıma böldük; gelen talepleri satış ekibi için önceden niteledik.</p>
+          <div class="work__res"><span class="work__r">Nitelikli talep ×5,2</span><span class="work__r work__r--b">3 pazar</span></div>
+        </div>
+      </article>
+
+      <article class="work rv">
+        <div class="work__vis">
+          <svg viewBox="0 0 400 150" aria-hidden="true"><rect width="400" height="150" fill="#FF5C1A"/><rect x="120" y="34" width="160" height="86" fill="#0D0D0C"/><path d="M182 60 L226 77 L182 94 Z" fill="#E9FF5A"/><rect x="24" y="120" width="352" height="8" fill="#0D0D0C"/><rect x="24" y="120" width="230" height="8" fill="#2B4BF2"/></svg>
+        </div>
+        <div class="work__body">
+          <span class="work__tag">KOZMETİK · İÇERİK</span>
+          <h3>YouTube + Instagram video serisi</h3>
+          <p>Aylık 12 videoluk format kurduk: uzun form YouTube, dikey kesitler Reels. Kapak ve başlıkları tıklama verisine göre haftalık revize ettik.</p>
+          <div class="work__res"><span class="work__r">11,4 mn izlenme</span><span class="work__r work__r--o">Abone ×2,8</span></div>
+        </div>
+      </article>
+
+      <article class="work rv">
+        <div class="work__vis">
+          <svg viewBox="0 0 400 150" aria-hidden="true"><rect width="400" height="150" fill="#EAE6DA"/><rect x="160" y="18" width="80" height="120" rx="10" fill="#0D0D0C"/><rect x="168" y="30" width="64" height="92" fill="#2B4BF2"/><rect x="176" y="40" width="48" height="8" fill="#E9FF5A"/><rect x="176" y="56" width="34" height="8" fill="#F4F1E9"/><rect x="176" y="72" width="48" height="26" fill="#FF5C1A"/><g fill="#0D0D0C"><rect x="40" y="60" width="70" height="8"/><rect x="40" y="78" width="46" height="8"/><rect x="290" y="60" width="70" height="8"/><rect x="290" y="78" width="46" height="8"/></g></svg>
+        </div>
+        <div class="work__body">
+          <span class="work__tag">FİNTECH · MOBİL</span>
+          <h3>iOS &amp; Android uygulama yayını</h3>
+          <p>Prototipten yayına 14 haftada çıktık; mağaza red gerekçelerini üç turda kapattık, ASO ile organik indirmeyi büyüttük.</p>
+          <div class="work__res"><span class="work__r work__r--b">90 günde 74B indirme</span><span class="work__r">4,6 mağaza puanı</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     10. MARQUEE ŞERİDİ #2 (ters yön, farklı hız)
+     ============================================================ -->
+<div class="mq mq--lemon mq--rev mq--sm js-mq" style="--dur:22s" aria-hidden="true">
+  <div class="mq__track">
+    <div class="mq__grp">
+      <span class="mq__i">Kurumsal Site</span><span class="mq__i">E-Ticaret</span><span class="mq__i">AI Entegrasyonu</span><span class="mq__i">React Native</span><span class="mq__i">Meta Ads</span><span class="mq__i">Google Ads</span><span class="mq__i">Reklam Filmi</span><span class="mq__i">Reels &amp; Shorts</span><span class="mq__i">Teknik SEO</span><span class="mq__i">Hreflang</span><span class="mq__i">Yerel SEO</span><span class="mq__i">Core Web Vitals</span>
+    </div>
+    <div class="mq__grp">
+      <span class="mq__i">Kurumsal Site</span><span class="mq__i">E-Ticaret</span><span class="mq__i">AI Entegrasyonu</span><span class="mq__i">React Native</span><span class="mq__i">Meta Ads</span><span class="mq__i">Google Ads</span><span class="mq__i">Reklam Filmi</span><span class="mq__i">Reels &amp; Shorts</span><span class="mq__i">Teknik SEO</span><span class="mq__i">Hreflang</span><span class="mq__i">Yerel SEO</span><span class="mq__i">Core Web Vitals</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     11. ÇALIŞMA SÜRECİ
+     ============================================================ -->
+<section class="sec" id="surec" aria-labelledby="surec-t">
+  <div class="wrap">
+    <div class="sec__head sec__head--split">
+      <div>
+        <span class="eyebrow mono">Nasıl çalışıyoruz</span>
+        <h2 class="h2" id="surec-t">Brief'ten yayına<br><span class="blk blk--blue"><span>21 iş günü</span></span></h2>
+      </div>
+      <p class="sub">Her adımın süresi, sorumlusu ve sizden isteyeceğimiz şey baştan yazılı. Takvimi kaçırırsak o ayın bedelini biz karşılarız.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step rv">
+        <span class="step__n">01</span>
+        <div><h3>Teşhis Görüşmesi</h3><p>Satış sunumu değil ekran paylaşımı. Sitenizin, reklam hesabınızın ve arama görünürlüğünüzün para kaybettiği yerleri canlı işaretleriz. Çalışmasak da o liste sizde kalır.</p></div>
+        <div class="step__meta"><span><b>Sorumlu</b>Strateji ekibi</span><span><b>Sizden</b>Analitik ve reklam hesabı görüntüleme izni</span></div>
+        <span class="step__time">45 dakika</span>
+      </div>
+      <div class="step rv">
+        <span class="step__n">02</span>
+        <div><h3>Plan &amp; Teklif</h3><p>Kapsam, ekip, takvim ve fiyat tek sayfada. Hangi metriğin ne kadar sürede kıpırdamasını beklediğimizi yazarız. Sonradan çıkan ek kalem yoktur.</p></div>
+        <div class="step__meta"><span><b>Sorumlu</b>Müşteri direktörü</span><span><b>Sizden</b>Hedef ve bütçe aralığı onayı</span></div>
+        <span class="step__time">48 saat</span>
+      </div>
+      <div class="step rv">
+        <span class="step__n">03</span>
+        <div><h3>Üretim</h3><p>Tasarım, yazılım, çekim ve içerik paralel yürür. Haftalık 30 dakikalık ilerleme toplantısı; ara teslimleri canlı önizleme linkinden görürsünüz.</p></div>
+        <div class="step__meta"><span><b>Sorumlu</b>Tasarım · Yazılım · Prodüksiyon</span><span><b>Sizden</b>Marka varlıkları ve haftalık geri bildirim</span></div>
+        <span class="step__time">2–4 hafta</span>
+      </div>
+      <div class="step rv">
+        <span class="step__n">04</span>
+        <div><h3>Yayın &amp; Ölçüm</h3><p>Yayın öncesi kontrol listesi: hız, mobil, form akışı, dönüşüm izleme, yapısal veri. Ölçüm kurulmadan hiçbir kampanya açılmaz.</p></div>
+        <div class="step__meta"><span><b>Sorumlu</b>Teknik ekip</span><span><b>Sizden</b>Alan adı ve hesap erişimleri</span></div>
+        <span class="step__time">3 iş günü</span>
+      </div>
+      <div class="step rv">
+        <span class="step__n">05</span>
+        <div><h3>Büyütme</h3><p>Aylık tek sayfa rapor: harcanan, kazandıran, kestiğimiz. Yorum değil tablo. Her ay bir hipotez test eder, işe yaramayanı kapatırız.</p></div>
+        <div class="step__meta"><span><b>Sorumlu</b>Performans ekibi</span><span><b>Sizden</b>Satış/CRM verisi (varsa)</span></div>
+        <span class="step__time">Aylık döngü</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     12. MÜŞTERİ YORUMLARI
+     ============================================================ -->
+<section class="sec sec--paper2" aria-labelledby="yorum-t">
+  <div class="wrap">
+    <div class="sec__head">
+      <span class="eyebrow mono">Ne diyorlar</span>
+      <h2 class="h2" id="yorum-t">Övgü değil,<br><span class="out">sonuç cümlesi</span>.</h2>
+    </div>
+    <div class="tsts">
+      <div class="tst rv">
+        <span class="tst__q">“</span>
+        <p>İki ajans değiştirdikten sonra geldik. Farkı ilk toplantıda gördük: sunum yapmadılar, sitemizin para kaybettiği yerleri ekranda gösterdiler. Dört ay sonra organik teklif sayımız üçe katlandı.</p>
+        <div class="tst__w"><span class="tst__av">MK</span><div><b>Murat Kayaalp</b><span>Pazarlama Direktörü · Mobilya İhracat</span></div></div>
+      </div>
+      <div class="tst rv">
+        <span class="tst__q">“</span>
+        <p>Site, reklam ve video ayrı firmalardaydı; kimse diğerinin verisini görmüyordu. Hepsini tek ekibe verince aynı bütçeyle dönüşüm oranımız iki katına çıktı. Aylık raporu artık gerçekten okuyorum.</p>
+        <div class="tst__w"><span class="tst__av">EÖ</span><div><b>Elif Özdemir</b><span>Kurucu Ortak · Ev Tekstili E-Ticaret</span></div></div>
+      </div>
+      <div class="tst rv">
+        <span class="tst__q">“</span>
+        <p>Almanya ve Hollanda'ya açılmak istiyorduk ama nereden başlayacağımızı bilmiyorduk. Dört dilli yapıyı ve ülke bazlı kampanyaları kurdular; ilk yılda gelen taleplerin yarısı yurt dışından geldi.</p>
+        <div class="tst__w"><span class="tst__av">SD</span><div><b>Serkan Demirtaş</b><span>Genel Müdür · Endüstriyel Makine</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     13. BÜYÜK CTA BANDI
+     ============================================================ -->
+<section class="band" aria-labelledby="band-t">
+  <svg class="band__deco" viewBox="0 0 200 200" aria-hidden="true">
+    <rect x="20" y="30" width="70" height="100" fill="#E9FF5A" transform="rotate(-12 55 80)"/>
+    <rect x="60" y="50" width="70" height="100" fill="#FF5C1A" transform="rotate(6 95 100)"/>
+    <rect x="100" y="40" width="70" height="100" fill="#F4F1E9" transform="rotate(-5 135 90)"/>
+  </svg>
+  <div class="wrap band__in">
+    <p class="mono" style="margin-bottom:16px">Sıradaki adım</p>
+    <h2 id="band-t">Sitenizin<br>para kaybettiği<br><span class="blk blk--lemon"><span>3 noktayı</span></span><br>gösterelim.</h2>
+    <div class="band__row">
+      <a class="btn btn--lemon" href="#iletisim">Ücretsiz teşhis görüşmesi <span class="btn__ar">→</span></a>
+      <a class="btn btn--sec" href="https://wa.me/905386999666" target="_blank" rel="noopener">WhatsApp'tan yazın</a>
+      <p class="band__note">45 dakika, ekran paylaşımlı. Satış görüşmesi değil, teşhis görüşmesi. Çalışmasak da liste sizde kalır.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     14. İTİRAZLAR / SSS
+     ============================================================ -->
+<section class="sec" id="sss" aria-labelledby="sss-t">
+  <div class="wrap">
+    <div class="sec__head sec__head--split">
+      <div>
+        <span class="eyebrow mono">İtirazlar</span>
+        <h2 class="h2" id="sss-t">"Hayır"ın<br>ilk <span class="blk blk--orange"><span>altı</span></span> sebebi.</h2>
+      </div>
+      <p class="sub">Görüşmede sorulan soruları buraya yazdık ki formu doldurmadan cevabını bilin.</p>
+    </div>
+
+    <div class="faq" id="faq">
+      <div class="faq__i">
+        <button class="faq__q" id="faqq1" aria-expanded="false" aria-controls="faqa1">Uzun süreli sözleşmeye bağlıyor musunuz?<span class="faq__ic" aria-hidden="true">+</span></button>
+        <div class="faq__a" id="faqa1" role="region" aria-labelledby="faqq1"><p>Hayır. Proje işlerinde kapsam ve takvim; sürekli hizmetlerde aylık ilerleyen bir çalışma kuruyoruz. Çıkış koşulunu ilk gün yazıyoruz; ay sonunda 30 gün önceden haber vererek ayrılabilirsiniz. Devam kararınız maddeden değil sonuçtan çıksın istiyoruz.</p></div>
+      </div>
+      <div class="faq__i">
+        <button class="faq__q" id="faqq2" aria-expanded="false" aria-controls="faqa2">Fiyatlar ne aralıkta başlıyor?<span class="faq__ic" aria-hidden="true">+</span></button>
+        <div class="faq__a" id="faqa2" role="region" aria-labelledby="faqq2"><p>Kurumsal site projeleri belirli bir taban bütçeden, sürekli performans yönetimi ise aylık taban ücretten başlar. İlk görüşmede kapsamı duyduğumuz anda aralığı söyleriz; bütçeniz uymuyorsa bunu ilk yanıtta belirtir, boşuna toplantı yapmayız. Teklif 48 saat içinde kalem kalem elinize geçer.</p></div>
+      </div>
+      <div class="faq__i">
+        <button class="faq__q" id="faqq3" aria-expanded="false" aria-controls="faqa3">Mevcut ajansımdan geçiş nasıl oluyor?<span class="faq__ic" aria-hidden="true">+</span></button>
+        <div class="faq__a" id="faqa3" role="region" aria-labelledby="faqq3"><p>Hesap devri, veri taşıma ve geçiş takvimini yazılı planlıyoruz. Reklam kampanyaları kapatılmadan yeni yapı paralel kuruluyor; yayında tek gün boşluk olmuyor. Mevcut ajansınızla vedalaşmadan önce de konuşabiliriz, bu bir sorun değil.</p></div>
+      </div>
+      <div class="faq__i">
+        <button class="faq__q" id="faqq4" aria-expanded="false" aria-controls="faqa4">Reklam hesapları ve veriler kimin adına açılıyor?<span class="faq__ic" aria-hidden="true">+</span></button>
+        <div class="faq__a" id="faqa4" role="region" aria-labelledby="faqq4"><p>Hepsi sizin adınıza. Alan adı, hosting, reklam hesapları, analitik ve mağaza hesapları şirketinizin mülkiyetinde olur; biz yalnızca yetkili kullanıcı oluruz. Yarın ayrılsanız hiçbir varlığınız bizde kalmaz.</p></div>
+      </div>
+      <div class="faq__i">
+        <button class="faq__q" id="faqq5" aria-expanded="false" aria-controls="faqa5">Raporlama sıklığı ve içeriği nedir?<span class="faq__ic" aria-hidden="true">+</span></button>
+        <div class="faq__a" id="faqa5" role="region" aria-labelledby="faqq5"><p>Aylık tek sayfa: harcanan bütçe, gelen sonuç, kestiğimiz kalemler ve gelecek ayın hipotezi. Ayrıca 7/24 açık canlı bir panelden kendi rakamlarınızı istediğiniz an görürsünüz. Haftada bir 30 dakikalık kısa ilerleme toplantısı yapıyoruz.</p></div>
+      </div>
+      <div class="faq__i">
+        <button class="faq__q" id="faqq6" aria-expanded="false" aria-controls="faqa6">Yurt dışı kampanyada dil ve mevzuat işini kim yapıyor?<span class="faq__ic" aria-hidden="true">+</span></button>
+        <div class="faq__a" id="faqa6" role="region" aria-labelledby="faqq6"><p>Reklam metinleri hedef pazarın dilinde yazılır, makine çevirisiyle geçiştirilmez. Site tarafında hreflang mimarisi ve dil sürümleri kurulur. Sağlık, finans ve gıda gibi düzenlemeye tabi sektörlerde hedef ülkenin reklam kısıtlarını önden tarar, riskli vaatleri metinden çıkarırız.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     15. İLETİŞİM + TEKLİF FORMU
+     ============================================================ -->
+<section class="sec sec--paper2" id="iletisim" aria-labelledby="ilet-t">
+  <div class="wrap">
+    <div class="sec__head sec__head--split">
+      <div>
+        <span class="eyebrow mono">İletişim</span>
+        <h2 class="h2" id="ilet-t">Projenizi<br><span class="blk blk--blue"><span>anlatın</span></span>.</h2>
+      </div>
+      <p class="sub">Form, WhatsApp veya doğrudan telefon — hangisi size kolaysa. Mesai içinde ortalama yanıt süremiz 2 saat.</p>
+    </div>
+
+    <div class="contact">
+
+      <!-- Bilgiler -->
+      <div class="cinfo">
+        <a class="cinfo__i" href="tel:+905386999666">
+          <svg class="cinfo__ic" viewBox="0 0 24 24" fill="none" stroke="#2B4BF2" stroke-width="2" aria-hidden="true"><path d="M4 4h5l2 5-3 2a13 13 0 0 0 5 5l2-3 5 2v5a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1z"/></svg>
+          <span><b>Telefon</b><span>0538 699 96 66</span></span>
+        </a>
+        <a class="cinfo__i" href="https://wa.me/905386999666" target="_blank" rel="noopener">
+          <svg class="cinfo__ic" viewBox="0 0 24 24" fill="none" stroke="#0D0D0C" stroke-width="2" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.3 7.9L3 21l1.2-4.5A9 9 0 1 1 21 12z"/></svg>
+          <span><b>WhatsApp</b><span>Hemen yazın — gerçek bir insan cevaplasın</span></span>
+        </a>
+        <div class="cinfo__i">
+          <svg class="cinfo__ic" viewBox="0 0 24 24" fill="none" stroke="#FF5C1A" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <span><b>Adres</b><span>Zeytinlik Mah. Pancar Sk. No:19-11<br>Bakırköy / İstanbul</span></span>
+        </div>
+        <div class="cinfo__i">
+          <svg class="cinfo__ic" viewBox="0 0 24 24" fill="none" stroke="#2B4BF2" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <span><b>Çalışma saatleri</b><span>Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</span></span>
+        </div>
+        <div class="cinfo__i" style="background:var(--ink);color:var(--paper);border-color:var(--ink)">
+          <svg class="cinfo__ic" viewBox="0 0 24 24" fill="none" stroke="#E9FF5A" stroke-width="2" aria-hidden="true"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+          <span><b style="color:#E9FF5A;opacity:1">Görüşmede ne konuşacağız</b><span style="font-weight:400;font-size:.86rem;opacity:.85">Mevcut durumun teşhisi · kaybın nerede olduğu · ilk 90 günün planı · bütçe aralığı. Sunum yok.</span></span>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="form">
+        <form id="teklifForm" novalidate>
+          <div class="form__hd">
+            <h3>Teklif alın</h3>
+            <span class="mono" id="stepLabel">Adım 1 / 2</span>
+          </div>
+          <p class="form__hint">3 soruyla başlıyoruz, toplam 40 saniye sürüyor.</p>
+
+          <div class="form__prog" aria-hidden="true">
+            <span class="form__pb is-on" id="pb1"></span>
+            <span class="form__pb" id="pb2"></span>
+          </div>
+
+          <!-- Adım 1 -->
+          <div class="fstep is-on" id="fstep1">
+            <div class="f f--full">
+              <label for="ad">Ad Soyad <i>*</i></label>
+              <input type="text" id="ad" name="ad" autocomplete="name" placeholder="Adınız ve soyadınız">
+              <span class="f__err">Lütfen adınızı yazın.</span>
+            </div>
+            <div class="f">
+              <label for="tel">Telefon</label>
+              <input type="tel" id="tel" name="tel" autocomplete="tel" placeholder="05xx xxx xx xx">
+              <span class="f__err">Telefon numarası en az 10 hane olmalı.</span>
+            </div>
+            <div class="f">
+              <label for="eposta">E-posta <i>*</i></label>
+              <input type="email" id="eposta" name="eposta" autocomplete="email" placeholder="ornek@sirket.com">
+              <span class="f__err">Geçerli bir e-posta adresi yazın.</span>
+            </div>
+            <div class="f f--full">
+              <label for="kanal">Size nasıl dönelim?</label>
+              <select id="kanal" name="kanal">
+                <option value="whatsapp">WhatsApp (en hızlısı)</option>
+                <option value="telefon">Telefon</option>
+                <option value="eposta">E-posta</option>
+              </select>
+            </div>
+            <div class="form__row f--full">
+              <button type="button" class="btn btn--blue" id="next1">Devam et <span class="btn__ar">→</span></button>
+              <span class="form__hint">Telefon zorunlu değil. Tercih ettiğiniz kanaldan döneriz.</span>
+            </div>
+          </div>
+
+          <!-- Adım 2 -->
+          <div class="fstep" id="fstep2">
+            <div class="f">
+              <label for="hizmet">Hizmet <i>*</i></label>
+              <select id="hizmet" name="hizmet">
+                <option value="">Seçiniz…</option>
+                <option>Web Tasarım &amp; Yazılım</option>
+                <option>Mobil Uygulama</option>
+                <option>Dijital Pazarlama</option>
+                <option>Video Prodüksiyon</option>
+                <option>SEO Hizmetleri</option>
+                <option>Birden fazlası / 360° paket</option>
+              </select>
+              <span class="f__err">Lütfen bir hizmet seçin.</span>
+            </div>
+            <div class="f">
+              <label for="butce">Bütçe aralığı</label>
+              <select id="butce" name="butce">
+                <option value="">Belirtmek istemiyorum</option>
+                <option>150.000 ₺ altı</option>
+                <option>150.000 – 400.000 ₺</option>
+                <option>400.000 – 1.000.000 ₺</option>
+                <option>1.000.000 ₺ üzeri</option>
+                <option>Aylık sürekli hizmet</option>
+              </select>
+            </div>
+            <div class="f f--full">
+              <label for="mesaj">Kısaca projeniz <i>*</i></label>
+              <textarea id="mesaj" name="mesaj" placeholder="Ne yapmak istiyorsunuz, şu an nerede takılıyorsunuz? Birkaç cümle yeterli."></textarea>
+              <span class="f__err">Lütfen en az 10 karakter yazın.</span>
+            </div>
+            <div class="f f--chk f--full" id="kvkkWrap">
+              <input type="checkbox" id="kvkk" name="kvkk">
+              <span><label for="kvkk" style="font-family:inherit;letter-spacing:0;font-size:.78rem;font-weight:400;text-transform:none">Kişisel verilerimin teklif hazırlanması amacıyla işlenmesine onay veriyorum. <i style="color:var(--orange);font-style:normal">*</i></label>
+              <span class="f__err">Devam etmek için onay gerekiyor.</span></span>
+            </div>
+            <div class="form__row f--full">
+              <button type="button" class="btn btn--sec" id="back2">← Geri</button>
+              <button type="submit" class="btn btn--pri">Teklif iste <span class="btn__ar">→</span></button>
+              <span class="form__hint">Ortalama yanıt süremiz 2 saat.</span>
+            </div>
+          </div>
+        </form>
+
+        <!-- Başarı ekranı -->
+        <div class="form__ok" id="formOk" role="status">
+          <div class="tick" aria-hidden="true">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#0D0D0C" stroke-width="3"><path d="M4 12.5l5.5 5.5L20 7"/></svg>
+          </div>
+          <h3>Talebiniz bize ulaştı</h3>
+          <p id="okMsg">Teşekkürler. Ekibimiz mesai saatleri içinde en geç 2 saat içinde size dönecek. Acele ediyorsanız WhatsApp'tan yazabilirsiniz.</p>
+          <div class="form__row">
+            <a class="btn btn--blue" href="https://wa.me/905386999666" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+            <button type="button" class="btn btn--sec" id="againBtn">Yeni talep oluştur</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     16. FOOTER
+     ============================================================ -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__top">
+      <div class="ftr__brand">
+        <span class="logo__txt">Tasarım<em style="color:var(--blue-soft)">Mania</em></span>
+        <p>İstanbul Bakırköy merkezli 360 derece dijital prodüksiyon stüdyosu. Web, mobil, reklam, video ve SEO tek çatı altında; yurt içi ve yurt dışı markalar için.</p>
+        <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+          <a class="btn btn--lemon" href="#iletisim" style="font-size:.85rem;padding:12px 18px">Teklif Al</a>
+          <a class="btn btn--sec" href="tel:+905386999666" style="font-size:.85rem;padding:12px 18px">0538 699 96 66</a>
+        </div>
+      </div>
+      <div>
+        <h4>Hizmetler</h4>
+        <ul>
+          <li><a href="#hizmetler">Web Tasarım &amp; Yazılım</a></li>
+          <li><a href="#hizmetler">Mobil Uygulama</a></li>
+          <li><a href="#hizmetler">Dijital Pazarlama</a></li>
+          <li><a href="#hizmetler">Video Prodüksiyon</a></li>
+          <li><a href="#hizmetler">SEO Hizmetleri</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kurumsal</h4>
+        <ul>
+          <li><a href="#neden-biz">Neden Biz</a></li>
+          <li><a href="#isler">Seçili İşler</a></li>
+          <li><a href="#surec">Çalışma Süreci</a></li>
+          <li><a href="#sss">Sık Sorulanlar</a></li>
+          <li><a href="#rakamlar">Rakamlarla</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>İletişim</h4>
+        <ul>
+          <li><a href="tel:+905386999666">0538 699 96 66</a></li>
+          <li><a href="https://wa.me/905386999666" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li>Zeytinlik Mah. Pancar Sk. No:19-11<br>Bakırköy / İstanbul</li>
+          <li>Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr__bot">
+      <p>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</p>
+      <span class="ftr__demo">Demo sürümü — rakamlar ve referanslar temsilidir.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Sabit WhatsApp butonu -->
+<a class="wa" href="https://wa.me/905386999666" target="_blank" rel="noopener" aria-label="WhatsApp'tan yazın">
+  <svg viewBox="0 0 24 24" fill="#0D0D0C" aria-hidden="true"><path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.9.5 3.7 1.44 5.3L2 22l4.98-1.6a9.8 9.8 0 0 0 5.06 1.4h.01c5.43 0 9.84-4.4 9.84-9.84C21.9 6.4 17.48 2 12.04 2zm5.75 14.02c-.24.68-1.4 1.3-1.93 1.34-.5.05-.98.23-3.3-.7-2.78-1.1-4.55-3.94-4.69-4.13-.14-.19-1.12-1.5-1.12-2.86 0-1.36.71-2.02.96-2.3.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.06.62.48.24.57.8 1.97.87 2.11.07.14.12.3.02.49-.09.19-.14.3-.28.47-.14.16-.3.36-.42.49-.14.14-.29.29-.12.57.16.28.72 1.19 1.55 1.93 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.7-.81.88-1.09.19-.28.37-.23.62-.14.25.09 1.65.78 1.93.92.28.14.47.21.54.33.07.11.07.66-.17 1.34z"/></svg>
+</a>
+
+<!-- Mobil yapışkan çubuk -->
+<div class="mbar" aria-label="Hızlı iletişim">
+  <a href="https://wa.me/905386999666" target="_blank" rel="noopener">WhatsApp</a>
+  <a href="#iletisim">Teklif Al</a>
+</div>
+
+<!-- MX katmanı: yapısal veri -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "name":"TasarımMania",
+  "description":"İstanbul merkezli 360 derece dijital prodüksiyon stüdyosu. Web tasarım ve yazılım, mobil uygulama, dijital pazarlama, video prodüksiyon ve SEO hizmetleri.",
+  "telephone":"+905386999666",
+  "areaServed":"TR",
+  "address":{"@type":"PostalAddress","streetAddress":"Zeytinlik Mah. Pancar Sk. No:19-11","addressLocality":"Bakırköy","addressRegion":"İstanbul","addressCountry":"TR"},
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"10:00","closes":"16:00"}
+  ],
+  "hasOfferCatalog":{"@type":"OfferCatalog","name":"Hizmetler","itemListElement":[
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Web Tasarım & Yazılım"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Mobil Uygulama"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Dijital Pazarlama"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Video Prodüksiyon"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"SEO Hizmetleri"}}
+  ]}
+}
+</script>
+
+<script>
+"use strict";
+(function(){
+
+/* ============================================================
+   YARDIMCILAR
+   ============================================================ */
+var $  = function(s,c){ return (c||document).querySelector(s); };
+var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
+var reduceMQ = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+var REDUCE = reduceMQ ? reduceMQ.matches : false;
+var EASE = "cubic-bezier(.2,.8,.2,1)";
+function clamp(v,a,b){ return v<a?a:(v>b?b:v); }
+function lerp(a,b,t){ return a+(b-a)*t; }
+
+/* ============================================================
+   1. MOBİL MENÜ
+   ============================================================ */
+(function(){
+  var burger = $("#burger"), mnav = $("#mnav");
+  if(!burger || !mnav) return;
+  function setOpen(open){
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    burger.setAttribute("aria-label", open ? "Menüyü kapat" : "Menüyü aç");
+    mnav.classList.toggle("is-open", open);
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+  burger.addEventListener("click", function(){
+    setOpen(burger.getAttribute("aria-expanded") !== "true");
+  });
+  $$("a", mnav).forEach(function(a){ a.addEventListener("click", function(){ setOpen(false); }); });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape") setOpen(false); });
+  window.addEventListener("resize", function(){ if(window.innerWidth > 1024) setOpen(false); });
+})();
+
+/* ============================================================
+   2. HERO — KİNETİK KART DESTESİ (dağınık 3D → düzenli grid)
+   ============================================================ */
+(function(){
+  var stage = $("#stage"), deck = $("#deck");
+  if(!stage || !deck) return;
+  var cards = $$(".kcard", deck);
+  if(!cards.length) return;
+  var hint = $("#stageHint");
+
+  /* Dağınık başlangıç değerleri (sabit, deterministik) */
+  var SCATTER = [
+    {x:-330,y:-118,z: 90, rx:-14, ry: 24, rz:-10},
+    {x: 300,y:-158,z:-70, rx: 13, ry:-19, rz:  8},
+    {x:-195,y: 148,z:-150,rx: 10, ry: 15, rz: 13},
+    {x: 352,y: 118,z: 46, rx: -9, ry:-25, rz: -6},
+    {x: -46,y: -34,z: 185,rx:  7, ry:  9, rz:-15},
+    {x: 122,y: 196,z:-215,rx:-12, ry: -7, rz: 11}
+  ];
+
+  var geom = { w:150, h:196, targets:[], scatterScale:1 };
+
+  /* Grid hedef konumlarını sahne ölçüsüne göre hesapla */
+  function measure(){
+    var sw = stage.clientWidth, sh = stage.clientHeight;
+    var cols = 3;
+    var rows = Math.ceil(cards.length / cols);
+    var gap  = sw < 700 ? 10 : 18;
+    var cw = Math.min(210, Math.floor((sw - gap*(cols+1)) / cols));
+    cw = Math.max(72, cw);
+    var ch = Math.min(Math.floor(cw*1.32), Math.floor((sh - gap*(rows+1)) / rows));
+    ch = Math.max(96, ch);
+
+    geom.w = cw; geom.h = ch;
+    geom.scatterScale = clamp(sw/980, 0.30, 1);
+
+    var totalW = cols*cw + (cols-1)*gap;
+    var totalH = rows*ch + (rows-1)*gap;
+    geom.targets = [];
+    for(var i=0;i<cards.length;i++){
+      var c = i % cols, r = Math.floor(i / cols);
+      geom.targets.push({
+        x: -totalW/2 + c*(cw+gap) + cw/2,
+        y: -totalH/2 + r*(ch+gap) + ch/2
+      });
+    }
+    cards.forEach(function(el){
+      el.style.width  = cw + "px";
+      el.style.height = ch + "px";
+      el.style.marginLeft = (-cw/2) + "px";
+      el.style.marginTop  = (-ch/2) + "px";
+      el.style.padding = (cw < 120 ? 9 : 14) + "px";
+    });
+  }
+
+  /* Durum */
+  var progress = 0, tilt = {x:0, y:0}, tiltT = {x:0, y:0}, rafId = 0, running = false, t0 = performance.now();
+
+  function computeProgress(){
+    var rect = stage.getBoundingClientRect();
+    /* Sahnenin üstü ekranın üst yarısına doğru kaydıkça toplanma tamamlanır */
+    var start = window.innerHeight * 0.86;
+    var end   = window.innerHeight * 0.24;
+    var p = (start - rect.top) / (start - end);
+    return clamp(p, 0, 1);
+  }
+
+  function easeOut(t){ return 1 - Math.pow(1-t, 3); }
+
+  function render(now){
+    var t = easeOut(progress);
+    var time = (now - t0) / 1000;
+
+    tilt.x = lerp(tilt.x, tiltT.x, 0.08);
+    tilt.y = lerp(tilt.y, tiltT.y, 0.08);
+    deck.style.transform = "rotateX(" + (tilt.x*(1-t*0.55)).toFixed(3) + "deg) rotateY(" + (tilt.y*(1-t*0.55)).toFixed(3) + "deg)";
+
+    for(var i=0;i<cards.length;i++){
+      var s = SCATTER[i] || SCATTER[0];
+      var g = geom.targets[i] || {x:0,y:0};
+      var k = geom.scatterScale;
+      var bob = REDUCE ? 0 : Math.sin(time*0.9 + i*1.1) * 9 * (1-t);
+      var x  = lerp(s.x*k, g.x, t);
+      var y  = lerp(s.y*k, g.y, t) + bob;
+      var z  = lerp(s.z*k, 0, t);
+      var rx = lerp(s.rx, 0, t);
+      var ry = lerp(s.ry, 0, t);
+      var rz = lerp(s.rz, 0, t);
+      cards[i].style.transform =
+        "translate3d(" + x.toFixed(2) + "px," + y.toFixed(2) + "px," + z.toFixed(2) + "px)" +
+        " rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg) rotateZ(" + rz.toFixed(2) + "deg)";
+      cards[i].style.zIndex = String(10 + Math.round(z));
+    }
+
+    if(hint) hint.classList.toggle("is-off", progress > 0.12);
+  }
+
+  function loop(now){
+    progress = computeProgress();
+    render(now);
+    rafId = requestAnimationFrame(loop);
+  }
+  function start(){
+    if(running || REDUCE) return;
+    running = true; t0 = performance.now();
+    rafId = requestAnimationFrame(loop);
+  }
+  function stop(){
+    if(!running) return;
+    running = false;
+    cancelAnimationFrame(rafId);
+  }
+
+  /* Fare paralaksı (sadece ince işaretçi) */
+  if(window.matchMedia && window.matchMedia("(hover:hover) and (pointer:fine)").matches){
+    stage.addEventListener("pointermove", function(e){
+      var r = stage.getBoundingClientRect();
+      tiltT.y = ((e.clientX - r.left)/r.width - 0.5) * 16;
+      tiltT.x = -((e.clientY - r.top)/r.height - 0.5) * 12;
+    });
+    stage.addEventListener("pointerleave", function(){ tiltT.x = 0; tiltT.y = 0; });
+  }
+
+  measure();
+  if(REDUCE){
+    /* Hareket azaltma: kartlar doğrudan grid'de dursun */
+    progress = 1;
+    render(performance.now());
+    if(hint) hint.classList.add("is-off");
+  }else{
+    if("IntersectionObserver" in window){
+      new IntersectionObserver(function(en){
+        if(en[0].isIntersecting) start(); else stop();
+      }, {threshold:0}).observe(stage);
+    }else{
+      start();
+    }
+    document.addEventListener("visibilitychange", function(){
+      if(document.hidden) stop();
+      else if(stage.getBoundingClientRect().bottom > 0) start();
+    });
+  }
+
+  if("ResizeObserver" in window){
+    var ro = new ResizeObserver(function(){
+      measure();
+      render(performance.now());
+    });
+    ro.observe(stage);
+  }else{
+    window.addEventListener("resize", function(){ measure(); render(performance.now()); });
+  }
+})();
+
+/* ============================================================
+   3. HİZMET KARTLARI — FİLTRE + FLIP ANİMASYONU (imza)
+   ============================================================ */
+(function(){
+  var grid = $("#sgrid"), chipBox = $("#chips");
+  if(!grid || !chipBox) return;
+  var chips = $$(".chip", chipBox);
+  var cards = $$(".svc", grid);
+  if(!cards.length) return;
+  var canAnim = (typeof cards[0].animate === "function");
+  var busy = false;
+
+  function applyFilter(cat){
+    if(busy) return;
+    busy = true;
+
+    /* 1) FIRST — tüm konumları TEK döngüde oku */
+    var first = cards.map(function(c){
+      var r = c.getBoundingClientRect();
+      return {top:r.top, left:r.left, hidden:c.classList.contains("is-hidden")};
+    });
+
+    /* 2) DOM'u değiştir */
+    cards.forEach(function(c){
+      var match = (cat === "all") || (c.dataset.cat === cat);
+      c.classList.toggle("is-hidden", !match);
+      c.classList.remove("is-flipped");
+    });
+
+    /* 3) LAST — yeni konumları TEK döngüde oku */
+    var last = cards.map(function(c){
+      if(c.classList.contains("is-hidden")) return null;
+      var r = c.getBoundingClientRect();
+      return {top:r.top, left:r.left};
+    });
+
+    /* 4) INVERT + PLAY */
+    if(REDUCE || !canAnim){ busy = false; return; }
+    var maxDur = 0;
+    cards.forEach(function(c, i){
+      var l = last[i];
+      if(!l) return;
+      var f = first[i];
+      if(f.hidden){
+        c.animate(
+          [{opacity:0, transform:"translateY(26px) scale(.94)"},{opacity:1, transform:"none"}],
+          {duration:420, delay: Math.min(i*28,180), easing:EASE, fill:"both"}
+        );
+        maxDur = Math.max(maxDur, 620);
+        return;
+      }
+      var dx = f.left - l.left, dy = f.top - l.top;
+      if(Math.abs(dx) < 0.6 && Math.abs(dy) < 0.6) return;
+      c.animate(
+        [{transform:"translate(" + dx + "px," + dy + "px)"},{transform:"none"}],
+        {duration:600, easing:EASE, fill:"both"}
+      );
+      maxDur = Math.max(maxDur, 600);
+    });
+    setTimeout(function(){ busy = false; }, maxDur + 40);
+  }
+
+  chips.forEach(function(ch){
+    ch.addEventListener("click", function(){
+      chips.forEach(function(o){ o.setAttribute("aria-pressed", o === ch ? "true" : "false"); });
+      applyFilter(ch.dataset.cat || "all");
+    });
+  });
+
+  /* Dokunmatik cihazda kartı tıklayarak çevir */
+  cards.forEach(function(c){
+    c.addEventListener("click", function(e){
+      if(e.target.closest("a")) return;
+      if(window.matchMedia && window.matchMedia("(hover:hover)").matches) return;
+      c.classList.toggle("is-flipped");
+    });
+    c.addEventListener("keydown", function(e){
+      if(e.key === "Enter" || e.key === " "){
+        if(e.target !== c) return;
+        e.preventDefault();
+        c.classList.toggle("is-flipped");
+      }
+    });
+  });
+})();
+
+/* ============================================================
+   4. REVEAL (IntersectionObserver)
+   ============================================================ */
+(function(){
+  var els = $$(".rv");
+  if(!els.length) return;
+  if(REDUCE || !("IntersectionObserver" in window)){
+    els.forEach(function(e){ e.classList.add("is-in"); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting) return;
+      var el = en.target;
+      var sibs = Array.prototype.slice.call(el.parentNode.children).indexOf(el);
+      el.style.transitionDelay = Math.min(Math.max(sibs,0)*55, 300) + "ms";
+      el.classList.add("is-in");
+      io.unobserve(el);
+    });
+  }, {threshold:0.12, rootMargin:"0px 0px -8% 0px"});
+  els.forEach(function(e){ io.observe(e); });
+})();
+
+/* ============================================================
+   5. SAYAÇLAR + ÇUBUKLAR
+   ============================================================ */
+(function(){
+  var numsBox = $("#nums"), barsBox = $("#bars");
+
+  function runCounters(root){
+    $$("[data-count]", root).forEach(function(el){
+      var target = parseFloat(el.getAttribute("data-count")) || 0;
+      var suffix = el.getAttribute("data-suffix") || "";
+      if(REDUCE){ el.textContent = target + suffix; return; }
+      var dur = 1500, st = null;
+      function tick(ts){
+        if(st === null) st = ts;
+        var p = clamp((ts - st)/dur, 0, 1);
+        var e = 1 - Math.pow(1-p, 3);
+        el.textContent = Math.round(target*e) + suffix;
+        if(p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+  function runBars(root){
+    $$(".bar__f", root).forEach(function(el){
+      var w = parseFloat(el.getAttribute("data-w")) || 0;
+      if(REDUCE){ el.style.width = w + "%"; return; }
+      setTimeout(function(){ el.style.width = w + "%"; }, 120);
+    });
+  }
+
+  function once(box, fn){
+    if(!box) return;
+    if(!("IntersectionObserver" in window)){ fn(box); return; }
+    var io = new IntersectionObserver(function(en){
+      if(en[0].isIntersecting){ fn(box); io.disconnect(); }
+    }, {threshold:0.25});
+    io.observe(box);
+  }
+  once(numsBox, runCounters);
+  once(barsBox, runBars);
+})();
+
+/* ============================================================
+   6. MARQUEE — ekran dışında durdur
+   ============================================================ */
+(function(){
+  var mqs = $$(".js-mq");
+  if(!mqs.length) return;
+  if(REDUCE){
+    mqs.forEach(function(m){
+      var t = $(".mq__track", m);
+      if(t) t.style.animation = "none";
+    });
+    return;
+  }
+  if(!("IntersectionObserver" in window)) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      var t = $(".mq__track", en.target);
+      if(t) t.style.animationPlayState = en.isIntersecting ? "running" : "paused";
+    });
+  }, {threshold:0});
+  mqs.forEach(function(m){ io.observe(m); });
+  document.addEventListener("visibilitychange", function(){
+    mqs.forEach(function(m){
+      var t = $(".mq__track", m);
+      if(t) t.style.animationPlayState = document.hidden ? "paused" : "running";
+    });
+  });
+})();
+
+/* ============================================================
+   7. SSS AKORDİYON
+   ============================================================ */
+(function(){
+  var faq = $("#faq");
+  if(!faq) return;
+  $$(".faq__q", faq).forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var item = btn.parentNode;
+      var panel = $(".faq__a", item);
+      if(!panel) return;
+      var open = item.classList.contains("is-open");
+      $$(".faq__i", faq).forEach(function(o){
+        o.classList.remove("is-open");
+        var p = $(".faq__a", o), b = $(".faq__q", o);
+        if(p) p.style.maxHeight = "0px";
+        if(b) b.setAttribute("aria-expanded","false");
+      });
+      if(!open){
+        item.classList.add("is-open");
+        panel.style.maxHeight = panel.scrollHeight + "px";
+        btn.setAttribute("aria-expanded","true");
+      }
+    });
+  });
+  window.addEventListener("resize", function(){
+    var open = $(".faq__i.is-open", faq);
+    if(!open) return;
+    var p = $(".faq__a", open);
+    if(p) p.style.maxHeight = p.scrollHeight + "px";
+  });
+})();
+
+/* ============================================================
+   8. TEKLİF FORMU — 2 adım + doğrulama + başarı ekranı
+   ============================================================ */
+(function(){
+  var form = $("#teklifForm"), ok = $("#formOk");
+  if(!form || !ok) return;
+  var s1 = $("#fstep1"), s2 = $("#fstep2");
+  var pb1 = $("#pb1"), pb2 = $("#pb2"), label = $("#stepLabel");
+  var next1 = $("#next1"), back2 = $("#back2"), again = $("#againBtn");
+
+  function setErr(id, on){
+    var el = $("#"+id);
+    if(!el) return;
+    var f = el.closest(".f");
+    if(f) f.classList.toggle("has-err", !!on);
+  }
+  function val(id){
+    var el = $("#"+id);
+    return el ? String(el.value || "").trim() : "";
+  }
+  function goStep(n){
+    if(!s1 || !s2) return;
+    s1.classList.toggle("is-on", n === 1);
+    s2.classList.toggle("is-on", n === 2);
+    if(pb1) pb1.classList.add("is-on");
+    if(pb2) pb2.classList.toggle("is-on", n === 2);
+    if(label) label.textContent = "Adım " + n + " / 2";
+  }
+
+  if(next1) next1.addEventListener("click", function(){
+    var bad = false;
+    if(val("ad").length < 2){ setErr("ad", true); bad = true; } else setErr("ad", false);
+    var mail = val("eposta");
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail)){ setErr("eposta", true); bad = true; } else setErr("eposta", false);
+    var tel = val("tel").replace(/\D/g,"");
+    if(tel.length > 0 && tel.length < 10){ setErr("tel", true); bad = true; } else setErr("tel", false);
+    if(bad){
+      var firstBad = $(".f.has-err input, .f.has-err select", s1);
+      if(firstBad) firstBad.focus();
+      return;
+    }
+    goStep(2);
+    var h = $("#hizmet");
+    if(h) h.focus();
+  });
+
+  if(back2) back2.addEventListener("click", function(){ goStep(1); });
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var bad = false;
+    if(!val("hizmet")){ setErr("hizmet", true); bad = true; } else setErr("hizmet", false);
+    if(val("mesaj").length < 10){ setErr("mesaj", true); bad = true; } else setErr("mesaj", false);
+    var kv = $("#kvkk"), kvWrap = $("#kvkkWrap");
+    if(kv && !kv.checked){ if(kvWrap) kvWrap.classList.add("has-err"); bad = true; }
+    else if(kvWrap) kvWrap.classList.remove("has-err");
+    if(bad){
+      var fb = $(".f.has-err input, .f.has-err select, .f.has-err textarea", s2);
+      if(fb) fb.focus();
+      return;
+    }
+
+    var kanalEl = $("#kanal");
+    var kanal = kanalEl ? kanalEl.options[kanalEl.selectedIndex].text : "";
+    var msg = $("#okMsg");
+    if(msg){
+      msg.textContent = "Teşekkürler " + val("ad").split(" ")[0] +
+        ". Talebiniz “" + val("hizmet") + "” başlığıyla ekibimize düştü. " +
+        "Size " + kanal.replace(" (en hızlısı)","") + " üzerinden, mesai saatleri içinde en geç 2 saat içinde döneceğiz.";
+    }
+    form.style.display = "none";
+    ok.classList.add("is-on");
+    ok.scrollIntoView({behavior: REDUCE ? "auto" : "smooth", block:"center"});
+  });
+
+  if(again) again.addEventListener("click", function(){
+    form.reset();
+    $$(".has-err", form).forEach(function(el){ el.classList.remove("has-err"); });
+    goStep(1);
+    ok.classList.remove("is-on");
+    form.style.display = "";
+    var a = $("#ad");
+    if(a) a.focus();
+  });
+})();
+
+/* ============================================================
+   9. YUMUŞAK ÇAPA KAYDIRMA (sabit menü ofsetli)
+   ============================================================ */
+(function(){
+  var hdr = $("#hdr");
+  $$('a[href^="#"]').forEach(function(a){
+    a.addEventListener("click", function(e){
+      var id = a.getAttribute("href");
+      if(!id || id === "#" || id.length < 2) return;
+      var t = document.getElementById(id.slice(1));
+      if(!t) return;
+      e.preventDefault();
+      var off = (hdr ? hdr.offsetHeight : 64) + 10;
+      var y = t.getBoundingClientRect().top + window.pageYOffset - off;
+      window.scrollTo({top:y, behavior: REDUCE ? "auto" : "smooth"});
+    });
+  });
+})();
+
+/* ============================================================
+   10. ÜST MENÜ — aşağı kaydırınca gizle, yukarıda göster
+   ============================================================ */
+(function(){
+  var hdr = $("#hdr");
+  if(!hdr) return;
+  var lastY = window.pageYOffset, ticking = false;
+  function upd(){
+    var y = window.pageYOffset;
+    if(y > 300 && y > lastY && !$("#mnav.is-open")){
+      hdr.style.transform = "translateY(-100%)";
+    }else{
+      hdr.style.transform = "translateY(0)";
+    }
+    lastY = y;
+    ticking = false;
+  }
+  window.addEventListener("scroll", function(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(upd);
+  }, {passive:true});
+})();
+
+/* ============================================================
+   11. YIL
+   ============================================================ */
+(function(){
+  var y = $("#yil");
+  if(y) y.textContent = String(new Date().getFullYear());
+})();
+
+})();
+</script>
+</body>
+</html>

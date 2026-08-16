@@ -1,0 +1,2371 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TasarımMania — Sıvı Krom Dijital Prodüksiyon Stüdyosu | İstanbul</title>
+<meta name="description" content="TasarımMania, İstanbul Bakırköy merkezli 360 derece dijital ajans. Web tasarım ve yazılım, mobil uygulama, dijital pazarlama, video prodüksiyon ve SEO hizmetleri tek çatı altında.">
+<meta name="theme-color" content="#F6F6F4">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://tasarimmania.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="TasarımMania — Sıvı Krom Dijital Prodüksiyon Stüdyosu">
+<meta property="og:description" content="Web, mobil, performans pazarlaması, video prodüksiyon ve çok dilli SEO. İstanbul merkezli 360 derece dijital ajans.">
+<meta property="og:url" content="https://tasarimmania.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TasarımMania — 360 Derece Dijital Prodüksiyon">
+<meta name="twitter:description" content="Beğenilen değil, satan işler. Web · Mobil · Reklam · Video · SEO.">
+
+<!-- Inline SVG favicon: krom damla -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ffffff'/%3E%3Cstop offset='.35' stop-color='%23B8C6FF'/%3E%3Cstop offset='.62' stop-color='%23FFC9E3'/%3E%3Cstop offset='1' stop-color='%23A8F0E0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%23F6F6F4'/%3E%3Cpath d='M32 10c9 11 15 17.5 15 25.5A15 15 0 0 1 17 35.5C17 27.5 23 21 32 10z' fill='url(%23g)' stroke='%237c8296' stroke-width='1.5'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   0. TOKENLAR — Krom / Sıvı sanat yönetimi
+   ============================================================ */
+@property --chr { syntax:'<number>'; inherits:false; initial-value:0; }
+@property --morph { syntax:'<number>'; inherits:false; initial-value:0; }
+
+:root{
+  --paper:#F6F6F4;
+  --paper-2:#EDEDE9;
+  --paper-3:#E4E4DF;
+  --ink:#101012;
+  --ink-2:#3A3A40;
+  --ink-soft:#6B6B74;
+  --hair:#DEDED8;
+  --hair-2:#CFCFC8;
+
+  /* iridesan krom yansımaları */
+  --c-blue:#B8C6FF;
+  --c-pink:#FFC9E3;
+  --c-mint:#A8F0E0;
+  --c-steel:#7C8296;
+  --c-steel-2:#9AA0B2;
+  --c-white:#FFFFFF;
+
+  /* açık yüzeyler (buton, rozet) için yumuşak krom */
+  --chrome-ramp: linear-gradient(102deg,
+      #8C92A4 0%, #F4F6FB 12%, #B8C6FF 26%, #FFFFFF 36%,
+      #FFC9E3 48%, #F6F7FB 58%, #A8F0E0 70%, #FFFFFF 80%,
+      #9AA0B2 90%, #E6E8F0 100%);
+  /* tipografi için yüksek kontrastlı dövme krom */
+  --chrome-type: linear-gradient(100deg,
+      #2E3240 0%, #9AA2B8 6%, #FFFFFF 12%, #5B6276 20%,
+      #C6CEE8 27%, #FFFFFF 33%, #7E86A0 40%, #B8C6FF 47%,
+      #FFFFFF 53%, #6E7488 60%, #FFC9E3 67%, #FFFFFF 73%,
+      #565C70 80%, #A8F0E0 87%, #EDEFF6 93%, #383D4C 100%);
+
+  --shadow-soft: 0 2px 4px rgba(16,16,18,.03), 0 8px 22px rgba(16,16,18,.05), 0 30px 60px -24px rgba(16,16,18,.14);
+  --shadow-lift: 0 4px 10px rgba(16,16,18,.05), 0 18px 44px rgba(16,16,18,.09), 0 50px 90px -30px rgba(90,100,150,.28);
+
+  --r-lg: 34px;
+  --r-md: 22px;
+  --r-sm: 14px;
+
+  --font-d:'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-t:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --maxw: 1280px;
+  --pad: clamp(18px, 4.2vw, 56px);
+  --nav-h: 74px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font-t); font-size:16.5px; line-height:1.62;
+  font-weight:400; letter-spacing:-.006em;
+  overflow-x:hidden; position:relative;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+img,svg,canvas{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button,input,select,textarea{ font:inherit; color:inherit; }
+h1,h2,h3,h4{ font-family:var(--font-d); font-weight:800; line-height:1.02; letter-spacing:-.035em; margin:0; }
+p{ margin:0; }
+ul{ margin:0; padding:0; list-style:none; }
+:focus-visible{ outline:2.5px solid #6E7CFF; outline-offset:3px; border-radius:6px; }
+
+.wrap{ width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:var(--pad); }
+.sect{ position:relative; padding-block:clamp(74px,10vw,140px); }
+.sect--tight{ padding-block:clamp(56px,7vw,96px); }
+
+/* ---- Krom gradyanlı tipografi (imza) ---- */
+.chrome-text{
+  background-image:var(--chrome-type);
+  /* 190%: her animasyon fazında rampanın koyu durakları görünür kalsın (okunabilirlik) */
+  background-size:190% 100%;
+  background-position:calc(var(--chr) * 100%) 50%;
+  -webkit-background-clip:text; background-clip:text;
+  color:transparent;
+  animation:chromeFlow 9s linear infinite;
+  /* çok hafif alt gölge ile metal kabartma hissi */
+  /* 0 0 1px kılcal kenar: beyaz parlama duraklarının açık zeminde kaybolmasını engeller */
+  filter:drop-shadow(0 0 1px rgba(58,64,86,.6)) drop-shadow(0 1px 0 rgba(255,255,255,.9)) drop-shadow(0 5px 16px rgba(50,58,88,.30));
+}
+/* koyu zeminde krom tipografi biraz daha parlak olsun */
+.stats .chrome-text, .band .chrome-text{
+  background-image:linear-gradient(100deg,
+      #6A7186 0%, #C9CFE2 8%, #FFFFFF 15%, #8E96AE 24%,
+      #B8C6FF 33%, #FFFFFF 41%, #FFC9E3 52%, #FFFFFF 60%,
+      #8A91A6 69%, #A8F0E0 79%, #FFFFFF 88%, #767D92 100%);
+  filter:drop-shadow(0 2px 16px rgba(184,198,255,.35));
+}
+@keyframes chromeFlow{ from{ --chr:0 } to{ --chr:1 } }
+
+/* NOT: krom yüzeylerin ortak `background-position` kuralı, `background:` kısayolu
+   onu sıfırladığı için stil sayfasının EN SONUNA taşındı (bkz. bölüm 13 sonu). */
+
+.eyebrow{
+  font-family:var(--font-d); font-weight:600; font-size:.74rem;
+  letter-spacing:.24em; text-transform:uppercase; color:var(--ink-soft);
+  display:inline-flex; align-items:center; gap:10px;
+}
+.eyebrow::before{
+  content:''; width:26px; height:9px; border-radius:99px;
+  background:var(--chrome-ramp); background-size:220% 100%;
+  animation:chromeFlow 7s linear infinite;
+}
+.sect-title{ font-size:clamp(2.05rem,5.6vw,4.05rem); margin-top:16px; }
+.sect-lead{ margin-top:18px; max-width:62ch; color:var(--ink-2); font-size:clamp(1rem,1.6vw,1.12rem); }
+
+/* ---- Krom yüzeyli düğmeler ---- */
+.btn{
+  --bx:0px; --by:0px;
+  position:relative; display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:16px 30px; border-radius:999px; border:0; cursor:pointer;
+  font-family:var(--font-d); font-weight:700; font-size:.98rem; letter-spacing:-.015em;
+  transform:translate3d(var(--bx),var(--by),0);
+  transition:transform .45s cubic-bezier(.2,1.15,.3,1), box-shadow .35s ease, filter .35s ease;
+  white-space:nowrap; text-align:center;
+}
+.btn span{ position:relative; z-index:2; display:inline-flex; align-items:center; gap:9px; }
+.btn--chrome{ color:#15151A; background:var(--chrome-ramp); background-size:250% 100%; animation:chromeFlow 8s linear infinite; box-shadow:var(--shadow-soft), inset 0 1px 0 rgba(255,255,255,.85); }
+.btn--chrome:hover{ box-shadow:var(--shadow-lift), inset 0 1px 0 rgba(255,255,255,.9); filter:saturate(1.15); }
+.btn--ink{ color:#F6F6F4; background:#101012; box-shadow:0 12px 28px -12px rgba(16,16,18,.6); }
+.btn--ink:hover{ background:#1B1B20; }
+.btn--ghost{ color:var(--ink); background:transparent; border:1.4px solid var(--hair-2); }
+.btn--ghost:hover{ border-color:var(--ink); background:rgba(255,255,255,.6); }
+.btn--sm{ padding:11px 20px; font-size:.88rem; }
+.btn--wide{ width:100%; }
+
+/* ============================================================
+   1. NAV — sabit üst menü + birincil CTA
+   ============================================================ */
+.nav{
+  position:fixed; inset:0 0 auto 0; z-index:80; height:var(--nav-h);
+  display:flex; align-items:center;
+  transition:background .4s ease, box-shadow .4s ease, backdrop-filter .4s ease;
+}
+.nav.is-stuck{ background:rgba(246,246,244,.82); backdrop-filter:blur(16px) saturate(1.4); -webkit-backdrop-filter:blur(16px) saturate(1.4); box-shadow:0 1px 0 var(--hair); }
+.nav__in{ width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:var(--pad); display:flex; align-items:center; gap:22px; }
+.brand{ display:flex; align-items:center; gap:11px; font-family:var(--font-d); font-weight:800; font-size:1.14rem; letter-spacing:-.04em; }
+.brand__drop{ width:26px; height:26px; flex:0 0 26px; }
+.brand__t em{ font-style:normal;
+  /* kısa kelimede her fazda koyu ton kalsın diye sıkı rampa */
+  background-image:linear-gradient(100deg,#2E3240 0%,#9AA2B8 14%,#FFFFFF 26%,#5B6276 40%,#B8C6FF 54%,#FFFFFF 66%,#6E7488 80%,#383D4C 100%);
+  background-size:150% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; animation:chromeFlow 8s linear infinite; }
+/* koyu footer'da marka kromu açık rampayla */
+.foot .brand__t em{ background-image:linear-gradient(100deg,#7C8398 0%,#FFFFFF 16%,#B8C6FF 34%,#FFFFFF 50%,#FFC9E3 66%,#FFFFFF 82%,#8A91A6 100%); }
+.nav__links{ display:flex; gap:4px; margin-left:auto; }
+.nav__links a{
+  padding:9px 14px; border-radius:999px; font-size:.9rem; font-weight:500; color:var(--ink-2);
+  transition:background .25s, color .25s;
+}
+.nav__links a:hover{ background:rgba(255,255,255,.85); color:var(--ink); }
+.nav__cta{ display:flex; align-items:center; gap:10px; }
+.nav__tel{ font-family:var(--font-d); font-weight:600; font-size:.9rem; padding:9px 12px; border-radius:999px; }
+.nav__tel:hover{ background:rgba(255,255,255,.8); }
+.burger{
+  display:none; width:44px; height:44px; border-radius:14px; border:1.4px solid var(--hair-2);
+  background:rgba(255,255,255,.7); align-items:center; justify-content:center; cursor:pointer; flex-direction:column; gap:5px;
+}
+.burger i{ display:block; width:18px; height:1.8px; background:var(--ink); border-radius:2px; transition:transform .3s, opacity .3s; }
+.burger.is-open i:nth-child(1){ transform:translateY(6.8px) rotate(45deg); }
+.burger.is-open i:nth-child(2){ opacity:0; }
+.burger.is-open i:nth-child(3){ transform:translateY(-6.8px) rotate(-45deg); }
+
+.mobile-menu{
+  position:fixed; inset:var(--nav-h) 0 auto 0; z-index:79;
+  background:rgba(246,246,244,.97); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);
+  padding:18px var(--pad) 30px; display:none; max-height:calc(100dvh - var(--nav-h)); overflow-y:auto;
+}
+.mobile-menu.is-open{ display:block; }
+.mobile-menu a{ display:block; padding:14px 4px; font-family:var(--font-d); font-weight:600; font-size:1.22rem; border-bottom:1px solid var(--hair); }
+.mobile-menu .btn{ margin-top:20px; }
+
+/* ============================================================
+   2. HERO — sıvı krom metaball
+   ============================================================ */
+.hero{
+  position:relative; overflow:hidden;
+  min-height:min(104svh, 980px);
+  display:flex; align-items:center;
+  padding-top:calc(var(--nav-h) + 40px); padding-bottom:70px;
+}
+.hero__bg{ position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+/* metni okunur tutan çift kademeli kağıt perdesi */
+.hero__bg::after{
+  content:''; position:absolute; inset:0;
+  background:
+    linear-gradient(90deg, rgba(246,246,244,.93) 0%, rgba(246,246,244,.78) 34%, rgba(246,246,244,.30) 62%, rgba(246,246,244,.06) 88%),
+    radial-gradient(125% 88% at 50% 45%, rgba(246,246,244,0) 44%, rgba(246,246,244,.7) 82%, var(--paper) 100%);
+}
+#metaCanvas{ position:absolute; inset:0; width:100%; height:100%; filter:blur(3px) saturate(1.12) contrast(1.06); opacity:.88; }
+.hero__fallback{
+  position:absolute; inset:0; display:none;
+  background:
+    radial-gradient(38% 32% at 34% 40%, rgba(184,198,255,.85), transparent 70%),
+    radial-gradient(34% 30% at 62% 52%, rgba(255,201,227,.8), transparent 70%),
+    radial-gradient(30% 26% at 48% 64%, rgba(168,240,224,.75), transparent 70%);
+  filter:blur(28px);
+}
+.hero__in{ position:relative; z-index:2; width:100%; }
+.hero__tag{
+  display:inline-flex; align-items:center; gap:12px; padding:8px 8px 8px 16px; border-radius:999px;
+  background:rgba(255,255,255,.72); border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 8px 26px -14px rgba(16,16,18,.4); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  font-size:.82rem; font-weight:500; color:var(--ink-2);
+}
+.hero__tag b{ font-family:var(--font-d); font-weight:700; color:var(--ink); }
+.hero__tag i{ font-style:normal; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; padding:5px 12px; border-radius:99px; background:#101012; color:#F6F6F4; }
+
+.hero h1{
+  margin-top:26px;
+  font-size:clamp(2.9rem, 11.4vw, 9.4rem);
+  font-weight:900; letter-spacing:-.055em; line-height:.9;
+  text-transform:none; overflow-wrap:break-word; hyphens:auto;
+}
+.hero h1 .l{ display:block; }
+.hero h1 .thin{ font-weight:300; letter-spacing:-.045em; }
+.hero__sub{
+  margin-top:30px; max-width:53ch; font-size:clamp(1.02rem,1.85vw,1.28rem);
+  color:var(--ink-2); line-height:1.55;
+}
+.hero__sub b{ color:var(--ink); font-weight:600; }
+.hero__acts{ margin-top:38px; display:flex; flex-wrap:wrap; gap:14px; align-items:center; }
+.hero__micro{ margin-top:16px; font-size:.85rem; color:var(--ink-soft); display:flex; align-items:center; gap:9px; }
+.hero__micro em{ font-style:normal; width:7px; height:7px; border-radius:99px; background:#2FBF8F; box-shadow:0 0 0 4px rgba(47,191,143,.18); }
+
+.hero__proof{
+  margin-top:52px; display:flex; flex-wrap:wrap; gap:10px 34px; align-items:center;
+  padding-top:26px; border-top:1px solid var(--hair);
+}
+.hero__proof div{ display:flex; align-items:baseline; gap:9px; }
+.hero__proof strong{ font-family:var(--font-d); font-weight:800; font-size:1.42rem; letter-spacing:-.03em; }
+.hero__proof span{ font-size:.85rem; color:var(--ink-soft); }
+
+.scroll-hint{
+  position:absolute; left:50%; bottom:22px; transform:translateX(-50%); z-index:3;
+  font-size:.7rem; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-soft);
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+}
+.scroll-hint i{ display:block; width:1.4px; height:34px; background:linear-gradient(var(--hair-2), transparent); animation:dropDown 2.2s ease-in-out infinite; }
+@keyframes dropDown{ 0%,100%{ transform:scaleY(.5); opacity:.4; transform-origin:top } 50%{ transform:scaleY(1); opacity:1; transform-origin:top } }
+
+/* ============================================================
+   3. GÜVEN ŞERİDİ — akan krom rozetler
+   ============================================================ */
+.trust{ border-block:1px solid var(--hair); background:linear-gradient(180deg,#FFFFFF,#F1F1EE); padding-block:26px; overflow:hidden; }
+.marquee{ overflow:hidden; position:relative; -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }
+.marquee__row{ display:flex; width:max-content; gap:0; animation:slide 38s linear infinite; }
+.marquee__row:hover{ animation-play-state:paused; }
+@keyframes slide{ from{ transform:translate3d(0,0,0) } to{ transform:translate3d(-50%,0,0) } }
+.chip{
+  display:inline-flex; align-items:center; gap:11px; padding:0 30px; white-space:nowrap;
+  font-family:var(--font-d); font-weight:600; font-size:1rem; color:var(--ink-2); letter-spacing:-.02em;
+}
+.chip::before{
+  content:''; width:11px; height:11px; border-radius:99px;
+  background:var(--chrome-ramp); background-size:250% 100%; animation:chromeFlow 6s linear infinite;
+  box-shadow:inset 0 0 0 1px rgba(124,130,150,.35);
+}
+
+/* ============================================================
+   Sıvı damla SVG ayırıcı
+   ============================================================ */
+.wave{ display:block; width:100%; height:auto; line-height:0; }
+.wave svg{ display:block; width:100%; height:clamp(48px,6vw,96px); }
+
+/* ============================================================
+   4. HİZMETLER — krom küplü sıvı kartlar
+   ============================================================ */
+.svc-grid{ margin-top:56px; display:grid; grid-template-columns:repeat(12,1fr); gap:20px; }
+.svc{
+  grid-column:span 4;
+  position:relative; overflow:hidden; isolation:isolate;
+  background:linear-gradient(160deg,#FFFFFF 0%, #F2F2EF 100%);
+  border:1px solid var(--hair);
+  border-radius:var(--r-lg);
+  padding:30px 28px 28px;
+  box-shadow:var(--shadow-soft);
+  transition:border-radius .8s cubic-bezier(.3,.9,.2,1), transform .6s cubic-bezier(.2,.9,.2,1), box-shadow .6s ease, border-color .5s;
+  display:flex; flex-direction:column; min-height:352px;
+}
+.svc:nth-child(1),.svc:nth-child(2){ grid-column:span 6; }
+.svc:hover{
+  transform:translateY(-7px);
+  box-shadow:var(--shadow-lift);
+  border-color:rgba(184,198,255,.85);
+  border-radius:58% 42% 52% 48% / 44% 52% 48% 56%;
+}
+.svc__glow{
+  position:absolute; z-index:-1; width:340px; height:340px; border-radius:50%;
+  top:-140px; right:-120px; filter:blur(58px); opacity:0;
+  background:radial-gradient(circle at 30% 30%, var(--c-blue), var(--c-pink) 45%, var(--c-mint) 78%, transparent 82%);
+  transition:opacity .7s ease, transform .9s ease;
+}
+.svc:hover .svc__glow{ opacity:.75; transform:translate3d(-24px,26px,0) scale(1.08); }
+.svc__no{
+  font-family:var(--font-d); font-weight:700; font-size:.72rem; letter-spacing:.2em;
+  color:var(--ink-soft);
+}
+.svc__head{ display:flex; align-items:flex-start; justify-content:space-between; gap:18px; }
+
+/* CSS preserve-3d krom küp — hover'da döner */
+.scene{ width:74px; height:74px; perspective:520px; flex:0 0 74px; }
+.cube{
+  position:relative; width:74px; height:74px;
+  transform-style:preserve-3d;
+  transform:rotateX(-22deg) rotateY(28deg);
+  transition:transform 1.1s cubic-bezier(.25,.9,.25,1);
+}
+.svc:hover .cube{ transform:rotateX(-30deg) rotateY(208deg) rotateZ(12deg); }
+.face{
+  position:absolute; inset:0; border:1px solid rgba(124,130,150,.35);
+  background:var(--chrome-ramp); background-size:300% 300%;
+  border-radius:10px;
+  box-shadow:inset 0 0 20px rgba(255,255,255,.7);
+}
+.face--f{ transform:translateZ(37px); background-position:0% 50%; }
+.face--b{ transform:rotateY(180deg) translateZ(37px); background-position:100% 50%; }
+.face--r{ transform:rotateY(90deg) translateZ(37px); background-position:25% 50%; }
+.face--l{ transform:rotateY(-90deg) translateZ(37px); background-position:75% 50%; }
+.face--t{ transform:rotateX(90deg) translateZ(37px); background-position:50% 0%; }
+.face--d{ transform:rotateX(-90deg) translateZ(37px); background-position:50% 100%; }
+
+.svc h3{ margin-top:26px; font-size:clamp(1.4rem,2.4vw,1.82rem); letter-spacing:-.04em; }
+.svc__res{
+  margin-top:12px; font-family:var(--font-d); font-weight:600; font-size:.95rem; color:#3A3A40;
+}
+.svc p{ margin-top:12px; color:var(--ink-soft); font-size:.95rem; line-height:1.6; }
+.svc__list{ margin-top:auto; padding-top:22px; display:flex; flex-wrap:wrap; gap:7px; }
+.svc__list li{
+  font-size:.78rem; padding:6px 12px; border-radius:99px;
+  background:rgba(255,255,255,.9); border:1px solid var(--hair); color:var(--ink-2);
+}
+.svc__link{
+  margin-top:20px; display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--font-d); font-weight:700; font-size:.9rem;
+  border-bottom:1.5px solid var(--ink); padding-bottom:2px; align-self:flex-start;
+  transition:gap .3s;
+}
+.svc__link:hover{ gap:14px; }
+
+/* ============================================================
+   5. NEDEN BİZ
+   ============================================================ */
+.why{ background:linear-gradient(180deg,#F1F1EE 0%, #F6F6F4 60%); }
+.why-grid{ margin-top:52px; display:grid; grid-template-columns:repeat(12,1fr); gap:20px; }
+.why-card{
+  grid-column:span 4; padding:30px 26px; border-radius:var(--r-md);
+  background:#fff; border:1px solid var(--hair); box-shadow:var(--shadow-soft);
+  transition:transform .5s cubic-bezier(.2,.9,.2,1), border-radius .7s cubic-bezier(.3,.9,.2,1);
+}
+.why-card:hover{ transform:translateY(-5px); border-radius:44% 56% 48% 52% / 52% 46% 54% 48%; }
+.why-card--wide{ grid-column:span 6; }
+.why-card__ico{ width:46px; height:46px; border-radius:14px; background:var(--chrome-ramp); background-size:240% 100%; animation:chromeFlow 9s linear infinite; box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 6px 16px -8px rgba(90,100,150,.6); display:grid; place-items:center; }
+.why-card h3{ margin-top:20px; font-size:1.22rem; letter-spacing:-.03em; }
+.why-card p{ margin-top:10px; font-size:.94rem; color:var(--ink-soft); }
+
+.notfor{
+  margin-top:26px; grid-column:span 12; border-radius:var(--r-md);
+  border:1.4px dashed var(--hair-2); background:rgba(255,255,255,.55);
+  padding:28px 26px;
+}
+.notfor h3{ font-size:1.16rem; }
+.notfor ul{ margin-top:14px; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px 26px; }
+.notfor li{ font-size:.93rem; color:var(--ink-soft); padding-left:22px; position:relative; }
+.notfor li::before{ content:'—'; position:absolute; left:0; color:var(--c-steel); }
+
+/* ============================================================
+   6. RAKAMLAR
+   ============================================================ */
+.stats{ background:#101012; color:#EFEFEC; overflow:hidden; position:relative; }
+.stats::before{
+  content:''; position:absolute; width:120%; height:70%; left:-10%; top:-25%;
+  background:radial-gradient(45% 55% at 30% 50%, rgba(184,198,255,.28), transparent 70%),
+             radial-gradient(40% 50% at 70% 40%, rgba(255,201,227,.22), transparent 70%),
+             radial-gradient(38% 44% at 52% 78%, rgba(168,240,224,.2), transparent 70%);
+  filter:blur(42px); pointer-events:none;
+}
+.stats .eyebrow{ color:#A9A9B4; }
+.stats .eyebrow::before{ opacity:.9; }
+.stats .sect-title{ color:#F6F6F4; }
+.stats .sect-lead{ color:#B4B4BE; }
+.stat-grid{ position:relative; margin-top:52px; display:grid; grid-template-columns:repeat(12,1fr); gap:2px; background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.09); border-radius:var(--r-md); overflow:hidden; }
+.stat{ grid-column:span 3; background:#101012; padding:34px 24px 30px; }
+.stat__n{ font-family:var(--font-d); font-weight:800; font-size:clamp(2.3rem,4.6vw,3.5rem); letter-spacing:-.05em; line-height:1; }
+.stat__l{ margin-top:12px; font-size:.88rem; color:#9C9CA8; line-height:1.45; }
+.bar{ margin-top:16px; height:4px; border-radius:99px; background:rgba(255,255,255,.12); overflow:hidden; }
+.bar i{ display:block; height:100%; width:0; border-radius:99px; background:var(--chrome-ramp); background-size:250% 100%; animation:chromeFlow 6s linear infinite; transition:width 1.5s cubic-bezier(.2,.8,.2,1); }
+
+/* ============================================================
+   7. İŞLER / VAKA
+   ============================================================ */
+.works{ margin-top:54px; display:grid; grid-template-columns:repeat(12,1fr); gap:20px; }
+.work{
+  grid-column:span 4; border-radius:var(--r-lg); overflow:hidden;
+  border:1px solid var(--hair); background:#fff; box-shadow:var(--shadow-soft);
+  transition:transform .55s cubic-bezier(.2,.9,.2,1), box-shadow .55s ease, border-radius .8s cubic-bezier(.3,.9,.2,1);
+  display:flex; flex-direction:column;
+}
+.work:hover{ transform:translateY(-8px); box-shadow:var(--shadow-lift); border-radius:46% 54% 50% 50% / 12% 12% 6% 6%; }
+.work__vis{ position:relative; aspect-ratio:16/10; overflow:hidden; }
+.work__vis svg{ position:absolute; inset:0; width:100%; height:100%; }
+.work__cat{
+  position:absolute; left:16px; top:16px; z-index:3;
+  font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; font-weight:600;
+  padding:6px 12px; border-radius:99px; background:rgba(16,16,18,.78); color:#F6F6F4;
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+}
+.work__body{ padding:24px 24px 26px; display:flex; flex-direction:column; flex:1; }
+.work__body h3{ font-size:1.24rem; letter-spacing:-.03em; }
+.work__body p{ margin-top:10px; font-size:.92rem; color:var(--ink-soft); }
+.work__m{ margin-top:auto; padding-top:20px; display:flex; gap:22px; flex-wrap:wrap; border-top:1px solid var(--hair); }
+.work__m div span{ display:block; font-size:.74rem; color:var(--ink-soft); letter-spacing:.04em; }
+.work__m div strong{ font-family:var(--font-d); font-weight:800; font-size:1.28rem; letter-spacing:-.035em; }
+
+/* ============================================================
+   8. SÜREÇ
+   ============================================================ */
+.proc{ background:linear-gradient(180deg,#F6F6F4,#EFEFEC); }
+.steps{ margin-top:54px; display:grid; grid-template-columns:repeat(12,1fr); gap:18px; }
+.step{
+  grid-column:span 3; position:relative; padding:28px 22px 26px;
+  background:#fff; border:1px solid var(--hair); border-radius:var(--r-md);
+  transition:transform .5s cubic-bezier(.2,.9,.2,1), border-radius .7s cubic-bezier(.3,.9,.2,1), box-shadow .5s;
+}
+.step:hover{ transform:translateY(-6px); box-shadow:var(--shadow-soft); border-radius:52% 48% 46% 54% / 16% 14% 22% 20%; }
+.step__n{
+  width:44px; height:44px; border-radius:50%; display:grid; place-items:center;
+  font-family:var(--font-d); font-weight:800; font-size:1.02rem; color:#15151A;
+  background:var(--chrome-ramp); background-size:240% 100%; animation:chromeFlow 8s linear infinite;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9);
+}
+.step h3{ margin-top:20px; font-size:1.1rem; }
+.step p{ margin-top:9px; font-size:.9rem; color:var(--ink-soft); }
+.step__time{ margin-top:16px; display:inline-block; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2); padding:5px 11px; border-radius:99px; background:var(--paper-2); }
+
+/* ============================================================
+   9. YORUMLAR
+   ============================================================ */
+.quotes{ margin-top:52px; display:grid; grid-template-columns:repeat(12,1fr); gap:20px; }
+.quote{
+  grid-column:span 4; padding:32px 28px; border-radius:var(--r-lg);
+  background:linear-gradient(160deg,#FFFFFF,#F1F1EE); border:1px solid var(--hair);
+  box-shadow:var(--shadow-soft); display:flex; flex-direction:column;
+  transition:border-radius .8s cubic-bezier(.3,.9,.2,1), transform .5s;
+}
+.quote:hover{ transform:translateY(-5px); border-radius:48% 52% 40% 60% / 14% 16% 20% 18%; }
+.quote__mark{ font-family:var(--font-d); font-weight:900; font-size:3.4rem; line-height:.6; background:var(--chrome-ramp); background-size:240% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; animation:chromeFlow 9s linear infinite; }
+.quote p{ margin-top:18px; font-size:1.02rem; color:var(--ink-2); line-height:1.6; }
+.quote__who{ margin-top:auto; padding-top:24px; display:flex; align-items:center; gap:13px; }
+.avatar{ width:44px; height:44px; border-radius:50%; flex:0 0 44px; display:grid; place-items:center; font-family:var(--font-d); font-weight:800; font-size:.92rem; color:#15151A; background:var(--chrome-ramp); background-size:240% 100%; animation:chromeFlow 10s linear infinite; box-shadow:inset 0 1px 0 rgba(255,255,255,.9); }
+.quote__who b{ display:block; font-family:var(--font-d); font-size:.95rem; letter-spacing:-.02em; }
+.quote__who span{ display:block; font-size:.8rem; color:var(--ink-soft); }
+
+/* ============================================================
+   10. BÜYÜK CTA BANDI
+   ============================================================ */
+.band{ position:relative; overflow:hidden; }
+.band__in{
+  position:relative; border-radius:clamp(28px,4vw,52px); overflow:hidden;
+  background:#101012; color:#F6F6F4; padding:clamp(44px,6vw,84px) clamp(26px,5vw,72px);
+  isolation:isolate;
+}
+#bandCanvas{ position:absolute; inset:0; width:100%; height:100%; z-index:0; opacity:.85; filter:blur(6px); }
+.band__in::after{ content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(100deg, rgba(16,16,18,.92) 0%, rgba(16,16,18,.72) 42%, rgba(16,16,18,.25) 100%); }
+.band__c{ position:relative; z-index:2; max-width:780px; }
+.band h2{ font-size:clamp(2rem,5.2vw,3.7rem); letter-spacing:-.045em; }
+.band p{ margin-top:20px; color:#C2C2CC; font-size:clamp(1rem,1.7vw,1.14rem); max-width:56ch; }
+.band__acts{ margin-top:34px; display:flex; flex-wrap:wrap; gap:13px; }
+.band__note{ margin-top:20px; font-size:.85rem; color:#8E8E9A; }
+
+/* ============================================================
+   11. İTİRAZLAR / SSS
+   ============================================================ */
+.faq-wrap{ margin-top:48px; display:grid; grid-template-columns:repeat(12,1fr); gap:20px 44px; }
+.faq-side{ grid-column:span 4; }
+.faq-list{ grid-column:span 8; }
+.faq{ border-bottom:1px solid var(--hair); }
+.faq__q{
+  width:100%; background:none; border:0; cursor:pointer; text-align:left;
+  padding:22px 44px 22px 0; position:relative;
+  font-family:var(--font-d); font-weight:600; font-size:clamp(1rem,1.7vw,1.14rem); letter-spacing:-.025em;
+}
+.faq__q::after{
+  content:''; position:absolute; right:8px; top:50%; width:13px; height:13px; margin-top:-6px;
+  border-right:2px solid var(--ink); border-bottom:2px solid var(--ink);
+  transform:rotate(45deg) translateY(-3px); transition:transform .4s cubic-bezier(.3,.9,.2,1);
+}
+.faq.is-open .faq__q::after{ transform:rotate(-135deg) translateY(-3px); }
+.faq__a{ overflow:hidden; height:0; transition:height .45s cubic-bezier(.3,.9,.2,1); }
+.faq__a p{ padding:0 10% 24px 0; color:var(--ink-soft); font-size:.96rem; }
+
+/* ============================================================
+   12. İLETİŞİM + FORM
+   ============================================================ */
+.contact{ background:linear-gradient(180deg,#EFEFEC,#F6F6F4); }
+.cgrid{ margin-top:50px; display:grid; grid-template-columns:repeat(12,1fr); gap:26px; }
+.cinfo{ grid-column:span 5; }
+.cbox{
+  padding:26px 24px; border-radius:var(--r-md); background:#fff; border:1px solid var(--hair);
+  box-shadow:var(--shadow-soft); margin-bottom:16px;
+}
+.cbox h3{ font-size:1.02rem; letter-spacing:-.02em; }
+.cbox a,.cbox p{ margin-top:8px; display:block; font-size:1.02rem; color:var(--ink-2); }
+.cbox a{ font-family:var(--font-d); font-weight:700; font-size:1.16rem; color:var(--ink); }
+.cbox small{ display:block; margin-top:10px; color:var(--ink-soft); font-size:.85rem; }
+
+.formcard{
+  grid-column:span 7; position:relative; overflow:hidden;
+  padding:34px clamp(22px,3.4vw,40px) 36px; border-radius:var(--r-lg);
+  background:linear-gradient(160deg,#FFFFFF,#F1F1EE); border:1px solid var(--hair);
+  box-shadow:var(--shadow-lift);
+}
+.formcard__glow{ position:absolute; z-index:0; width:420px; height:420px; right:-160px; top:-190px; border-radius:50%; filter:blur(70px); opacity:.5; pointer-events:none;
+  background:radial-gradient(circle at 40% 40%, var(--c-blue), var(--c-pink) 50%, var(--c-mint) 80%, transparent 84%); }
+/* DİKKAT: `> *` kullanma — glow'un position:absolute'unu ezip 420px boşluk yaratıyor */
+.formcard > .prog, .formcard > form, .formcard > .success{ position:relative; z-index:1; }
+.prog{ display:flex; gap:8px; margin-bottom:24px; }
+.prog i{ flex:1; height:4px; border-radius:99px; background:var(--hair-2); transition:background .4s; }
+.prog i.on{ background:var(--chrome-ramp); background-size:250% 100%; animation:chromeFlow 6s linear infinite; }
+.fstep{ display:none; }
+.fstep.is-active{ display:block; animation:fadeUp .45s cubic-bezier(.2,.9,.2,1) both; }
+@keyframes fadeUp{ from{ opacity:0; transform:translateY(14px) } to{ opacity:1; transform:none } }
+.frow{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.field{ margin-bottom:16px; }
+.field label{ display:block; font-size:.83rem; font-weight:600; color:var(--ink-2); margin-bottom:7px; }
+.field label em{ font-style:normal; color:var(--ink-soft); font-weight:400; }
+.field input,.field select,.field textarea{
+  width:100%; padding:14px 15px; border-radius:var(--r-sm);
+  border:1.4px solid var(--hair-2); background:rgba(255,255,255,.92);
+  font-size:.97rem; transition:border-color .25s, box-shadow .25s, background .25s;
+}
+.field textarea{ min-height:112px; resize:vertical; }
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none; border-color:#8E9BE0; background:#fff; box-shadow:0 0 0 4px rgba(184,198,255,.35);
+}
+.field.err input,.field.err select{ border-color:#D6455C; box-shadow:0 0 0 4px rgba(214,69,92,.14); }
+.errmsg{ display:none; margin-top:6px; font-size:.8rem; color:#C13A50; }
+.field.err .errmsg{ display:block; }
+.pills{ display:flex; flex-wrap:wrap; gap:9px; }
+.pill{ position:relative; }
+.pill input{ position:absolute; opacity:0; width:0; height:0; }
+.pill span{
+  display:inline-block; padding:10px 16px; border-radius:99px; cursor:pointer;
+  border:1.4px solid var(--hair-2); background:rgba(255,255,255,.9); font-size:.88rem; transition:.25s;
+}
+.pill input:checked + span{ border-color:transparent; background:#101012; color:#F6F6F4; }
+.pill input:focus-visible + span{ outline:2.5px solid #6E7CFF; outline-offset:3px; }
+.fnav{ display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; }
+.kvkk{ display:flex; gap:10px; align-items:flex-start; margin-top:14px; font-size:.82rem; color:var(--ink-soft); }
+.kvkk input{ margin-top:3px; width:17px; height:17px; flex:0 0 17px; accent-color:#101012; }
+.fmicro{ margin-top:14px; font-size:.82rem; color:var(--ink-soft); }
+
+.success{ display:none; text-align:center; padding:24px 0 8px; }
+.success.is-on{ display:block; animation:fadeUp .5s cubic-bezier(.2,.9,.2,1) both; }
+.success__drop{ width:88px; height:88px; margin:0 auto 22px; }
+.success h3{ font-size:1.7rem; letter-spacing:-.035em; }
+.success p{ margin-top:14px; color:var(--ink-soft); max-width:46ch; margin-inline:auto; }
+.success__acts{ margin-top:26px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+
+/* ============================================================
+   13. FOOTER + WHATSAPP
+   ============================================================ */
+.foot{ background:#101012; color:#B8B8C2; padding-block:64px 30px; }
+.foot a{ color:#E8E8EE; }
+.fgrid{ display:grid; grid-template-columns:repeat(12,1fr); gap:32px 24px; }
+.fcol{ grid-column:span 3; }
+.fcol--brand{ grid-column:span 4; }
+.fcol h4{ font-size:.78rem; letter-spacing:.2em; text-transform:uppercase; color:#7E7E8C; font-weight:600; }
+.fcol ul{ margin-top:16px; display:grid; gap:10px; }
+.fcol li a{ font-size:.94rem; color:#C6C6D0; transition:color .25s; }
+.fcol li a:hover{ color:#fff; }
+.foot .brand{ color:#F6F6F4; }
+.foot__p{ margin-top:18px; font-size:.92rem; color:#8E8E9A; max-width:34ch; }
+.fbottom{ margin-top:52px; padding-top:22px; border-top:1px solid rgba(255,255,255,.1); display:flex; flex-wrap:wrap; gap:12px 26px; justify-content:space-between; font-size:.82rem; color:#777784; }
+.demo-note{ font-size:.82rem; color:#777784; }
+
+.wa{
+  position:fixed; right:18px; bottom:18px; z-index:90;
+  width:60px; height:60px; border-radius:50%; display:grid; place-items:center;
+  background:#25D366; box-shadow:0 12px 30px -8px rgba(37,211,102,.65), 0 4px 12px rgba(0,0,0,.18);
+  transition:transform .35s cubic-bezier(.2,1.2,.3,1);
+}
+.wa:hover{ transform:scale(1.09) translateY(-2px); }
+.wa::after{
+  content:''; position:absolute; inset:0; border-radius:50%; border:2px solid rgba(37,211,102,.55);
+  animation:pulse 2.6s ease-out infinite;
+}
+@keyframes pulse{ 0%{ transform:scale(1); opacity:.8 } 100%{ transform:scale(1.55); opacity:0 } }
+
+/* mobil yapışkan alt çubuk */
+.mbar{ display:none; }
+
+/* film grain */
+.grain{ position:fixed; inset:0; z-index:95; pointer-events:none; opacity:.05; mix-blend-mode:multiply; background-repeat:repeat; }
+
+/* reveal */
+.rv{ opacity:0; transform:translateY(26px); transition:opacity .8s cubic-bezier(.2,.9,.2,1), transform .8s cubic-bezier(.2,.9,.2,1); }
+.rv.in{ opacity:1; transform:none; }
+
+/* özel imleç */
+.cur{ position:fixed; left:0; top:0; z-index:99; width:26px; height:26px; border-radius:50%; pointer-events:none; display:none;
+  background:var(--chrome-ramp); background-size:250% 100%; mix-blend-mode:multiply; opacity:.55;
+  transition:width .3s, height .3s, opacity .3s; }
+@media (hover:hover) and (pointer:fine){ .cur{ display:block; } }
+
+/* ---- Krom yüzeylerde akan yansıma (ORTAK KURAL) ----
+   Bu blok bilerek en sonda: yukarıdaki tanımlar `background:` kısayolu
+   kullandığı için erken yazılırsa background-position sıfırlanıyor ve
+   chromeFlow animasyonu görsel olarak hiç çalışmıyordu. */
+.eyebrow::before, .btn--chrome, .chip::before, .why-card__ico, .step__n,
+.avatar, .prog i.on, .quote__mark, .brand__t em, .bar i{
+  background-position: calc(var(--chr) * 100%) 50%;
+}
+
+/* sabit navigasyonun çapa hedeflerini kesmemesi için */
+section[id], header[id], main[id]{ scroll-margin-top: calc(var(--nav-h) + 14px); }
+
+/* ============================================================
+   14. RESPONSIVE
+   ============================================================ */
+@media (max-width:1080px){
+  .svc{ grid-column:span 6; }
+  .svc:nth-child(1),.svc:nth-child(2){ grid-column:span 6; }
+  .why-card,.why-card--wide{ grid-column:span 6; }
+  .work{ grid-column:span 6; }
+  .step{ grid-column:span 6; }
+  .stat{ grid-column:span 6; }
+  .quote{ grid-column:span 6; }
+  .cinfo,.formcard{ grid-column:span 12; }
+  /* 12 kolonluk ızgara + 44px kolon boşluğu dar ekranda taşma yaratıyor: tek kolona in */
+  .faq-wrap{ grid-template-columns:1fr; gap:30px; }
+  .faq-side,.faq-list{ grid-column:auto; }
+  .fcol{ grid-column:span 6; }
+  .fcol--brand{ grid-column:span 12; }
+}
+/* menü açıkken masaüstüne genişletilirse panel ekranda asılı kalmasın */
+@media (min-width:881px){
+  .mobile-menu, .mobile-menu.is-open{ display:none; }
+}
+@media (max-width:880px){
+  .nav__links{ display:none; }
+  .nav__tel{ display:none; }
+  .burger{ display:flex; }
+  .nav__cta{ margin-left:auto; }
+  .nav__cta .btn{ display:none; }
+  .hero{ min-height:auto; padding-top:calc(var(--nav-h) + 34px); padding-bottom:56px; }
+  .scroll-hint{ display:none; }
+  /* mobilde krom alan arka planda kalsın, metin öne çıksın */
+  #metaCanvas{ opacity:.42; filter:blur(6px) saturate(1.05); }
+  .hero__bg::after{
+    background:
+      linear-gradient(180deg, rgba(246,246,244,.9) 0%, rgba(246,246,244,.7) 45%, rgba(246,246,244,.92) 100%),
+      radial-gradient(120% 70% at 50% 45%, rgba(246,246,244,.2) 30%, var(--paper) 96%);
+  }
+}
+@media (max-width:720px){
+  body{ font-size:16px; }
+  /* tüm 12 kolonluk ızgaralar tek kolona: kolon boşluğu bütçesi dar ekranda tükeniyor */
+  .svc-grid,.why-grid,.works,.steps,.quotes,.cgrid,.fgrid{ grid-template-columns:1fr; }
+  .stat-grid{ grid-template-columns:1fr; }
+  .svc,.why-card,.why-card--wide,.work,.step,.quote,.cinfo,.formcard,.stat,.fcol,.fcol--brand,.notfor{ grid-column:auto; }
+  .svc,.svc:nth-child(1),.svc:nth-child(2){ grid-column:auto; min-height:0; }
+  .frow{ grid-template-columns:1fr; }
+  .wa{ bottom:80px; right:14px; width:54px; height:54px; }
+  .mbar{
+    display:grid; grid-template-columns:1fr 1fr; gap:8px;
+    position:fixed; left:0; right:0; bottom:0; z-index:88; padding:9px 12px calc(9px + env(safe-area-inset-bottom));
+    background:rgba(246,246,244,.94); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    border-top:1px solid var(--hair);
+  }
+  .mbar .btn{ padding:13px 12px; font-size:.9rem; }
+  .foot{ padding-bottom:96px; }
+  .hero__proof{ gap:14px 22px; }
+  .hero__proof strong{ font-size:1.2rem; }
+}
+@media (max-width:420px){
+  .hero h1{ font-size:clamp(2.5rem,12.6vw,3.6rem); }
+  .hero__tag{ font-size:.76rem; }
+  .btn{ padding:14px 22px; font-size:.92rem; }
+}
+
+/* ============================================================
+   15. HAREKET AZALTMA
+   ============================================================ */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+  .rv{ opacity:1 !important; transform:none !important; }
+  #metaCanvas,#bandCanvas{ display:none; }
+  .hero__fallback{ display:block; }
+  .marquee__row{ animation:none; }
+  .cur{ display:none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- film grain katmanı -->
+<div class="grain" id="grain" aria-hidden="true"></div>
+<div class="cur" id="cur" aria-hidden="true"></div>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="nav" id="nav" aria-label="Ana menü">
+  <div class="nav__in">
+    <a class="brand" href="#top" aria-label="TasarımMania ana sayfa">
+      <svg class="brand__drop" viewBox="0 0 64 64" aria-hidden="true">
+        <defs>
+          <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffffff"/><stop offset=".32" stop-color="#B8C6FF"/>
+            <stop offset=".6" stop-color="#FFC9E3"/><stop offset="1" stop-color="#A8F0E0"/>
+          </linearGradient>
+        </defs>
+        <path d="M32 6c10 12.5 17 19.5 17 28.5A17 17 0 0 1 15 34.5C15 25.5 22 18.5 32 6z" fill="url(#bg1)" stroke="#7C8296" stroke-width="1.6"/>
+        <ellipse cx="26" cy="30" rx="5" ry="8" fill="#fff" opacity=".75"/>
+      </svg>
+      <span class="brand__t">Tasarım<em>Mania</em></span>
+    </a>
+
+    <div class="nav__links">
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#neden">Neden Biz</a>
+      <a href="#isler">İşler</a>
+      <a href="#surec">Süreç</a>
+      <a href="#sss">İtirazlar</a>
+      <a href="#iletisim">İletişim</a>
+    </div>
+
+    <div class="nav__cta">
+      <a class="nav__tel" href="tel:+905386999666" aria-label="Telefonla ara: 0538 699 96 66">0538 699 96 66</a>
+      <a class="btn btn--chrome btn--sm magnet" href="#iletisim"><span>Teklif Al</span></a>
+      <button class="burger" id="burger" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mmenu">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mmenu">
+  <a href="#hizmetler">Hizmetler</a>
+  <a href="#neden">Neden Biz</a>
+  <a href="#isler">İşler</a>
+  <a href="#surec">Süreç</a>
+  <a href="#yorumlar">Yorumlar</a>
+  <a href="#sss">İtirazlar</a>
+  <a href="#iletisim">İletişim</a>
+  <a class="btn btn--chrome btn--wide" href="#iletisim"><span>Teklif Al</span></a>
+  <a class="btn btn--ghost btn--wide" style="margin-top:10px" href="tel:+905386999666"><span>0538 699 96 66</span></a>
+</div>
+
+<main id="top">
+
+<!-- ============================================================
+     HERO — sıvı krom metaball
+     ============================================================ -->
+<header class="hero" id="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <canvas id="metaCanvas"></canvas>
+    <div class="hero__fallback" id="metaFallback"></div>
+  </div>
+
+  <div class="wrap hero__in">
+    <div class="hero__tag">
+      <i>360°</i>
+      <span>İstanbul merkezli dijital prodüksiyon stüdyosu — <b>2015'ten beri</b></span>
+    </div>
+
+    <h1>
+      <span class="l chrome-text">Beğenilen değil,</span>
+      <span class="l thin">satan işler üretiyoruz.</span>
+    </h1>
+
+    <p class="hero__sub">
+      Web ve mobilden reklam yönetimine, video prodüksiyondan çok dilli SEO'ya kadar
+      markanızın <b>bütün dijital yüzeyini tek ekip</b> kuruyor ve işletiyor.
+      Yurt içi ve yurt dışı kampanyalar aynı panelde, aynı sorumlulukta.
+    </p>
+
+    <div class="hero__acts">
+      <a class="btn btn--chrome magnet" href="#iletisim"><span>Ücretsiz Strateji Görüşmesi</span></a>
+      <a class="btn btn--ghost magnet" href="#isler"><span>İşleri İncele →</span></a>
+    </div>
+
+    <p class="hero__micro"><em></em> Ortalama ilk dönüş süremiz 2 saat · Formda 4 soru var, 45 saniye sürüyor.</p>
+
+    <div class="hero__proof">
+      <div><strong class="chrome-text">180+</strong><span>tamamlanan proje</span></div>
+      <div><strong class="chrome-text">11</strong><span>ülkede kampanya</span></div>
+      <div><strong class="chrome-text">2,7 yıl</strong><span>ortalama müşteri kalış süresi</span></div>
+      <div><strong class="chrome-text">5</strong><span>disiplin, tek çatı</span></div>
+    </div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true"><span>kaydır</span><i></i></div>
+</header>
+
+<!-- ============================================================
+     GÜVEN ŞERİDİ
+     ============================================================ -->
+<section class="trust" aria-label="Çalıştığımız kanallar ve teknolojiler">
+  <div class="marquee">
+    <div class="marquee__row" id="mrow">
+      <span class="chip">Meta Business Partner</span>
+      <span class="chip">Google Ads</span>
+      <span class="chip">GA4 &amp; GTM</span>
+      <span class="chip">Shopify Plus</span>
+      <span class="chip">WooCommerce</span>
+      <span class="chip">React Native</span>
+      <span class="chip">Next.js</span>
+      <span class="chip">TikTok Ads</span>
+      <span class="chip">YouTube İçerik</span>
+      <span class="chip">Instagram Reels</span>
+      <span class="chip">Search Console</span>
+      <span class="chip">Semrush</span>
+      <span class="chip">App Store &amp; Play Store</span>
+      <span class="chip">AI Destekli Prodüksiyon</span>
+    </div>
+  </div>
+</section>
+
+<!-- sıvı damla ayırıcı -->
+<div class="wave" aria-hidden="true">
+  <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="wv1" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#EDEDE9"/><stop offset=".4" stop-color="#F6F6F4"/><stop offset="1" stop-color="#EDEDE9"/>
+      </linearGradient>
+    </defs>
+    <path d="M0,0 L1440,0 L1440,26 C1300,26 1240,90 1090,90 C960,90 930,30 810,30 C700,30 660,84 540,84 C420,84 386,26 250,26 C140,26 96,52 0,52 Z" fill="url(#wv1)"/>
+  </svg>
+</div>
+
+<!-- ============================================================
+     PROBLEM — kısa acı bloğu
+     ============================================================ -->
+<section class="sect sect--tight" aria-label="Sorun">
+  <div class="wrap">
+    <div class="rv" style="max-width:74ch">
+      <span class="eyebrow">Tanıdık geldi mi</span>
+      <h2 class="sect-title">Bütçe her ay büyüyor,<br>teklif sayısı yerinde sayıyor.</h2>
+      <p class="sect-lead">
+        Site ajansı ayrı, reklam ajansı ayrı, video ekibi ayrı. Kimse diğerinin verisini görmüyor;
+        reklam panelinde "başarılı" görünen kampanya satış tablosuna hiç yansımıyor.
+        Yurt dışı pazara açılmak istiyorsunuz ama içerik Türkçe, altyapı tek dilli, SEO ise hiç kurulmamış.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HİZMETLER — sayfanın kalbi
+     ============================================================ -->
+<section class="sect" id="hizmetler" aria-labelledby="svc-h">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Beş disiplin, tek çatı</span>
+      <h2 class="sect-title" id="svc-h">Hizmet listesi değil,<br><span class="chrome-text">sonuç listesi.</span></h2>
+      <p class="sect-lead">Her başlıkta ne aldığınızı iş sonucu olarak yazıyoruz; hizmetin adı alt satırda kalıyor. Beşi birden tek ekip, tek sözleşme, tek fatura.</p>
+    </div>
+
+    <div class="svc-grid">
+
+      <!-- 1 -->
+      <article class="svc rv">
+        <div class="svc__glow" aria-hidden="true"></div>
+        <div class="svc__head">
+          <span class="svc__no">01 / WEB</span>
+          <div class="scene" aria-hidden="true"><div class="cube">
+            <div class="face face--f"></div><div class="face face--b"></div>
+            <div class="face face--r"></div><div class="face face--l"></div>
+            <div class="face face--t"></div><div class="face face--d"></div>
+          </div></div>
+        </div>
+        <h3>Ziyaretçiyi teklife çeviren dijital vitrin</h3>
+        <p class="svc__res">Web Tasarım &amp; Yazılım</p>
+        <p>Kurumsal site, e-ticaret ve özel web uygulamaları. Şablon kullanmıyoruz: her projenin kendi ızgarası, kendi tipografisi, kendi hareket dili oluyor. AI entegrasyonlarıyla site sadece anlatmıyor, konuşuyor.</p>
+        <ul class="svc__list">
+          <li>Kurumsal site</li><li>E-ticaret</li><li>Özel web uygulaması</li>
+          <li>AI chatbot entegrasyonu</li><li>Core Web Vitals</li><li>Çok dilli altyapı</li>
+        </ul>
+        <a class="svc__link" href="#iletisim">Web projesi konuşalım →</a>
+      </article>
+
+      <!-- 2 -->
+      <article class="svc rv">
+        <div class="svc__glow" aria-hidden="true"></div>
+        <div class="svc__head">
+          <span class="svc__no">02 / MOBİL</span>
+          <div class="scene" aria-hidden="true"><div class="cube">
+            <div class="face face--f"></div><div class="face face--b"></div>
+            <div class="face face--r"></div><div class="face face--l"></div>
+            <div class="face face--t"></div><div class="face face--d"></div>
+          </div></div>
+        </div>
+        <h3>Markanızı müşterinin cebine yerleştirin</h3>
+        <p class="svc__res">Mobil Uygulama</p>
+        <p>iOS ve Android için React Native ya da native geliştirme. Mağaza yayın süreçlerini, sürüm yönetimini ve ret gerekçelerini biz üstleniyoruz; siz sadece onaylıyorsunuz.</p>
+        <ul class="svc__list">
+          <li>iOS &amp; Android</li><li>React Native</li><li>Native geliştirme</li>
+          <li>App Store yayın</li><li>Play Store yayın</li><li>Push &amp; analitik</li>
+        </ul>
+        <a class="svc__link" href="#iletisim">Uygulama fikrimi anlat →</a>
+      </article>
+
+      <!-- 3 -->
+      <article class="svc rv">
+        <div class="svc__glow" aria-hidden="true"></div>
+        <div class="svc__head">
+          <span class="svc__no">03 / REKLAM</span>
+          <div class="scene" aria-hidden="true"><div class="cube">
+            <div class="face face--f"></div><div class="face face--b"></div>
+            <div class="face face--r"></div><div class="face face--l"></div>
+            <div class="face face--t"></div><div class="face face--d"></div>
+          </div></div>
+        </div>
+        <h3>Müşteri edinme maliyetini düşürün</h3>
+        <p class="svc__res">Dijital Pazarlama</p>
+        <p>Meta Ads ve Google Ads'te performans pazarlaması, sosyal medya yönetimi ve yurt dışı kampanya kurgusu. Rapor tıklamayı değil; kaç teklif, kaç sözleşme, kaç lira sorusunu cevaplıyor.</p>
+        <ul class="svc__list">
+          <li>Meta Ads</li><li>Google Ads</li><li>Performans pazarlaması</li>
+          <li>Sosyal medya yönetimi</li><li>Global kampanya</li><li>Huni kurgusu</li>
+        </ul>
+        <a class="svc__link" href="#iletisim">Reklam hesabımı incelet →</a>
+      </article>
+
+      <!-- 4 -->
+      <article class="svc rv">
+        <div class="svc__glow" aria-hidden="true"></div>
+        <div class="svc__head">
+          <span class="svc__no">04 / VİDEO</span>
+          <div class="scene" aria-hidden="true"><div class="cube">
+            <div class="face face--f"></div><div class="face face--b"></div>
+            <div class="face face--r"></div><div class="face face--l"></div>
+            <div class="face face--t"></div><div class="face face--d"></div>
+          </div></div>
+        </div>
+        <h3>İzlenen değil, izlettiren içerik</h3>
+        <p class="svc__res">Video Prodüksiyon</p>
+        <p>Reklam filmi, ürün videosu, YouTube ve Instagram içerik serileri. AI destekli prodüksiyon sayesinde aynı bütçeyle ayda 4 değil 20 varyant test ediyoruz.</p>
+        <ul class="svc__list">
+          <li>Reklam filmi</li><li>Ürün videosu</li><li>YouTube serisi</li>
+          <li>Instagram Reels</li><li>AI destekli prodüksiyon</li><li>Altyazı &amp; yerelleştirme</li>
+        </ul>
+        <a class="svc__link" href="#iletisim">Prodüksiyon planı iste →</a>
+      </article>
+
+      <!-- 5 -->
+      <article class="svc rv">
+        <div class="svc__glow" aria-hidden="true"></div>
+        <div class="svc__head">
+          <span class="svc__no">05 / SEO</span>
+          <div class="scene" aria-hidden="true"><div class="cube">
+            <div class="face face--f"></div><div class="face face--b"></div>
+            <div class="face face--r"></div><div class="face face--l"></div>
+            <div class="face face--t"></div><div class="face face--d"></div>
+          </div></div>
+        </div>
+        <h3>Reklam durunca kesilmeyen talep</h3>
+        <p class="svc__res">SEO Hizmetleri</p>
+        <p>Teknik SEO, içerik stratejisi, yerel SEO ve uluslararası/çok dilli SEO. hreflang kurgusundan ülke bazlı içerik planına kadar; hedef pazarda o ülkenin diliyle görünür oluyorsunuz.</p>
+        <ul class="svc__list">
+          <li>Teknik SEO</li><li>İçerik stratejisi</li><li>Yerel SEO</li>
+          <li>Çok dilli SEO</li><li>hreflang &amp; uluslararası</li><li>AI görünürlüğü</li>
+        </ul>
+        <a class="svc__link" href="#iletisim">Ücretsiz teknik tarama iste →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- damla ayırıcı -->
+<div class="wave" aria-hidden="true">
+  <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,90 L1440,90 L1440,40 C1320,40 1290,0 1160,0 C1040,0 1010,58 880,58 C760,58 720,10 600,10 C480,10 452,64 330,64 C220,64 150,34 0,34 Z" fill="#F1F1EE"/>
+  </svg>
+</div>
+
+<!-- ============================================================
+     NEDEN BİZ
+     ============================================================ -->
+<section class="sect why" id="neden" aria-labelledby="why-h">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Farkımız</span>
+      <h2 class="sect-title" id="why-h">Beş ajansla değil,<br>tek ekiple çalışın.</h2>
+      <p class="sect-lead">360 derece derken kastettiğimiz şey şu: aynı stratejist, aynı veri ve aynı takvim üzerinden ilerleyen tek bir ekip. Aralarda kaybolan brief yok.</p>
+    </div>
+
+    <div class="why-grid">
+      <article class="why-card why-card--wide rv">
+        <div class="why-card__ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#15151A" stroke-width="2" stroke-linecap="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+        </div>
+        <h3>Tek panel, gerçek ciro</h3>
+        <p>Meta, Google, CRM ve muhasebe verisini tek ekranda birleştiriyoruz. Müşteri başı maliyeti panel içi dönüşümle değil, gerçek satış tablosuyla eşliyoruz. Ay sonunda "iyi gidiyor" demiyoruz; kalem kalem gösteriyoruz.</p>
+      </article>
+
+      <article class="why-card why-card--wide rv">
+        <div class="why-card__ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#15151A" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 3 2.6 15 0 18M12 3c-2.6 3-2.6 15 0 18"/></svg>
+        </div>
+        <h3>Yurt dışı deneyimi, çok dilli altyapı</h3>
+        <p>11 ülkede kampanya yönettik. Hedef pazarın dilinde içerik, hreflang kurgusu, yerel ödeme ve yerel reklam mevzuatı; global açılımı Türkçe sitenin çevirisiyle yapmıyoruz.</p>
+      </article>
+
+      <article class="why-card rv">
+        <div class="why-card__ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#15151A" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+        </div>
+        <h3>Takvim baştan yazılı</h3>
+        <p>Brief'ten yayına 21 iş günü. Her aşamanın sorumlusu, süresi ve teslimi sözleşmede.</p>
+      </article>
+
+      <article class="why-card rv">
+        <div class="why-card__ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#15151A" stroke-width="2" stroke-linecap="round"><path d="M12 3l8 4v5c0 5-3.4 8-8 9-4.6-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3>Hesaplar sizin adınıza</h3>
+        <p>Reklam hesabı, alan adı, analitik ve depo erişimi sizin adınıza açılır. Yarın ayrılsanız her şey sizde kalır.</p>
+      </article>
+
+      <article class="why-card rv">
+        <div class="why-card__ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#15151A" stroke-width="2" stroke-linecap="round"><path d="M4 19V5m0 14h16"/><rect x="7" y="11" width="3" height="8"/><rect x="12" y="7" width="3" height="12"/><rect x="17" y="13" width="3" height="6"/></svg>
+        </div>
+        <h3>Aylık ilerleme, kilit yok</h3>
+        <p>Uzun süreli sözleşmeye kilitlemiyoruz. Memnun kalmazsanız ay sonunda ayrılırsınız, veri devri bizden.</p>
+      </article>
+
+      <div class="notfor rv">
+        <h3>Kim için uygun değiliz?</h3>
+        <ul>
+          <li>Tek seferlik, "sadece logo/afiş" işleri arayan markalar</li>
+          <li>Ölçüm kurulumuna (analitik, CRM, dönüşüm takibi) izin vermeyen yapılar</li>
+          <li>İlk 30 günde ciro katlanmasını bekleyen, sabrı olmayan bütçeler</li>
+          <li>Reklam mevzuatına aykırı vaat yazmamızı isteyen işletmeler</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     RAKAMLAR
+     ============================================================ -->
+<section class="sect stats" id="rakamlar" aria-labelledby="st-h">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Sosyal kanıt</span>
+      <h2 class="sect-title" id="st-h">Rakamlar, cümlelerden<br>daha az yorum kaldırır.</h2>
+      <p class="sect-lead">Son 12 ayın toplu özeti. Detayları vaka dosyalarında kalem kalem açıyoruz.</p>
+    </div>
+
+    <div class="stat-grid" id="statGrid">
+      <div class="stat">
+        <div class="stat__n"><span class="count" data-to="180" data-suffix="+">0</span></div>
+        <p class="stat__l">Tamamlanan proje<br>(web · mobil · video)</p>
+        <div class="bar"><i data-w="88"></i></div>
+      </div>
+      <div class="stat">
+        <div class="stat__n"><span class="count" data-to="41" data-suffix=" mn ₺">0</span></div>
+        <p class="stat__l">12 ayda müşterilerimizin<br>elde ettiği ek ciro</p>
+        <div class="bar"><i data-w="76"></i></div>
+      </div>
+      <div class="stat">
+        <div class="stat__n"><span class="count" data-to="4.3" data-dec="1" data-suffix="%">0</span></div>
+        <p class="stat__l">Ortalama dönüşüm oranı<br>(sektör ortalaması %1,8)</p>
+        <div class="bar"><i data-w="94"></i></div>
+      </div>
+      <div class="stat">
+        <div class="stat__n"><span class="count" data-to="11" data-suffix=" ülke">0</span></div>
+        <p class="stat__l">Kampanya yönetilen pazar<br>(AB, Körfez, ABD)</p>
+        <div class="bar"><i data-w="64"></i></div>
+      </div>
+      <div class="stat">
+        <div class="stat__n"><span class="count" data-to="21" data-suffix=" gün">0</span></div>
+        <p class="stat__l">Brief'ten yayına<br>ortalama süre</p>
+        <div class="bar"><i data-w="70"></i></div>
+      </div>
+      <div class="stat">
+        <div class="stat__n"><span class="count" data-to="2.7" data-dec="1" data-suffix=" yıl">0</span></div>
+        <p class="stat__l">Ortalama müşteri<br>kalış süresi</p>
+        <div class="bar"><i data-w="82"></i></div>
+      </div>
+      <div class="stat">
+        <div class="stat__n"><span class="count" data-to="240" data-suffix="+">0</span></div>
+        <p class="stat__l">Yıllık üretilen<br>video içerik</p>
+        <div class="bar"><i data-w="86"></i></div>
+      </div>
+      <div class="stat">
+        <div class="stat__n"><span class="count" data-to="2" data-suffix=" saat">0</span></div>
+        <p class="stat__l">Ortalama ilk<br>dönüş süremiz</p>
+        <div class="bar"><i data-w="96"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     İŞLER / VAKA ÇALIŞMALARI
+     ============================================================ -->
+<section class="sect" id="isler" aria-labelledby="w-h">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Seçili işler</span>
+      <h2 class="sect-title" id="w-h">Sorun → ne değiştirdik<br><span class="chrome-text">→ sonuç.</span></h2>
+      <p class="sect-lead">Altı vaka, altı farklı sektör. Her birinde en az iki ölçülebilir metrik ve ölçüm dönemi var.</p>
+    </div>
+
+    <div class="works">
+
+      <article class="work rv">
+        <div class="work__vis" aria-hidden="true">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="w1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9ECFB"/><stop offset=".5" stop-color="#B8C6FF"/><stop offset="1" stop-color="#F3E4F0"/></linearGradient></defs>
+            <rect width="400" height="250" fill="url(#w1)"/>
+            <circle cx="120" cy="90" r="70" fill="#fff" opacity=".55"/>
+            <circle cx="270" cy="160" r="88" fill="#FFC9E3" opacity=".55"/>
+            <path d="M0 200 Q100 150 200 195 T400 165 L400 250 L0 250Z" fill="#fff" opacity=".65"/>
+          </svg>
+          <span class="work__cat">E-Ticaret · Moda</span>
+        </div>
+        <div class="work__body">
+          <h3>Ev tekstili markasının Avrupa açılımı</h3>
+          <p>Türkçe tek dilli mağaza, Almanya ve Hollanda'da görünmüyordu. Çok dilli altyapı + hreflang + yerel ödeme kurgusu kurduk, Meta'da ülke bazlı kreatif testine geçtik.</p>
+          <div class="work__m">
+            <div><span>Yurt dışı ciro</span><strong>+312%</strong></div>
+            <div><span>Müşteri edinme maliyeti</span><strong>-38%</strong></div>
+            <div><span>Süre</span><strong>7 ay</strong></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="work rv">
+        <div class="work__vis" aria-hidden="true">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="w2" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#DFF6EF"/><stop offset=".6" stop-color="#A8F0E0"/><stop offset="1" stop-color="#EDEEF9"/></linearGradient></defs>
+            <rect width="400" height="250" fill="url(#w2)"/>
+            <ellipse cx="300" cy="70" rx="110" ry="72" fill="#fff" opacity=".6"/>
+            <path d="M-20 170 Q90 110 190 165 T430 130 L430 260 L-20 260Z" fill="#B8C6FF" opacity=".5"/>
+          </svg>
+          <span class="work__cat">Sağlık · Klinik</span>
+        </div>
+        <div class="work__body">
+          <h3>Özel klinik için mevzuata uygun huni</h3>
+          <p>Reklam kısıtları nedeniyle kanal daralmıştı. Bilgilendirici içerik ekseninde SEO + WhatsApp'a akan randevu hunisi kurduk; tüm metinler tanıtım yönetmeliğine uyumlu yazıldı.</p>
+          <div class="work__m">
+            <div><span>Organik randevu</span><strong>+184%</strong></div>
+            <div><span>Randevu maliyeti</span><strong>-41%</strong></div>
+            <div><span>Süre</span><strong>9 ay</strong></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="work rv">
+        <div class="work__vis" aria-hidden="true">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="w3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F5E9F1"/><stop offset=".55" stop-color="#FFC9E3"/><stop offset="1" stop-color="#E4E9FA"/></linearGradient></defs>
+            <rect width="400" height="250" fill="url(#w3)"/>
+            <circle cx="90" cy="180" r="95" fill="#fff" opacity=".55"/>
+            <circle cx="300" cy="80" r="62" fill="#A8F0E0" opacity=".6"/>
+            <rect x="150" y="100" width="120" height="120" rx="34" fill="#fff" opacity=".45"/>
+          </svg>
+          <span class="work__cat">Mobil · Fitness</span>
+        </div>
+        <div class="work__body">
+          <h3>Spor salonu zinciri için üye uygulaması</h3>
+          <p>Rezervasyon telefonla alınıyor, iptaller kayboluyordu. React Native ile iOS/Android uygulaması geliştirip mağazalara yayınladık; ders rezervasyonu ve dondurma akışını otomatikleştirdik.</p>
+          <div class="work__m">
+            <div><span>Aylık aktif üye</span><strong>+2,4x</strong></div>
+            <div><span>Ders doluluk oranı</span><strong>%91</strong></div>
+            <div><span>Süre</span><strong>4 ay</strong></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="work rv">
+        <div class="work__vis" aria-hidden="true">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="w4" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E6E8F2"/><stop offset=".5" stop-color="#C9CEDF"/><stop offset="1" stop-color="#F1E7F0"/></linearGradient></defs>
+            <rect width="400" height="250" fill="url(#w4)"/>
+            <path d="M0 60 Q120 20 200 70 T400 40 L400 0 L0 0Z" fill="#fff" opacity=".6"/>
+            <path d="M0 210 Q140 150 240 205 T400 175 L400 250 L0 250Z" fill="#B8C6FF" opacity=".55"/>
+            <circle cx="200" cy="125" r="42" fill="#fff" opacity=".7"/>
+          </svg>
+          <span class="work__cat">Video · B2B Sanayi</span>
+        </div>
+        <div class="work__body">
+          <h3>Makine üreticisi için ürün video serisi</h3>
+          <p>Fuar dışında anlatım kanalı yoktu. 12 parçalık İngilizce ürün videosu serisi + YouTube kanal kurgusu ürettik; AI destekli montajla varyant sayısını beşe katladık.</p>
+          <div class="work__m">
+            <div><span>Yurt dışı talep formu</span><strong>+167%</strong></div>
+            <div><span>Video izlenme</span><strong>1,9 mn</strong></div>
+            <div><span>Süre</span><strong>6 ay</strong></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="work rv">
+        <div class="work__vis" aria-hidden="true">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="w5" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#EAF3F1"/><stop offset=".5" stop-color="#A8F0E0"/><stop offset="1" stop-color="#FFE7F1"/></linearGradient></defs>
+            <rect width="400" height="250" fill="url(#w5)"/>
+            <ellipse cx="120" cy="70" rx="100" ry="66" fill="#fff" opacity=".55"/>
+            <ellipse cx="310" cy="190" rx="120" ry="80" fill="#B8C6FF" opacity=".5"/>
+          </svg>
+          <span class="work__cat">Yerel SEO · Gastronomi</span>
+        </div>
+        <div class="work__body">
+          <h3>Restoran grubu için yerel SEO atağı</h3>
+          <p>Dört şubenin harita görünürlüğü çakışıyordu. Şube bazlı sayfalar, yapılandırılmış veri ve işletme profili disiplini kurduk; yorum akışını sistematikleştirdik.</p>
+          <div class="work__m">
+            <div><span>Harita araması</span><strong>+228%</strong></div>
+            <div><span>Yol tarifi tıklaması</span><strong>+143%</strong></div>
+            <div><span>Süre</span><strong>5 ay</strong></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="work rv">
+        <div class="work__vis" aria-hidden="true">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="w6" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EDEAF6"/><stop offset=".45" stop-color="#B8C6FF"/><stop offset="1" stop-color="#DFF6EF"/></linearGradient></defs>
+            <rect width="400" height="250" fill="url(#w6)"/>
+            <rect x="40" y="40" width="150" height="170" rx="48" fill="#fff" opacity=".55"/>
+            <circle cx="290" cy="120" r="80" fill="#FFC9E3" opacity=".55"/>
+          </svg>
+          <span class="work__cat">Web &amp; AI · Eğitim</span>
+        </div>
+        <div class="work__body">
+          <h3>Eğitim kurumu için AI destekli kayıt sitesi</h3>
+          <p>Danışma hattı yoğunluktan boğuluyordu. Site içine program eşleştiren AI asistan kurduk; formu üç adıma bölüp mobil deneyimi yeniden kurguladık.</p>
+          <div class="work__m">
+            <div><span>Form tamamlama</span><strong>+96%</strong></div>
+            <div><span>Danışma yükü</span><strong>-52%</strong></div>
+            <div><span>Süre</span><strong>3 ay</strong></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- damla ayırıcı -->
+<div class="wave" aria-hidden="true">
+  <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L1440,0 L1440,44 C1330,44 1270,4 1150,4 C1030,4 990,62 860,62 C740,62 700,18 570,18 C450,18 410,70 290,70 C180,70 120,38 0,38 Z" fill="#F4F4F1"/>
+  </svg>
+</div>
+
+<!-- ============================================================
+     SÜREÇ
+     ============================================================ -->
+<section class="sect proc" id="surec" aria-labelledby="p-h">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Nasıl çalışıyoruz</span>
+      <h2 class="sect-title" id="p-h">Brief'ten yayına 21 iş günü.<br>Takvim baştan yazılı.</h2>
+      <p class="sect-lead">Her adımın sorumlusu, süresi ve sizden ne isteneceği belli. Gecikirsek o ayın bedelini biz karşılıyoruz.</p>
+    </div>
+
+    <div class="steps">
+      <article class="step rv">
+        <div class="step__n">01</div>
+        <h3>Teşhis görüşmesi</h3>
+        <p>Satış sunumu değil. Ekranı paylaşır, sitenizin ve reklam hesabınızın para kaybettiği üç noktayı canlı işaretleriz. Çalışmasak da liste sizde kalır.</p>
+        <span class="step__time">45 dakika</span>
+      </article>
+      <article class="step rv">
+        <div class="step__n">02</div>
+        <h3>Strateji &amp; kapsam</h3>
+        <p>Hedef, kanal, bütçe dağılımı ve ölçüm planı tek sayfada. Kapsam, süre, ekip ve fiyat 48 saat içinde kalem kalem elinizde.</p>
+        <span class="step__time">3 iş günü</span>
+      </article>
+      <article class="step rv">
+        <div class="step__n">03</div>
+        <h3>Tasarım &amp; prodüksiyon</h3>
+        <p>Arayüz, içerik ve video eş zamanlı üretilir. İki revizyon turu takvimin içindedir, sürprizi yoktur.</p>
+        <span class="step__time">10 iş günü</span>
+      </article>
+      <article class="step rv">
+        <div class="step__n">04</div>
+        <h3>Geliştirme &amp; kurulum</h3>
+        <p>Kod, altyapı, analitik, dönüşüm takibi ve reklam hesapları sizin adınıza kurulur. Yük testi ve hız optimizasyonu dahil.</p>
+        <span class="step__time">6 iş günü</span>
+      </article>
+      <article class="step rv">
+        <div class="step__n">05</div>
+        <h3>Yayın &amp; ilk optimizasyon</h3>
+        <p>Yayın günü ekip nöbette. İlk 72 saatte kampanya ve sayfa davranışı canlı izlenir, gerekli kesintiler anında yapılır.</p>
+        <span class="step__time">2 iş günü</span>
+      </article>
+      <article class="step rv">
+        <div class="step__n">06</div>
+        <h3>Aylık büyütme ritmi</h3>
+        <p>Her ay tek sayfa rapor: harcanan, kazandıran, kestiğimiz. Toplantı ritmi iki haftada bir, ölçüm sizin CRM'inizden.</p>
+        <span class="step__time">süreklilik</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     YORUMLAR
+     ============================================================ -->
+<section class="sect" id="yorumlar" aria-labelledby="q-h">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Müşteri yorumları</span>
+      <h2 class="sect-title" id="q-h">Sonuç anlatan yorum,<br>övgüden ağır basar.</h2>
+    </div>
+
+    <div class="quotes">
+      <figure class="quote rv">
+        <div class="quote__mark" aria-hidden="true">“</div>
+        <blockquote><p>Üç ajans değiştirdik, ilk kez raporu okurken hesap makinesine ihtiyaç duymadık. Altı ayda teklif sayımız ikiye katlandı, üstelik reklam bütçesini artırmadan.</p></blockquote>
+        <figcaption class="quote__who">
+          <div class="avatar" aria-hidden="true">SK</div>
+          <div><b>Serkan Kılıçarslan</b><span>Kurucu Ortak · Nova Ev Tekstil</span></div>
+        </figcaption>
+      </figure>
+
+      <figure class="quote rv">
+        <div class="quote__mark" aria-hidden="true">“</div>
+        <blockquote><p>Almanya açılımını "siteyi çevirelim" sanıyorduk. Ekip bize pazarın kendi diliyle içerik ve ayrı bir huni kurdu. Yurt dışı siparişler artık toplam cironun üçte biri.</p></blockquote>
+        <figcaption class="quote__who">
+          <div class="avatar" aria-hidden="true">EA</div>
+          <div><b>Elif Arıkan</b><span>Pazarlama Direktörü · Vestica Group</span></div>
+        </figcaption>
+      </figure>
+
+      <figure class="quote rv">
+        <div class="quote__mark" aria-hidden="true">“</div>
+        <blockquote><p>Video, site ve reklamın aynı ekipte olması bizim için en büyük fark oldu. Kampanya fikri sabah konuşuluyor, akşam kreatif hazır. Kimse "diğer ajansa sorun" demiyor.</p></blockquote>
+        <figcaption class="quote__who">
+          <div class="avatar" aria-hidden="true">MT</div>
+          <div><b>Murat Tekin</b><span>Genel Müdür · Atlas Makina</span></div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BÜYÜK CTA BANDI
+     ============================================================ -->
+<section class="sect band" aria-labelledby="band-h">
+  <div class="wrap">
+    <div class="band__in rv">
+      <canvas id="bandCanvas" aria-hidden="true"></canvas>
+      <div class="band__c">
+        <span class="eyebrow" style="color:#A9A9B4">Bir sonraki adım</span>
+        <h2 id="band-h" style="margin-top:16px">Sunum yapmıyoruz.<br>İlk görüşmede sitenizin<br><span class="chrome-text">para kaybettiği yerleri</span> gösteriyoruz.</h2>
+        <p>Ekranı paylaşırız, üç kayıp noktasını canlı işaretleriz. Birlikte çalışmasak bile o liste sizde kalır. Görüşme 45 dakika sürer, satış baskısı yoktur.</p>
+        <div class="band__acts">
+          <a class="btn btn--chrome magnet" href="#iletisim"><span>Kayıp noktalarımı göster</span></a>
+          <a class="btn btn--ghost magnet" style="color:#F6F6F4;border-color:rgba(255,255,255,.35)" href="https://wa.me/905386999666" target="_blank" rel="noopener"><span>WhatsApp'tan yaz</span></a>
+        </div>
+        <p class="band__note">Minimum proje bütçesi 85.000 ₺'den başlar · Aylık büyütme paketleri 45.000 ₺/ay'dan başlar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     İTİRAZLAR / SSS
+     ============================================================ -->
+<section class="sect" id="sss" aria-labelledby="f-h">
+  <div class="wrap">
+    <div class="faq-wrap">
+      <div class="faq-side rv">
+        <span class="eyebrow">İtirazlar</span>
+        <h2 class="sect-title" id="f-h" style="font-size:clamp(1.9rem,4.4vw,3rem)">Neden "hayır"<br>denir? Önden<br>cevaplayalım.</h2>
+        <p class="sect-lead" style="font-size:1rem">Aklınızdaki soru burada yoksa WhatsApp'tan yazın, iki saat içinde gerçek bir insan cevaplasın.</p>
+        <a class="btn btn--ink magnet" style="margin-top:22px" href="https://wa.me/905386999666" target="_blank" rel="noopener"><span>Soruyu WhatsApp'tan sor</span></a>
+      </div>
+
+      <div class="faq-list rv" id="faqList">
+        <div class="faq">
+          <button class="faq__q" type="button" aria-expanded="false">Uzun süreli sözleşmeye kilitleniyor muyuz?</button>
+          <div class="faq__a"><p>Hayır. Proje işlerinde kapsam bitince ilişki biter; büyütme paketlerinde aylık ilerleriz. Çıkış için 30 gün önceden yazılı bildirim yeterlidir, ceza maddesi yoktur. Devir sürecinde tüm dosya, erişim ve raporları teslim ederiz.</p></div>
+        </div>
+        <div class="faq">
+          <button class="faq__q" type="button" aria-expanded="false">Fiyatlar neye göre belirleniyor?</button>
+          <div class="faq__a"><p>Kapsam kalemi, ekip günü ve süre üzerinden. Minimum proje bütçemiz 85.000 ₺, aylık büyütme paketlerimiz 45.000 ₺/ay'dan başlar. Bütçeniz bu aralığın altındaysa bunu ilk yanıtta söyler, sizi boş bir görüşmeye sokmayız.</p></div>
+        </div>
+        <div class="faq">
+          <button class="faq__q" type="button" aria-expanded="false">Mevcut ajansımızdan geçiş nasıl oluyor?</button>
+          <div class="faq__a"><p>Vedalaşmadan önce konuşuruz. Hesap devri, veri taşıma ve geçiş takvimini yazılı planlarız; yayında tek gün boşluk olmaz. Kampanyalar paralel yürütülür, eski yapı ancak yenisi ölçülebilir sonuç verdikten sonra kapatılır.</p></div>
+        </div>
+        <div class="faq">
+          <button class="faq__q" type="button" aria-expanded="false">Reklam hesapları ve alan adı kimin adına açılıyor?</button>
+          <div class="faq__a"><p>Her zaman sizin adınıza. Alan adı, hosting, reklam hesapları, analitik ve mağaza geliştirici hesapları sizin şirketinizin mülkiyetinde olur; biz yalnızca yetkili kullanıcı olarak ekleniriz. Ayrılmamız halinde erişimimiz kapanır, veri sizde kalır.</p></div>
+        </div>
+        <div class="faq">
+          <button class="faq__q" type="button" aria-expanded="false">Raporlama sıklığı nedir, ne görüyoruz?</button>
+          <div class="faq__a"><p>Haftalık kısa özet, aylık tek sayfa performans raporu ve iki haftada bir canlı toplantı. Rapor "harcanan / kazandıran / kestiğimiz" başlıklarıyla açılır. Ayrıca 7/24 açık bir panelden kampanya ve site verisini kendiniz de izleyebilirsiniz.</p></div>
+        </div>
+        <div class="faq">
+          <button class="faq__q" type="button" aria-expanded="false">Yurt dışı kampanyada dil ve mevzuat işini kim yapıyor?</button>
+          <div class="faq__a"><p>Biz. Hedef pazarın dilinde içerik üretimi, hreflang kurgusu, yerel reklam politikaları ve platform kısıtları bizim kapsamımızda. Gerektiğinde ana dili o dil olan editörlerle çalışır, metinleri yayına almadan önce mevzuat kontrolünden geçiririz.</p></div>
+        </div>
+        <div class="faq">
+          <button class="faq__q" type="button" aria-expanded="false">Her işi kabul ediyor musunuz?</button>
+          <div class="faq__a"><p>Hayır. Ön görüşmede size fayda sağlayamayacağımızı düşünürsek bunu açıkça söyler, mümkünse doğru adresi öneririz. Aynı sektörde doğrudan rakip iki markayla eş zamanlı çalışmayız.</p></div>
+        </div>
+        <div class="faq">
+          <button class="faq__q" type="button" aria-expanded="false">Projede kim çalışacak?</button>
+          <div class="faq__a"><p>Görüşmeye giren kişi değil, işi yapan ekip. Marka yöneticisi, performans uzmanı, tasarımcı, geliştirici ve içerik editörü ilk toplantıda tanıtılır. Ekip üyesi değişirse önceden haber verilir ve devir notu paylaşılır.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     İLETİŞİM + FORM
+     ============================================================ -->
+<section class="sect contact" id="iletisim" aria-labelledby="c-h">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">İletişim</span>
+      <h2 class="sect-title" id="c-h">Projeni anlat,<br><span class="chrome-text">48 saatte teklifin hazır.</span></h2>
+      <p class="sect-lead">Kanalı siz seçin: form, WhatsApp veya doğrudan telefon. Üçünde de aynı ekip cevap verir.</p>
+    </div>
+
+    <div class="cgrid">
+      <div class="cinfo rv">
+        <div class="cbox">
+          <h3>Telefon</h3>
+          <a href="tel:+905386999666">0538 699 96 66</a>
+          <small>Hafta içi 09:00–19:00 · Cumartesi 10:00–16:00</small>
+        </div>
+        <div class="cbox">
+          <h3>WhatsApp</h3>
+          <a href="https://wa.me/905386999666" target="_blank" rel="noopener">Sohbeti başlat</a>
+          <small>Form doldurmak zorunda değilsiniz. Yazın, gerçek bir insan cevaplasın.</small>
+        </div>
+        <div class="cbox">
+          <h3>Stüdyo</h3>
+          <p>Zeytinlik Mah. Pancar Sk. No:19-11<br>Bakırköy / İstanbul</p>
+          <small>Randevulu ziyaret · Online görüşme de mümkün</small>
+        </div>
+        <div class="cbox">
+          <h3>Görüşmede neyi konuşuruz?</h3>
+          <p style="font-size:.94rem">1) Mevcut huninizin tıkalı yeri · 2) İlk 90 günde ölçülecek üç metrik · 3) Kapsam, süre ve bütçe aralığı.</p>
+          <small>Satış görüşmesi değil, teşhis görüşmesi.</small>
+        </div>
+      </div>
+
+      <div class="formcard rv">
+        <div class="formcard__glow" aria-hidden="true"></div>
+
+        <div class="prog" id="prog" aria-hidden="true"><i class="on"></i><i></i></div>
+
+        <form id="teklifForm" novalidate>
+          <!-- ADIM 1 -->
+          <div class="fstep is-active" data-step="1">
+            <h3 style="font-size:1.32rem">Adım 1/2 — Sizi nasıl bulalım?</h3>
+            <p style="margin:10px 0 22px;color:var(--ink-soft);font-size:.9rem">İki adım, toplam 4 zorunlu alan. Yaklaşık 45 saniye sürüyor.</p>
+
+            <div class="frow">
+              <div class="field" id="f-ad">
+                <label for="ad">Ad Soyad</label>
+                <input id="ad" name="ad" type="text" autocomplete="name" placeholder="Örn. Ayşe Yıldırım">
+                <span class="errmsg">Lütfen ad ve soyadınızı yazın.</span>
+              </div>
+              <div class="field" id="f-tel">
+                <label for="tel">Telefon</label>
+                <input id="tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="05xx xxx xx xx">
+                <span class="errmsg">Geçerli bir telefon numarası girin (en az 10 hane).</span>
+              </div>
+            </div>
+
+            <div class="field" id="f-kanal">
+              <label>Tercih ettiğiniz kanal <em>— nereden dönelim?</em></label>
+              <div class="pills">
+                <label class="pill"><input type="radio" name="kanal" value="WhatsApp" checked><span>WhatsApp</span></label>
+                <label class="pill"><input type="radio" name="kanal" value="Telefon"><span>Telefon</span></label>
+                <label class="pill"><input type="radio" name="kanal" value="E-posta"><span>E-posta</span></label>
+              </div>
+            </div>
+
+            <div class="fnav">
+              <button class="btn btn--chrome magnet" type="button" id="next1"><span>Devam et →</span></button>
+            </div>
+            <p class="fmicro">Ortalama ilk dönüş süremiz 2 saat. Otomatik mesaj göndermiyoruz.</p>
+          </div>
+
+          <!-- ADIM 2 -->
+          <div class="fstep" data-step="2">
+            <h3 style="font-size:1.32rem">Adım 2/2 — Proje hakkında</h3>
+            <p style="margin:10px 0 22px;color:var(--ink-soft);font-size:.9rem">Bütçe aralığını yazmanız, size uygun olmayan bir teklifle vakit kaybetmenizi önler.</p>
+
+            <div class="frow">
+              <div class="field" id="f-eposta">
+                <label for="eposta">E-posta <em>— teklif dosyası için</em></label>
+                <input id="eposta" name="eposta" type="email" autocomplete="email" placeholder="ad@sirket.com">
+                <span class="errmsg">E-posta adresi geçerli görünmüyor.</span>
+              </div>
+              <div class="field" id="f-hizmet">
+                <label for="hizmet">Hizmet</label>
+                <select id="hizmet" name="hizmet">
+                  <option value="">Seçiniz…</option>
+                  <option>Web Tasarım &amp; Yazılım</option>
+                  <option>Mobil Uygulama</option>
+                  <option>Dijital Pazarlama</option>
+                  <option>Video Prodüksiyon</option>
+                  <option>SEO Hizmetleri</option>
+                  <option>360° — Hepsi birden</option>
+                </select>
+                <span class="errmsg">Lütfen bir hizmet seçin.</span>
+              </div>
+            </div>
+
+            <div class="field" id="f-butce">
+              <label>Bütçe aralığı</label>
+              <div class="pills">
+                <label class="pill"><input type="radio" name="butce" value="85-150k" checked><span>85–150 bin ₺</span></label>
+                <label class="pill"><input type="radio" name="butce" value="150-350k"><span>150–350 bin ₺</span></label>
+                <label class="pill"><input type="radio" name="butce" value="350k+"><span>350 bin ₺ üzeri</span></label>
+                <label class="pill"><input type="radio" name="butce" value="aylik"><span>Aylık paket</span></label>
+              </div>
+            </div>
+
+            <div class="field" id="f-mesaj">
+              <label for="mesaj">Mesajınız <em>— kısa da olsa yeter</em></label>
+              <textarea id="mesaj" name="mesaj" placeholder="Markanız, hedefiniz ve varsa yetiştirmemiz gereken tarih…"></textarea>
+            </div>
+
+            <label class="kvkk" for="kvkk">
+              <input type="checkbox" id="kvkk" name="kvkk">
+              <span>Kişisel verilerimin teklif süreci kapsamında işlenmesine ve benimle iletişime geçilmesine onay veriyorum. <a href="#" style="text-decoration:underline">Aydınlatma metni</a></span>
+            </label>
+            <span class="errmsg" id="kvkkErr" style="margin-left:27px">Devam etmek için onay kutusunu işaretleyin.</span>
+
+            <div class="fnav" style="margin-top:20px">
+              <button class="btn btn--ghost" type="button" id="back2"><span>← Geri</span></button>
+              <button class="btn btn--chrome magnet" type="submit"><span>Teklifimi Gönder</span></button>
+            </div>
+            <p class="fmicro">Gönderdikten sonra 48 saat içinde kapsam, süre, ekip ve fiyat tek sayfada elinizde olur.</p>
+          </div>
+        </form>
+
+        <!-- BAŞARI EKRANI -->
+        <div class="success" id="success" role="status" aria-live="polite">
+          <svg class="success__drop" viewBox="0 0 64 64" aria-hidden="true">
+            <defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#B8C6FF"/>
+              <stop offset=".65" stop-color="#FFC9E3"/><stop offset="1" stop-color="#A8F0E0"/></linearGradient></defs>
+            <path d="M32 5c10.5 13 18 20.5 18 30A18 18 0 0 1 14 35c0-9.5 7.5-17 18-30z" fill="url(#sg)" stroke="#7C8296" stroke-width="1.6"/>
+            <path d="M24 35l6 6 12-13" fill="none" stroke="#15151A" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Talebiniz bize ulaştı.</h3>
+          <p id="successMsg">Teşekkürler. Ekibimiz mesai saatleri içinde ortalama 2 saat içinde size dönecek. Acele ediyorsanız WhatsApp'tan yazmanız en hızlısı.</p>
+          <div class="success__acts">
+            <a class="btn btn--chrome" href="https://wa.me/905386999666" target="_blank" rel="noopener"><span>WhatsApp'tan hızlandır</span></a>
+            <button class="btn btn--ghost" type="button" id="againBtn"><span>Yeni talep oluştur</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fcol fcol--brand">
+        <a class="brand" href="#top" aria-label="TasarımMania">
+          <svg class="brand__drop" viewBox="0 0 64 64" aria-hidden="true">
+            <defs><linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffffff"/><stop offset=".32" stop-color="#B8C6FF"/>
+              <stop offset=".6" stop-color="#FFC9E3"/><stop offset="1" stop-color="#A8F0E0"/></linearGradient></defs>
+            <path d="M32 6c10 12.5 17 19.5 17 28.5A17 17 0 0 1 15 34.5C15 25.5 22 18.5 32 6z" fill="url(#bg2)" stroke="#7C8296" stroke-width="1.6"/>
+          </svg>
+          <span class="brand__t" style="color:#F6F6F4">Tasarım<em>Mania</em></span>
+        </a>
+        <p class="foot__p">İstanbul Bakırköy merkezli 360 derece dijital ajans ve dijital prodüksiyon stüdyosu. Web, mobil, reklam, video ve SEO tek çatı altında.</p>
+        <p class="foot__p" style="margin-top:14px">Zeytinlik Mah. Pancar Sk. No:19-11<br>Bakırköy / İstanbul</p>
+      </div>
+
+      <nav class="fcol" aria-label="Hizmetler">
+        <h4>Hizmetler</h4>
+        <ul>
+          <li><a href="#hizmetler">Web Tasarım &amp; Yazılım</a></li>
+          <li><a href="#hizmetler">Mobil Uygulama</a></li>
+          <li><a href="#hizmetler">Dijital Pazarlama</a></li>
+          <li><a href="#hizmetler">Video Prodüksiyon</a></li>
+          <li><a href="#hizmetler">SEO Hizmetleri</a></li>
+        </ul>
+      </nav>
+
+      <nav class="fcol" aria-label="Kurumsal">
+        <h4>Kurumsal</h4>
+        <ul>
+          <li><a href="#neden">Neden TasarımMania</a></li>
+          <li><a href="#isler">Seçili İşler</a></li>
+          <li><a href="#surec">Çalışma Süreci</a></li>
+          <li><a href="#yorumlar">Müşteri Yorumları</a></li>
+          <li><a href="#sss">İtirazlar &amp; SSS</a></li>
+        </ul>
+      </nav>
+
+      <div class="fcol">
+        <h4>İletişim</h4>
+        <ul>
+          <li><a href="tel:+905386999666">0538 699 96 66</a></li>
+          <li><a href="https://wa.me/905386999666" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li>Hafta içi 09:00–19:00</li>
+          <li>Cumartesi 10:00–16:00</li>
+          <li><a href="#iletisim">Teklif Al</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="fbottom">
+      <span>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</span>
+      <span class="demo-note">Demo sürümü — rakamlar ve referanslar temsilidir.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- sabit WhatsApp -->
+<a class="wa" href="https://wa.me/905386999666" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg width="30" height="30" viewBox="0 0 32 32" fill="#fff" aria-hidden="true">
+    <path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.7c1.8 1 3.9 1.5 6.2 1.5 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.6c-2 0-3.9-.5-5.6-1.5l-.4-.2-4 1 1.1-3.9-.3-.4c-1.1-1.7-1.6-3.7-1.6-5.6C5.2 10 10 5.2 16 5.2S26.8 10 26.8 16 22 26.6 16 26.6zm5.9-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.3-.2-.3 0-.5.1-.7.2-.2.3-.4.5-.6.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.6.3-.8.3-1.4.2-1.6-.1-.1-.3-.2-.6-.4z"/>
+  </svg>
+</a>
+
+<!-- mobil yapışkan alt çubuk -->
+<nav class="mbar" aria-label="Hızlı iletişim">
+  <a class="btn btn--ink" href="https://wa.me/905386999666" target="_blank" rel="noopener"><span>WhatsApp</span></a>
+  <a class="btn btn--chrome" href="#iletisim"><span>Teklif Al</span></a>
+</nav>
+
+<!-- MX katmanı: yapılandırılmış veri -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "name":"TasarımMania",
+  "description":"İstanbul merkezli 360 derece dijital ajans ve dijital prodüksiyon stüdyosu.",
+  "telephone":"+905386999666",
+  "address":{"@type":"PostalAddress","streetAddress":"Zeytinlik Mah. Pancar Sk. No:19-11","addressLocality":"Bakırköy","addressRegion":"İstanbul","addressCountry":"TR"},
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"10:00","closes":"16:00"}
+  ],
+  "areaServed":"Worldwide",
+  "makesOffer":[
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Web Tasarım & Yazılım"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Mobil Uygulama"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Dijital Pazarlama"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Video Prodüksiyon"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"SEO Hizmetleri"}}
+  ]
+}
+</script>
+
+<script>
+"use strict";
+(function(){
+
+  /* ==========================================================
+     0. Yardımcılar
+     ========================================================== */
+  var $  = function(s, c){ return (c || document).querySelector(s); };
+  var $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var reduceMQ = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches:false };
+  var REDUCE = !!reduceMQ.matches;
+  var coarse = window.matchMedia ? window.matchMedia('(pointer: coarse)').matches : false;
+  var clamp = function(v,a,b){ return v < a ? a : (v > b ? b : v); };
+  var lerp  = function(a,b,t){ return a + (b-a)*t; };
+
+  /* ==========================================================
+     1. Yıl + mobil menü
+     ========================================================== */
+  var yil = $('#yil'); if (yil) yil.textContent = String(new Date().getFullYear());
+
+  var burger = $('#burger'), mmenu = $('#mmenu');
+  if (burger && mmenu){
+    burger.addEventListener('click', function(){
+      var open = mmenu.classList.toggle('is-open');
+      burger.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç');
+    });
+    var closeMenu = function(){
+      mmenu.classList.remove('is-open');
+      burger.classList.remove('is-open');
+      burger.setAttribute('aria-expanded','false');
+      burger.setAttribute('aria-label','Menüyü aç');
+    };
+    $$('a', mmenu).forEach(function(a){ a.addEventListener('click', closeMenu); });
+    // ESC ve masaüstüne genişletme menüyü kapatsın
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && mmenu.classList.contains('is-open')){ closeMenu(); burger.focus(); }
+    });
+    window.addEventListener('resize', function(){
+      if (window.innerWidth > 880 && mmenu.classList.contains('is-open')) closeMenu();
+    });
+  }
+
+  /* ==========================================================
+     2. Nav yapışma durumu
+     ========================================================== */
+  var nav = $('#nav'), lastStuck = false;
+  function navTick(){
+    var s = window.scrollY > 24;
+    if (s !== lastStuck && nav){ nav.classList.toggle('is-stuck', s); lastStuck = s; }
+  }
+  window.addEventListener('scroll', navTick, { passive:true });
+  navTick();
+
+  /* ==========================================================
+     3. HERO — sıvı krom metaball alanı (Canvas 2D, kütüphanesiz)
+        Düşük çözünürlüklü skaler alan + krom renk rampası,
+        sonra yüksek çözünürlüğe yumuşatılarak ölçekleniyor.
+        ========================================================== */
+  (function metaball(){
+    var cv = $('#metaCanvas');
+    var fb = $('#metaFallback');
+    if (!cv){ return; }
+    if (REDUCE){ cv.style.display = 'none'; if (fb) fb.style.display = 'block'; return; }
+
+    var ctx = null;
+    try { ctx = cv.getContext('2d'); } catch(e){ ctx = null; }
+    if (!ctx){ cv.style.display='none'; if (fb) fb.style.display='block'; return; }
+
+    // Küçük offscreen alan
+    var off = document.createElement('canvas');
+    var octx = off.getContext('2d');
+    if (!octx){ cv.style.display='none'; if (fb) fb.style.display='block'; return; }
+
+    // Krom renk rampası (iridesan duraklar)
+    var STOPS = [
+      [46,50,62],     // derin gölge bandı
+      [206,213,232],
+      [255,255,255],  // spekülar parlama
+      [104,112,134],  // koyu çelik
+      [184,198,255],  // mavi yansıma
+      [255,255,255],
+      [86,92,110],    // ikinci koyu bant
+      [255,201,227],  // şeftali/pembe
+      [250,251,255],
+      [122,168,160],
+      [168,240,224],  // turkuaz
+      [255,255,255],
+      [58,63,76]
+    ];
+    function ramp(t, out){
+      t = t - Math.floor(t);
+      var f = t * (STOPS.length - 1);
+      var i = Math.floor(f); if (i > STOPS.length-2) i = STOPS.length-2;
+      var k = f - i;
+      var a = STOPS[i], b = STOPS[i+1];
+      out[0] = a[0] + (b[0]-a[0])*k;
+      out[1] = a[1] + (b[1]-a[1])*k;
+      out[2] = a[2] + (b[2]-a[2])*k;
+    }
+
+    var cols = 0, rows = 0, img = null, data = null;
+    var W = 0, H = 0, aspect = 1;
+    // doküman koordinatlarında önbelleklenmiş kutu (her pointermove'da rect okumamak için)
+    var box = { l:0, t:0, w:1, h:1 };
+    var quality = coarse ? 0.72 : 1;
+
+    var N = coarse ? 5 : 8;
+    var blobs = [];
+    for (var i = 0; i < N; i++){
+      blobs.push({
+        x: 0.5 + Math.cos(i*1.7)*0.24,
+        y: 0.5 + Math.sin(i*2.3)*0.18,
+        r: 0.085 + (i % 3) * 0.026,
+        sx: (Math.random()*2-1) * 0.00042,
+        sy: (Math.random()*2-1) * 0.00038,
+        ph: Math.random()*Math.PI*2
+      });
+    }
+    // ilk blob fareyi takip eder
+    var pointer = { x:0.5, y:0.5, tx:0.5, ty:0.5 };
+
+    function resize(){
+      var r = cv.getBoundingClientRect();
+      W = Math.max(1, Math.round(r.width));
+      H = Math.max(1, Math.round(r.height));
+      box.l = r.left + (window.pageXOffset || 0);
+      box.t = r.top  + (window.pageYOffset || 0);
+      box.w = Math.max(1, r.width);
+      box.h = Math.max(1, r.height);
+      aspect = W / H;
+      cv.width  = Math.max(1, Math.round(W * 0.5));
+      cv.height = Math.max(1, Math.round(H * 0.5));
+      cols = Math.max(40, Math.min(190, Math.round(W / (coarse ? 9 : 7) * quality)));
+      rows = Math.max(30, Math.round(cols / aspect));
+      off.width = cols; off.height = rows;
+      img = octx.createImageData(cols, rows);
+      data = img.data;
+      ctx.imageSmoothingEnabled = true;
+      if (ctx.imageSmoothingQuality) ctx.imageSmoothingQuality = 'high';
+    }
+
+    var rgb = [0,0,0];
+    var t0 = 0;
+
+    function draw(now){
+      var t = now * 0.001;
+      // hareket
+      pointer.x = lerp(pointer.x, pointer.tx, 0.055);
+      pointer.y = lerp(pointer.y, pointer.ty, 0.055);
+
+      for (var b = 0; b < blobs.length; b++){
+        var o = blobs[b];
+        if (b === 0){
+          o.x = pointer.x; o.y = pointer.y;
+        } else {
+          o.x += o.sx + Math.cos(t*0.32 + o.ph) * 0.00075;
+          o.y += o.sy + Math.sin(t*0.27 + o.ph*1.4) * 0.00068;
+          // hafif fare çekimi
+          o.x += (pointer.x - o.x) * 0.0012;
+          o.y += (pointer.y - o.y) * 0.0012;
+          if (o.x < 0.10 || o.x > 0.90) o.sx *= -1;
+          if (o.y < 0.12 || o.y > 0.88) o.sy *= -1;
+          o.x = clamp(o.x, 0.08, 0.92);
+          o.y = clamp(o.y, 0.10, 0.90);
+        }
+      }
+
+      var p = 0;
+      var thr = 1.0;
+      for (var yy = 0; yy < rows; yy++){
+        var fy = yy / rows;
+        for (var xx = 0; xx < cols; xx++){
+          var fx = xx / cols;
+          // skaler alan + analitik gradyan (aynı döngüde, ekstra örnekleme yok)
+          var f = 0, gx = 0, gy = 0;
+          for (var k = 0; k < blobs.length; k++){
+            var bo = blobs[k];
+            var dx = (fx - bo.x) * aspect;
+            var dy = (fy - bo.y);
+            var d2 = dx*dx + dy*dy + 0.00002;
+            var q  = (bo.r * bo.r) / d2;
+            f += q;
+            var iv = 2 * q / d2;      // d(q)/dx = -2q·dx/d²
+            gx -= iv * dx;
+            gy -= iv * dy;
+          }
+          if (f < thr - 0.14){
+            data[p+3] = 0; p += 4; continue;
+          }
+          // yüzey yüksekliği ve normalden türetilen yansıma yönü
+          var h  = clamp((f - thr) * 0.9, 0, 1);
+          var gl = Math.sqrt(gx*gx + gy*gy);
+          var slope = gl / (gl + 26);                 // 0 (düz tepe) .. 1 (dik kenar)
+          var ang = Math.atan2(-gy, -gx) * 0.15915494 + 0.5;  // /2π + .5
+
+          // düz bölgede açı gürültülü olur; eğime göre harmanla
+          var uFlat = 0.16 + h * 0.28 + t * 0.05;
+          var uAng  = ang * 1.35 + h * 0.22 + t * 0.05 + fx * 0.10;
+          ramp(uFlat + (uAng - uFlat) * slope, rgb);
+
+          // dik kenarda fresnel parlaması
+          var fres = Math.pow(slope, 3.2) * 0.55;
+          var r0 = rgb[0] + (255 - rgb[0]) * fres;
+          var g0 = rgb[1] + (255 - rgb[1]) * fres;
+          var b0 = rgb[2] + (255 - rgb[2]) * fres;
+          // yumuşak kenar alfa + temas gölgesi (metal kontrastı)
+          var a  = clamp((f - (thr - 0.14)) / 0.20, 0, 1);
+          var ea = a * a * (3 - 2 * a);
+          var shade = 0.44 + 0.56 * ea;
+          data[p]   = r0 * shade;
+          data[p+1] = g0 * shade;
+          data[p+2] = b0 * shade;
+          data[p+3] = ea * 244;
+          p += 4;
+        }
+      }
+      octx.putImageData(img, 0, 0);
+      ctx.clearRect(0, 0, cv.width, cv.height);
+      ctx.drawImage(off, 0, 0, cv.width, cv.height);
+    }
+
+    /* rAF döngüsü + adaptif kalite */
+    var raf = 0, running = false, frames = 0, acc = 0, lastT = 0, tuned = false;
+    function loop(now){
+      if (!running) return;
+      if (lastT){ var dt = now - lastT; acc += dt; frames++;
+        if (!tuned && frames === 34){
+          var avg = acc / frames;
+          if (avg > 21){ quality = 0.7; resize(); }
+          if (avg > 33){ quality = 0.52; resize(); }
+          tuned = true;
+        }
+      }
+      lastT = now;
+      draw(now);
+      raf = requestAnimationFrame(loop);
+    }
+    function start(){ if (running) return; running = true; lastT = 0; raf = requestAnimationFrame(loop); }
+    function stop(){ running = false; if (raf) cancelAnimationFrame(raf); raf = 0; }
+
+    resize();
+    if (window.ResizeObserver){
+      var ro = new ResizeObserver(function(){ resize(); });
+      ro.observe(cv);
+    } else {
+      window.addEventListener('resize', resize);
+    }
+
+    var hero = $('#hero');
+    if (window.IntersectionObserver && hero){
+      new IntersectionObserver(function(ents){
+        if (ents[0] && ents[0].isIntersecting) start(); else stop();
+      }, { threshold: 0 }).observe(hero);
+    } else { start(); }
+
+    document.addEventListener('visibilitychange', function(){
+      if (document.hidden) stop(); else if (hero){
+        var r = hero.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < window.innerHeight) start();
+      }
+    });
+
+    // fare / dokunma takibi — sadece önbellekli kutuyu kullanır, layout okumaz
+    window.addEventListener('pointermove', function(e){
+      pointer.tx = clamp((e.pageX - box.l) / box.w, 0.06, 0.94);
+      pointer.ty = clamp((e.pageY - box.t) / box.h, 0.08, 0.92);
+    }, { passive:true });
+    if (coarse){
+      // dokunmatikte otomatik gezinti
+      setInterval(function(){
+        if (!running) return;
+        pointer.tx = 0.5 + Math.cos(Date.now()*0.00035) * 0.22;
+        pointer.ty = 0.48 + Math.sin(Date.now()*0.00047) * 0.17;
+      }, 240);
+    }
+  })();
+
+  /* ==========================================================
+     4. CTA bandı — küçük krom akış canvas'ı
+     ========================================================== */
+  (function bandFx(){
+    var cv = $('#bandCanvas');
+    if (!cv || REDUCE) { if (cv) cv.style.display='none'; return; }
+    var ctx = null;
+    try { ctx = cv.getContext('2d'); } catch(e){ ctx = null; }
+    if (!ctx){ cv.style.display='none'; return; }
+
+    var W = 0, H = 0;
+    function resize(){
+      var r = cv.getBoundingClientRect();
+      W = Math.max(1, Math.round(r.width  * 0.4));
+      H = Math.max(1, Math.round(r.height * 0.4));
+      cv.width = W; cv.height = H;
+    }
+    resize();
+    if (window.ResizeObserver){ new ResizeObserver(resize).observe(cv); }
+    else { window.addEventListener('resize', resize); }
+
+    var cols = ['#B8C6FF', '#FFC9E3', '#A8F0E0', '#FFFFFF'];
+    var raf = 0, running = false;
+    function draw(now){
+      if (!running) return;
+      var t = now * 0.0004;
+      ctx.clearRect(0,0,W,H);
+      for (var i = 0; i < 4; i++){
+        var x = W * (0.5 + Math.cos(t*(1+i*0.33) + i*1.9) * 0.34);
+        var y = H * (0.5 + Math.sin(t*(1.2+i*0.27) + i*2.4) * 0.42);
+        var rr = Math.min(W,H) * (0.38 + 0.09*Math.sin(t*2 + i));
+        var g = ctx.createRadialGradient(x, y, 0, x, y, rr);
+        g.addColorStop(0, cols[i]);
+        g.addColorStop(1, 'rgba(16,16,18,0)');
+        ctx.globalCompositeOperation = 'lighter';
+        ctx.fillStyle = g;
+        ctx.beginPath(); ctx.arc(x, y, rr, 0, Math.PI*2); ctx.fill();
+      }
+      ctx.globalCompositeOperation = 'source-over';
+      raf = requestAnimationFrame(draw);
+    }
+    if (window.IntersectionObserver){
+      new IntersectionObserver(function(e){
+        if (e[0] && e[0].isIntersecting){ if (!running){ running = true; raf = requestAnimationFrame(draw); } }
+        else { running = false; if (raf) cancelAnimationFrame(raf); raf = 0; }
+      }, { threshold:0 }).observe(cv);
+    } else { running = true; raf = requestAnimationFrame(draw); }
+  })();
+
+  /* ==========================================================
+     5. Reveal (IntersectionObserver)
+     ========================================================== */
+  (function reveal(){
+    var els = $$('.rv');
+    if (!els.length) return;
+    if (REDUCE || !window.IntersectionObserver){
+      els.forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){
+          var el = en.target;
+          var sibs = el.parentNode ? Array.prototype.indexOf.call(el.parentNode.children, el) : 0;
+          el.style.transitionDelay = Math.min(sibs, 6) * 62 + 'ms';
+          el.classList.add('in');
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  })();
+
+  /* ==========================================================
+     6. Sayaçlar + barlar
+     ========================================================== */
+  (function counters(){
+    var grid = $('#statGrid');
+    if (!grid) return;
+    var nums = $$('.count', grid);
+    var bars = $$('.bar i', grid);
+
+    function fmt(v, dec){
+      if (dec > 0) return v.toFixed(dec).replace('.', ',');
+      return String(Math.round(v));
+    }
+    function run(){
+      bars.forEach(function(b){
+        var w = parseFloat(b.getAttribute('data-w') || '0');
+        b.style.width = (REDUCE ? w : w) + '%';
+      });
+      nums.forEach(function(el){
+        var to  = parseFloat(el.getAttribute('data-to') || '0');
+        var dec = parseInt(el.getAttribute('data-dec') || '0', 10);
+        var sfx = el.getAttribute('data-suffix') || '';
+        if (REDUCE){ el.textContent = fmt(to, dec) + sfx; return; }
+        var dur = 1500, st = 0;
+        function tick(ts){
+          if (!st) st = ts;
+          var k = clamp((ts - st) / dur, 0, 1);
+          var e = 1 - Math.pow(1 - k, 3);
+          el.textContent = fmt(to * e, dec) + sfx;
+          if (k < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }
+    if (!window.IntersectionObserver){ run(); return; }
+    var io = new IntersectionObserver(function(en){
+      if (en[0] && en[0].isIntersecting){ run(); io.disconnect(); }
+    }, { threshold: 0.25 });
+    io.observe(grid);
+  })();
+
+  /* ==========================================================
+     7. Marquee içeriğini iki katına çıkar (kesintisiz döngü)
+     ========================================================== */
+  (function dupMarquee(){
+    var row = $('#mrow');
+    if (!row) return;
+    row.innerHTML = row.innerHTML + row.innerHTML;
+  })();
+
+  /* ==========================================================
+     8. SSS akordiyon
+     ========================================================== */
+  (function faq(){
+    var list = $('#faqList');
+    if (!list) return;
+    $$('.faq', list).forEach(function(item, idx){
+      var btn = $('.faq__q', item);
+      var pane = $('.faq__a', item);
+      if (!btn || !pane) return;
+      // ekran okuyucu bağı: soru ↔ cevap paneli
+      if (!pane.id) pane.id = 'faq-a-' + (idx + 1);
+      btn.setAttribute('aria-controls', pane.id);
+      pane.setAttribute('role', 'region');
+      pane.setAttribute('aria-labelledby', btn.id || (btn.id = 'faq-q-' + (idx + 1)));
+      btn.addEventListener('click', function(){
+        var open = item.classList.contains('is-open');
+        // diğerlerini kapat
+        $$('.faq.is-open', list).forEach(function(o){
+          if (o === item) return;
+          o.classList.remove('is-open');
+          var p = $('.faq__a', o), b = $('.faq__q', o);
+          if (p) p.style.height = '0px';
+          if (b) b.setAttribute('aria-expanded','false');
+        });
+        if (open){
+          pane.style.height = '0px';
+          item.classList.remove('is-open');
+          btn.setAttribute('aria-expanded','false');
+        } else {
+          item.classList.add('is-open');
+          btn.setAttribute('aria-expanded','true');
+          pane.style.height = pane.scrollHeight + 'px';
+        }
+      });
+    });
+    window.addEventListener('resize', function(){
+      $$('.faq.is-open', list).forEach(function(o){
+        var p = $('.faq__a', o);
+        if (p) p.style.height = p.scrollHeight + 'px';
+      });
+    });
+  })();
+
+  /* ==========================================================
+     9. Magnetik butonlar (yalnızca ince işaretçi)
+     ========================================================== */
+  (function magnet(){
+    if (REDUCE) return;
+    if (!window.matchMedia || !window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+    $$('.magnet').forEach(function(el){
+      var rect = null;
+      el.addEventListener('pointerenter', function(){ rect = el.getBoundingClientRect(); });
+      el.addEventListener('pointermove', function(e){
+        if (!rect) rect = el.getBoundingClientRect();
+        var cx = rect.left + rect.width/2, cy = rect.top + rect.height/2;
+        el.style.setProperty('--bx', ((e.clientX - cx) * 0.24).toFixed(2) + 'px');
+        el.style.setProperty('--by', ((e.clientY - cy) * 0.30).toFixed(2) + 'px');
+      });
+      el.addEventListener('pointerleave', function(){
+        el.style.setProperty('--bx','0px');
+        el.style.setProperty('--by','0px');
+        rect = null;
+      });
+    });
+  })();
+
+  /* ==========================================================
+     10. Krom imleç noktası
+     ========================================================== */
+  (function cursor(){
+    var c = $('#cur');
+    if (!c || REDUCE) { if (c) c.style.display='none'; return; }
+    if (!window.matchMedia || !window.matchMedia('(hover:hover) and (pointer:fine)').matches){ c.style.display='none'; return; }
+    var x = -60, y = -60, tx = -60, ty = -60, raf = 0, running = false;
+    function start(){
+      if (running || document.hidden) return;
+      running = true; raf = requestAnimationFrame(tick);
+    }
+    function stop(){ running = false; if (raf) cancelAnimationFrame(raf); raf = 0; }
+    window.addEventListener('pointermove', function(e){ tx = e.clientX; ty = e.clientY; start(); }, { passive:true });
+    function tick(){
+      if (!running) return;
+      x = lerp(x, tx, 0.19); y = lerp(y, ty, 0.19);
+      c.style.transform = 'translate3d(' + (x-13) + 'px,' + (y-13) + 'px,0)';
+      // hedefe oturunca döngüyü askıya al: boşta dönen sonsuz rAF olmasın
+      if (Math.abs(tx-x) < 0.12 && Math.abs(ty-y) < 0.12){ stop(); return; }
+      raf = requestAnimationFrame(tick);
+    }
+    document.addEventListener('visibilitychange', function(){ if (document.hidden) stop(); else start(); });
+    document.addEventListener('pointerover', function(e){
+      var t = e.target && e.target.closest ? e.target.closest('a,button,.svc,.work') : null;
+      if (t){ c.style.width='46px'; c.style.height='46px'; c.style.opacity='.4'; }
+      else  { c.style.width='26px'; c.style.height='26px'; c.style.opacity='.55'; }
+    });
+    document.addEventListener('focusin', function(){ c.style.opacity = '0'; });
+  })();
+
+  /* ==========================================================
+     11. Film grain dokusu (tek seferlik data URI)
+     ========================================================== */
+  (function grain(){
+    var g = $('#grain');
+    if (!g) return;
+    try{
+      var n = document.createElement('canvas');
+      n.width = 120; n.height = 120;
+      var nc = n.getContext('2d');
+      if (!nc){ g.style.display='none'; return; }
+      var idata = nc.createImageData(120,120);
+      for (var i = 0; i < idata.data.length; i += 4){
+        var v = 118 + Math.random()*74;
+        idata.data[i] = v; idata.data[i+1] = v; idata.data[i+2] = v;
+        idata.data[i+3] = 26;
+      }
+      nc.putImageData(idata, 0, 0);
+      g.style.backgroundImage = 'url(' + n.toDataURL('image/png') + ')';
+    } catch(e){ g.style.display = 'none'; }
+  })();
+
+  /* ==========================================================
+     12. Teklif formu — 2 adım + doğrulama + başarı ekranı
+     ========================================================== */
+  (function form(){
+    var form = $('#teklifForm');
+    var succ = $('#success');
+    if (!form || !succ) return;
+
+    var steps = $$('.fstep', form);
+    var prog  = $$('#prog i');
+    var next1 = $('#next1');
+    var back2 = $('#back2');
+    var again = $('#againBtn');
+    var kvkkErr = $('#kvkkErr');
+    if (kvkkErr) kvkkErr.style.display = 'none';
+
+    function show(n){
+      steps.forEach(function(s){
+        s.classList.toggle('is-active', s.getAttribute('data-step') === String(n));
+      });
+      prog.forEach(function(p, i){ p.classList.toggle('on', i < n); });
+    }
+
+    function setErr(id, on){
+      var f = document.getElementById(id);
+      if (f) f.classList.toggle('err', !!on);
+      return !on;
+    }
+
+    function validAd(){
+      var el = $('#ad');
+      var v = (el && el.value ? el.value : '').trim();
+      return setErr('f-ad', v.length < 3);
+    }
+    function validTel(){
+      var v = ($('#tel') && $('#tel').value ? $('#tel').value : '');
+      var digits = v.replace(/\D/g, '');
+      return setErr('f-tel', digits.length < 10);
+    }
+    function validMail(){
+      var el = $('#eposta');
+      var v = el && el.value ? el.value.trim() : '';
+      if (!v) return setErr('f-eposta', false); // opsiyonel
+      var ok = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(v);
+      return setErr('f-eposta', !ok);
+    }
+    function validHizmet(){
+      var el = $('#hizmet');
+      return setErr('f-hizmet', !el || !el.value);
+    }
+    function validKvkk(){
+      var el = $('#kvkk');
+      var ok = !!(el && el.checked);
+      if (kvkkErr) kvkkErr.style.display = ok ? 'none' : 'block';
+      return ok;
+    }
+
+    if (next1){
+      next1.addEventListener('click', function(){
+        var a = validAd(), b = validTel();
+        if (a && b){ show(2); var e = $('#eposta'); if (e) e.focus(); }
+        else {
+          var bad = $('.field.err', form);
+          if (bad){ var inp = $('input,select', bad); if (inp) inp.focus(); }
+        }
+      });
+    }
+    if (back2){ back2.addEventListener('click', function(){ show(1); }); }
+
+    ['#ad','#tel','#eposta','#hizmet'].forEach(function(sel){
+      var el = $(sel);
+      if (!el) return;
+      el.addEventListener('input', function(){
+        var p = el.closest ? el.closest('.field') : null;
+        if (p) p.classList.remove('err');
+      });
+      el.addEventListener('change', function(){
+        var p = el.closest ? el.closest('.field') : null;
+        if (p) p.classList.remove('err');
+      });
+    });
+    var kv = $('#kvkk');
+    if (kv) kv.addEventListener('change', function(){ if (kvkkErr) kvkkErr.style.display = kv.checked ? 'none' : kvkkErr.style.display; });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var ok1 = validAd() && validTel();
+      if (!ok1){ show(1); return; }
+      var okMail = validMail();
+      var okHzm  = validHizmet();
+      var ok3    = validKvkk();
+      if (!okMail || !okHzm || !ok3){
+        var bad = $('.field.err', form);
+        if (bad){ var inp = $('input,select,textarea', bad); if (inp) inp.focus(); }
+        return;
+      }
+
+      // Demo: gönderim simülasyonu
+      var adEl = $('#ad'), hzmEl = $('#hizmet');
+      var isim = ((adEl && adEl.value) || '').trim().split(' ')[0] || '';
+      var hzm  = (hzmEl && hzmEl.value) || '';
+      var knl  = (form.querySelector('input[name="kanal"]:checked') || {}).value || 'WhatsApp';
+      var msg  = $('#successMsg');
+      if (msg){
+        msg.textContent = (isim ? isim + ', t' : 'T') + 'alebiniz bize ulaştı. ' +
+          (hzm ? '“' + hzm + '” ' : '') + 'kapsamı için hazırlanan teklif 48 saat içinde elinizde olacak; ' +
+          'ilk dönüşü ' + knl + ' üzerinden yapacağız. Ortalama yanıt süremiz 2 saat.';
+      }
+      form.style.display = 'none';
+      var pr = $('#prog'); if (pr) pr.style.display = 'none';
+      succ.classList.add('is-on');
+      try { succ.scrollIntoView({ behavior: REDUCE ? 'auto' : 'smooth', block:'center' }); } catch(err){ }
+    });
+
+    if (again){
+      again.addEventListener('click', function(){
+        succ.classList.remove('is-on');
+        form.style.display = 'block';
+        var pr = $('#prog'); if (pr) pr.style.display = 'flex';
+        form.reset();
+        $$('.field.err', form).forEach(function(f){ f.classList.remove('err'); });
+        if (kvkkErr) kvkkErr.style.display = 'none';
+        show(1);
+        var ad = $('#ad'); if (ad) ad.focus();
+      });
+    }
+
+    show(1);
+  })();
+
+  /* ==========================================================
+     13. Yatay taşma güvenliği (geliştirme yardımcısı)
+     ========================================================== */
+  (function overflowGuard(){
+    function check(){
+      if (document.body.scrollWidth > window.innerWidth + 2){
+        document.documentElement.style.overflowX = 'hidden';
+      }
+    }
+    window.addEventListener('resize', check);
+    check();
+  })();
+
+})();
+</script>
+</body>
+</html>

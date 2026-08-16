@@ -1,0 +1,2272 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TasarımMania — Veri Merkezi | 360° Dijital Ajans, İstanbul</title>
+<meta name="description" content="TasarımMania: İstanbul merkezli 360 derece dijital ajans. Web tasarım & yazılım, mobil uygulama, dijital pazarlama, video prodüksiyon ve SEO. Yurt dışı kampanya yönetimi ve çok dilli SEO. Rakamları kalem kalem gösteririz.">
+<meta name="theme-color" content="#060A08">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="TasarımMania — Reklam bütçenizin nereye gittiğini kalem kalem anlatırız.">
+<meta property="og:description" content="360 derece dijital ajans. Web, mobil, performans pazarlaması, video prodüksiyon ve çok dilli SEO — tek kontrol odasında.">
+<meta property="og:url" content="https://tasarimmania.com/">
+<meta property="og:image" content="https://tasarimmania.com/og/veri-merkezi.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TasarımMania kontrol odası paneli — kampanya metrikleri ve tel kafes dünya haritası">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TasarımMania — Veri Merkezi">
+<meta name="twitter:description" content="Trafik değil, teklif getiriyoruz. İstanbul merkezli 360 derece dijital ajans.">
+<meta name="twitter:image" content="https://tasarimmania.com/og/veri-merkezi.png">
+<meta name="author" content="TasarımMania">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://tasarimmania.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23060A08'/%3E%3Crect x='1' y='1' width='30' height='30' rx='6' fill='none' stroke='%2317251F'/%3E%3Cpath d='M7 10l6 6-6 6' stroke='%233DFFAB' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M17.5 22H25' stroke='%23FFB020' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "TasarımMania",
+  "description": "İstanbul merkezli 360 derece dijital ajans ve dijital prodüksiyon stüdyosu.",
+  "telephone": "+905386999666",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+    "addressLocality": "Bakırköy",
+    "addressRegion": "İstanbul",
+    "addressCountry": "TR"
+  },
+  "openingHours": ["Mo-Fr 09:00-19:00", "Sa 10:00-16:00"],
+  "areaServed": ["TR", "DE", "GB", "AE", "US"],
+  "makesOffer": [
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Web Tasarım & Yazılım"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Mobil Uygulama Geliştirme"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Dijital Pazarlama"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Video Prodüksiyon"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"SEO Hizmetleri"}}
+  ]
+}
+</script>
+
+<style>
+/* ============================================================
+   00 — TOKEN SİSTEMİ  (kontrol odası paleti)
+   ============================================================ */
+:root{
+  --bg:#060A08;
+  --bg-2:#080E0B;
+  --panel:#0A120E;
+  --panel-2:#0C1611;
+  --hair:#17251F;
+  --hair-2:#20362D;
+  --fg:#D9EAE1;
+  --fg-dim:#7E9C90;
+  --fg-faint:#4E6459;
+  --acc:#3DFFAB;
+  --acc-dark:#0F3D2A;
+  --amber:#FFB020;
+  --amber-dark:#3E2C08;
+  --red:#FF5C5C;
+  --mono:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --sans:'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --hair-w:1px;
+  --pad:clamp(16px, 4vw, 48px);
+  --maxw:1320px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:var(--sans); font-size:16px; line-height:1.6;
+  overflow-x:hidden; -webkit-font-smoothing:antialiased;
+}
+img,canvas,svg{max-width:100%; display:block}
+a{color:inherit; text-decoration:none}
+button{font:inherit; color:inherit; background:none; border:none; cursor:pointer}
+::selection{background:var(--acc); color:#04140C}
+
+/* Odak halkası — erişilebilirlik */
+:focus-visible{outline:2px solid var(--acc); outline-offset:3px}
+
+/* ------------------------------------------------------------
+   01 — ZEMİN DOKUSU: scanline + ızgara + vinyet
+   ------------------------------------------------------------ */
+.fx-scan{
+  position:fixed; inset:0; z-index:60; pointer-events:none;
+  background:repeating-linear-gradient(
+    to bottom,
+    rgba(61,255,171,.035) 0 1px,
+    rgba(0,0,0,0) 1px 3px
+  );
+  mix-blend-mode:screen; opacity:.55;
+}
+.fx-vig{
+  position:fixed; inset:0; z-index:59; pointer-events:none;
+  background:radial-gradient(ellipse at 50% 40%, rgba(0,0,0,0) 40%, rgba(0,0,0,.55) 100%);
+}
+.fx-grid{
+  position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.4;
+  background-image:
+    linear-gradient(to right, rgba(61,255,171,.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(61,255,171,.045) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse at 50% 0%, #000 0%, transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse at 50% 0%, #000 0%, transparent 75%);
+}
+
+/* ------------------------------------------------------------
+   02 — DÜZEN YARDIMCILARI
+   ------------------------------------------------------------ */
+.wrap{width:100%; max-width:var(--maxw); margin:0 auto; padding-inline:var(--pad); position:relative; z-index:1}
+section{position:relative}
+/* Sabit menü, çapa hedeflerinin üzerine binmesin */
+section[id],header[id],main[id]{scroll-margin-top:84px}
+.sec{padding-block:clamp(56px, 9vw, 116px)}
+.sec--tight{padding-block:clamp(40px, 6vw, 72px)}
+
+/* Bölüm başlığı: HUD etiketi + başlık */
+.hud-label{
+  font-family:var(--mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--acc); display:flex; align-items:center; gap:10px; margin:0 0 18px;
+}
+.hud-label::before{content:''; width:8px; height:8px; background:var(--acc); box-shadow:0 0 10px var(--acc)}
+.hud-label span{color:var(--fg-faint)}
+.sec-title{
+  font-family:var(--sans); font-weight:600; letter-spacing:-.03em; line-height:1.05;
+  font-size:clamp(28px, 4.6vw, 54px); margin:0 0 14px; text-wrap:balance;
+}
+.sec-sub{color:var(--fg-dim); max-width:62ch; margin:0 0 34px; font-size:clamp(14px,1.5vw,17px)}
+.mono{font-family:var(--mono)}
+.acc{color:var(--acc)}
+.amb{color:var(--amber)}
+
+/* Kılcal kenarlıklı brutalist panel */
+.panel{
+  background:linear-gradient(180deg, var(--panel) 0%, var(--bg-2) 100%);
+  border:var(--hair-w) solid var(--hair); border-radius:0; position:relative;
+}
+.panel::before,.panel::after{
+  content:''; position:absolute; width:7px; height:7px; border:1px solid var(--hair-2);
+}
+.panel::before{top:-1px; left:-1px; border-right:0; border-bottom:0}
+.panel::after{bottom:-1px; right:-1px; border-left:0; border-top:0}
+
+/* Butonlar */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  font-family:var(--mono); font-size:13px; font-weight:500; letter-spacing:.06em;
+  padding:14px 22px; border:1px solid var(--acc); border-radius:0;
+  position:relative; overflow:hidden; transition:color .2s, background .2s, transform .15s;
+  text-transform:uppercase; white-space:nowrap;
+}
+.btn--primary{background:var(--acc); color:#04140C; font-weight:700}
+.btn--primary:hover{background:#6BFFC1; transform:translateY(-2px)}
+.btn--ghost{background:transparent; color:var(--acc); border-color:var(--hair-2)}
+.btn--ghost:hover{border-color:var(--acc); background:rgba(61,255,171,.07); transform:translateY(-2px)}
+.btn--amber{background:transparent; color:var(--amber); border-color:rgba(255,176,32,.4)}
+.btn--amber:hover{background:rgba(255,176,32,.1); border-color:var(--amber)}
+.btn--sm{padding:10px 16px; font-size:12px}
+.btn--wide{width:100%}
+
+/* Rozet */
+.badge{
+  display:inline-flex; align-items:center; gap:7px; font-family:var(--mono);
+  font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
+  padding:5px 10px; border:1px solid var(--hair-2); color:var(--fg-dim);
+}
+.badge .dot{width:6px; height:6px; border-radius:50%; background:var(--acc); box-shadow:0 0 8px var(--acc)}
+.badge--live{color:var(--acc); border-color:var(--acc-dark)}
+.badge--opt{color:var(--amber); border-color:var(--amber-dark)}
+.badge--opt .dot{background:var(--amber); box-shadow:0 0 8px var(--amber); animation:blink 1.1s steps(2) infinite}
+@keyframes blink{50%{opacity:.15}}
+
+/* ------------------------------------------------------------
+   03 — ÜST MENÜ
+   ------------------------------------------------------------ */
+.nav{
+  position:fixed; top:0; left:0; right:0; z-index:50;
+  border-bottom:1px solid var(--hair);
+  background:rgba(6,10,8,.86); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  transition:border-color .3s;
+}
+.nav.is-solid{border-bottom-color:var(--hair-2); background:rgba(6,10,8,.96)}
+.nav__in{display:flex; align-items:center; gap:20px; height:64px}
+.logo{display:flex; align-items:center; gap:11px; flex-shrink:0}
+.logo__mark{
+  width:30px; height:30px; border:1px solid var(--acc); display:grid; place-items:center;
+  font-family:var(--mono); font-size:13px; font-weight:700; color:var(--acc);
+  box-shadow:inset 0 0 14px rgba(61,255,171,.2);
+}
+.logo__txt{font-family:var(--sans); font-weight:600; letter-spacing:-.02em; font-size:16.5px}
+.logo__txt b{color:var(--acc); font-weight:600}
+.nav__links{display:flex; gap:4px; margin-left:auto}
+.nav__links a{
+  font-family:var(--mono); font-size:12px; letter-spacing:.04em; color:var(--fg-dim);
+  padding:8px 11px; border:1px solid transparent; transition:color .18s, border-color .18s;
+}
+.nav__links a:hover{color:var(--acc); border-color:var(--hair)}
+.nav__cta{display:flex; align-items:center; gap:10px; flex-shrink:0}
+.nav__tel{font-family:var(--mono); font-size:12.5px; color:var(--fg-dim); white-space:nowrap}
+.nav__tel:hover{color:var(--acc)}
+.burger{
+  display:none; width:40px; height:36px; border:1px solid var(--hair-2); place-items:center;
+  margin-left:auto; flex-shrink:0;
+}
+.burger span{display:block; width:17px; height:1.5px; background:var(--acc); position:relative}
+.burger span::before,.burger span::after{content:''; position:absolute; left:0; width:17px; height:1.5px; background:var(--acc); transition:transform .22s}
+.burger span::before{top:-5.5px} .burger span::after{top:5.5px}
+.burger.is-open span{background:transparent}
+.burger.is-open span::before{transform:translateY(5.5px) rotate(45deg)}
+.burger.is-open span::after{transform:translateY(-5.5px) rotate(-45deg)}
+.mobile-menu{
+  display:none; border-top:1px solid var(--hair); background:var(--bg);
+  padding:12px var(--pad) 22px;
+}
+.mobile-menu.is-open{display:block}
+/* Masaüstüne dönüldüğünde açık kalan mobil menü görünmesin */
+@media (min-width:901px){ .mobile-menu,.mobile-menu.is-open{display:none} }
+.mobile-menu a{
+  display:block; font-family:var(--mono); font-size:14px; color:var(--fg-dim);
+  padding:13px 0; border-bottom:1px solid var(--hair);
+}
+.mobile-menu a:last-of-type{border-bottom:0}
+.mobile-menu .btn{margin-top:14px}
+
+/* ------------------------------------------------------------
+   04 — HERO
+   ------------------------------------------------------------ */
+.hero{padding-top:104px; padding-bottom:0; overflow:hidden}
+.hero__grid{
+  display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(24px,4vw,56px); align-items:center;
+}
+.hero__term{min-width:0}
+.term-bar{
+  display:flex; align-items:center; gap:9px; font-family:var(--mono); font-size:11px;
+  color:var(--fg-faint); letter-spacing:.1em; margin-bottom:20px;
+  border-bottom:1px solid var(--hair); padding-bottom:11px; flex-wrap:wrap;
+}
+.term-bar .led{width:7px; height:7px; border-radius:50%; background:var(--acc); box-shadow:0 0 9px var(--acc); animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+.hero h1{
+  font-family:var(--sans); font-weight:600; letter-spacing:-.04em; line-height:1.02;
+  font-size:clamp(32px, 5.4vw, 66px); margin:0 0 8px; min-height:2.1em;
+}
+.hero h1 .caret{
+  display:inline-block; width:.5ch; height:.92em; background:var(--acc); vertical-align:-.08em;
+  margin-left:2px; animation:caret .9s steps(2) infinite; box-shadow:0 0 12px var(--acc);
+}
+@keyframes caret{50%{opacity:0}}
+.hero__pre{
+  font-family:var(--mono); font-size:12.5px; color:var(--acc); letter-spacing:.14em;
+  text-transform:uppercase; margin:0 0 14px;
+}
+.hero__sub{
+  color:var(--fg-dim); font-size:clamp(15px,1.6vw,18.5px); max-width:52ch; margin:14px 0 28px;
+}
+.hero__sub b{color:var(--fg); font-weight:500}
+.hero__cta{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px}
+.hero__micro{font-family:var(--mono); font-size:11.5px; color:var(--fg-faint); letter-spacing:.04em}
+.hero__proof{
+  display:flex; gap:22px; flex-wrap:wrap; margin-top:26px; padding-top:22px;
+  border-top:1px solid var(--hair);
+}
+.hero__proof div{font-family:var(--mono); font-size:11.5px; color:var(--fg-faint); letter-spacing:.05em}
+.hero__proof strong{display:block; font-size:21px; color:var(--acc); font-weight:700; letter-spacing:-.02em; margin-bottom:2px}
+
+/* Küre kapsayıcı */
+.globe-box{position:relative; width:100%; aspect-ratio:1/1; max-width:560px; margin-inline:auto; overflow:hidden}
+.globe-box canvas{width:100%; height:100%; display:block}
+.globe-fallback{
+  position:absolute; inset:0; display:none; place-items:center;
+  background:radial-gradient(circle at 50% 50%, rgba(61,255,171,.18), rgba(6,10,8,0) 62%);
+}
+.globe-box.is-fallback .globe-fallback{display:grid}
+.globe-hud{
+  position:absolute; font-family:var(--mono); font-size:10px; letter-spacing:.14em;
+  color:var(--fg-faint); text-transform:uppercase; pointer-events:none;
+}
+.globe-hud--tl{top:6px; left:6px}
+.globe-hud--br{bottom:6px; right:6px; color:var(--amber)}
+.globe-hud--bl{bottom:6px; left:6px}
+
+/* ------------------------------------------------------------
+   05 — CANLI METRİK ŞERİDİ
+   ------------------------------------------------------------ */
+.strip{border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); background:var(--panel); margin-top:clamp(30px,5vw,58px)}
+.strip__in{display:grid; grid-template-columns:repeat(4,1fr); }
+.strip__cell{
+  padding:18px var(--pad); border-right:1px solid var(--hair); position:relative; min-width:0;
+}
+.strip__cell:last-child{border-right:0}
+.strip__k{font-family:var(--mono); font-size:10.5px; letter-spacing:.18em; color:var(--fg-faint); text-transform:uppercase; display:flex; gap:7px; align-items:center}
+.strip__v{font-family:var(--mono); font-size:clamp(20px,2.6vw,30px); font-weight:700; color:var(--acc); letter-spacing:-.02em; margin-top:6px; line-height:1}
+.strip__v.is-down{color:var(--amber)}
+.strip__d{font-family:var(--mono); font-size:11px; color:var(--fg-faint); margin-top:4px}
+.strip__note{
+  grid-column:1/-1; border-top:1px solid var(--hair); padding:9px var(--pad);
+  font-family:var(--mono); font-size:10.5px; color:var(--fg-faint); letter-spacing:.08em;
+}
+
+/* ------------------------------------------------------------
+   06 — GÜVEN ŞERİDİ (kanal / teknoloji rozetleri)
+   ------------------------------------------------------------ */
+.trust{border-bottom:1px solid var(--hair); background:var(--bg-2)}
+.trust__in{display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding-block:20px}
+.trust__lab{font-family:var(--mono); font-size:10.5px; letter-spacing:.18em; color:var(--fg-faint); text-transform:uppercase; margin-right:6px}
+.chip{
+  font-family:var(--mono); font-size:11.5px; letter-spacing:.05em; color:var(--fg-dim);
+  border:1px solid var(--hair); padding:7px 12px; transition:border-color .2s,color .2s;
+}
+.chip:hover{border-color:var(--acc); color:var(--acc)}
+
+/* ------------------------------------------------------------
+   07 — SORUN BLOĞU
+   ------------------------------------------------------------ */
+.prob{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid var(--hair); border-right:0; border-bottom:0}
+.prob__c{border-right:1px solid var(--hair); border-bottom:1px solid var(--hair); padding:26px 24px}
+.prob__n{font-family:var(--mono); font-size:11px; color:var(--red); letter-spacing:.18em; margin-bottom:12px}
+.prob__t{font-family:var(--sans); font-weight:600; font-size:18px; margin:0 0 8px; letter-spacing:-.02em}
+.prob__d{color:var(--fg-dim); font-size:14.5px; margin:0}
+
+/* ------------------------------------------------------------
+   08 — HİZMET MODÜLLERİ
+   ------------------------------------------------------------ */
+.mods{display:grid; grid-template-columns:repeat(6,1fr); gap:14px}
+.mod{
+  grid-column:span 2; padding:22px; display:flex; flex-direction:column; min-width:0;
+  transition:border-color .25s, transform .25s, background .25s;
+}
+.mod:nth-child(1),.mod:nth-child(2){grid-column:span 3}
+.mod--wide{grid-column:span 2}
+.mod:hover{border-color:var(--hair-2); transform:translateY(-3px); background:var(--panel-2)}
+.mod__top{display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:16px}
+.mod__id{font-family:var(--mono); font-size:10.5px; color:var(--fg-faint); letter-spacing:.18em}
+.mod__icon{width:38px; height:38px; border:1px solid var(--hair-2); display:grid; place-items:center; margin-bottom:14px; color:var(--acc)}
+.mod__icon svg{width:19px; height:19px}
+.mod h3{font-family:var(--sans); font-weight:600; font-size:20px; letter-spacing:-.02em; margin:0 0 4px}
+.mod__out{font-family:var(--mono); font-size:11.5px; color:var(--amber); letter-spacing:.05em; margin:0 0 12px}
+.mod__d{color:var(--fg-dim); font-size:14.5px; margin:0 0 16px; flex:1}
+.mod__list{list-style:none; padding:0; margin:0 0 18px; display:flex; flex-wrap:wrap; gap:6px}
+.mod__list li{
+  font-family:var(--mono); font-size:10.5px; color:var(--fg-faint);
+  border:1px solid var(--hair); padding:4px 8px;
+}
+.mod__foot{display:flex; align-items:center; justify-content:space-between; gap:12px; border-top:1px solid var(--hair); padding-top:14px; margin-top:auto}
+.mod__spark{width:112px; height:34px; flex-shrink:0}
+.mod__kpi{font-family:var(--mono); font-size:11px; color:var(--fg-faint); line-height:1.35}
+.mod__kpi b{display:block; color:var(--acc); font-size:16px; font-weight:700}
+
+/* ------------------------------------------------------------
+   09 — NEDEN BİZ
+   ------------------------------------------------------------ */
+.why{display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--hair); border-right:0; border-bottom:0}
+.why__c{border-right:1px solid var(--hair); border-bottom:1px solid var(--hair); padding:28px 26px; position:relative}
+.why__c:hover{background:var(--panel)}
+.why__n{font-family:var(--mono); font-size:10.5px; color:var(--acc); letter-spacing:.2em; margin-bottom:14px}
+.why__t{font-family:var(--sans); font-weight:600; font-size:20px; letter-spacing:-.02em; margin:0 0 9px}
+.why__d{color:var(--fg-dim); font-size:14.5px; margin:0}
+
+/* ------------------------------------------------------------
+   10 — SAYAÇLAR
+   ------------------------------------------------------------ */
+.counts{display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid var(--hair); border-right:0; border-bottom:0}
+.count{border-right:1px solid var(--hair); border-bottom:1px solid var(--hair); padding:30px 22px; text-align:left; position:relative; overflow:hidden}
+.count__v{font-family:var(--mono); font-size:clamp(30px,4.4vw,48px); font-weight:700; color:var(--acc); letter-spacing:-.04em; line-height:1}
+.count__v small{font-size:.5em; color:var(--amber); margin-left:2px}
+.count__k{font-family:var(--mono); font-size:11px; color:var(--fg-dim); letter-spacing:.1em; margin-top:10px; text-transform:uppercase}
+.count__bar{position:absolute; left:0; bottom:0; height:2px; background:var(--acc); width:0; transition:width 1.6s cubic-bezier(.2,.8,.2,1); box-shadow:0 0 10px var(--acc)}
+
+/* ------------------------------------------------------------
+   11 — VAKA ÇALIŞMALARI
+   ------------------------------------------------------------ */
+.cases{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+.case{padding:22px; display:flex; flex-direction:column; min-width:0; transition:border-color .25s, transform .25s}
+.case:hover{border-color:var(--hair-2); transform:translateY(-3px)}
+.case__head{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:14px}
+.case__sec{font-family:var(--mono); font-size:10.5px; color:var(--amber); letter-spacing:.16em; text-transform:uppercase}
+.case__id{font-family:var(--mono); font-size:10.5px; color:var(--fg-faint)}
+.case h3{font-family:var(--sans); font-weight:600; font-size:18px; letter-spacing:-.02em; margin:0 0 10px; line-height:1.25}
+.case__p{color:var(--fg-dim); font-size:13.8px; margin:0 0 6px}
+.case__p b{color:var(--fg); font-weight:500}
+.case__bars{margin-top:16px; border-top:1px solid var(--hair); padding-top:15px; display:grid; gap:14px}
+.bar__k{display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; color:var(--fg-faint); margin-bottom:6px; gap:8px}
+.bar__k b{color:var(--acc); font-weight:700}
+.bar__track{height:6px; background:#0E1A15; border:1px solid var(--hair); position:relative; overflow:hidden}
+.bar__before{position:absolute; left:0; top:0; bottom:0; background:#2B3A34; width:0; transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.bar__after{position:absolute; left:0; top:0; bottom:0; background:linear-gradient(90deg,var(--acc-dark),var(--acc)); width:0; transition:width 1.5s cubic-bezier(.2,.8,.2,1) .25s; box-shadow:0 0 10px rgba(61,255,171,.5)}
+.bar__legend{display:flex; gap:14px; font-family:var(--mono); font-size:10px; color:var(--fg-faint); margin-top:5px}
+.bar__legend i{width:9px; height:9px; display:inline-block; margin-right:5px; vertical-align:-1px; font-style:normal}
+.bar__legend .lb{background:#2B3A34} .bar__legend .la{background:var(--acc)}
+
+/* ------------------------------------------------------------
+   12 — SÜREÇ
+   ------------------------------------------------------------ */
+.flow{position:relative; display:grid; grid-template-columns:repeat(5,1fr); gap:0; border:1px solid var(--hair); border-right:0}
+.step{border-right:1px solid var(--hair); padding:26px 20px; position:relative}
+.step__n{
+  font-family:var(--mono); font-size:11px; color:#04140C; background:var(--acc);
+  width:26px; height:26px; display:grid; place-items:center; font-weight:700; margin-bottom:16px;
+}
+.step__t{font-family:var(--sans); font-weight:600; font-size:16.5px; margin:0 0 8px; letter-spacing:-.02em}
+.step__d{color:var(--fg-dim); font-size:13.5px; margin:0 0 12px}
+.step__m{font-family:var(--mono); font-size:10.5px; color:var(--amber); letter-spacing:.08em; border-top:1px solid var(--hair); padding-top:10px}
+
+/* ------------------------------------------------------------
+   13 — YORUMLAR
+   ------------------------------------------------------------ */
+.quotes{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+.quote{padding:24px; display:flex; flex-direction:column}
+.quote__mark{font-family:var(--mono); color:var(--acc); font-size:22px; line-height:1; margin-bottom:12px}
+.quote__t{font-size:15px; color:var(--fg); margin:0 0 18px; flex:1}
+.quote__m{font-family:var(--mono); font-size:11px; color:var(--amber); border-left:2px solid var(--amber); padding-left:10px; margin-bottom:16px}
+.quote__a{display:flex; align-items:center; gap:11px; border-top:1px solid var(--hair); padding-top:14px}
+.quote__av{
+  width:38px; height:38px; border:1px solid var(--hair-2); display:grid; place-items:center;
+  font-family:var(--mono); font-size:13px; color:var(--acc); flex-shrink:0;
+}
+.quote__nm{font-size:14px; font-weight:600; letter-spacing:-.01em}
+.quote__rl{font-family:var(--mono); font-size:11px; color:var(--fg-faint)}
+
+/* ------------------------------------------------------------
+   14 — CTA BANDI
+   ------------------------------------------------------------ */
+.band{border-top:1px solid var(--acc-dark); border-bottom:1px solid var(--acc-dark); background:linear-gradient(180deg, rgba(61,255,171,.055), rgba(6,10,8,0) 70%); overflow:hidden; position:relative}
+.band__in{padding-block:clamp(44px,7vw,84px); text-align:center; position:relative; z-index:2}
+.band h2{font-family:var(--sans); font-weight:600; font-size:clamp(26px,4.4vw,52px); letter-spacing:-.035em; line-height:1.05; margin:0 auto 16px; max-width:20ch; text-wrap:balance}
+.band p{color:var(--fg-dim); max-width:56ch; margin:0 auto 28px; font-size:clamp(14px,1.5vw,17px)}
+.band__cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+.band__scan{position:absolute; inset:0; z-index:1; opacity:.5; background:repeating-linear-gradient(90deg, rgba(61,255,171,.06) 0 1px, transparent 1px 44px)}
+
+/* ------------------------------------------------------------
+   15 — RAPORLAMA ŞEFFAFLIĞI + SSS
+   ------------------------------------------------------------ */
+.two{display:grid; grid-template-columns:.9fr 1.1fr; gap:clamp(20px,3.4vw,44px); align-items:start}
+.report{padding:24px}
+.report__row{display:flex; justify-content:space-between; gap:14px; padding:13px 0; border-bottom:1px solid var(--hair); font-family:var(--mono); font-size:12.5px}
+.report__row:last-child{border-bottom:0}
+.report__row span{color:var(--fg-dim)}
+.report__row b{color:var(--acc); font-weight:500; text-align:right}
+.faq__i{border-bottom:1px solid var(--hair)}
+.faq__q{
+  width:100%; text-align:left; display:flex; justify-content:space-between; align-items:center; gap:16px;
+  padding:19px 2px; font-family:var(--sans); font-weight:500; font-size:16px; letter-spacing:-.01em;
+}
+.faq__q:hover{color:var(--acc)}
+.faq__q i{font-family:var(--mono); font-style:normal; color:var(--acc); font-size:17px; flex-shrink:0; transition:transform .25s}
+.faq__i.is-open .faq__q i{transform:rotate(45deg)}
+.faq__a{max-height:0; overflow:hidden; transition:max-height .35s ease}
+.faq__a p{color:var(--fg-dim); font-size:14.5px; margin:0 0 19px; padding-right:24px}
+
+/* ------------------------------------------------------------
+   16 — İLETİŞİM + FORM
+   ------------------------------------------------------------ */
+.contact{display:grid; grid-template-columns:.82fr 1.18fr; gap:clamp(20px,3.4vw,44px); align-items:start}
+.info__row{border:1px solid var(--hair); border-bottom:0; padding:18px 20px}
+.info__row:last-of-type{border-bottom:1px solid var(--hair)}
+.info__k{font-family:var(--mono); font-size:10.5px; letter-spacing:.18em; color:var(--fg-faint); text-transform:uppercase; margin-bottom:7px}
+.info__v{font-size:15px; color:var(--fg); line-height:1.5}
+.info__v a:hover{color:var(--acc)}
+.form{padding:clamp(20px,3vw,32px); position:relative}
+.form__grid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+.fld{display:flex; flex-direction:column; gap:7px; min-width:0}
+.fld--full{grid-column:1/-1}
+.fld label{font-family:var(--mono); font-size:10.5px; letter-spacing:.16em; color:var(--fg-dim); text-transform:uppercase}
+.fld label .req{color:var(--amber)}
+.fld input,.fld select,.fld textarea{
+  width:100%; background:#070D0A; border:1px solid var(--hair); color:var(--fg);
+  font-family:var(--mono); font-size:14px; padding:12px 13px; border-radius:0;
+  transition:border-color .2s, box-shadow .2s;
+}
+.fld textarea{resize:vertical; min-height:104px; line-height:1.55}
+.fld input::placeholder,.fld textarea::placeholder{color:var(--fg-faint)}
+.fld input:focus,.fld select:focus,.fld textarea:focus{
+  outline:none; border-color:var(--acc); box-shadow:0 0 0 1px var(--acc-dark), 0 0 18px rgba(61,255,171,.12);
+}
+.fld select{appearance:none; background-image:linear-gradient(45deg,transparent 50%,var(--acc) 50%),linear-gradient(135deg,var(--acc) 50%,transparent 50%); background-position:calc(100% - 18px) 20px, calc(100% - 13px) 20px; background-size:5px 5px, 5px 5px; background-repeat:no-repeat; padding-right:38px}
+.fld select option{background:#070D0A; color:var(--fg)}
+.fld .err{font-family:var(--mono); font-size:10.5px; color:var(--red); display:none}
+.fld.is-err input,.fld.is-err select,.fld.is-err textarea{border-color:var(--red)}
+.fld.is-err .err{display:block}
+.form__consent{display:flex; gap:10px; align-items:flex-start; grid-column:1/-1; font-family:var(--mono); font-size:11.5px; color:var(--fg-faint); line-height:1.55}
+.form__consent input{width:16px; height:16px; flex-shrink:0; margin-top:2px; accent-color:var(--acc)}
+.form__foot{grid-column:1/-1; display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:4px}
+.form__micro{font-family:var(--mono); font-size:11px; color:var(--fg-faint)}
+.form__ok{display:none; text-align:left; font-family:var(--mono)}
+.form.is-done .form__body{display:none}
+.form.is-done .form__ok{display:block}
+.ok__head{display:flex; align-items:center; gap:11px; color:var(--acc); font-size:13px; letter-spacing:.1em; margin-bottom:20px; text-transform:uppercase}
+.ok__head .tick{width:26px; height:26px; border:1px solid var(--acc); display:grid; place-items:center}
+.ok__line{font-size:13px; color:var(--fg-dim); padding:7px 0; border-bottom:1px solid var(--hair); display:flex; gap:10px; justify-content:space-between; flex-wrap:wrap}
+.ok__line b{color:var(--fg); font-weight:500; text-align:right; word-break:break-word}
+.ok__msg{margin-top:22px; font-size:13.5px; color:var(--fg); line-height:1.7}
+.ok__msg .acc{font-weight:700}
+
+/* ------------------------------------------------------------
+   17 — FOOTER
+   ------------------------------------------------------------ */
+.foot{border-top:1px solid var(--hair); background:var(--bg-2); padding-block:44px 24px; margin-top:0}
+.foot__grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:28px}
+.foot__d{color:var(--fg-dim); font-size:13.5px; max-width:38ch; margin:14px 0 0}
+.foot__h{font-family:var(--mono); font-size:10.5px; letter-spacing:.18em; color:var(--fg-faint); text-transform:uppercase; margin:0 0 14px}
+.foot__l{list-style:none; padding:0; margin:0; display:grid; gap:9px}
+.foot__l a{font-size:13.5px; color:var(--fg-dim)}
+.foot__l a:hover{color:var(--acc)}
+.foot__bot{
+  margin-top:34px; padding-top:18px; border-top:1px solid var(--hair);
+  display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+  font-family:var(--mono); font-size:11px; color:var(--fg-faint);
+}
+.foot__note{color:var(--amber)}
+
+/* ------------------------------------------------------------
+   18 — SABİT WHATSAPP + MOBİL ALT ÇUBUK
+   ------------------------------------------------------------ */
+.wa{
+  position:fixed; right:20px; bottom:20px; z-index:55; width:54px; height:54px;
+  background:var(--acc); color:#04140C; display:grid; place-items:center;
+  border:1px solid #6BFFC1; box-shadow:0 0 0 0 rgba(61,255,171,.45); animation:wapulse 2.6s infinite;
+  transition:transform .2s;
+}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:26px; height:26px}
+@keyframes wapulse{0%{box-shadow:0 0 0 0 rgba(61,255,171,.4)}70%{box-shadow:0 0 0 16px rgba(61,255,171,0)}100%{box-shadow:0 0 0 0 rgba(61,255,171,0)}}
+.mbar{display:none}
+
+/* ------------------------------------------------------------
+   19 — REVEAL ANİMASYONU
+   ------------------------------------------------------------ */
+.rv{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.is-in{opacity:1; transform:none}
+
+/* ------------------------------------------------------------
+   20 — DUYARLI DÜZEN
+   ------------------------------------------------------------ */
+@media (max-width:1080px){
+  .hero__grid{grid-template-columns:1fr; gap:36px}
+  .globe-box{max-width:460px; order:-1}
+  .mods{grid-template-columns:repeat(4,1fr)}
+  .mod,.mod:nth-child(1),.mod:nth-child(2),.mod--wide{grid-column:span 2}
+  .cases{grid-template-columns:repeat(2,1fr)}
+  .flow{grid-template-columns:repeat(3,1fr); border-bottom:1px solid var(--hair)}
+  .step{border-bottom:1px solid var(--hair)}
+  .quotes{grid-template-columns:1fr}
+  .two,.contact{grid-template-columns:1fr}
+  .foot__grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .nav__links,.nav__tel{display:none}
+  .burger{display:grid}
+  .nav__cta,.nav__cta .btn{display:none}
+  .strip__in{grid-template-columns:repeat(2,1fr)}
+  .strip__cell:nth-child(2n){border-right:0}
+  .strip__cell:nth-child(-n+2){border-bottom:1px solid var(--hair)}
+  .prob{grid-template-columns:1fr}
+  .counts{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:720px){
+  .why{grid-template-columns:1fr}
+  .cases{grid-template-columns:1fr}
+  .mods{grid-template-columns:1fr}
+  .mod,.mod:nth-child(1),.mod:nth-child(2),.mod--wide{grid-column:span 1}
+  .flow{grid-template-columns:1fr}
+  .form__grid{grid-template-columns:1fr}
+  .foot__grid{grid-template-columns:1fr}
+  .wa{display:none}
+  .mbar{
+    display:grid; grid-template-columns:1fr 1fr; gap:0; position:fixed; left:0; right:0; bottom:0;
+    z-index:55; border-top:1px solid var(--hair-2); background:rgba(6,10,8,.97);
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  }
+  .mbar a{
+    padding:15px 8px; text-align:center; font-family:var(--mono); font-size:12.5px;
+    letter-spacing:.06em; text-transform:uppercase; font-weight:500;
+  }
+  .mbar a:first-child{color:var(--acc); border-right:1px solid var(--hair-2)}
+  .mbar a:last-child{background:var(--acc); color:#04140C; font-weight:700}
+  body{padding-bottom:52px}
+  .hero{padding-top:88px}
+  .hero h1{min-height:2.3em}
+}
+@media (max-width:400px){
+  .counts{grid-template-columns:1fr}
+  .strip__in{grid-template-columns:1fr}
+  .strip__cell{border-right:0; border-bottom:1px solid var(--hair)}
+}
+
+/* ------------------------------------------------------------
+   21 — HAREKET AZALTMA
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1; transform:none}
+  .fx-scan{display:none}
+  .hero h1 .caret{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Zemin efektleri -->
+<div class="fx-grid" aria-hidden="true"></div>
+<div class="fx-scan" aria-hidden="true"></div>
+<div class="fx-vig" aria-hidden="true"></div>
+
+<!-- ============================================================
+     BÖLÜM 1 — SABİT ÜST MENÜ
+     ============================================================ -->
+<nav class="nav" id="nav" aria-label="Ana menü">
+  <div class="wrap nav__in">
+    <a class="logo" href="#top" aria-label="TasarımMania ana sayfa">
+      <span class="logo__mark" aria-hidden="true">&gt;_</span>
+      <span class="logo__txt">Tasarım<b>Mania</b></span>
+    </a>
+    <div class="nav__links">
+      <a href="#hizmetler">/hizmetler</a>
+      <a href="#neden">/neden-biz</a>
+      <a href="#vakalar">/vakalar</a>
+      <a href="#surec">/süreç</a>
+      <a href="#raporlama">/raporlama</a>
+      <a href="#iletisim">/iletişim</a>
+    </div>
+    <div class="nav__cta">
+      <a class="nav__tel" href="tel:+905386999666">0538 699 96 66</a>
+      <a class="btn btn--primary btn--sm" href="#iletisim">Teklif Al</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mmenu"><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mmenu">
+    <a href="#hizmetler">/hizmetler</a>
+    <a href="#neden">/neden-biz</a>
+    <a href="#vakalar">/vakalar</a>
+    <a href="#surec">/süreç</a>
+    <a href="#raporlama">/raporlama</a>
+    <a href="#iletisim">/iletişim</a>
+    <a href="tel:+905386999666">/telefon → 0538 699 96 66</a>
+    <a class="btn btn--primary btn--wide" href="#iletisim">Teklif Al</a>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- ============================================================
+     BÖLÜM 2 — HERO: TERMİNAL + TEL KAFES DÜNYA
+     ============================================================ -->
+<header class="sec hero">
+  <div class="wrap">
+    <div class="hero__grid">
+
+      <!-- Sol: terminal -->
+      <div class="hero__term">
+        <div class="term-bar mono">
+          <span class="led" aria-hidden="true"></span>
+          <span>tasarimmania@kontrol-odasi</span>
+          <span>·</span>
+          <span>İSTANBUL / BAKIRKÖY</span>
+          <span>·</span>
+          <span class="acc">OTURUM AÇIK</span>
+        </div>
+        <p class="hero__pre mono">360° DİJİTAL AJANS · KAMPANYA KONTROL MERKEZİ</p>
+        <h1 id="typed" aria-label="Reklam bütçenizin nereye gittiğini kalem kalem anlatırız."><span id="typedTxt"></span><span class="caret" aria-hidden="true"></span></h1>
+        <p class="hero__sub">
+          Web, mobil, reklam, video ve SEO tek çatı altında — ama asıl işimiz <b>ölçmek</b>.
+          Her ay tek ekran: harcanan bütçe, gelen teklif, kestiğimiz kalem.
+          <b>İstanbul'dan Berlin, Londra, Dubai ve New York'a</b> çok dilli kampanya yönetiyoruz.
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#iletisim">Ücretsiz Strateji Görüşmesi</a>
+          <a class="btn btn--ghost" href="#vakalar">İşleri İncele</a>
+        </div>
+        <p class="hero__micro mono">// 40 saniyelik form · ortalama yanıt süresi 2 saat · satış değil teşhis görüşmesi</p>
+
+        <div class="hero__proof">
+          <div><strong>12</strong>YIL SAHA DENEYİMİ</div>
+          <div><strong>5</strong>ÜLKEDE AKTİF KAMPANYA</div>
+          <div><strong>7</strong>DİLDE SEO OPERASYONU</div>
+          <div><strong>2,7</strong>YIL ORT. ÇALIŞMA SÜRESİ</div>
+        </div>
+      </div>
+
+      <!-- Sağ: canvas dünya -->
+      <div class="globe-box" id="globeBox">
+        <canvas id="globe" role="img" aria-label="İstanbul merkezli, Berlin, Londra, Dubai ve New York'a uzanan kampanya bağlantılarını gösteren dönen tel kafes dünya görseli"></canvas>
+        <div class="globe-fallback" aria-hidden="true"></div>
+        <div class="globe-hud globe-hud--tl mono">AĞ HARİTASI · CANLI</div>
+        <div class="globe-hud globe-hud--bl mono" id="globeNode">DÜĞÜM: İSTANBUL</div>
+        <div class="globe-hud globe-hud--br mono">5 BÖLGE / 7 DİL</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Canlı metrik şeridi -->
+  <div class="strip" id="strip">
+    <div class="strip__in">
+      <div class="strip__cell">
+        <div class="strip__k"><span aria-hidden="true">◈</span> ROAS (PORTFÖY ORT.)</div>
+        <div class="strip__v" data-metric="roas">4.82x</div>
+        <div class="strip__d mono">son 24 saat · <span class="acc">▲ 0.14</span></div>
+      </div>
+      <div class="strip__cell">
+        <div class="strip__k"><span aria-hidden="true">◈</span> CPC (MEDYAN)</div>
+        <div class="strip__v is-down" data-metric="cpc">₺3,41</div>
+        <div class="strip__d mono">son 24 saat · <span class="acc">▼ %6,2</span></div>
+      </div>
+      <div class="strip__cell">
+        <div class="strip__k"><span aria-hidden="true">◈</span> CTR (ARAMA AĞI)</div>
+        <div class="strip__v" data-metric="ctr">%7,36</div>
+        <div class="strip__d mono">son 24 saat · <span class="acc">▲ 0,41 puan</span></div>
+      </div>
+      <div class="strip__cell">
+        <div class="strip__k"><span aria-hidden="true">◈</span> DÖNÜŞÜM ORANI</div>
+        <div class="strip__v" data-metric="cvr">%4,27</div>
+        <div class="strip__d mono">sektör ort. %1,8 · <span class="acc">▲ 2,4x</span></div>
+      </div>
+      <div class="strip__note mono">// canlı panel simülasyonu — ekrandaki değerler temsilîdir, gerçek müşteri verisi görüşmede paylaşılır</div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     BÖLÜM 3 — GÜVEN ŞERİDİ
+     ============================================================ -->
+<section class="trust" aria-label="Çalıştığımız kanallar ve teknolojiler">
+  <div class="wrap trust__in">
+    <span class="trust__lab">BAĞLI KANALLAR</span>
+    <span class="chip">Meta Ads</span>
+    <span class="chip">Google Ads</span>
+    <span class="chip">GA4</span>
+    <span class="chip">Search Console</span>
+    <span class="chip">TikTok Ads</span>
+    <span class="chip">YouTube</span>
+    <span class="chip">Instagram</span>
+    <span class="chip">Looker Studio</span>
+    <span class="chip">Shopify / WooCommerce</span>
+    <span class="chip">React Native</span>
+    <span class="chip">Next.js</span>
+    <span class="chip">Screaming Frog</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     BÖLÜM 4 — SORUN
+     ============================================================ -->
+<section class="sec sec--tight" aria-labelledby="sorun-b">
+  <div class="wrap">
+    <p class="hud-label rv">TEŞHİS <span>/ 01</span></p>
+    <h2 class="sec-title rv" id="sorun-b">Bütçe artıyor. Teklif sayısı sabit.</h2>
+    <p class="sec-sub rv">Masaya oturduğumuz markaların çoğunda tablo aynı: harcama grafiği yukarı, satış grafiği yatay. Kayıp reklamda değil, ölçülmeyen yerde.</p>
+    <div class="prob rv">
+      <div class="prob__c">
+        <div class="prob__n mono">HATA_01</div>
+        <h3 class="prob__t">Rapor var, cevap yok</h3>
+        <p class="prob__d">Her ay 40 sayfalık tıklama raporu geliyor ama "bu ay kaç teklif aldık, tanesi kaça mal oldu" sorusunun cevabı hiçbir sayfada yok.</p>
+      </div>
+      <div class="prob__c">
+        <div class="prob__n mono">HATA_02</div>
+        <h3 class="prob__t">Beş ayrı tedarikçi, sıfır ortak veri</h3>
+        <p class="prob__d">Site ajansı ayrı, reklam ajansı ayrı, video ekibi ayrı. Kimse diğerinin verisini görmüyor; kampanya iyi gidiyor ama site formu bozuk.</p>
+      </div>
+      <div class="prob__c">
+        <div class="prob__n mono">HATA_03</div>
+        <h3 class="prob__t">Yurt dışı kampanyası çeviriyle yürütülüyor</h3>
+        <p class="prob__d">Türkçe metnin Almancaya çevrilmesi kampanya değildir. Arama hacmi, rekabet, satın alma alışkanlığı ve mevzuat her pazarda başkadır.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BÖLÜM 5 — HİZMET MODÜLLERİ (sayfanın kalbi)
+     ============================================================ -->
+<section class="sec" id="hizmetler" aria-labelledby="hiz-b">
+  <div class="wrap">
+    <p class="hud-label rv">AKTİF MODÜLLER <span>/ 02 · 5 SİSTEM</span></p>
+    <h2 class="sec-title rv" id="hiz-b">Beş modül. Tek panel. Tek fatura.</h2>
+    <p class="sec-sub rv">Her modül ayrı bir ekip, ayrı bir KPI seti ve ortak bir veri katmanı ile çalışır. İstediğiniz modülü açar, istemediğinizi kapatırsınız — ama hepsi aynı tabloya rapor verir.</p>
+
+    <div class="mods">
+
+      <!-- Modül 01 -->
+      <article class="panel mod rv">
+        <div class="mod__top">
+          <span class="mod__id mono">MODÜL_01</span>
+          <span class="badge badge--live"><span class="dot"></span>AKTİF</span>
+        </div>
+        <div class="mod__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v14H3z"/><path d="M3 9h18"/><path d="M7 13l2 2-2 2"/><path d="M12 17h5"/></svg>
+        </div>
+        <h3>Web Tasarım &amp; Yazılım</h3>
+        <p class="mod__out mono">→ ÇIKTI: ZİYARETÇİYİ TEKLİFE ÇEVİREN SİTE</p>
+        <p class="mod__d">Kurumsal site, e-ticaret ve özel web uygulaması. Şablon kullanmıyoruz; her projeye kendi ızgarası, kendi hız bütçesi ve kendi dönüşüm akışı yazılıyor. AI entegrasyonları (asistan, öneri motoru, otomatik içerik) doğrudan bu katmanda kurulur.</p>
+        <ul class="mod__list">
+          <li>Kurumsal Site</li><li>E-Ticaret</li><li>Web Uygulaması</li><li>AI Entegrasyonu</li><li>Core Web Vitals</li><li>Çok Dilli Yapı</li>
+        </ul>
+        <div class="mod__foot">
+          <div class="mod__kpi mono">ORT. HIZ SKORU<b>96/100</b></div>
+          <canvas class="mod__spark" data-spark="1" aria-hidden="true"></canvas>
+        </div>
+      </article>
+
+      <!-- Modül 02 -->
+      <article class="panel mod rv">
+        <div class="mod__top">
+          <span class="mod__id mono">MODÜL_02</span>
+          <span class="badge badge--live"><span class="dot"></span>AKTİF</span>
+        </div>
+        <div class="mod__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/><path d="M9 6h6"/></svg>
+        </div>
+        <h3>Mobil Uygulama</h3>
+        <p class="mod__out mono">→ ÇIKTI: MAĞAZADA YAYINDA, ÖLÇÜMÜ AÇIK UYGULAMA</p>
+        <p class="mod__d">iOS ve Android; React Native ile tek kod tabanı ya da performans gerektiren işlerde native. Sadece kod yazmıyoruz: App Store ve Play Store yayın süreci, mağaza optimizasyonu, sürüm yönetimi ve uygulama içi olay ölçümü bizde.</p>
+        <ul class="mod__list">
+          <li>iOS &amp; Android</li><li>React Native</li><li>Native</li><li>Store Yayın</li><li>ASO</li><li>Push &amp; Analitik</li>
+        </ul>
+        <div class="mod__foot">
+          <div class="mod__kpi mono">ORT. ÇÖKME ORANI<b>%0,08</b></div>
+          <canvas class="mod__spark" data-spark="2" aria-hidden="true"></canvas>
+        </div>
+      </article>
+
+      <!-- Modül 03 -->
+      <article class="panel mod rv">
+        <div class="mod__top">
+          <span class="mod__id mono">MODÜL_03</span>
+          <span class="badge badge--opt"><span class="dot"></span>OPTİMİZE EDİLİYOR</span>
+        </div>
+        <div class="mod__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20V10"/><path d="M9 20V4"/><path d="M15 20v-7"/><path d="M21 20V8"/></svg>
+        </div>
+        <h3>Dijital Pazarlama</h3>
+        <p class="mod__out mono">→ ÇIKTI: MÜŞTERİ BAŞI MALİYETİ DÜŞEN HUNİ</p>
+        <p class="mod__d">Meta Ads ve Google Ads'te performans pazarlaması, sosyal medya yönetimi ve yurt dışı kampanya operasyonu. Bütçeyi büyütmeden dönüşüm oranını büyütmeye çalışırız; olmuyorsa bunu ilk raporda söyleriz.</p>
+        <ul class="mod__list">
+          <li>Meta Ads</li><li>Google Ads</li><li>Performans</li><li>Sosyal Medya</li><li>Global Kampanya</li><li>Huni Kurgusu</li>
+        </ul>
+        <div class="mod__foot">
+          <div class="mod__kpi mono">AYLIK YÖNETİLEN BÜTÇE<b>₺14,2M</b></div>
+          <canvas class="mod__spark" data-spark="3" aria-hidden="true"></canvas>
+        </div>
+      </article>
+
+      <!-- Modül 04 -->
+      <article class="panel mod rv">
+        <div class="mod__top">
+          <span class="mod__id mono">MODÜL_04</span>
+          <span class="badge badge--live"><span class="dot"></span>AKTİF</span>
+        </div>
+        <div class="mod__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="13" height="12" rx="2"/><path d="M15 10l7-4v12l-7-4z"/></svg>
+        </div>
+        <h3>Video Prodüksiyon</h3>
+        <p class="mod__out mono">→ ÇIKTI: REKLAMDA ÇALIŞAN GÖRSEL VARLIK</p>
+        <p class="mod__d">Reklam filmi, ürün videosu, YouTube ve Instagram içerik üretimi. AI destekli prodüksiyonla aynı bütçeyle daha çok varyasyon çıkarır, hangi kurgunun sattığını reklam panelinde test ederiz. Fikir güzel değil, performanslı olmak zorunda.</p>
+        <ul class="mod__list">
+          <li>Reklam Filmi</li><li>Ürün Videosu</li><li>YouTube İçerik</li><li>Instagram Reels</li><li>AI Destekli Prodüksiyon</li><li>Altyazı &amp; Yerelleştirme</li>
+        </ul>
+        <div class="mod__foot">
+          <div class="mod__kpi mono">AYLIK TESLİM<b>60+ KURGU</b></div>
+          <canvas class="mod__spark" data-spark="4" aria-hidden="true"></canvas>
+        </div>
+      </article>
+
+      <!-- Modül 05 -->
+      <article class="panel mod mod--wide rv">
+        <div class="mod__top">
+          <span class="mod__id mono">MODÜL_05</span>
+          <span class="badge badge--opt"><span class="dot"></span>OPTİMİZE EDİLİYOR</span>
+        </div>
+        <div class="mod__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/><path d="M8 11h6"/><path d="M11 8v6"/></svg>
+        </div>
+        <h3>SEO Hizmetleri</h3>
+        <p class="mod__out mono">→ ÇIKTI: REKLAM DURUNCA DA GELEN TRAFİK</p>
+        <p class="mod__d">Teknik SEO, içerik stratejisi, yerel SEO ve uluslararası çok dilli SEO. Hreflang mimarisi, pazar bazlı anahtar kelime araştırması ve ülke ülke içerik planı — çeviriyle değil, o pazarın kendi arama diliyle.</p>
+        <ul class="mod__list">
+          <li>Teknik SEO</li><li>İçerik Stratejisi</li><li>Yerel SEO</li><li>Çok Dilli SEO</li><li>Hreflang</li><li>E-E-A-T</li><li>AI Görünürlüğü</li>
+        </ul>
+        <div class="mod__foot">
+          <div class="mod__kpi mono">İLK SAYFA ANAHTAR KELİME<b>3.480+</b></div>
+          <canvas class="mod__spark" data-spark="5" aria-hidden="true"></canvas>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BÖLÜM 6 — NEDEN BİZ
+     ============================================================ -->
+<section class="sec" id="neden" aria-labelledby="neden-b">
+  <div class="wrap">
+    <p class="hud-label rv">SİSTEM FARKI <span>/ 03</span></p>
+    <h2 class="sec-title rv" id="neden-b">360 derece, slogan değil — tek veri katmanı demek.</h2>
+    <p class="sec-sub rv">Beş modülü aynı ajansın yapması tek başına değerli değil. Değerli olan, hepsinin aynı ölçüm tablosuna bağlı olması.</p>
+    <div class="why rv">
+      <div class="why__c">
+        <div class="why__n mono">FARK_01</div>
+        <h3 class="why__t">Tek çatı, tek sorumlu</h3>
+        <p class="why__d">Site yavaşsa reklam ekibi "site sorunu" diyemez; formda kayıp varsa yazılım ekibi "reklam kalitesi" diyemez. Tek ekip, tek KPI tablosu, tek muhatap.</p>
+      </div>
+      <div class="why__c">
+        <div class="why__n mono">FARK_02</div>
+        <h3 class="why__t">Yurt dışı kampanya deneyimi</h3>
+        <p class="why__d">Almanya, İngiltere, BAE ve ABD pazarlarında kampanya yönettik. Her pazarın kendi reklam kısıtı, kendi ödeme alışkanlığı ve kendi arama dili var — çeviriyle yürütülmez.</p>
+      </div>
+      <div class="why__c">
+        <div class="why__n mono">FARK_03</div>
+        <h3 class="why__t">Veri ve hesap sahipliği sizde</h3>
+        <p class="why__d">Reklam hesapları, alan adı, analitik ve sunucu erişimi sizin adınıza açılır. Yarın ayrılsanız her şey elinizde kalır. Müşteriyi veriyle rehin almayız.</p>
+      </div>
+      <div class="why__c">
+        <div class="why__n mono">FARK_04</div>
+        <h3 class="why__t">Çok dilli SEO + içerik üretimi</h3>
+        <p class="why__d">7 dilde içerik ve teknik SEO operasyonu yürütüyoruz. YouTube ve Instagram içerik üretimi de aynı anahtar kelime haritasından besleniyor; içerik ve reklam ayrı adalar değil.</p>
+      </div>
+      <div class="why__c">
+        <div class="why__n mono">FARK_05</div>
+        <h3 class="why__t">Aylık ilerleriz, uzun kilit yok</h3>
+        <p class="why__d">12 aylık zorunlu sözleşme yok. Aylık devam ederiz; verdiğimiz sözü tutmuyorsak ay sonunda ayrılırsınız, devir dosyası eksiksiz teslim edilir.</p>
+      </div>
+      <div class="why__c">
+        <div class="why__n mono">FARK_06</div>
+        <h3 class="why__t">Kim için uygun değiliz</h3>
+        <p class="why__d">Tek seferlik "ucuz site" arayan, ölçüm kurmamıza izin vermeyen, reklam bütçesi aylık 30.000 TL'nin altında olan ve garantili sıralama isteyen markalarla çalışmıyoruz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BÖLÜM 7 — RAKAMLARLA SOSYAL KANIT
+     ============================================================ -->
+<section class="sec sec--tight" aria-labelledby="rak-b">
+  <div class="wrap">
+    <p class="hud-label rv">TELEMETRİ <span>/ 04</span></p>
+    <h2 class="sec-title rv" id="rak-b">Son 12 ayın toplamı.</h2>
+    <p class="sec-sub rv">Aşağıdaki değerler portföy geneli özetidir; her rakamın arkasındaki panel ekran görüntüsünü görüşmede açarız.</p>
+    <div class="counts rv" id="counts">
+      <div class="count">
+        <div class="count__v" data-count="41" data-suffix="M ₺" data-dec="0">0</div>
+        <div class="count__k">Yönetilen bütçeyle üretilen ek ciro</div>
+        <div class="count__bar" style="--w:88%"></div>
+      </div>
+      <div class="count">
+        <div class="count__v" data-count="268" data-suffix="" data-dec="0">0</div>
+        <div class="count__k">Tamamlanan proje</div>
+        <div class="count__bar" style="--w:76%"></div>
+      </div>
+      <div class="count">
+        <div class="count__v" data-count="4.82" data-suffix="x" data-dec="2">0</div>
+        <div class="count__k">Ortalama ROAS</div>
+        <div class="count__bar" style="--w:92%"></div>
+      </div>
+      <div class="count">
+        <div class="count__v" data-count="7" data-suffix=" dil" data-dec="0">0</div>
+        <div class="count__k">Aktif SEO operasyon dili</div>
+        <div class="count__bar" style="--w:64%"></div>
+      </div>
+      <div class="count">
+        <div class="count__v" data-count="14.2" data-suffix="M ₺" data-dec="1">0</div>
+        <div class="count__k">Aylık yönetilen reklam bütçesi</div>
+        <div class="count__bar" style="--w:81%"></div>
+      </div>
+      <div class="count">
+        <div class="count__v" data-count="3480" data-suffix="+" data-dec="0">0</div>
+        <div class="count__k">İlk sayfada anahtar kelime</div>
+        <div class="count__bar" style="--w:70%"></div>
+      </div>
+      <div class="count">
+        <div class="count__v" data-count="2.7" data-suffix=" yıl" data-dec="1">0</div>
+        <div class="count__k">Ortalama müşteri kalış süresi</div>
+        <div class="count__bar" style="--w:85%"></div>
+      </div>
+      <div class="count">
+        <div class="count__v" data-count="2" data-suffix=" saat" data-dec="0">0</div>
+        <div class="count__k">Ortalama ilk yanıt süresi</div>
+        <div class="count__bar" style="--w:95%"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BÖLÜM 8 — VAKA ÇALIŞMALARI
+     ============================================================ -->
+<section class="sec" id="vakalar" aria-labelledby="vaka-b">
+  <div class="wrap">
+    <p class="hud-label rv">VAKA KAYITLARI <span>/ 05 · ÖNCE → SONRA</span></p>
+    <h2 class="sec-title rv" id="vaka-b">Sorun neydi, ne değiştirdik, ne oldu.</h2>
+    <p class="sec-sub rv">Altı dosya. Her birinde en az iki metrik ve ölçüm dönemi var. Barlarda gri = önce, yeşil = sonra.</p>
+
+    <div class="cases" id="cases">
+
+      <!-- Vaka 1 -->
+      <article class="panel case rv">
+        <div class="case__head"><span class="case__sec">E-TİCARET / EV TEKSTİLİ</span><span class="case__id mono">#TM-118</span></div>
+        <h3>Aynı bütçe, iki katına çıkan sepet dönüşümü</h3>
+        <p class="case__p"><b>Sorun:</b> Reklam trafiği yüksek, sepet terk oranı %81. Mobilde ödeme adımı 6 ekrandı.</p>
+        <p class="case__p"><b>Yaptık:</b> Ödeme akışını 3 adıma indirdik, kargo eşiğini sepette görünür yaptık, Meta kataloğunu yeniden kurduk.</p>
+        <div class="case__bars">
+          <div class="bar" data-before="31" data-after="74">
+            <div class="bar__k"><span>Dönüşüm oranı</span><b>%1,9 → %4,4</b></div>
+            <div class="bar__track"><span class="bar__before"></span><span class="bar__after"></span></div>
+          </div>
+          <div class="bar" data-before="88" data-after="41">
+            <div class="bar__k"><span>Sipariş başı maliyet</span><b>₺214 → ₺98</b></div>
+            <div class="bar__track"><span class="bar__before"></span><span class="bar__after"></span></div>
+          </div>
+          <div class="bar__legend"><span><i class="lb"></i>Önce</span><span><i class="la"></i>Sonra</span><span class="mono">6 ay</span></div>
+        </div>
+      </article>
+
+      <!-- Vaka 2 -->
+      <article class="panel case rv">
+        <div class="case__head"><span class="case__sec">SAĞLIK TURİZMİ / KLİNİK</span><span class="case__id mono">#TM-092</span></div>
+        <h3>Dört dilde hasta yolculuğu, tek panelde ölçüm</h3>
+        <p class="case__p"><b>Sorun:</b> Almanya ve İngiltere'den gelen form talepleri niteliksizdi; hangi dilin kazandırdığı bilinmiyordu.</p>
+        <p class="case__p"><b>Yaptık:</b> Hreflang mimarisi, dile göre ayrı reklam hesabı, WhatsApp'a dil bazlı yönlendirme ve CRM eşleştirmesi.</p>
+        <div class="case__bars">
+          <div class="bar" data-before="26" data-after="79">
+            <div class="bar__k"><span>Nitelikli görüşme</span><b>ayda 34 → 112</b></div>
+            <div class="bar__track"><span class="bar__before"></span><span class="bar__after"></span></div>
+          </div>
+          <div class="bar" data-before="35" data-after="86">
+            <div class="bar__k"><span>Organik yurt dışı trafik</span><b>+%146</b></div>
+            <div class="bar__track"><span class="bar__before"></span><span class="bar__after"></span></div>
+          </div>
+          <div class="bar__legend"><span><i class="lb"></i>Önce</span><span><i class="la"></i>Sonra</span><span class="mono">9 ay</span></div>
+        </div>
+      </article>
+
+      <!-- Vaka 3 -->
+      <article class="panel case rv">
+        <div class="case__head"><span class="case__sec">B2B / ENDÜSTRİYEL ÜRETİM</span><span class="case__id mono">#TM-141</span></div>
+        <h3>Katalog sitesinden teklif motoruna</h3>
+        <p class="case__p"><b>Sorun:</b> Site 12 yıllık, mobilde açılmıyor, ürün araması yok. Talepler yalnızca fuardan geliyordu.</p>
+        <p class="case__p"><b>Yaptık:</b> Ürün konfigüratörlü yeni site, teknik SEO temizliği, İngilizce pazar için ayrı içerik hattı.</p>
+        <div class="case__bars">
+          <div class="bar" data-before="18" data-after="83">
+            <div class="bar__k"><span>Aylık teklif talebi</span><b>9 → 63</b></div>
+            <div class="bar__track"><span class="bar__before"></span><span class="bar__after"></span></div>
+          </div>
+          <div class="bar" data-before="22" data-after="96">
+            <div class="bar__k"><span>Sayfa hızı skoru</span><b>28 → 96</b></div>
+            <div class="bar__track"><span class="bar__before"></span><span class="bar__after"></span></div>
+          </div>
+          <div class="bar__legend"><span><i class="lb"></i>Önce</span><span><i class="la"></i>Sonra</span><span class="mono">7 ay</span></div>
+        </div>
+      </article>
+
+      <!-- Vaka 4 -->
+      <article class="panel case rv">
+        <div class="case__head"><span class="case__sec">PERAKENDE / MOBİL UYGULAMA</span><span class="case__id mono">#TM-076</span></div>
+        <h3>Sadakat uygulaması: yükleme değil, tekrar satın alma</h3>
+        <p class="case__p"><b>Sorun:</b> Uygulama vardı, indiriliyordu, ama 30 gün sonra kullanan kalmıyordu.</p>
+        <p class="case__p"><b>Yaptık:</b> React Native ile yeniden yazdık, push senaryolarını segmente bağladık, mağaza sayfasını (ASO) baştan kurduk.</p>
+        <div class="case__bars">
+          <div class="bar" data-before="14" data-after="61">
+            <div class="bar__k"><span>30 gün elde tutma</span><b>%8 → %34</b></div>
+            <div class="bar__track"><span class="bar__before"></span><span class="bar__after"></span></div>
+          </div>
+          <div class="bar" data-before="30" data-after="88">
+            <div class="bar__k"><span>Uygulama içi ciro payı</span><b>%6 → %27</b></div>
+            <div class="bar__track"><span class="bar__before"></span><span class="bar__after"></span></div>
+          </div>
+          <div class="bar__legend"><span><i class="lb"></i>Önce</span><span><i class="la"></i>Sonra</span><span class="mono">11 ay</span></div>
+        </div>
+      </article>
+
+      <!-- Vaka 5 -->
+      <article class="panel case rv">
+        <div class="case__head"><span class="case__sec">KOZMETİK / VİDEO + REKLAM</span><span class="case__id mono">#TM-155</span></div>
+        <h3>Ayda 40 kurgu, haftalık kreatif rotasyonu</h3>
+        <p class="case__p"><b>Sorun:</b> Tek reklam videosu 3 ay boyunca yayında kalıyor, kreatif yorulunca maliyet tırmanıyordu.</p>
+        <p class="case__p"><b>Yaptık:</b> AI destekli prodüksiyonla haftalık varyasyon hattı kurduk; kazanan kurguyu panelde seçip bütçeyi ona kaydırdık.</p>
+        <div class="case__bars">
+          <div class="bar" data-before="72" data-after="34">
+            <div class="bar__k"><span>Bin gösterim maliyeti</span><b>-%53</b></div>
+            <div class="bar__track"><span class="bar__before"></span><span class="bar__after"></span></div>
+          </div>
+          <div class="bar" data-before="29" data-after="81">
+            <div class="bar__k"><span>Video izlenme oranı</span><b>%11 → %38</b></div>
+            <div class="bar__track"><span class="bar__before"></span><span class="bar__after"></span></div>
+          </div>
+          <div class="bar__legend"><span><i class="lb"></i>Önce</span><span><i class="la"></i>Sonra</span><span class="mono">5 ay</span></div>
+        </div>
+      </article>
+
+      <!-- Vaka 6 -->
+      <article class="panel case rv">
+        <div class="case__head"><span class="case__sec">EĞİTİM / YEREL SEO</span><span class="case__id mono">#TM-103</span></div>
+        <h3>Üç ilçe, üç ayrı arama niyeti</h3>
+        <p class="case__p"><b>Sorun:</b> Tek sayfayla üç şubeye talep toplanmaya çalışılıyordu; harita sonuçlarında hiç görünmüyorlardı.</p>
+        <p class="case__p"><b>Yaptık:</b> Şube bazlı sayfa mimarisi, işletme profillerinin düzenlenmesi, yorum toplama akışı ve yerel içerik takvimi.</p>
+        <div class="case__bars">
+          <div class="bar" data-before="12" data-after="77">
+            <div class="bar__k"><span>Harita üzerinden arama</span><b>ayda 41 → 268</b></div>
+            <div class="bar__track"><span class="bar__before"></span><span class="bar__after"></span></div>
+          </div>
+          <div class="bar" data-before="24" data-after="69">
+            <div class="bar__k"><span>Kayıt formu dönüşümü</span><b>%2,1 → %6,0</b></div>
+            <div class="bar__track"><span class="bar__before"></span><span class="bar__after"></span></div>
+          </div>
+          <div class="bar__legend"><span><i class="lb"></i>Önce</span><span><i class="la"></i>Sonra</span><span class="mono">8 ay</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BÖLÜM 9 — ÇALIŞMA SÜRECİ
+     ============================================================ -->
+<section class="sec" id="surec" aria-labelledby="surec-b">
+  <div class="wrap">
+    <p class="hud-label rv">OPERASYON AKIŞI <span>/ 06 · TALEPTEN YAYINA</span></p>
+    <h2 class="sec-title rv" id="surec-b">Takvim baştan yazılı. Kim, ne zaman, ne teslim eder.</h2>
+    <p class="sec-sub rv">Her adımın süresi, sorumlusu ve sizden istenen belli. Gecikme bizden kaynaklanırsa o ayın bedelini biz karşılarız.</p>
+    <div class="flow rv">
+      <div class="step">
+        <div class="step__n mono">01</div>
+        <h3 class="step__t">Teşhis</h3>
+        <p class="step__d">Reklam hesabı, analitik ve site incelemesi. Ekranı paylaşır, para kaybettiğiniz üç noktayı canlı işaretleriz.</p>
+        <div class="step__m mono">45 DK · ÜCRETSİZ · ÇALIŞMASAK DA LİSTE SİZDE KALIR</div>
+      </div>
+      <div class="step">
+        <div class="step__n mono">02</div>
+        <h3 class="step__t">Plan &amp; Bütçe</h3>
+        <p class="step__d">Hangi modüller açılacak, hangi KPI hedeflenecek, aylık bütçe nasıl dağıtılacak — tek sayfa halinde.</p>
+        <div class="step__m mono">48 SAAT · KALEM KALEM TEKLİF · EK KALEM YOK</div>
+      </div>
+      <div class="step">
+        <div class="step__n mono">03</div>
+        <h3 class="step__t">Kurulum</h3>
+        <p class="step__d">Hesaplar sizin adınıza açılır, ölçüm ve dönüşüm olayları kurulur, tasarım ve içerik üretimi başlar.</p>
+        <div class="step__m mono">10-21 İŞ GÜNÜ · SORUMLU: PROJE LİDERİ</div>
+      </div>
+      <div class="step">
+        <div class="step__n mono">04</div>
+        <h3 class="step__t">Yayın &amp; Test</h3>
+        <p class="step__d">Kampanyalar açılır, kreatifler rotasyona girer, sayfa ve form akışı A/B testine alınır.</p>
+        <div class="step__m mono">HAFTALIK RİTİM · CUMA 16:00 DURUM NOTU</div>
+      </div>
+      <div class="step">
+        <div class="step__n mono">05</div>
+        <h3 class="step__t">Ölçüm &amp; Optimizasyon</h3>
+        <p class="step__d">Aylık tek sayfa rapor: harcanan, kazandıran, kestiğimiz. Yorum değil tablo; sonra gelecek ayın kararı.</p>
+        <div class="step__m mono">HER AYIN 3'Ü · CANLI PANEL 7/24 AÇIK</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BÖLÜM 10 — MÜŞTERİ YORUMLARI
+     ============================================================ -->
+<section class="sec sec--tight" aria-labelledby="yorum-b">
+  <div class="wrap">
+    <p class="hud-label rv">KAYIT DEFTERİ <span>/ 07</span></p>
+    <h2 class="sec-title rv" id="yorum-b">Müşteriler ne diyor.</h2>
+    <div class="quotes">
+      <figure class="panel quote rv" style="margin:0">
+        <div class="quote__mark mono" aria-hidden="true">&gt;_</div>
+        <blockquote class="quote__t" style="margin:0 0 18px">"Üç ajans değiştirdik, ilk defa 'bu ay şu kalemi kestik çünkü kazandırmıyordu' diyen bir ekiple çalışıyoruz. Rapor toplantısı artık savunma değil karar toplantısı."</blockquote>
+        <div class="quote__m mono">TEKLİF SAYISI 4 AYDA 2,3 KATINA ÇIKTI</div>
+        <figcaption class="quote__a">
+          <span class="quote__av mono" aria-hidden="true">SK</span>
+          <span>
+            <span class="quote__nm">Selin Kaymaz</span>
+            <span class="quote__rl mono">Pazarlama Direktörü · Ev Tekstili</span>
+          </span>
+        </figcaption>
+      </figure>
+      <figure class="panel quote rv" style="margin:0">
+        <div class="quote__mark mono" aria-hidden="true">&gt;_</div>
+        <blockquote class="quote__t" style="margin:0 0 18px">"Almanya kampanyasını çeviriyle değil, oranın arama diliyle kurdular. Fark ilk iki ayda görüldü. Ayrıca tüm hesaplar bizim adımıza açıldı, bu bizim için en kritik maddeydi."</blockquote>
+        <div class="quote__m mono">YURT DIŞI NİTELİKLİ GÖRÜŞME: AYDA 34 → 112</div>
+        <figcaption class="quote__a">
+          <span class="quote__av mono" aria-hidden="true">MA</span>
+          <span>
+            <span class="quote__nm">Dr. Murat Aydoğan</span>
+            <span class="quote__rl mono">Kurucu Ortak · Sağlık Turizmi</span>
+          </span>
+        </figcaption>
+      </figure>
+      <figure class="panel quote rv" style="margin:0">
+        <div class="quote__mark mono" aria-hidden="true">&gt;_</div>
+        <blockquote class="quote__t" style="margin:0 0 18px">"Site, uygulama, reklam ve video için dört ayrı firmayla uğraşıyorduk. Şimdi tek toplantı, tek tablo. En çok da 'bunu yapmayalım, size fayda sağlamaz' dedikleri için güvendik."</blockquote>
+        <div class="quote__m mono">SİPARİŞ BAŞI MALİYET ₺214 → ₺98</div>
+        <figcaption class="quote__a">
+          <span class="quote__av mono" aria-hidden="true">EÖ</span>
+          <span>
+            <span class="quote__nm">Emre Özkan</span>
+            <span class="quote__rl mono">Genel Müdür · Perakende Zinciri</span>
+          </span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BÖLÜM 11 — BÜYÜK CTA BANDI
+     ============================================================ -->
+<section class="band" aria-labelledby="band-b">
+  <div class="band__scan" aria-hidden="true"></div>
+  <div class="wrap band__in">
+    <p class="hud-label rv" style="justify-content:center">SONRAKİ ADIM <span>/ 08</span></p>
+    <h2 id="band-b" class="rv">Sunum yapmıyoruz. Sitenizin para kaybettiği yerleri gösteriyoruz.</h2>
+    <p class="rv">45 dakikalık teşhis görüşmesinde ekranı paylaşır, reklam hesabınızdaki ve sitenizdeki üç kayıp noktasını canlı işaretleriz. Birlikte çalışmasak bile o liste sizde kalır.</p>
+    <div class="band__cta rv">
+      <a class="btn btn--primary" href="#iletisim">Kayıp Noktalarımı Göster</a>
+      <a class="btn btn--amber" href="https://wa.me/905386999666" target="_blank" rel="noopener">WhatsApp'tan Yaz</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BÖLÜM 12 — RAPORLAMA ŞEFFAFLIĞI + SSS
+     ============================================================ -->
+<section class="sec" id="raporlama" aria-labelledby="rap-b">
+  <div class="wrap">
+    <p class="hud-label rv">ŞEFFAFLIK PROTOKOLÜ <span>/ 09</span></p>
+    <h2 class="sec-title rv" id="rap-b">Ne raporlarız, ne zaman, kime.</h2>
+    <p class="sec-sub rv">Raporlama bizde pazarlama malzemesi değil, sözleşme maddesi. Aşağıdaki ritim ilk günden yazılıdır.</p>
+
+    <div class="two">
+      <!-- Raporlama tablosu -->
+      <div class="panel report rv">
+        <div class="report__row"><span>Canlı panel erişimi</span><b>7/24 · SİZDE</b></div>
+        <div class="report__row"><span>Haftalık durum notu</span><b>CUMA 16:00</b></div>
+        <div class="report__row"><span>Aylık tek sayfa rapor</span><b>HER AYIN 3'Ü</b></div>
+        <div class="report__row"><span>Aylık strateji toplantısı</span><b>45 DK · ÇEVRİM İÇİ</b></div>
+        <div class="report__row"><span>Reklam hesapları</span><b>SİZİN ADINIZA</b></div>
+        <div class="report__row"><span>Alan adı &amp; sunucu</span><b>SİZİN ADINIZA</b></div>
+        <div class="report__row"><span>Kaynak kod teslimi</span><b>PROJE SONUNDA</b></div>
+        <div class="report__row"><span>Sözleşme kilidi</span><b>YOK · AYLIK</b></div>
+        <div class="report__row"><span>Çıkış / devir dosyası</span><b>5 İŞ GÜNÜ</b></div>
+        <div class="report__row"><span>KVKK aydınlatma &amp; rıza</span><b>STANDART</b></div>
+        <div class="report__row"><span>İlk yanıt taahhüdü</span><b>2 SAAT (MESAİ İÇİ)</b></div>
+      </div>
+
+      <!-- SSS -->
+      <div class="faq rv" id="faq">
+        <div class="faq__i">
+          <button class="faq__q" aria-expanded="false">Minimum bütçe var mı? <i aria-hidden="true">+</i></button>
+          <div class="faq__a"><p>Var. Performans pazarlaması için aylık medya bütçesi 30.000 TL'nin altındaki işlerde anlamlı optimizasyon yapılamıyor; bu durumda ya SEO ve içerik hattıyla başlamayı öneriyoruz ya da baştan "biz uygun değiliz" diyoruz. Proje bazlı web ve mobil işlerinde alt sınır kapsama göre değişir, ilk yanıtta net rakam veririz.</p></div>
+        </div>
+        <div class="faq__i">
+          <button class="faq__q" aria-expanded="false">Uzun süreli sözleşmeye kilitliyor musunuz? <i aria-hidden="true">+</i></button>
+          <div class="faq__a"><p>Hayır. Aylık ilerliyoruz. Tek istisna, ekip tahsisi gerektiren büyük ölçekli kurulumlarda ilk 3 ayın taahhüt edilmesi — o da yazılı ve gerekçeli olarak baştan konuşulur. Ayrılma durumunda devir dosyası 5 iş günü içinde eksiksiz teslim edilir.</p></div>
+        </div>
+        <div class="faq__i">
+          <button class="faq__q" aria-expanded="false">Mevcut ajansımızdan geçiş nasıl oluyor? <i aria-hidden="true">+</i></button>
+          <div class="faq__a"><p>Yayında tek gün boşluk olmadan. Önce hesap ve veri envanterini çıkarıyoruz, sonra erişim devri, ölçüm doğrulaması ve kampanya kopyalama takvimini yazılı planlıyoruz. Mevcut ajansınızla vedalaşmadan da bu planı konuşabiliriz; hiçbir aşamada mevcut yapınıza müdahale etmeyiz.</p></div>
+        </div>
+        <div class="faq__i">
+          <button class="faq__q" aria-expanded="false">Reklam hesapları ve veriler kimin adına açılıyor? <i aria-hidden="true">+</i></button>
+          <div class="faq__a"><p>Tamamı sizin adınıza. Meta ve Google reklam hesapları, GA4 mülkü, Search Console, alan adı ve sunucu — hepsi sizin şirketinizin sahipliğinde açılır, biz yönetici olarak eklenir ve ayrılırken erişimimizi kapatırız. Hiçbir veriyi kendi hesabımızda tutmuyoruz.</p></div>
+        </div>
+        <div class="faq__i">
+          <button class="faq__q" aria-expanded="false">Yurt dışı kampanyalarında hangi pazarlarda deneyiminiz var? <i aria-hidden="true">+</i></button>
+          <div class="faq__a"><p>Almanya, İngiltere, Birleşik Arap Emirlikleri ve ABD ağırlıklı. Bu pazarlarda hem reklam operasyonu hem çok dilli SEO yürütüyoruz. Yerelleştirmeyi çeviri olarak değil, pazarın kendi arama diline ve satın alma alışkanlığına göre yeniden yazım olarak yapıyoruz; reklam politikası ve sektörel kısıtları da baştan kontrol ediyoruz.</p></div>
+        </div>
+        <div class="faq__i">
+          <button class="faq__q" aria-expanded="false">Sıralama veya satış garantisi veriyor musunuz? <i aria-hidden="true">+</i></button>
+          <div class="faq__a"><p>Hayır — ve garanti veren herkesten uzak durun. Verdiğimiz şey hedef, ölçüm yöntemi ve düzeltme takvimidir: hangi metriği, hangi sürede, hangi taban değerden nereye taşımayı hedeflediğimizi yazarız. Hedefi tutturamazsak sebebini raporda açıkça yazar, planı değiştiririz.</p></div>
+        </div>
+        <div class="faq__i">
+          <button class="faq__q" aria-expanded="false">Video ve içerik üretimi ayrı mı fiyatlanıyor? <i aria-hidden="true">+</i></button>
+          <div class="faq__a"><p>Modül olarak açılır ve teklifte ayrı kalem gösterilir; ancak reklam modülüyle birlikte alındığında kreatif rotasyonu aynı ekipte yürüdüğü için hem daha hızlı hem daha ucuza gelir. YouTube ve Instagram içerik takvimi, SEO tarafındaki anahtar kelime haritasından beslenir.</p></div>
+        </div>
+        <div class="faq__i">
+          <button class="faq__q" aria-expanded="false">Kaç markayla aynı anda çalışıyorsunuz? <i aria-hidden="true">+</i></button>
+          <div class="faq__a"><p>Modül yoğunluğuna göre değişmekle birlikte aynı anda sınırlı sayıda markayla çalışıyoruz ve aynı şehirde doğrudan rakip iki markayı aynı dönemde almıyoruz. Kontenjan durumunu ilk görüşmede net söyleriz.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BÖLÜM 13 — İLETİŞİM + TEKLİF FORMU
+     ============================================================ -->
+<section class="sec" id="iletisim" aria-labelledby="ilet-b">
+  <div class="wrap">
+    <p class="hud-label rv">BAĞLANTI KUR <span>/ 10</span></p>
+    <h2 class="sec-title rv" id="ilet-b">Projenizi anlatın, 2 saat içinde dönelim.</h2>
+    <p class="sec-sub rv">Formu doldurmak zorunda değilsiniz — WhatsApp'tan yazın ya da doğrudan arayın. Hangi kanalı seçerseniz seçin karşınıza gerçek bir insan çıkar.</p>
+
+    <div class="contact">
+
+      <!-- Bilgiler -->
+      <div class="rv">
+        <div class="info__row">
+          <div class="info__k">Telefon</div>
+          <div class="info__v"><a href="tel:+905386999666" class="mono">0538 699 96 66</a></div>
+        </div>
+        <div class="info__row">
+          <div class="info__k">WhatsApp</div>
+          <div class="info__v"><a href="https://wa.me/905386999666" target="_blank" rel="noopener" class="mono">wa.me/905386999666</a></div>
+        </div>
+        <div class="info__row">
+          <div class="info__k">Adres</div>
+          <div class="info__v">Zeytinlik Mah. Pancar Sk. No:19-11<br>Bakırköy / İstanbul</div>
+        </div>
+        <div class="info__row">
+          <div class="info__k">Çalışma Saatleri</div>
+          <div class="info__v mono" style="font-size:13.5px">Hafta içi 09:00 – 19:00<br>Cumartesi 10:00 – 16:00<br>Pazar kapalı</div>
+        </div>
+        <div class="info__row">
+          <div class="info__k">Görüşmede ne konuşuruz</div>
+          <div class="info__v" style="font-size:14px; color:var(--fg-dim)">
+            1. Mevcut rakamlarınız ve hedefiniz<br>
+            2. Hangi modüllerin açılacağı<br>
+            3. İlk 90 günün takvimi ve bütçesi
+          </div>
+        </div>
+        <div class="info__row" style="border-color:var(--acc-dark)">
+          <div class="info__k" style="color:var(--acc)">Acele mi ediyorsunuz?</div>
+          <div class="info__v" style="font-size:14px; color:var(--fg-dim); margin-bottom:12px">Mesai saatleri içinde telefonla arayın; teşhis görüşmesini aynı gün ayarlayabiliriz.</div>
+          <a class="btn btn--ghost btn--sm" href="tel:+905386999666">Hemen Ara</a>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="panel form rv" id="formPanel">
+        <form class="form__body" id="quoteForm" novalidate>
+          <div class="term-bar mono" style="margin-bottom:22px">
+            <span class="led" aria-hidden="true"></span>
+            <span>yeni_talep.form</span><span>·</span><span class="acc">GİRİŞ BEKLENİYOR</span>
+          </div>
+          <div class="form__grid">
+            <div class="fld">
+              <label for="f-ad">Ad Soyad <span class="req">*</span></label>
+              <input type="text" id="f-ad" name="ad" placeholder="Adınız ve soyadınız" autocomplete="name" required>
+              <span class="err">Lütfen adınızı yazın.</span>
+            </div>
+            <div class="fld">
+              <label for="f-tel">Telefon <span class="req">*</span></label>
+              <input type="tel" id="f-tel" name="tel" placeholder="05XX XXX XX XX" autocomplete="tel" required>
+              <span class="err">Geçerli bir telefon numarası girin.</span>
+            </div>
+            <div class="fld">
+              <label for="f-mail">E-posta <span class="req">*</span></label>
+              <input type="email" id="f-mail" name="mail" placeholder="ad@sirket.com" autocomplete="email" required>
+              <span class="err">Geçerli bir e-posta adresi girin.</span>
+            </div>
+            <div class="fld">
+              <label for="f-hizmet">İlgilendiğiniz Hizmet <span class="req">*</span></label>
+              <select id="f-hizmet" name="hizmet" required>
+                <option value="">— Modül seçin —</option>
+                <option>Web Tasarım &amp; Yazılım</option>
+                <option>Mobil Uygulama</option>
+                <option>Dijital Pazarlama</option>
+                <option>Video Prodüksiyon</option>
+                <option>SEO Hizmetleri</option>
+                <option>Birden fazlası / 360° paket</option>
+              </select>
+              <span class="err">Lütfen bir hizmet seçin.</span>
+            </div>
+            <div class="fld">
+              <label for="f-kanal">Tercih ettiğiniz kanal</label>
+              <select id="f-kanal" name="kanal">
+                <option>WhatsApp</option>
+                <option>Telefon</option>
+                <option>E-posta</option>
+              </select>
+            </div>
+            <div class="fld">
+              <label for="f-butce">Aylık bütçe aralığı</label>
+              <select id="f-butce" name="butce">
+                <option>Henüz netleşmedi</option>
+                <option>30.000 – 75.000 ₺</option>
+                <option>75.000 – 150.000 ₺</option>
+                <option>150.000 – 400.000 ₺</option>
+                <option>400.000 ₺ üzeri</option>
+              </select>
+            </div>
+            <div class="fld fld--full">
+              <label for="f-mesaj">Projenizi kısaca anlatın <span class="req">*</span></label>
+              <textarea id="f-mesaj" name="mesaj" placeholder="Markanız, mevcut durumunuz ve ulaşmak istediğiniz sonuç... (örn. 'e-ticaret sitemiz var, reklam harcıyoruz ama sipariş başı maliyet çok yüksek')" required></textarea>
+              <span class="err">Birkaç cümleyle projenizden bahsedin.</span>
+            </div>
+            <label class="form__consent" for="f-kvkk">
+              <input type="checkbox" id="f-kvkk" name="kvkk" required>
+              <span>KVKK aydınlatma metnini okudum; iletişim bilgilerimin yalnızca bu talebe dönüş amacıyla işlenmesine onay veriyorum. <span class="amb">*</span></span>
+            </label>
+            <div class="form__foot">
+              <button type="submit" class="btn btn--primary">Teklif Talebini Gönder</button>
+              <span class="form__micro">// 7 alan · yaklaşık 40 saniye · ortalama yanıt 2 saat</span>
+            </div>
+          </div>
+        </form>
+
+        <!-- Başarı ekranı -->
+        <div class="form__ok" id="formOk" role="status" aria-live="polite">
+          <div class="ok__head">
+            <span class="tick acc" aria-hidden="true">✓</span>
+            <span>TALEP KAYDEDİLDİ · <span id="okId">TM-000</span></span>
+          </div>
+          <div class="ok__line"><span>Ad Soyad</span><b id="okAd">—</b></div>
+          <div class="ok__line"><span>Telefon</span><b id="okTel">—</b></div>
+          <div class="ok__line"><span>E-posta</span><b id="okMail">—</b></div>
+          <div class="ok__line"><span>Hizmet</span><b id="okHizmet">—</b></div>
+          <div class="ok__line"><span>Tercih edilen kanal</span><b id="okKanal">—</b></div>
+          <div class="ok__line"><span>Durum</span><b class="acc">SIRAYA ALINDI</b></div>
+          <p class="ok__msg">
+            Teşekkürler <span class="acc" id="okAd2">—</span>. Talebiniz kontrol odasına düştü.<br>
+            Mesai saatleri içinde <span class="acc">ortalama 2 saat</span> içinde size dönüyoruz.
+            Acele ediyorsanız <a href="https://wa.me/905386999666" target="_blank" rel="noopener" class="acc">WhatsApp'tan yazabilir</a>
+            veya <a href="tel:+905386999666" class="acc">0538 699 96 66</a> numarasını arayabilirsiniz.
+          </p>
+          <p class="form__micro" style="margin-top:18px">// bu bir demo sürümüdür — form verisi sunucuya gönderilmez</p>
+          <button class="btn btn--ghost btn--sm" style="margin-top:16px" id="okReset">Yeni Talep Oluştur</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     BÖLÜM 14 — FOOTER
+     ============================================================ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <a class="logo" href="#top" aria-label="TasarımMania">
+          <span class="logo__mark" aria-hidden="true">&gt;_</span>
+          <span class="logo__txt">Tasarım<b>Mania</b></span>
+        </a>
+        <p class="foot__d">İstanbul Bakırköy merkezli 360 derece dijital ajans ve dijital prodüksiyon stüdyosu. Web, mobil, performans pazarlaması, video ve çok dilli SEO — tek kontrol odasında.</p>
+      </div>
+      <div>
+        <p class="foot__h">Modüller</p>
+        <ul class="foot__l">
+          <li><a href="#hizmetler">Web Tasarım &amp; Yazılım</a></li>
+          <li><a href="#hizmetler">Mobil Uygulama</a></li>
+          <li><a href="#hizmetler">Dijital Pazarlama</a></li>
+          <li><a href="#hizmetler">Video Prodüksiyon</a></li>
+          <li><a href="#hizmetler">SEO Hizmetleri</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot__h">Kurumsal</p>
+        <ul class="foot__l">
+          <li><a href="#neden">Neden TasarımMania</a></li>
+          <li><a href="#vakalar">Vaka Çalışmaları</a></li>
+          <li><a href="#surec">Çalışma Süreci</a></li>
+          <li><a href="#raporlama">Raporlama &amp; SSS</a></li>
+          <li><a href="#iletisim">Teklif Al</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot__h">İletişim</p>
+        <ul class="foot__l">
+          <li><a href="tel:+905386999666">0538 699 96 66</a></li>
+          <li><a href="https://wa.me/905386999666" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><span style="color:var(--fg-dim); font-size:13.5px">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</span></li>
+          <li><span style="color:var(--fg-dim); font-size:13.5px">Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__bot">
+      <span>© <span id="yil">2026</span> TasarımMania · İstanbul</span>
+      <span class="foot__note">Demo sürümü — rakamlar ve referanslar temsilidir.</span>
+      <span>Kontrol odası v6.0 · veri-merkezi</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Sabit WhatsApp (masaüstü) -->
+<a class="wa" href="https://wa.me/905386999666" target="_blank" rel="noopener" aria-label="WhatsApp üzerinden yazın">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.01-1.04 2.47 1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.07 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2.5c-5.23 0-9.48 4.25-9.48 9.48 0 1.67.44 3.3 1.27 4.74L2.5 21.5l4.93-1.29a9.44 9.44 0 004.61 1.18h.01c5.23 0 9.48-4.25 9.48-9.48s-4.26-9.41-9.49-9.41zm0 17.2h-.01a7.87 7.87 0 01-4.01-1.1l-.29-.17-2.98.78.8-2.91-.19-.3a7.85 7.85 0 01-1.2-4.19c0-4.34 3.53-7.87 7.88-7.87a7.83 7.83 0 015.56 2.31 7.79 7.79 0 012.3 5.57c0 4.34-3.53 7.88-7.86 7.88z"/></svg>
+</a>
+
+<!-- Mobil alt çubuk -->
+<div class="mbar" aria-label="Hızlı iletişim">
+  <a href="https://wa.me/905386999666" target="_blank" rel="noopener">WhatsApp</a>
+  <a href="#iletisim">Teklif Al</a>
+</div>
+
+<script>
+"use strict";
+(function(){
+
+/* ============================================================
+   00 — ORTAK YARDIMCILAR
+   ============================================================ */
+var $  = function(s, r){ return (r||document).querySelector(s); };
+var $$ = function(s, r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); };
+var reduceMQ = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+var REDUCED  = !!(reduceMQ && reduceMQ.matches);
+var COARSE   = !!(window.matchMedia && window.matchMedia('(pointer:coarse)').matches);
+var isMobile = function(){ return window.innerWidth < 760; };
+/* Öğe görünür alanda mı? (sekme geri gelince döngüyü yeniden başlatmak için) */
+var inView = function(el){
+  if (!el || !el.getBoundingClientRect) return false;
+  var r = el.getBoundingClientRect();
+  return r.bottom > 0 && r.top < (window.innerHeight || document.documentElement.clientHeight);
+};
+
+/* Yıl */
+var yil = $('#yil'); if (yil) yil.textContent = String(new Date().getFullYear());
+
+/* ============================================================
+   01 — ÜST MENÜ: kaydırma durumu + hamburger
+   ============================================================ */
+(function nav(){
+  var nav = $('#nav'), burger = $('#burger'), menu = $('#mmenu');
+  if (nav){
+    var onScroll = function(){
+      if (window.scrollY > 12) nav.classList.add('is-solid');
+      else nav.classList.remove('is-solid');
+    };
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  }
+  if (burger && menu){
+    burger.addEventListener('click', function(){
+      var open = menu.classList.toggle('is-open');
+      burger.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç');
+    });
+    $$('a', menu).forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('is-open');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+})();
+
+/* ============================================================
+   02 — REVEAL: bölümler görünürken belirsin
+   ============================================================ */
+(function reveal(){
+  var items = $$('.rv');
+  if (!items.length) return;
+  if (REDUCED || !('IntersectionObserver' in window)){
+    items.forEach(function(el){ el.classList.add('is-in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.1, rootMargin:'0px 0px -8% 0px'});
+  items.forEach(function(el, i){
+    el.style.transitionDelay = Math.min(i % 6, 5) * 45 + 'ms';
+    io.observe(el);
+  });
+})();
+
+/* ============================================================
+   03 — HERO TERMİNAL YAZIM EFEKTİ
+   ============================================================ */
+(function typer(){
+  var host = $('#typedTxt');
+  if (!host) return;
+  var full = 'Reklam bütçenizin nereye gittiğini kalem kalem anlatırız.';
+  if (REDUCED){ host.textContent = full; return; }
+  var i = 0, timer = null;
+  var tick = function(){
+    i++;
+    host.textContent = full.slice(0, i);
+    if (i < full.length){
+      var ch = full.charAt(i-1);
+      var d = (ch === ' ') ? 26 : (ch === '.' || ch === ',') ? 130 : (30 + Math.random()*36);
+      timer = setTimeout(tick, d);
+    }
+  };
+  timer = setTimeout(tick, 520);
+  window.addEventListener('pagehide', function(){ if (timer) clearTimeout(timer); });
+})();
+
+/* ============================================================
+   04 — CANVAS TEL KAFES DÜNYA (kütüphanesiz 3B projeksiyon)
+   ============================================================ */
+(function globe(){
+  var box = $('#globeBox');
+  var cv  = $('#globe');
+  var nodeHud = $('#globeNode');
+  if (!box || !cv) return;
+
+  var ctx = null;
+  try { ctx = cv.getContext('2d'); } catch(e){ ctx = null; }
+  if (!ctx){ box.classList.add('is-fallback'); return; }
+
+  /* --- Şehir düğümleri (enlem / boylam) --- */
+  var CITIES = [
+    {n:'İSTANBUL', lat:41.01,  lon:28.98,  hub:true},
+    {n:'BERLİN',   lat:52.52,  lon:13.40},
+    {n:'LONDRA',   lat:51.51,  lon:-0.13},
+    {n:'DUBAİ',    lat:25.20,  lon:55.27},
+    {n:'NEW YORK', lat:40.71,  lon:-74.01}
+  ];
+
+  var RAD = Math.PI/180;
+  /* Küre yüzeyindeki bir noktayı kartezyene çevir */
+  function sph(lat, lon, r){
+    var la = lat*RAD, lo = lon*RAD;
+    r = r || 1;
+    return {
+      x: r*Math.cos(la)*Math.cos(lo),
+      y: r*Math.sin(la),
+      z: r*Math.cos(la)*Math.sin(lo)
+    };
+  }
+  /* Kendi rotasyon matrisimiz: önce Y ekseni, sonra X ekseni (eğim) */
+  var TILT = -18*RAD;
+  var cT = Math.cos(TILT), sT = Math.sin(TILT);
+  function rot(p, ry){
+    var cy = Math.cos(ry), sy = Math.sin(ry);
+    var x =  p.x*cy + p.z*sy;
+    var z = -p.x*sy + p.z*cy;
+    var y =  p.y;
+    var y2 = y*cT - z*sT;
+    var z2 = y*sT + z*cT;
+    return {x:x, y:y2, z:z2};
+  }
+
+  /* Durum */
+  var W = 0, H = 0, DPR = 1, R = 0, CX = 0, CY = 0;
+  var FOV = 3.1;
+  var angle = 0;
+  var raf = null, running = false, t0 = 0;
+  /* Dokunmatik cihazlarda baştan daha düşük piksel yoğunluğu ile başla */
+  var quality = (COARSE || isMobile()) ? 0.8 : 1;   // 1 = tam, 0.65 = düşük
+  var frameSamples = [], measured = false;
+
+  function resize(){
+    var rect = box.getBoundingClientRect();
+    W = Math.max(200, Math.round(rect.width));
+    H = Math.max(200, Math.round(rect.height));
+    DPR = Math.min(window.devicePixelRatio || 1, isMobile() ? 1.5 : 2) * quality;
+    cv.width  = Math.round(W*DPR);
+    cv.height = Math.round(H*DPR);
+    /* CSS zaten %100 veriyor; inline boyut yazmıyoruz ki ResizeObserver döngüye girmesin */
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    R  = Math.min(W,H) * 0.335;
+    CX = W/2; CY = H/2;
+  }
+
+  /* Projeksiyon: perspektif bölme */
+  function proj(p){
+    var s = FOV/(FOV + p.z);
+    return {x: CX + p.x*R*s, y: CY - p.y*R*s, z: p.z, s: s};
+  }
+
+  /* Küre ızgarası — adım yoğunluğu cihaza göre */
+  function buildGrid(){
+    var latStep = isMobile() ? 22.5 : 15;
+    var lonStep = isMobile() ? 22.5 : 15;
+    var seg     = isMobile() ? 12 : 7;   // derece cinsinden çizgi çözünürlüğü
+    var lines = [];
+    var lat, lon;
+    for (lat = -75; lat <= 75; lat += latStep){
+      var a = [];
+      for (lon = -180; lon <= 180; lon += seg) a.push(sph(lat, lon));
+      lines.push(a);
+    }
+    for (lon = -180; lon < 180; lon += lonStep){
+      var b = [];
+      for (lat = -90; lat <= 90; lat += seg) b.push(sph(lat, lon));
+      lines.push(b);
+    }
+    return lines;
+  }
+  var GRID = buildGrid();
+
+  /* Büyük çember yayı (slerp) + yükseklik kamburu */
+  function arcPoints(a, b, steps){
+    var pa = sph(a.lat, a.lon), pb = sph(b.lat, b.lon);
+    var dot = Math.max(-1, Math.min(1, pa.x*pb.x + pa.y*pb.y + pa.z*pb.z));
+    var om = Math.acos(dot);
+    var so = Math.sin(om);
+    var out = [];
+    for (var i=0; i<=steps; i++){
+      var t = i/steps;
+      var w1, w2;
+      if (so < 1e-6){ w1 = 1-t; w2 = t; }
+      else { w1 = Math.sin((1-t)*om)/so; w2 = Math.sin(t*om)/so; }
+      var x = pa.x*w1 + pb.x*w2;
+      var y = pa.y*w1 + pb.y*w2;
+      var z = pa.z*w1 + pb.z*w2;
+      var len = Math.sqrt(x*x + y*y + z*z) || 1;
+      var lift = 1 + 0.30*Math.sin(Math.PI*t) * (om/Math.PI + 0.35);
+      out.push({x:x/len*lift, y:y/len*lift, z:z/len*lift});
+    }
+    return out;
+  }
+  var ARCS = [];
+  (function buildArcs(){
+    var hub = CITIES[0];
+    var steps = isMobile() ? 26 : 46;
+    for (var i=1; i<CITIES.length; i++){
+      ARCS.push({pts: arcPoints(hub, CITIES[i], steps), name: CITIES[i].n, phase: i*0.23});
+    }
+  })();
+
+  /* Çizim */
+  function draw(now){
+    var dt = t0 ? (now - t0) : 16; t0 = now;
+    if (!REDUCED) angle += dt * 0.000135;
+
+    /* Adaptif kalite: ilk 30 kare ölçülür */
+    if (!measured){
+      frameSamples.push(dt);
+      if (frameSamples.length === 30){
+        var sum = 0; for (var q=0;q<30;q++) sum += frameSamples[q];
+        if (sum/30 > 21 && quality > 0.65){ quality = 0.65; resize(); }
+        measured = true;
+      }
+    }
+
+    ctx.clearRect(0,0,W,H);
+
+    /* Arka hâle */
+    var g = ctx.createRadialGradient(CX, CY, R*0.15, CX, CY, R*1.5);
+    g.addColorStop(0, 'rgba(61,255,171,0.10)');
+    g.addColorStop(0.55,'rgba(61,255,171,0.03)');
+    g.addColorStop(1, 'rgba(6,10,8,0)');
+    ctx.fillStyle = g;
+    ctx.beginPath(); ctx.arc(CX, CY, R*1.5, 0, Math.PI*2); ctx.fill();
+
+    /* Dış HUD halkaları */
+    ctx.strokeStyle = 'rgba(61,255,171,0.13)';
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.arc(CX, CY, R*1.30, 0, Math.PI*2); ctx.stroke();
+    ctx.setLineDash([3,7]);
+    ctx.strokeStyle = 'rgba(255,176,32,0.22)';
+    ctx.beginPath(); ctx.arc(CX, CY, R*1.44, -angle*0.6, -angle*0.6 + Math.PI*1.25); ctx.stroke();
+    ctx.setLineDash([]);
+
+    /* Izgara: ön ve arka yüz iki ayrı yolda toplanır (2 stroke) */
+    var front = new Path2D(), back = new Path2D();
+    for (var li=0; li<GRID.length; li++){
+      var line = GRID[li];
+      var penFront = false, penBack = false;
+      for (var pi=0; pi<line.length; pi++){
+        var rp = rot(line[pi], angle);
+        var sp = proj(rp);
+        if (rp.z > 0){
+          if (!penFront){ front.moveTo(sp.x, sp.y); penFront = true; } else front.lineTo(sp.x, sp.y);
+          penBack = false;
+        } else {
+          if (!penBack){ back.moveTo(sp.x, sp.y); penBack = true; } else back.lineTo(sp.x, sp.y);
+          penFront = false;
+        }
+      }
+    }
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(61,255,171,0.10)'; ctx.stroke(back);
+    ctx.strokeStyle = 'rgba(61,255,171,0.42)'; ctx.stroke(front);
+
+    /* Küre silueti (terminatör halkası) */
+    ctx.strokeStyle = 'rgba(61,255,171,0.30)';
+    ctx.beginPath(); ctx.arc(CX, CY, R, 0, Math.PI*2); ctx.stroke();
+
+    /* Yaylar */
+    var tsec = now/1000;
+    for (var ai=0; ai<ARCS.length; ai++){
+      var arc = ARCS[ai];
+      var pts = arc.pts, n = pts.length;
+      var visibleAny = false;
+      ctx.lineWidth = 1.4;
+      ctx.beginPath();
+      var started = false;
+      for (var k=0; k<n; k++){
+        var rp2 = rot(pts[k], angle);
+        var sp2 = proj(rp2);
+        if (rp2.z > -0.12){
+          visibleAny = true;
+          if (!started){ ctx.moveTo(sp2.x, sp2.y); started = true; }
+          else ctx.lineTo(sp2.x, sp2.y);
+        } else { started = false; }
+      }
+      ctx.strokeStyle = (ai % 2 === 0) ? 'rgba(61,255,171,0.55)' : 'rgba(255,176,32,0.55)';
+      ctx.stroke();
+
+      /* Akan ışık paketi */
+      if (visibleAny && !REDUCED){
+        var head = ((tsec*0.34 + arc.phase) % 1);
+        var tailLen = 0.16;
+        ctx.lineWidth = 2.6;
+        ctx.beginPath();
+        var st2 = false;
+        for (var m=0; m<n; m++){
+          var tt = m/(n-1);
+          var d = head - tt;
+          if (d < 0 || d > tailLen) { st2 = false; continue; }
+          var rp3 = rot(pts[m], angle);
+          if (rp3.z <= -0.12){ st2 = false; continue; }
+          var sp3 = proj(rp3);
+          if (!st2){ ctx.moveTo(sp3.x, sp3.y); st2 = true; } else ctx.lineTo(sp3.x, sp3.y);
+        }
+        ctx.strokeStyle = (ai % 2 === 0) ? 'rgba(140,255,205,0.95)' : 'rgba(255,205,110,0.95)';
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = (ai % 2 === 0) ? 'rgba(61,255,171,0.8)' : 'rgba(255,176,32,0.8)';
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+      }
+    }
+
+    /* Şehir düğümleri */
+    ctx.font = '600 10px "JetBrains Mono", monospace';
+    ctx.textBaseline = 'middle';
+    for (var ci=0; ci<CITIES.length; ci++){
+      var c = CITIES[ci];
+      var rc = rot(sph(c.lat, c.lon, 1.012), angle);
+      var pc = proj(rc);
+      if (rc.z <= 0.02) continue;
+      var col = c.hub ? '255,176,32' : '61,255,171';
+      var alpha = Math.min(1, 0.35 + rc.z*1.1);
+
+      /* Nabız halkası */
+      if (!REDUCED){
+        var ph = ((tsec*0.7 + ci*0.31) % 1);
+        ctx.beginPath();
+        ctx.arc(pc.x, pc.y, 3 + ph*13, 0, Math.PI*2);
+        ctx.strokeStyle = 'rgba('+col+','+(alpha*(1-ph)*0.55).toFixed(3)+')';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+      /* Nokta */
+      ctx.beginPath();
+      ctx.arc(pc.x, pc.y, c.hub ? 4 : 3, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba('+col+','+alpha.toFixed(3)+')';
+      ctx.shadowBlur = 10; ctx.shadowColor = 'rgba('+col+',0.9)';
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      /* Etiket + tik çizgisi */
+      if (rc.z > 0.22 && W > 300){
+        ctx.beginPath();
+        ctx.moveTo(pc.x + 6, pc.y - 6);
+        ctx.lineTo(pc.x + 15, pc.y - 15);
+        ctx.lineTo(pc.x + 15 + ctx.measureText(c.n).width + 8, pc.y - 15);
+        ctx.strokeStyle = 'rgba('+col+','+(alpha*0.5).toFixed(3)+')';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.fillStyle = 'rgba('+col+','+Math.min(1,alpha+0.15).toFixed(3)+')';
+        ctx.fillText(c.n, pc.x + 19, pc.y - 21);
+      }
+    }
+
+    /* Alt HUD: aktif düğüm etiketini döndür */
+    if (nodeHud){
+      var idx = Math.floor((tsec/2.2) % CITIES.length);
+      var lbl = 'DÜĞÜM: ' + CITIES[idx].n;
+      if (nodeHud.textContent !== lbl) nodeHud.textContent = lbl;
+    }
+
+    raf = window.requestAnimationFrame(draw);
+  }
+
+  function start(){
+    if (running) return;
+    running = true; t0 = 0;
+    raf = window.requestAnimationFrame(draw);
+  }
+  function stop(){
+    running = false;
+    if (raf){ window.cancelAnimationFrame(raf); raf = null; }
+  }
+
+  /* Boyutlandırma: yalnız ResizeObserver ile */
+  resize();
+  if ('ResizeObserver' in window){
+    var ro = new ResizeObserver(function(){ resize(); if (!running) drawOnce(); });
+    ro.observe(box);
+  } else {
+    window.addEventListener('resize', function(){ resize(); if (!running) drawOnce(); });
+  }
+
+  function drawOnce(){ t0 = 0; draw(performance.now()); if (raf){ window.cancelAnimationFrame(raf); raf = null; } }
+
+  if (REDUCED){
+    drawOnce();
+  } else if ('IntersectionObserver' in window){
+    var gio = new IntersectionObserver(function(en){
+      if (en[0].isIntersecting) start(); else stop();
+    }, {threshold:0});
+    gio.observe(box);
+  } else {
+    start();
+  }
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden) stop();
+    else if (!REDUCED && inView(box)) start();
+  });
+})();
+
+/* ============================================================
+   05 — CANLI METRİK ŞERİDİ (temsilî değerler)
+   ============================================================ */
+(function metrics(){
+  var strip = $('#strip');
+  if (!strip) return;
+  var cells = {
+    roas: {el: $('[data-metric="roas"]', strip), v: 4.82, min:4.40, max:5.30, fmt: function(v){ return v.toFixed(2)+'x'; }},
+    cpc:  {el: $('[data-metric="cpc"]',  strip), v: 3.41, min:2.90, max:3.95, fmt: function(v){ return '₺'+v.toFixed(2).replace('.',','); }},
+    ctr:  {el: $('[data-metric="ctr"]',  strip), v: 7.36, min:6.60, max:8.30, fmt: function(v){ return '%'+v.toFixed(2).replace('.',','); }},
+    cvr:  {el: $('[data-metric="cvr"]',  strip), v: 4.27, min:3.80, max:4.80, fmt: function(v){ return '%'+v.toFixed(2).replace('.',','); }}
+  };
+  var timer = null;
+  function tickAll(){
+    for (var k in cells){
+      if (!Object.prototype.hasOwnProperty.call(cells, k)) continue;
+      var c = cells[k];
+      if (!c.el) continue;
+      var span = (c.max - c.min);
+      c.v += (Math.random()-0.5) * span * 0.09;
+      if (c.v < c.min) c.v = c.min + Math.random()*span*0.1;
+      if (c.v > c.max) c.v = c.max - Math.random()*span*0.1;
+      c.el.textContent = c.fmt(c.v);
+    }
+  }
+  function start(){ if (timer || REDUCED) return; timer = setInterval(tickAll, 1500); }
+  function stop(){ if (timer){ clearInterval(timer); timer = null; } }
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(e){ e[0].isIntersecting ? start() : stop(); }, {threshold:0});
+    io.observe(strip);
+  } else { start(); }
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden) stop();
+    else if (inView(strip)) start();   /* sekme geri geldiğinde panel yeniden canlansın */
+  });
+})();
+
+/* ============================================================
+   06 — HİZMET MODÜLLERİNDE SPARKLINE
+   ============================================================ */
+(function sparks(){
+  var canvases = $$('canvas[data-spark]');
+  if (!canvases.length) return;
+  var items = [];
+
+  canvases.forEach(function(cv, idx){
+    var ctx = null;
+    try { ctx = cv.getContext('2d'); } catch(e){ ctx = null; }
+    if (!ctx) return;
+    var n = 26;
+    var data = [];
+    var base = 0.34 + (idx*0.06);
+    for (var i=0;i<n;i++){
+      base += (Math.random()-0.42) * 0.09;
+      if (base < 0.12) base = 0.12;
+      if (base > 0.92) base = 0.92;
+      data.push(base);
+    }
+    items.push({cv:cv, ctx:ctx, data:data, dpr:1, w:0, h:0});
+  });
+
+  function size(it){
+    var r = it.cv.getBoundingClientRect();
+    it.w = Math.max(40, Math.round(r.width || 112));
+    it.h = Math.max(20, Math.round(r.height || 34));
+    it.dpr = Math.min(window.devicePixelRatio || 1, 2);
+    it.cv.width  = Math.round(it.w*it.dpr);
+    it.cv.height = Math.round(it.h*it.dpr);
+    it.ctx.setTransform(it.dpr,0,0,it.dpr,0,0);
+  }
+
+  function render(it){
+    var c = it.ctx, w = it.w, h = it.h, d = it.data, n = d.length;
+    c.clearRect(0,0,w,h);
+    var stepX = w/(n-1);
+    /* Dolgu */
+    c.beginPath();
+    c.moveTo(0, h);
+    for (var i=0;i<n;i++) c.lineTo(i*stepX, h - d[i]*(h-4) - 2);
+    c.lineTo(w, h);
+    c.closePath();
+    var g = c.createLinearGradient(0,0,0,h);
+    g.addColorStop(0,'rgba(61,255,171,0.22)');
+    g.addColorStop(1,'rgba(61,255,171,0)');
+    c.fillStyle = g; c.fill();
+    /* Çizgi */
+    c.beginPath();
+    for (var j=0;j<n;j++){
+      var x = j*stepX, y = h - d[j]*(h-4) - 2;
+      if (j===0) c.moveTo(x,y); else c.lineTo(x,y);
+    }
+    c.strokeStyle = 'rgba(61,255,171,0.85)';
+    c.lineWidth = 1.3;
+    c.stroke();
+    /* Son nokta */
+    var lx = (n-1)*stepX, ly = h - d[n-1]*(h-4) - 2;
+    c.beginPath(); c.arc(lx-1, ly, 2, 0, Math.PI*2);
+    c.fillStyle = '#FFB020'; c.fill();
+  }
+
+  function drift(it){
+    it.data.shift();
+    var last = it.data[it.data.length-1];
+    var v = last + (Math.random()-0.44)*0.12;
+    if (v < 0.12) v = 0.12 + Math.random()*0.08;
+    if (v > 0.92) v = 0.92 - Math.random()*0.08;
+    it.data.push(v);
+  }
+
+  items.forEach(function(it){ size(it); render(it); });
+  window.addEventListener('resize', function(){ items.forEach(function(it){ size(it); render(it); }); }, {passive:true});
+
+  var timer = null;
+  function start(){
+    if (timer || REDUCED) return;
+    timer = setInterval(function(){
+      items.forEach(function(it){ drift(it); render(it); });
+    }, 900);
+  }
+  function stop(){ if (timer){ clearInterval(timer); timer = null; } }
+
+  var host = $('#hizmetler');
+  if (host && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(e){ e[0].isIntersecting ? start() : stop(); }, {threshold:0});
+    io.observe(host);
+  } else { start(); }
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden) stop();
+    else if (host && inView(host)) start();
+  });
+})();
+
+/* ============================================================
+   07 — SAYAÇLAR
+   ============================================================ */
+(function counters(){
+  var host = $('#counts');
+  if (!host) return;
+  var els = $$('[data-count]', host);
+  var bars = $$('.count__bar', host);
+
+  function fmt(v, dec){
+    var s = dec > 0 ? v.toFixed(dec) : String(Math.round(v));
+    s = s.replace('.', ',');
+    /* binlik ayracı */
+    var parts = s.split(',');
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return parts.join(',');
+  }
+
+  function run(){
+    els.forEach(function(el){
+      var target = parseFloat(el.getAttribute('data-count')) || 0;
+      var dec = parseInt(el.getAttribute('data-dec'), 10) || 0;
+      var suf = el.getAttribute('data-suffix') || '';
+      if (REDUCED){ el.textContent = fmt(target, dec) + suf; return; }
+      var dur = 1500, st = null;
+      var step = function(ts){
+        if (!st) st = ts;
+        var p = Math.min(1, (ts - st)/dur);
+        var e = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(target*e, dec) + suf;
+        if (p < 1) window.requestAnimationFrame(step);
+      };
+      window.requestAnimationFrame(step);
+    });
+    bars.forEach(function(b){
+      var w = b.style.getPropertyValue('--w') || '70%';
+      window.setTimeout(function(){ b.style.width = w; }, 120);
+    });
+  }
+
+  if (!('IntersectionObserver' in window)){ run(); return; }
+  /* threshold 0 kullanılıyor: ızgara mobilde viewport'tan uzun olabildiği için
+     yüzdeye dayalı eşik hiç tetiklenmeyebilir. */
+  var io = new IntersectionObserver(function(e){
+    if (e[0].isIntersecting){ run(); io.disconnect(); }
+  }, {threshold:0, rootMargin:'0px 0px -60px 0px'});
+  io.observe(host);
+})();
+
+/* ============================================================
+   08 — VAKA BARLARI (önce / sonra)
+   ============================================================ */
+(function caseBars(){
+  var host = $('#cases');
+  if (!host) return;
+  var bars = $$('.bar', host);
+  if (!bars.length) return;
+
+  function fill(bar){
+    var b = parseFloat(bar.getAttribute('data-before')) || 0;
+    var a = parseFloat(bar.getAttribute('data-after')) || 0;
+    var eb = $('.bar__before', bar), ea = $('.bar__after', bar);
+    if (eb) eb.style.width = Math.max(b, a) + '%';
+    if (ea) ea.style.width = a + '%';
+  }
+
+  if (REDUCED || !('IntersectionObserver' in window)){
+    bars.forEach(fill); return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){ fill(e.target); io.unobserve(e.target); }
+    });
+  }, {threshold:0, rootMargin:'0px 0px -40px 0px'});
+  bars.forEach(function(b){ io.observe(b); });
+})();
+
+/* ============================================================
+   09 — SSS AKORDİYON
+   ============================================================ */
+(function faq(){
+  var host = $('#faq');
+  if (!host) return;
+  var items = $$('.faq__i', host);
+  items.forEach(function(item){
+    var q = $('.faq__q', item), a = $('.faq__a', item);
+    if (!q || !a) return;
+    q.addEventListener('click', function(){
+      var open = item.classList.contains('is-open');
+      items.forEach(function(o){
+        var oa = $('.faq__a', o), oq = $('.faq__q', o);
+        o.classList.remove('is-open');
+        if (oa) oa.style.maxHeight = '0px';
+        if (oq) oq.setAttribute('aria-expanded','false');
+      });
+      if (!open){
+        item.classList.add('is-open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+        q.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+  window.addEventListener('resize', function(){
+    var open = $('.faq__i.is-open', host);
+    if (open){
+      var oa = $('.faq__a', open);
+      if (oa) oa.style.maxHeight = oa.scrollHeight + 'px';
+    }
+  }, {passive:true});
+})();
+
+/* ============================================================
+   10 — TEKLİF FORMU (istemci tarafı doğrulama + başarı ekranı)
+   ============================================================ */
+(function quoteForm(){
+  var panel = $('#formPanel');
+  var form  = $('#quoteForm');
+  if (!panel || !form) return;
+
+  function setErr(input, on){
+    var fld = input.closest ? input.closest('.fld') : null;
+    if (fld) fld.classList.toggle('is-err', !!on);
+  }
+
+  var telOk  = function(v){ return v.replace(/\D/g,'').length >= 10; };
+  var mailOk = function(v){ return /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(v); };
+
+  /* Telefon alanında yaşayan biçimleme */
+  var tel = $('#f-tel');
+  if (tel){
+    tel.addEventListener('input', function(){
+      var d = tel.value.replace(/\D/g,'').slice(0,11);
+      var out = d;
+      if (d.length > 4)  out = d.slice(0,4)+' '+d.slice(4);
+      if (d.length > 7)  out = d.slice(0,4)+' '+d.slice(4,7)+' '+d.slice(7);
+      if (d.length > 9)  out = d.slice(0,4)+' '+d.slice(4,7)+' '+d.slice(7,9)+' '+d.slice(9);
+      tel.value = out;
+    });
+  }
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var ad = $('#f-ad'), mail = $('#f-mail'), hizmet = $('#f-hizmet'),
+        mesaj = $('#f-mesaj'), kvkk = $('#f-kvkk'), kanal = $('#f-kanal');
+    var ok = true, firstBad = null;
+
+    function check(el, cond){
+      if (!el) return;
+      setErr(el, !cond);
+      if (!cond){ ok = false; if (!firstBad) firstBad = el; }
+    }
+    check(ad,     ad && ad.value.trim().length >= 2);
+    check(tel,    tel && telOk(tel.value));
+    check(mail,   mail && mailOk(mail.value.trim()));
+    check(hizmet, hizmet && hizmet.value !== '');
+    check(mesaj,  mesaj && mesaj.value.trim().length >= 10);
+
+    if (kvkk && !kvkk.checked){
+      ok = false;
+      kvkk.style.outline = '2px solid #FF5C5C';
+      if (!firstBad) firstBad = kvkk;
+    } else if (kvkk){
+      kvkk.style.outline = '';
+    }
+
+    if (!ok){
+      if (firstBad && firstBad.focus) firstBad.focus();
+      return;
+    }
+
+    /* Başarı ekranını doldur */
+    var pad = function(n){ return (n<10?'0':'')+n; };
+    var d = new Date();
+    var id = 'TM-' + d.getFullYear().toString().slice(2) + pad(d.getMonth()+1) + pad(d.getDate()) + '-' + Math.floor(100+Math.random()*899);
+    var set = function(sel, val){ var e = $(sel); if (e) e.textContent = val; };
+    set('#okId',     id);
+    set('#okAd',     ad ? ad.value.trim() : '—');
+    set('#okAd2',    ad ? ad.value.trim().split(' ')[0] : '');
+    set('#okTel',    tel ? tel.value.trim() : '—');
+    set('#okMail',   mail ? mail.value.trim() : '—');
+    set('#okHizmet', hizmet ? hizmet.value : '—');
+    set('#okKanal',  kanal ? kanal.value : 'WhatsApp');
+
+    panel.classList.add('is-done');
+    var okBox = $('#formOk');
+    if (okBox && okBox.scrollIntoView) okBox.scrollIntoView({behavior: REDUCED ? 'auto' : 'smooth', block:'center'});
+  });
+
+  var reset = $('#okReset');
+  if (reset){
+    reset.addEventListener('click', function(){
+      form.reset();
+      $$('.fld', form).forEach(function(f){ f.classList.remove('is-err'); });
+      panel.classList.remove('is-done');
+      var ad = $('#f-ad'); if (ad && ad.focus) ad.focus();
+    });
+  }
+})();
+
+/* ============================================================
+   11 — YATAY TAŞMA GÜVENLİĞİ (geliştirme uyarısı)
+   ============================================================ */
+(function overflowGuard(){
+  var check = function(){
+    if (document.body.scrollWidth > window.innerWidth + 1 && window.console && console.warn){
+      console.warn('[TasarımMania] Yatay taşma tespit edildi:',
+        document.body.scrollWidth, '>', window.innerWidth);
+    }
+  };
+  window.addEventListener('load', check);
+  window.addEventListener('resize', check, {passive:true});
+})();
+
+})();
+</script>
+
+</body>
+</html>

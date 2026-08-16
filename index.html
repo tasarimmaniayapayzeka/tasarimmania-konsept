@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TasarımMania — 10 Ana Sayfa Konsepti</title>
+<meta name="description" content="TasarımMania için hazırlanmış 10 farklı ana sayfa konsepti. Her biri ayrı sanat yönetimi ve ayrı teknik imza ile.">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%2309090B"/><text x="32" y="43" font-family="Arial" font-weight="800" font-size="28" fill="%23E6FF4D" text-anchor="middle">10</text></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#08080A; --bg2:#0E0E12; --card:#111116;
+  --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.18);
+  --txt:#F2F2F0; --muted:#9A9AA2; --muted2:#65656E;
+  --acid:#E6FF4D;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--txt);
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+  background:radial-gradient(1200px 700px at 50% -10%,rgba(230,255,77,.06),transparent 60%);
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1340px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+.mono{font-family:'JetBrains Mono',monospace}
+
+/* ---- header ---- */
+header{padding:80px 0 54px;border-bottom:1px solid var(--line)}
+.kicker{
+  display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;
+  font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--acid);margin-bottom:26px;
+}
+.kicker::before{content:"";width:24px;height:1px;background:var(--acid)}
+h1{
+  font-family:'Instrument Serif',Georgia,serif;font-weight:400;
+  font-size:clamp(44px,7vw,92px);line-height:1.02;letter-spacing:-.02em;margin-bottom:24px;
+}
+h1 em{font-style:italic;color:var(--acid)}
+.intro{max-width:660px;color:var(--muted);font-size:16.5px}
+.intro strong{color:var(--txt);font-weight:600}
+.meta-row{display:flex;gap:32px;flex-wrap:wrap;margin-top:36px;font-size:12.5px;color:var(--muted2);font-family:'JetBrains Mono',monospace}
+.meta-row b{color:var(--txt);font-weight:500}
+
+/* ---- toolbar ---- */
+.toolbar{
+  position:sticky;top:0;z-index:20;background:rgba(8,8,10,.86);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);padding:14px 0;
+}
+.tb-in{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.tb-title{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2)}
+.jump{display:flex;gap:6px;flex-wrap:wrap}
+.jump a{
+  width:30px;height:30px;display:grid;place-items:center;border:1px solid var(--line);border-radius:8px;
+  font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--muted);transition:.2s;
+}
+.jump a:hover{border-color:var(--acid);color:var(--acid);background:rgba(230,255,77,.07)}
+
+/* ---- grid ---- */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 32px;padding:56px 0}
+.card{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card);transition:border-color .3s,transform .3s}
+.card:hover{border-color:var(--line2);transform:translateY(-3px)}
+.card-top{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:14px 18px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02);
+}
+.ct-left{display:flex;align-items:center;gap:12px;min-width:0}
+.num{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--acid);flex:none}
+.cname{font-weight:600;font-size:14.5px;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dots{display:flex;gap:5px;flex:none}
+.dots i{width:11px;height:11px;border-radius:50%;display:block;border:1px solid rgba(255,255,255,.16)}
+
+.frame{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0A0A0C;isolation:isolate}
+.frame iframe{position:absolute;top:0;left:0;width:1600px;height:1000px;border:0;transform-origin:0 0;transform:scale(var(--s,.4));pointer-events:none}
+.ph{position:absolute;inset:0;display:grid;place-items:center;gap:10px;text-align:center;color:var(--muted2);font-family:'JetBrains Mono',monospace;font-size:11.5px}
+.ph .spin{width:22px;height:22px;border:2px solid rgba(255,255,255,.14);border-top-color:var(--acid);border-radius:50%;animation:sp 1s linear infinite;margin:0 auto 10px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.frame .veil{position:absolute;inset:0;z-index:3;background:linear-gradient(180deg,transparent 60%,rgba(8,8,10,.55));opacity:0;transition:.3s}
+.card:hover .frame .veil{opacity:1}
+.frame .open{
+  position:absolute;z-index:4;left:50%;top:50%;transform:translate(-50%,-50%) scale(.94);
+  padding:13px 26px;border-radius:999px;background:var(--acid);color:#0B0B0D;font-weight:700;font-size:13.5px;
+  opacity:0;transition:.3s;display:flex;align-items:center;gap:8px;white-space:nowrap;
+}
+.card:hover .frame .open{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.frame .open svg{width:15px;height:15px}
+
+.card-body{padding:20px 22px 24px}
+.card-body p{color:var(--muted);font-size:14.5px;margin-bottom:14px}
+.sig{
+  display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:#C8C8CE;
+  font-family:'JetBrains Mono',monospace;line-height:1.55;border-left:2px solid var(--acid);padding-left:12px;
+}
+.card-foot{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.mini{
+  font-size:12.5px;font-weight:600;padding:9px 16px;border-radius:8px;border:1px solid var(--line2);
+  color:var(--txt);transition:.25s;display:inline-flex;align-items:center;gap:7px;
+}
+.mini:hover{border-color:var(--acid);color:var(--acid)}
+.mini.solid{background:var(--acid);border-color:var(--acid);color:#0B0B0D}
+.mini.solid:hover{filter:brightness(1.08);color:#0B0B0D}
+.mini svg{width:14px;height:14px}
+
+/* ---- assets ---- */
+.assets{padding:70px 0 40px;border-top:1px solid var(--line)}
+.assets h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(28px,4vw,44px);margin-bottom:12px}
+.assets .intro{margin-bottom:36px}
+.arow{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.aitem{border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--card);text-align:center}
+.aitem img{width:100%;aspect-ratio:1;object-fit:contain}
+.aitem span{display:block;margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted2);letter-spacing:.06em}
+
+footer{padding:50px 0 70px;border-top:1px solid var(--line);margin-top:50px;color:var(--muted2);font-size:13px}
+.fnote{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media(max-width:960px){
+  .grid{grid-template-columns:1fr;gap:32px}
+  .arow{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:560px){
+  header{padding:56px 0 40px}
+  .arow{grid-template-columns:repeat(2,1fr)}
+  .meta-row{gap:18px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="kicker">TasarımMania · Yeni Site Keşfi · 2026</span>
+    <h1>On ayrı ana sayfa.<br>On ayrı <em>sanat yönetimi.</em></h1>
+    <p class="intro">Her konsept <strong>ayrı bir tasarım dili ve ayrı bir teknik imza</strong> taşıyor —
+      biri ham WebGL shader, biri saf CSS 3D izometrik şehir, biri yatay scroll yolculuğu.
+      Hepsi aynı hizmet setini satıyor: web &amp; yazılım, mobil uygulama, Meta &amp; Google Ads,
+      video prodüksiyon ve SEO. Kartın üzerine gelip <strong>tam ekran açın</strong>, gerçek sayfayı gezin.</p>
+    <div class="meta-row">
+      <span>10 <b>konsept</b></span>
+      <span>5 <b>ana hizmet</b></span>
+      <span>0 <b>harici JS kütüphanesi</b></span>
+      <span>6 <b>AI üretimi 3D varlık</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="wrap tb-in">
+    <span class="tb-title">Konseptler</span>
+    <nav class="jump" id="jump" aria-label="Konseptlere git"></nav>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="grid" id="grid"></div>
+
+  <section class="assets">
+    <h2>Konseptler için üretilen 3D varlıklar</h2>
+    <p class="intro">Higgsfield ile üretilip arka planları temizlenmiş, tek bir görsel dilde
+      (buzlu cam + krom + iridesan yansıma) beş hizmet ikonu. Şeffaf PNG olduğu için hem açık hem koyu konseptlerde kullanılabiliyor.</p>
+    <div class="arow">
+      <div class="aitem"><img src="assets/icon-web.png" alt="Web ve yazılım 3D ikon" loading="lazy"><span>WEB &amp; YAZILIM</span></div>
+      <div class="aitem"><img src="assets/icon-mobil.png" alt="Mobil uygulama 3D ikon" loading="lazy"><span>MOBİL UYGULAMA</span></div>
+      <div class="aitem"><img src="assets/icon-reklam.png" alt="Dijital pazarlama 3D ikon" loading="lazy"><span>META &amp; GOOGLE ADS</span></div>
+      <div class="aitem"><img src="assets/icon-video.png" alt="Video prodüksiyon 3D ikon" loading="lazy"><span>VİDEO PRODÜKSİYON</span></div>
+      <div class="aitem"><img src="assets/icon-seo.png" alt="SEO 3D ikon" loading="lazy"><span>SEO</span></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap fnote">
+    <span>TasarımMania — yeni site keşif çalışması. Konseptler demo amaçlıdır; rakamlar ve referanslar temsilîdir.</span>
+    <span class="mono">10 KONSEPT / v1</span>
+  </div>
+</footer>
+
+<script>
+"use strict";
+var KONSEPTLER = [
+  {n:'01', slug:'01-noir-shader', ad:'NOIR SHADER',
+   ozet:'Neredeyse siyah zemin, ekranı kaplayan ham WebGL gradyan alanı ve dev kinetik tipografi. Tek asit yeşili aksan, çok fazla negatif alan — ödüllü stüdyo estetiği.',
+   imza:'Ham WebGL shader hero + magnetik imleç + kelime kelime açılan metin',
+   pal:['#050505','#D6FF3E','#1A1A1A','#F5F5F5']},
+  {n:'02', slug:'02-isvicre-grid', ad:'İSVİÇRE GRID',
+   ozet:'Açık, brutalist editoryal düzen. Görünür 12 sütunlu grid, dev sıkıştırılmış başlıklar, gazete künyesi gibi mono meta veriler. Disiplinli ve çok şık.',
+   imza:'Hizmet index satırlarının açılması + kırmızı blok geçişi',
+   pal:['#F2F0EB','#111111','#FF3B1F','#8A8A85']},
+  {n:'03', slug:'03-bento-os', ad:'BENTO OS',
+   ozet:'Linear/Vercel kalitesinde ürün sayfası hissi. Cam bento karolar ve her karonun içinde çalışan mini widget: kod editörü, telefon, canlı grafik, ses dalgası, sıralama tablosu.',
+   imza:'Karo içi canlı widget’lar + imleç takipli spotlight ışığı',
+   pal:['#0B0D12','#22D3EE','#7C6CFF','#E7ECF5']},
+  {n:'04', slug:'04-izometrik-sehir', ad:'İZOMETRİK ŞEHİR',
+   ozet:'Tamamen saf CSS 3D ile inşa edilmiş izometrik “dijital ekosistem”. Her hizmet bir yapı; scroll ilerledikçe kamera döner, üzerine gelince yapı yükselir ve kartı açılır.',
+   imza:'Gerçek CSS preserve-3d şehir sahnesi + scroll’a bağlı kamera',
+   pal:['#0A1030','#6C5CE7','#22D3EE','#F0F3FF']},
+  {n:'05', slug:'05-sinema-showreel', ad:'SİNEMA / SHOWREEL',
+   ozet:'Video prodüksiyonunu satan sinematik kurgu. Canvas ile üretilmiş showreel görüntüsü, letterbox bantlar, akan timecode ve bölüm (chapter) listesi.',
+   imza:'Canvas showreel + akan timecode + 16:9 / 9:16 / 1:1 format vitrini',
+   pal:['#0A0A0A','#FF2D2D','#EDE8E0','#7A7A7A']},
+  {n:'06', slug:'06-veri-merkezi', ad:'VERİ MERKEZİ',
+   ozet:'Performans pazarlaması ve SEO’yu satan “kontrol odası” estetiği. Terminal dili, fosforlu yeşil HUD ve canvas ile çizilmiş dönen tel kafes dünya üzerinde yurt dışı kampanya rotaları.',
+   imza:'Kütüphanesiz canvas 3D dünya + terminal yazımı + canlı metrikler',
+   pal:['#060A08','#3DFFAB','#FFB020','#D6E2DC']},
+  {n:'07', slug:'07-krom-sivi', ad:'KROM / SIVI',
+   ozet:'Moda-editoryal enerjisi. Süt beyazı zeminde fareyi takip eden sıvı krom metaball ve krom gradyanla doldurulmuş dev tipografi. Genç, pahalı, cesur.',
+   imza:'Fareyi takip eden sıvı krom metaball + krom gradyanlı başlıklar',
+   pal:['#F6F6F4','#B8C6FF','#FFC9E3','#A8F0E0']},
+  {n:'08', slug:'08-luks-editorial', ad:'LÜKS EDİTORYAL',
+   ozet:'Yüksek biletli kurumsal müşteriye satan koyu lüks dergi estetiği. Zarif serif başlıklar, altın ince çizgiler, çok sakin ve yavaş animasyonlar — lüks sessizdir.',
+   imza:'Altın çizgi çizimleri + yavaşça dönen yarı saydam altın geometrik obje',
+   pal:['#0C0A09','#EFE7DA','#C9A227','#6E6558']},
+  {n:'09', slug:'09-yatay-yolculuk', ad:'YATAY YOLCULUK',
+   ozet:'Navigasyonu tamamen farklı: sayfa ortasında sticky bir viewport, dikey scroll yatay bir yolculuğu sürüyor. Beş hizmet, beş durak, üstte ilerleme rayı.',
+   imza:'Sticky yatay scroll yolculuğu + duraklı ilerleme rayı',
+   pal:['#0B1030','#5B8CFF','#FF7A59','#E8EDFF']},
+  {n:'10', slug:'10-kinetik-deste', ad:'KİNETİK KART DESTESİ',
+   ozet:'Enerjik ajans hissi. 3D uzayda dağılmış kartlar scroll ile grid’e toplanıyor, filtre çipleri FLIP animasyonuyla kartları yeniden diziyor. Büyük renk blokları, cesur mikstipografi.',
+   imza:'3D kart destesinin grid’e toplanması + FLIP filtre animasyonu',
+   pal:['#F4F3EF','#2B4BF2','#FF5C1A','#E9FF5A']}
+];
+
+var ICON_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14L21 3"/></svg>';
+
+var grid = document.getElementById('grid');
+var jump = document.getElementById('jump');
+
+KONSEPTLER.forEach(function(k){
+  var href = 'konsept/' + k.slug + '.html';
+
+  var a = document.createElement('a');
+  a.href = '#k' + k.n; a.textContent = k.n; a.title = k.ad;
+  jump.appendChild(a);
+
+  var card = document.createElement('article');
+  card.className = 'card';
+  card.id = 'k' + k.n;
+  card.innerHTML =
+    '<div class="card-top">' +
+      '<div class="ct-left"><span class="num">' + k.n + '</span><span class="cname">' + k.ad + '</span></div>' +
+      '<div class="dots">' + k.pal.map(function(c){ return '<i style="background:' + c + '"></i>'; }).join('') + '</div>' +
+    '</div>' +
+    '<div class="frame" data-src="' + href + '">' +
+      '<div class="ph"><div><div class="spin"></div>ÖNİZLEME YÜKLENİYOR</div></div>' +
+      '<div class="veil"></div>' +
+      '<a class="open" href="' + href + '" target="_blank" rel="noopener">Tam ekran aç ' + ICON_OPEN + '</a>' +
+    '</div>' +
+    '<div class="card-body">' +
+      '<p>' + k.ozet + '</p>' +
+      '<div class="sig">▚&nbsp;' + k.imza + '</div>' +
+      '<div class="card-foot">' +
+        '<a class="mini solid" href="' + href + '" target="_blank" rel="noopener">Konsepti aç ' + ICON_OPEN + '</a>' +
+        '<a class="mini" href="' + href + '">Aynı sekmede</a>' +
+      '</div>' +
+    '</div>';
+  grid.appendChild(card);
+});
+
+/* Önizleme iframe'lerini sadece görünürken yükle, ekrandan çıkınca kaldır */
+var frames = document.querySelectorAll('.frame');
+function scaleFrame(f){
+  var s = f.clientWidth / 1600;
+  f.style.setProperty('--s', s);
+}
+function mount(f){
+  if(f.querySelector('iframe')) return;
+  var ifr = document.createElement('iframe');
+  ifr.src = f.dataset.src;
+  ifr.setAttribute('tabindex','-1');
+  ifr.setAttribute('aria-hidden','true');
+  ifr.setAttribute('scrolling','no');
+  f.insertBefore(ifr, f.firstChild);
+  scaleFrame(f);
+}
+var fio = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    var f = e.target;
+    if(e.isIntersecting){ mount(f); }
+    else { var old = f.querySelector('iframe'); if(old) old.remove(); }
+  });
+},{rootMargin:'300px 0px'});
+frames.forEach(function(f){ scaleFrame(f); fio.observe(f); });
+
+/* Yedek: gözlemci herhangi bir nedenle tetiklenmezse görünür kartları elle yükle */
+setTimeout(function(){
+  if(document.querySelector('.frame iframe')) return;
+  frames.forEach(function(f){
+    var r = f.getBoundingClientRect();
+    if(r.top < window.innerHeight + 300 && r.bottom > -300) mount(f);
+  });
+}, 1400);
+window.addEventListener('resize', function(){ frames.forEach(scaleFrame); });
+</script>
+</body>
+</html>

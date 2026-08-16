@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TasarımMania — Dijital Prodüksiyon & Yazılım Stüdyosu | İstanbul</title>
+<meta name="description" content="Video prodüksiyon, yazılım ve dijital pazarlama tek çatı altında. Markanızı büyüten işler için TasarımMania — Bakırköy, İstanbul.">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%23060B16"/><text x="32" y="43" font-family="Arial" font-weight="800" font-size="30" fill="%2322D3EE" text-anchor="middle">TM</text></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#050810; --bg1:#0A1120; --bg2:#0D1526;
+  --panel:rgba(255,255,255,.035); --panel2:rgba(255,255,255,.06);
+  --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+  --txt:#EAF1FB; --muted:#93A5BC; --muted2:#6B7C93;
+  --cyan:#22D3EE; --blue:#4F8DFD; --violet:#7C6CFF;
+  --grad:linear-gradient(100deg,#22D3EE 0%,#4F8DFD 55%,#7C6CFF 100%);
+  --shadow-glow:0 12px 40px -8px rgba(34,211,238,.35);
+  --r:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{
+  font-family:'Inter',system-ui,sans-serif;background:var(--bg0);color:var(--txt);
+  line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.display{font-family:'Sora',sans-serif;line-height:1.12;letter-spacing:-.02em}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+section{position:relative;padding:110px 0}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--cyan);opacity:.7}
+.h2{font-size:clamp(30px,4.2vw,46px);font-weight:700;margin-bottom:16px}
+.h2 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:17px;max-width:640px}
+.sec-head{margin-bottom:56px}
+.center{text-align:center}
+.center .lead{margin:0 auto}
+.center .eyebrow::before{display:none}
+
+/* ---------- reveal ---------- */
+[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1);transition-delay:var(--d,0s)}
+[data-reveal].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  [data-reveal]{opacity:1;transform:none}
+}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-weight:600;font-size:15px;padding:15px 30px;border-radius:999px;
+  border:1px solid transparent;cursor:pointer;transition:.28s;white-space:nowrap;
+}
+.btn-p{background:var(--grad);color:#03121D;box-shadow:var(--shadow-glow)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 18px 50px -8px rgba(34,211,238,.5);filter:brightness(1.06)}
+.btn-g{border-color:var(--line2);color:var(--txt);background:rgba(255,255,255,.02)}
+.btn-g:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(34,211,238,.06)}
+.btn svg{width:16px;height:16px;flex:none}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s;
+  border-bottom:1px solid transparent;
+}
+nav.scrolled{background:rgba(6,10,20,.78);backdrop-filter:blur(18px);border-bottom-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:80px}
+.logo{font-family:'Sora';font-weight:800;font-size:21px;letter-spacing:-.02em;display:flex;align-items:center;gap:11px}
+.logo .mark{
+  width:38px;height:38px;border-radius:11px;background:var(--grad);
+  display:grid;place-items:center;color:#03121D;font-size:15px;font-weight:800;
+  box-shadow:0 6px 20px -4px rgba(34,211,238,.45);
+}
+.logo em{font-style:normal;color:var(--cyan)}
+.nav-links{display:flex;align-items:center;gap:34px;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--muted);transition:.25s;position:relative}
+.nav-links a:not(.btn):hover{color:var(--txt)}
+.nav-links .btn{padding:11px 24px;font-size:14px}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{display:block;width:24px;height:2px;background:var(--txt);margin:5px 0;border-radius:2px;transition:.3s}
+
+/* ---------- hero ---------- */
+#hero{min-height:100vh;display:flex;align-items:center;padding:150px 0 90px;overflow:hidden}
+#hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(900px 500px at 78% 30%,rgba(34,211,238,.10),transparent 60%),
+    radial-gradient(700px 500px at 15% 80%,rgba(124,108,255,.09),transparent 60%),
+    linear-gradient(180deg,var(--bg0) 0%,var(--bg1) 100%);
+}
+#fx{position:absolute;inset:0;width:100%;height:100%;opacity:.55;pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.hero-copy h1{font-size:clamp(42px,6vw,74px);font-weight:800;margin-bottom:26px}
+.hero-copy h1 span{display:block;overflow:hidden}
+.hero-copy h1 span i{display:block;font-style:normal;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+.hero-copy h1 span:nth-child(1) i{animation-delay:.15s}
+.hero-copy h1 span:nth-child(2) i{animation-delay:.32s;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-copy h1 span:nth-child(3) i{animation-delay:.49s}
+@keyframes rise{to{transform:translateY(0)}}
+.hero-copy .lead{margin-bottom:36px;font-size:18px}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:42px}
+.trust{display:flex;gap:26px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+.trust b{color:var(--txt);font-weight:600}
+.trust li{display:flex;align-items:center;gap:8px;list-style:none}
+.trust svg{width:15px;height:15px;color:var(--cyan);flex:none}
+
+/* hero 3D sahne */
+.scene{position:relative;height:520px;perspective:1200px}
+.scene .glow{
+  position:absolute;left:50%;top:50%;width:420px;height:420px;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(34,211,238,.16),rgba(124,108,255,.08) 45%,transparent 70%);
+  border-radius:50%;filter:blur(10px);
+}
+.lyr{position:absolute;will-change:transform;transition:transform .18s ease-out}
+.float{animation:float 6s ease-in-out infinite}
+.float.d1{animation-duration:7.2s;animation-delay:.6s}
+.float.d2{animation-duration:8.4s;animation-delay:1.2s}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -18px}}
+.obj-shadow{position:absolute;left:50%;bottom:8px;width:300px;height:44px;transform:translateX(-50%);
+  background:radial-gradient(ellipse,rgba(0,0,0,.55),transparent 70%);filter:blur(6px)}
+
+/* ---------- marquee ---------- */
+.marquee-sec{padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg1)}
+.marquee-label{text-align:center;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted2);margin-bottom:20px}
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.mtrack{display:flex;gap:14px;width:max-content;animation:scroll 32s linear infinite}
+.marquee:hover .mtrack{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.chip{
+  display:flex;align-items:center;gap:9px;padding:11px 22px;border-radius:999px;
+  border:1px solid var(--line);background:var(--panel);font-size:14px;font-weight:600;color:var(--muted);white-space:nowrap
+}
+.chip i{font-style:normal;width:8px;height:8px;border-radius:50%;background:var(--grad);flex:none}
+
+/* ---------- pillars ---------- */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pillar{
+  position:relative;border-radius:22px;padding:38px 32px;background:var(--panel);
+  border:1px solid var(--line);transition:border-color .3s,background .3s;transform-style:preserve-3d;
+}
+.pillar::before{
+  content:"";position:absolute;inset:0;border-radius:22px;padding:1px;
+  background:linear-gradient(135deg,rgba(34,211,238,.55),transparent 40%,transparent 60%,rgba(124,108,255,.45));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:.35s;
+}
+.pillar:hover{background:var(--panel2)}
+.pillar:hover::before{opacity:1}
+.pillar .p-icon{width:120px;height:120px;margin-bottom:22px;transform:translateZ(40px)}
+.pillar:hover .p-icon svg{transform:rotate(-4deg) scale(1.06)}
+.pillar .p-icon svg{transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.pillar h3{font-size:22px;margin-bottom:12px}
+.pillar p{color:var(--muted);font-size:15px;margin-bottom:20px}
+.pillar ul{list-style:none;display:grid;gap:10px;margin-bottom:26px}
+.pillar li{display:flex;gap:10px;align-items:center;font-size:14.5px;color:#C6D3E4}
+.pillar li svg{width:15px;height:15px;color:var(--cyan);flex:none}
+.pillar .more{font-size:14px;font-weight:600;color:var(--cyan);display:inline-flex;align-items:center;gap:7px}
+.pillar .more svg{width:15px;height:15px;transition:transform .3s}
+.pillar:hover .more svg{transform:translateX(5px)}
+.p-tag{position:absolute;top:26px;right:26px;font-size:10.5px;letter-spacing:.16em;font-weight:700;color:var(--muted2);text-transform:uppercase}
+
+/* ---------- stats ---------- */
+#rakamlar{background:var(--bg1);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.counters{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:26px}
+.counter{border:1px solid var(--line);border-radius:var(--r);padding:32px 26px;background:var(--panel);text-align:left}
+.counter .num{font-family:'Sora';font-size:clamp(34px,3.6vw,48px);font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;margin-bottom:10px}
+.counter .lbl{font-size:14px;color:var(--muted);font-weight:500}
+.gauges{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.gauge{border:1px solid var(--line);border-radius:var(--r);padding:30px;background:var(--panel);display:flex;align-items:center;gap:24px}
+.gauge svg{width:104px;height:104px;flex:none;transform:rotate(-90deg)}
+.gauge .track{fill:none;stroke:rgba(255,255,255,.07);stroke-width:9}
+.gauge .bar{fill:none;stroke:url(#gaugeGrad);stroke-width:9;stroke-linecap:round;stroke-dasharray:339.3;stroke-dashoffset:339.3;transition:stroke-dashoffset 1.6s cubic-bezier(.2,.7,.3,1)}
+.gauge.in .bar{stroke-dashoffset:var(--off)}
+.gauge .gval{font-family:'Sora';font-size:26px;font-weight:800;margin-bottom:4px}
+.gauge .glbl{font-size:13.5px;color:var(--muted)}
+.foot-note{font-size:12px;color:var(--muted2);margin-top:22px}
+
+/* ---------- process ---------- */
+.steps{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;counter-reset:step}
+.steps::before{content:"";position:absolute;top:27px;left:4%;right:4%;height:2px;background:rgba(255,255,255,.07);border-radius:2px}
+.steps .prog{position:absolute;top:27px;left:4%;right:4%;height:2px;background:var(--grad);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform 1.6s cubic-bezier(.2,.7,.3,1)}
+.steps.in .prog{transform:scaleX(1)}
+.step{position:relative;padding-top:76px;text-align:center}
+.step .dot{
+  position:absolute;top:6px;left:50%;transform:translateX(-50%);width:44px;height:44px;border-radius:50%;
+  background:var(--bg2);border:1px solid var(--line2);display:grid;place-items:center;
+  font-family:'Sora';font-weight:700;font-size:14px;color:var(--cyan);z-index:1;transition:.4s;
+}
+.steps.in .step .dot{border-color:var(--cyan);box-shadow:0 0 0 5px rgba(34,211,238,.09),0 6px 18px -4px rgba(34,211,238,.35)}
+.step h4{font-size:16.5px;margin-bottom:8px}
+.step p{font-size:13.5px;color:var(--muted)}
+
+/* ---------- bento ---------- */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.bcard{
+  border:1px solid var(--line);border-radius:20px;padding:30px;background:var(--panel);
+  transition:.3s;position:relative;overflow:hidden;
+}
+.bcard::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;right:-70px;top:-70px;
+  background:radial-gradient(circle,rgba(34,211,238,.10),transparent 70%);opacity:0;transition:.4s}
+.bcard:hover{border-color:var(--line2);transform:translateY(-4px);background:var(--panel2)}
+.bcard:hover::after{opacity:1}
+.bcard.wide{grid-column:span 2}
+.bcard .bico{width:46px;height:46px;border-radius:13px;background:rgba(34,211,238,.09);border:1px solid rgba(34,211,238,.22);display:grid;place-items:center;margin-bottom:18px}
+.bcard .bico svg{width:22px;height:22px;color:var(--cyan)}
+.bcard h4{font-size:17.5px;margin-bottom:8px}
+.bcard p{font-size:14px;color:var(--muted)}
+
+/* ---------- portfolio ---------- */
+#isler{background:var(--bg1);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.fbtn{
+  padding:10px 22px;border-radius:999px;border:1px solid var(--line);background:transparent;
+  color:var(--muted);font-size:13.5px;font-weight:600;cursor:pointer;transition:.25s;font-family:inherit;
+}
+.fbtn:hover{color:var(--txt);border-color:var(--line2)}
+.fbtn.act{background:var(--grad);color:#03121D;border-color:transparent}
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.work{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--panel);transition:transform .35s,border-color .35s,opacity .4s;cursor:pointer}
+.work:hover{transform:translateY(-6px);border-color:var(--line2)}
+.work.hide{opacity:0;transform:scale(.94);pointer-events:none;position:absolute;visibility:hidden}
+.wthumb{position:relative;height:190px;display:flex;align-items:flex-end;padding:18px;overflow:hidden}
+.wthumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(5,8,16,.65))}
+.wthumb .wcat{position:relative;z-index:1;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  padding:6px 13px;border-radius:999px;background:rgba(5,8,16,.55);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(6px)}
+.t1{background:conic-gradient(from 210deg at 60% 40%,#0E7490,#155E75,#7C6CFF,#0E7490)}
+.t2{background:conic-gradient(from 40deg at 30% 60%,#1D4ED8,#0F172A,#22D3EE,#1D4ED8)}
+.t3{background:conic-gradient(from 120deg at 70% 60%,#7C6CFF,#0F172A,#4F8DFD,#7C6CFF)}
+.t4{background:conic-gradient(from 300deg at 40% 30%,#0891B2,#312E81,#22D3EE,#0891B2)}
+.t5{background:conic-gradient(from 160deg at 50% 50%,#164E63,#4F8DFD,#0F172A,#164E63)}
+.t6{background:conic-gradient(from 20deg at 60% 70%,#5B21B6,#0E7490,#0F172A,#5B21B6)}
+.wthumb .grain{position:absolute;inset:0;opacity:.5;background:
+  repeating-linear-gradient(115deg,rgba(255,255,255,.045) 0 1px,transparent 1px 9px)}
+.wbody{padding:22px 24px 26px}
+.wbody h4{font-size:17px;margin-bottom:6px}
+.wbody .res{font-size:13.5px;color:var(--cyan);font-weight:600;margin-bottom:4px}
+.wbody p{font-size:13.5px;color:var(--muted)}
+
+/* ---------- CTA band ---------- */
+.cta-band{position:relative;border-radius:28px;overflow:hidden;padding:70px 60px;text-align:center;
+  background:linear-gradient(120deg,rgba(34,211,238,.12),rgba(79,141,253,.08) 50%,rgba(124,108,255,.12));
+  border:1px solid rgba(34,211,238,.25)}
+.cta-band::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(600px 300px at 50% -40%,rgba(34,211,238,.22),transparent 70%)}
+.cta-band h2{position:relative;font-size:clamp(28px,3.8vw,44px);margin-bottom:14px}
+.cta-band p{position:relative;color:var(--muted);margin-bottom:34px;font-size:16.5px}
+.cta-band .row{position:relative;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:26px;align-items:start}
+.cinfo{display:grid;gap:16px}
+.ccard{border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;background:var(--panel);display:flex;gap:16px;align-items:flex-start;transition:.3s}
+.ccard:hover{border-color:var(--line2);background:var(--panel2)}
+.ccard .cico{width:42px;height:42px;flex:none;border-radius:12px;background:rgba(34,211,238,.09);border:1px solid rgba(34,211,238,.22);display:grid;place-items:center}
+.ccard .cico svg{width:19px;height:19px;color:var(--cyan)}
+.ccard b{display:block;font-size:15px;margin-bottom:3px}
+.ccard span{font-size:14px;color:var(--muted)}
+form{border:1px solid var(--line);border-radius:22px;padding:36px;background:var(--panel)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fld{margin-bottom:16px}
+.fld label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
+.fld input,.fld select,.fld textarea{
+  width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--line2);
+  background:rgba(5,8,16,.5);color:var(--txt);font-family:inherit;font-size:14.5px;transition:.25s;outline:none;
+}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(34,211,238,.12)}
+.fld textarea{resize:vertical;min-height:110px}
+.form-note{font-size:12.5px;color:var(--muted2);margin-top:14px}
+.f-success{display:none;text-align:center;padding:40px 10px}
+.f-success svg{width:60px;height:60px;color:var(--cyan);margin:0 auto 18px}
+.f-success h3{margin-bottom:8px}
+.f-success p{color:var(--muted);font-size:15px}
+form.sent .f-fields{display:none}
+form.sent .f-success{display:block}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:64px 0 34px;background:var(--bg1)}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:46px}
+footer h5{font-size:14px;margin-bottom:16px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+footer ul{list-style:none;display:grid;gap:10px;font-size:14.5px}
+footer ul a{color:var(--muted);transition:.25s}
+footer ul a:hover{color:var(--cyan)}
+.fbrand p{color:var(--muted);font-size:14px;margin-top:14px;max-width:320px}
+.fbottom{border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted2)}
+
+/* ---------- whatsapp fab ---------- */
+.wa{
+  position:fixed;right:26px;bottom:26px;z-index:90;width:58px;height:58px;border-radius:50%;
+  background:#25D366;display:grid;place-items:center;box-shadow:0 10px 30px -6px rgba(37,211,102,.55);
+  transition:.3s;
+}
+.wa:hover{transform:scale(1.08)}
+.wa::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(37,211,102,.5);animation:pulse 2.2s ease-out infinite}
+@keyframes pulse{0%{transform:scale(.8);opacity:1}100%{transform:scale(1.35);opacity:0}}
+.wa svg{width:29px;height:29px;fill:#fff}
+
+/* ---------- responsive ---------- */
+@media(max-width:1020px){
+  .hero-grid{grid-template-columns:1fr;gap:10px}
+  .scene{height:400px;order:-1;margin-top:-30px}
+  .pillars{grid-template-columns:1fr}
+  .counters{grid-template-columns:repeat(2,1fr)}
+  .gauges{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:8px}
+  .steps::before,.steps .prog{left:27px;right:auto;top:4%;bottom:4%;width:2px;height:auto}
+  .steps .prog{transform:scaleY(0);transform-origin:top}
+  .steps.in .prog{transform:scaleY(1)}
+  .step{padding:10px 0 22px 76px;text-align:left}
+  .step .dot{left:5px;top:6px;transform:none}
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .works{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  section{padding:80px 0}
+  .nav-links{
+    position:fixed;inset:80px 0 auto 0;background:rgba(6,10,20,.97);backdrop-filter:blur(20px);
+    flex-direction:column;padding:30px;gap:22px;border-bottom:1px solid var(--line);
+    transform:translateY(-130%);transition:.4s;align-items:flex-start;
+  }
+  .nav-links.open{transform:none}
+  .burger{display:block}
+  .bento,.works{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  .cta-band{padding:50px 26px}
+  .fgrid{grid-template-columns:1fr}
+  .counters{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ======== 3D ikon tanımları ======== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+  <linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#7C6CFF"/>
+  </linearGradient>
+  <linearGradient id="cubeTop" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#A5F3FC"/><stop offset="1" stop-color="#22D3EE"/>
+  </linearGradient>
+  <linearGradient id="cubeRight" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#0EA5E9"/><stop offset="1" stop-color="#1D4ED8"/>
+  </linearGradient>
+  <linearGradient id="cubeLeft" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#1E3A8A"/><stop offset="1" stop-color="#0F2050"/>
+  </linearGradient>
+  <linearGradient id="puckTop" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#C4B5FD"/><stop offset="1" stop-color="#7C6CFF"/>
+  </linearGradient>
+  <linearGradient id="puckSide" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#5B4FD1"/><stop offset="1" stop-color="#332B85"/>
+  </linearGradient>
+  <linearGradient id="rocketBody" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#E8F1FF"/><stop offset="1" stop-color="#9FB6DB"/>
+  </linearGradient>
+  <linearGradient id="rocketNose" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#67E8F9"/><stop offset="1" stop-color="#0891B2"/>
+  </linearGradient>
+  <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FDE68A"/><stop offset="1" stop-color="#F97316"/>
+  </linearGradient>
+  <radialGradient id="ballG" cx="35%" cy="30%" r="75%">
+    <stop offset="0" stop-color="#67E8F9"/><stop offset="1" stop-color="#155E75"/>
+  </radialGradient>
+
+  <!-- kod küpü -->
+  <g id="i-cube">
+    <ellipse cx="100" cy="172" rx="62" ry="12" fill="rgba(0,0,0,.4)"/>
+    <polygon points="100,34 166,68 100,102 34,68" fill="url(#cubeTop)"/>
+    <polygon points="100,102 166,68 166,140 100,174" fill="url(#cubeRight)"/>
+    <polygon points="34,68 100,102 100,174 34,140" fill="url(#cubeLeft)"/>
+    <polygon points="100,34 166,68 100,102 34,68" fill="rgba(255,255,255,.16)"/>
+    <text transform="matrix(0.866,0.5,0,1.05,112,96)" font-family="Sora,Arial" font-weight="800" font-size="30" fill="rgba(255,255,255,.92)">&lt;/&gt;</text>
+    <polygon points="152,26 172,36 152,46 132,36" fill="#22D3EE" opacity=".85"/>
+    <polygon points="30,116 44,123 30,130 16,123" fill="#7C6CFF" opacity=".8"/>
+  </g>
+
+  <!-- play (video) diski -->
+  <g id="i-play">
+    <ellipse cx="100" cy="168" rx="66" ry="12" fill="rgba(0,0,0,.4)"/>
+    <path d="M40 92 v34 a60 34 0 0 0 120 0 v-34" fill="url(#puckSide)"/>
+    <ellipse cx="100" cy="92" rx="60" ry="34" fill="url(#puckTop)"/>
+    <ellipse cx="100" cy="92" rx="60" ry="34" fill="rgba(255,255,255,.12)"/>
+    <g transform="translate(102,92) scale(1,.566)">
+      <polygon points="-16,-26 30,0 -16,26" fill="#050810" opacity=".85"/>
+      <polygon points="-20,-26 26,0 -20,26" fill="#fff" transform="translate(-3,-4)"/>
+    </g>
+    <ellipse cx="100" cy="92" rx="60" ry="34" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.4"/>
+  </g>
+
+  <!-- roket (pazarlama) -->
+  <g id="i-rocket">
+    <ellipse cx="100" cy="176" rx="52" ry="10" fill="rgba(0,0,0,.4)"/>
+    <g transform="rotate(14 100 100)">
+      <path d="M100 22 C122 44 130 78 128 108 L72 108 C70 78 78 44 100 22 Z" fill="url(#rocketBody)"/>
+      <path d="M100 22 C114 36 122 56 125 76 L75 76 C78 56 86 36 100 22 Z" fill="url(#rocketNose)"/>
+      <circle cx="100" cy="92" r="13" fill="#0B1730" stroke="#67E8F9" stroke-width="3.5"/>
+      <path d="M72 96 L48 128 L74 122 Z" fill="#4F8DFD"/>
+      <path d="M128 96 L152 128 L126 122 Z" fill="#4F8DFD"/>
+      <path d="M86 108 L114 108 L108 124 L92 124 Z" fill="#33415E"/>
+      <path d="M100 126 C110 140 106 154 100 168 C94 154 90 140 100 126 Z" fill="url(#flame)"/>
+    </g>
+  </g>
+
+  <!-- check -->
+  <g id="i-check"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <!-- arrow -->
+  <g id="i-arrow"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+</defs>
+</svg>
+
+<!-- ======== NAV ======== -->
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#hero"><span class="mark">TM</span>Tasarım<em>Mania</em></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#rakamlar">Rakamlar</a>
+      <a href="#surec">Süreç</a>
+      <a href="#isler">İşler</a>
+      <a href="#iletisim">İletişim</a>
+      <a href="#iletisim" class="btn btn-p">Teklif Al</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ======== HERO ======== -->
+<section id="hero">
+  <canvas id="fx"></canvas>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow" data-reveal>İstanbul · Dijital Prodüksiyon Stüdyosu</span>
+      <h1>
+        <span><i>Tasarlıyoruz.</i></span>
+        <span><i>Kodluyoruz.</i></span>
+        <span><i>Büyütüyoruz.</i></span>
+      </h1>
+      <p class="lead" data-reveal style="--d:.55s">Video prodüksiyondan yazılıma, SEO'dan performans pazarlamasına — markanızı büyüten işleri tek çatı altında üretiyoruz.</p>
+      <div class="hero-cta" data-reveal style="--d:.7s">
+        <a href="#iletisim" class="btn btn-p">Ücretsiz Strateji Görüşmesi
+          <svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a>
+        <a href="#isler" class="btn btn-g">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+          Showreel & İşler</a>
+      </div>
+      <ul class="trust" data-reveal style="--d:.85s">
+        <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><b>9+ yıl</b>&nbsp;deneyim</li>
+        <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><b>130+</b>&nbsp;tamamlanan proje</li>
+        <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><b>46</b>&nbsp;aktif marka</li>
+      </ul>
+    </div>
+
+    <div class="scene" id="scene" aria-hidden="true">
+      <div class="glow"></div>
+      <div class="obj-shadow"></div>
+      <div class="lyr float"    data-depth="22" style="left:8%;top:6%;width:190px">
+        <svg viewBox="0 0 200 200"><use href="#i-rocket"/></svg></div>
+      <div class="lyr float d1" data-depth="34" style="left:44%;top:26%;width:230px">
+        <svg viewBox="0 0 200 200"><use href="#i-cube"/></svg></div>
+      <div class="lyr float d2" data-depth="16" style="left:14%;top:52%;width:180px">
+        <svg viewBox="0 0 200 200"><use href="#i-play"/></svg></div>
+      <div class="lyr float d1" data-depth="48" style="right:2%;top:8%;width:56px">
+        <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="22" fill="url(#ballG)"/></svg></div>
+      <div class="lyr float d2" data-depth="40" style="left:2%;bottom:16%;width:70px">
+        <svg viewBox="0 0 80 80"><ellipse cx="40" cy="40" rx="30" ry="12" fill="none" stroke="url(#gaugeGrad)" stroke-width="6" transform="rotate(-24 40 40)"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== PARTNER MARQUEE ======== -->
+<div class="marquee-sec">
+  <p class="marquee-label">Birlikte çalıştığımız ekosistem</p>
+  <div class="marquee"><div class="mtrack" id="mtrack">
+    <span class="chip"><i></i>Google Ads</span>
+    <span class="chip"><i></i>Meta Business</span>
+    <span class="chip"><i></i>Google Analytics 4</span>
+    <span class="chip"><i></i>Search Console</span>
+    <span class="chip"><i></i>Semrush</span>
+    <span class="chip"><i></i>Ahrefs</span>
+    <span class="chip"><i></i>Adobe Creative Cloud</span>
+    <span class="chip"><i></i>OpenAI</span>
+    <span class="chip"><i></i>WooCommerce</span>
+    <span class="chip"><i></i>WordPress</span>
+  </div></div>
+</div>
+
+<!-- ======== PILLARS ======== -->
+<section id="hizmetler">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-reveal>Öne çıkan uzmanlıklar</span>
+      <h2 class="h2" data-reveal style="--d:.1s">Üç motor, <span class="g">tek hedef:</span> büyüme.</h2>
+      <p class="lead" data-reveal style="--d:.2s">Prodüksiyon, yazılım ve pazarlama ekiplerimiz aynı masada çalışır — mesaj, teknoloji ve reklam birbirini besler.</p>
+    </div>
+    <div class="pillars">
+      <article class="pillar tilt" data-reveal>
+        <span class="p-tag">01</span>
+        <div class="p-icon"><svg viewBox="0 0 200 200"><use href="#i-play"/></svg></div>
+        <h3>Video Prodüksiyon</h3>
+        <p>Senaryodan yayına: reklam filmi, ürün videosu ve AI destekli içerik üretimi.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg>Reklam & tanıtım filmi</li>
+          <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg>Ürün çekimi & video yerelleştirme</li>
+          <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg>AI video + profesyonel seslendirme</li>
+        </ul>
+        <a class="more" href="#iletisim">Detaylı bilgi <svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="pillar tilt" data-reveal style="--d:.12s">
+        <span class="p-tag">02</span>
+        <div class="p-icon"><svg viewBox="0 0 200 200"><use href="#i-cube"/></svg></div>
+        <h3>Yazılım & Web</h3>
+        <p>Kurumsal siteden e-ticarete: hızlı, ölçülebilir ve satışa dönük dijital ürünler.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg>Kurumsal web & e-ticaret</li>
+          <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg>Özel web uygulamaları</li>
+          <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg>AI chatbot & entegrasyonlar</li>
+        </ul>
+        <a class="more" href="#iletisim">Detaylı bilgi <svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="pillar tilt" data-reveal style="--d:.24s">
+        <span class="p-tag">03</span>
+        <div class="p-icon"><svg viewBox="0 0 200 200"><use href="#i-rocket"/></svg></div>
+        <h3>Dijital Pazarlama</h3>
+        <p>Veriyle yönetilen kampanyalar: SEO, reklam yönetimi ve sosyal medya.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg>SEO & içerik stratejisi</li>
+          <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg>Google & Meta reklam yönetimi</li>
+          <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg>Analiz & şeffaf raporlama</li>
+        </ul>
+        <a class="more" href="#iletisim">Detaylı bilgi <svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======== STATS / INFOGRAFİK ======== -->
+<section id="rakamlar">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-reveal>Sayılarla TasarımMania</span>
+      <h2 class="h2" data-reveal style="--d:.1s">Sonuç odaklıyız, <span class="g">rakamlar konuşsun.</span></h2>
+    </div>
+    <div class="counters">
+      <div class="counter" data-reveal><div class="num"><span data-count data-to="9">0</span>+</div><div class="lbl">Yıllık deneyim</div></div>
+      <div class="counter" data-reveal style="--d:.1s"><div class="num"><span data-count data-to="130">0</span>+</div><div class="lbl">Tamamlanan proje</div></div>
+      <div class="counter" data-reveal style="--d:.2s"><div class="num"><span data-count data-to="46">0</span></div><div class="lbl">Aktif marka</div></div>
+      <div class="counter" data-reveal style="--d:.3s"><div class="num">%<span data-count data-to="312">0</span></div><div class="lbl">Ortalama reklam getirisi artışı</div></div>
+    </div>
+    <div class="gauges">
+      <div class="gauge" data-gauge="98" data-reveal>
+        <svg viewBox="0 0 120 120"><circle class="track" cx="60" cy="60" r="54"/><circle class="bar" cx="60" cy="60" r="54"/></svg>
+        <div><div class="gval">%98</div><div class="glbl">Müşteri memnuniyeti</div></div>
+      </div>
+      <div class="gauge" data-gauge="100" data-reveal style="--d:.12s">
+        <svg viewBox="0 0 120 120"><circle class="track" cx="60" cy="60" r="54"/><circle class="bar" cx="60" cy="60" r="54"/></svg>
+        <div><div class="gval">%100</div><div class="glbl">Zamanında teslim</div></div>
+      </div>
+      <div class="gauge" data-gauge="87" data-reveal style="--d:.24s">
+        <svg viewBox="0 0 120 120"><circle class="track" cx="60" cy="60" r="54"/><circle class="bar" cx="60" cy="60" r="54"/></svg>
+        <div><div class="gval">%87</div><div class="glbl">Tekrar çalışma oranı</div></div>
+      </div>
+    </div>
+    <p class="foot-note">* Demo sürümündeki rakamlar temsilîdir; yayına alınırken gerçek verilerle güncellenecektir.</p>
+  </div>
+</section>
+
+<!-- ======== PROCESS ======== -->
+<section id="surec">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow" data-reveal>Nasıl çalışıyoruz</span>
+      <h2 class="h2" data-reveal style="--d:.1s">Keşiften ölçüme, <span class="g">5 adımda</span>.</h2>
+    </div>
+    <div class="steps" id="steps">
+      <span class="prog"></span>
+      <div class="step" data-reveal><span class="dot">01</span><h4>Keşif</h4><p>Hedef kitle, rakip ve mevcut durum analizi.</p></div>
+      <div class="step" data-reveal style="--d:.1s"><span class="dot">02</span><h4>Strateji</h4><p>Yol haritası, mesaj ve ölçülebilir KPI'lar.</p></div>
+      <div class="step" data-reveal style="--d:.2s"><span class="dot">03</span><h4>Üretim</h4><p>Tasarım, çekim, yazılım — hepsi tek ekipte.</p></div>
+      <div class="step" data-reveal style="--d:.3s"><span class="dot">04</span><h4>Yayın</h4><p>Lansman, reklam kurulumu ve optimizasyon.</p></div>
+      <div class="step" data-reveal style="--d:.4s"><span class="dot">05</span><h4>Ölçüm</h4><p>Şeffaf raporlama ve sürekli iyileştirme.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== BENTO / TÜM HİZMETLER ======== -->
+<section id="tum-hizmetler" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-reveal>Uçtan uca hizmetler</span>
+      <h2 class="h2" data-reveal style="--d:.1s">İhtiyacınız olan her şey, <span class="g">tek çatı altında.</span></h2>
+    </div>
+    <div class="bento">
+      <div class="bcard wide" data-reveal>
+        <div class="bico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3M6 8h6M6 11h9"/></svg></div>
+        <h4>Kurumsal Web & E-Ticaret</h4>
+        <p>Satış odaklı, hızlı ve SEO uyumlu siteler; WooCommerce kurulumundan ödeme entegrasyonuna kadar.</p>
+      </div>
+      <div class="bcard" data-reveal style="--d:.08s">
+        <div class="bico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M8 11h6M11 8v6"/></svg></div>
+        <h4>SEO Danışmanlığı</h4>
+        <p>Teknik SEO, içerik mimarisi ve otorite inşası.</p>
+      </div>
+      <div class="bcard" data-reveal style="--d:.16s">
+        <div class="bico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></div>
+        <h4>Sosyal Medya Yönetimi</h4>
+        <p>İçerik takvimi, üretim ve topluluk yönetimi.</p>
+      </div>
+      <div class="bcard" data-reveal style="--d:.24s">
+        <div class="bico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5zM2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/></svg></div>
+        <h4>Grafik Tasarım</h4>
+        <p>Katalog, ambalaj, sosyal medya görselleri.</p>
+      </div>
+      <div class="bcard" data-reveal style="--d:.32s">
+        <div class="bico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+        <h4>Profesyonel Çekim</h4>
+        <p>Ürün, mekân ve kurumsal fotoğraf çekimi.</p>
+      </div>
+      <div class="bcard" data-reveal style="--d:.4s">
+        <div class="bico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13l1.5 9-5-3-5 3 1.5-9"/></svg></div>
+        <h4>Marka Kimliği & Logo</h4>
+        <p>Logodan kurumsal kimlik kılavuzuna.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== PORTFOLYO ======== -->
+<section id="isler">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-reveal>Showreel & Portfolyo</span>
+      <h2 class="h2" data-reveal style="--d:.1s">Seçili <span class="g">işler.</span></h2>
+      <p class="lead" data-reveal style="--d:.2s">Farklı sektörlerden, sonuç üreten projeler. Yayın sürümünde her kart gerçek görsel ve vaka çalışmasına bağlanacak.</p>
+    </div>
+    <div class="filters" data-reveal>
+      <button class="fbtn act" data-filter="all">Tümü</button>
+      <button class="fbtn" data-filter="video">Video</button>
+      <button class="fbtn" data-filter="web">Web & Yazılım</button>
+      <button class="fbtn" data-filter="pazarlama">Pazarlama</button>
+    </div>
+    <div class="works" id="works">
+      <article class="work" data-cat="video" data-reveal>
+        <div class="wthumb t1"><span class="grain"></span><span class="wcat">Video</span></div>
+        <div class="wbody"><h4>Ev Elektroniği Markası</h4><div class="res">20+ reklam filmi TR pazarına uyarlandı</div><p>Video yerelleştirme, seslendirme ve grafik uyarlama.</p></div>
+      </article>
+      <article class="work" data-cat="pazarlama" data-reveal style="--d:.08s">
+        <div class="wthumb t2"><span class="grain"></span><span class="wcat">Pazarlama</span></div>
+        <div class="wbody"><h4>Diş Kliniği Grubu</h4><div class="res">59 tedavi sayfası içerik mimarisi</div><p>Semptom-huni modeliyle SEO içerik sistemi.</p></div>
+      </article>
+      <article class="work" data-cat="web" data-reveal style="--d:.16s">
+        <div class="wthumb t3"><span class="grain"></span><span class="wcat">Web & Yazılım</span></div>
+        <div class="wbody"><h4>Kozmetik E-Ticareti</h4><div class="res">30 ürünlük mağaza + AI danışman</div><p>WooCommerce kurulumu ve yapay zekâ chatbot.</p></div>
+      </article>
+      <article class="work" data-cat="web" data-reveal style="--d:.24s">
+        <div class="wthumb t4"><span class="grain"></span><span class="wcat">Web & Yazılım</span></div>
+        <div class="wbody"><h4>Mobilya & Stand Üreticisi</h4><div class="res">Çizimden 3D görsel + anlık fiyat</div><p>Tarayıcıda çalışan 3D teklif motoru.</p></div>
+      </article>
+      <article class="work" data-cat="web" data-reveal style="--d:.32s">
+        <div class="wthumb t5"><span class="grain"></span><span class="wcat">Web & Yazılım</span></div>
+        <div class="wbody"><h4>Sağlık Kliniği</h4><div class="res">43 sayfalık kurumsal site + chatbot</div><p>Mevzuata tam uyumlu içerik ve yayın süreci.</p></div>
+      </article>
+      <article class="work" data-cat="pazarlama" data-reveal style="--d:.4s">
+        <div class="wthumb t6"><span class="grain"></span><span class="wcat">Pazarlama</span></div>
+        <div class="wbody"><h4>Termal Resort</h4><div class="res">Lüks konsept + kampanya planı</div><p>Marka konumlandırma ve dijital pazarlama sunumu.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======== CTA BAND ======== -->
+<section style="padding-bottom:0">
+  <div class="wrap">
+    <div class="cta-band" data-reveal>
+      <h2>Sıradaki büyüme hikâyesi <br>sizinki olsun.</h2>
+      <p>15 dakikalık ücretsiz görüşmede markanız için somut bir yol haritası çıkaralım.</p>
+      <div class="row">
+        <a href="#iletisim" class="btn btn-p">Projenizi Anlatın <svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a>
+        <a href="tel:+905386999666" class="btn btn-g">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          0538 699 96 66</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== İLETİŞİM ======== -->
+<section id="iletisim">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-reveal>İletişim</span>
+      <h2 class="h2" data-reveal style="--d:.1s">Projenizi <span class="g">konuşalım.</span></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="cinfo">
+        <a class="ccard" href="tel:+905386999666" data-reveal>
+          <span class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <span><b>Telefon</b><span>0538 699 96 66</span></span>
+        </a>
+        <a class="ccard" href="https://wa.me/905386999666" target="_blank" rel="noopener" data-reveal style="--d:.08s">
+          <span class="cico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg></span>
+          <span><b>WhatsApp</b><span>Hemen yazın, aynı gün dönüş</span></span>
+        </a>
+        <div class="ccard" data-reveal style="--d:.16s">
+          <span class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span><b>Ofis</b><span>Zeytinlik Mah. Pancar Sk. No:19-11<br>Bakırköy / İstanbul</span></span>
+        </div>
+        <div class="ccard" data-reveal style="--d:.24s">
+          <span class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+          <span><b>Çalışma Saatleri</b><span>Hafta içi 09:00–19:00 · Cmt 10:00–16:00</span></span>
+        </div>
+      </div>
+      <form id="quoteForm" data-reveal style="--d:.15s">
+        <div class="f-fields">
+          <div class="frow">
+            <div class="fld"><label for="fname">Ad Soyad</label><input id="fname" type="text" required placeholder="Adınız Soyadınız"></div>
+            <div class="fld"><label for="fphone">Telefon</label><input id="fphone" type="tel" required placeholder="05__ ___ __ __"></div>
+          </div>
+          <div class="frow">
+            <div class="fld"><label for="fmail">E-posta</label><input id="fmail" type="email" placeholder="ornek@firma.com"></div>
+            <div class="fld"><label for="fserv">İlgilendiğiniz Hizmet</label>
+              <select id="fserv">
+                <option>Video Prodüksiyon</option>
+                <option>Yazılım & Web</option>
+                <option>Dijital Pazarlama</option>
+                <option>SEO Danışmanlığı</option>
+                <option>Sosyal Medya</option>
+                <option>Diğer</option>
+              </select>
+            </div>
+          </div>
+          <div class="fld"><label for="fmsg">Projenizden bahsedin</label><textarea id="fmsg" placeholder="Hedefiniz nedir? Kısaca anlatın, gerisini birlikte netleştirelim."></textarea></div>
+          <button type="submit" class="btn btn-p" style="width:100%">Teklif İsteyin <svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></button>
+          <p class="form-note">Bilgileriniz gizli tutulur; 1 iş günü içinde dönüş yapılır.</p>
+        </div>
+        <div class="f-success">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l3 3 5-6"/></svg>
+          <h3>Talebiniz alındı!</h3>
+          <p>Ekibimiz 1 iş günü içinde sizinle iletişime geçecek.<br><small style="color:var(--muted2)">(Demo sürümü — form henüz sunucuya bağlı değildir.)</small></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FOOTER ======== -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <a class="logo" href="#hero"><span class="mark">TM</span>Tasarım<em>Mania</em></a>
+        <p>İstanbul merkezli dijital prodüksiyon stüdyosu. Video, yazılım ve pazarlamayı tek çatı altında birleştiriyoruz.</p>
+      </div>
+      <div>
+        <h5>Menü</h5>
+        <ul>
+          <li><a href="#hizmetler">Hizmetler</a></li>
+          <li><a href="#surec">Çalışma Süreci</a></li>
+          <li><a href="#isler">Portfolyo</a></li>
+          <li><a href="#iletisim">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>İletişim</h5>
+        <ul>
+          <li><a href="tel:+905386999666">0538 699 96 66</a></li>
+          <li><a href="https://wa.me/905386999666" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="#iletisim">Bakırköy / İstanbul</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>© 2026 TasarımMania. Tüm hakları saklıdır.</span>
+      <span>Yeni site konsepti — demo sürümü</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905386999666" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script>
+(function(){
+"use strict";
+var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---- nav ---- */
+var nav = document.getElementById('nav');
+var onScroll = function(){ nav.classList.toggle('scrolled', window.scrollY > 30); };
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+var burger = document.getElementById('burger'), links = document.getElementById('navLinks');
+burger.addEventListener('click', function(){ links.classList.toggle('open'); });
+links.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ links.classList.remove('open'); }); });
+
+/* ---- reveal ---- */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.18, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('[data-reveal]').forEach(function(el){ io.observe(el); });
+
+/* ---- counters ---- */
+var cio = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(!e.isIntersecting) return;
+    var el = e.target, to = +el.dataset.to, t0 = null, dur = 1600;
+    cio.unobserve(el);
+    if(reduced){ el.textContent = to; return; }
+    var tick = function(ts){
+      if(!t0) t0 = ts;
+      var p = Math.min((ts - t0)/dur, 1);
+      el.textContent = Math.round(to * (1 - Math.pow(1-p, 3)));
+      if(p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+},{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(function(el){ cio.observe(el); });
+
+/* ---- gauges ---- */
+var C = 2 * Math.PI * 54;
+var gio = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(!e.isIntersecting) return;
+    var g = e.target, p = +g.dataset.gauge / 100;
+    g.style.setProperty('--off', (C * (1 - p)).toFixed(1));
+    g.classList.add('in'); gio.unobserve(g);
+  });
+},{threshold:.5});
+document.querySelectorAll('[data-gauge]').forEach(function(el){ gio.observe(el); });
+
+/* ---- process line ---- */
+var steps = document.getElementById('steps');
+if(steps){
+  var sio = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ steps.classList.add('in'); sio.unobserve(steps); } });
+  },{threshold:.35});
+  sio.observe(steps);
+}
+
+/* ---- hero parallax ---- */
+var scene = document.getElementById('scene');
+if(scene && !reduced && matchMedia('(pointer:fine)').matches){
+  var lyrs = scene.querySelectorAll('.lyr');
+  document.getElementById('hero').addEventListener('mousemove', function(ev){
+    var r = scene.getBoundingClientRect();
+    var x = (ev.clientX - r.left - r.width/2) / r.width;
+    var y = (ev.clientY - r.top - r.height/2) / r.height;
+    lyrs.forEach(function(l){
+      var d = +l.dataset.depth || 20;
+      l.style.transform = 'translate3d(' + (-x*d) + 'px,' + (-y*d) + 'px,0)';
+    });
+  });
+}
+
+/* ---- pillar tilt ---- */
+if(!reduced && matchMedia('(pointer:fine)').matches){
+  document.querySelectorAll('.tilt').forEach(function(card){
+    card.addEventListener('mousemove', function(ev){
+      var r = card.getBoundingClientRect();
+      var x = (ev.clientX - r.left)/r.width - .5, y = (ev.clientY - r.top)/r.height - .5;
+      card.style.transform = 'perspective(900px) rotateY(' + (x*7) + 'deg) rotateX(' + (-y*7) + 'deg)';
+    });
+    card.addEventListener('mouseleave', function(){ card.style.transform = ''; });
+  });
+}
+
+/* ---- portfolio filter ---- */
+var fbtns = document.querySelectorAll('.fbtn');
+fbtns.forEach(function(b){
+  b.addEventListener('click', function(){
+    fbtns.forEach(function(x){ x.classList.remove('act'); });
+    b.classList.add('act');
+    var f = b.dataset.filter;
+    document.querySelectorAll('.work').forEach(function(w){
+      w.classList.toggle('hide', f !== 'all' && w.dataset.cat !== f);
+    });
+  });
+});
+
+/* ---- form (demo) ---- */
+var form = document.getElementById('quoteForm');
+form.addEventListener('submit', function(ev){
+  ev.preventDefault();
+  form.classList.add('sent');
+});
+
+/* ---- marquee: içerik ikiye katla ---- */
+var mtrack = document.getElementById('mtrack');
+mtrack.innerHTML += mtrack.innerHTML;
+
+/* ---- hero particle canvas ---- */
+var cv = document.getElementById('fx');
+if(cv && !reduced){
+  var ctx = cv.getContext('2d'), pts = [], running = true, W, H;
+  var resize = function(){
+    W = cv.width = cv.offsetWidth * devicePixelRatio;
+    H = cv.height = cv.offsetHeight * devicePixelRatio;
+  };
+  resize(); window.addEventListener('resize', resize);
+  var N = Math.min(70, Math.floor(cv.offsetWidth / 18));
+  for(var i=0;i<N;i++){
+    pts.push({x:Math.random()*1, y:Math.random()*1,
+      vx:(Math.random()-.5)*.0006, vy:(Math.random()-.5)*.0006,
+      r:(Math.random()*1.4+.6)});
+  }
+  var draw = function(){
+    if(!running){ requestAnimationFrame(draw); return; }
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<pts.length;i++){
+      var p = pts[i];
+      p.x += p.vx; p.y += p.vy;
+      if(p.x<0||p.x>1) p.vx*=-1;
+      if(p.y<0||p.y>1) p.vy*=-1;
+      ctx.beginPath();
+      ctx.arc(p.x*W, p.y*H, p.r*devicePixelRatio, 0, 7);
+      ctx.fillStyle = 'rgba(34,211,238,.55)';
+      ctx.fill();
+      for(var j=i+1;j<pts.length;j++){
+        var q = pts[j], dx=(p.x-q.x)*W, dy=(p.y-q.y)*H, d2=dx*dx+dy*dy;
+        var max = 130*devicePixelRatio;
+        if(d2 < max*max){
+          ctx.beginPath();
+          ctx.moveTo(p.x*W, p.y*H); ctx.lineTo(q.x*W, q.y*H);
+          ctx.strokeStyle = 'rgba(79,141,253,' + (0.16*(1 - Math.sqrt(d2)/max)).toFixed(3) + ')';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  };
+  new IntersectionObserver(function(en){ running = en[0].isIntersecting; })
+    .observe(document.getElementById('hero'));
+  draw();
+}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,2451 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TasarımMania — 360 Derece Dijital Prodüksiyon Stüdyosu | İstanbul</title>
+<meta name="description" content="TasarımMania; web tasarım & yazılım, mobil uygulama, dijital pazarlama, video prodüksiyon ve SEO hizmetlerini tek çatı altında birleştiren İstanbul merkezli 360 derece dijital ajans.">
+<meta name="theme-color" content="#050505">
+<meta name="author" content="TasarımMania">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="TasarımMania — Beğenilen değil, satan işler.">
+<meta property="og:description" content="Web, mobil, reklam, video ve SEO'yu tek çatı altında kuran 360 derece dijital prodüksiyon stüdyosu. Bakırköy / İstanbul.">
+<meta property="og:url" content="https://www.tasarimmania.com/">
+<meta property="og:image" content="https://www.tasarimmania.com/og-kapak.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TasarımMania — 360 derece dijital prodüksiyon stüdyosu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TasarımMania — Beğenilen değil, satan işler.">
+<meta name="twitter:description" content="360 derece dijital prodüksiyon stüdyosu. İstanbul.">
+<meta name="twitter:image" content="https://www.tasarimmania.com/og-kapak.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050505'/%3E%3Cpath d='M10 46 L22 18 L32 40 L42 18 L54 46' fill='none' stroke='%23D6FF3E' stroke-width='7' stroke-linejoin='miter' stroke-linecap='butt'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "TasarımMania",
+  "description": "İstanbul merkezli 360 derece dijital prodüksiyon stüdyosu.",
+  "telephone": "+905386999666",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+    "addressLocality": "Bakırköy",
+    "addressRegion": "İstanbul",
+    "addressCountry": "TR"
+  },
+  "openingHours": ["Mo-Fr 09:00-19:00", "Sa 10:00-16:00"],
+  "areaServed": "Global",
+  "makesOffer": [
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Web Tasarım & Yazılım"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Mobil Uygulama"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Dijital Pazarlama"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Video Prodüksiyon"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"SEO Hizmetleri"}}
+  ]
+}
+</script>
+<style>
+/* ============================================================
+   NOIR SHADER — TasarımMania konsept 01
+   Tokenlar, tipografi ölçeği, kılcal çizgi sistemi
+   ============================================================ */
+:root{
+  --bg:#050505;
+  --bg-2:#0A0A0B;
+  --fg:#E8E4DC;
+  --fg-dim:#8A8A86;
+  --fg-mute:#5A5A56;
+  --acid:#D6FF3E;
+  --acid-dim:#8FA82A;
+  --hair:#1C1C1E;
+  --hair-2:#2A2A2D;
+  --max:1440px;
+  --pad:clamp(20px, 5vw, 80px);
+  --f-mono:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --f-body:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-disp:'Anton', 'Inter', system-ui, sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:clip; scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+body{
+  margin:0; padding:0;
+  background:var(--bg); color:var(--fg);
+  font-family:var(--f-body); font-weight:300;
+  font-size:clamp(15px,1.05vw,17px); line-height:1.65;
+  overflow-x:clip;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img,svg,canvas{max-width:100%; display:block}
+a{color:inherit; text-decoration:none}
+button{font:inherit; color:inherit; background:none; border:none; cursor:pointer}
+::selection{background:var(--acid); color:#050505}
+
+/* --- Kılcal ızgara yardımcıları --- */
+.wrap{max-width:var(--max); margin-inline:auto; padding-inline:var(--pad); width:100%}
+.hair-t{border-top:1px solid var(--hair)}
+.hair-b{border-bottom:1px solid var(--hair)}
+
+/* --- Mono etiket --- */
+.lab{
+  font-family:var(--f-mono); font-size:11px; font-weight:400;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--fg-mute);
+  display:inline-flex; align-items:center; gap:10px;
+}
+.lab::before{content:''; width:22px; height:1px; background:var(--acid); flex:none}
+.lab.no-dash::before{display:none}
+
+/* --- Başlıklar --- */
+.h-xl{
+  font-family:var(--f-disp); font-weight:400;
+  font-size:clamp(60px, 11vw, 190px);
+  line-height:.86; letter-spacing:-.02em; text-transform:uppercase;
+  margin:0;
+}
+.h-lg{
+  font-family:var(--f-disp); font-weight:400;
+  font-size:clamp(34px, 5.6vw, 84px);
+  line-height:.94; letter-spacing:-.015em; text-transform:uppercase;
+  margin:0;
+}
+.h-md{
+  font-family:var(--f-disp); font-weight:400;
+  font-size:clamp(24px, 3vw, 42px);
+  line-height:1.02; letter-spacing:-.01em; text-transform:uppercase;
+  margin:0;
+}
+.acid{color:var(--acid)}
+.outline{
+  color:transparent;
+  -webkit-text-stroke:1px var(--fg-mute);
+}
+
+/* --- Grain / film gürültüsü --- */
+.grain{
+  position:fixed; inset:-50%; z-index:9000; pointer-events:none;
+  opacity:.045; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grainShift .6s steps(4) infinite;
+}
+@keyframes grainShift{
+  0%{transform:translate(0,0)}
+  25%{transform:translate(-3%,2%)}
+  50%{transform:translate(2%,-3%)}
+  75%{transform:translate(-2%,-2%)}
+  100%{transform:translate(3%,1%)}
+}
+
+/* ============================================================
+   ÖZEL İMLEÇ
+   ============================================================ */
+.cursor,.cursor-dot{
+  position:fixed; top:0; left:0; z-index:9500; pointer-events:none;
+  border-radius:50%; will-change:transform; display:none;
+}
+.cursor{
+  width:34px; height:34px; margin:-17px 0 0 -17px;
+  border:1px solid var(--acid);
+  transition:width .3s var(--ease), height .3s var(--ease), margin .3s var(--ease), background-color .3s var(--ease), opacity .3s;
+  display:none; align-items:center; justify-content:center;
+}
+.cursor-dot{width:4px; height:4px; margin:-2px 0 0 -2px; background:var(--acid); transition:opacity .3s}
+.cursor .c-label{
+  font-family:var(--f-mono); font-size:9px; letter-spacing:.14em;
+  text-transform:uppercase; color:#050505; opacity:0; transition:opacity .2s; white-space:nowrap;
+}
+.cursor.is-big{
+  width:96px; height:96px; margin:-48px 0 0 -48px;
+  background:var(--acid); border-color:var(--acid);
+}
+.cursor.is-big .c-label{opacity:1}
+.cursor.is-big + .cursor-dot{opacity:0}
+@media (hover:hover) and (pointer:fine){
+  .cursor,.cursor-dot{display:flex}
+  body.cursor-on{cursor:none}
+  body.cursor-on a,body.cursor-on button{cursor:none}
+  /* Klavye moduna geçildiğinde native imleç geri gelir; çiziklerimizi de saklarız */
+  body:not(.cursor-on) .cursor,body:not(.cursor-on) .cursor-dot{opacity:0}
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  border-bottom:1px solid transparent;
+  transition:background-color .45s var(--ease), border-color .45s var(--ease), backdrop-filter .45s;
+}
+.nav.stuck{background:rgba(5,5,5,.82); backdrop-filter:blur(14px); border-bottom-color:var(--hair)}
+.nav-in{
+  max-width:var(--max); margin-inline:auto; padding:0 var(--pad);
+  height:74px; display:flex; align-items:center; justify-content:space-between; gap:24px;
+}
+.brand{display:flex; align-items:center; gap:11px; flex:none}
+.brand svg{width:26px; height:26px; flex:none}
+.brand b{
+  font-family:var(--f-disp); font-weight:400; font-size:20px;
+  letter-spacing:.01em; text-transform:uppercase; line-height:1;
+}
+.brand b i{font-style:normal; color:var(--acid)}
+.nav-links{display:flex; align-items:center; gap:30px}
+.nav-links a{
+  font-family:var(--f-mono); font-size:11.5px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--fg-dim); position:relative; padding:6px 0;
+  transition:color .3s;
+}
+.nav-links a::after{
+  content:''; position:absolute; left:0; bottom:0; width:0; height:1px;
+  background:var(--acid); transition:width .35s var(--ease);
+}
+.nav-links a:hover{color:var(--fg)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex; align-items:center; gap:14px; flex:none}
+.nav-tel{
+  font-family:var(--f-mono); font-size:11.5px; letter-spacing:.1em; color:var(--fg-dim);
+  transition:color .3s; white-space:nowrap;
+}
+.nav-tel:hover{color:var(--acid)}
+.burger{
+  display:none; width:42px; height:42px; border:1px solid var(--hair-2);
+  align-items:center; justify-content:center; flex-direction:column; gap:5px; flex:none;
+}
+.burger span{display:block; width:17px; height:1px; background:var(--fg); transition:transform .35s var(--ease), opacity .25s}
+.burger.on span:nth-child(1){transform:translateY(3px) rotate(45deg)}
+.burger.on span:nth-child(2){opacity:0}
+.burger.on span:nth-child(3){transform:translateY(-3px) rotate(-45deg)}
+
+/* --- Butonlar --- */
+.btn{
+  position:relative; display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:15px 26px; border-radius:0; border:1px solid var(--acid);
+  background:var(--acid); color:#050505;
+  font-family:var(--f-mono); font-size:11.5px; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase; white-space:nowrap;
+  overflow:hidden; will-change:transform;
+  transition:transform .45s cubic-bezier(.2,1.2,.3,1), background-color .3s, color .3s;
+}
+.btn span{position:relative; z-index:2; display:block; will-change:transform}
+.btn::before{
+  content:''; position:absolute; inset:0; background:#050505; z-index:1;
+  transform:translateY(101%); transition:transform .45s var(--ease);
+}
+.btn:hover::before{transform:translateY(0)}
+.btn:hover{color:var(--acid)}
+.btn.ghost{background:transparent; color:var(--fg); border-color:var(--hair-2)}
+.btn.ghost::before{background:var(--fg)}
+.btn.ghost:hover{color:#050505; border-color:var(--fg)}
+.btn.sm{padding:12px 20px; font-size:10.5px}
+.btn:focus-visible{outline:2px solid var(--acid); outline-offset:3px}
+
+/* --- Mobil menü --- */
+.mmenu{
+  position:fixed; inset:0; z-index:999; background:var(--bg-2);
+  display:flex; flex-direction:column; justify-content:center; padding:90px var(--pad) 40px;
+  transform:translateY(-100%); transition:transform .6s var(--ease), visibility .6s; overflow-y:auto;
+  visibility:hidden;
+}
+.mmenu.open{transform:translateY(0); visibility:visible}
+.mmenu a.ml{
+  font-family:var(--f-disp); font-size:clamp(30px,9vw,54px); text-transform:uppercase;
+  line-height:1; padding:16px 0; border-bottom:1px solid var(--hair); display:flex;
+  align-items:baseline; gap:14px; color:var(--fg);
+}
+.mmenu a.ml em{font-family:var(--f-mono); font-size:11px; font-style:normal; color:var(--acid)}
+.mmenu .m-foot{margin-top:32px; display:flex; flex-direction:column; gap:14px}
+.mmenu .m-foot .btn{width:100%}
+.mmenu .m-foot p{margin:0; font-family:var(--f-mono); font-size:11px; color:var(--fg-mute); letter-spacing:.08em}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative; min-height:100svh; display:flex; flex-direction:column;
+  justify-content:flex-end; overflow:hidden; padding-top:110px;
+}
+.hero-canvas,.hero-fallback{position:absolute; inset:0; width:100%; height:100%; z-index:0}
+.hero-fallback{
+  background:
+    radial-gradient(120% 90% at 20% 15%, rgba(214,255,62,.10), transparent 60%),
+    radial-gradient(100% 80% at 80% 70%, rgba(214,255,62,.05), transparent 55%),
+    linear-gradient(160deg,#08080A 0%,#0E0F12 45%,#050505 100%);
+  animation:heroDrift 18s ease-in-out infinite alternate;
+}
+@keyframes heroDrift{
+  0%{filter:hue-rotate(0deg) saturate(1)}
+  100%{filter:hue-rotate(-12deg) saturate(1.25)}
+}
+.hero-veil{
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(180deg, rgba(5,5,5,.72) 0%, rgba(5,5,5,.15) 32%, rgba(5,5,5,.55) 72%, #050505 100%);
+}
+.hero-in{position:relative; z-index:2; width:100%; padding-bottom:clamp(28px,4vw,52px)}
+.hero-top{
+  display:flex; justify-content:space-between; align-items:flex-start; gap:24px;
+  flex-wrap:wrap; margin-bottom:clamp(28px,6vw,70px);
+}
+.hero-top .col{max-width:340px}
+.hero-top p{margin:10px 0 0; font-size:14px; color:var(--fg-dim); line-height:1.6}
+.hero-title{margin:0 0 clamp(22px,3vw,34px)}
+.hero-title .ln{display:block; overflow:hidden; padding-bottom:.04em}
+.ch{display:inline-block; overflow:hidden; vertical-align:top}
+.ch > i{
+  display:inline-block; font-style:normal; transform:translateY(105%);
+  transition:transform .9s cubic-bezier(.16,1,.3,1);
+}
+.hero-title.go .ch > i{transform:translateY(0)}
+.hero-sub{
+  max-width:620px; margin:0 0 clamp(26px,3.4vw,40px);
+  font-size:clamp(15px,1.4vw,19px); color:#B6B3AC; line-height:1.62;
+  opacity:0; transform:translateY(16px); transition:opacity .9s .55s var(--ease), transform .9s .55s var(--ease);
+}
+.hero-sub.go{opacity:1; transform:none}
+.hero-actions{
+  display:flex; gap:14px; flex-wrap:wrap; align-items:center;
+  opacity:0; transform:translateY(16px); transition:opacity .9s .7s var(--ease), transform .9s .7s var(--ease);
+}
+.hero-actions.go{opacity:1; transform:none}
+.hero-micro{
+  font-family:var(--f-mono); font-size:10.5px; letter-spacing:.1em; color:var(--fg-mute);
+  text-transform:uppercase;
+}
+.hero-meta{
+  display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;
+  border-top:1px solid var(--hair); margin-top:clamp(30px,4vw,48px); padding-top:16px;
+}
+.hero-meta .m{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.13em; color:var(--fg-mute); text-transform:uppercase}
+.hero-meta .m b{color:var(--acid); font-weight:400}
+.scroll-hint{
+  position:absolute; left:var(--pad); bottom:18px; z-index:3;
+  font-family:var(--f-mono); font-size:10px; letter-spacing:.2em; color:var(--fg-mute);
+  writing-mode:vertical-rl; display:flex; align-items:center; gap:10px;
+}
+.scroll-hint::after{content:''; width:1px; height:44px; background:linear-gradient(var(--acid),transparent); animation:sd 2.2s infinite}
+@keyframes sd{0%{transform:scaleY(.2); transform-origin:top}50%{transform:scaleY(1); transform-origin:top}51%{transform:scaleY(1); transform-origin:bottom}100%{transform:scaleY(.2); transform-origin:bottom}}
+
+/* ============================================================
+   ORTAK BÖLÜM ÇATISI
+   ============================================================ */
+section{position:relative}
+.sec{padding:clamp(70px,9vw,140px) 0; border-top:1px solid var(--hair)}
+.sec-head{display:flex; justify-content:space-between; align-items:flex-end; gap:28px; flex-wrap:wrap; margin-bottom:clamp(34px,5vw,64px)}
+.sec-head .left{max-width:760px}
+.sec-head .lab{margin-bottom:18px}
+.sec-head p.intro{margin:18px 0 0; max-width:560px; color:var(--fg-dim); font-size:15.5px}
+.sec-idx{font-family:var(--f-mono); font-size:11px; letter-spacing:.16em; color:var(--fg-mute)}
+
+/* Kelime kelime açılım */
+.rv .w{display:inline-block; overflow:hidden; vertical-align:top}
+.rv .w > i{display:inline-block; font-style:normal; transform:translateY(110%); opacity:0; transition:transform .8s cubic-bezier(.16,1,.3,1), opacity .8s}
+.rv.in .w > i{transform:translateY(0); opacity:1}
+.fade{opacity:0; transform:translateY(24px); transition:opacity .8s var(--ease), transform .8s var(--ease)}
+.fade.in{opacity:1; transform:none}
+
+/* ============================================================
+   GÜVEN ŞERİDİ
+   ============================================================ */
+.trust{overflow:hidden; border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); background:#070708}
+.trust-top{
+  display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
+  padding:20px var(--pad); max-width:var(--max); margin-inline:auto; border-bottom:1px solid var(--hair);
+}
+.trust-top .claim{font-family:var(--f-mono); font-size:12px; letter-spacing:.06em; color:var(--fg-dim)}
+.trust-top .claim b{color:var(--acid); font-weight:500}
+.marquee{overflow:hidden; padding:18px 0; -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq-track{display:flex; width:max-content; gap:0; animation:mq 38s linear infinite}
+.marquee:hover .mq-track{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.mq-item{
+  display:flex; align-items:center; gap:12px; padding:0 34px; flex:none;
+  font-family:var(--f-mono); font-size:12.5px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--fg-mute); white-space:nowrap;
+}
+.mq-item i{width:5px; height:5px; background:var(--acid); flex:none; display:block}
+
+/* ============================================================
+   SORUN BLOĞU
+   ============================================================ */
+.pain{display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,4vw,70px); align-items:start}
+.pain-list{display:flex; flex-direction:column; border-top:1px solid var(--hair)}
+.pain-item{display:flex; gap:18px; padding:22px 0; border-bottom:1px solid var(--hair)}
+.pain-item .n{font-family:var(--f-mono); font-size:11px; color:var(--acid); flex:none; padding-top:4px; letter-spacing:.1em}
+.pain-item h3{margin:0 0 6px; font-family:var(--f-body); font-weight:500; font-size:17px; letter-spacing:-.01em}
+.pain-item p{margin:0; color:var(--fg-dim); font-size:14.5px}
+
+/* ============================================================
+   HİZMETLER — büyük numaralı satırlar + canlı canvas
+   ============================================================ */
+.svc-grid{display:grid; grid-template-columns:1fr 400px; gap:clamp(24px,4vw,60px); align-items:start}
+.svc-rows{border-top:1px solid var(--hair-2)}
+.svc-row{
+  position:relative; display:block; width:100%; text-align:left;
+  border-bottom:1px solid var(--hair-2); padding:clamp(18px,2.2vw,26px) 0;
+  transition:padding-left .5s var(--ease);
+}
+.svc-row::before{
+  content:''; position:absolute; left:0; top:0; bottom:0; width:2px; background:var(--acid);
+  transform:scaleY(0); transform-origin:bottom; transition:transform .5s var(--ease);
+}
+.svc-row.act::before{transform:scaleY(1); transform-origin:top}
+.svc-row.act{padding-left:20px}
+.svc-head{display:flex; align-items:baseline; gap:clamp(14px,2vw,28px)}
+.svc-num{
+  font-family:var(--f-mono); font-size:11.5px; letter-spacing:.14em; color:var(--fg-mute);
+  flex:none; width:34px; transition:color .4s;
+}
+.svc-row.act .svc-num{color:var(--acid)}
+.svc-name{
+  font-family:var(--f-disp); font-weight:400; text-transform:uppercase;
+  font-size:clamp(22px,3.4vw,50px); line-height:1; letter-spacing:-.012em;
+  color:var(--fg-mute); transition:color .45s var(--ease), transform .45s var(--ease);
+  flex:1; min-width:0;
+}
+.svc-row.act .svc-name{color:var(--fg)}
+.svc-plus{
+  flex:none; width:26px; height:26px; position:relative; align-self:center;
+  border:1px solid var(--hair-2); transition:border-color .4s, transform .5s var(--ease);
+}
+.svc-plus::before,.svc-plus::after{
+  content:''; position:absolute; left:50%; top:50%; background:var(--fg-mute); transition:background-color .4s, transform .5s var(--ease);
+}
+.svc-plus::before{width:9px; height:1px; transform:translate(-50%,-50%)}
+.svc-plus::after{width:1px; height:9px; transform:translate(-50%,-50%)}
+.svc-row.act .svc-plus{border-color:var(--acid); transform:rotate(90deg)}
+.svc-row.act .svc-plus::before,.svc-row.act .svc-plus::after{background:var(--acid)}
+.svc-row.act .svc-plus::after{transform:translate(-50%,-50%) scaleY(0)}
+.svc-body{
+  display:grid; grid-template-rows:0fr; transition:grid-template-rows .55s var(--ease), opacity .45s;
+  opacity:0;
+}
+.svc-row.act .svc-body{grid-template-rows:1fr; opacity:1}
+.svc-body > div{overflow:hidden}
+.svc-body .inner{padding:16px 0 4px 0; padding-left:clamp(0px,3vw,62px); max-width:620px}
+.svc-body p{margin:0 0 14px; color:var(--fg-dim); font-size:14.8px; line-height:1.6}
+.svc-tags{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px}
+.svc-tags span{
+  font-family:var(--f-mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+  padding:5px 10px; border:1px solid var(--hair-2); color:var(--fg-dim);
+}
+.svc-link{
+  font-family:var(--f-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--acid); display:inline-flex; gap:8px; align-items:center;
+}
+.svc-link i{font-style:normal; transition:transform .35s var(--ease); display:inline-block}
+.svc-link:hover i{transform:translateX(5px)}
+/* Canlı önizleme paneli */
+.svc-view{position:sticky; top:100px; border:1px solid var(--hair-2); background:#08080A}
+.svc-view-top{display:flex; justify-content:space-between; align-items:center; padding:11px 14px; border-bottom:1px solid var(--hair)}
+.svc-view-top span{font-family:var(--f-mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--fg-mute)}
+.svc-view-top span.live{color:var(--acid); display:inline-flex; align-items:center; gap:7px}
+.svc-view-top span.live::before{content:''; width:5px; height:5px; border-radius:50%; background:var(--acid); animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+#svcCanvas{width:100%; height:300px; display:block}
+.svc-view-foot{padding:13px 14px; border-top:1px solid var(--hair)}
+.svc-view-foot h4{margin:0 0 4px; font-family:var(--f-mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--fg)}
+.svc-view-foot p{margin:0; font-size:12.5px; color:var(--fg-mute); line-height:1.5}
+
+/* ============================================================
+   NEDEN BİZ
+   ============================================================ */
+.why{display:grid; grid-template-columns:repeat(12,1fr); gap:0; border-top:1px solid var(--hair); border-left:1px solid var(--hair)}
+.why-c{grid-column:span 3; border-right:1px solid var(--hair); border-bottom:1px solid var(--hair); padding:clamp(22px,2.2vw,34px); min-height:220px; display:flex; flex-direction:column; position:relative; overflow:hidden}
+.why-c.wide{grid-column:span 6; min-height:250px}
+.why-c::after{content:''; position:absolute; left:0; right:0; bottom:0; height:1px; background:var(--acid); transform:scaleX(0); transform-origin:left; transition:transform .6s var(--ease)}
+.why-c:hover::after{transform:scaleX(1)}
+.why-c .k{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.16em; color:var(--acid); margin-bottom:auto}
+.why-c h3{margin:26px 0 10px; font-family:var(--f-disp); font-weight:400; text-transform:uppercase; font-size:clamp(19px,1.9vw,28px); line-height:1.04; letter-spacing:-.01em}
+.why-c p{margin:0; color:var(--fg-dim); font-size:14.2px; line-height:1.58}
+
+/* ============================================================
+   RAKAMLAR
+   ============================================================ */
+.stats{display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--hair); border-left:1px solid var(--hair)}
+.stat{border-right:1px solid var(--hair); border-bottom:1px solid var(--hair); padding:clamp(24px,3vw,40px) clamp(18px,2vw,28px)}
+.stat .num{
+  font-family:var(--f-disp); font-weight:400; font-size:clamp(38px,5.4vw,78px);
+  line-height:.9; letter-spacing:-.02em; color:var(--fg); display:flex; align-items:baseline;
+}
+.stat .num em{font-style:normal; color:var(--acid); font-size:.5em; margin-left:4px}
+.stat .cap{margin-top:14px; font-family:var(--f-mono); font-size:10.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--fg-mute); line-height:1.6}
+.bars{display:flex; gap:3px; align-items:flex-end; height:38px; margin-top:16px}
+.bars i{display:block; flex:1; background:var(--hair-2); transition:height .9s var(--ease), background-color .5s}
+.stat.in .bars i{background:var(--acid-dim)}
+
+/* ============================================================
+   İŞLER
+   ============================================================ */
+.works{border-top:1px solid var(--hair-2)}
+.work{
+  display:grid; grid-template-columns:52px 1.6fr 1fr auto; gap:clamp(14px,2vw,30px);
+  align-items:center; padding:clamp(18px,2vw,26px) 0; border-bottom:1px solid var(--hair-2);
+  position:relative; transition:padding-left .45s var(--ease), background-color .45s;
+}
+.work:hover{padding-left:16px; background:#08080A}
+.work .wn{font-family:var(--f-mono); font-size:11px; color:var(--fg-mute); letter-spacing:.1em}
+.work .wt{min-width:0}
+.work .wt h3{margin:0 0 5px; font-family:var(--f-disp); font-weight:400; text-transform:uppercase; font-size:clamp(19px,2.2vw,32px); line-height:1.02; letter-spacing:-.01em; transition:color .35s}
+.work:hover .wt h3{color:var(--acid)}
+.work .wt p{margin:0; font-size:13.5px; color:var(--fg-mute)}
+.work .wtags{display:flex; flex-wrap:wrap; gap:6px}
+.work .wtags span{font-family:var(--f-mono); font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--fg-mute); border:1px solid var(--hair-2); padding:4px 8px}
+.work .wres{text-align:right; white-space:nowrap}
+.work .wres b{display:block; font-family:var(--f-disp); font-weight:400; font-size:clamp(20px,2.4vw,34px); color:var(--acid); line-height:1}
+.work .wres span{font-family:var(--f-mono); font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--fg-mute)}
+
+/* ============================================================
+   SÜREÇ
+   ============================================================ */
+.proc{display:grid; grid-template-columns:repeat(5,1fr); border-top:1px solid var(--hair); border-left:1px solid var(--hair)}
+.step{border-right:1px solid var(--hair); border-bottom:1px solid var(--hair); padding:clamp(22px,2.4vw,32px); position:relative}
+.step .sn{font-family:var(--f-disp); font-size:clamp(30px,4vw,56px); line-height:1; color:var(--hair-2); transition:color .5s}
+.step:hover .sn{color:var(--acid)}
+.step h3{margin:16px 0 8px; font-family:var(--f-body); font-weight:500; font-size:16px; letter-spacing:-.01em}
+.step p{margin:0 0 14px; color:var(--fg-dim); font-size:13.6px; line-height:1.55}
+.step .sd{font-family:var(--f-mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--acid)}
+
+/* ============================================================
+   YORUMLAR
+   ============================================================ */
+.quotes{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--hair); border-left:1px solid var(--hair)}
+.q{border-right:1px solid var(--hair); border-bottom:1px solid var(--hair); padding:clamp(24px,2.8vw,38px); display:flex; flex-direction:column}
+.q .qm{font-family:var(--f-disp); font-size:44px; line-height:.6; color:var(--acid); margin-bottom:20px}
+.q blockquote{margin:0 0 auto; font-size:16px; line-height:1.62; color:#CFCCC5}
+.q figcaption{margin-top:26px; padding-top:16px; border-top:1px solid var(--hair)}
+.q figcaption b{display:block; font-weight:500; font-size:14.5px}
+.q figcaption span{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.1em; color:var(--fg-mute); text-transform:uppercase}
+
+/* ============================================================
+   CTA BANDI
+   ============================================================ */
+.band{position:relative; overflow:hidden; border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); background:#070708}
+.band-in{padding:clamp(56px,7vw,110px) 0; position:relative; z-index:2; text-align:center}
+.band h2{margin:0 auto 22px; max-width:16ch}
+.band p{margin:0 auto 32px; max-width:56ch; color:var(--fg-dim); font-size:15.5px}
+.band-actions{display:flex; gap:14px; justify-content:center; flex-wrap:wrap}
+.band-bg{position:absolute; inset:0; z-index:0; opacity:.5}
+.band-bg canvas{width:100%; height:100%; display:block}
+.band-note{margin-top:22px; font-family:var(--f-mono); font-size:10.5px; letter-spacing:.1em; color:var(--fg-mute); text-transform:uppercase}
+
+/* ============================================================
+   SSS / İTİRAZLAR
+   ============================================================ */
+.faq{border-top:1px solid var(--hair-2)}
+.faq-i{border-bottom:1px solid var(--hair-2)}
+.faq-q{
+  width:100%; display:flex; justify-content:space-between; align-items:center; gap:20px;
+  padding:20px 0; text-align:left; font-size:16.5px; font-weight:400; transition:color .3s;
+}
+.faq-q:hover{color:var(--acid)}
+.faq-q .fi{flex:none; width:22px; height:22px; position:relative; border:1px solid var(--hair-2); transition:border-color .3s}
+.faq-q .fi::before,.faq-q .fi::after{content:''; position:absolute; left:50%; top:50%; background:var(--fg-dim); transition:transform .4s var(--ease), background-color .3s}
+.faq-q .fi::before{width:8px; height:1px; transform:translate(-50%,-50%)}
+.faq-q .fi::after{width:1px; height:8px; transform:translate(-50%,-50%)}
+.faq-i.open .faq-q{color:var(--acid)}
+.faq-i.open .fi{border-color:var(--acid)}
+.faq-i.open .fi::before,.faq-i.open .fi::after{background:var(--acid)}
+.faq-i.open .fi::after{transform:translate(-50%,-50%) scaleY(0)}
+.faq-a{display:grid; grid-template-rows:0fr; transition:grid-template-rows .5s var(--ease)}
+.faq-i.open .faq-a{grid-template-rows:1fr}
+.faq-a > div{overflow:hidden}
+.faq-a p{margin:0 0 22px; max-width:70ch; color:var(--fg-dim); font-size:14.8px; line-height:1.62}
+
+/* ============================================================
+   İLETİŞİM + FORM
+   ============================================================ */
+.contact{display:grid; grid-template-columns:1fr 1.15fr; gap:clamp(30px,5vw,80px); align-items:start}
+.cinfo .cblock{border-top:1px solid var(--hair); padding:20px 0}
+.cinfo .cblock .lab{margin-bottom:10px}
+.cinfo .cblock p{margin:0; font-size:15.5px; line-height:1.6; color:#CFCCC5}
+.cinfo .cblock a{transition:color .3s}
+.cinfo .cblock a:hover{color:var(--acid)}
+.cinfo .big-tel{font-family:var(--f-disp); font-size:clamp(28px,3.4vw,46px); text-transform:uppercase; letter-spacing:-.01em; display:inline-block; line-height:1}
+.cinfo .big-tel:hover{color:var(--acid)}
+
+.form{border:1px solid var(--hair-2); padding:clamp(22px,3vw,38px); background:#08080A; position:relative; overflow:hidden}
+.form-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+.field{display:flex; flex-direction:column; gap:7px}
+.field.full{grid-column:1 / -1}
+.field label{font-family:var(--f-mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--fg-mute)}
+.field input,.field select,.field textarea{
+  width:100%; background:transparent; border:none; border-bottom:1px solid var(--hair-2);
+  color:var(--fg); font-family:var(--f-body); font-size:15px; font-weight:300;
+  padding:11px 0; border-radius:0; transition:border-color .3s;
+}
+.field select{ -webkit-appearance:none; appearance:none; cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,var(--fg-mute) 50%),linear-gradient(135deg,var(--fg-mute) 50%,transparent 50%);
+  background-position:calc(100% - 12px) 20px, calc(100% - 7px) 20px; background-size:5px 5px,5px 5px; background-repeat:no-repeat;
+}
+.field select option{background:#0A0A0B; color:var(--fg)}
+.field textarea{resize:vertical; min-height:88px; line-height:1.55}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none; border-bottom-color:var(--acid)}
+.field input::placeholder,.field textarea::placeholder{color:#3E3E3B}
+.field.err input,.field.err select,.field.err textarea{border-bottom-color:#FF5C39}
+.err-msg{font-family:var(--f-mono); font-size:9.5px; letter-spacing:.08em; color:#FF5C39; display:none}
+.field.err .err-msg{display:block}
+.form-foot{margin-top:26px; display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap}
+.form-foot .fnote{font-family:var(--f-mono); font-size:10px; letter-spacing:.08em; color:var(--fg-mute); max-width:34ch; line-height:1.6; text-transform:uppercase}
+.form .btn{width:auto}
+.form-ok{
+  position:absolute; inset:0; background:#08080A; z-index:5;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+  padding:36px 24px; opacity:0; visibility:hidden; transition:opacity .5s var(--ease), visibility .5s;
+}
+.form-ok.show{opacity:1; visibility:visible}
+.form-ok .tick{
+  width:64px; height:64px; border:1px solid var(--acid); display:flex; align-items:center; justify-content:center;
+  margin-bottom:24px;
+}
+.form-ok .tick svg{width:26px; height:26px}
+.form-ok h3{margin:0 0 12px; font-family:var(--f-disp); font-weight:400; text-transform:uppercase; font-size:clamp(24px,3vw,38px); line-height:1}
+.form-ok p{margin:0 0 24px; color:var(--fg-dim); font-size:14.5px; max-width:44ch}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot{border-top:1px solid var(--hair); padding-top:clamp(46px,6vw,80px); padding-bottom:120px; position:relative; overflow:hidden}
+.foot-mark{
+  font-family:var(--f-disp); font-size:clamp(40px,12.5vw,190px); line-height:.82; text-transform:uppercase;
+  letter-spacing:-.02em; color:transparent; -webkit-text-stroke:1px var(--hair-2); margin:0 0 clamp(30px,4vw,54px);
+  white-space:nowrap;
+}
+.foot-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px; border-top:1px solid var(--hair); padding-top:30px}
+.foot-col h4{margin:0 0 16px; font-family:var(--f-mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--fg-mute)}
+.foot-col a,.foot-col p{display:block; margin:0 0 9px; font-size:14px; color:#A9A6A0; transition:color .3s}
+.foot-col a:hover{color:var(--acid)}
+.foot-bot{display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; margin-top:38px; padding-top:20px; border-top:1px solid var(--hair)}
+.foot-bot p{margin:0; font-family:var(--f-mono); font-size:10px; letter-spacing:.09em; color:var(--fg-mute); text-transform:uppercase}
+.demo-note{color:#4A4A46 !important; text-transform:none !important; letter-spacing:.03em !important}
+
+/* --- Sabit WhatsApp --- */
+.wa{
+  position:fixed; right:20px; bottom:20px; z-index:950;
+  width:56px; height:56px; background:var(--acid); color:#050505;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 0 0 0 rgba(214,255,62,.5); animation:waPulse 3s infinite;
+  transition:transform .35s var(--ease);
+}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:26px; height:26px}
+@keyframes waPulse{0%{box-shadow:0 0 0 0 rgba(214,255,62,.45)}70%{box-shadow:0 0 0 16px rgba(214,255,62,0)}100%{box-shadow:0 0 0 0 rgba(214,255,62,0)}}
+
+/* --- Mobil yapışkan alt çubuk --- */
+.mbar{display:none; position:fixed; left:0; right:0; bottom:0; z-index:960; border-top:1px solid var(--hair-2); background:rgba(5,5,5,.94); backdrop-filter:blur(12px)}
+.mbar a{flex:1; display:flex; align-items:center; justify-content:center; gap:8px; padding:15px 8px; font-family:var(--f-mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase}
+.mbar a.p{background:var(--acid); color:#050505}
+.mbar a.s{color:var(--fg)}
+
+/* ============================================================
+   DUYARLI KATMAN
+   ============================================================ */
+@media (max-width:1180px){
+  .svc-grid{grid-template-columns:1fr 330px}
+  .why-c{grid-column:span 6}
+  .why-c.wide{grid-column:span 12; min-height:0}
+}
+@media (max-width:1024px){
+  .nav-links{display:none}
+  .nav-tel{display:none}
+  .burger{display:flex}
+  .nav-cta .btn{display:none}
+  .svc-grid{grid-template-columns:1fr}
+  .svc-view{position:relative; top:0; margin-top:26px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .proc{grid-template-columns:repeat(2,1fr)}
+  .quotes{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+  .work{grid-template-columns:38px 1fr auto; }
+  .work .wtags{display:none}
+  .foot-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:760px){
+  .pain{grid-template-columns:1fr}
+  .why{grid-template-columns:1fr}
+  .why-c,.why-c.wide{grid-column:span 1; min-height:0}
+  .stats{grid-template-columns:1fr}
+  .proc{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .scroll-hint{display:none}
+  .wa{display:none}
+  .mbar{display:flex}
+  body{padding-bottom:52px}
+  .hero{min-height:92svh}
+  .hero-meta .m:nth-child(3){display:none}
+  .work{grid-template-columns:1fr auto; gap:14px}
+  .work .wn{display:none}
+  .svc-body .inner{padding-left:0}
+}
+@media (max-width:420px){
+  .hero-top .col:nth-child(2){display:none}
+  .trust-top .claim{font-size:11px}
+}
+
+/* --- Hareket azaltma --- */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important; animation-iteration-count:1 !important;
+    transition-duration:.001ms !important; scroll-behavior:auto !important;
+  }
+  .ch > i,.rv .w > i{transform:none !important; opacity:1 !important}
+  .fade{opacity:1 !important; transform:none !important}
+  .hero-sub,.hero-actions{opacity:1 !important; transform:none !important}
+  .grain{display:none}
+  .mq-track{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Film gürültüsü katmanı -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Özel imleç -->
+<div class="cursor" aria-hidden="true"><span class="c-label"></span></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+
+<!-- ============================================================
+     1) SABİT ÜST MENÜ
+     ============================================================ -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#top" class="brand" aria-label="TasarımMania ana sayfa">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" fill="none"/><path d="M8 48 L21 15 L32 41 L43 15 L56 48" fill="none" stroke="#D6FF3E" stroke-width="7"/></svg>
+      <b>Tasarım<i>Mania</i></b>
+    </a>
+    <nav class="nav-links" aria-label="Ana menü">
+      <a href="#hizmetler" data-cursor="git">Hizmetler</a>
+      <a href="#neden" data-cursor="git">Neden Biz</a>
+      <a href="#isler" data-cursor="git">İşler</a>
+      <a href="#surec" data-cursor="git">Süreç</a>
+      <a href="#sss" data-cursor="git">SSS</a>
+      <a href="#iletisim" data-cursor="git">İletişim</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-tel" href="tel:+905386999666">0538 699 96 66</a>
+      <a class="btn sm mag" href="#iletisim" data-cursor="teklif"><span>Teklif Al</span></a>
+      <button class="burger" id="burger" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mmenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobil menü -->
+<div class="mmenu" id="mmenu" role="dialog" aria-modal="true" aria-label="Mobil menü" aria-hidden="true">
+  <a class="ml" href="#hizmetler"><em>01</em> Hizmetler</a>
+  <a class="ml" href="#neden"><em>02</em> Neden Biz</a>
+  <a class="ml" href="#isler"><em>03</em> İşler</a>
+  <a class="ml" href="#surec"><em>04</em> Süreç</a>
+  <a class="ml" href="#sss"><em>05</em> SSS</a>
+  <a class="ml" href="#iletisim"><em>06</em> İletişim</a>
+  <div class="m-foot">
+    <a class="btn" href="#iletisim"><span>Ücretsiz Strateji Görüşmesi</span></a>
+    <p>0538 699 96 66 — Bakırköy / İstanbul</p>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- ============================================================
+     2) HERO — WebGL shader + kinetik tipografi
+     ============================================================ -->
+<section class="hero" id="hero">
+  <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-fallback" id="heroFallback" aria-hidden="true" style="display:none"></div>
+  <div class="hero-veil" aria-hidden="true"></div>
+
+  <div class="hero-in wrap">
+    <div class="hero-top">
+      <div class="col">
+        <span class="lab">360° Dijital Prodüksiyon Stüdyosu</span>
+      </div>
+      <div class="col">
+        <p>Bakırköy / İstanbul merkezli. Yurt içi ve yurt dışı markalar için tek çatı altında strateji, tasarım, yazılım ve medya.</p>
+      </div>
+    </div>
+
+    <h1 class="h-xl hero-title" id="heroTitle">
+      <span class="ln" data-text="BEĞENİLEN"></span>
+      <span class="ln" data-text="DEĞİL, SATAN"></span>
+      <span class="ln acid" data-text="İŞLER."></span>
+    </h1>
+
+    <p class="hero-sub" id="heroSub">
+      Web, mobil, reklam, video ve SEO'yu ayrı ajanslara böldürmeden kuruyoruz.
+      Tasarımı biz çiziyoruz, altyapıyı biz yazıyoruz, kampanyayı biz yönetiyoruz —
+      sonucu ise sizin ciro tablonuz söylüyor.
+    </p>
+
+    <div class="hero-actions" id="heroActions">
+      <a class="btn mag" href="#iletisim" data-cursor="başla"><span>Ücretsiz Strateji Görüşmesi</span></a>
+      <a class="btn ghost mag" href="#isler" data-cursor="incele"><span>İşleri İncele</span></a>
+      <span class="hero-micro">Formda 5 alan var — 40 saniye sürer.</span>
+    </div>
+
+    <div class="hero-meta">
+      <span class="m">5 Disiplin / <b>Tek Ekip</b></span>
+      <span class="m">Meta &amp; Google Ads Yönetimi</span>
+      <span class="m">Çok Dilli SEO / <b>Global Kampanya</b></span>
+      <span class="m">İST — 41.0° K, 28.9° D</span>
+    </div>
+  </div>
+
+  <span class="scroll-hint" aria-hidden="true">KAYDIR</span>
+</section>
+
+<!-- ============================================================
+     3) GÜVEN ŞERİDİ
+     ============================================================ -->
+<section class="trust" aria-label="Güven şeridi">
+  <div class="trust-top">
+    <span class="claim">Son 12 ayda <b>6 markada 41 milyon TL</b> ek ciro — aynı reklam bütçesiyle.</span>
+    <span class="claim">Ortalama müşteri kalış süresi: <b>2,7 yıl</b></span>
+  </div>
+  <div class="marquee" id="marquee" aria-hidden="true">
+    <div class="mq-track">
+      <span class="mq-item"><i></i>Meta Business Partner</span>
+      <span class="mq-item"><i></i>Google Ads</span>
+      <span class="mq-item"><i></i>GA4 / GTM</span>
+      <span class="mq-item"><i></i>Shopify Plus</span>
+      <span class="mq-item"><i></i>WooCommerce</span>
+      <span class="mq-item"><i></i>React Native</span>
+      <span class="mq-item"><i></i>Next.js</span>
+      <span class="mq-item"><i></i>App Store &amp; Play</span>
+      <span class="mq-item"><i></i>TikTok Ads</span>
+      <span class="mq-item"><i></i>Search Console</span>
+      <span class="mq-item"><i></i>AI Entegrasyonları</span>
+      <span class="mq-item"><i></i>YouTube Studio</span>
+      <span class="mq-item"><i></i>Meta Business Partner</span>
+      <span class="mq-item"><i></i>Google Ads</span>
+      <span class="mq-item"><i></i>GA4 / GTM</span>
+      <span class="mq-item"><i></i>Shopify Plus</span>
+      <span class="mq-item"><i></i>WooCommerce</span>
+      <span class="mq-item"><i></i>React Native</span>
+      <span class="mq-item"><i></i>Next.js</span>
+      <span class="mq-item"><i></i>App Store &amp; Play</span>
+      <span class="mq-item"><i></i>TikTok Ads</span>
+      <span class="mq-item"><i></i>Search Console</span>
+      <span class="mq-item"><i></i>AI Entegrasyonları</span>
+      <span class="mq-item"><i></i>YouTube Studio</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4) SORUN
+     ============================================================ -->
+<section class="sec" id="sorun">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left">
+        <span class="lab">[ 01 — Teşhis ]</span>
+        <h2 class="h-lg rv" data-rv>Bütçe artıyor, teklif sayısı sabit kalıyor.</h2>
+      </div>
+      <span class="sec-idx">01 / 09</span>
+    </div>
+    <div class="pain">
+      <div>
+        <p class="fade" data-fade style="max-width:52ch; color:var(--fg-dim); font-size:16px">
+          Çoğu markanın problemi "daha çok reklam" değil. Site ayrı yerde, reklam ayrı panelde,
+          içerik başka ekipte, SEO kimsenin gündeminde değil. Dört ayrı tedarikçi birbirinin
+          işini bozarken kimse toplam sonuçtan sorumlu olmuyor.
+        </p>
+        <p class="fade" data-fade style="max-width:52ch; color:var(--fg-mute); font-size:14.5px; margin-top:24px">
+          Bu sayfada size ne yaptığımızı değil, hangi tıkanıklığı nasıl açtığımızı anlatıyoruz.
+        </p>
+      </div>
+      <div class="pain-list">
+        <div class="pain-item fade" data-fade>
+          <span class="n">01</span>
+          <div><h3>Tıklama var, teklif yok</h3><p>Reklam raporu parlak görünüyor ama satış ekibine düşen nitelikli talep sayısı aynı. Kayıp huninin ortasında.</p></div>
+        </div>
+        <div class="pain-item fade" data-fade>
+          <span class="n">02</span>
+          <div><h3>Site reklamı taşıyamıyor</h3><p>Mobilde 4 saniyede açılan, formu 9 alanlı bir sayfaya trafik göndermek bütçeyi ısıtmaktan başka işe yaramıyor.</p></div>
+        </div>
+        <div class="pain-item fade" data-fade>
+          <span class="n">03</span>
+          <div><h3>Dört tedarikçi, sıfır sorumlu</h3><p>Ajans tasarımcıyı, tasarımcı yazılımcıyı, yazılımcı ajansı işaret ediyor. Toplam sonucun sahibi yok.</p></div>
+        </div>
+        <div class="pain-item fade" data-fade>
+          <span class="n">04</span>
+          <div><h3>Yurt dışında görünmüyorsunuz</h3><p>Ürün ihraç ediliyor ama site tek dilde, hreflang yok, yerel arama niyetine göre içerik hiç yazılmamış.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5) HİZMETLER — sayfanın kalbi
+     ============================================================ -->
+<section class="sec" id="hizmetler">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left">
+        <span class="lab">[ 02 — Yetkinlik ]</span>
+        <h2 class="h-lg rv" data-rv>Beş disiplin. Tek ekip. Tek sorumlu.</h2>
+        <p class="intro">Satırın üstüne gelin; sağdaki panel o disiplinin canlı görselleştirmesini çizsin.</p>
+      </div>
+      <span class="sec-idx">02 / 09</span>
+    </div>
+
+    <div class="svc-grid">
+      <!-- Numaralı satırlar -->
+      <div class="svc-rows" id="svcRows">
+
+        <div class="svc-row act" data-svc="0" data-cursor="aç" tabindex="0" role="button" aria-expanded="true">
+          <div class="svc-head">
+            <span class="svc-num">/01</span>
+            <h3 class="svc-name">Web Tasarım &amp; Yazılım</h3>
+            <span class="svc-plus" aria-hidden="true"></span>
+          </div>
+          <div class="svc-body"><div><div class="inner">
+            <p>Kurumsal siteden çok dilli e-ticarete, özel panellerden AI destekli müşteri asistanlarına kadar tüm web katmanını sıfırdan çiziyor ve yazıyoruz. Şablon satmıyoruz: kendi ızgarası, kendi tipografisi, kendi hareket dili olan bir arayüz kuruyoruz — arkasında Core Web Vitals'ı geçen bir altyapıyla.</p>
+            <div class="svc-tags"><span>Kurumsal Site</span><span>E-Ticaret</span><span>Özel Web Uygulaması</span><span>AI Entegrasyonu</span><span>Core Web Vitals</span></div>
+            <a class="svc-link" href="#iletisim" data-cursor="teklif">Teknik tarama iste <i>→</i></a>
+          </div></div></div>
+        </div>
+
+        <div class="svc-row" data-svc="1" data-cursor="aç" tabindex="0" role="button" aria-expanded="false">
+          <div class="svc-head">
+            <span class="svc-num">/02</span>
+            <h3 class="svc-name">Mobil Uygulama</h3>
+            <span class="svc-plus" aria-hidden="true"></span>
+          </div>
+          <div class="svc-body"><div><div class="inner">
+            <p>iOS ve Android için React Native veya native geliştirme; tasarım sisteminden mağaza yayınına kadar tek elden. App Store ve Play Store süreçlerini, ret gerekçelerini ve sürüm yönetimini biz yürütüyoruz — siz sadece onaylıyorsunuz.</p>
+            <div class="svc-tags"><span>iOS &amp; Android</span><span>React Native</span><span>Native</span><span>App Store</span><span>Play Store</span><span>Push &amp; Analitik</span></div>
+            <a class="svc-link" href="#iletisim" data-cursor="teklif">Uygulama planı iste <i>→</i></a>
+          </div></div></div>
+        </div>
+
+        <div class="svc-row" data-svc="2" data-cursor="aç" tabindex="0" role="button" aria-expanded="false">
+          <div class="svc-head">
+            <span class="svc-num">/03</span>
+            <h3 class="svc-name">Dijital Pazarlama</h3>
+            <span class="svc-plus" aria-hidden="true"></span>
+          </div>
+          <div class="svc-body"><div><div class="inner">
+            <p>Meta Ads ve Google Ads'te performans pazarlaması, sosyal medya yönetimi ve yurt dışı kampanya operasyonu. Bütçeyi büyütmeden dönüşüm oranını büyütmeyi hedefliyoruz; her ay tek sayfa rapor: harcanan, kazandıran, kestiğimiz.</p>
+            <div class="svc-tags"><span>Meta Ads</span><span>Google Ads</span><span>Performans</span><span>Sosyal Medya</span><span>Global Kampanya</span><span>CRM Eşleme</span></div>
+            <a class="svc-link" href="#iletisim" data-cursor="teklif">Bütçe analizi iste <i>→</i></a>
+          </div></div></div>
+        </div>
+
+        <div class="svc-row" data-svc="3" data-cursor="aç" tabindex="0" role="button" aria-expanded="false">
+          <div class="svc-head">
+            <span class="svc-num">/04</span>
+            <h3 class="svc-name">Video Prodüksiyon</h3>
+            <span class="svc-plus" aria-hidden="true"></span>
+          </div>
+          <div class="svc-body"><div><div class="inner">
+            <p>Reklam filmi, ürün videosu, YouTube ve Instagram içerik serileri. Klasik set prodüksiyonunu AI destekli görsel üretimle birleştirerek aynı bütçeye kat kat daha fazla varyant çıkarıyoruz — reklam testine yetecek kadar çok kreatif, markayı bozmayacak kadar tutarlı.</p>
+            <div class="svc-tags"><span>Reklam Filmi</span><span>Ürün Videosu</span><span>YouTube</span><span>Instagram Reels</span><span>AI Destekli Prodüksiyon</span><span>Kurgu &amp; Renk</span></div>
+            <a class="svc-link" href="#iletisim" data-cursor="teklif">Prodüksiyon planı iste <i>→</i></a>
+          </div></div></div>
+        </div>
+
+        <div class="svc-row" data-svc="4" data-cursor="aç" tabindex="0" role="button" aria-expanded="false">
+          <div class="svc-head">
+            <span class="svc-num">/05</span>
+            <h3 class="svc-name">SEO Hizmetleri</h3>
+            <span class="svc-plus" aria-hidden="true"></span>
+          </div>
+          <div class="svc-body"><div><div class="inner">
+            <p>Teknik SEO, içerik stratejisi, yerel SEO ve uluslararası / çok dilli SEO. Tarama bütçesinden hreflang kurgusuna, arama niyetine göre içerik mimarisinden yapısal veriye kadar; hem klasik aramada hem AI özet sonuçlarında görünür olmak için çalışıyoruz.</p>
+            <div class="svc-tags"><span>Teknik SEO</span><span>İçerik Stratejisi</span><span>Yerel SEO</span><span>Çok Dilli SEO</span><span>Yapısal Veri</span><span>AI Görünürlüğü</span></div>
+            <a class="svc-link" href="#iletisim" data-cursor="teklif">Görünürlük raporu iste <i>→</i></a>
+          </div></div></div>
+        </div>
+
+      </div>
+
+      <!-- Canlı canvas önizleme -->
+      <aside class="svc-view" aria-hidden="true">
+        <div class="svc-view-top">
+          <span id="svcViewName">01 — WEB</span>
+          <span class="live">canlı</span>
+        </div>
+        <canvas id="svcCanvas"></canvas>
+        <div class="svc-view-foot">
+          <h4 id="svcViewTitle">Arayüz + Altyapı</h4>
+          <p id="svcViewDesc">Bileşen ızgarası, sunucu yanıtı ve dönüşüm akışı tek sistemde.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6) NEDEN BİZ
+     ============================================================ -->
+<section class="sec" id="neden">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left">
+        <span class="lab">[ 03 — Fark ]</span>
+        <h2 class="h-lg rv" data-rv>Ajans değiştirmekten yorulduysanız.</h2>
+      </div>
+      <span class="sec-idx">03 / 09</span>
+    </div>
+
+    <div class="why">
+      <article class="why-c wide fade" data-fade>
+        <span class="k">360° / TEK ÇATI</span>
+        <h3>Beş disiplin aynı odada, aynı takvimde</h3>
+        <p>Tasarımcı, yazılımcı, performans uzmanı, video ekibi ve SEO editörü aynı brief'i okuyor. Aralarındaki devir teslim toplantısı değil, tek bir üretim hattı. Kimsenin "o bizim işimiz değil" deme lüksü yok.</p>
+      </article>
+      <article class="why-c wide fade" data-fade>
+        <span class="k">TEKNİK DERİNLİK</span>
+        <h3>Kod bizde yazılıyor, tema kurulmuyor</h3>
+        <p>Hazır tema kurup üstüne eklenti yığmıyoruz. Şema, önbellek, form akışı ve ölçüm katmanı elle kuruluyor; reklam trafiği geldiğinde site çökmüyor, ölçüm kaymıyor, teknik borç birikmiyor.</p>
+      </article>
+      <article class="why-c fade" data-fade>
+        <span class="k">GLOBAL DENEYİM</span>
+        <h3>Yurt dışı operasyonu</h3>
+        <p>Çok dilli SEO, ülke bazlı reklam hesabı yapısı ve yerel kreatif uyarlaması. İhracat yapan markanın sitesi de reklamı da tek dilde kalmıyor.</p>
+      </article>
+      <article class="why-c fade" data-fade>
+        <span class="k">SAHİPLİK</span>
+        <h3>Hesaplar sizin adınıza açılır</h3>
+        <p>Reklam hesapları, alan adı, analitik ve depo erişimi baştan sizin mülkiyetinizde. Yarın ayrılsak her şey elinizde kalır. Müşteriyi veriyle rehin almıyoruz.</p>
+      </article>
+      <article class="why-c fade" data-fade>
+        <span class="k">İÇERİK MOTORU</span>
+        <h3>YouTube ve Instagram sürekliliği</h3>
+        <p>Tek seferlik reklam filmi değil, aylık yayın takvimi. Uzun form YouTube içeriği ile kısa form Reels aynı kreatif çekirdekten türetiliyor; test edilecek varyant hiç bitmiyor.</p>
+      </article>
+      <article class="why-c fade" data-fade>
+        <span class="k">ŞEFFAFLIK</span>
+        <h3>Aylık ilerleriz, kilitlemeyiz</h3>
+        <p>Uzun süreli ceza maddeli sözleşme dayatmıyoruz. Çıkış koşulu ilk günden yazılı; ilerlemeyi görürseniz devam edersiniz, görmezseniz ay sonunda ayrılırsınız.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7) RAKAMLAR
+     ============================================================ -->
+<section class="sec" id="rakamlar">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left">
+        <span class="lab">[ 04 — Ölçek ]</span>
+        <h2 class="h-lg rv" data-rv>Rakamlarla stüdyo.</h2>
+      </div>
+      <span class="sec-idx">04 / 09</span>
+    </div>
+
+    <div class="stats" id="stats">
+      <div class="stat" data-count="185" data-suffix="+">
+        <div class="num"><span class="cn">0</span><em>+</em></div>
+        <div class="cap">Tamamlanan proje<br>2016'dan bu yana</div>
+        <div class="bars" data-bars="5,8,12,18,26,34,30,38"></div>
+      </div>
+      <div class="stat" data-count="41" data-suffix=" Mn ₺">
+        <div class="num"><span class="cn">0</span><em>Mn ₺</em></div>
+        <div class="cap">12 ayda 6 markada<br>üretilen ek ciro</div>
+        <div class="bars" data-bars="6,9,11,16,21,29,33,38"></div>
+      </div>
+      <div class="stat" data-count="12" data-suffix=" Ülke">
+        <div class="num"><span class="cn">0</span><em>Ülke</em></div>
+        <div class="cap">Kampanya yönetilen<br>pazar sayısı</div>
+        <div class="bars" data-bars="4,7,10,14,19,24,31,36"></div>
+      </div>
+      <div class="stat" data-count="27" data-suffix=" Ay">
+        <div class="num"><span class="cn">0</span><em>Ay</em></div>
+        <div class="cap">Ortalama müşteri<br>kalış süresi</div>
+        <div class="bars" data-bars="8,10,14,17,22,27,32,38"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8) SEÇİLİ İŞLER
+     ============================================================ -->
+<section class="sec" id="isler">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left">
+        <span class="lab">[ 05 — Vaka ]</span>
+        <h2 class="h-lg rv" data-rv>Sorun, ne değiştirdik, sonuç.</h2>
+        <p class="intro">Aşağıdaki vakalar temsilîdir; gerçek proje dosyaları görüşmede ekran paylaşımıyla açılır.</p>
+      </div>
+      <span class="sec-idx">05 / 09</span>
+    </div>
+
+    <div class="works" id="works">
+      <article class="work fade" data-fade data-cursor="vaka">
+        <span class="wn">/01</span>
+        <div class="wt"><h3>Kavis Mobilya</h3><p>E-ticaret yeniden inşası + Meta/Google birleşik huni</p></div>
+        <div class="wtags"><span>Web</span><span>Ads</span><span>Video</span></div>
+        <div class="wres"><b>%218</b><span>Dönüşüm artışı / 7 ay</span></div>
+      </article>
+      <article class="work fade" data-fade data-cursor="vaka">
+        <span class="wn">/02</span>
+        <div class="wt"><h3>Ege Doğa Zeytinyağı</h3><p>Almanya &amp; Hollanda pazarına çok dilli SEO açılımı</p></div>
+        <div class="wtags"><span>SEO</span><span>Global</span><span>İçerik</span></div>
+        <div class="wres"><b>4,6x</b><span>Organik yurt dışı trafik</span></div>
+      </article>
+      <article class="work fade" data-fade data-cursor="vaka">
+        <span class="wn">/03</span>
+        <div class="wt"><h3>Nova Estetik Kliniği</h3><p>Mevzuata uygun kurumsal site + randevu akışı + AI asistan</p></div>
+        <div class="wtags"><span>Web</span><span>AI</span><span>Yerel SEO</span></div>
+        <div class="wres"><b>%64</b><span>Randevu maliyeti düşüşü</span></div>
+      </article>
+      <article class="work fade" data-fade data-cursor="vaka">
+        <span class="wn">/04</span>
+        <div class="wt"><h3>Ritim Spor Kulübü</h3><p>Üyelik mobil uygulaması (iOS &amp; Android) + push kurgusu</p></div>
+        <div class="wtags"><span>Mobil</span><span>Ürün</span><span>Analitik</span></div>
+        <div class="wres"><b>%41</b><span>Aylık üye tutundurma</span></div>
+      </article>
+      <article class="work fade" data-fade data-cursor="vaka">
+        <span class="wn">/05</span>
+        <div class="wt"><h3>Marin Yapı Market</h3><p>YouTube + Reels içerik motoru, 90 günde 64 varyant</p></div>
+        <div class="wtags"><span>Video</span><span>Sosyal</span><span>Ads</span></div>
+        <div class="wres"><b>%37</b><span>Tıklama maliyeti düşüşü</span></div>
+      </article>
+      <article class="work fade" data-fade data-cursor="vaka">
+        <span class="wn">/06</span>
+        <div class="wt"><h3>Vera Kozmetik</h3><p>Teknik SEO temizliği + hız optimizasyonu + B2B panel</p></div>
+        <div class="wtags"><span>SEO</span><span>Yazılım</span><span>CWV</span></div>
+        <div class="wres"><b>0,9 sn</b><span>LCP (önce 4,2 sn)</span></div>
+      </article>
+      <article class="work fade" data-fade data-cursor="vaka">
+        <span class="wn">/07</span>
+        <div class="wt"><h3>Anadolu Makine</h3><p>İhracat odaklı 5 dilli kurumsal site + LinkedIn kampanyası</p></div>
+        <div class="wtags"><span>Web</span><span>Global</span><span>B2B</span></div>
+        <div class="wres"><b>3,2x</b><span>Nitelikli talep sayısı</span></div>
+      </article>
+      <article class="work fade" data-fade data-cursor="vaka">
+        <span class="wn">/08</span>
+        <div class="wt"><h3>Beyoğlu Kahve Roasters</h3><p>Marka kimliği + abonelik e-ticareti + içerik serisi</p></div>
+        <div class="wtags"><span>Marka</span><span>Web</span><span>Video</span></div>
+        <div class="wres"><b>%29</b><span>Abonelik dönüşümü</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     9) SÜREÇ
+     ============================================================ -->
+<section class="sec" id="surec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left">
+        <span class="lab">[ 06 — Süreç ]</span>
+        <h2 class="h-lg rv" data-rv>Brief'ten yayına 21 iş günü.</h2>
+        <p class="intro">Her adımın süresi, sorumlusu ve sizden isteyeceğimiz şey baştan yazılı. Takvimi biz kaçırırsak o ayın bedelini biz karşılarız.</p>
+      </div>
+      <span class="sec-idx">06 / 09</span>
+    </div>
+
+    <div class="proc">
+      <div class="step fade" data-fade>
+        <div class="sn">01</div>
+        <h3>Teşhis Görüşmesi</h3>
+        <p>Ekranı paylaşır, sitenizin ve reklam hesabınızın para kaybettiği üç noktayı canlı işaretleriz. Çalışmasak da o liste sizde kalır.</p>
+        <span class="sd">45 dakika — ücretsiz</span>
+      </div>
+      <div class="step fade" data-fade>
+        <div class="sn">02</div>
+        <h3>Kapsam &amp; Teklif</h3>
+        <p>Kapsam, süre, ekip ve fiyat tek sayfada. Sonradan çıkan ek kalem yok; kapsam dışı işler baştan isimlendirilir.</p>
+        <span class="sd">48 saat içinde</span>
+      </div>
+      <div class="step fade" data-fade>
+        <div class="sn">03</div>
+        <h3>Sanat Yönü &amp; Mimari</h3>
+        <p>Tipografi, hareket dili ve arayüz ızgarası; aynı anda veri modeli, ölçüm planı ve içerik mimarisi kurulur.</p>
+        <span class="sd">5 iş günü</span>
+      </div>
+      <div class="step fade" data-fade>
+        <div class="sn">04</div>
+        <h3>Üretim</h3>
+        <p>Kod, içerik, video ve kampanya kurulumu paralel ilerler. Haftada bir demo, tek sayfa ilerleme raporu.</p>
+        <span class="sd">12 iş günü</span>
+      </div>
+      <div class="step fade" data-fade>
+        <div class="sn">05</div>
+        <h3>Yayın &amp; Optimizasyon</h3>
+        <p>Yayına alma, ölçüm doğrulaması ve ilk 30 günün test takvimi. Aylık tek sayfa: harcanan, kazandıran, kestiğimiz.</p>
+        <span class="sd">4 iş günü + aylık döngü</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     10) YORUMLAR
+     ============================================================ -->
+<section class="sec" id="yorumlar">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left">
+        <span class="lab">[ 07 — Referans ]</span>
+        <h2 class="h-lg rv" data-rv>Müşteriler ne diyor?</h2>
+      </div>
+      <span class="sec-idx">07 / 09</span>
+    </div>
+
+    <div class="quotes">
+      <figure class="q fade" data-fade>
+        <span class="qm" aria-hidden="true">“</span>
+        <blockquote>Üç ayrı tedarikçiyle uğraşmaktan yorulmuştuk. Site, reklam ve video tek ekibe geçince ilk çeyrekte teklif sayımız ikiye katlandı. En çok da her ay gelen tek sayfalık raporu sevdim — süslü grafik yok, karar var.</blockquote>
+        <figcaption><b>Selin Arda</b><span>Pazarlama Direktörü — Kavis Mobilya</span></figcaption>
+      </figure>
+      <figure class="q fade" data-fade>
+        <span class="qm" aria-hidden="true">“</span>
+        <blockquote>İhracat yapıyorduk ama dijitalde yoktuk. Almanca ve Hollandaca içerik mimarisini kurdular, teknik tarafı temizlediler. Yurt dışından gelen organik trafik bir yılda dört katına çıktı, bayi başvuruları başladı.</blockquote>
+        <figcaption><b>Mert Özgür</b><span>Kurucu Ortak — Ege Doğa</span></figcaption>
+      </figure>
+      <figure class="q fade" data-fade>
+        <span class="qm" aria-hidden="true">“</span>
+        <blockquote>Sağlık sektöründe reklam mevzuatı yüzünden çoğu ajans çekiniyor. TasarımMania kuralları bizden iyi biliyordu; hem uyumlu kaldık hem randevu maliyetimiz yarıya indi. Hesaplar bizim adımıza açıldı, bu güven verdi.</blockquote>
+        <figcaption><b>Dr. Ayça Demirtaş</b><span>Kurucu Hekim — Nova Estetik</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     11) BÜYÜK CTA BANDI
+     ============================================================ -->
+<section class="band" id="band">
+  <div class="band-bg" aria-hidden="true"><canvas id="bandCanvas"></canvas></div>
+  <div class="band-in wrap">
+    <h2 class="h-lg rv" data-rv>Önce sizin rakamlarınıza bakalım.</h2>
+    <p>45 dakikalık görüşmede sitenizi, reklam hesabınızı ve arama görünürlüğünüzü canlı açar; para kaybettiğiniz üç noktayı işaretleriz. Satış sunumu değil, teşhis görüşmesi.</p>
+    <div class="band-actions">
+      <a class="btn mag" href="#iletisim" data-cursor="başla"><span>Ücretsiz Teşhis Görüşmesi</span></a>
+      <a class="btn ghost mag" href="https://wa.me/905386999666" target="_blank" rel="noopener" data-cursor="yaz"><span>WhatsApp'tan Yaz</span></a>
+    </div>
+    <p class="band-note">Ortalama yanıt süremiz 2 saat — hafta içi 09:00-19:00</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     12) SSS / İTİRAZLAR
+     ============================================================ -->
+<section class="sec" id="sss">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left">
+        <span class="lab">[ 08 — İtirazlar ]</span>
+        <h2 class="h-lg rv" data-rv>Genelde neden hayır denir?</h2>
+      </div>
+      <span class="sec-idx">08 / 09</span>
+    </div>
+
+    <div class="faq" id="faq">
+      <div class="faq-i open">
+        <button class="faq-q" aria-expanded="true"><span>Uzun süreli sözleşmeye kilitliyor musunuz?</span><span class="fi" aria-hidden="true"></span></button>
+        <div class="faq-a"><div><p>Hayır. Proje işlerinde teslim bazlı, sürekli hizmetlerde aylık ilerliyoruz. Çıkış koşulu sözleşmenin ilk sayfasında yazılı: 30 gün önceden bildirim, ceza maddesi yok. Devam kararını her ay sonuç veriyor, imza vermiyor.</p></div></div>
+      </div>
+      <div class="faq-i">
+        <button class="faq-q" aria-expanded="false"><span>Bütçe aralığınız ne? Fiyat çıpası var mı?</span><span class="fi" aria-hidden="true"></span></button>
+        <div class="faq-a"><div><p>Kurumsal site projeleri belirli bir taban bütçeden, sürekli dijital pazarlama yönetimi aylık sabit ücret + reklam bütçesi modelinden başlıyor. Bütçeniz aralığa uymuyorsa bunu ilk yanıtta açıkça söylüyoruz; kimseyi üç toplantı sonra öğrensin diye bekletmiyoruz. Net rakamları teklif formundaki hizmet seçiminize göre 48 saat içinde kalem kalem gönderiyoruz.</p></div></div>
+      </div>
+      <div class="faq-i">
+        <button class="faq-q" aria-expanded="false"><span>Mevcut ajansımızdan geçiş nasıl olur?</span><span class="fi" aria-hidden="true"></span></button>
+        <div class="faq-a"><div><p>Hesap devri, veri taşıma ve yayın takvimini yazılı planlıyoruz. Reklamlar tek gün bile durmuyor; eski kampanyalar biz paralel yapıyı kurana kadar açık kalıyor. Geçiş süresince hangi metriğin neden dalgalanacağını önden söylüyoruz ki sürpriz olmasın.</p></div></div>
+      </div>
+      <div class="faq-i">
+        <button class="faq-q" aria-expanded="false"><span>Reklam hesapları ve alan adı kimin adına açılıyor?</span><span class="fi" aria-hidden="true"></span></button>
+        <div class="faq-a"><div><p>Her zaman sizin adınıza. Meta Business Manager, Google Ads, GA4, Search Console, alan adı ve kod deposu sizin mülkiyetinizde açılır; biz yönetici erişimiyle çalışırız. Ayrıldığımız gün tüm varlıklar ve geçmiş veri sizde kalır.</p></div></div>
+      </div>
+      <div class="faq-i">
+        <button class="faq-q" aria-expanded="false"><span>Raporlama sıklığı ve ölçüm nasıl?</span><span class="fi" aria-hidden="true"></span></button>
+        <div class="faq-a"><div><p>Haftalık kısa ilerleme notu, aylık tek sayfa performans raporu ve 7/24 açık canlı panel. Panelde reklam maliyeti, dönüşüm ve gerçek satış verisi aynı ekranda eşleşir; bizim tablomuz ile sizin muhasebeniz aynı sayıyı gösterir.</p></div></div>
+      </div>
+      <div class="faq-i">
+        <button class="faq-q" aria-expanded="false"><span>Sadece tek bir hizmet alabilir miyiz?</span><span class="fi" aria-hidden="true"></span></button>
+        <div class="faq-a"><div><p>Evet. Beş disiplini birlikte vermemiz zorunluluk değil, imkân. Yalnızca SEO ya da yalnızca video prodüksiyon da alabilirsiniz. Ancak teşhis görüşmesinde diğer katmanlarda gördüğümüz kayıpları da söyleriz — uygulamak size kalır.</p></div></div>
+      </div>
+      <div class="faq-i">
+        <button class="faq-q" aria-expanded="false"><span>Kimlerle çalışmıyorsunuz?</span><span class="fi" aria-hidden="true"></span></button>
+        <div class="faq-a"><div><p>Üç ay içinde sonuç bekleyip altı aylık strateji kurmak istemeyen, ölçüme erişim vermek istemeyen ve mevzuata aykırı iddia yazdırmak isteyen markalarla çalışmıyoruz. Ayrıca aynı şehirde doğrudan rakip iki markayı aynı anda almıyoruz.</p></div></div>
+      </div>
+      <div class="faq-i">
+        <button class="faq-q" aria-expanded="false"><span>Yurt dışı kampanya yönetiyor musunuz?</span><span class="fi" aria-hidden="true"></span></button>
+        <div class="faq-a"><div><p>Evet. Çok dilli site mimarisi, hreflang kurgusu, ülke bazlı reklam hesap yapısı ve yerel kreatif uyarlaması dahil. Avrupa ve Körfez pazarlarında yürüttüğümüz kampanyalarda dil, para birimi ve reklam politikası farklarını baştan planlıyoruz.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     13) İLETİŞİM + TEKLİF FORMU
+     ============================================================ -->
+<section class="sec" id="iletisim">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left">
+        <span class="lab">[ 09 — Temas ]</span>
+        <h2 class="h-lg rv" data-rv>Projenizi anlatın.</h2>
+      </div>
+      <span class="sec-idx">09 / 09</span>
+    </div>
+
+    <div class="contact">
+      <!-- Bilgiler -->
+      <div class="cinfo">
+        <div class="cblock">
+          <span class="lab">Telefon</span>
+          <p><a class="big-tel mag" href="tel:+905386999666" data-cursor="ara">0538 699 96 66</a></p>
+        </div>
+        <div class="cblock">
+          <span class="lab">WhatsApp</span>
+          <p><a href="https://wa.me/905386999666" target="_blank" rel="noopener" data-cursor="yaz">wa.me/905386999666 — bir saat içinde gerçek bir insan cevaplar</a></p>
+        </div>
+        <div class="cblock">
+          <span class="lab">Adres</span>
+          <p>Zeytinlik Mah. Pancar Sk. No:19-11<br>Bakırköy / İstanbul</p>
+        </div>
+        <div class="cblock">
+          <span class="lab">Çalışma Saatleri</span>
+          <p>Hafta içi 09:00 – 19:00<br>Cumartesi 10:00 – 16:00<br>Pazar kapalı</p>
+        </div>
+        <div class="cblock">
+          <span class="lab">Görüşmede ne konuşacağız?</span>
+          <p style="font-size:14.5px; color:var(--fg-dim)">
+            Mevcut trafiğinizin nereden geldiğini, hangi adımda kaybettiğinizi ve ilk 90 günde
+            hangi üç işi yapacağımızı. Sunum yok, ekran paylaşımı var.
+          </p>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="form">
+        <form id="teklifForm" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="f-ad">Ad Soyad *</label>
+              <input type="text" id="f-ad" name="ad" placeholder="Adınız ve soyadınız" autocomplete="name" required>
+              <span class="err-msg">Lütfen adınızı yazın.</span>
+            </div>
+            <div class="field">
+              <label for="f-tel">Telefon *</label>
+              <input type="tel" id="f-tel" name="telefon" placeholder="05xx xxx xx xx" autocomplete="tel" required>
+              <span class="err-msg">Geçerli bir telefon numarası girin.</span>
+            </div>
+            <div class="field">
+              <label for="f-mail">E-posta *</label>
+              <input type="email" id="f-mail" name="eposta" placeholder="ornek@sirket.com" autocomplete="email" required>
+              <span class="err-msg">Geçerli bir e-posta adresi girin.</span>
+            </div>
+            <div class="field">
+              <label for="f-hizmet">Hizmet *</label>
+              <select id="f-hizmet" name="hizmet" required>
+                <option value="">Seçiniz</option>
+                <option value="web">Web Tasarım &amp; Yazılım</option>
+                <option value="mobil">Mobil Uygulama</option>
+                <option value="pazarlama">Dijital Pazarlama</option>
+                <option value="video">Video Prodüksiyon</option>
+                <option value="seo">SEO Hizmetleri</option>
+                <option value="360">360° Tam Paket</option>
+              </select>
+              <span class="err-msg">Lütfen bir hizmet seçin.</span>
+            </div>
+            <div class="field full">
+              <label for="f-mesaj">Projeniz *</label>
+              <textarea id="f-mesaj" name="mesaj" placeholder="Markanız, hedefiniz ve varsa mevcut durumunuz hakkında kısaca yazın." required></textarea>
+              <span class="err-msg">Birkaç cümle yazarsanız daha isabetli dönüş yaparız.</span>
+            </div>
+          </div>
+          <div class="form-foot">
+            <p class="fnote">5 alan, yaklaşık 40 saniye. Yanıt süremiz ortalama 2 saat.</p>
+            <button type="submit" class="btn mag" data-cursor="gönder"><span>Teklif İste</span></button>
+          </div>
+        </form>
+
+        <!-- Başarı ekranı -->
+        <div class="form-ok" id="formOk" role="status" aria-live="polite">
+          <div class="tick" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D6FF3E" stroke-width="2"><path d="M20 6 L9 17 L4 12"/></svg>
+          </div>
+          <h3>Talebiniz alındı</h3>
+          <p id="formOkText">Teşekkürler. Ekibimiz hafta içi 09:00-19:00 arasında, ortalama 2 saat içinde size dönecek.</p>
+          <button class="btn ghost sm" id="formReset" type="button"><span>Yeni Talep Gönder</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     14) FOOTER
+     ============================================================ -->
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot-mark">TASARIMMANIA</p>
+    <div class="foot-grid">
+      <div class="foot-col">
+        <h4>Stüdyo</h4>
+        <p>360 derece dijital prodüksiyon stüdyosu. Strateji, tasarım, yazılım ve medya tek çatı altında.</p>
+        <p style="color:var(--fg-mute)">Bakırköy / İstanbul</p>
+      </div>
+      <div class="foot-col">
+        <h4>Hizmetler</h4>
+        <a href="#hizmetler">Web Tasarım &amp; Yazılım</a>
+        <a href="#hizmetler">Mobil Uygulama</a>
+        <a href="#hizmetler">Dijital Pazarlama</a>
+        <a href="#hizmetler">Video Prodüksiyon</a>
+        <a href="#hizmetler">SEO Hizmetleri</a>
+      </div>
+      <div class="foot-col">
+        <h4>Kurumsal</h4>
+        <a href="#neden">Neden Biz</a>
+        <a href="#isler">Seçili İşler</a>
+        <a href="#surec">Çalışma Süreci</a>
+        <a href="#sss">Sık Sorulanlar</a>
+        <a href="#iletisim">Teklif Al</a>
+      </div>
+      <div class="foot-col">
+        <h4>İletişim</h4>
+        <a href="tel:+905386999666">0538 699 96 66</a>
+        <a href="https://wa.me/905386999666" target="_blank" rel="noopener">WhatsApp</a>
+        <p>Zeytinlik Mah. Pancar Sk. No:19-11</p>
+        <p style="color:var(--fg-mute)">Hafta içi 09:00-19:00 / Cmt 10:00-16:00</p>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <p>© <span id="yil">2026</span> TasarımMania — Tüm hakları saklıdır.</p>
+      <p class="demo-note">Demo sürümü — rakamlar ve referanslar temsilidir.</p>
+      <p>Konsept 01 / Noir Shader</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Sabit WhatsApp -->
+<a class="wa" href="https://wa.me/905386999666" target="_blank" rel="noopener" aria-label="WhatsApp'tan yazın" data-cursor="yaz">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.09 3.2 5.07 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2"/></svg>
+</a>
+
+<!-- Mobil yapışkan çubuk -->
+<nav class="mbar" aria-label="Hızlı iletişim">
+  <a class="s" href="tel:+905386999666">Ara</a>
+  <a class="s" href="https://wa.me/905386999666" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="p" href="#iletisim">Teklif Al</a>
+</nav>
+
+<!-- ============================================================
+     FRAGMENT SHADER — akan organik gradyan alan
+     ============================================================ -->
+<script id="vsrc" type="x-shader/x-vertex">
+attribute vec2 aPos;
+void main(){ gl_Position = vec4(aPos, 0.0, 1.0); }
+</script>
+<script id="fsrc" type="x-shader/x-fragment">
+precision highp float;
+uniform float uTime;
+uniform vec2  uRes;
+uniform vec2  uMouse;
+uniform float uIntro;
+
+float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123); }
+
+float vnoise(vec2 p){
+  vec2 i = floor(p);
+  vec2 f = fract(p);
+  vec2 u = f * f * (3.0 - 2.0 * f);
+  float a = hash(i);
+  float b = hash(i + vec2(1.0, 0.0));
+  float c = hash(i + vec2(0.0, 1.0));
+  float d = hash(i + vec2(1.0, 1.0));
+  return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);
+}
+
+float fbm(vec2 p){
+  float s = 0.0;
+  float a = 0.5;
+  for (int i = 0; i < 5; i++){
+    s += a * vnoise(p);
+    p *= 2.02;
+    a *= 0.5;
+  }
+  return s;
+}
+
+void main(){
+  vec2 uv = gl_FragCoord.xy / uRes.xy;
+  float mn = min(uRes.x, uRes.y);
+  vec2 p = (gl_FragCoord.xy - 0.5 * uRes.xy) / mn;
+  vec2 m = (uMouse - 0.5 * uRes.xy) / mn;
+
+  float t = uTime * 0.075;
+
+  // İki katmanlı alan bükümü (domain warping) — sıvı his
+  vec2 q = vec2(fbm(p * 1.55 + t), fbm(p * 1.55 + vec2(3.7, 1.2) - t));
+  vec2 r = vec2(
+    fbm(p * 1.85 + 1.35 * q + vec2(1.7, 9.2) + t * 1.25),
+    fbm(p * 1.85 + 1.35 * q + vec2(8.3, 2.8) - t * 0.85)
+  );
+  float f = fbm(p * 1.45 + 1.75 * r);
+
+  // Fare halesi
+  float d  = length(p - m * 0.85);
+  float gl = exp(-d * 2.4);
+  f += gl * 0.30;
+
+  // Kömür taban
+  vec3 base = mix(vec3(0.016, 0.016, 0.020), vec3(0.105, 0.110, 0.120), smoothstep(0.22, 0.95, f));
+
+  // Asit sırtlar
+  vec3 acid = vec3(0.839, 1.0, 0.243);
+  float ridge = smoothstep(0.60, 0.755, f) - smoothstep(0.755, 0.90, f);
+  float ridge2 = smoothstep(0.78, 0.86, f);
+  vec3 col = base + acid * ridge * 0.50 * uIntro;
+  col += acid * ridge2 * 0.10 * uIntro;
+  col += acid * gl * 0.11 * uIntro;
+
+  // Yatay tarama izi (çok hafif)
+  col += acid * 0.012 * uIntro * smoothstep(0.996, 1.0, sin(p.y * 260.0 + uTime * 0.6) * 0.5 + 0.5);
+
+  // Vinyet
+  col *= 1.0 - 0.42 * pow(length(uv - 0.5), 1.6);
+
+  // Bant kırma gürültüsü
+  float g = hash(gl_FragCoord.xy + fract(uTime) * 137.0);
+  col += (g - 0.5) * 0.030;
+
+  gl_FragColor = vec4(col, 1.0);
+}
+</script>
+
+<script>
+"use strict";
+/* ============================================================
+   00 — Ortak yardımcılar
+   ============================================================ */
+var RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var FINE = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+var COARSE = window.matchMedia && window.matchMedia('(pointer:coarse)').matches;
+var LOWPOWER = COARSE || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
+
+function $(s, r){ return (r || document).querySelector(s); }
+function $$(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+function clamp(v, a, b){ return v < a ? a : (v > b ? b : v); }
+
+/* ============================================================
+   01 — Yıl
+   ============================================================ */
+(function(){
+  var y = $('#yil');
+  if (y) y.textContent = String(new Date().getFullYear());
+})();
+
+/* ============================================================
+   02 — Nav durumu + mobil menü
+   ============================================================ */
+(function(){
+  var nav = $('#nav'), burger = $('#burger'), mmenu = $('#mmenu');
+  if (nav){
+    var onScroll = function(){
+      if (window.scrollY > 40) nav.classList.add('stuck');
+      else nav.classList.remove('stuck');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  if (burger && mmenu){
+    var toggle = function(force){
+      var open = (typeof force === 'boolean') ? force : !mmenu.classList.contains('open');
+      mmenu.classList.toggle('open', open);
+      burger.classList.toggle('on', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç');
+      mmenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+      document.body.style.overflow = open ? 'hidden' : '';
+      if (!open && document.activeElement && mmenu.contains(document.activeElement)) burger.focus();
+    };
+    burger.addEventListener('click', function(){ toggle(); });
+    $$('a', mmenu).forEach(function(a){ a.addEventListener('click', function(){ toggle(false); }); });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && mmenu.classList.contains('open')) toggle(false);
+    });
+  }
+})();
+
+/* ============================================================
+   03 — Özel imleç (lerp) + magnetik butonlar
+   ============================================================ */
+(function(){
+  if (!FINE || RM) return;
+  var cur = $('.cursor'), dot = $('.cursor-dot'), lab = $('.c-label');
+  if (!cur || !dot) return;
+  document.body.classList.add('cursor-on');
+
+  var tx = window.innerWidth / 2, ty = window.innerHeight / 2;
+  var cx = tx, cy = ty, dx = tx, dy = ty, raf = null, alive = false;
+
+  document.addEventListener('pointermove', function(e){ tx = e.clientX; ty = e.clientY; }, { passive: true });
+
+  function loop(){
+    cx += (tx - cx) * 0.16;
+    cy += (ty - cy) * 0.16;
+    dx += (tx - dx) * 0.45;
+    dy += (ty - dy) * 0.45;
+    cur.style.transform = 'translate3d(' + cx.toFixed(2) + 'px,' + cy.toFixed(2) + 'px,0)';
+    dot.style.transform = 'translate3d(' + dx.toFixed(2) + 'px,' + dy.toFixed(2) + 'px,0)';
+    raf = requestAnimationFrame(loop);
+  }
+  function curStart(){ if (!alive){ alive = true; raf = requestAnimationFrame(loop); } }
+  function curStop(){ if (alive){ alive = false; if (raf) cancelAnimationFrame(raf); raf = null; } }
+  curStart();
+  // Sekme gizlendiğinde imleç döngüsünü askıya al
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden) curStop(); else curStart();
+  });
+
+  // Delegasyonla hover etiketi
+  document.addEventListener('pointerover', function(e){
+    var t = e.target && e.target.closest ? e.target.closest('[data-cursor]') : null;
+    if (t){
+      cur.classList.add('is-big');
+      if (lab) lab.textContent = t.getAttribute('data-cursor') || '';
+    }
+  });
+  document.addEventListener('pointerout', function(e){
+    var t = e.target && e.target.closest ? e.target.closest('[data-cursor]') : null;
+    if (t && (!e.relatedTarget || !e.relatedTarget.closest || !e.relatedTarget.closest('[data-cursor]'))){
+      cur.classList.remove('is-big');
+      if (lab) lab.textContent = '';
+    }
+  });
+  // Klavye kullanıcısına native imleci geri ver
+  document.addEventListener('focusin', function(){ document.body.classList.remove('cursor-on'); });
+  document.addEventListener('pointerdown', function(){ document.body.classList.add('cursor-on'); });
+
+  // Magnetik butonlar
+  $$('.mag').forEach(function(el){
+    var rect = null;
+    var inner = el.querySelector('span') || null;
+    el.addEventListener('pointerenter', function(){
+      rect = el.getBoundingClientRect();
+      el.style.transition = 'transform .18s linear';
+    });
+    el.addEventListener('pointermove', function(e){
+      if (!rect) return;
+      var mx = (e.clientX - (rect.left + rect.width / 2)) * 0.28;
+      var my = (e.clientY - (rect.top + rect.height / 2)) * 0.32;
+      el.style.transform = 'translate3d(' + mx.toFixed(1) + 'px,' + my.toFixed(1) + 'px,0)';
+      if (inner) inner.style.transform = 'translate3d(' + (mx * 0.42).toFixed(1) + 'px,' + (my * 0.42).toFixed(1) + 'px,0)';
+    });
+    el.addEventListener('pointerleave', function(){
+      rect = null;
+      el.style.transition = 'transform .5s cubic-bezier(.2,1.2,.3,1)';
+      el.style.transform = 'translate3d(0,0,0)';
+      if (inner) inner.style.transform = 'translate3d(0,0,0)';
+    });
+  });
+})();
+
+/* ============================================================
+   04 — Hero kinetik tipografi (karakter karakter)
+   ============================================================ */
+(function(){
+  var title = $('#heroTitle');
+  if (!title) return;
+  var lines = $$('.ln', title);
+  var full = [];
+  var idx = 0;
+
+  lines.forEach(function(ln){
+    var txt = ln.getAttribute('data-text') || '';
+    full.push(txt);
+    var html = '';
+    for (var i = 0; i < txt.length; i++){
+      var c = txt.charAt(i);
+      if (c === ' '){ html += '<span class="ch" style="width:.26em">&nbsp;</span>'; continue; }
+      var delay = (idx * 0.026 + 0.16).toFixed(3);
+      html += '<span class="ch"><i style="transition-delay:' + delay + 's">' + c + '</i></span>';
+      idx++;
+    }
+    ln.innerHTML = html;
+    ln.setAttribute('aria-hidden', 'true');
+  });
+  title.setAttribute('aria-label', full.join(' '));
+
+  var started = false;
+  var start = function(){
+    if (started) return;
+    started = true;
+    title.classList.add('go');
+    var s = $('#heroSub'), a = $('#heroActions');
+    if (s) s.classList.add('go');
+    if (a) a.classList.add('go');
+  };
+  // setTimeout kullanıyoruz: sekme arka planda açılsa bile tetiklenir.
+  // (rAF'a bağlarsak gizli sekmede başlık hiç görünmeden kalırdı.)
+  if (RM) start();
+  else {
+    setTimeout(start, 140);
+    window.addEventListener('load', function(){ setTimeout(start, 40); });
+  }
+})();
+
+/* ============================================================
+   05 — Kelime kelime başlık açılımı + fade reveal
+   ============================================================ */
+(function(){
+  var rvs = $$('[data-rv]');
+  rvs.forEach(function(el){
+    var txt = el.textContent.trim();
+    el.setAttribute('aria-label', txt);
+    var words = txt.split(/\s+/);
+    var html = '';
+    for (var i = 0; i < words.length; i++){
+      html += '<span class="w" aria-hidden="true"><i style="transition-delay:' + (i * 0.07).toFixed(3) + 's">' + words[i] + '</i></span>';
+      if (i < words.length - 1) html += ' ';
+    }
+    el.innerHTML = html;
+  });
+
+  if (RM){
+    rvs.forEach(function(e){ e.classList.add('in'); });
+    $$('[data-fade]').forEach(function(e){ e.classList.add('in'); });
+    return;
+  }
+
+  if (!('IntersectionObserver' in window)){
+    rvs.forEach(function(e){ e.classList.add('in'); });
+    $$('[data-fade]').forEach(function(e){ e.classList.add('in'); });
+    return;
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting){
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+
+  rvs.forEach(function(e){ io.observe(e); });
+
+  var fio = new IntersectionObserver(function(entries){
+    entries.forEach(function(en, i){
+      if (en.isIntersecting){
+        var el = en.target;
+        var d = (el.getAttribute('data-d') || (i * 60));
+        setTimeout(function(){ el.classList.add('in'); }, Number(d));
+        fio.unobserve(el);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+
+  $$('[data-fade]').forEach(function(e){ fio.observe(e); });
+})();
+
+/* ============================================================
+   06 — HERO WebGL shader (kütüphanesiz, try/catch korumalı)
+   ============================================================ */
+(function(){
+  var canvas = $('#heroCanvas');
+  var fallback = $('#heroFallback');
+  if (!canvas) return;
+
+  function useFallback(){
+    try { canvas.style.display = 'none'; } catch(e){}
+    if (fallback) fallback.style.display = 'block';
+  }
+
+  if (RM){ useFallback(); return; }
+
+  var gl = null;
+  try {
+    gl = canvas.getContext('webgl', { antialias: false, alpha: false, depth: false, stencil: false, powerPreference: 'high-performance' })
+      || canvas.getContext('experimental-webgl', { antialias: false, alpha: false, depth: false });
+  } catch (e){ gl = null; }
+
+  if (!gl){ useFallback(); return; }
+
+  var prog = null, quality = LOWPOWER ? 0.55 : 0.8;
+  var uTime = null, uRes = null, uMouse = null, uIntro = null;
+  var raf = null, running = false, t0 = performance.now();
+  var mx = 0, my = 0, tmx = 0, tmy = 0, intro = 0, pointerSet = false;
+
+  function compile(type, src){
+    var sh = gl.createShader(type);
+    gl.shaderSource(sh, src);
+    gl.compileShader(sh);
+    if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)){
+      gl.deleteShader(sh);
+      return null;
+    }
+    return sh;
+  }
+
+  try {
+    var vsEl = $('#vsrc'), fsEl = $('#fsrc');
+    if (!vsEl || !fsEl) throw new Error('shader kaynagi yok');
+    var vs = compile(gl.VERTEX_SHADER, vsEl.textContent);
+    var fs = compile(gl.FRAGMENT_SHADER, fsEl.textContent);
+    if (!vs || !fs) throw new Error('shader derlenemedi');
+
+    prog = gl.createProgram();
+    gl.attachShader(prog, vs);
+    gl.attachShader(prog, fs);
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error('program baglanamadi');
+    gl.useProgram(prog);
+
+    // Tam ekranı kaplayan tek büyük üçgen
+    var buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    var loc = gl.getAttribLocation(prog, 'aPos');
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+    uTime = gl.getUniformLocation(prog, 'uTime');
+    uRes = gl.getUniformLocation(prog, 'uRes');
+    uMouse = gl.getUniformLocation(prog, 'uMouse');
+    uIntro = gl.getUniformLocation(prog, 'uIntro');
+  } catch (err){
+    useFallback();
+    return;
+  }
+
+  function resize(){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = Math.max(1, Math.round(canvas.clientWidth * dpr * quality));
+    var h = Math.max(1, Math.round(canvas.clientHeight * dpr * quality));
+    if (canvas.width !== w || canvas.height !== h){
+      canvas.width = w;
+      canvas.height = h;
+      gl.viewport(0, 0, w, h);
+    }
+    // Fare henüz hiç oynatılmadıysa haleyi varsayılan noktada tut;
+    // oynatıldıysa yeniden boyutlandırma haleyi merkeze geri çekmesin.
+    if (!pointerSet){ tmx = w * 0.5; tmy = h * 0.62; }
+  }
+  resize();
+  mx = tmx; my = tmy;
+
+  if (window.ResizeObserver){
+    try { new ResizeObserver(resize).observe(canvas); } catch(e){ window.addEventListener('resize', resize); }
+  } else {
+    window.addEventListener('resize', resize);
+  }
+
+  // Fare uniform'u
+  if (FINE){
+    window.addEventListener('pointermove', function(e){
+      var r = canvas.getBoundingClientRect();
+      if (r.bottom < 0) return;
+      var s = canvas.width / Math.max(1, r.width);
+      pointerSet = true;
+      tmx = (e.clientX - r.left) * s;
+      tmy = (r.height - (e.clientY - r.top)) * s;
+    }, { passive: true });
+  }
+
+  // Adaptif kalite ölçümü
+  var frames = 0, acc = 0, last = performance.now(), tuned = false;
+
+  function draw(now){
+    var dt = now - last; last = now;
+    if (!tuned){
+      frames++; acc += dt;
+      if (frames === 34){
+        tuned = true;
+        if (acc / frames > 21 && quality > 0.5){ quality = 0.55; resize(); }
+      }
+    }
+    mx += (tmx - mx) * 0.06;
+    my += (tmy - my) * 0.06;
+    intro = Math.min(1, intro + 0.008);
+
+    gl.uniform1f(uTime, (now - t0) / 1000);
+    gl.uniform2f(uRes, canvas.width, canvas.height);
+    gl.uniform2f(uMouse, mx, my);
+    gl.uniform1f(uIntro, intro);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+    raf = requestAnimationFrame(draw);
+  }
+
+  function start(){ if (!running){ running = true; last = performance.now(); raf = requestAnimationFrame(draw); } }
+  function stop(){ if (running){ running = false; if (raf) cancelAnimationFrame(raf); raf = null; } }
+
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(en){
+      if (en[0] && en[0].isIntersecting) start(); else stop();
+    }, { threshold: 0 });
+    io.observe(canvas);
+  } else { start(); }
+
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden) stop();
+    else {
+      var r = canvas.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < window.innerHeight) start();
+    }
+  });
+})();
+
+/* ============================================================
+   07 — HİZMETLER: satır açılımı + canlı canvas önizleme
+   ============================================================ */
+(function(){
+  var rows = $$('.svc-row');
+  var cv = $('#svcCanvas');
+  var nameEl = $('#svcViewName'), titleEl = $('#svcViewTitle'), descEl = $('#svcViewDesc');
+  if (!rows.length) return;
+
+  var META = [
+    { name: '01 — WEB',      title: 'Arayüz + Altyapı',        desc: 'Bileşen ızgarası, sunucu yanıtı ve dönüşüm akışı tek sistemde.' },
+    { name: '02 — MOBİL',    title: 'Ürün Akışı',              desc: 'Ekran akışı, oturum tutundurma ve mağaza yayın döngüsü.' },
+    { name: '03 — PAZARLAMA',title: 'Bütçe → Dönüşüm',         desc: 'Kanal bazlı harcama ve gerçek satışın canlı eşlenmesi.' },
+    { name: '04 — VİDEO',    title: 'Zaman Çizgisi',           desc: 'Kurgu, ses dalgası ve varyant üretim hattı.' },
+    { name: '05 — SEO',      title: 'Görünürlük Ağı',          desc: 'Küme mimarisi, çok dilli hiyerarşi ve sıralama eğrisi.' }
+  ];
+
+  var active = 0;
+
+  function setActive(i){
+    if (i === active) return;
+    active = i;
+    rows.forEach(function(r, k){
+      var on = (k === i);
+      r.classList.toggle('act', on);
+      r.setAttribute('aria-expanded', on ? 'true' : 'false');
+    });
+    var m = META[i] || META[0];
+    if (nameEl) nameEl.textContent = m.name;
+    if (titleEl) titleEl.textContent = m.title;
+    if (descEl) descEl.textContent = m.desc;
+    scene.reset(i);
+  }
+
+  rows.forEach(function(r, i){
+    r.addEventListener('pointerenter', function(){ if (FINE) setActive(i); });
+    r.addEventListener('click', function(){ setActive(i); });
+    r.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); setActive(i); }
+    });
+    r.addEventListener('focus', function(){ setActive(i); });
+  });
+
+  /* --- Canvas 2D sahne motoru (5 mod) --- */
+  var scene = (function(){
+    if (!cv) return { reset: function(){}, start: function(){}, stop: function(){} };
+    var ctx = null;
+    try { ctx = cv.getContext('2d'); } catch(e){ ctx = null; }
+    if (!ctx) return { reset: function(){}, start: function(){}, stop: function(){} };
+
+    var W = 0, H = 0, dpr = 1, raf = null, running = false, mode = 0, T = 0;
+    var pts = [], bars = [], nodes = [];
+    var ACID = '#D6FF3E';
+
+    function size(){
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var w = cv.clientWidth || 360, h = cv.clientHeight || 300;
+      W = w; H = h;
+      cv.width = Math.round(w * dpr);
+      cv.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      build();
+    }
+
+    function build(){
+      pts = []; bars = []; nodes = [];
+      var n = LOWPOWER ? 22 : 40;
+      for (var i = 0; i < n; i++){
+        pts.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .32, vy: (Math.random() - .5) * .32 });
+      }
+      for (var b = 0; b < 9; b++){
+        bars.push({ v: Math.random() * .35 + .12, t: Math.random() * .8 + .2 });
+      }
+      for (var k = 0; k < 12; k++){
+        nodes.push({ a: (k / 12) * Math.PI * 2, r: 0.28 + (k % 3) * 0.17, s: 0.2 + Math.random() * 0.5 });
+      }
+    }
+
+    function bg(){
+      ctx.fillStyle = '#08080A';
+      ctx.fillRect(0, 0, W, H);
+      ctx.strokeStyle = 'rgba(255,255,255,.035)';
+      ctx.lineWidth = 1;
+      for (var x = 0; x < W; x += 28){
+        ctx.beginPath(); ctx.moveTo(x + .5, 0); ctx.lineTo(x + .5, H); ctx.stroke();
+      }
+      for (var y = 0; y < H; y += 28){
+        ctx.beginPath(); ctx.moveTo(0, y + .5); ctx.lineTo(W, y + .5); ctx.stroke();
+      }
+    }
+
+    // MOD 0 — Parçacık ağı (web)
+    function drawWeb(){
+      var i, j;
+      for (i = 0; i < pts.length; i++){
+        var p = pts[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+      }
+      ctx.lineWidth = 1;
+      for (i = 0; i < pts.length; i++){
+        for (j = i + 1; j < pts.length; j++){
+          var dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+          var d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 78){
+            ctx.strokeStyle = 'rgba(214,255,62,' + (0.30 * (1 - d / 78)).toFixed(3) + ')';
+            ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y); ctx.stroke();
+          }
+        }
+      }
+      ctx.fillStyle = ACID;
+      for (i = 0; i < pts.length; i++){
+        ctx.fillRect(pts[i].x - 1.2, pts[i].y - 1.2, 2.4, 2.4);
+      }
+    }
+
+    // MOD 1 — Mobil ekran akışı
+    function drawMobile(){
+      var w = Math.min(96, W * 0.30), h = w * 1.9;
+      var cxp = W / 2, cyp = H / 2;
+      var off = Math.sin(T * 0.02) * (W * 0.16);
+      for (var s = -1; s <= 1; s++){
+        var x = cxp + s * (w + 22) + off - w / 2;
+        var y = cyp - h / 2 + Math.cos(T * 0.02 + s) * 5;
+        var main = (s === 0);
+        ctx.strokeStyle = main ? ACID : 'rgba(255,255,255,.16)';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(x + .5, y + .5, w, h);
+        ctx.fillStyle = main ? 'rgba(214,255,62,.07)' : 'rgba(255,255,255,.02)';
+        ctx.fillRect(x, y, w, h);
+        // içerik satırları
+        ctx.fillStyle = main ? 'rgba(214,255,62,.45)' : 'rgba(255,255,255,.14)';
+        ctx.fillRect(x + 9, y + 12, w - 18, 16);
+        for (var r = 0; r < 5; r++){
+          var lw = (w - 18) * (0.55 + 0.4 * Math.abs(Math.sin(T * 0.03 + r + s)));
+          ctx.fillRect(x + 9, y + 38 + r * 13, lw, 5);
+        }
+        ctx.fillStyle = main ? ACID : 'rgba(255,255,255,.2)';
+        ctx.fillRect(x + 9, y + h - 24, w - 18, 14);
+      }
+    }
+
+    // MOD 2 — Bütçe / dönüşüm barları
+    function drawAds(){
+      var n = bars.length;
+      var bw = (W - 40) / n;
+      for (var i = 0; i < n; i++){
+        var b = bars[i];
+        var target = 0.22 + 0.68 * Math.abs(Math.sin(T * 0.012 + i * 0.7));
+        b.v += (target - b.v) * 0.05;
+        var hgt = b.v * (H - 70);
+        var x = 20 + i * bw;
+        ctx.fillStyle = 'rgba(255,255,255,.05)';
+        ctx.fillRect(x, 24, bw - 6, H - 70);
+        ctx.fillStyle = i === n - 1 ? ACID : 'rgba(214,255,62,' + (0.28 + 0.5 * b.v).toFixed(2) + ')';
+        ctx.fillRect(x, H - 46 - hgt, bw - 6, hgt);
+      }
+      // eğri
+      ctx.strokeStyle = 'rgba(232,228,220,.55)';
+      ctx.lineWidth = 1.4;
+      ctx.beginPath();
+      for (var k = 0; k <= 60; k++){
+        var px = 20 + (k / 60) * (W - 40);
+        var py = H - 46 - (0.30 + 0.42 * Math.sin(k * 0.09 + T * 0.02)) * (H - 90);
+        if (k === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+      }
+      ctx.stroke();
+      ctx.fillStyle = 'rgba(232,228,220,.35)';
+      ctx.fillRect(20, H - 46, W - 40, 1);
+    }
+
+    // MOD 3 — Video zaman çizgisi + dalga
+    function drawVideo(){
+      var mid = H * 0.42;
+      ctx.strokeStyle = ACID;
+      ctx.lineWidth = 1.4;
+      ctx.beginPath();
+      for (var x = 0; x <= W; x += 3){
+        var u = x / W;
+        var a = Math.sin(u * 22 + T * 0.06) * Math.sin(u * 5 - T * 0.02);
+        var y = mid + a * (H * 0.22);
+        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      // dikey dalga çubukları
+      for (var i = 0; i < 46; i++){
+        var bx = (i / 46) * W + 3;
+        var amp = Math.abs(Math.sin(i * 0.4 + T * 0.05)) * (H * 0.16) + 3;
+        ctx.fillStyle = 'rgba(214,255,62,' + (0.14 + 0.4 * (amp / (H * 0.19))).toFixed(2) + ')';
+        ctx.fillRect(bx, mid - amp / 2, 2, amp);
+      }
+      // klip şeridi
+      var ty = H - 54;
+      ctx.strokeStyle = 'rgba(255,255,255,.14)';
+      ctx.strokeRect(14.5, ty + .5, W - 29, 34);
+      var clips = 6;
+      for (var c = 0; c < clips; c++){
+        var cw = (W - 34) / clips;
+        var cxx = 17 + c * cw;
+        var on = (Math.floor(T * 0.03) % clips) === c;
+        ctx.fillStyle = on ? ACID : 'rgba(255,255,255,.10)';
+        ctx.fillRect(cxx, ty + 4, cw - 5, 26);
+      }
+      // oynatma çizgisi
+      var ph = ((T * 1.6) % (W - 30)) + 15;
+      ctx.strokeStyle = '#E8E4DC'; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(ph, ty - 4); ctx.lineTo(ph, ty + 40); ctx.stroke();
+    }
+
+    // MOD 4 — SEO görünürlük ağı
+    function drawSeo(){
+      var cxp = W / 2, cyp = H * 0.46, R = Math.min(W, H) * 0.36;
+      ctx.strokeStyle = 'rgba(255,255,255,.10)';
+      for (var ring = 1; ring <= 3; ring++){
+        ctx.beginPath(); ctx.arc(cxp, cyp, R * (ring / 3), 0, Math.PI * 2); ctx.stroke();
+      }
+      for (var i = 0; i < nodes.length; i++){
+        var nd = nodes[i];
+        var a = nd.a + T * 0.004 * nd.s;
+        var x = cxp + Math.cos(a) * R * (nd.r / 0.62);
+        var y = cyp + Math.sin(a) * R * (nd.r / 0.62) * 0.72;
+        ctx.strokeStyle = 'rgba(214,255,62,.22)';
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(cxp, cyp); ctx.lineTo(x, y); ctx.stroke();
+        var pulse = 2 + Math.abs(Math.sin(T * 0.03 + i)) * 2.4;
+        ctx.fillStyle = ACID;
+        ctx.fillRect(x - pulse / 2, y - pulse / 2, pulse, pulse);
+      }
+      ctx.fillStyle = ACID;
+      ctx.fillRect(cxp - 4, cyp - 4, 8, 8);
+      // yükselen sıralama eğrisi
+      ctx.strokeStyle = 'rgba(232,228,220,.5)';
+      ctx.lineWidth = 1.4;
+      ctx.beginPath();
+      for (var k = 0; k <= 50; k++){
+        var px = 14 + (k / 50) * (W - 28);
+        var t = k / 50;
+        var py = H - 18 - (Math.pow(t, 0.7) * (H * 0.20)) - Math.sin(t * 9 + T * 0.02) * 4;
+        if (k === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+      }
+      ctx.stroke();
+    }
+
+    function frame(){
+      T += 1;
+      bg();
+      if (mode === 0) drawWeb();
+      else if (mode === 1) drawMobile();
+      else if (mode === 2) drawAds();
+      else if (mode === 3) drawVideo();
+      else drawSeo();
+      // köşe işaretleri
+      ctx.strokeStyle = 'rgba(214,255,62,.5)'; ctx.lineWidth = 1;
+      var s = 9;
+      ctx.beginPath();
+      ctx.moveTo(6, 6 + s); ctx.lineTo(6, 6); ctx.lineTo(6 + s, 6);
+      ctx.moveTo(W - 6 - s, H - 6); ctx.lineTo(W - 6, H - 6); ctx.lineTo(W - 6, H - 6 - s);
+      ctx.stroke();
+      raf = requestAnimationFrame(frame);
+    }
+
+    function start(){ if (!running && !RM){ running = true; raf = requestAnimationFrame(frame); } }
+    function stop(){ if (running){ running = false; if (raf) cancelAnimationFrame(raf); raf = null; } }
+
+    size();
+    if (window.ResizeObserver){
+      try { new ResizeObserver(size).observe(cv); } catch(e){ window.addEventListener('resize', size); }
+    } else { window.addEventListener('resize', size); }
+
+    if (RM){ bg(); drawWeb(); }
+
+    if ('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(en){
+        if (en[0] && en[0].isIntersecting) start(); else stop();
+      }, { threshold: 0 });
+      io.observe(cv);
+    } else { start(); }
+
+    function inView(){
+      var r = cv.getBoundingClientRect();
+      return r.bottom > 0 && r.top < (window.innerHeight || document.documentElement.clientHeight);
+    }
+    // Sekme geri geldiğinde döngüyü yeniden başlat (IntersectionObserver tekrar tetiklenmez).
+    document.addEventListener('visibilitychange', function(){
+      if (document.hidden) stop();
+      else if (inView()) start();
+    });
+
+    return {
+      reset: function(m){ mode = m; T = 0; build(); if (RM){ bg(); frame_once(); } },
+      start: start,
+      stop: stop
+    };
+
+    function frame_once(){
+      bg();
+      if (mode === 0) drawWeb();
+      else if (mode === 1) drawMobile();
+      else if (mode === 2) drawAds();
+      else if (mode === 3) drawVideo();
+      else drawSeo();
+    }
+  })();
+})();
+
+/* ============================================================
+   08 — Rakam sayaçları + mini barlar
+   ============================================================ */
+(function(){
+  var stats = $$('.stat');
+  if (!stats.length) return;
+
+  function fill(el){
+    var target = parseFloat(el.getAttribute('data-count') || '0');
+    var out = $('.cn', el);
+    var barsEl = $('.bars', el);
+
+    if (barsEl){
+      var vals = (barsEl.getAttribute('data-bars') || '').split(',');
+      var html = '';
+      for (var i = 0; i < vals.length; i++) html += '<i style="height:2px"></i>';
+      barsEl.innerHTML = html;
+      var bs = $$('i', barsEl);
+      bs.forEach(function(b, k){
+        setTimeout(function(){ b.style.height = (parseFloat(vals[k]) || 4) + 'px'; }, 90 + k * 55);
+      });
+    }
+    el.classList.add('in');
+
+    if (!out) return;
+    if (RM){ out.textContent = String(target); return; }
+
+    var dur = 1500, st = performance.now();
+    function tick(now){
+      var p = clamp((now - st) / dur, 0, 1);
+      var e = 1 - Math.pow(1 - p, 3);
+      var v = target * e;
+      out.textContent = (target % 1 === 0) ? String(Math.round(v)) : v.toFixed(1);
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  if (!('IntersectionObserver' in window)){ stats.forEach(fill); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(e){
+      if (e.isIntersecting){ fill(e.target); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.35 });
+  stats.forEach(function(s){ io.observe(s); });
+})();
+
+/* ============================================================
+   09 — CTA bandı: hafif çizgi alanı (canvas 2D)
+   ============================================================ */
+(function(){
+  var cv = $('#bandCanvas');
+  if (!cv || RM) return;
+  var ctx = null;
+  try { ctx = cv.getContext('2d'); } catch(e){ return; }
+  if (!ctx) return;
+
+  var W = 0, H = 0, dpr = 1, raf = null, running = false, T = 0;
+
+  function size(){
+    dpr = Math.min(window.devicePixelRatio || 1, 1.6);
+    W = cv.clientWidth || 800; H = cv.clientHeight || 400;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function frame(){
+    T += 1;
+    ctx.clearRect(0, 0, W, H);
+    var lines = LOWPOWER ? 10 : 20;
+    for (var i = 0; i < lines; i++){
+      var t = i / lines;
+      ctx.beginPath();
+      ctx.strokeStyle = 'rgba(214,255,62,' + (0.05 + 0.10 * (1 - Math.abs(t - .5) * 2)).toFixed(3) + ')';
+      ctx.lineWidth = 1;
+      for (var x = 0; x <= W; x += 14){
+        var u = x / Math.max(1, W);
+        var y = H * (0.14 + t * 0.72)
+              + Math.sin(u * 6.0 + T * 0.012 + i * 0.34) * (18 + i * 1.6)
+              + Math.sin(u * 13.0 - T * 0.007) * 7;
+        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+    raf = requestAnimationFrame(frame);
+  }
+
+  function start(){ if (!running){ running = true; raf = requestAnimationFrame(frame); } }
+  function stop(){ if (running){ running = false; if (raf) cancelAnimationFrame(raf); raf = null; } }
+
+  size();
+  if (window.ResizeObserver){
+    try { new ResizeObserver(size).observe(cv); } catch(e){ window.addEventListener('resize', size); }
+  } else { window.addEventListener('resize', size); }
+
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(en){
+      if (en[0] && en[0].isIntersecting) start(); else stop();
+    }, { threshold: 0 });
+    io.observe(cv);
+  } else { start(); }
+
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden){ stop(); return; }
+    var r = cv.getBoundingClientRect();
+    if (r.bottom > 0 && r.top < (window.innerHeight || document.documentElement.clientHeight)) start();
+  });
+})();
+
+/* ============================================================
+   10 — SSS akordeon
+   ============================================================ */
+(function(){
+  var items = $$('.faq-i');
+  items.forEach(function(it){
+    var btn = $('.faq-q', it);
+    if (!btn) return;
+    btn.addEventListener('click', function(){
+      var open = it.classList.contains('open');
+      items.forEach(function(o){
+        o.classList.remove('open');
+        var b = $('.faq-q', o);
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
+      if (!open){
+        it.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+
+/* ============================================================
+   11 — Teklif formu (doğrulama + başarı ekranı)
+   ============================================================ */
+(function(){
+  var form = $('#teklifForm'), ok = $('#formOk'), okText = $('#formOkText'), reset = $('#formReset');
+  if (!form || !ok) return;
+
+  var HIZMET = {
+    web: 'Web Tasarım & Yazılım',
+    mobil: 'Mobil Uygulama',
+    pazarlama: 'Dijital Pazarlama',
+    video: 'Video Prodüksiyon',
+    seo: 'SEO Hizmetleri',
+    '360': '360° Tam Paket'
+  };
+
+  function fieldOf(el){ return el ? el.closest('.field') : null; }
+
+  function markErr(el, bad){
+    var f = fieldOf(el);
+    if (f) f.classList.toggle('err', !!bad);
+  }
+
+  function validate(){
+    var ad = $('#f-ad'), tel = $('#f-tel'), mail = $('#f-mail'), hiz = $('#f-hizmet'), msg = $('#f-mesaj');
+    var bad = false;
+
+    if (!ad || ad.value.trim().length < 2){ markErr(ad, true); bad = true; } else markErr(ad, false);
+
+    var digits = tel ? tel.value.replace(/\D/g, '') : '';
+    if (digits.length < 10){ markErr(tel, true); bad = true; } else markErr(tel, false);
+
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!mail || !re.test(mail.value.trim())){ markErr(mail, true); bad = true; } else markErr(mail, false);
+
+    if (!hiz || !hiz.value){ markErr(hiz, true); bad = true; } else markErr(hiz, false);
+
+    if (!msg || msg.value.trim().length < 8){ markErr(msg, true); bad = true; } else markErr(msg, false);
+
+    return !bad;
+  }
+
+  $$('input, select, textarea', form).forEach(function(el){
+    el.addEventListener('input', function(){ markErr(el, false); });
+    el.addEventListener('change', function(){ markErr(el, false); });
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!validate()){
+      var first = $('.field.err input, .field.err select, .field.err textarea', form);
+      if (first) first.focus();
+      return;
+    }
+    var ad = $('#f-ad'), hiz = $('#f-hizmet');
+    var isim = ad ? ad.value.trim().split(/\s+/)[0] : '';
+    var svc = hiz ? (HIZMET[hiz.value] || 'projeniz') : 'projeniz';
+    if (okText){
+      okText.textContent = isim
+        ? (isim + ', talebiniz alındı. ' + svc + ' için hazırladığımız kapsam ve fiyat özetini en geç 48 saat içinde göndeririz; acil durumlarda 0538 699 96 66 numarasından bize ulaşabilirsiniz.')
+        : ('Talebiniz alındı. ' + svc + ' için kapsam ve fiyat özetini en geç 48 saat içinde göndeririz.');
+    }
+    ok.classList.add('show');
+  });
+
+  if (reset){
+    reset.addEventListener('click', function(){
+      ok.classList.remove('show');
+      form.reset();
+      $$('.field', form).forEach(function(f){ f.classList.remove('err'); });
+      var a = $('#f-ad'); if (a) a.focus();
+    });
+  }
+})();
+
+/* ============================================================
+   12 — Yumuşak iç bağlantı kaydırma (sabit menü ofsetli)
+   ============================================================ */
+(function(){
+  $$('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href');
+      if (!id || id === '#' || id.length < 2) return;
+      var t = null;
+      try { t = document.querySelector(id); } catch(err){ return; }
+      if (!t) return;
+      e.preventDefault();
+      var y = t.getBoundingClientRect().top + window.scrollY - 66;
+      window.scrollTo({ top: y, behavior: RM ? 'auto' : 'smooth' });
+    });
+  });
+})();
+
+/* ============================================================
+   13 — Yatay taşma güvenlik denetimi
+   Taşma yaratan öğeyi yakalayıp kırpar; html/body'ye dokunmaz
+   (overflow:hidden vermek position:sticky panelini bozardı).
+   ============================================================ */
+(function(){
+  function guard(){
+    var vw = document.documentElement.clientWidth;
+    if (document.body.scrollWidth <= vw + 1) return;
+    $$('main section, .foot, .marquee, .why, .stats, .proc, .quotes').forEach(function(el){
+      if (el.scrollWidth > vw + 1) el.style.overflowX = 'clip';
+    });
+  }
+  window.addEventListener('load', guard);
+  window.addEventListener('resize', guard, { passive: true });
+})();
+</script>
+
+</body>
+</html>
