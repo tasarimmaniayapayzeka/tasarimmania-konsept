@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>TasarımMania — 5 Çok Sayfalı Demo Site</title>
+<meta name="description" content="46 rakip sitenin analizinden doğan 5 farklı sanat yönetimli, çok sayfalı TasarımMania demo sitesi.">
+<link rel="icon" href="../assets/logo/logo-kare.png">
+<style>
+:root{--r:#ED1E24;--ink:#16181d;--mut:#6b7280;--bg:#fafafa;--line:#e5e7eb}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.6 system-ui,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 80px}
+header{padding:54px 0 8px}
+header img{height:44px}
+h1{font-size:clamp(26px,4.5vw,40px);line-height:1.15;margin:18px 0 10px}
+h1 b{color:var(--r)}
+.sub{color:var(--mut);max-width:760px}
+.why{background:#fff;border:1px solid var(--line);border-left:5px solid var(--r);border-radius:10px;padding:16px 20px;margin:26px 0;font-size:14.5px}
+.why b{color:var(--r)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:26px}
+a.card{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;text-decoration:none;color:var(--ink);transition:transform .15s,border-color .15s;position:relative;overflow:hidden}
+a.card:hover{transform:translateY(-3px);border-color:var(--r)}
+a.card:focus-visible{outline:3px solid var(--r);outline-offset:2px}
+.no{font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--r)}
+.card h2{font-size:20px;margin:6px 0 8px}
+.card p{font-size:13.5px;color:var(--mut);margin:0 0 12px}
+.chip{display:inline-block;font-size:11.5px;border:1px solid var(--line);border-radius:20px;padding:2px 10px;margin:2px 3px 0 0;color:#374151;background:var(--bg)}
+.strip{height:6px;border-radius:4px;margin-bottom:14px}
+.s1{background:linear-gradient(90deg,#0a0a0c 70%,var(--r))}
+.s2{background:repeating-linear-gradient(90deg,#fafafa 0 14px,#16181d 14px 16px,#fafafa 16px 30px,var(--r) 30px 32px);border:1px solid var(--line)}
+.s3{background:linear-gradient(90deg,#101318 60%,#2a3140 60% 80%,var(--r) 80%)}
+.s4{background:linear-gradient(90deg,#f2f0ec 55%,#23252b 55% 85%,var(--r) 85%);border:1px solid var(--line)}
+.s5{background:linear-gradient(90deg,#efe7d8 70%,var(--r) 70% 78%,#efe7d8 78%);border:1px solid var(--line)}
+.foot{margin-top:44px;font-size:13px;color:var(--mut)}
+.foot a{color:var(--r)}
+@media (prefers-color-scheme:dark){
+:root{--ink:#e7e9ee;--mut:#9aa1ad;--bg:#111318;--line:#2a2e37}
+a.card,.why{background:#1a1d24}
+.chip{background:#111318;color:#c7cad1}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<img src="../assets/logo/logo-koyu-yazi.png" alt="TasarımMania" onerror="this.style.display='none'">
+<h1>5 Demo · <b>Çok Sayfalı</b> Site Önerileri</h1>
+<p class="sub">46 rakip sitenin kaynak-kod analizinden çıkan boşluk haritasının cevabı: beş farklı sanat yönetimi, aynı satış omurgası. Her demo 6 sayfa — ana sayfa, iki hizmet şablonu, portfolyo/vaka, fiyat + hesaplayıcı, iletişim.</p>
+</header>
+
+<div class="why"><b>Rakiplerin hiçbirinde olmayan 6 şey, beş demonun hepsinde gömülü:</b>
+① uçtan uca dönüşüm kurgusu (sticky WhatsApp/tel + dataLayer olay iskeleti) ·
+② video-SEO şablonu (VideoObject + FAQPage + Service + LocalBusiness) ·
+③ brief toplayan chatbot (4 adım → WhatsApp devir) ·
+④ interaktif fiyat hesaplayıcı (46 sitede sadece 1'i statik fiyat veriyordu) ·
+⑤ sektör etiketli vaka anlatımı ·
+⑥ performans bütçesi (rakip ortalaması ~350 KB HTML'e karşı hafif sayfalar).</div>
+
+<div class="grid">
+<a class="card" href="01-sinema-seridi/index.html">
+<div class="strip s1"></div>
+<span class="no">DEMO 01</span>
+<h2>Sinema Karanlığı</h2>
+<p>Simsiyah zemin, film grain, projektör ışığı, perfore film şeridi portfolyo, timecode detayları. Showreel'i merkeze koyan "yapım şirketi" duruşu.</p>
+<span class="chip">koyu</span><span class="chip">serif başlık</span><span class="chip">yatay film şeridi</span>
+</a>
+<a class="card" href="02-isvicre-beyaz/index.html">
+<div class="strip s2"></div>
+<span class="no">DEMO 02</span>
+<h2>İsviçre Editoryal</h2>
+<p>Bembeyaz, dev tipografi, görünür kırmızı grid, sıfır gölge-gradyan. En hafif demo — footer'da sayfa ağırlığı rozeti: hız iddiasının kendisi kanıt.</p>
+<span class="chip">açık</span><span class="chip">tipografik</span><span class="chip">performans vitrini</span>
+</a>
+<a class="card" href="03-reji-masasi/index.html">
+<div class="strip s3"></div>
+<span class="no">DEMO 03</span>
+<h2>Reji Paneli</h2>
+<p>Stüdyo konsolu estetiği: timecode sayacı, VU metreler, canvas dalga formu. Fiyat hesaplayıcı fader'lı reji konsolu gibi — interaktifliğin vitrini.</p>
+<span class="chip">koyu</span><span class="chip">monospace</span><span class="chip">konsol UI</span>
+</a>
+<a class="card" href="04-bento-studyo/index.html">
+<div class="strip s4"></div>
+<span class="no">DEMO 04</span>
+<h2>Bento Stüdyo</h2>
+<p>Sıcak açık zeminde bento kutular + gerçek 3D cam ikonlar; hizmet × sektör interaktif matrisi. 360° hizmet genişliğini en net anlatan düzen.</p>
+<span class="chip">açık</span><span class="chip">bento grid</span><span class="chip">3D ikonlar</span>
+</a>
+<a class="card" href="05-vaka-dosyasi/index.html">
+<div class="strip s5"></div>
+<span class="no">DEMO 05</span>
+<h2>Vaka Dosyası</h2>
+<p>Manila arşiv dosyası estetiği: kırmızı damgalar, klasör sekmesi menü, açılan vaka kapakları. Kanıt-öncelikli satış — "işte dosyalar, kendin bak."</p>
+<span class="chip">krem</span><span class="chip">damga/arşiv</span><span class="chip">vaka anlatımı</span>
+</a>
+</div>
+
+<p class="foot">Tüm sayfalar noindex'li demodur; rakamlar ve vakalar temsilîdir. Tek sayfalık 15 ana sayfa konsepti için: <a href="../index.html">konsept galerisi</a>.</p>
+</div>
+</body>
+</html>
