@@ -412,6 +412,83 @@ table.cmp td.col-ok{color:var(--fg-dim)}
 .step em{display:block;font-style:normal;font-family:var(--mono);font-size:10px;color:var(--fg-dim);margin-top:12px;letter-spacing:.08em;
   border-top:1px dashed var(--hair);padding-top:10px}
 
+/* --- 14b. İNTERAKTİF SÜREÇ (ray + düğüm + panel) --- */
+.pr{border:1px solid var(--hair);border-radius:var(--r-lg);overflow:hidden;background:var(--panel)}
+
+/* ray */
+.pr-rail{position:relative;display:grid;grid-template-columns:repeat(5,1fr);
+  border-bottom:1px solid var(--hair);background:rgba(255,255,255,.015)}
+.pr-line{position:absolute;left:10%;right:10%;top:41px;height:2px;background:rgba(255,255,255,.08);border-radius:2px}
+.pr-line i{display:block;height:100%;width:0;border-radius:2px;
+  background:linear-gradient(90deg,var(--cy),var(--vi));transition:width .55s var(--ease)}
+.pr-node{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:9px;
+  padding:22px 12px 20px;background:none;border:0;cursor:pointer;font-family:inherit;color:var(--muted);
+  transition:color .3s;text-align:center}
+.pr-node:hover{color:var(--fg)}
+.pr-node:focus-visible{outline:2px solid var(--cy);outline-offset:-3px;border-radius:var(--r-sm)}
+.pr-dot{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;flex:none;
+  background:var(--bg-2);border:1px solid var(--hair-strong);transition:.4s var(--ease)}
+.pr-dot b{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);transition:color .3s}
+.pr-node:hover .pr-dot{transform:translateY(-3px);border-color:var(--cy)}
+.pr-node.is-on .pr-dot{border-color:var(--cy);background:rgba(0,229,255,.10);
+  box-shadow:0 0 0 5px rgba(0,229,255,.08),0 10px 24px -10px rgba(0,229,255,.6)}
+.pr-node.is-on .pr-dot b{color:var(--cy)}
+.pr-node.is-done .pr-dot{border-color:rgba(0,229,255,.45)}
+.pr-lbl{font-size:13.5px;font-weight:600;letter-spacing:-.02em;line-height:1.25}
+.pr-node.is-on .pr-lbl{color:var(--fg)}
+.pr-when{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* panel */
+.pr-stage{position:relative}
+.pr-panel{display:grid;grid-template-columns:.85fr 1.15fr;gap:34px;align-items:center;padding:38px 38px 40px}
+.pr-panel[hidden]{display:none}
+.pr-panel.is-on{animation:prIn .5s var(--ease) both}
+@keyframes prIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.pr-vis{position:relative;aspect-ratio:1;border-radius:var(--r-md);overflow:hidden;
+  border:1px solid var(--hair);background:#0A0C11;max-width:300px;width:100%;justify-self:center}
+.pr-vis img{width:100%;height:100%;object-fit:cover;display:block;
+  animation:prFloat 7s ease-in-out infinite}
+@keyframes prFloat{0%,100%{transform:translateY(0) scale(1.02)}50%{transform:translateY(-9px) scale(1.05)}}
+.pr-halo{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(60% 55% at 50% 55%,rgba(0,229,255,.16),transparent 70%)}
+
+.pr-txt .pr-step{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;
+  color:var(--cy);border:1px solid rgba(0,229,255,.3);background:rgba(0,229,255,.07);
+  padding:6px 11px;border-radius:999px;margin-bottom:16px}
+.pr-txt h3{font-size:clamp(22px,2.6vw,30px);letter-spacing:-.035em;margin-bottom:12px}
+.pr-txt>p{font-size:15px;color:var(--fg-dim);line-height:1.65;max-width:52ch}
+.pr-list{list-style:none;margin:20px 0 24px;display:grid;gap:10px}
+.pr-list li{position:relative;padding-left:22px;font-size:13.6px;color:var(--muted);line-height:1.55}
+.pr-list li::before{content:"";position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:2px;
+  background:linear-gradient(140deg,var(--cy),var(--vi))}
+.pr-list b{color:var(--fg);font-weight:600}
+.pr-cta{display:flex;gap:12px;flex-wrap:wrap}
+
+@media(max-width:920px){
+  .pr-rail{grid-template-columns:repeat(5,1fr)}
+  .pr-lbl{font-size:11.5px}
+  .pr-when{display:none}
+  .pr-line{top:38px;left:8%;right:8%}
+  .pr-panel{grid-template-columns:1fr;gap:24px;padding:28px 22px 32px}
+  .pr-vis{max-width:220px}
+}
+@media(max-width:560px){
+  .pr-rail{grid-template-columns:repeat(5,1fr)}
+  .pr-node{padding:16px 4px 14px;gap:7px}
+  .pr-dot{width:32px;height:32px}
+  .pr-dot b{font-size:10px}
+  .pr-lbl{font-size:0;line-height:0}   /* dar ekranda yalnızca numara kalır */
+  .pr-line{top:32px}
+  .pr-txt>p{font-size:14.2px}
+  .pr-cta .btn{width:100%;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  .pr-vis img{animation:none}
+  .pr-panel.is-on{animation:none}
+  .pr-line i{transition:none}
+}
+
 /* --- 15. YORUMLAR --- */
 .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .quote{border:1px solid var(--hair);border-radius:var(--r-lg);padding:26px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.01));
@@ -1171,31 +1248,118 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
       <h2>Nasıl çalışıyoruz</h2>
       <p>Her adımın süresi, sorumlusu ve sizden ne isteneceği baştan yazılıdır. Sürprize yer yok.</p>
     </div>
-    <div class="steps rv d1">
-      <div class="step">
-        <b>01</b><h4>Teşhis</h4>
-        <p>Sitenizi, reklam hesabınızı ve rakip konumunuzu ekran paylaşarak inceleriz. Kayıp noktaları canlı işaretlenir.</p>
-        <em>30 DK · ÜCRETSİZ</em>
+    <!-- interaktif aşama seçici: ray + tıklanabilir düğümler + panel -->
+    <div class="pr rv d1" id="pr">
+      <div class="pr-rail" role="tablist" aria-label="Çalışma süreci adımları">
+        <span class="pr-line" aria-hidden="true"><i id="prFill"></i></span>
+        <button class="pr-node is-on" role="tab" id="prt-1" aria-controls="prp-1" aria-selected="true"  data-i="0">
+          <span class="pr-dot"><b>01</b></span><span class="pr-lbl">Teşhis</span><span class="pr-when">30 dk</span>
+        </button>
+        <button class="pr-node" role="tab" id="prt-2" aria-controls="prp-2" aria-selected="false" tabindex="-1" data-i="1">
+          <span class="pr-dot"><b>02</b></span><span class="pr-lbl">Plan &amp; teklif</span><span class="pr-when">48 saat</span>
+        </button>
+        <button class="pr-node" role="tab" id="prt-3" aria-controls="prp-3" aria-selected="false" tabindex="-1" data-i="2">
+          <span class="pr-dot"><b>03</b></span><span class="pr-lbl">Kurulum</span><span class="pr-when">1–2. hafta</span>
+        </button>
+        <button class="pr-node" role="tab" id="prt-4" aria-controls="prp-4" aria-selected="false" tabindex="-1" data-i="3">
+          <span class="pr-dot"><b>04</b></span><span class="pr-lbl">Üretim &amp; yayın</span><span class="pr-when">3–5. hafta</span>
+        </button>
+        <button class="pr-node" role="tab" id="prt-5" aria-controls="prp-5" aria-selected="false" tabindex="-1" data-i="4">
+          <span class="pr-dot"><b>05</b></span><span class="pr-lbl">Ölçüm &amp; büyütme</span><span class="pr-when">sürekli</span>
+        </button>
       </div>
-      <div class="step">
-        <b>02</b><h4>Plan &amp; teklif</h4>
-        <p>Kapsam, süre, ekip ve fiyat tek sayfada gelir. Sonradan çıkan ek kalem yoktur.</p>
-        <em>48 SAAT İÇİNDE</em>
-      </div>
-      <div class="step">
-        <b>03</b><h4>Kurulum</h4>
-        <p>Tasarım sistemi, ölçüm altyapısı ve içerik iskeleti kurulur. Hesaplar sizin adınıza açılır.</p>
-        <em>1.–2. HAFTA</em>
-      </div>
-      <div class="step">
-        <b>04</b><h4>Üretim &amp; yayın</h4>
-        <p>Geliştirme, prodüksiyon ve kampanya kurulumu paralel yürür. Test ortamında onay alınır.</p>
-        <em>3.–5. HAFTA</em>
-      </div>
-      <div class="step">
-        <b>05</b><h4>Ölçüm &amp; büyütme</h4>
-        <p>Aylık tek sayfa rapor, iki haftada bir optimizasyon toplantısı. Çalışmayan kalem kesilir.</p>
-        <em>SÜREKLİ</em>
+
+      <div class="pr-stage">
+        <!-- 01 -->
+        <div class="pr-panel is-on" role="tabpanel" id="prp-1" aria-labelledby="prt-1">
+          <div class="pr-vis"><span class="pr-halo" aria-hidden="true"></span>
+            <img src="../assets/surec/01-teshis.jpg" alt="" width="560" height="560" decoding="async"></div>
+          <div class="pr-txt">
+            <span class="pr-step">ADIM 01 · 30 DAKİKA · ÜCRETSİZ</span>
+            <h3>Teşhis</h3>
+            <p>Sitenizi, reklam hesabınızı ve rakip konumunuzu ekranı paylaşarak birlikte inceleriz. Paranın nerede kaybolduğunu canlı işaretleriz.</p>
+            <ul class="pr-list">
+              <li><b>Sizden istenen:</b> Google Ads / Meta ve Analytics görüntüleme yetkisi</li>
+              <li><b>Çıktı:</b> 3 maddelik kayıp noktası listesi — çalışmasak da sizde kalır</li>
+            </ul>
+            <div class="pr-cta">
+              <a class="btn btn-p" href="#teklif">Teşhis görüşmesi ayarla <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn-g" href="https://wa.me/905386999666" target="_blank" rel="noopener">WhatsApp’tan yaz</a>
+            </div>
+          </div>
+        </div>
+        <!-- 02 -->
+        <div class="pr-panel" role="tabpanel" id="prp-2" aria-labelledby="prt-2" hidden>
+          <div class="pr-vis"><span class="pr-halo" aria-hidden="true"></span>
+            <img src="../assets/surec/02-plan.jpg" alt="" width="560" height="560" loading="lazy" decoding="async"></div>
+          <div class="pr-txt">
+            <span class="pr-step">ADIM 02 · 48 SAAT İÇİNDE</span>
+            <h3>Plan &amp; teklif</h3>
+            <p>Kapsam, süre, ekip ve fiyat tek sayfada gelir. Hangi modülün ne getireceğini rakamla yazarız; sonradan çıkan ek kalem yoktur.</p>
+            <ul class="pr-list">
+              <li><b>Sizden istenen:</b> hedef ve bütçe aralığı</li>
+              <li><b>Çıktı:</b> tek sayfa teklif + aşama takvimi</li>
+            </ul>
+            <div class="pr-cta">
+              <a class="btn btn-p" href="#teklif">Teklif iste <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn-g" href="#isler">Önce işleri gör</a>
+            </div>
+          </div>
+        </div>
+        <!-- 03 -->
+        <div class="pr-panel" role="tabpanel" id="prp-3" aria-labelledby="prt-3" hidden>
+          <div class="pr-vis"><span class="pr-halo" aria-hidden="true"></span>
+            <img src="../assets/surec/03-kurulum.jpg" alt="" width="560" height="560" loading="lazy" decoding="async"></div>
+          <div class="pr-txt">
+            <span class="pr-step">ADIM 03 · 1.–2. HAFTA</span>
+            <h3>Kurulum</h3>
+            <p>Tasarım sistemi, ölçüm altyapısı ve içerik iskeleti kurulur. Reklam ve analiz hesapları <b>sizin adınıza</b> açılır — veriler hiçbir zaman ajansta rehin kalmaz.</p>
+            <ul class="pr-list">
+              <li><b>Sizden istenen:</b> marka dosyaları ve alan adı erişimi</li>
+              <li><b>Çıktı:</b> canlı test ortamı + GA4 / Pixel ölçüm planı</li>
+            </ul>
+            <div class="pr-cta">
+              <a class="btn btn-p" href="#teklif">Kuruluma başlayalım <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn-g" href="#hizmetler">Modülleri incele</a>
+            </div>
+          </div>
+        </div>
+        <!-- 04 -->
+        <div class="pr-panel" role="tabpanel" id="prp-4" aria-labelledby="prt-4" hidden>
+          <div class="pr-vis"><span class="pr-halo" aria-hidden="true"></span>
+            <img src="../assets/surec/04-yayin.jpg" alt="" width="560" height="560" loading="lazy" decoding="async"></div>
+          <div class="pr-txt">
+            <span class="pr-step">ADIM 04 · 3.–5. HAFTA</span>
+            <h3>Üretim &amp; yayın</h3>
+            <p>Geliştirme, prodüksiyon ve kampanya kurulumu paralel yürür. Her hafta çalışan bir sürüm görürsünüz; yayın onayı sizde.</p>
+            <ul class="pr-list">
+              <li><b>Sizden istenen:</b> haftalık 30 dakikalık onay toplantısı</li>
+              <li><b>Çıktı:</b> yayına alınmış site, uygulama veya kampanya</li>
+            </ul>
+            <div class="pr-cta">
+              <a class="btn btn-p" href="#teklif">Takvimi konuşalım <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn-g" href="#isler">Örnek çıktılar</a>
+            </div>
+          </div>
+        </div>
+        <!-- 05 -->
+        <div class="pr-panel" role="tabpanel" id="prp-5" aria-labelledby="prt-5" hidden>
+          <div class="pr-vis"><span class="pr-halo" aria-hidden="true"></span>
+            <img src="../assets/surec/05-olcum.jpg" alt="" width="560" height="560" loading="lazy" decoding="async"></div>
+          <div class="pr-txt">
+            <span class="pr-step">ADIM 05 · SÜREKLİ</span>
+            <h3>Ölçüm &amp; büyütme</h3>
+            <p>Aylık tek sayfa rapor, iki haftada bir optimizasyon toplantısı. Çalışmayan kalem kesilir, çalışan kaleme bütçe kaydırılır.</p>
+            <ul class="pr-list">
+              <li><b>Sizden istenen:</b> satış tarafından geri bildirim</li>
+              <li><b>Çıktı:</b> aylık rapor + istediğiniz an açılan canlı panel</li>
+            </ul>
+            <div class="pr-cta">
+              <a class="btn btn-p" href="#teklif">Büyüme planını başlat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn-g" href="tel:+905386999666">0538 699 96 66</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -2191,6 +2355,101 @@ var Motion = (function(){
       if (first) first.focus();
     });
   }
+})();
+
+/* ============================================================
+   12b. İNTERAKTİF SÜREÇ ADIMLARI
+   Tıklanabilir ray + panel geçişi + klavye + otomatik ilerleme.
+   Kullanıcı bir kez dokununca otomatik ilerleme kalıcı olarak durur.
+   ============================================================ */
+(function surec(){
+  var kok = document.getElementById('pr');
+  if (!kok) return;
+
+  var dugumler = [].slice.call(kok.querySelectorAll('.pr-node'));
+  var paneller = [].slice.call(kok.querySelectorAll('.pr-panel'));
+  var dolgu    = document.getElementById('prFill');
+  if (!dugumler.length || dugumler.length !== paneller.length) return;
+
+  var AZALT = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var aktif = 0, sayac = null, kullaniciDurdurdu = false, gorunur = false;
+  var SURE = 6500;
+
+  function goster(i, odakla) {
+    if (i === aktif) return;
+    aktif = i;
+    dugumler.forEach(function (d, j) {
+      var on = j === i;
+      d.classList.toggle('is-on', on);
+      d.classList.toggle('is-done', j < i);
+      d.setAttribute('aria-selected', on ? 'true' : 'false');
+      d.tabIndex = on ? 0 : -1;
+    });
+    paneller.forEach(function (p, j) {
+      if (j === i) { p.hidden = false; p.classList.add('is-on'); }
+      else { p.hidden = true; p.classList.remove('is-on'); }
+    });
+    if (dolgu) dolgu.style.width = (i / (dugumler.length - 1) * 100) + '%';
+    if (odakla) dugumler[i].focus();
+  }
+
+  function durdur() { if (sayac) { clearInterval(sayac); sayac = null; } }
+  function basla() {
+    if (AZALT || kullaniciDurdurdu || sayac || !gorunur) return;
+    sayac = setInterval(function () { goster((aktif + 1) % dugumler.length, false); }, SURE);
+  }
+  function kullaniciMudahale() { kullaniciDurdurdu = true; durdur(); }
+
+  dugumler.forEach(function (d, i) {
+    d.addEventListener('click', function () { kullaniciMudahale(); goster(i, false); });
+    d.addEventListener('mouseenter', durdur);
+    d.addEventListener('mouseleave', basla);
+    d.addEventListener('keydown', function (e) {
+      var son = dugumler.length - 1, hedef = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') hedef = i === son ? 0 : i + 1;
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') hedef = i === 0 ? son : i - 1;
+      else if (e.key === 'Home') hedef = 0;
+      else if (e.key === 'End') hedef = son;
+      if (hedef === null) return;
+      e.preventDefault();
+      kullaniciMudahale();
+      goster(hedef, true);
+    });
+  });
+
+  // panelin üstüne gelince de otomatik ilerleme dursun (okuma sırasında kaymasın)
+  var sahne = kok.querySelector('.pr-stage');
+  if (sahne) {
+    sahne.addEventListener('mouseenter', durdur);
+    sahne.addEventListener('mouseleave', basla);
+  }
+
+  // Ekran dışında ve sekme arka plandayken çalışma; geri gelince devam et.
+  // IntersectionObserver yerine doğrudan konum ölçümü: her tarayıcıda ve
+  // gömülü/önizleme bağlamlarında da güvenilir çalışır.
+  var sonOlcum = 0;
+  function gorunurluguGuncelle() {
+    var r = kok.getBoundingClientRect();
+    var yeni = r.top < window.innerHeight * 0.85 && r.bottom > window.innerHeight * 0.15;
+    if (yeni === gorunur) return;
+    gorunur = yeni;
+    if (gorunur) basla(); else durdur();
+  }
+  function planla() {
+    var simdi = Date.now();
+    if (simdi - sonOlcum < 120) return;   // basit kısma; rAF'a bağlı değil
+    sonOlcum = simdi;
+    gorunurluguGuncelle();
+  }
+  window.addEventListener('scroll', planla, { passive: true });
+  window.addEventListener('resize', planla, { passive: true });
+  gorunurluguGuncelle();
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) durdur(); else basla();
+  });
+
+  if (dolgu) dolgu.style.width = '0%';
 })();
 
 /* ============================================================
