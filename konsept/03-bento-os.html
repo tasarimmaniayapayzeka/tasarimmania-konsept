@@ -420,7 +420,9 @@ table.cmp td.col-ok{color:var(--fg-dim)}
 .quote p{margin-top:14px;font-size:14.8px;line-height:1.65;color:var(--fg-dim);flex:1}
 .qp{display:flex;align-items:center;gap:12px;margin-top:22px;padding-top:18px;border-top:1px solid var(--hair)}
 .qav{width:38px;height:38px;border-radius:11px;flex:none;display:grid;place-items:center;font-weight:700;font-size:14px;color:#06090F;
-  background:linear-gradient(140deg,var(--cy),var(--vi))}
+  background:linear-gradient(140deg,var(--cy),var(--vi));padding:1.5px;overflow:hidden}
+/* portre fotoğrafı: gradyan 1.5px'lik halka olarak görünür kalır */
+.qav img{width:100%;height:100%;object-fit:cover;border-radius:9.5px;display:block}
 .qp b{display:block;font-size:14px;letter-spacing:-.02em}
 .qp span{display:block;font-size:11.5px;color:var(--muted);font-family:var(--mono);letter-spacing:.05em}
 
@@ -1205,22 +1207,23 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
     <div class="sec-head rv">
       <span class="eyebrow"><i></i>Referanslar</span>
       <h2>Müşterilerimiz ne diyor</h2>
+      <p>Demo sürümü — aşağıdaki kişiler, görseller ve yorumlar temsilîdir; yayın öncesi gerçek müşteri referanslarıyla değiştirilecektir.</p>
     </div>
     <div class="quotes">
       <figure class="quote rv" style="margin:0">
         <span class="qm" aria-hidden="true">“</span>
         <blockquote style="margin:0"><p>Üç ayrı tedarikçiyle çalışırken hiçbiri diğerinin işini bilmiyordu. TasarımMania geldikten sonra reklam, site ve içerik ilk kez aynı takvimde ilerledi. Teklif sayımız dört ayda ikiye katlandı.</p></blockquote>
-        <figcaption class="qp"><span class="qav" aria-hidden="true">MA</span><span><b>Murat Aydın</b><span>Pazarlama Direktörü · Lojistik</span></span></figcaption>
+        <figcaption class="qp"><span class="qav" aria-hidden="true"><img src="../assets/kisi/01-murat.jpg" alt="" width="160" height="160" loading="lazy" decoding="async"></span><span><b>Murat Aydın</b><span>Pazarlama Direktörü · Lojistik</span></span></figcaption>
       </figure>
       <figure class="quote rv d1" style="margin:0">
         <span class="qm" aria-hidden="true">“</span>
         <blockquote style="margin:0"><p>Almanya pazarına açılırken en çok korktuğumuz şey dil ve mevzuattı. Çok dilli SEO yapısını kurup reklamları yerel ekiple aynı kalitede yönettiler. İlk çeyrekte yurt dışı ciromuz toplamın %28'i oldu.</p></blockquote>
-        <figcaption class="qp"><span class="qav" aria-hidden="true">SE</span><span><b>Selin Erdoğan</b><span>Kurucu Ortak · E-ticaret</span></span></figcaption>
+        <figcaption class="qp"><span class="qav" aria-hidden="true"><img src="../assets/kisi/02-selin.jpg" alt="" width="160" height="160" loading="lazy" decoding="async"></span><span><b>Selin Erdoğan</b><span>Kurucu Ortak · E-ticaret</span></span></figcaption>
       </figure>
       <figure class="quote rv d2" style="margin:0">
         <span class="qm" aria-hidden="true">“</span>
         <blockquote style="margin:0"><p>Uygulamayı 11 haftada iki mağazada da yayına aldılar ve en önemlisi, süreç boyunca nerede olduğumuzu her hafta bildim. Rapor istemek zorunda kalmadığım ilk ajans.</p></blockquote>
-        <figcaption class="qp"><span class="qav" aria-hidden="true">EK</span><span><b>Emre Kılıç</b><span>Dijital Kanallar Müdürü · Perakende</span></span></figcaption>
+        <figcaption class="qp"><span class="qav" aria-hidden="true"><img src="../assets/kisi/03-emre.jpg" alt="" width="160" height="160" loading="lazy" decoding="async"></span><span><b>Emre Kılıç</b><span>Dijital Kanallar Müdürü · Perakende</span></span></figcaption>
       </figure>
     </div>
   </div>
