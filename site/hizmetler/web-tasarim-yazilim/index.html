@@ -104,14 +104,35 @@
 .ui-kart{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:2px}
 .ui-kart div{height:44px;border-radius:7px;border:1px solid var(--hair);
   background:linear-gradient(160deg,rgba(var(--k-rgb),.14),transparent)}
-.ui-btn{margin-top:auto;width:96px;height:20px;border-radius:99px;background:var(--k);opacity:.92}
+/* Mock CTA: artık gerçek bir buton. Üç katmanda izlenebilen çapa öğe —
+   tıklanınca ölçüm katmanına geçip karşılığı olan olayı yakıyor. */
+.ui-btn{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:6px;
+  height:23px;padding:0 12px;border:0;border-radius:99px;background:var(--k);color:#04141A;
+  font-family:var(--sans);font-size:9.4px;font-weight:700;letter-spacing:.01em;cursor:pointer;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.ui-btn:hover,.ui-btn:focus-visible{transform:translateY(-1px);
+  box-shadow:0 7px 18px -6px rgba(var(--k-rgb),.95)}
+.ui-btn svg{width:9px;height:9px}
+.ui-ipucu{font-family:var(--mono);font-size:7.8px;letter-spacing:.09em;color:var(--muted);
+  margin-top:5px}
+
+/* ölçüm katmanında yanıp sönen olay */
+.ol-olay li.parla{color:var(--k)}
+.ol-olay li.parla i{animation:olayParla .9s var(--ease) 3}
+@keyframes olayParla{
+  0%,100%{transform:scale(1);box-shadow:0 0 8px 1px rgba(var(--k-rgb),.8)}
+  50%{transform:scale(1.6);box-shadow:0 0 18px 5px rgba(var(--k-rgb),1)}
+}
+@media(prefers-reduced-motion:reduce){.ol-olay li.parla i{animation:none}}
 
 /* kat 2 — yapı (aynı siluet, etiketli) */
 .yp{position:relative;border:1px dashed rgba(var(--k-rgb),.5);border-radius:6px;
   display:flex;align-items:center;padding:0 8px;font-family:var(--mono);font-size:8.4px;
   letter-spacing:.06em;color:rgba(var(--k-rgb),1);text-transform:none}
 .yp.a{height:22px}.yp.b{height:26px}.yp.c{flex:1}
-.yp-uc{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+/* min-height:0 ŞART — flex öğesinin varsayılan min-height:auto'su bu satırın
+   küçülmesini engelliyor ve alttaki schema satırı kırpılıyordu (ölçüldü: 10px). */
+.yp-uc{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;min-height:0}
 .yp-uc .yp{height:100%;justify-content:center}
 .yp-sch{margin-top:auto;font-family:var(--mono);font-size:8.6px;color:var(--muted);letter-spacing:.05em;
   border-top:1px solid var(--hair);padding-top:8px}
@@ -281,7 +302,10 @@
 
 @media(max-width:960px){
   .phd-iki{grid-template-columns:1fr}
-  .h3-kutu{height:290px;perspective:1100px}
+  /* 290px'te ölçüm katmanının alt notu 8px kırpılıyordu (ölçüldü) */
+  .h3-kutu{height:322px;perspective:1100px}
+  .h3-ic{gap:8px}
+  .ol-olay{gap:5px}
   .krs,.kps,.hiz{grid-template-columns:1fr}
   .alt,.bsl{grid-template-columns:1fr}
   .kny{grid-template-columns:repeat(2,1fr)}
@@ -440,7 +464,10 @@
                   <div class="ui-h1"></div>
                   <div class="ui-h1 k"></div>
                   <div class="ui-kart"><div></div><div></div><div></div></div>
-                  <span class="ui-btn"></span>
+                  <button type="button" class="ui-btn" data-mock-cta>TasarımMania
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                  </button>
+                  <p class="ui-ipucu">↑ BUTONA BASIN — ÖLÇÜM KATMANINDA KARŞILIĞINI GÖRÜN</p>
                 </div>
               </div>
 
@@ -453,6 +480,7 @@
                   <div class="yp-uc" style="flex:1">
                     <div class="yp">&lt;article&gt;</div><div class="yp">&lt;article&gt;</div><div class="yp">&lt;article&gt;</div>
                   </div>
+                  <div class="yp a" style="width:52%">&lt;button type="submit"&gt;</div>
                   <p class="yp-sch">schema.org · <b>Organization</b> · <b>Service</b> · <b>BreadcrumbList</b></p>
                 </div>
               </div>
@@ -920,6 +948,24 @@ document.getElementById('yil').textContent = new Date().getFullYear();
   katlar.forEach(function(k){
     k.addEventListener('click', function(){ durdur(); ciz(+k.dataset.kat); });
   });
+
+  /* Mock CTA → ölçüm katmanına geç ve karşılığı olan olayı yak.
+     Sayfanın tezinin bir hareketle gösterimi: bastığınız buton ölçülüyor.
+     stopPropagation şart — yoksa üstteki katman tıklaması hemen 0'a geri döndürür. */
+  var mockCta = kok.querySelector('[data-mock-cta]');
+  if (mockCta) {
+    mockCta.addEventListener('click', function(e){
+      e.stopPropagation();
+      durdur();
+      ciz(2);
+      var olay = kok.querySelector('.ol-olay li');   /* form_gonder */
+      if (!olay) return;
+      olay.classList.remove('parla');
+      void olay.offsetWidth;                          /* animasyonu yeniden başlat */
+      olay.classList.add('parla');
+      setTimeout(function(){ olay.classList.remove('parla'); }, 2900);
+    });
+  }
 
   if (!AZALT) {
     dongu = setInterval(function(){ if (!mudahale) ciz((aktif + 1) % 3); }, 3600);
