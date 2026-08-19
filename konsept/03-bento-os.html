@@ -511,7 +511,8 @@ table.cmp td.col-ok{color:var(--fg-dim)}
 .band h2{font-size:clamp(28px,4.6vw,50px);letter-spacing:-.045em;margin:16px 0 14px}
 .band p{color:var(--fg-dim);max-width:600px;margin:0 auto;font-size:16px}
 .band-cta{margin-top:30px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.band-mini{margin-top:18px;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
+/* özgüllük notu: ".band p" (0,1,1) bu kuralı eziyordu; .band .band-mini (0,2,0) ile üste alındı */
+.band .band-mini{margin:34px auto 0;font-family:var(--mono);font-size:11.5px;color:var(--muted);letter-spacing:.06em;line-height:1.8;max-width:560px}
 
 /* --- 17. SSS --- */
 .faq{border:1px solid var(--hair);border-radius:var(--r-lg);overflow:hidden}
