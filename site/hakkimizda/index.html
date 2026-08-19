@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hakkımızda — 14 yıldır aynı işi yapıyoruz | TasarımMania</title>
+<meta name="description" content="Bakırköy merkezli, 8 kişilik ekiple 165 proje. Web ve yazılımda 14, sosyal medyada 13, SEO’da 10 yıllık saha deneyimi. Tek ekip, tek takvim, tek rapor.">
+<link rel="canonical" href="https://www.tasarimmania.com/hakkimizda/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="Hakkımızda — 14 yıldır aynı işi yapıyoruz | TasarımMania">
+<meta property="og:description" content="Bakırköy merkezli, 8 kişilik ekiple 165 proje. Web, mobil, reklam, video ve SEO tek çatı altında.">
+<meta property="og:url" content="https://www.tasarimmania.com/hakkimizda/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<link rel="icon" type="image/png" href="../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tm.css">
+<style>
+/* --- üst menü --- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:26px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+
+/* --- hero --- */
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(30px,4.5vw,58px)) 0 clamp(32px,4vw,52px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 420px at 16% -10%,rgba(var(--acc-rgb),.14),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.phd h1{font-size:clamp(32px,5.6vw,60px);letter-spacing:-.05em;line-height:1.03;margin-bottom:18px}
+.phd .lead{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18.5px);max-width:60ch}
+
+/* --- rakam şeridi --- */
+.rkm{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:38px}
+.rkm > div{border:1px solid var(--hair);border-radius:var(--r-md);padding:20px 18px;background:var(--panel);
+  transition:.35s var(--ease)}
+.rkm > div:hover{border-color:var(--hair-strong);transform:translateY(-3px)}
+.rkm b{display:flex;align-items:baseline;gap:3px;font-family:var(--mono);
+  font-size:clamp(28px,3.6vw,40px);line-height:1;color:var(--acc);letter-spacing:-.03em}
+.rkm b i{font-style:normal;font-size:.42em;color:var(--muted)}
+.rkm span{display:block;margin-top:9px;font-size:12.6px;color:var(--muted);line-height:1.45}
+
+/* --- iki sütunlu anlatı --- */
+.anl{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,56px);align-items:start}
+.anl p{color:var(--fg-dim);font-size:15.6px;margin-bottom:15px;line-height:1.75}
+.anl p:last-child{margin-bottom:0}
+.anl b{color:var(--fg)}
+.anl-yan{border-left:2px solid var(--acc);padding-left:22px}
+.anl-yan h3{font-size:19px;margin-bottom:10px}
+.anl-yan p{font-size:14.6px}
+
+/* --- deneyim çubukları --- */
+.dnm{display:grid;gap:16px;max-width:640px}
+.dnm-sat{display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:baseline}
+.dnm-ad{font-size:15.4px;font-weight:600;color:var(--fg)}
+.dnm-yil{font-family:var(--mono);font-size:13px;color:var(--acc)}
+.dnm-cub{grid-column:1/-1;height:8px;border-radius:99px;background:rgba(255,255,255,.05);overflow:hidden}
+.dnm-dolu{height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--acc),rgba(var(--acc-rgb),.35));
+  transition:width 1.3s var(--ease)}
+.dnm-not{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.05em;margin-top:6px}
+
+/* --- ilke kartları --- */
+.ilk{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ilk-k{border:1px solid var(--hair);border-radius:var(--r-lg);padding:26px 24px;background:var(--panel);
+  transition:.38s var(--ease);position:relative;overflow:hidden}
+.ilk-k::after{content:"";position:absolute;right:-60px;top:-60px;width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle,rgba(var(--acc-rgb),.12),transparent 70%);opacity:0;transition:.4s}
+.ilk-k:hover{border-color:var(--hair-strong);transform:translateY(-4px)}
+.ilk-k:hover::after{opacity:1}
+.ilk-no{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--acc);display:block;margin-bottom:14px}
+.ilk-k h3{font-size:19px;margin-bottom:10px;letter-spacing:-.03em}
+.ilk-k p{font-size:14.2px;color:var(--muted);line-height:1.65}
+
+/* --- taahhüt listesi --- */
+.thd{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.thd-s{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--hair);border-radius:var(--r-md);
+  padding:18px 20px;background:var(--panel)}
+.thd-s svg{width:19px;height:19px;color:var(--acc);flex:none;margin-top:2px}
+.thd-s b{display:block;font-size:15px;margin-bottom:4px}
+.thd-s span{font-size:13.4px;color:var(--muted);line-height:1.55}
+
+/* --- ekip --- */
+.ekp{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.ekp-k{border:1px solid var(--hair);border-radius:var(--r-md);padding:22px 20px;background:var(--panel);
+  transition:.35s var(--ease)}
+.ekp-k:hover{border-color:var(--mrk);transform:translateY(-3px)}
+.ekp-k .rz{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;margin-bottom:14px;
+  background:rgba(255,255,255,.05);border:1px solid var(--hair)}
+.ekp-k .rz svg{width:17px;height:17px;color:var(--mrk)}
+.ekp-k h4{font-size:15.5px;margin-bottom:6px}
+.ekp-k p{font-size:12.8px;color:var(--muted);line-height:1.55}
+
+/* --- CTA --- */
+.band{position:relative;border:1px solid rgba(var(--acc-rgb),.28);border-radius:26px;
+  padding:clamp(38px,5vw,62px) 32px;text-align:center;overflow:hidden;
+  background:linear-gradient(140deg,rgba(var(--acc-rgb),.09),rgba(122,34,255,.07))}
+.band::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(600px 280px at 50% -30%,rgba(var(--acc-rgb),.2),transparent 70%)}
+.band > *{position:relative}
+.band h2{font-size:clamp(24px,3.6vw,40px);margin-bottom:12px}
+.band p{color:var(--fg-dim);margin-bottom:28px;font-size:16px}
+.band-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* --- footer --- */
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h5{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+
+.wa{position:fixed;right:22px;bottom:22px;z-index:90;width:54px;height:54px;border-radius:50%;
+  background:#25D366;display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+
+@media(max-width:960px){
+  .anl{grid-template-columns:1fr}
+  .ilk{grid-template-columns:1fr}
+  .ekp{grid-template-columns:repeat(2,1fr)}
+  .rkm{grid-template-columns:repeat(2,1fr)}
+  .ftr-ust{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .nav-links,.nav-tel{display:none}
+  .burger{display:block}
+  .thd{grid-template-columns:1fr}
+  .ftr-ust{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#ana">İçeriğe geç</a>
+
+<nav class="nav" data-nav aria-label="Ana menü">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../" aria-label="TasarımMania ana sayfa">
+      <img src="../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async">
+    </a>
+    <div class="nav-links">
+      <a href="../hizmetler/">Hizmetler</a>
+      <a href="../#isler">İşler</a>
+      <a href="./" aria-current="page">Ajans</a>
+      <a href="../#surec">Süreç</a>
+      <a href="../teklif/">Teklif Al</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../hizmetler/">Hizmetler</a><a href="../#isler">İşler</a><a href="./">Ajans</a>
+  <a href="../#surec">Süreç</a><a href="../teklif/">Teklif Al</a><a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Konum">
+        <a href="../">Ana sayfa</a><span aria-hidden="true">/</span><span>Ajans</span>
+      </nav>
+      <span class="eyebrow"><i></i>Bakırköy · İstanbul</span>
+      <h1 data-kin>14 yıldır aynı işi yapıyoruz.<br>Sadece daha iyi yapıyoruz.</h1>
+      <p class="lead">TasarımMania, web ve yazılımdan reklam yönetimine kadar beş disiplini
+        tek ekipte toplayan bir dijital ajans. Modaya göre hizmet eklemedik; yaptığımız işi
+        derinleştirdik ve birbirine bağladık.</p>
+
+      <div class="rkm">
+        <div><b><span data-say="14">0</span><i>yıl</i></b><span>Web ve yazılımda<br>saha deneyimi</span></div>
+        <div><b><span data-say="8">0</span><i>kişi</i></b><span>Uzman kadro<br>tek çatı altında</span></div>
+        <div><b><span data-say="120">0</span></b><span>Birlikte çalıştığımız<br>marka</span></div>
+        <div><b><span data-say="165">0</span></b><span>Sonuçlanan<br>proje</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== BİZ KİMİZ ===== -->
+  <section class="sec" id="kimiz">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Biz kimiz</span>
+        <h2 data-kin>Ajans değil, ekip arıyorsunuz</h2>
+      </div>
+
+      <div class="anl rv d1">
+        <div>
+          <p>Çoğu marka bize aynı cümleyle geliyor: <b>“Üç ayrı yerle çalışıyoruz, hiçbiri
+            diğerinin ne yaptığını bilmiyor.”</b> Site bir yerde, reklam başka yerde, video
+            bambaşka yerde. Sorun çıktığında herkes bir diğerini gösteriyor.</p>
+          <p>Biz bu yüzden büyümedik, <b>birleştik</b>. Web ve yazılım, mobil uygulama,
+            Meta &amp; Google Ads, video prodüksiyon ve SEO — beşi de aynı ofiste, aynı takvimde,
+            aynı raporda çalışıyor. Bir modülün ürettiği veri diğerinin girdisi oluyor.</p>
+          <p>Bakırköy’deyiz. Uzaktan da çalışırız ama <b>ilk görüşmeyi yüz yüze yapmayı</b>
+            tercih ederiz — ekranı birlikte açıp neyin para kaybettirdiğini göstermek,
+            sunum yapmaktan daha hızlı sonuç verir.</p>
+        </div>
+        <div class="anl-yan">
+          <h3>Ne satmıyoruz</h3>
+          <p>Beğeni, gösterim ve “marka bilinirliği” satmıyoruz. Bunlar sonuç değil,
+            ara metrik. Ölçemediğimiz bir şeyi vaat etmiyoruz; ölçtüğümüzü de olduğu gibi
+            raporluyoruz — kötü aya kötü diyoruz.</p>
+          <p style="margin-top:14px">Sıralama garantisi, “bir ayda ilk sayfa” gibi cümleler
+            kurmuyoruz. Kuran varsa dikkatli olun.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DENEYİM ===== -->
+  <section class="sec" id="deneyim" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Saha deneyimi</span>
+        <h2 data-kin>Her disiplinde farklı yaş var</h2>
+        <p>Hepsini aynı anda öğrenmedik. Web tarafı en eski, video ve mobil en yeni ekibimiz.
+          Hangi konuda ne kadar zamandır çalıştığımızı olduğu gibi yazıyoruz.</p>
+      </div>
+
+      <div class="dnm rv d1" id="dnmListe">
+        <div class="dnm-sat"><span class="dnm-ad">Web Tasarım &amp; Yazılım</span><span class="dnm-yil">14 yıl</span>
+          <div class="dnm-cub"><div class="dnm-dolu" data-oran="100"></div></div></div>
+        <div class="dnm-sat"><span class="dnm-ad">Sosyal Medya Yönetimi</span><span class="dnm-yil">13 yıl</span>
+          <div class="dnm-cub"><div class="dnm-dolu" data-oran="93"></div></div></div>
+        <div class="dnm-sat"><span class="dnm-ad">SEO &amp; Arama Motoru Optimizasyonu</span><span class="dnm-yil">10 yıl</span>
+          <div class="dnm-cub"><div class="dnm-dolu" data-oran="71"></div></div></div>
+        <div class="dnm-sat"><span class="dnm-ad">Grafik Tasarım</span><span class="dnm-yil">9 yıl</span>
+          <div class="dnm-cub"><div class="dnm-dolu" data-oran="64"></div></div></div>
+        <div class="dnm-sat"><span class="dnm-ad">Video Prodüksiyon &amp; Mobil Uygulama</span><span class="dnm-yil">daha genç</span>
+          <div class="dnm-cub"><div class="dnm-dolu" data-oran="42"></div></div></div>
+        <p class="dnm-not">Çubuklar disiplinlerin birbirine göre kıdemini gösterir, yetkinlik puanı değildir.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== İLKELER ===== -->
+  <section class="sec" id="ilkeler" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Çalışma ilkelerimiz</span>
+        <h2 data-kin>Üç cümlede nasıl çalıştığımız</h2>
+      </div>
+
+      <div class="ilk">
+        <article class="ilk-k rv">
+          <span class="ilk-no">01</span>
+          <h3>Önce ölçeriz</h3>
+          <p>Hiçbir işe ölçüm kurmadan başlamayız. Nereden kaç kişi geliyor, hangisi arıyor,
+            hangi kampanya kâr ediyor — bunlar bilinmeden yapılan her yatırım inanç meselesidir.</p>
+        </article>
+        <article class="ilk-k rv d1">
+          <span class="ilk-no">02</span>
+          <h3>Hesaplar sizin adınıza</h3>
+          <p>Google Ads, Meta, Analytics — hepsi sizin adınıza açılır. Ayrılırsak veriler
+            ve reklam geçmişi sizde kalır. Ajans değiştirmek, sıfırdan başlamak olmamalı.</p>
+        </article>
+        <article class="ilk-k rv d2">
+          <span class="ilk-no">03</span>
+          <h3>Tek muhatap</h3>
+          <p>Beş modülü de kullansanız bir kişiyle konuşursunuz. “O bizim işimiz değil”
+            cümlesini bizden duymazsınız; iç koordinasyon bizim sorunumuz, sizin değil.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TAAHHÜTLER ===== -->
+  <section class="sec" id="taahhut" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Yazılı taahhütlerimiz</span>
+        <h2 data-kin>Sözleşmede duran maddeler</h2>
+        <p>Bunlar pazarlama cümlesi değil; teklif ekinde yazılı olarak yer alır.</p>
+      </div>
+
+      <div class="thd rv d1">
+        <div class="thd-s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          <span><b>Aylık çıkış hakkı</b><span>Yönetim hizmetlerinde 12 ay kilit yok.
+            Ay sonunda bırakabilirsiniz, cezai şart uygulanmaz.</span></span>
+        </div>
+        <div class="thd-s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          <span><b>Devir dosyası</b><span>Ayrılırken tüm hesap erişimleri, kaynak dosyalar ve
+            teknik dokümantasyon tek klasörde teslim edilir.</span></span>
+        </div>
+        <div class="thd-s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          <span><b>Sonradan kalem çıkmaz</b><span>Teklifte yazan kapsam nettir. Kapsam
+            değişirse önce konuşur, sonra yazarız.</span></span>
+        </div>
+        <div class="thd-s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          <span><b>Tek sayfa rapor</b><span>Aylık raporunuz tek sayfadır ve ne yaptığımızı
+            değil, ne olduğunu anlatır.</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EKİP ===== -->
+  <section class="sec" id="ekip" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Kadro</span>
+        <h2 data-kin>Sekiz kişi, beş disiplin</h2>
+        <p>Freelance ağıyla değil, kendi kadromuzla çalışıyoruz. Projede kimin çalışacağını
+          ilk görüşmede isim isim söyleriz.</p>
+      </div>
+
+      <div class="ekp">
+        <article class="ekp-k rv" style="--mrk:var(--cy)">
+          <span class="rz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l-3 3 3 3M16 9l3 3-3 3M13.5 6l-3 12"/></svg></span>
+          <h4>Yazılım</h4>
+          <p>Kurumsal site, e-ticaret ve özel uygulama geliştirme; hız ve ölçüm altyapısı.</p>
+        </article>
+        <article class="ekp-k rv d1" style="--mrk:var(--vi)">
+          <span class="rz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span>
+          <h4>Tasarım</h4>
+          <p>Arayüz, marka kimliği ve grafik üretim; tasarım sistemi kurulumu.</p>
+        </article>
+        <article class="ekp-k rv d2" style="--mrk:var(--amber)">
+          <span class="rz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 3 6-8"/><path d="M15 6h4v4"/></svg></span>
+          <h4>Performans</h4>
+          <p>Google &amp; Meta reklam yönetimi, ölçüm kurulumu ve raporlama.</p>
+        </article>
+        <article class="ekp-k rv d3" style="--mrk:var(--pink)">
+          <span class="rz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="13" height="12" rx="2.5"/><path d="M15.5 11l6-3.5v9l-6-3.5z"/></svg></span>
+          <h4>Prodüksiyon</h4>
+          <p>Reklam filmi, ürün ve mekân çekimi, drone, kurgu ve seslendirme.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="band rv">
+        <h2>Önce tanışalım, sonra karar verin</h2>
+        <p>30 dakikalık görüşmede ekranı paylaşır, sitenizin ve reklam hesabınızın
+          para kaybettiği noktaları canlı işaretleriz. Çalışmasak da o liste sizde kalır.</p>
+        <div class="band-cta">
+          <a class="btn btn-p" href="../teklif/">Kapsam çıkaralım
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="tel:+905547916545">0554 791 65 45</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>Web, mobil, reklam, video ve SEO’yu tek çatı altında birleştiren
+          İstanbul merkezli 360 derece dijital ajans.</p>
+      </div>
+      <div>
+        <h5>Modüller</h5>
+        <ul>
+          <li><a href="../hizmetler/">Tüm hizmetler</a></li>
+          <li><a href="../hizmetler/#moduller">Web &amp; Yazılım</a></li>
+          <li><a href="../hizmetler/#moduller">Dijital Pazarlama</a></li>
+          <li><a href="../hizmetler/#moduller">SEO Hizmetleri</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>İletişim</h5>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../teklif/">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</span>
+      <span class="mono">BEŞ MODÜL · TEK PANEL</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+
+/* Deneyim çubukları: bölüm görününce dolsun */
+(function deneyim(){
+  var kok = document.getElementById('dnmListe');
+  if (!kok) return;
+  var doldu = false, sonKontrol = 0;
+  function calistir(){
+    var simdi = Date.now();
+    if (simdi - sonKontrol < 120) return;
+    sonKontrol = simdi;
+    if (doldu) return;
+    var r = kok.getBoundingClientRect();
+    if (r.top > (window.innerHeight || 800) * 0.85 || r.bottom < 0) return;
+    doldu = true;
+    [].forEach.call(kok.querySelectorAll('.dnm-dolu'), function(el, i){
+      setTimeout(function(){ el.style.width = el.dataset.oran + '%'; }, i * 110);
+    });
+  }
+  window.addEventListener('scroll', calistir, { passive:true });
+  window.addEventListener('resize', calistir, { passive:true });
+  calistir();
+})();
+</script>
+</body>
+</html>
