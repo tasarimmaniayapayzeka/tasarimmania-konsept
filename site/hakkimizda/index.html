@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hakkımızda — 14 yıldır aynı işi yapıyoruz | TasarımMania</title>
-<meta name="description" content="Bakırköy merkezli, 8 kişilik ekiple 165 proje. Web ve yazılımda 14, sosyal medyada 13, SEO’da 10 yıllık saha deneyimi. Tek ekip, tek takvim, tek rapor.">
+<meta name="description" content="İstanbul merkezli, 8 kişilik ekiple 165 proje. Web ve yazılımda 14, sosyal medyada 13, SEO’da 10 yıllık saha deneyimi. Tek ekip, tek takvim, tek rapor.">
 <link rel="canonical" href="https://www.tasarimmania.com/hakkimizda/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="TasarımMania">
 <meta property="og:title" content="Hakkımızda — 14 yıldır aynı işi yapıyoruz | TasarımMania">
-<meta property="og:description" content="Bakırköy merkezli, 8 kişilik ekiple 165 proje. Web, mobil, reklam, video ve SEO tek çatı altında.">
+<meta property="og:description" content="İstanbul merkezli, 8 kişilik ekiple 165 proje. Web, mobil, reklam, video ve SEO tek çatı altında.">
 <meta property="og:url" content="https://www.tasarimmania.com/hakkimizda/">
 <meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
 <meta property="og:image:width" content="1200">
@@ -133,18 +133,43 @@
   box-shadow:0 0 10px 1px rgba(var(--acc-rgb),.85)}
 
 /* --- görsel kart (başlıklı) --- */
-.gk{position:relative;margin:0 0 22px;border:1px solid var(--hair);border-radius:var(--r-lg);overflow:hidden}
-/* height:auto ŞART — yoksa HTML height="" özniteliği sunum ipucu olarak yüksekliği
-   sabitler, aspect-ratio hiç uygulanmaz ve görsel kareye yakın kırpılır. */
-.gk img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;
-  transition:transform 1.2s var(--ease)}
-.gk:hover img{transform:scale(1.05)}
-.gk figcaption{position:absolute;inset:auto 0 0 0;display:flex;align-items:center;gap:9px;
-  padding:36px 17px 14px;font-family:var(--mono);font-size:10.6px;letter-spacing:.15em;
-  text-transform:uppercase;color:var(--fg-dim);
-  background:linear-gradient(to top,rgba(11,13,18,.95),rgba(11,13,18,.5) 48%,transparent)}
-.gk figcaption::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--acc);flex:none;
-  box-shadow:0 0 9px 1px rgba(var(--acc-rgb),.75)}
+/* --- hizalanma paneli (SVG) ---
+   Solda kopuk gri şeritler = ayrı ajanslar. Ortadaki dikişte buluşup sağda modül
+   renklerinde PARALEL raylara dönüşüyorlar. Tek çizgide erimiyorlar; iddia
+   "beşini tek şeye indirdik" değil, "beşini aynı takvime hizaladık".
+   Ölçek hilesi: preserveAspectRatio="none" yatayda esnetir ama DİKEY koordinatlar
+   sabit kalır; böylece HTML etiketleri yüzdeyle konumlanınca her genişlikte çizgi
+   ucuna oturur. non-scaling-stroke da esnemeye rağmen kalınlığı piksel sabit tutar. */
+.org{margin:0 0 22px;border:1px solid var(--hair);border-radius:var(--r-lg);
+  background:var(--panel);overflow:hidden}
+.org-ic{padding:20px 20px 6px}
+.org-ust{display:flex;margin-bottom:14px}
+.org-bas{font-family:var(--mono);font-size:10.2px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--muted);width:44.67%;flex:none}          /* dikiş çizgisiyle aynı hizada */
+.org-bas--sag{width:auto;color:var(--fg-dim)}
+.org-sahne{position:relative;height:260px}
+.org-sahne svg{width:100%;height:100%;display:block}
+.org-dikis{stroke:rgba(255,255,255,.14);stroke-width:1}
+.org-sol{fill:none;stroke:#727D93;stroke-width:1.6;stroke-dasharray:9 7;opacity:.45}
+.org-sag{fill:none;stroke:var(--r);stroke-width:2;stroke-linecap:round}
+/* halo ayrı bir path — filter:drop-shadow beş kez uygulanınca scroll'da pahalı */
+.org-halo{fill:none;stroke:var(--r);stroke-width:8;opacity:.16;stroke-linecap:round}
+.org-dgm{stroke:var(--r);stroke-width:8;stroke-linecap:round}
+/* svg'nin 1. çocuğu dikiş çizgisi, 2. cyan, 3. mor: mor koyu zeminde sönük kalıyor */
+.org-ip:nth-child(3) .org-sag{stroke-width:2.4}
+.org-ip:nth-child(3) .org-halo{opacity:.3}
+.org-et{position:absolute;left:80%;top:var(--t);transform:translateY(-50%);
+  font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--fg-dim);white-space:nowrap;line-height:1}
+.org-et::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;
+  background:var(--r);margin-right:7px;vertical-align:middle}
+.org figcaption{padding:0 20px 18px;font-size:13px;color:var(--muted);line-height:1.5}
+.org-ip{opacity:0;transform:translateX(-16px);
+  transition:opacity .7s var(--ease),transform .8s var(--ease);
+  transition-delay:calc(var(--i) * .09s)}
+.org.in .org-ip{opacity:1;transform:none}
+/* güvenlik ağı: hareket azaltılmışsa veya .in hiç eklenmezse panel görünmez kalmasın */
+@media(prefers-reduced-motion:reduce){.org-ip{opacity:1;transform:none;transition:none}}
 
 /* --- taahhüt: görsel + liste --- */
 .thd-sar{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(22px,3.2vw,44px);align-items:stretch}
@@ -208,6 +233,13 @@
   .sinema{min-height:340px}
   .sinema h2{max-width:none}
   .cips span{font-size:11.4px;padding:8px 13px}
+  /* dar ekranda "Reklam" etiketi kutunun kenarına 1px kala bitiyordu — font yedeğe
+     düşerse taşardı. Yüzdeyle değil sağ kenara sabitliyoruz: taşma matematiksel
+     olarak imkânsız, ray ucuyla arasındaki boşluk da küçük kaldığı için bağ kopmuyor. */
+  .org-sahne{height:214px}
+  .org-et{font-size:9.4px;letter-spacing:.06em;left:auto;right:2px}
+  .org-et::before{width:4px;height:4px;margin-right:5px}
+  .org-bas{font-size:9.2px;letter-spacing:.1em}
 }
 </style>
 <script type="application/ld+json">
@@ -253,7 +285,7 @@
       <nav class="crumb" aria-label="Konum">
         <a href="../">Ana sayfa</a><span aria-hidden="true">/</span><span>Ajans</span>
       </nav>
-      <span class="eyebrow"><i></i>Bakırköy · İstanbul</span>
+      <span class="eyebrow"><i></i>İstanbul</span>
       <h1 data-kin>14 yıldır aynı işi yapıyoruz.<br>Sadece daha iyi yapıyoruz.</h1>
       <p class="lead">TasarımMania, web ve yazılımdan reklam yönetimine kadar beş disiplini
         tek ekipte toplayan bir dijital ajans. Modaya göre hizmet eklemedik; yaptığımız işi
@@ -297,14 +329,59 @@
           <p>Biz bu yüzden büyümedik, <b>birleştik</b>. Web ve yazılım, mobil uygulama,
             Meta &amp; Google Ads, video prodüksiyon ve SEO — beşi de aynı ofiste, aynı takvimde,
             aynı raporda çalışıyor. Bir modülün ürettiği veri diğerinin girdisi oluyor.</p>
-          <p>Bakırköy’deyiz. Uzaktan da çalışırız ama <b>ilk görüşmeyi yüz yüze yapmayı</b>
+          <p>İstanbul’dayız. Uzaktan da çalışırız ama <b>ilk görüşmeyi yüz yüze yapmayı</b>
             tercih ederiz — ekranı birlikte açıp neyin para kaybettirdiğini göstermek,
             sunum yapmaktan daha hızlı sonuç verir.</p>
         </div>
         <div>
-          <figure class="gk">
-            <img src="../../assets/ajans/istanbul.jpg" alt="Akşam saatlerinde İstanbul silueti" width="1100" height="614" loading="lazy" decoding="async">
-            <figcaption>Bakırköy · İstanbul</figcaption>
+          <figure class="org rv">
+            <div class="org-ic">
+              <div class="org-ust">
+                <span class="org-bas">Ayrı ayrı yürütülünce</span>
+                <span class="org-bas org-bas--sag">Tek ekipte yürütülünce</span>
+              </div>
+              <div class="org-sahne">
+                <svg viewBox="0 0 600 260" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                  <line class="org-dikis" x1="268" y1="34" x2="268" y2="230" vector-effect="non-scaling-stroke"/>
+                  <g class="org-ip" style="--i:0;--r:#00E5FF">
+                    <path class="org-sol" d="M0 214 C 72 214 68 150 138 146 C 206 142 208 64 268 64" vector-effect="non-scaling-stroke"/>
+                    <path class="org-halo" d="M268 64 H470" vector-effect="non-scaling-stroke"/>
+                    <path class="org-sag" d="M268 64 H470" vector-effect="non-scaling-stroke"/>
+                    <line class="org-dgm" x1="268" y1="64" x2="268.001" y2="64" vector-effect="non-scaling-stroke"/>
+                  </g>
+                  <g class="org-ip" style="--i:1;--r:#7A22FF">
+                    <path class="org-sol" d="M0 40 C 76 40 70 122 142 126 C 210 130 212 98 268 98" vector-effect="non-scaling-stroke"/>
+                    <path class="org-halo" d="M268 98 H470" vector-effect="non-scaling-stroke"/>
+                    <path class="org-sag" d="M268 98 H470" vector-effect="non-scaling-stroke"/>
+                    <line class="org-dgm" x1="268" y1="98" x2="268.001" y2="98" vector-effect="non-scaling-stroke"/>
+                  </g>
+                  <g class="org-ip" style="--i:2;--r:#FFB020">
+                    <path class="org-sol" d="M0 236 C 80 236 74 196 148 186 C 220 176 212 132 268 132" vector-effect="non-scaling-stroke"/>
+                    <path class="org-halo" d="M268 132 H470" vector-effect="non-scaling-stroke"/>
+                    <path class="org-sag" d="M268 132 H470" vector-effect="non-scaling-stroke"/>
+                    <line class="org-dgm" x1="268" y1="132" x2="268.001" y2="132" vector-effect="non-scaling-stroke"/>
+                  </g>
+                  <g class="org-ip" style="--i:3;--r:#FF2D9B">
+                    <path class="org-sol" d="M0 96 C 74 96 66 84 140 92 C 214 100 208 166 268 166" vector-effect="non-scaling-stroke"/>
+                    <path class="org-halo" d="M268 166 H470" vector-effect="non-scaling-stroke"/>
+                    <path class="org-sag" d="M268 166 H470" vector-effect="non-scaling-stroke"/>
+                    <line class="org-dgm" x1="268" y1="166" x2="268.001" y2="166" vector-effect="non-scaling-stroke"/>
+                  </g>
+                  <g class="org-ip" style="--i:4;--r:#A6FF00">
+                    <path class="org-sol" d="M0 168 C 78 168 70 216 146 220 C 216 224 212 200 268 200" vector-effect="non-scaling-stroke"/>
+                    <path class="org-halo" d="M268 200 H470" vector-effect="non-scaling-stroke"/>
+                    <path class="org-sag" d="M268 200 H470" vector-effect="non-scaling-stroke"/>
+                    <line class="org-dgm" x1="268" y1="200" x2="268.001" y2="200" vector-effect="non-scaling-stroke"/>
+                  </g>
+                </svg>
+                <b class="org-et" style="--t:24.6%;--r:#00E5FF">Web</b>
+                <b class="org-et" style="--t:37.7%;--r:#7A22FF">Mobil</b>
+                <b class="org-et" style="--t:50.8%;--r:#FFB020">Reklam</b>
+                <b class="org-et" style="--t:63.8%;--r:#FF2D9B">Video</b>
+                <b class="org-et" style="--t:76.9%;--r:#A6FF00">SEO</b>
+              </div>
+            </div>
+            <figcaption>Aynı beş iş. Solda üç ayrı ajansta, sağda tek takvimde.</figcaption>
           </figure>
           <div class="anl-yan">
           <h3>Ne satmıyoruz</h3>
