@@ -388,7 +388,20 @@ ul{margin:0;padding:0;list-style:none}
 .wk-m div span{display:block;font-size:10.5px;color:var(--muted);margin-top:2px}
 
 /* --- 13. KARŞILAŞTIRMA TABLOSU --- */
-.cmp-wrap{overflow-x:auto;border:1px solid var(--hair);border-radius:var(--r-lg);-webkit-overflow-scrolling:touch}
+.cmp-wrap{overflow-x:auto;border:1px solid var(--hair);border-radius:var(--r-lg);-webkit-overflow-scrolling:touch;
+  position:relative}
+/* mobilde tablo yatay kayıyor; kesilmiş sanılmasın diye kenara solma + ipucu */
+.cmp-sar{position:relative}
+.cmp-sar::after{content:"";position:absolute;top:1px;bottom:1px;right:1px;width:52px;pointer-events:none;
+  border-radius:0 var(--r-lg) var(--r-lg) 0;opacity:0;transition:opacity .3s;
+  background:linear-gradient(90deg,transparent,var(--bg))}
+.cmp-sar.kayar::after{opacity:1}
+.cmp-ipucu{display:none;align-items:center;gap:7px;margin-top:10px;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cmp-sar.kayar .cmp-ipucu{display:flex}
+.cmp-ipucu svg{width:14px;height:14px;animation:ipucuKay 1.9s ease-in-out infinite}
+@keyframes ipucuKay{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+@media (prefers-reduced-motion:reduce){.cmp-ipucu svg{animation:none}}
 table.cmp{width:100%;border-collapse:collapse;min-width:620px}
 table.cmp th,table.cmp td{padding:16px 20px;text-align:left;border-bottom:1px solid var(--hair);font-size:14.2px;vertical-align:top}
 table.cmp thead th{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);background:rgba(255,255,255,.03);font-weight:500}
@@ -686,9 +699,10 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
   .frow{grid-template-columns:1fr}
   .ft-top{grid-template-columns:1fr 1fr;gap:26px}
   .mbar{display:flex}
-  .wa{bottom:78px;right:16px;width:48px;height:48px}
-  .wa svg{width:23px;height:23px}
-  footer{padding-bottom:130px}
+  /* alt çubukta zaten WhatsApp var; yüzen balon aynı eylemi tekrar ediyordu ve
+     ekranın alt üçte birini iki CTA kaplıyordu. Mobilde tek çağrı bırakıldı. */
+  .wa{display:none}
+  footer{padding-bottom:96px}
   .tile{padding:19px}
   .w-phone{flex-direction:column;height:auto;gap:14px}
   .stores{flex-direction:row;flex-wrap:wrap;justify-content:center}
@@ -1189,7 +1203,8 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
       <h2>TasarımMania ile, <span class="grad">TasarımMania'sız.</span></h2>
       <p>Dağıtık tedarikçi modeliyle tek çatı modeli arasındaki farkı en çok hissettiğiniz kalemler.</p>
     </div>
-    <div class="cmp-wrap rv d1" role="region" tabindex="0" aria-label="Karşılaştırma tablosu — yatay kaydırılabilir">
+    <div class="cmp-sar rv d1" id="cmpSar">
+    <div class="cmp-wrap" role="region" tabindex="0" aria-label="Karşılaştırma tablosu — yatay kaydırılabilir">
       <table class="cmp">
         <thead>
           <tr>
@@ -1236,6 +1251,11 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
           </tr>
         </tbody>
       </table>
+    </div>
+      <div class="cmp-ipucu" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        Tabloyu yana kaydırın
+      </div>
     </div>
   </div>
 </section>
@@ -2483,6 +2503,23 @@ var Motion = (function(){
   check();
 })();
 
+})();
+
+/* Karsilastirma tablosu: yatay kayma varsa ipucu ve kenar solmasi goster */
+(function cmpIpucu(){
+  var sar = document.getElementById("cmpSar");
+  if (!sar) return;
+  var kutu = sar.querySelector(".cmp-wrap");
+  if (!kutu) return;
+  function guncelle(){
+    var kayar = kutu.scrollWidth - kutu.clientWidth > 8;
+    var sonda = kutu.scrollLeft + kutu.clientWidth >= kutu.scrollWidth - 8;
+    sar.classList.toggle("kayar", kayar && !sonda);
+  }
+  kutu.addEventListener("scroll", guncelle, { passive:true });
+  window.addEventListener("resize", guncelle, { passive:true });
+  guncelle();
+  setTimeout(guncelle, 600);
 })();
 </script>
 </body>
