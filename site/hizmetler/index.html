@@ -44,6 +44,28 @@
 .mobmenu.open{transform:none;visibility:visible}
 .mobmenu a{font-size:17px;font-weight:600}
 
+/* --- hero: canlı fon + vurucu rakamlar --- */
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:clamp(46px,7vw,92px) 0 clamp(38px,5vw,64px)}
+.phd-fon{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.55}
+.phd-perde{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(11,13,18,.72) 0%,rgba(11,13,18,.86) 55%,var(--bg) 100%),
+             radial-gradient(900px 420px at 18% 0%,rgba(var(--acc-rgb),.16),transparent 62%)}
+.phd-in{position:relative}
+.phd h1{font-size:clamp(34px,6.4vw,68px);letter-spacing:-.05em;line-height:1.02;margin-bottom:18px}
+.phd h1 .kin > i{transition-duration:.85s}
+
+.vur{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:38px}
+.vur-k{border:1px solid var(--hair);border-radius:var(--r-md);padding:18px 18px 16px;
+  background:rgba(11,13,18,.55);backdrop-filter:blur(8px);transition:.35s var(--ease)}
+.vur-k:hover{border-color:var(--hair-strong);transform:translateY(-3px)}
+.vur-k b{display:flex;align-items:baseline;gap:3px;font-family:var(--mono);
+  font-size:clamp(26px,3.4vw,38px);line-height:1;color:var(--fg);letter-spacing:-.03em}
+.vur-k b i{font-style:normal;font-size:.45em;color:var(--muted);letter-spacing:0}
+.vur-k span{display:block;margin-top:9px;font-size:12.4px;color:var(--muted);line-height:1.45}
+.vur-iyi b{color:var(--acc)}
+.vur-iyi{border-color:rgba(var(--acc-rgb),.4);background:rgba(var(--acc-rgb),.07)}
+
 /* --- infografik 1: yörünge sistemi --- */
 .orb{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
 .orb-sahne{position:relative;aspect-ratio:1;max-width:520px;width:100%;justify-self:center}
@@ -176,9 +198,13 @@
   .moduller{grid-template-columns:1fr}
   .ftr-ust{grid-template-columns:1fr 1fr}
 }
+@media(max-width:960px){
+  .vur{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:760px){
   .nav-links,.nav-tel{display:none}
   .burger{display:block}
+  .phd-fon{opacity:.4}
   .kayip-ust,.kayip-govde{grid-template-columns:1fr}
   .kayip-ust > div:first-child,.kayip-govde > div:first-child{border-right:0;border-bottom:1px solid var(--hair)}
   .akis-sat{grid-template-columns:96px 1fr 46px;gap:9px}
@@ -222,31 +248,47 @@
   </nav></div>
 
   <header class="phd">
-    <div class="wrap">
-      <span class="eyebrow"><i></i>Beş modül · Tek panel</span>
-      <h1>Ajans değiştirmeden<br>tüm dijitalinizi tek yerden yönetin</h1>
-      <p class="lead">Web ve yazılım, mobil uygulama, Meta &amp; Google Ads, video prodüksiyon ve SEO.
-        Beşi de aynı ekipte, aynı takvimde ve aynı raporda çalışır — aralarındaki bilgi kaybı sıfırlanır.</p>
-      <div class="phd-meta">
-        <span><b>5</b> modül</span>
-        <span><b>Tek</b> ekip, tek rapor</span>
-        <span><b>48 saat</b> içinde teklif</span>
-        <span><b>Aylık</b> çıkış hakkı</span>
-      </div>
+    <video class="phd-fon" src="../video/hero-fon.mp4" data-dongu muted loop playsinline
+           preload="none" aria-hidden="true"></video>
+    <span class="phd-perde" aria-hidden="true"></span>
+    <div class="wrap phd-in">
+      <span class="eyebrow"><i></i>5 modül · Tek ekip · Tek rapor</span>
+      <h1 data-kin>Beş ayrı ajansla<br>uğraşmayı bırakın.</h1>
+      <p class="lead">Web, mobil uygulama, reklam, video ve SEO. Hepsi aynı ekipte,
+        aynı takvimde. Aralarında kaybolan bilgi, kaybolan para demektir.</p>
       <div class="phd-cta">
-        <a class="btn btn-p" href="../teklif/">Kapsamı birlikte çıkaralım
+        <a class="btn btn-p" href="../teklif/">Kapsamı 30 dakikada çıkaralım
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-g" href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp’tan sorun</a>
       </div>
+
+      <!-- anlık kanıt: ilk ekranda rakam görünsün -->
+      <div class="vur">
+        <div class="vur-k"><b><span data-say="43">0</span><i>%</i></b><span>Ayrı tedarikçilerde<br>işe dönüşen bütçe</span></div>
+        <div class="vur-k vur-iyi"><b><span data-say="86">0</span><i>%</i></b><span>Tek çatıda<br>işe dönüşen bütçe</span></div>
+        <div class="vur-k"><b><span data-say="48">0</span><i>sa</i></b><span>Teklifin<br>elinize geçmesi</span></div>
+        <div class="vur-k"><b><span data-say="1">0</span><i>rapor</i></b><span>Beş modülün<br>tek raporu</span></div>
+      </div>
     </div>
   </header>
+
+  <div class="serit" aria-hidden="true">
+    <div class="serit-ray" id="seritRay">
+      <span><b>Web Tasarım</b> &amp; Yazılım</span><span><b>E-Ticaret</b> Kurulumu</span>
+      <span><b>Mobil Uygulama</b> iOS &amp; Android</span><span><b>Google Ads</b> Yönetimi</span>
+      <span><b>Meta</b> &amp; Instagram Reklamları</span><span><b>Reklam Filmi</b> &amp; Ürün Videosu</span>
+      <span><b>YouTube</b> &amp; Reels İçeriği</span><span><b>Teknik SEO</b></span>
+      <span><b>Yerel SEO</b> Bakırköy</span><span><b>Çok Dilli</b> Yurt Dışı Kampanya</span>
+      <span><b>AI Chatbot</b> Entegrasyonu</span><span><b>Aylık</b> Tek Sayfa Rapor</span>
+    </div>
+  </div>
 
   <!-- ===== İNFOGRAFİK 1: yörünge sistemi ===== -->
   <section class="sec" id="sistem">
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>İnfografik · Sistem haritası</span>
-        <h2>Hangi modül hangisini besliyor?</h2>
+        <h2 data-kin>Hangi modül hangisini besliyor?</h2>
         <p>Bir modüle tıklayın; <b>oklar o modülün neyi beslediğini</b> gösterir.
           360 derece çalışmanın tek somut anlamı budur: her modül diğerinin işini kolaylaştırır.</p>
       </div>
@@ -287,7 +329,7 @@
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>İnfografik · Kayıp haritası</span>
-        <h2>100 birim bütçenin kaçı işe dönüşüyor?</h2>
+        <h2 data-kin>100 birim bütçenin kaçı işe dönüşüyor?</h2>
         <p>Aynı bütçe, iki farklı kurguda. Soldaki, işi üç ayrı tedarikçiye bölen tipik senaryo;
           sağdaki tek ekip. Aradaki fark yetenek değil, <b>devir kaybı</b>.</p>
       </div>
@@ -328,7 +370,7 @@
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>Modüller</span>
-        <h2>Beşi ayrı ayrı da alınır, birlikte daha ucuza gelir</h2>
+        <h2 data-kin>Beşi ayrı ayrı da alınır, birlikte daha ucuza gelir</h2>
         <p>Her modül tek başına satılır. Ama iki ve üzeri modül aynı ekipte çalıştığında
           kurulum işi bir kez yapılır — bu yüzden birleşik kapsam daha az tutar.</p>
       </div>
@@ -359,7 +401,8 @@
         <article class="mod rv d1" style="--mrk:var(--vi)">
           <div class="mod-gorsel">
             <span class="mod-etiket" style="color:var(--vi)">Modül 02</span>
-            <img src="../../assets/icon-mobil.png" alt="" loading="lazy" style="object-fit:contain;padding:9%">
+            <video src="../video/mobil-modul.mp4" data-dongu muted loop playsinline preload="none"
+                   poster="../../assets/icon-mobil.png" aria-hidden="true"></video>
           </div>
           <div class="mod-in">
             <h3>Mobil Uygulama</h3>
@@ -379,7 +422,8 @@
         <article class="mod rv" style="--mrk:var(--amber)">
           <div class="mod-gorsel">
             <span class="mod-etiket" style="color:var(--amber)">Modül 03</span>
-            <img src="../../assets/icon-reklam.png" alt="" loading="lazy" style="object-fit:contain;padding:9%">
+            <video src="../video/reklam-modul.mp4" data-dongu muted loop playsinline preload="none"
+                   poster="../../assets/icon-reklam.png" aria-hidden="true"></video>
           </div>
           <div class="mod-in">
             <h3>Dijital Pazarlama</h3>
@@ -399,7 +443,8 @@
         <article class="mod rv d1" style="--mrk:var(--pink)">
           <div class="mod-gorsel">
             <span class="mod-etiket" style="color:var(--pink)">Modül 04</span>
-            <img src="../../assets/icon-video.png" alt="" loading="lazy" style="object-fit:contain;padding:9%">
+            <video src="../video/video-modul.mp4" data-dongu muted loop playsinline preload="none"
+                   poster="../../assets/icon-video.png" aria-hidden="true"></video>
           </div>
           <div class="mod-in">
             <h3>Video Prodüksiyon</h3>
@@ -502,6 +547,12 @@
 <script>
 "use strict";
 document.getElementById('yil').textContent = new Date().getFullYear();
+
+/* Kayan şerit: translateX(-50%) ile dikişsiz dönmesi için içerik iki kez yazılır */
+(function serit(){
+  var ray = document.getElementById('seritRay');
+  if (ray) ray.innerHTML += ray.innerHTML;
+})();
 
 /* ===== İnfografik 1: yörünge sistemi ===== */
 (function orbit(){

@@ -41,6 +41,27 @@
     izle(el, function (a) { if (a) el.classList.add('in'); }, { tek: true, pay: 0.06 });
   });
 
+  /* --- 2b. Kelime kelime giren başlık -------------------------------------- */
+  $$('[data-kin]').forEach(function (baslik) {
+    if (AZALT) { baslik.classList.add('hazir'); return; }
+    var parcalar = baslik.innerHTML.split(/(<br\s*\/?>)/i);
+    baslik.innerHTML = parcalar.map(function (p) {
+      if (/^<br/i.test(p)) return p;
+      return p.split(' ').filter(Boolean).map(function (k) {
+        return '<span class="kin"><i>' + k + '</i></span>';
+      }).join(' ');
+    }).join('');
+    var kelimeler = $$('.kin', baslik);
+    baslik.classList.add('hazir');
+    izle(baslik, function (a) {
+      if (!a) return;
+      kelimeler.forEach(function (k, n) {
+        k.querySelector('i').style.transitionDelay = (n * 0.055) + 's';
+        k.classList.add('in');
+      });
+    }, { tek: true, pay: 0.04 });
+  });
+
   /* --- 3. Sayaçlar --------------------------------------------------------- */
   $$('[data-say]').forEach(function (el) {
     var hedef = parseFloat(el.dataset.say);
@@ -105,15 +126,39 @@
     if (vid.readyState >= 2) { olc(); tetikle(); }
   });
 
-  /* --- 5. Arka plan video döngüleri: ekran dışında ve sekme arkada duraklat -- */
+  /* --- 5. Arka plan video döngüleri: ekran dışında ve sekme arkada duraklat --
+     Not: Chrome sessiz videoyu "arka plan medyası" sayıp güç tasarrufu için
+     duraklatabiliyor (AbortError). Bu yüzden ilk kullanıcı etkileşiminde ve
+     periyodik olarak yeniden denenir. */
+  var donguVideolari = [];
   $$('video[data-dongu]').forEach(function (v) {
     v.muted = true; v.loop = true; v.playsInline = true;
+    v.setAttribute('muted', '');
     if (AZALT) { v.removeAttribute('autoplay'); return; }
-    var gorunuyor = false;
-    function oynat() { if (gorunuyor && !document.hidden) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause(); }
-    izle(v, function (a) { gorunuyor = a; oynat(); }, { pay: 0.05 });
+    var kayit = { el: v, gorunuyor: false };
+    function oynat() {
+      if (kayit.gorunuyor && !document.hidden) {
+        var p = v.play();
+        if (p && p.catch) p.catch(function () { /* politika engeli — sonra yeniden denenir */ });
+      } else if (!v.paused) { v.pause(); }
+    }
+    kayit.oynat = oynat;
+    izle(v, function (a) { kayit.gorunuyor = a; oynat(); }, { pay: 0.05 });
     document.addEventListener('visibilitychange', oynat);
+    donguVideolari.push(kayit);
   });
+
+  function hepsiniDene() { donguVideolari.forEach(function (k) { k.oynat(); }); }
+  ['pointerdown', 'touchstart', 'keydown', 'scroll'].forEach(function (o) {
+    window.addEventListener(o, hepsiniDene, { passive: true, once: true });
+  });
+  if (donguVideolari.length && !AZALT) {
+    var deneme = 0;
+    var zamanlayici = setInterval(function () {
+      hepsiniDene();
+      if (++deneme > 6) clearInterval(zamanlayici);
+    }, 1200);
+  }
 
   /* --- 6. Mobil menü ------------------------------------------------------- */
   var burger = $('[data-burger]'), menu = $('[data-mobmenu]');

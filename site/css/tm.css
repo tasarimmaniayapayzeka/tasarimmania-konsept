@@ -122,9 +122,34 @@ ul{margin:0;padding:0;list-style:none}
 .rel p{font-size:13.4px;color:var(--muted)}
 
 /* --- görünür olunca beliren öğeler --- */
-.rv{opacity:0;transform:translateY(20px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.rv{opacity:0;transform:translateY(30px) scale(.985);transition:opacity .6s var(--ease),transform .7s var(--ease)}
 .rv.in{opacity:1;transform:none}
-.rv.d1{transition-delay:.09s}.rv.d2{transition-delay:.18s}.rv.d3{transition-delay:.27s}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+.rv.d4{transition-delay:.32s}
+
+/* --- kelime kelime giren başlık --- */
+.kin{display:inline-block;overflow:hidden;vertical-align:bottom}
+.kin > i{display:inline-block;font-style:normal;transform:translateY(105%);
+  transition:transform .8s var(--ease)}
+.kin.in > i{transform:none}
+
+/* --- kayan şerit --- */
+.serit{overflow:hidden;border-block:1px solid var(--hair);padding:15px 0;background:var(--bg-2);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.serit-ray{display:flex;gap:38px;width:max-content;animation:seritKay 34s linear infinite}
+.serit:hover .serit-ray{animation-play-state:paused}
+@keyframes seritKay{to{transform:translateX(-50%)}}
+.serit span{display:inline-flex;align-items:center;gap:11px;font-family:var(--mono);font-size:12.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.serit span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--acc);flex:none;
+  box-shadow:0 0 12px rgba(var(--acc-rgb),.9)}
+.serit b{color:var(--fg);font-weight:600}
+
+@media (prefers-reduced-motion:reduce){
+  .kin > i{transform:none}
+  .serit-ray{animation:none}
+}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
