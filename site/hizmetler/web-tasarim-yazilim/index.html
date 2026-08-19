@@ -331,6 +331,21 @@ button[data-olay]{font-family:inherit;color:inherit}
 .etk-s b{display:block;font-size:14.6px;margin-bottom:5px}
 .etk-s span{font-size:13.2px;color:var(--muted);line-height:1.6}
 
+/* --- bölüm başlığı + 3D görsel ---
+   Metin azaltılırken boşalan yeri görsel dolduruyor: her ana bölümün başında
+   konusunu anlatan 3D render. Görsel başlıkla aynı hizada durduğu için sayfa
+   UZAMIYOR, taranabilirlik artıyor. */
+.gbs{display:flex;align-items:center;gap:clamp(16px,2.4vw,30px);margin:0 0 20px}
+.gbs img{width:clamp(84px,11vw,132px);height:auto;aspect-ratio:1;flex:none;border-radius:var(--r-md);
+  border:1px solid var(--hair);background:var(--bg-2)}
+.gbs-in{flex:1;min-width:0}
+.gbs-in h2{margin:0 0 10px}
+.gbs-in p{margin:0}
+@media(max-width:560px){
+  .gbs{flex-direction:column;align-items:flex-start;gap:14px}
+  .gbs img{width:88px}
+}
+
 /* şablon-sayfa karşılaştırması: aynı argümanın tek bakışlık hali */
 .sbl{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 18px}
 .sbl-k{border:1px solid var(--hair);border-radius:var(--r-md);padding:20px;background:var(--panel)}
@@ -862,6 +877,7 @@ button[data-olay]{font-family:inherit;color:inherit}
 
       <div class="hiz rv d1">
         <div class="hiz-panel">
+          <img src="../../../assets/modul-web/hiz.jpg" alt="Web sitesi hız skoru göstergesi: Core Web Vitals LCP, INP ve CLS ölçümü" width="640" height="640" loading="lazy" decoding="async" style="width:76px;height:auto;aspect-ratio:1;border-radius:12px;border:1px solid var(--hair);float:right;margin:0 0 10px 14px">
           <p class="hiz-etiket"><i></i>Şu anda ölçüldü</p>
           <p class="hiz-buyuk"><span data-hiz>—</span><i>sn</i></p>
           <p>Bu sayfa <b>sizin cihazınızda</b> ve <b>sizin bağlantınızda</b> bu sürede açıldı.
@@ -1048,7 +1064,12 @@ button[data-olay]{font-family:inherit;color:inherit}
   <section class="sec" id="takvim-bolum" style="padding-top:0">
     <div class="wrap">
       <div class="yazi rv">
-        <h2 id="takvim">Takvim: kurumsal web sitesi kaç haftada teslim edilir — 6–10 hafta</h2>
+        <div class="gbs">
+          <img src="../../../assets/modul-web/takvim.jpg" alt="Kurumsal web sitesi teslim takvimi: keşiften yayına 6–10 haftalık aşamalar" width="640" height="640" loading="lazy" decoding="async">
+          <div class="gbs-in">
+            <h2 id="takvim">Takvim: kurumsal web sitesi kaç haftada teslim edilir — 6–10 hafta</h2>
+          </div>
+        </div>
         <h3>Hafta hafta ne oluyor</h3>
         <p>Kurumsal site için verdiğimiz band 6–10 hafta. Aşağıdaki tablo bu bandın içindeki akışı gösteriyor; kapsam darsa bandın alt ucunda, çok dilli yapı ve entegrasyon eklendikçe üst ucunda kalıyor.</p>
         <div class="yazi-tablo"><table>
@@ -1088,8 +1109,13 @@ button[data-olay]{font-family:inherit;color:inherit}
       <div class="yazi rv">
         <p>Hepsi ilk gün hazır olmuyor, olmaması da normal — eksik olduğunu bilmek de bir bilgi, takvimi ona göre kuruyoruz. Metin yazarlığı ve fotoğraf çekimi bizde değil; ikisini de organize edebiliyoruz ama ayrı kalem olarak yazıyoruz.</p>
 
-        <h2 id="tasima">Mevcut siteyi taşırken kaybedilmemesi gereken şey: adresler</h2>
-        <p>Bize gelen yenileme taleplerinin bir kısmı tam olarak şu cümleyle başlıyor: “yeni site yaptırdık, trafiğimiz düştü”.</p>
+        <div class="gbs">
+          <img src="../../../assets/modul-web/tasima.jpg" alt="Site taşıma ve 301 yönlendirme planı: eski web adresinden yeni adrese trafik aktarımı" width="640" height="640" loading="lazy" decoding="async">
+          <div class="gbs-in">
+            <h2 id="tasima">Mevcut siteyi taşırken kaybedilmemesi gereken şey: adresler</h2>
+            <p>Bize gelen yenileme taleplerinin bir kısmı tam olarak şu cümleyle başlıyor: “yeni site yaptırdık, trafiğimiz düştü”.</p>
+          </div>
+        </div>
         <p>Sebebi çoğu zaman tasarım olmuyor. Eski sitede yıllardır bağlantı almış, arama motorunun tanıdığı sayfalar var; yeni siteye geçerken bu adresler değişiyor ve karşılıkları tanımlanmazsa o sayfalara gelen herkes hata sayfası görüyor. Birikmiş güven birkaç hafta içinde eriyor.</p>
         <p>Taşımada izlediğimiz sıra:</p>
         <ol>
@@ -1190,8 +1216,13 @@ button[data-olay]{font-family:inherit;color:inherit}
   <section class="sec" id="sablon-bolum" style="padding-top:0">
     <div class="wrap">
       <div class="yazi rv">
-        <h2 id="sablon">Teklifi okurken sayfa sayısına değil, şablon sayısına bakın</h2>
-        <p>Teklifleri yan yana koyduğunuzda ilk bakacağınız satır sayfa sayısı olmasın. Maliyeti büyüten şey farklı <strong>şablon</strong> sayısı.</p>
+        <div class="gbs">
+          <img src="../../../assets/modul-web/sifirdan.jpg" alt="Sıfırdan yazılmış web sitesi mimarisi: modüler bloklar projeye özel bir yapıda birleşirken" width="640" height="640" loading="lazy" decoding="async">
+          <div class="gbs-in">
+            <h2 id="sablon">Teklifi okurken sayfa sayısına değil, şablon sayısına bakın</h2>
+            <p>Teklifleri yan yana koyduğunuzda ilk bakacağınız satır sayfa sayısı olmasın. Maliyeti büyüten şey farklı <strong>şablon</strong> sayısı.</p>
+          </div>
+        </div>
         </div>
 
       <div class="sbl rv d1">
@@ -1221,8 +1252,13 @@ button[data-olay]{font-family:inherit;color:inherit}
       </div>
 
       <div class="yazi rv">
-        <h2 id="on-ucuncu-ay">On üçüncü ay: yayından sonra ne ödüyorsunuz</h2>
-        <p>Site yayına girdikten on iki ay sonra ne ödeyeceğinizi bilmek, kurulum bedelini bilmek kadar işe yarıyor. Aşağıdaki tablo yenilenen kalemlerin tamamını gösteriyor.</p>
+        <div class="gbs">
+          <img src="../../../assets/modul-web/maliyet.jpg" alt="Web sitesi yıllık maliyeti: alan adı, hosting, SSL ve lisans yenilemeleri" width="640" height="640" loading="lazy" decoding="async">
+          <div class="gbs-in">
+            <h2 id="on-ucuncu-ay">On üçüncü ay: yayından sonra ne ödüyorsunuz</h2>
+            <p>Site yayına girdikten on iki ay sonra ne ödeyeceğinizi bilmek, kurulum bedelini bilmek kadar işe yarıyor. Aşağıdaki tablo yenilenen kalemlerin tamamını gösteriyor.</p>
+          </div>
+        </div>
         <div class="yazi-tablo"><table>
         <thead><tr><th>Kalem</th><th>Sıklık</th><th>Kime ödenir</th><th>Not</th></tr></thead>
         <tbody>
@@ -1246,8 +1282,13 @@ button[data-olay]{font-family:inherit;color:inherit}
   <section class="sec" id="riskler-bolum" style="padding-top:0">
     <div class="wrap">
       <div class="yazi rv">
-        <h2 id="otuz-gun">Yayından sonraki otuz gün ve sonrası</h2>
-        <p>Yayın gününde iş bitmiyor, takvimin ikinci bölümü başlıyor. Bu bölümde neyin dahil olduğu da teklifte yazılı.</p>
+        <div class="gbs">
+          <img src="../../../assets/modul-web/guvence.jpg" alt="Yayın sonrası 30 gün düzeltme desteği, yedekleme ve bakım güvencesi" width="640" height="640" loading="lazy" decoding="async">
+          <div class="gbs-in">
+            <h2 id="otuz-gun">Yayından sonraki otuz gün ve sonrası</h2>
+            <p>Yayın gününde iş bitmiyor, takvimin ikinci bölümü başlıyor. Bu bölümde neyin dahil olduğu da teklifte yazılı.</p>
+          </div>
+        </div>
       </div>
 
       <div class="etk rv d1">
