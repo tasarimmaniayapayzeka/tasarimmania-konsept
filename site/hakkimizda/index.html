@@ -106,19 +106,68 @@
 .ekp-k{border:1px solid var(--hair);border-radius:var(--r-md);padding:22px 20px;background:var(--panel);
   transition:.35s var(--ease)}
 .ekp-k:hover{border-color:var(--mrk);transform:translateY(-3px)}
-.ekp-k .rz{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;margin-bottom:14px;
-  background:rgba(255,255,255,.05);border:1px solid var(--hair)}
-.ekp-k .rz svg{width:17px;height:17px;color:var(--mrk)}
+.ekp-k .rz{width:66px;height:66px;border-radius:17px;display:grid;place-items:center;margin-bottom:16px;
+  padding:9px;background:rgba(255,255,255,.045);border:1px solid var(--hair);transition:.4s var(--ease)}
+.ekp-k .rz img{width:100%;height:100%;object-fit:contain;transition:transform .45s var(--ease);
+  filter:drop-shadow(0 7px 16px rgba(0,0,0,.5))}
+.ekp-k:hover .rz{border-color:var(--mrk);background:rgba(255,255,255,.07)}
+.ekp-k:hover .rz img{transform:translateY(-3px) scale(1.07)}
 .ekp-k h4{font-size:15.5px;margin-bottom:6px}
 .ekp-k p{font-size:12.8px;color:var(--muted);line-height:1.55}
+
+/* --- tam genişlik sinematik bant --- */
+.sinema{position:relative;overflow:hidden;display:flex;align-items:flex-end;
+  min-height:clamp(280px,40vw,440px);margin-top:clamp(30px,4vw,50px)}
+.sinema-fon{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover}
+.sinema::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(to bottom,var(--bg),rgba(11,13,18,.22) 30%,rgba(11,13,18,.62) 72%,var(--bg))}
+.sinema .wrap{position:relative;z-index:2;width:100%;
+  padding-top:clamp(70px,9vw,120px);padding-bottom:clamp(26px,3.4vw,44px)}
+.sinema h2{font-size:clamp(21px,3vw,35px);letter-spacing:-.045em;line-height:1.14;max-width:20ch;
+  margin-bottom:20px;text-shadow:0 2px 26px rgba(0,0,0,.65)}
+.cips{display:flex;gap:10px;flex-wrap:wrap}
+.cips span{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;
+  letter-spacing:.03em;color:var(--fg);padding:9px 15px;border-radius:999px;
+  background:rgba(11,13,18,.6);backdrop-filter:blur(10px);border:1px solid var(--hair-strong)}
+.cips i{width:6px;height:6px;border-radius:50%;background:var(--acc);flex:none;
+  box-shadow:0 0 10px 1px rgba(var(--acc-rgb),.85)}
+
+/* --- görsel kart (başlıklı) --- */
+.gk{position:relative;margin:0 0 22px;border:1px solid var(--hair);border-radius:var(--r-lg);overflow:hidden}
+/* height:auto ŞART — yoksa HTML height="" özniteliği sunum ipucu olarak yüksekliği
+   sabitler, aspect-ratio hiç uygulanmaz ve görsel kareye yakın kırpılır. */
+.gk img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;
+  transition:transform 1.2s var(--ease)}
+.gk:hover img{transform:scale(1.05)}
+.gk figcaption{position:absolute;inset:auto 0 0 0;display:flex;align-items:center;gap:9px;
+  padding:36px 17px 14px;font-family:var(--mono);font-size:10.6px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--fg-dim);
+  background:linear-gradient(to top,rgba(11,13,18,.95),rgba(11,13,18,.5) 48%,transparent)}
+.gk figcaption::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--acc);flex:none;
+  box-shadow:0 0 9px 1px rgba(var(--acc-rgb),.75)}
+
+/* --- taahhüt: görsel + liste --- */
+.thd-sar{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(22px,3.2vw,44px);align-items:stretch}
+.thd-sar .thd{grid-template-columns:1fr;gap:12px}
+.thd-gor{position:relative;min-height:290px;border:1px solid var(--hair);border-radius:var(--r-lg);
+  overflow:hidden;margin:0}
+.thd-gor img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.thd-gor::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(11,13,18,.92),rgba(11,13,18,.25) 55%,transparent)}
+.thd-gor figcaption{position:absolute;inset:auto 0 0 0;z-index:2;padding:22px 20px;
+  font-size:13.2px;color:var(--fg-dim);line-height:1.55}
+.thd-gor figcaption b{display:block;font-size:15.5px;color:var(--fg);margin-bottom:6px;letter-spacing:-.02em}
 
 /* --- CTA --- */
 .band{position:relative;border:1px solid rgba(var(--acc-rgb),.28);border-radius:26px;
   padding:clamp(38px,5vw,62px) 32px;text-align:center;overflow:hidden;
   background:linear-gradient(140deg,rgba(var(--acc-rgb),.09),rgba(122,34,255,.07))}
-.band::before{content:"";position:absolute;inset:0;
+.band::before{content:"";position:absolute;inset:0;z-index:1;
   background:radial-gradient(600px 280px at 50% -30%,rgba(var(--acc-rgb),.2),transparent 70%)}
-.band > *{position:relative}
+.band > *{position:relative;z-index:2}
+/* fon videosu: .band > * kuralını ezmesi için aynı özgüllükte ve SONRA gelir */
+.band > video{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;
+  opacity:.32;pointer-events:none}
 .band h2{font-size:clamp(24px,3.6vw,40px);margin-bottom:12px}
 .band p{color:var(--fg-dim);margin-bottom:28px;font-size:16px}
 .band-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -144,6 +193,9 @@
 @media(max-width:960px){
   .anl{grid-template-columns:1fr}
   .ilk{grid-template-columns:1fr}
+  .thd-sar{grid-template-columns:1fr}
+  .thd-sar .thd{grid-template-columns:repeat(2,1fr)}
+  .thd-gor{min-height:220px}
   .ekp{grid-template-columns:repeat(2,1fr)}
   .rkm{grid-template-columns:repeat(2,1fr)}
   .ftr-ust{grid-template-columns:1fr 1fr}
@@ -151,8 +203,11 @@
 @media(max-width:760px){
   .nav-links,.nav-tel{display:none}
   .burger{display:block}
-  .thd{grid-template-columns:1fr}
+  .thd,.thd-sar .thd{grid-template-columns:1fr}
   .ftr-ust{grid-template-columns:1fr}
+  .sinema{min-height:340px}
+  .sinema h2{max-width:none}
+  .cips span{font-size:11.4px;padding:8px 13px}
 }
 </style>
 <script type="application/ld+json">
@@ -213,6 +268,19 @@
     </div>
   </header>
 
+  <!-- ===== SİNEMATİK BANT ===== -->
+  <div class="sinema">
+    <img class="sinema-fon" src="../../assets/ajans/studyo.jpg" alt="" width="1600" height="678" decoding="async">
+    <div class="wrap">
+      <h2 data-kin>Beş disiplin, tek ofis, tek takvim.</h2>
+      <div class="cips">
+        <span><i></i>Aynı takvimde çalışır</span>
+        <span><i></i>Tek raporda buluşur</span>
+        <span><i></i>Tek muhatapla konuşursunuz</span>
+      </div>
+    </div>
+  </div>
+
   <!-- ===== BİZ KİMİZ ===== -->
   <section class="sec" id="kimiz">
     <div class="wrap">
@@ -233,13 +301,19 @@
             tercih ederiz — ekranı birlikte açıp neyin para kaybettirdiğini göstermek,
             sunum yapmaktan daha hızlı sonuç verir.</p>
         </div>
-        <div class="anl-yan">
+        <div>
+          <figure class="gk">
+            <img src="../../assets/ajans/istanbul.jpg" alt="Akşam saatlerinde İstanbul silueti" width="1100" height="614" loading="lazy" decoding="async">
+            <figcaption>Bakırköy · İstanbul</figcaption>
+          </figure>
+          <div class="anl-yan">
           <h3>Ne satmıyoruz</h3>
           <p>Beğeni, gösterim ve “marka bilinirliği” satmıyoruz. Bunlar sonuç değil,
             ara metrik. Ölçemediğimiz bir şeyi vaat etmiyoruz; ölçtüğümüzü de olduğu gibi
             raporluyoruz — kötü aya kötü diyoruz.</p>
           <p style="margin-top:14px">Sıralama garantisi, “bir ayda ilk sayfa” gibi cümleler
             kurmuyoruz. Kuran varsa dikkatli olun.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -311,7 +385,13 @@
         <p>Bunlar pazarlama cümlesi değil; teklif ekinde yazılı olarak yer alır.</p>
       </div>
 
-      <div class="thd rv d1">
+      <div class="thd-sar rv d1">
+      <figure class="thd-gor">
+        <img src="../../assets/ajans/masa.jpg" alt="Üzerinde eskiz defteri ve dizüstü bilgisayar bulunan çalışma masası" width="880" height="658" loading="lazy" decoding="async">
+        <figcaption><b>Her madde teklif ekinde yazılı</b>
+          Sözlü mutabakat tutmuyoruz. Konuştuğumuz her kalem imzalanan dosyada geçer.</figcaption>
+      </figure>
+      <div class="thd">
         <div class="thd-s">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
           <span><b>Aylık çıkış hakkı</b><span>Yönetim hizmetlerinde 12 ay kilit yok.
@@ -333,6 +413,7 @@
             değil, ne olduğunu anlatır.</span></span>
         </div>
       </div>
+      </div>
     </div>
   </section>
 
@@ -348,22 +429,22 @@
 
       <div class="ekp">
         <article class="ekp-k rv" style="--mrk:var(--cy)">
-          <span class="rz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l-3 3 3 3M16 9l3 3-3 3M13.5 6l-3 12"/></svg></span>
+          <span class="rz"><img src="../../assets/icon-web.png" alt="" width="256" height="256" loading="lazy" decoding="async"></span>
           <h4>Yazılım</h4>
           <p>Kurumsal site, e-ticaret ve özel uygulama geliştirme; hız ve ölçüm altyapısı.</p>
         </article>
         <article class="ekp-k rv d1" style="--mrk:var(--vi)">
-          <span class="rz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span>
+          <span class="rz"><img src="../../assets/icon-mobil.png" alt="" width="256" height="256" loading="lazy" decoding="async"></span>
           <h4>Tasarım</h4>
           <p>Arayüz, marka kimliği ve grafik üretim; tasarım sistemi kurulumu.</p>
         </article>
         <article class="ekp-k rv d2" style="--mrk:var(--amber)">
-          <span class="rz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 3 6-8"/><path d="M15 6h4v4"/></svg></span>
+          <span class="rz"><img src="../../assets/icon-reklam.png" alt="" width="256" height="256" loading="lazy" decoding="async"></span>
           <h4>Performans</h4>
           <p>Google &amp; Meta reklam yönetimi, ölçüm kurulumu ve raporlama.</p>
         </article>
         <article class="ekp-k rv d3" style="--mrk:var(--pink)">
-          <span class="rz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="13" height="12" rx="2.5"/><path d="M15.5 11l6-3.5v9l-6-3.5z"/></svg></span>
+          <span class="rz"><img src="../../assets/icon-video.png" alt="" width="256" height="256" loading="lazy" decoding="async"></span>
           <h4>Prodüksiyon</h4>
           <p>Reklam filmi, ürün ve mekân çekimi, drone, kurgu ve seslendirme.</p>
         </article>
@@ -371,9 +452,29 @@
     </div>
   </section>
 
-  <section class="sec" style="padding-top:0">
+  <!-- ===== HAREKETLİ ŞERİT ===== -->
+  <div class="serit serit--ters" aria-hidden="true">
+    <div class="serit-ray">
+      <span><b>Kurumsal site</b></span><span><b>E-ticaret</b></span><span><b>Özel yazılım</b></span>
+      <span><b>Mobil uygulama</b></span><span><b>Google Ads</b></span><span><b>Meta Ads</b></span>
+      <span><b>Teknik SEO</b></span><span><b>İçerik üretimi</b></span><span><b>Reklam filmi</b></span>
+      <span><b>Ürün çekimi</b></span><span><b>Drone</b></span><span><b>Kurgu &amp; seslendirme</b></span>
+      <span><b>Marka kimliği</b></span><span><b>Ölçüm kurulumu</b></span>
+      <span><b>Kurumsal site</b></span><span><b>E-ticaret</b></span><span><b>Özel yazılım</b></span>
+      <span><b>Mobil uygulama</b></span><span><b>Google Ads</b></span><span><b>Meta Ads</b></span>
+      <span><b>Teknik SEO</b></span><span><b>İçerik üretimi</b></span><span><b>Reklam filmi</b></span>
+      <span><b>Ürün çekimi</b></span><span><b>Drone</b></span><span><b>Kurgu &amp; seslendirme</b></span>
+      <span><b>Marka kimliği</b></span><span><b>Ölçüm kurulumu</b></span>
+    </div>
+  </div>
+
+  <section class="sec">
     <div class="wrap">
       <div class="band rv">
+        <video data-dongu muted loop playsinline preload="metadata" aria-hidden="true"
+               poster="../../assets/ajans/studyo.jpg">
+          <source src="../video/hero-fon.mp4" type="video/mp4">
+        </video>
         <h2>Önce tanışalım, sonra karar verin</h2>
         <p>30 dakikalık görüşmede ekranı paylaşır, sitenizin ve reklam hesabınızın
           para kaybettiği noktaları canlı işaretleriz. Çalışmasak da o liste sizde kalır.</p>
