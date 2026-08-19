@@ -23,7 +23,8 @@
 <meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://www.tasarimmania.com/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B0D12'/%3E%3Crect x='6' y='6' width='9' height='9' rx='2.5' fill='%2300E5FF'/%3E%3Crect x='17' y='6' width='9' height='9' rx='2.5' fill='%237A22FF'/%3E%3Crect x='6' y='17' width='9' height='9' rx='2.5' fill='%23A6FF00'/%3E%3Crect x='17' y='17' width='9' height='9' rx='2.5' fill='%23E7EAF0'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="../assets/logo/marka-daire.png">
+<link rel="apple-touch-icon" href="../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -136,13 +137,11 @@ ul{margin:0;padding:0;list-style:none}
   box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 18px 46px -22px rgba(0,0,0,.95);
   transition:box-shadow .35s,border-color .35s,background .35s}
 .navbar.stuck .nav-in{border-color:var(--hair-strong);background:rgba(11,13,18,.9)}
-.logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15.5px;letter-spacing:-.03em;flex:none}
-.logo-mark{width:22px;height:22px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2.5px;flex:none}
-.logo-mark span{border-radius:2.5px;display:block}
-.logo-mark span:nth-child(1){background:var(--cy)}
-.logo-mark span:nth-child(2){background:var(--vi)}
-.logo-mark span:nth-child(3){background:var(--lime)}
-.logo-mark span:nth-child(4){background:#E7EAF0}
+.logo{display:flex;align-items:center;flex:none;transition:opacity .25s}
+.logo:hover{opacity:.82}
+.logo img{height:29px;width:auto;display:block}
+.logo-ft img{height:38px}
+@media(max-width:560px){ .logo img{height:24px} .logo-ft img{height:32px} }
 .nav-links{display:flex;align-items:center;gap:2px;margin-left:8px}
 .nav-links a{font-size:13.5px;color:var(--fg-dim);padding:8px 12px;border-radius:100px;transition:color .22s,background .22s;font-weight:500}
 .nav-links a:hover{color:#fff;background:var(--panel)}
@@ -727,8 +726,7 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
 <header class="navbar" id="navbar">
   <div class="nav-in">
     <a href="#top" class="logo" aria-label="TasarımMania ana sayfa">
-      <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-      TasarımMania
+      <img src="../assets/logo/marka-yatay.png" alt="TasarımMania — Creative Agency" width="435" height="132" decoding="async">
     </a>
     <nav class="nav-links" aria-label="Ana menü">
       <a href="#hizmetler">Hizmetler</a>
@@ -738,7 +736,7 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
       <a href="#sss">SSS</a>
     </nav>
     <div class="nav-right">
-      <a class="nav-tel" href="tel:+90554 791 65 45">0554 791 65 45</a>
+      <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
       <a class="btn btn-p btn-sm" href="#teklif">Teklif Al</a>
       <button class="burger" id="burger" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mobmenu"><span></span></button>
     </div>
@@ -1284,7 +1282,7 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
             </ul>
             <div class="pr-cta">
               <a class="btn btn-p" href="#teklif">Teşhis görüşmesi ayarla <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              <a class="btn btn-g" href="https://wa.me/90554 791 65 45" target="_blank" rel="noopener">WhatsApp’tan yaz</a>
+              <a class="btn btn-g" href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp’tan yaz</a>
             </div>
           </div>
         </div>
@@ -1356,7 +1354,7 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
             </ul>
             <div class="pr-cta">
               <a class="btn btn-p" href="#teklif">Büyüme planını başlat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              <a class="btn btn-g" href="tel:+90554 791 65 45">0554 791 65 45</a>
+              <a class="btn btn-g" href="tel:+905547916545">0554 791 65 45</a>
             </div>
           </div>
         </div>
@@ -1404,7 +1402,7 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
           <a class="btn btn-p" href="#teklif">Kayıp noktalarımı göster
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a class="btn btn-cy" href="https://wa.me/90554 791 65 45" target="_blank" rel="noopener">WhatsApp'tan yazın</a>
+          <a class="btn btn-cy" href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp'tan yazın</a>
         </div>
         <p class="band-mini">Bu formda 5 alan var · yaklaşık 40 saniye · ortalama dönüş 2 saat</p>
       </div>
@@ -1483,11 +1481,11 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
         <div class="ct-list">
           <div class="ct-item">
             <span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#5FD8FF" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5c0 8 5 13 13 13l2-3.4-4-2-1.7 2c-2.6-1.3-4.6-3.3-5.9-5.9l2-1.7-2-4z"/></svg></span>
-            <span><b>Telefon</b><span><a href="tel:+90554 791 65 45">0554 791 65 45</a></span></span>
+            <span><b>Telefon</b><span><a href="tel:+905547916545">0554 791 65 45</a></span></span>
           </div>
           <div class="ct-item">
             <span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#A6FF00" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.8c0 4.6-3.9 8.3-8.7 8.3-1.5 0-2.9-.35-4.1-.98L3.5 20.5l1.45-4c-.72-1.25-1.15-2.7-1.15-4.7 0-4.6 3.9-8.3 8.7-8.3s8 3.7 8 8.3z"/></svg></span>
-            <span><b>WhatsApp</b><span><a href="https://wa.me/90554 791 65 45" target="_blank" rel="noopener">wa.me/90554 791 65 45</a></span></span>
+            <span><b>WhatsApp</b><span><a href="https://wa.me/905547916545" target="_blank" rel="noopener">wa.me/905547916545</a></span></span>
           </div>
           <div class="ct-item">
             <span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#C08BFF" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
@@ -1499,8 +1497,8 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
           </div>
         </div>
         <div class="ct-quick">
-          <a class="btn btn-cy btn-sm" href="https://wa.me/90554 791 65 45" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
-          <a class="btn btn-g btn-sm" href="tel:+90554 791 65 45">Hemen ara</a>
+          <a class="btn btn-cy btn-sm" href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+          <a class="btn btn-g btn-sm" href="tel:+905547916545">Hemen ara</a>
         </div>
       </div>
 
@@ -1575,9 +1573,8 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
   <div class="wrap">
     <div class="ft-top">
       <div class="ft-brand">
-        <a href="#top" class="logo" aria-label="TasarımMania">
-          <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-          TasarımMania
+        <a href="#top" class="logo logo-ft" aria-label="TasarımMania">
+          <img src="../assets/logo/marka-yatay.png" alt="TasarımMania — Creative Agency" width="435" height="132" loading="lazy" decoding="async">
         </a>
         <p>Web, mobil, reklam, video ve SEO'yu tek çatı altında birleştiren İstanbul merkezli 360 derece dijital prodüksiyon stüdyosu.</p>
       </div>
@@ -1599,8 +1596,8 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
       </div>
       <div class="ft-col">
         <h5>İletişim</h5>
-        <a href="tel:+90554 791 65 45">0554 791 65 45</a>
-        <a href="https://wa.me/90554 791 65 45" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="tel:+905547916545">0554 791 65 45</a>
+        <a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a>
         <a href="#teklif">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a>
         <a href="#teklif">Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</a>
       </div>
@@ -1613,13 +1610,13 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
 </footer>
 
 <!-- Sabit WhatsApp -->
-<a class="wa" href="https://wa.me/90554 791 65 45" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.75-.86-2-.96-.28-.1-.48-.15-.68.15-.2.29-.78.95-.95 1.15-.18.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.68-1.62-.93-2.22-.24-.58-.49-.5-.67-.51h-.58c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.02a9.4 9.4 0 01-4.8-1.32l-.34-.2-3.57.93.96-3.47-.23-.36a9.36 9.36 0 01-1.44-5c0-5.18 4.23-9.4 9.44-9.4a9.37 9.37 0 016.66 2.76 9.3 9.3 0 012.76 6.65c0 5.18-4.23 9.4-9.42 9.4zM20.5 3.5A11.8 11.8 0 0012.05 0C5.5 0 .18 5.3.17 11.83c0 2.08.55 4.11 1.6 5.9L.07 24l6.42-1.68a11.9 11.9 0 005.55 1.4h.01c6.55 0 11.87-5.3 11.88-11.83a11.74 11.74 0 00-3.44-8.4z"/></svg>
 </a>
 
 <!-- Mobil alt çubuk -->
 <div class="mbar" aria-label="Hızlı iletişim">
-  <a class="btn btn-cy btn-sm" href="https://wa.me/90554 791 65 45" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn btn-cy btn-sm" href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a>
   <a class="btn btn-p btn-sm" href="#teklif">Teklif Al</a>
 </div>
 
