@@ -416,6 +416,22 @@ button[data-olay]{font-family:inherit;color:inherit}
 .sss summary:hover,.akor summary:hover{color:var(--acc)}
 .sss .cvp,.akor .cvp{padding:0 22px 20px;font-size:14.4px;color:var(--muted);line-height:1.7}
 
+/* --- satın alma yolundaki CTA'lar ---
+   Ölçüldü: 14 bölümün 12'sinde hiç CTA yoktu, hero'da bile. Artık karar
+   anlarında (kapsamı gördükten ve fiyatı gördükten sonra) çıkıyor. */
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.ara-cta{border-block:1px solid var(--hair);background:rgba(var(--acc-rgb),.045);
+  padding:clamp(20px,2.6vw,28px) 0;margin:clamp(28px,3.6vw,44px) 0}
+.ara-cta-in{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.ara-cta p{margin:0}
+.ara-cta p b{display:block;font-size:clamp(16px,2vw,19px);letter-spacing:-.02em;margin-bottom:5px}
+.ara-cta p span{font-size:13.6px;color:var(--muted)}
+.ara-cta-btn{display:flex;gap:10px;flex-wrap:wrap;flex:none}
+@media(max-width:640px){
+  .ara-cta-in{flex-direction:column;align-items:flex-start}
+  .ara-cta-btn .btn{flex:1}
+}
+
 /* --- CTA --- */
 .band{position:relative;border:1px solid rgba(var(--acc-rgb),.28);border-radius:26px;
   padding:clamp(38px,5vw,62px) 32px;text-align:center;overflow:hidden;
@@ -810,140 +826,16 @@ button[data-olay]{font-family:inherit;color:inherit}
         <div><b>14 yıl</b><span>Web ve yazılımda<br>saha deneyimi</span></div>
         <div><b>Sizde</b><span>Kaynak dosyalar,<br>hesaplar ve alan adı</span></div>
       </div>
+
+      <div class="hero-cta">
+        <a class="btn btn-p" href="../../teklif/#web">Kapsam ve fiyat aralığı çıkaralım
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Web%20Tasar%C4%B1m%20%26%20Yaz%C4%B1l%C4%B1m%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%0AMevcut%20sitem%3A%20%0A%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+      </div>
     </div>
   </header>
 
   <!-- ===== ANA İDDİA: ŞABLON vs SIFIRDAN ===== -->
-  <section class="sec" id="fark">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <span class="eyebrow"><i></i>Aradaki fark</span>
-        <h2 data-kin>“Web sitesi yaptırdım ama…” — hazır tema ile özel tasarım arasındaki fark</h2>
-        <p>Çoğu site bozuk değil; başka birinin işi için tasarlanmış bir şablonun üzerine sizin içeriğiniz konmuş. Şablon kurmuyoruz. Farkı anlatmıyor, ölçüyoruz: sayfa ağırlığınızı bizdekiyle yan yana koyuyoruz.</p>
-          
-      </div>
-
-      <div class="krs rv d1">
-        <div class="krs-k krs-k--sablon">
-          <div class="krs-bas">
-            <span>Şablon üzerine kurulan site</span>
-          </div>
-          <h3 style="margin-bottom:18px">Hazır tema + içerik dolgusu</h3>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-              Kullanmadığınız 40 özelliğin kodu da her ziyaretçiye iniyor; telefonda açılış süresi uzuyor.</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-              Ölçüm sonradan eklendiği için hangi sayfanın arattığı bilinmiyor.</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-              Küçük değişiklik için eklenti aranıyor; her eklenti yeni güvenlik yüzeyi.</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-              Tema güncellenince tasarım bozuluyor, yine ajansa dönülüyor.</li>
-          </ul>
-        </div>
-
-        <div class="krs-k krs-k--biz">
-          <div class="krs-bas">
-            <span>Bizim kurduğumuz sistem</span>
-          </div>
-          <h3 style="margin-bottom:18px">İşinize göre yazılmış ön yüz</h3>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-              Sayfada yalnızca o sayfanın kodu var; ağırlık baştan düşük.</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-              Ölçüm şeması ilk günde kuruluyor; hangi form, hangi kampanya belli.</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-              İçeriği panelden siz güncelliyorsunuz.</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-              Kaynak dosyalar ve hesaplar sizde.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== HIZ KANITI ===== -->
-  <section class="sec" id="hiz" style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <span class="eyebrow"><i></i>Hız</span>
-        <h2 data-kin>Hızı anlatmak yerine ölçüyoruz: web sitesi hız skoru kaç olmalı</h2>
-        <p>Hız, diğer dört modülün getirisini belirleyen çarpan. Hız optimizasyonu proje
-          
-          sonundaki temizlik değil, ilk günün mimari kararı.</p>
-          
-      </div>
-
-      <div class="hiz rv d1">
-        <div class="hiz-panel">
-          <img src="../../../assets/modul-web/hiz.jpg" alt="Web sitesi hız skoru göstergesi: Core Web Vitals LCP, INP ve CLS ölçümü" width="640" height="640" loading="lazy" decoding="async" style="width:76px;height:auto;aspect-ratio:1;border-radius:12px;border:1px solid var(--hair);float:right;margin:0 0 10px 14px">
-          <p class="hiz-etiket"><i></i>Şu anda ölçüldü</p>
-          <p class="hiz-buyuk"><span data-hiz>—</span><i>sn</i></p>
-          <p>Bu sayfa <b>sizin cihazınızda</b> ve <b>sizin bağlantınızda</b> bu sürede açıldı;
-            rakamı biz yazmıyoruz, tarayıcınız ölçüyor.</p>
-          <small>Doğrulamak için F12 → Ağ sekmesini açıp sayfayı yenileyin;
-            değer bağlantınıza göre değişir.</small>
-        </div>
-        <div class="hiz-metin yazi">
-          <h3>Telefonda 2,5 saniyede açılsın: LCP, INP ve CLS eşikleri ne anlatıyor</h3>
-          <p>Google'ın “iyi” saydığı eşikler net: LCP 2,5 saniyenin altında, INP 200 milisaniyenin altında, CLS 0,1'in altında. Ölçüm masaüstünde değil mobilde ve gerçek kullanıcı verisinin 75. yüzdeliğinde yapılır — yani ziyaretçilerin dörtte üçü bu değerin altında kalmalı. </p>
-          <p>Teslimde bu üç değeri öncesi–sonrası ölçüp yazılı veriyoruz.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="karar" style="padding-top:0">
-    <div class="wrap">
-      <div class="yazi rv">
-        <h2>Önce şu soru: gerçekten yeni bir site mi gerekiyor?</h2>
-        
-        <p>İki sayıyı bulun: son üç ayda kaç kişi geldi, kaçı size ulaştı. Bilmiyorsanız ilk iş tasarım değil, ölçüm.</p>
-        <div class="yazi-tablo"><table>
-        <thead><tr><th>Durumunuz</th><th>Doğru adım</th><th>Neden</th></tr></thead>
-        <tbody>
-        <tr><td>Site açılıyor, trafik var, kimse aramıyor</td><td>Mevcut site üzerinde hız ve dönüşüm düzeltmesi</td><td>Sıfırdan yapmak bu sorunu çözmez, hata tekrarlanır</td></tr>
-        <tr><td>Tek bir hizmet satıyorsunuz, trafiğin tamamı reklamdan geliyor</td><td>Tek sayfalık açılış sayfası</td><td>On iki sayfalık kurumsal yapı burada sadece maliyet ekliyor</td></tr>
-        <tr><td>Birden fazla hizmet, farklı hedef kitle, blog, çok dil</td><td>Kurumsal site</td><td>Her hizmetin kendi sayfası olmadan aramada bulunamazsınız</td></tr>
-        <tr><td>Ürün satıyorsunuz; stok, kargo ve ödeme işin içinde</td><td>E-ticaret</td><td>Sonradan sepet eklemek, baştan e-ticaret kurmaktan pahalı</td></tr>
-        <tr><td>İş akışınızın karşılığı hazır üründe yok (bayi, rezervasyon, saha ekibi)</td><td>Özel yazılım</td><td>Eklenti yığınıyla taklit edilen akış altı ayda bakılamaz oluyor</td></tr>
-        <tr><td>Site iki yaşında, çalışıyor, sadece görsel olarak eskimiş</td><td>Yüzey yenilemesi</td><td>Altyapı sağlamsa yeniden yazmak para yakmaktır</td></tr>
-        </tbody>
-        </table></div>
-        
-        <p><strong>Bütçeniz 45 binin belirgin altındaysa bizimle çalışmayın.</strong> O bütçede iyi seçilmiş bir hazır tema ve doğru yazılmış beş sayfa, kötü yapılmış bir “özel tasarım”dan iyidir.</p>
-        
-        
-        <h2 id="sektor">Sektöre göre değişen şey tasarım değil</h2>
-        <p>Hastane ile otel sitesini ayıran şey renk paleti değil, sayfanın kurtarmak zorunda olduğu an.</p>
-      </div>
-
-      <div class="akor rv d1">
-        <details>
-          <summary>Hastane ve klinik web sitesinde olması gerekenler</summary>
-          <p class="cvp">Sağlık Bakanlığı'nın tanıtım mevzuatı Türkçe yayında fiyatı, hasta deneyimini ve öncesi-sonrası görselini sınırlıyor; içerik mimarisini bu süzgece göre kuruyoruz.</p>
-        </details>
-        <details>
-          <summary>Otel web sitesi nasıl olmalı: rezervasyon motoruna kadar olan yol</summary>
-          <p class="cvp">Sitenin işi satışı bitirmek değil, kişiyi kararlı halde rezervasyon motoruna taşımak. Yavaş açılan galeri rezervasyon kaybettiriyor.</p>
-        </details>
-        <details>
-          <summary>E-ticaret sitesinde ana sayfa değil ürün sayfası kazandırıyor</summary>
-          <p class="cvp">Ziyaretçilerin çoğu ürün sayfasına arama sonucundan ya da reklamdan doğrudan iniyor; bütçenin ağırlığını ürün sayfası şablonuna, site içi aramaya ve varyant–stok görünümüne koyuyoruz.</p>
-        </details>
-        <details>
-          <summary>B2B ve sanayi web sitesi: katalog, ürün kodu, teknik doküman</summary>
-          <p class="cvp">Ziyaretçi az, teklif başına değer yüksek; işi yapan şey teknik doküman, ürün kodu araması ve indirilebilir katalog.</p>
-        </details>
-        <details>
-          <summary>Anaokulu ve eğitim kurumu sitesi: telefondan bakan veliye göre kurgu</summary>
-          <p class="cvp">Karar veren kişi telefondan, akşam saatlerinde bakıyor: konum, fotoğraf ve tek dokunuşla arama.</p>
-        </details>
-      </div>
-      <div class="yazi"></div>
-    </div>
-  </section>
-
-  <!-- ===== ALT HİZMETLER ===== -->
   <section class="sec" id="kapsam" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head rv">
@@ -1021,114 +913,41 @@ button[data-olay]{font-family:inherit;color:inherit}
       </div>
     </div>
   </section>
-
-  <!-- ===== BESLEME ===== -->
-  <section class="sec" id="besler" style="padding-top:0">
+  <div class="ara-cta rv">
+    <div class="wrap ara-cta-in">
+      <p><b>Hangi kapsam size uygun, birlikte çıkaralım</b><span>Beş adım, iki dakika. Ekranda süre ve fiyat aralığı çıkar.</span></p>
+      <div class="ara-cta-btn">
+        <a class="btn btn-p" href="../../teklif/#web">Kapsam çıkaralım
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-g" href="tel:+905547916545">0554 791 65 45</a>
+      </div>
+    </div>
+  </div>
+<section class="sec" id="fiyat" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow"><i></i>Diğer modüllerle bağı</span>
-        <h2 data-kin>Tek altyapı, dört modül: web sitesi reklamı, SEO'yu, uygulamayı ve videoyu nasıl besliyor</h2>
-        
-          
+        <span class="eyebrow"><i></i>Bütçe</span>
+        <h2 data-kin>Kurumsal web sitesi fiyatları 2026: 45.000–90.000 ₺ bandını neyin belirlediği</h2>
       </div>
 
-      <div class="bsl rv d1">
-        <div class="bsl-k" style="--h:var(--amber)">
-          <b>Meta &amp; Google Ads'e</b>
-          <span>Reklamın ineceği hızlı açılış sayfaları; kampanya sayfasında hafta kaybı yok.</span>
-            
+      <div class="fyt rv d1">
+        <div class="fyt-band">
+          <b>45 – 90 bin ₺</b>
+          <span>KURUMSAL SİTE · 6–10 HAFTA</span>
         </div>
-        <div class="bsl-k" style="--h:var(--lime)">
-          <b>SEO'ya</b>
-          <span>Temiz HTML ve schema; SEO ekibi ilk aylarını teknik borç
-            temizlemekle geçirmiyor.</span>
-        </div>
-        <div class="bsl-k" style="--h:var(--vi)">
-          <b>Mobil Uygulama'ya</b>
-          <span>Ortak API ve tasarım sistemi; uygulama sitenin altyapısı
-            üzerine kuruluyor.</span>
-        </div>
-        <div class="bsl-k" style="--h:var(--pink)">
-          <b>Video Prodüksiyon'a</b>
-          <span>Videonun yayınlanacağı hızlı sayfa ve ölçüm şeması; hangi videonun izlendiği
-            sitede takip ediliyor.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="takvim-bolum" style="padding-top:0">
-    <div class="wrap">
-      <div class="yazi rv">
-        <div class="gbs">
-          <img src="../../../assets/modul-web/takvim.jpg" alt="Kurumsal web sitesi teslim takvimi: keşiften yayına 6–10 haftalık aşamalar" width="640" height="640" loading="lazy" decoding="async">
-          <div class="gbs-in">
-            <h2 id="takvim">Takvim: kurumsal web sitesi kaç haftada teslim edilir — 6–10 hafta</h2>
-          </div>
-        </div>
-        <h3>Hafta hafta ne oluyor</h3>
-        <p>Kapsam darsa bandın alt ucunda, çok dilli yapı ve entegrasyon eklendikçe üst ucunda kalıyor.</p>
-        <div class="yazi-tablo"><table>
-        <thead><tr><th>Hafta</th><th>Bizde ne var</th><th>Sizden ne bekleniyor</th></tr></thead>
-        <tbody>
-        <tr><td>1–2. hafta</td><td>Keşif, mevcut sitenin ölçümü, adres envanteri</td><td>Karar vericinin toplantıda olması</td></tr>
-        <tr><td>2–3. hafta</td><td>Bilgi mimarisi ve ana sayfa tasarımı</td><td>Logo kaynak dosyaları, marka malzemeleri, metin taslakları</td></tr>
-        <tr><td>3–5. hafta</td><td>İç sayfa şablonları, mobil düzen, tasarım sistemi</td><td>Tasarım onayı — tek turda toplu</td></tr>
-        <tr><td>5–7. hafta</td><td>Kodlama, yönetim paneli, içerik girişi</td><td>Son metinler ve gerçek fotoğraflar</td></tr>
-        <tr><td>7–8. hafta</td><td>Entegrasyonlar, form ve ölçüm kurulumu, hız çalışması</td><td>Test hesapları; ödeme ve kargo erişimleri</td></tr>
-        <tr><td>8–10. hafta</td><td>Cihaz testleri, kırık bağlantı taraması, yayın, yönlendirmeler</td><td>Ekibinizin testi ve yayın onayı</td></tr>
-        <tr><td>Sonraki 30 gün</td><td>Düzeltme desteği, panel eğitimi, ilk ölçüm okuması</td><td>Eğitime katılacak kişilerin belirlenmesi</td></tr>
-        </tbody>
-        </table></div>
-        <p>Takvimi uzatan şey kod değil, bekleyen metin; içerik teslim tarihleri de takvimde yazılı.</p>
-        <p>Tek muhatabınız oluyor ve her hafta aynı gün kısa bir durum notu gidiyor.</p>
-        
-        <h3>Başlarken sizden istediğimiz altı şey</h3>
-      </div>
-
-      <div class="etk rv d1">
-        <div class="etk-s"><span class="no">01</span><span><b>Logonun kaynak dosyası</b>
-          <span>Vektörel olanı, jpg değil.</span></span></div>
-        <div class="etk-s"><span class="no">02</span><span><b>Marka rehberi</b>
-          <span>Renk kodları ve yazı tipi tercihi.</span></span></div>
-        <div class="etk-s"><span class="no">03</span><span><b>Hizmet ve ürün metinleri</b>
-          <span>Hazır değilse kimin yazacağına ilk hafta karar veriyoruz.</span></span></div>
-        <div class="etk-s"><span class="no">04</span><span><b>Gerçek fotoğraflar</b>
-          <span>Stok fotoğraflı ekip sayfası güven kazandırmıyor.</span></span></div>
-        <div class="etk-s"><span class="no">05</span><span><b>Alan adı ve hosting erişimi</b>
-          <span>Ya da sizin adınıza açma yetkisi.</span></span></div>
-        <div class="etk-s"><span class="no">06</span><span><b>Ölçüm erişimleri</b>
-          <span>Mevcut siteniz varsa analytics ve arama konsolu.</span></span></div>
-      </div>
-
-      <div class="yazi rv">
-        
-
-        <div class="gbs">
-          <img src="../../../assets/modul-web/tasima.jpg" alt="Site taşıma ve 301 yönlendirme planı: eski web adresinden yeni adrese trafik aktarımı" width="640" height="640" loading="lazy" decoding="async">
-          <div class="gbs-in">
-            <h2 id="tasima">Mevcut siteyi taşırken kaybedilmemesi gereken şey: adresler</h2>
-            <p>Sık duyduğumuz cümle: “yeni site yaptırdık, trafiğimiz düştü”.</p>
-          </div>
-        </div>
-        <p>Sebebi tasarım değil: arama motorunun tanıdığı eski adresler değişiyor, karşılığı tanımlanmazsa ziyaretçi hata sayfası görüyor.</p>
-        <p>Taşımada izlediğimiz sıra:</p>
-        <ol>
-        <li>Eski sitenin bütün adreslerini çıkarıyoruz — sayfa, görsel, dosya dahil.</li>
-        <li>Hangi adresin trafik ve dış bağlantı aldığını ölçüm verisinden buluyoruz.</li>
-        <li>Her eski adrese yeni karşılık yazıyoruz; karşılığı olmayan en yakın anlamlı sayfaya gider, ana sayfaya değil.</li>
-        <li>301 yönlendirmeler yayınla aynı anda açılıyor.</li>
-        <li>Arama konsolunda adres değişikliği bildiriliyor, site haritası gönderiliyor.</li>
-        <li>İlk otuz gün hata kayıtları izleniyor; kaçan adres aynı hafta ekleniyor.</li>
-        </ol>
-        <p>İlk iki üç haftada dalgalanma oluyor; arama motoru yeni yapıyı yeniden tarıyor. Hiç düşmeyeceğini söyleyene inanmayın — söz verilebilecek şey, sebebin taşıma hatası olmaması.</p>
+        <p>Bu band <strong>2026 yılı için</strong> geçerlidir; tek dilli, sınırlı şablonlu kurumsal siteyi kapsar.
+          KDV teklifte belirtilir; e-ticaret ve özel yazılım ayrı fiyatlanır. Bandı belirleyen beş şey:</p>
+        <ul class="fyt-ne">
+          <li>Sayfa sayısı ve kaç dilde yayınlanacağı</li>
+          <li>E-ticaret var mı, kaç ürünle başlanıyor</li>
+          <li>Dışarıyla konuşan sistem sayısı (ERP, kargo, ödeme)</li>
+          <li>İçerik ve görsellerin hazır olup olmadığı</li>
+          <li>Özel geliştirme gerektiren akışlar (panel, rezervasyon, üyelik)</li>
+        </ul>
         
       </div>
     </div>
-  </section>
-
-  <!-- ===== KAPSAM: DAHİL / DEĞİL ===== -->
-  <section class="sec" id="dahil" style="padding-top:0">
+  </section><section class="sec" id="dahil" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>Şeffaflık</span>
@@ -1163,191 +982,62 @@ button[data-olay]{font-family:inherit;color:inherit}
       </div>
     </div>
   </section>
-
-  <section class="sec" id="kvkk-bolum" style="padding-top:0">
-    <div class="wrap">
-      <div class="yazi rv">
-        <h3 id="kvkk">KVKK, çerez ve erişilebilirlik kimin işi</h3>
-        <p>İş bölümü net: teknik uygulama bizde, hukuki metnin içeriği danışmanınızda.</p>
-        <p>Bizde olan: çerez onay katmanı, formdaki açık rıza kutusu, aydınlatma metni sayfasının kurulumu, sunucu tarafındaki temel güvenlik.</p>
-        <p>Sizde olan: aydınlatma metniniz, varsa mesafeli satış sözleşmeniz — hukuk danışmanınız yazar, biz doğru sayfaya ve akışa bağlarız.</p>
-        <p>Erişilebilirlikte temel işler baştan yapılır: klavyeyle gezilebilen menü, ekran okuyucunun anlayacağı başlık düzeni, okunabilir kontrast, görsellerde alternatif metin. Tam uyum denetimi ayrı bir iş — kamu, sağlık ve eğitim projelerinde kapsamını ayrıca konuşuyoruz.</p>
+  <div class="ara-cta rv">
+    <div class="wrap ara-cta-in">
+      <p><b>Projenizin bandını ekranda görün</b><span>Zorunlu alan yalnızca ad ve telefon.</span></p>
+      <div class="ara-cta-btn">
+        <a class="btn btn-p" href="../../teklif/#web">Kapsam çıkaralım
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-g" href="tel:+905547916545">0554 791 65 45</a>
       </div>
     </div>
-  </section>
-
-  <!-- ===== FİYAT ===== -->
-  <section class="sec" id="fiyat" style="padding-top:0">
+  </div>
+<section class="sec" id="fark">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow"><i></i>Bütçe</span>
-        <h2 data-kin>Kurumsal web sitesi fiyatları 2026: 45.000–90.000 ₺ bandını neyin belirlediği</h2>
+        <span class="eyebrow"><i></i>Aradaki fark</span>
+        <h2 data-kin>“Web sitesi yaptırdım ama…” — hazır tema ile özel tasarım arasındaki fark</h2>
+        <p>Çoğu site bozuk değil; başka birinin işi için tasarlanmış bir şablonun üzerine sizin içeriğiniz konmuş. Şablon kurmuyoruz. Farkı anlatmıyor, ölçüyoruz: sayfa ağırlığınızı bizdekiyle yan yana koyuyoruz.</p>
+          
       </div>
 
-      <div class="fyt rv d1">
-        <div class="fyt-band">
-          <b>45 – 90 bin ₺</b>
-          <span>KURUMSAL SİTE · 6–10 HAFTA</span>
+      <div class="krs rv d1">
+        <div class="krs-k krs-k--sablon">
+          <div class="krs-bas">
+            <span>Şablon üzerine kurulan site</span>
+          </div>
+          <h3 style="margin-bottom:18px">Hazır tema + içerik dolgusu</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              Kullanmadığınız 40 özelliğin kodu da her ziyaretçiye iniyor; telefonda açılış süresi uzuyor.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              Ölçüm sonradan eklendiği için hangi sayfanın arattığı bilinmiyor.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              Küçük değişiklik için eklenti aranıyor; her eklenti yeni güvenlik yüzeyi.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              Tema güncellenince tasarım bozuluyor, yine ajansa dönülüyor.</li>
+          </ul>
         </div>
-        <p>Bu band <strong>2026 yılı için</strong> geçerlidir; tek dilli, sınırlı şablonlu kurumsal siteyi kapsar.
-          KDV teklifte belirtilir; e-ticaret ve özel yazılım ayrı fiyatlanır. Bandı belirleyen beş şey:</p>
-        <ul class="fyt-ne">
-          <li>Sayfa sayısı ve kaç dilde yayınlanacağı</li>
-          <li>E-ticaret var mı, kaç ürünle başlanıyor</li>
-          <li>Dışarıyla konuşan sistem sayısı (ERP, kargo, ödeme)</li>
-          <li>İçerik ve görsellerin hazır olup olmadığı</li>
-          <li>Özel geliştirme gerektiren akışlar (panel, rezervasyon, üyelik)</li>
-        </ul>
-        
+
+        <div class="krs-k krs-k--biz">
+          <div class="krs-bas">
+            <span>Bizim kurduğumuz sistem</span>
+          </div>
+          <h3 style="margin-bottom:18px">İşinize göre yazılmış ön yüz</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Sayfada yalnızca o sayfanın kodu var; ağırlık baştan düşük.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Ölçüm şeması ilk günde kuruluyor; hangi form, hangi kampanya belli.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              İçeriği panelden siz güncelliyorsunuz.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Kaynak dosyalar ve hesaplar sizde.</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </section>
-
-  <section class="sec" id="sablon-bolum" style="padding-top:0">
-    <div class="wrap">
-      <div class="yazi rv">
-        <div class="gbs">
-          <img src="../../../assets/modul-web/sifirdan.jpg" alt="Sıfırdan yazılmış web sitesi mimarisi: modüler bloklar projeye özel bir yapıda birleşirken" width="640" height="640" loading="lazy" decoding="async">
-          <div class="gbs-in">
-            <h2 id="sablon">Teklifi okurken sayfa sayısına değil, şablon sayısına bakın</h2>
-            <p>Maliyeti büyüten şey sayfa sayısı değil, farklı <strong>şablon</strong> sayısı.</p>
-          </div>
-        </div>
-        </div>
-
-      <div class="sbl rv d1">
-        <div class="sbl-k sbl-k--tek">
-          <u>60 SAYFA · 1 ŞABLON</u>
-          <span class="sbl-izgara" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-          <b>Aynı düzeni paylaşan sayfalar</b>
-          <span>Altmışıncı sayfayı eklemek dakikalar sürüyor.</span>
-          <span class="fiy">MALİYET DÜŞÜK</span>
-        </div>
-        <div class="sbl-k sbl-k--cok">
-          <u>6 SAYFA · 6 ŞABLON</u>
-          <span class="sbl-izgara" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
-          <b>Her biri farklı düzen isteyen sayfalar</b>
-          <span>Ana sayfa, hizmet, blog, ürün, iletişim — altısı ayrı kod.</span>
-          <span class="fiy">MALİYET YÜKSEK</span>
-        </div>
-      </div>
-
-      <div class="yazi rv">
-        <p>Bütçeyi <strong>şablon çeşidini azaltarak</strong> düşürürsünüz; teklifte hangi şablonların yazılacağı adıyla listelenir.</p>
-        
-      </div>
-
-      <div class="soru-k rv d1">
-        <p>Teklif alırken sorun: <em>arayüz hangi temanın üzerine kuruluyor, tema ve eklenti lisansları kimin hesabına kayıtlı?</em></p>
-      </div>
-
-      <div class="yazi rv">
-        <div class="gbs">
-          <img src="../../../assets/modul-web/maliyet.jpg" alt="Web sitesi yıllık maliyeti: alan adı, hosting, SSL ve lisans yenilemeleri" width="640" height="640" loading="lazy" decoding="async">
-          <div class="gbs-in">
-            <h2 id="on-ucuncu-ay">On üçüncü ay: yayından sonra ne ödüyorsunuz</h2>
-            <p>Yayından on iki ay sonra ne ödeyeceğiniz aşağıdaki tabloda.</p>
-          </div>
-        </div>
-        <div class="yazi-tablo"><table>
-        <thead><tr><th>Kalem</th><th>Sıklık</th><th>Kime ödenir</th><th>Not</th></tr></thead>
-        <tbody>
-        <tr><td>Alan adı yenileme</td><td>Yıllık</td><td>Kayıt sağlayıcısı</td><td>Sizin adınıza kayıtlı</td></tr>
-        <tr><td>Hosting veya sunucu</td><td>Yıllık ya da aylık</td><td>Barındırma firması</td><td>Trafik büyüdükçe paket değişir</td></tr>
-        <tr><td>SSL sertifikası</td><td>Yıllık</td><td>Sertifika sağlayıcısı</td><td>Çoğu sitede ücretsiz, otomatik yenilenir</td></tr>
-        <tr><td>Tema ve eklenti lisansları</td><td>Yıllık</td><td>Sağlayıcı</td><td>Döviz üzerinden faturalanır</td></tr>
-        <tr><td>Kurumsal e-posta</td><td>Aylık ya da yıllık</td><td>Servis sağlayıcı</td><td>Kullanıcı başına; ekip büyüdükçe artar</td></tr>
-        <tr><td>Ödeme altyapısı komisyonu</td><td>İşlem başına</td><td>Banka veya ödeme kuruluşu</td><td>Yalnızca e-ticarette</td></tr>
-        <tr><td>Bakım paketi</td><td>Aylık</td><td>Bize</td><td>İsteğe bağlı</td></tr>
-        <tr><td>Yenileme payı</td><td>Birkaç yılda bir</td><td>Proje bütçesi</td><td>Baştan bütçelenir</td></tr>
-        </tbody>
-        </table></div>
-        <p>Alan adı, hosting, ölçüm ve ödeme hesapları sizin adınıza açılır; faturalar doğrudan size gelir, araya girip pay koymuyoruz.</p>
-        <p>Kur riski taşıyan kalemleri teklifte işaretliyoruz: lisans abonelikleri ve bazı servisler döviz üzerinden ilerliyor.</p>
-        
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="riskler-bolum" style="padding-top:0">
-    <div class="wrap">
-      <div class="yazi rv">
-        <div class="gbs">
-          <img src="../../../assets/modul-web/guvence.jpg" alt="Yayın sonrası 30 gün düzeltme desteği, yedekleme ve bakım güvencesi" width="640" height="640" loading="lazy" decoding="async">
-          <div class="gbs-in">
-            <h2 id="otuz-gun">Yayından sonraki otuz gün ve sonrası</h2>
-            <p>Yayın gününde iş bitmiyor; ikinci bölüm de teklifte yazılı.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="etk rv d1">
-        <div class="etk-s"><span class="no">01</span><span><b>İlk otuz gün</b>
-          <span>Çıkan hataları ücretsiz düzeltiyoruz.
-          Yeni sayfa veya yeni özellik düzeltme değil; ayrı fiyatlanır.</span></span></div>
-        <div class="etk-s"><span class="no">02</span><span><b>Eğitim</b>
-          <span>Paneli kullanacak kişilerle canlı oturum yapıp kaydını size bırakıyoruz.
-          </span></span></div>
-        <div class="etk-s"><span class="no">03</span><span><b>Yedek</b>
-          <span>Bakımda yedeği belirli aralıklarla
-          gerçekten geri yükleyip açılıyor mu diye bakıyoruz.</span></span></div>
-        <div class="etk-s"><span class="no">04</span><span><b>Aylık rapor</b>
-          <span>Tek sayfa: kaç kişi geldi, kaç form, kaç arama, hız ne durumda.
-          </span></span></div>
-      </div>
-
-      <div class="yazi rv">
-        <p><strong>Bakım paketi zorunlu değil.</strong> Almadığınızda site kapanmaz; güncellemeler ve yedek sizin sorumluluğunuza geçer. Yanıt sürelerini teklifte yazılı veriyoruz.</p>
-
-        <h2 id="ters-giderse">İşler ters giderse</h2>
-        <p>Beş senaryonun karşılığı aşağıda; aynısı sözleşmede de yazılı.</p>
-      </div>
-
-      <div class="snr rv d1">
-        <article class="snr-k">
-          <h3>Proje gecikirse</h3>
-          <p>Kaynağı haftalık durum notunda görünüyor: bizden mi, bekleyen içerikten mi.
-            
-            Bizden kaynaklanıyorsa telafisi bizim işimiz.</p>
-        </article>
-        <article class="snr-k">
-          <h3>Site saldırıya uğrarsa</h3>
-          <p>Bakım kapsamındaysanız temiz yedekten dönüş ve açığın kapatılması dahil; değilseniz
-            iş olarak fiyatlandırıyoruz.</p>
-            
-        </article>
-        <article class="snr-k">
-          <h3>Sunucu çökerse</h3>
-          <p>Barındırma hesabı sizin adınıza; destek talebini siz de açabilirsiniz, biz de.
-            </p>
-        </article>
-        <article class="snr-k">
-          <h3>Ayrılırsak</h3>
-          <p>Aylık çıkış hakkınız var. Devir paketi: kaynak dosyalar, bizde duran panel erişimleri,
-            tasarım dosyaları ve teknik dokümantasyon — tek klasörde.</p>
-            
-        </article>
-        <article class="snr-k">
-          <h3>Biz kapanırsak</h3>
-          <p>Sitenizin bize bağlı çalışan hiçbir parçası yok;
-            site ilk günden bizden bağımsız
-            kuruluyor.</p>
-        </article>
-        <article class="snr-k" style="border-style:dashed;background:transparent">
-          <h3>Hesaplar kimin adına?</h3>
-          <p>Alan adı, barındırma ve ölçüm hesapları sizin adınıza açılır.
-            
-            <a href="#on-ucuncu-ay">Ayrıntısı “On üçüncü ay” bölümünde.</a></p>
-        </article>
-      </div>
-
-      <div class="yazi" hidden>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SSS ===== -->
-  <section class="sec" id="sss" style="padding-top:0">
+  </section><section class="sec" id="sss" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>Sık sorulanlar</span>
@@ -1460,6 +1150,385 @@ button[data-olay]{font-family:inherit;color:inherit}
       </div>
     </div>
   </section>
+  <section class="sec" id="ayrintilar" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Ayrıntılar</span>
+        <h2 data-kin>Karar vermeden önce bakmak isterseniz</h2>
+        <p>Süreç, taşıma, yayın sonrası ve mevzuat tarafının tamamı burada — açıp okuyun, kapatın.</p>
+      </div>
+      <div class="akor rv d1">
+        <details id="karar">
+          <summary>Önce şu soru: gerçekten yeni bir site mi gerekiyor?</summary>
+          <div class="cvp">
+<div class="yazi rv">
+        
+        
+        <p>İki sayıyı bulun: son üç ayda kaç kişi geldi, kaçı size ulaştı. Bilmiyorsanız ilk iş tasarım değil, ölçüm.</p>
+        <div class="yazi-tablo"><table>
+        <thead><tr><th>Durumunuz</th><th>Doğru adım</th><th>Neden</th></tr></thead>
+        <tbody>
+        <tr><td>Site açılıyor, trafik var, kimse aramıyor</td><td>Mevcut site üzerinde hız ve dönüşüm düzeltmesi</td><td>Sıfırdan yapmak bu sorunu çözmez, hata tekrarlanır</td></tr>
+        <tr><td>Tek bir hizmet satıyorsunuz, trafiğin tamamı reklamdan geliyor</td><td>Tek sayfalık açılış sayfası</td><td>On iki sayfalık kurumsal yapı burada sadece maliyet ekliyor</td></tr>
+        <tr><td>Birden fazla hizmet, farklı hedef kitle, blog, çok dil</td><td>Kurumsal site</td><td>Her hizmetin kendi sayfası olmadan aramada bulunamazsınız</td></tr>
+        <tr><td>Ürün satıyorsunuz; stok, kargo ve ödeme işin içinde</td><td>E-ticaret</td><td>Sonradan sepet eklemek, baştan e-ticaret kurmaktan pahalı</td></tr>
+        <tr><td>İş akışınızın karşılığı hazır üründe yok (bayi, rezervasyon, saha ekibi)</td><td>Özel yazılım</td><td>Eklenti yığınıyla taklit edilen akış altı ayda bakılamaz oluyor</td></tr>
+        <tr><td>Site iki yaşında, çalışıyor, sadece görsel olarak eskimiş</td><td>Yüzey yenilemesi</td><td>Altyapı sağlamsa yeniden yazmak para yakmaktır</td></tr>
+        </tbody>
+        </table></div>
+        
+        <p><strong>Bütçeniz 45 binin belirgin altındaysa bizimle çalışmayın.</strong> O bütçede iyi seçilmiş bir hazır tema ve doğru yazılmış beş sayfa, kötü yapılmış bir “özel tasarım”dan iyidir.</p>
+        
+        
+        <h2 id="sektor">Sektöre göre değişen şey tasarım değil</h2>
+        <p>Hastane ile otel sitesini ayıran şey renk paleti değil, sayfanın kurtarmak zorunda olduğu an.</p>
+      </div>
+
+      <div class="akor rv d1">
+        <details>
+          <summary>Hastane ve klinik web sitesinde olması gerekenler</summary>
+          <p class="cvp">Sağlık Bakanlığı'nın tanıtım mevzuatı Türkçe yayında fiyatı, hasta deneyimini ve öncesi-sonrası görselini sınırlıyor; içerik mimarisini bu süzgece göre kuruyoruz.</p>
+        </details>
+        <details>
+          <summary>Otel web sitesi nasıl olmalı: rezervasyon motoruna kadar olan yol</summary>
+          <p class="cvp">Sitenin işi satışı bitirmek değil, kişiyi kararlı halde rezervasyon motoruna taşımak. Yavaş açılan galeri rezervasyon kaybettiriyor.</p>
+        </details>
+        <details>
+          <summary>E-ticaret sitesinde ana sayfa değil ürün sayfası kazandırıyor</summary>
+          <p class="cvp">Ziyaretçilerin çoğu ürün sayfasına arama sonucundan ya da reklamdan doğrudan iniyor; bütçenin ağırlığını ürün sayfası şablonuna, site içi aramaya ve varyant–stok görünümüne koyuyoruz.</p>
+        </details>
+        <details>
+          <summary>B2B ve sanayi web sitesi: katalog, ürün kodu, teknik doküman</summary>
+          <p class="cvp">Ziyaretçi az, teklif başına değer yüksek; işi yapan şey teknik doküman, ürün kodu araması ve indirilebilir katalog.</p>
+        </details>
+        <details>
+          <summary>Anaokulu ve eğitim kurumu sitesi: telefondan bakan veliye göre kurgu</summary>
+          <p class="cvp">Karar veren kişi telefondan, akşam saatlerinde bakıyor: konum, fotoğraf ve tek dokunuşla arama.</p>
+        </details>
+      </div>
+      <div class="yazi"></div>
+          </div>
+        </details>
+        <details id="hiz">
+          <summary>Hızı anlatmak yerine ölçüyoruz: web sitesi hız skoru kaç olmalı</summary>
+          <div class="cvp">
+<div class="sec-head rv">
+        <span class="eyebrow"><i></i>Hız</span>
+        
+        <p>Hız, diğer dört modülün getirisini belirleyen çarpan. Hız optimizasyonu proje
+          
+          sonundaki temizlik değil, ilk günün mimari kararı.</p>
+          
+      </div>
+
+      <div class="hiz rv d1">
+        <div class="hiz-panel">
+          <img src="../../../assets/modul-web/hiz.jpg" alt="Web sitesi hız skoru göstergesi: Core Web Vitals LCP, INP ve CLS ölçümü" width="640" height="640" loading="lazy" decoding="async" style="width:76px;height:auto;aspect-ratio:1;border-radius:12px;border:1px solid var(--hair);float:right;margin:0 0 10px 14px">
+          <p class="hiz-etiket"><i></i>Şu anda ölçüldü</p>
+          <p class="hiz-buyuk"><span data-hiz>—</span><i>sn</i></p>
+          <p>Bu sayfa <b>sizin cihazınızda</b> ve <b>sizin bağlantınızda</b> bu sürede açıldı;
+            rakamı biz yazmıyoruz, tarayıcınız ölçüyor.</p>
+          <small>Doğrulamak için F12 → Ağ sekmesini açıp sayfayı yenileyin;
+            değer bağlantınıza göre değişir.</small>
+        </div>
+        <div class="hiz-metin yazi">
+          <h3>Telefonda 2,5 saniyede açılsın: LCP, INP ve CLS eşikleri ne anlatıyor</h3>
+          <p>Google'ın “iyi” saydığı eşikler net: LCP 2,5 saniyenin altında, INP 200 milisaniyenin altında, CLS 0,1'in altında. Ölçüm masaüstünde değil mobilde ve gerçek kullanıcı verisinin 75. yüzdeliğinde yapılır — yani ziyaretçilerin dörtte üçü bu değerin altında kalmalı. </p>
+          <p>Teslimde bu üç değeri öncesi–sonrası ölçüp yazılı veriyoruz.</p>
+        </div>
+      </div>
+          </div>
+        </details>
+        <details id="besler">
+          <summary>Tek altyapı, dört modül: web sitesi reklamı, SEO'yu, uygulamayı ve videoyu nasıl besliyor</summary>
+          <div class="cvp">
+<div class="sec-head rv">
+        <span class="eyebrow"><i></i>Diğer modüllerle bağı</span>
+        
+        
+          
+      </div>
+
+      <div class="bsl rv d1">
+        <div class="bsl-k" style="--h:var(--amber)">
+          <b>Meta &amp; Google Ads'e</b>
+          <span>Reklamın ineceği hızlı açılış sayfaları; kampanya sayfasında hafta kaybı yok.</span>
+            
+        </div>
+        <div class="bsl-k" style="--h:var(--lime)">
+          <b>SEO'ya</b>
+          <span>Temiz HTML ve schema; SEO ekibi ilk aylarını teknik borç
+            temizlemekle geçirmiyor.</span>
+        </div>
+        <div class="bsl-k" style="--h:var(--vi)">
+          <b>Mobil Uygulama'ya</b>
+          <span>Ortak API ve tasarım sistemi; uygulama sitenin altyapısı
+            üzerine kuruluyor.</span>
+        </div>
+        <div class="bsl-k" style="--h:var(--pink)">
+          <b>Video Prodüksiyon'a</b>
+          <span>Videonun yayınlanacağı hızlı sayfa ve ölçüm şeması; hangi videonun izlendiği
+            sitede takip ediliyor.</span>
+        </div>
+      </div>
+          </div>
+        </details>
+        <details id="takvim">
+          <summary>Takvim: kurumsal web sitesi kaç haftada teslim edilir — 6–10 hafta</summary>
+          <div class="cvp">
+<div class="yazi rv">
+        <div class="gbs">
+          <img src="../../../assets/modul-web/takvim.jpg" alt="Kurumsal web sitesi teslim takvimi: keşiften yayına 6–10 haftalık aşamalar" width="640" height="640" loading="lazy" decoding="async">
+          <div class="gbs-in">
+            
+          </div>
+        </div>
+        <h3>Hafta hafta ne oluyor</h3>
+        <p>Kapsam darsa bandın alt ucunda, çok dilli yapı ve entegrasyon eklendikçe üst ucunda kalıyor.</p>
+        <div class="yazi-tablo"><table>
+        <thead><tr><th>Hafta</th><th>Bizde ne var</th><th>Sizden ne bekleniyor</th></tr></thead>
+        <tbody>
+        <tr><td>1–2. hafta</td><td>Keşif, mevcut sitenin ölçümü, adres envanteri</td><td>Karar vericinin toplantıda olması</td></tr>
+        <tr><td>2–3. hafta</td><td>Bilgi mimarisi ve ana sayfa tasarımı</td><td>Logo kaynak dosyaları, marka malzemeleri, metin taslakları</td></tr>
+        <tr><td>3–5. hafta</td><td>İç sayfa şablonları, mobil düzen, tasarım sistemi</td><td>Tasarım onayı — tek turda toplu</td></tr>
+        <tr><td>5–7. hafta</td><td>Kodlama, yönetim paneli, içerik girişi</td><td>Son metinler ve gerçek fotoğraflar</td></tr>
+        <tr><td>7–8. hafta</td><td>Entegrasyonlar, form ve ölçüm kurulumu, hız çalışması</td><td>Test hesapları; ödeme ve kargo erişimleri</td></tr>
+        <tr><td>8–10. hafta</td><td>Cihaz testleri, kırık bağlantı taraması, yayın, yönlendirmeler</td><td>Ekibinizin testi ve yayın onayı</td></tr>
+        <tr><td>Sonraki 30 gün</td><td>Düzeltme desteği, panel eğitimi, ilk ölçüm okuması</td><td>Eğitime katılacak kişilerin belirlenmesi</td></tr>
+        </tbody>
+        </table></div>
+        <p>Takvimi uzatan şey kod değil, bekleyen metin; içerik teslim tarihleri de takvimde yazılı.</p>
+        <p>Tek muhatabınız oluyor ve her hafta aynı gün kısa bir durum notu gidiyor.</p>
+        
+        <h3>Başlarken sizden istediğimiz altı şey</h3>
+      </div>
+
+      <div class="etk rv d1">
+        <div class="etk-s"><span class="no">01</span><span><b>Logonun kaynak dosyası</b>
+          <span>Vektörel olanı, jpg değil.</span></span></div>
+        <div class="etk-s"><span class="no">02</span><span><b>Marka rehberi</b>
+          <span>Renk kodları ve yazı tipi tercihi.</span></span></div>
+        <div class="etk-s"><span class="no">03</span><span><b>Hizmet ve ürün metinleri</b>
+          <span>Hazır değilse kimin yazacağına ilk hafta karar veriyoruz.</span></span></div>
+        <div class="etk-s"><span class="no">04</span><span><b>Gerçek fotoğraflar</b>
+          <span>Stok fotoğraflı ekip sayfası güven kazandırmıyor.</span></span></div>
+        <div class="etk-s"><span class="no">05</span><span><b>Alan adı ve hosting erişimi</b>
+          <span>Ya da sizin adınıza açma yetkisi.</span></span></div>
+        <div class="etk-s"><span class="no">06</span><span><b>Ölçüm erişimleri</b>
+          <span>Mevcut siteniz varsa analytics ve arama konsolu.</span></span></div>
+      </div>
+
+      <div class="yazi rv">
+        
+
+        <div class="gbs">
+          <img src="../../../assets/modul-web/tasima.jpg" alt="Site taşıma ve 301 yönlendirme planı: eski web adresinden yeni adrese trafik aktarımı" width="640" height="640" loading="lazy" decoding="async">
+          <div class="gbs-in">
+            <h2 id="tasima">Mevcut siteyi taşırken kaybedilmemesi gereken şey: adresler</h2>
+            <p>Sık duyduğumuz cümle: “yeni site yaptırdık, trafiğimiz düştü”.</p>
+          </div>
+        </div>
+        <p>Sebebi tasarım değil: arama motorunun tanıdığı eski adresler değişiyor, karşılığı tanımlanmazsa ziyaretçi hata sayfası görüyor.</p>
+        <p>Taşımada izlediğimiz sıra:</p>
+        <ol>
+        <li>Eski sitenin bütün adreslerini çıkarıyoruz — sayfa, görsel, dosya dahil.</li>
+        <li>Hangi adresin trafik ve dış bağlantı aldığını ölçüm verisinden buluyoruz.</li>
+        <li>Her eski adrese yeni karşılık yazıyoruz; karşılığı olmayan en yakın anlamlı sayfaya gider, ana sayfaya değil.</li>
+        <li>301 yönlendirmeler yayınla aynı anda açılıyor.</li>
+        <li>Arama konsolunda adres değişikliği bildiriliyor, site haritası gönderiliyor.</li>
+        <li>İlk otuz gün hata kayıtları izleniyor; kaçan adres aynı hafta ekleniyor.</li>
+        </ol>
+        <p>İlk iki üç haftada dalgalanma oluyor; arama motoru yeni yapıyı yeniden tarıyor. Hiç düşmeyeceğini söyleyene inanmayın — söz verilebilecek şey, sebebin taşıma hatası olmaması.</p>
+        
+      </div>
+          </div>
+        </details>
+        <details id="sablon">
+          <summary>Teklifi okurken sayfa sayısına değil, şablon sayısına bakın</summary>
+          <div class="cvp">
+<div class="yazi rv">
+        <div class="gbs">
+          <img src="../../../assets/modul-web/sifirdan.jpg" alt="Sıfırdan yazılmış web sitesi mimarisi: modüler bloklar projeye özel bir yapıda birleşirken" width="640" height="640" loading="lazy" decoding="async">
+          <div class="gbs-in">
+            
+            <p>Maliyeti büyüten şey sayfa sayısı değil, farklı <strong>şablon</strong> sayısı.</p>
+          </div>
+        </div>
+        </div>
+
+      <div class="sbl rv d1">
+        <div class="sbl-k sbl-k--tek">
+          <u>60 SAYFA · 1 ŞABLON</u>
+          <span class="sbl-izgara" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <b>Aynı düzeni paylaşan sayfalar</b>
+          <span>Altmışıncı sayfayı eklemek dakikalar sürüyor.</span>
+          <span class="fiy">MALİYET DÜŞÜK</span>
+        </div>
+        <div class="sbl-k sbl-k--cok">
+          <u>6 SAYFA · 6 ŞABLON</u>
+          <span class="sbl-izgara" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <b>Her biri farklı düzen isteyen sayfalar</b>
+          <span>Ana sayfa, hizmet, blog, ürün, iletişim — altısı ayrı kod.</span>
+          <span class="fiy">MALİYET YÜKSEK</span>
+        </div>
+      </div>
+
+      <div class="yazi rv">
+        <p>Bütçeyi <strong>şablon çeşidini azaltarak</strong> düşürürsünüz; teklifte hangi şablonların yazılacağı adıyla listelenir.</p>
+        
+      </div>
+
+      <div class="soru-k rv d1">
+        <p>Teklif alırken sorun: <em>arayüz hangi temanın üzerine kuruluyor, tema ve eklenti lisansları kimin hesabına kayıtlı?</em></p>
+      </div>
+
+      <div class="yazi rv">
+        <div class="gbs">
+          <img src="../../../assets/modul-web/maliyet.jpg" alt="Web sitesi yıllık maliyeti: alan adı, hosting, SSL ve lisans yenilemeleri" width="640" height="640" loading="lazy" decoding="async">
+          <div class="gbs-in">
+            <h2 id="on-ucuncu-ay">On üçüncü ay: yayından sonra ne ödüyorsunuz</h2>
+            <p>Yayından on iki ay sonra ne ödeyeceğiniz aşağıdaki tabloda.</p>
+          </div>
+        </div>
+        <div class="yazi-tablo"><table>
+        <thead><tr><th>Kalem</th><th>Sıklık</th><th>Kime ödenir</th><th>Not</th></tr></thead>
+        <tbody>
+        <tr><td>Alan adı yenileme</td><td>Yıllık</td><td>Kayıt sağlayıcısı</td><td>Sizin adınıza kayıtlı</td></tr>
+        <tr><td>Hosting veya sunucu</td><td>Yıllık ya da aylık</td><td>Barındırma firması</td><td>Trafik büyüdükçe paket değişir</td></tr>
+        <tr><td>SSL sertifikası</td><td>Yıllık</td><td>Sertifika sağlayıcısı</td><td>Çoğu sitede ücretsiz, otomatik yenilenir</td></tr>
+        <tr><td>Tema ve eklenti lisansları</td><td>Yıllık</td><td>Sağlayıcı</td><td>Döviz üzerinden faturalanır</td></tr>
+        <tr><td>Kurumsal e-posta</td><td>Aylık ya da yıllık</td><td>Servis sağlayıcı</td><td>Kullanıcı başına; ekip büyüdükçe artar</td></tr>
+        <tr><td>Ödeme altyapısı komisyonu</td><td>İşlem başına</td><td>Banka veya ödeme kuruluşu</td><td>Yalnızca e-ticarette</td></tr>
+        <tr><td>Bakım paketi</td><td>Aylık</td><td>Bize</td><td>İsteğe bağlı</td></tr>
+        <tr><td>Yenileme payı</td><td>Birkaç yılda bir</td><td>Proje bütçesi</td><td>Baştan bütçelenir</td></tr>
+        </tbody>
+        </table></div>
+        <p>Alan adı, hosting, ölçüm ve ödeme hesapları sizin adınıza açılır; faturalar doğrudan size gelir, araya girip pay koymuyoruz.</p>
+        <p>Kur riski taşıyan kalemleri teklifte işaretliyoruz: lisans abonelikleri ve bazı servisler döviz üzerinden ilerliyor.</p>
+        
+      </div>
+          </div>
+        </details>
+        <details id="otuz-gun">
+          <summary>Yayından sonraki otuz gün ve sonrası</summary>
+          <div class="cvp">
+<div class="yazi rv">
+        <div class="gbs">
+          <img src="../../../assets/modul-web/guvence.jpg" alt="Yayın sonrası 30 gün düzeltme desteği, yedekleme ve bakım güvencesi" width="640" height="640" loading="lazy" decoding="async">
+          <div class="gbs-in">
+            
+            <p>Yayın gününde iş bitmiyor; ikinci bölüm de teklifte yazılı.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="etk rv d1">
+        <div class="etk-s"><span class="no">01</span><span><b>İlk otuz gün</b>
+          <span>Çıkan hataları ücretsiz düzeltiyoruz.
+          Yeni sayfa veya yeni özellik düzeltme değil; ayrı fiyatlanır.</span></span></div>
+        <div class="etk-s"><span class="no">02</span><span><b>Eğitim</b>
+          <span>Paneli kullanacak kişilerle canlı oturum yapıp kaydını size bırakıyoruz.
+          </span></span></div>
+        <div class="etk-s"><span class="no">03</span><span><b>Yedek</b>
+          <span>Bakımda yedeği belirli aralıklarla
+          gerçekten geri yükleyip açılıyor mu diye bakıyoruz.</span></span></div>
+        <div class="etk-s"><span class="no">04</span><span><b>Aylık rapor</b>
+          <span>Tek sayfa: kaç kişi geldi, kaç form, kaç arama, hız ne durumda.
+          </span></span></div>
+      </div>
+
+      <div class="yazi rv">
+        <p><strong>Bakım paketi zorunlu değil.</strong> Almadığınızda site kapanmaz; güncellemeler ve yedek sizin sorumluluğunuza geçer. Yanıt sürelerini teklifte yazılı veriyoruz.</p>
+
+        <h2 id="ters-giderse">İşler ters giderse</h2>
+        <p>Beş senaryonun karşılığı aşağıda; aynısı sözleşmede de yazılı.</p>
+      </div>
+
+      <div class="snr rv d1">
+        <article class="snr-k">
+          <h3>Proje gecikirse</h3>
+          <p>Kaynağı haftalık durum notunda görünüyor: bizden mi, bekleyen içerikten mi.
+            
+            Bizden kaynaklanıyorsa telafisi bizim işimiz.</p>
+        </article>
+        <article class="snr-k">
+          <h3>Site saldırıya uğrarsa</h3>
+          <p>Bakım kapsamındaysanız temiz yedekten dönüş ve açığın kapatılması dahil; değilseniz
+            iş olarak fiyatlandırıyoruz.</p>
+            
+        </article>
+        <article class="snr-k">
+          <h3>Sunucu çökerse</h3>
+          <p>Barındırma hesabı sizin adınıza; destek talebini siz de açabilirsiniz, biz de.
+            </p>
+        </article>
+        <article class="snr-k">
+          <h3>Ayrılırsak</h3>
+          <p>Aylık çıkış hakkınız var. Devir paketi: kaynak dosyalar, bizde duran panel erişimleri,
+            tasarım dosyaları ve teknik dokümantasyon — tek klasörde.</p>
+            
+        </article>
+        <article class="snr-k">
+          <h3>Biz kapanırsak</h3>
+          <p>Sitenizin bize bağlı çalışan hiçbir parçası yok;
+            site ilk günden bizden bağımsız
+            kuruluyor.</p>
+        </article>
+        <article class="snr-k" style="border-style:dashed;background:transparent">
+          <h3>Hesaplar kimin adına?</h3>
+          <p>Alan adı, barındırma ve ölçüm hesapları sizin adınıza açılır.
+            
+            <a href="#on-ucuncu-ay">Ayrıntısı “On üçüncü ay” bölümünde.</a></p>
+        </article>
+      </div>
+
+      <div class="yazi" hidden>
+      </div>
+          </div>
+        </details>
+        <details id="kvkk">
+          <summary>KVKK, çerez ve erişilebilirlik kimin işi</summary>
+          <div class="cvp">
+<div class="yazi rv">
+        
+        <p>İş bölümü net: teknik uygulama bizde, hukuki metnin içeriği danışmanınızda.</p>
+        <p>Bizde olan: çerez onay katmanı, formdaki açık rıza kutusu, aydınlatma metni sayfasının kurulumu, sunucu tarafındaki temel güvenlik.</p>
+        <p>Sizde olan: aydınlatma metniniz, varsa mesafeli satış sözleşmeniz — hukuk danışmanınız yazar, biz doğru sayfaya ve akışa bağlarız.</p>
+        <p>Erişilebilirlikte temel işler baştan yapılır: klavyeyle gezilebilen menü, ekran okuyucunun anlayacağı başlık düzeni, okunabilir kontrast, görsellerde alternatif metin. Tam uyum denetimi ayrı bir iş — kamu, sağlık ve eğitim projelerinde kapsamını ayrıca konuşuyoruz.</p>
+      </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HIZ KANITI ===== -->
+  
+
+  
+
+  <!-- ===== ALT HİZMETLER ===== -->
+  
+
+  <!-- ===== BESLEME ===== -->
+  
+
+  
+
+  <!-- ===== KAPSAM: DAHİL / DEĞİL ===== -->
+  
+
+  
+
+  <!-- ===== FİYAT ===== -->
+  
+
+  
+
+  
+
+  <!-- ===== SSS ===== -->
+  
 
   <section class="sec" style="padding-top:0">
     <div class="wrap">
