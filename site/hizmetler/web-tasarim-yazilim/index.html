@@ -278,8 +278,43 @@ button[data-olay]{font-family:inherit;color:inherit}
 .fyt-ne li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:7px}
 .fyt-not{font-size:12.8px;color:var(--muted);line-height:1.6;padding-top:18px;border-top:1px solid var(--hair)}
 
+/* --- düzyazı bölümleri (SEO içeriği) ---
+   WordPress'e giydirilirken bu bloklar editöre olduğu gibi geçsin diye
+   markup sade tutuldu: sadece h2/h3/h4/p/ul/ol/li/strong/em/table. */
+.yazi{max-width:780px}
+.yazi h2{font-size:clamp(21px,2.9vw,32px);letter-spacing:-.04em;line-height:1.18;margin:0 0 14px}
+.yazi h3{font-size:clamp(17px,2vw,21px);letter-spacing:-.03em;margin:34px 0 11px}
+.yazi h4{font-size:15.6px;margin:22px 0 8px;color:var(--fg)}
+.yazi p{color:var(--fg-dim);font-size:15.4px;line-height:1.78;margin:0 0 15px}
+.yazi ul,.yazi ol{display:grid;gap:10px;margin:0 0 18px;padding-left:20px}
+.yazi li{color:var(--fg-dim);font-size:14.8px;line-height:1.7}
+.yazi li::marker{color:var(--acc)}
+.yazi strong{color:var(--fg);font-weight:600}
+.yazi a{color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.4);transition:text-decoration-color .25s}
+.yazi a:hover{text-decoration-color:var(--acc)}
+.yazi table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:13.8px}
+.yazi th,.yazi td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--hair);
+  color:var(--fg-dim);line-height:1.6;vertical-align:top}
+.yazi th{font-family:var(--mono);font-size:10.4px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;border-bottom-color:var(--hair-strong)}
+.yazi td strong{color:var(--fg)}
+/* geniş tablo dar ekranda sayfayı yatay kaydırtmasın, kendi içinde kaysın.
+   Kaydırılabildiği belli olmazsa kullanıcı sağdaki sütunları hiç görmez —
+   bu yüzden yalnızca GERÇEKTEN taşıyorsa ipucu satırı çıkıyor (JS sınıf ekler). */
+.yazi-tablo{overflow-x:auto;margin:0 0 20px;-webkit-overflow-scrolling:touch}
+.yazi-tablo table{margin:0;min-width:520px}
+.yazi-tablo-ipucu{display:none;font-family:var(--mono);font-size:10.2px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);margin:-13px 0 20px}
+.yazi-tablo.kayar + .yazi-tablo-ipucu{display:flex;align-items:center;gap:7px}
+.yazi-tablo.kayar + .yazi-tablo-ipucu::before{content:"↔";font-size:13px;color:var(--acc)}
+
 /* --- SSS --- */
 .sss{display:grid;gap:11px;max-width:820px}
+.sss .cvp a{color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.4)}
+.sss .cvp a:hover{text-decoration-color:var(--acc)}
+.sss-not{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em;margin-top:6px}
 .sss details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
 .sss details[open]{border-color:var(--hair-strong)}
 .sss summary{cursor:pointer;list-style:none;padding:18px 22px;font-size:15.6px;font-weight:600;
@@ -389,31 +424,167 @@ button[data-olay]{font-family:inherit;color:inherit}
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "dateModified": "2026-08-19",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Hazır tema kullanıyor musunuz?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Arayüzü hazır tema üzerine kurmuyoruz; tasarım ve ön yüz sıfırdan yazılıyor. Altyapıda WordPress veya WooCommerce gibi olgun sistemleri kullanabiliyoruz — fark, temanın hazır olması değil, sizin işinize göre yazılmış olması." }
+      "name": "Kurumsal site ne kadar sürüyor, süreyi asıl ne uzatıyor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kurumsal bir site 6–10 haftada teslim edilir. Takvimi asıl uzatan kalem kod değil içerik: metin, fotoğraf ve logo dosyaları geciktiğinde sonraki bütün adımlar kayıyor. Hangi işin hangi haftada yapıldığını takvim bölümündeki tabloda hafta hafta yazdık."
+      }
     },
     {
       "@type": "Question",
-      "name": "Site bittikten sonra kendim güncelleyebilir miyim?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Evet. Yönetim paneli teslimin bir parçası ve ekibinize canlı eğitim veriyoruz. İçerik güncellemek için ajansa bağımlı kalmanız gereken bir kurulum teslim etmiyoruz." }
+      "name": "Proje gecikirse ne oluyor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gecikme olduğunda haber verip yeni tarihi yazılı veriyoruz, sessizce sürüklemiyoruz. Takvimi aşamalara böldüğümüz için gecikmenin hangi aşamada ve kimden kaynaklandığı görünür kalıyor. Gecikmenin kaynağını ve telafisini “İşler ters giderse” bölümünde madde madde yazdık."
+      }
     },
     {
       "@type": "Question",
-      "name": "Kaynak dosyalar ve hesaplar kimde kalıyor?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Sizde. Hosting, alan adı ve analytics hesapları sizin adınıza açılır; ayrılırsak tüm kaynak dosyalar ve teknik dokümantasyon tek klasörde teslim edilir." }
+      "name": "Revizyon hakkım nasıl belirleniyor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Revizyon turlarının sayısı ve her turun neyi kapsadığı teklifte kalem kalem yazılır; imzadan önce görürsünüz. Yayından sonra ayrıca 30 gün düzeltme desteği var, o sürede çıkan hatalar ücretsiz düzeltiliyor. Revizyon, kararlaştırılan kapsam içinde düzeltme demektir; yeni sayfa veya yeni özellik istemek revizyon değil kapsam değişikliğidir ve ayrıca fiyatlanır. Bu ayrımı teklife yazıyoruz ki proje ortasında tartışma çıkmasın. “Sınırsız revizyon” gibi tanımsız bir söz vermiyoruz; tanımsız söz, ilk anlaşmazlıkta işe yaramıyor. Otuz günlük desteğin neyi kapsayıp neyi kapsamadığını “Yayından sonraki otuz gün ve sonrası” bölümünde yazdık."
+      }
     },
     {
       "@type": "Question",
-      "name": "Mevcut sitem var, sıfırdan mı yapmak gerekiyor?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Her zaman değil. Önce ölçüyoruz; sorun hızsa ya da dönüşüm akışındaysa mevcut siteyi iyileştirmek daha ucuz ve hızlı olabilir. Sıfırdan yapmayı ancak mevcut altyapı gerçekten engel olduğunda öneriyoruz." }
+      "name": "Sitedeki yazıları ve fotoğrafları kim hazırlıyor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Metin ve fotoğraf sizden geliyor; ikisi de fiyata dahil değil. İhtiyaç olursa metin yazarlığı ve çekimi ayrı kalem olarak planlıyoruz. Hazır metin ve fotoğrafınız varsa süre kısalır; yoksa takvimi bu işlerin süresini de hesaba katarak kuruyoruz. Ürün ve hizmet anlatımının ham hâlini sizin ekibinizden almayı tercih ediyoruz, düzenlemesini biz yapıyoruz. Hazır fotoğrafınız yoksa çekim takvimini de projeye yazıyoruz; ziyaretçi stok fotoğrafı tanıyor."
+      }
     },
     {
       "@type": "Question",
-      "name": "Ne kadar sürüyor?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Kurumsal site tipik olarak 6–10 hafta. Süreyi en çok içerik hazırlığı ve onay turları belirliyor; e-ticaret ve özel yazılımda ürün sayısı ile entegrasyonlar süreyi uzatabiliyor." }
+      "name": "Hazır tema mı özel tasarım mı benim için doğru?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hazır tema; bütçesi sınırlı olan ve siteden tek beklentisi internette görünür olmak olan işletme için doğru karardır. Özel tasarım, siteden ölçülebilir telefon, form ve satış bekleyen işletmeler için anlamlıdır. Hazır tema sizin için doğru karar olduğunda bunu ilk görüşmede söylüyoruz; iş almak için kimseyi özel tasarıma ikna etmeye çalışmıyoruz. İki yaklaşımın karşılaştırma tablosunu ve hangi bütçede hangisinin doğru olduğunu “hazır tema ile özel tasarım arasındaki fark” bölümünde yazdık."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "WordPress mi yaptırmalıyım yoksa özel yazılım mı?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "İçerik yayınlayan ve ürün satan işlerin çoğunda WordPress ve WooCommerce yeterlidir. Özel yazılım, hazır sistemin karşılamadığı iş akışları için gerekir: bayi paneli, rezervasyon, yetki yönetimi, ERP’ye bağlanan süreçler. WordPress’i altyapı olarak kullanmak ile hazır tema kurmak aynı şey değil; sistemi WordPress üzerine kurup ön yüzü kendimiz yazıyoruz. Özel yazılım kararı fiyatla değil ihtiyaçla verilir: hazır bir eklentiyle çözülen şeyi özel yazmak boşa para. Hangi tarafta olduğunuzu iş akışınıza bakarak birlikte belirliyoruz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ajansla mı çalışmalıyım, freelancer yeterli mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tek kişilik bir iş için freelancer daha ucuz ve genelde yeterlidir. Ajans; tasarım, yazılım, reklam ve içerik aynı anda yürüyorsa ve işin iki yıl sonra da ayakta kalması gerekiyorsa anlamlı oluyor. Fark yetenek değil, süreklilik ve kapsam. Tek kişi hastalandığında ya da başka işe geçtiğinde proje durur; sekiz kişilik ekipte iş devam eder ve muhatabınız değişmez. Kaynak dosyaların, panel erişimlerinin ve dokümantasyonun kimde durduğu da yazılı olur. Buna karşılık küçük ve tek seferlik bir işte ajans yapısı gereksiz maliyet yaratır."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bizim sektörümüzde daha önce iş yaptınız mı?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Büyük ihtimalle evet: 2026 itibarıyla 14 yılda 120 marka için 165 proje tamamladık, yakın bir işte çalışmış olma ihtimalimiz yüksek. Sizin sektörünüzde deneyimimiz yoksa bunu ilk görüşmede söylüyoruz. Sektör deneyimi kadar önemli olan şey, sizin müşterinizin nasıl karar verdiğini anlamak: neye bakıp arıyor, neyi görmeden aramıyor. Bunu ilk görüşmede sorularla çıkarıyoruz, hazır bir sektör şablonu uygulamıyoruz. Sektöre göre neyin değiştiğini “Sektöre göre değişen şey tasarım değil” bölümünde ayrı ayrı yazdık."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Web sitesi ücreti tek seferlik mi, ikinci yıl da para ödeyecek miyim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hayır, tek seferlik değil. Kurulum bedelinin dışında her yıl alan adı, hosting, SSL ve kullandığınız lisanslar yenilenir; bakım paketi isterseniz aylık gider olarak eklenir. Bakım paketi zorunlu değil; almazsanız güncelleme ve yedek sorumluluğu size geçer, bunu da baştan söylüyoruz. Ücretli bir lisans kullanılıyorsa hangisi olduğunu ve yıllık yenileme bedelini teklifte açıkça yazıyoruz. Faturalar doğrudan size gelir, araya girip üzerine pay koymuyoruz (hesap sahipliği için “On üçüncü ay” bölümüne bakın). Kalemlerin tam listesini, sıklığını ve kime ödendiğini sayfadaki gider tablosunda görebilirsiniz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Web sitesi fiyatı sayfa sayısına göre mi belirleniyor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hayır. Maliyeti sayfa sayısı değil, kaç farklı şablon gerektiği belirliyor. Aynı şablondan üretilen altmışıncı sayfa neredeyse maliyetsizdir; altı farklı tasarım isteyen altı sayfa ise pahalıdır. Teklifleri yan yana koyarken neye bakmanız gerektiğini “Teklifi okurken sayfa sayısına değil, şablon sayısına bakın” bölümünde örnekle yazdık."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "E-ticaret sitesinde site ücretinin dışında hangi masraflar çıkıyor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Site bedelinin dışında sanal POS komisyonu, kargo anlaşması, e-fatura servisi ve kullandığınız üçüncü taraf abonelikleri çıkar. Bunların faturaları doğrudan size gelir; biz entegrasyonunu yapıyoruz. Sanal POS komisyonu bankayla sizin aranızdadır ve ciroya göre değişir; kargo ile e-fatura da kendi abonelik bedelleriyle gelir. Bu servislerin arasına girmiyor, üzerine pay koymuyoruz (hesap sahipliği için “On üçüncü ay” bölümüne bakın). Hangisinin gerçekten gerektiğini de konuşuyoruz — ilk gün dört entegrasyonla başlamanız gerekmiyor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sitenin hızı için sayısal bir garanti veriyor musunuz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hayır, belirli bir puan taahhüt etmiyoruz; çünkü skoru sunucunuz ve sonradan eklenen üçüncü taraf kodları da değiştiriyor. Teslimde ölçümü öncesi-sonrası olarak yapıp yazılı veriyoruz. Hız için yapılabileceklerin listesi ilk günden bellidir; proje sonunda keşfedilen bir kalem değildir. Rakam düşük çıkarsa sebebini de yazıyoruz. Hangi eşiklere baktığımızı ve ölçümü nasıl yaptığımızı sayfadaki hız bölümünde yazdık."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Yeni site yaptırınca Google’da ilk sayfaya çıkar mıyım?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hayır, sıralama garantisi vermiyoruz. Yeni site aramada çıkmanın önündeki teknik engelleri kaldırır — hız, temiz yapı, işaretleme — ama sıralama içerik ve rekabetle zamanla gelir. Sıralamayı içerik, bağlantı profili ve rakiplerin ne yaptığı belirler; bunların hepsi zaman ister. Sitenin yaptığı iş teknik borcu temizlemek ve ölçümü kurmaktır, böylece arama çalışması ilk aylarını altyapı düzeltmekle geçirmez. Belirli bir kelimede belirli bir tarihte ilk sayfa sözü veren teklifleri ciddiye almayın."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sitemi yenilersem Google’daki sıralamamı kaybeder miyim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hayır, doğru planlanırsa kalıcı kayıp olmaz; ilk iki-üç haftada dalgalanma normaldir. Eski adresleri 301 yönlendirmeyle yeni karşılıklarına eşliyor, yayından sonra sıralama ve trafik verisini birkaç hafta takip ediyoruz. Eşleme tablosunu nasıl çıkardığımızı, dalgalanmanın ne kadar sürdüğünü ve yayın sonrası takibi “Mevcut siteyi taşırken kaybedilmemesi gereken şey: adresler” bölümünde yazdık."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Yapay zekaya bir şey sorulduğunda sitemin çıkması için ne yapıyorsunuz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Net soru-cevap yapısı ve schema işaretlemesi sayfanın makine tarafından okunmasını kolaylaştırıyor; ikisini de baştan kuruyoruz. Yapay zeka özetlerinde görüneceğinizi kimse garanti edemez. Sohbet asistanları ve arama özetleri sayfadan doğrudan cevap cümlesi çekebiliyor. Bu yüzden soruları kullanıcıların yazdığı gibi kuruyor, cevabı ilk iki cümlede tamamlıyor ve FAQPage işaretlemesiyle makineye de okutuyoruz. Bu, alıntılanabilir hâle gelmenin teknik tarafıdır; satın alınabilen bir yer değildir. Sonucu ölçüp raporda gösteriyoruz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Çok dilli kurumsal web sitesi nasıl kuruluyor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Her dil kendi adresinde yayınlanır ve hreflang etiketiyle eşlenir; menü, form ve yönetim paneli de o dile çevrilir. Otomatik çeviri kullanmıyoruz, metinleri siz veya çevirmeniniz verir. Dil sayısı hem takvimi hem bandı yukarı çeker: her yeni dil ek içerik girişi, ek kontrol turu ve ek bakım demek. Bu yüzden hangi dillerin gerçekten gerektiğini baştan konuşuyoruz. Sonradan dil eklemek mümkün, ama baştan planlanmış olması hem ucuz hem hızlı oluyor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Siteyi teslimden sonra kendim güncelleyebilir miyim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet. Metin, görsel, blog yazısı ve ürün girişini panelden kendiniz yaparsınız; teslimde canlı eğitim veriyor ve kaydını size bırakıyoruz. Şablon ve kod değişikliği isteyen işler bizde kalır. İçerik güncellemek için ajansa bağımlı kalmanız gereken bir kurulum teslim etmiyoruz. Panelde kimin neyi değiştirebileceğini yetki seviyeleriyle ayırıyoruz, böylece yanlışlıkla bozulan bir düzenle uğraşmıyorsunuz. Bakım paketi almazsanız güncelleme ve yedek sorumluluğu size geçer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "İleride başka bir ajansa geçmek istersem siteyi taşıyabilir miyim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet, taşıyabilirsiniz. Hosting, alan adı ve ölçüm hesapları zaten sizin adınıza açık — o tarafta devir işlemi gerekmiyor. Bizde duran yönetim paneli erişimlerini devir paketiyle birlikte veriyoruz. Sözleşme aylık çıkış hakkı içerir; kalan süre için ceza yoktur. Devir paketinin içinde ne olduğunu “İşler ters giderse” bölümünün “Ayrılırsak” başlığında tek tek listeledik. Bunu iş almak için değil, ajans değiştirmenin sıfırdan başlamak anlamına gelmemesi için yapıyoruz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "KVKK metinleri ve çerez onayı dahil mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet. Çerez onay katmanı, aydınlatma metni sayfasının kurulumu ve form onay kutuları kuruluma dahildir. Metinlerin hukuki içeriğini avukatınız yazar; biz teknik uygulamasını ve doğru yerde görünmesini üstleniyoruz. İş bölümünün tamamını “KVKK, çerez ve erişilebilirlik kimin işi” bölümünde yazdık."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Site erişilebilir olacak mı, WCAG denetimi dahil mi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Temel erişilebilirlik standarttır: klavyeyle gezinme, okunabilir renk kontrastı, etiketlenmiş form alanları, görsellerde alternatif metin. Kapsamlı WCAG denetimi ve raporu ise ayrı bir iştir. Kamu, sağlık ve eğitim projelerinde denetimin kapsamını baştan konuşuyoruz. Ayrıntılı iş bölümü “KVKK, çerez ve erişilebilirlik kimin işi” bölümünde yazılı."
+      }
     }
   ]
 }
@@ -458,11 +629,9 @@ button[data-olay]{font-family:inherit;color:inherit}
       <div class="phd-iki">
         <div>
           <span class="mod-no">Modül 01</span>
-          <h1 data-kin>Şablon değil,<br>sıfırdan yazılmış sistem.</h1>
+          <h1 data-kin>Kurumsal web tasarım ve yazılım —<br>şablon değil, sıfırdan yazılmış sistem</h1>
           <p class="h1-alt">KURUMSAL SİTE · E-TİCARET · ÖZEL YAZILIM · AI ENTEGRASYONU</p>
-          <p class="lead">Bu modül diğer dördünün üzerinde çalıştığı zemin. Site yavaşsa reklam da
-            SEO da boşa gider; o yüzden hız ve ölçüm altyapısı sonradan eklenen bir kalem değil,
-            ilk günden kurulan parça.</p>
+          <p class="lead">Kurumsal web tasarım ve yazılım hizmetimiz hazır tema kurmak yerine ön yüzü projeye özel yazar. Kurumsal site, e-ticaret, özel yazılım, AI entegrasyonu ve bakım tek ekipten yürür. Kurumsal site için tipik teslim süresi 6–10 hafta, fiyat bandı 2026 için 45.000–90.000 ₺. Alan adı, hosting ve ölçüm hesapları sizin adınıza açılır, kaynak dosyalar sizde kalır. Yayından sonra 30 gün düzeltme desteği veriyoruz.</p>
         </div>
 
         <!-- ETKİLEŞİMLİ 3D INFOGRAFİK: aynı sayfanın üç katmanı -->
@@ -560,9 +729,11 @@ button[data-olay]{font-family:inherit;color:inherit}
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>Aradaki fark</span>
-        <h2 data-kin>“Web sitesi yaptırdım ama…”</h2>
-        <p>Bize gelen sitelerin çoğu bozuk değil — sadece başka birinin işi için tasarlanmış
-          bir şablonun üzerine sizin içeriğiniz konmuş. Fark burada başlıyor.</p>
+        <h2 data-kin>“Web sitesi yaptırdım ama…” — hazır tema ile özel tasarım arasındaki fark</h2>
+        <p>Bize gelen sitelerin çoğu bozuk değil; başka birinin işi için tasarlanmış bir şablonun
+          üzerine sizin içeriğiniz konmuş. Şablon kurmuyoruz. Aradaki farkı da anlatarak değil ölçerek
+          gösteriyoruz: teklif aşamasında mevcut sitenizin sayfa ağırlığını ölçüp, aynı içeriğin bizde
+          kaç KB ile açıldığını yan yana koyuyoruz.</p>
       </div>
 
       <div class="krs rv d1">
@@ -608,7 +779,11 @@ button[data-olay]{font-family:inherit;color:inherit}
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>Hız</span>
-        <h2 data-kin>Hızı anlatmak yerine ölçelim</h2>
+        <h2 data-kin>Hızı anlatmak yerine ölçüyoruz: web sitesi hız skoru kaç olmalı</h2>
+        <p>Hız, diğer dört modülün getirisini belirleyen çarpan. Reklamdan gelen kişi açılmayan
+          sayfayı beklemiyor, arama motoru yavaş sayfayı üst sıraya koymuyor, videoyu izleyen kişi
+          ürüne ulaşamıyor. Bu yüzden hız optimizasyonunu proje sonunda yapılan bir temizlik olarak
+          değil ilk günün mimari kararı olarak ele alıyoruz.</p>
       </div>
 
       <div class="hiz rv d1">
@@ -620,16 +795,49 @@ button[data-olay]{font-family:inherit;color:inherit}
           <small>Doğrulamak için F12 → Ağ sekmesini açıp sayfayı yenileyin.
             Değer bağlantınıza göre değişir — yavaş bir hatta yüksek çıkması normaldir.</small>
         </div>
-        <div class="hiz-metin">
-          <p>Hız bir “ekstra” değil, <b>diğer dört modülün getirisini belirleyen çarpan</b>.
-            Reklamdan gelen kişi açılmayan sayfayı beklemiyor; Google yavaş sayfayı üst sıraya
-            koymuyor; videoyu izleyen kişi ürüne ulaşamıyor.</p>
-          <p>Bu yüzden hız optimizasyonunu proje sonunda yapılan bir temizlik olarak değil,
-            <b>ilk günün mimari kararı</b> olarak ele alıyoruz: hangi görselin ne zaman yükleneceği,
-            hangi kodun hangi sayfaya ineceği, hangi yazı tipinin nereden geleceği baştan belli.</p>
-          <p>Teslimde Core Web Vitals değerlerini ölçüp yazılı veriyoruz — “hızlandırdık” demiyoruz,
-            <b>öncesi ve sonrası rakamı</b> gösteriyoruz.</p>
+        <div class="hiz-metin yazi">
+          <h3>Telefonda 2,5 saniyede açılsın: LCP, INP ve CLS eşikleri ne anlatıyor</h3>
+          <p>Google'ın “iyi” saydığı eşikler net: LCP 2,5 saniyenin altında, INP 200 milisaniyenin altında, CLS 0,1'in altında. Ölçüm masaüstünde değil mobilde ve gerçek kullanıcı verisinin 75. yüzdeliğinde yapılır — yani ziyaretçilerin dörtte üçü bu değerin altında kalmalı. Laboratuvar testinde 90 puan görünüp alan verisinde kalamayan site, pratikte yavaş sitedir.</p>
+          <p>Teslimde bu üç değeri ölçüp yazılı veriyoruz; öncesi ve sonrası rakamını yan yana gösteriyoruz. Belirli bir puanı taahhüt etmiyoruz, çünkü skoru sunucunuz ve sonradan eklenen üçüncü taraf kodları da değiştiriyor.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec" id="karar" style="padding-top:0">
+    <div class="wrap">
+      <div class="yazi rv">
+        <h2>Önce şu soru: gerçekten yeni bir site mi gerekiyor?</h2>
+        <p>Bize gelen taleplerin bir kısmına “yeni site” cevabı vermiyoruz. Sorun her zaman sitenin kendisi olmuyor.</p>
+        <p>Ayırt etmenin pratik yolu iki sayıyı bulmak: son üç ayda siteye kaç kişi geldi, kaçı size ulaştı. Bu ikisini bilmiyorsanız ilk iş tasarım değil, ölçüm kurmaktır. Sayıları biliyorsanız ve ziyaretçi geliyor ama telefon çalmıyorsa, mesele genellikle sayfanın nasıl göründüğü değil; sayfanın ziyaretçiden ne istediği.</p>
+        <div class="yazi-tablo"><table>
+        <thead><tr><th>Durumunuz</th><th>Doğru adım</th><th>Neden</th></tr></thead>
+        <tbody>
+        <tr><td>Site açılıyor, trafik var, kimse aramıyor</td><td>Mevcut site üzerinde hız ve dönüşüm düzeltmesi</td><td>Sıfırdan yapmak bu sorunu kendiliğinden çözmez; aynı hata yeni tasarımla tekrarlanır</td></tr>
+        <tr><td>Tek bir hizmet satıyorsunuz, trafiğin tamamı reklamdan geliyor</td><td>Tek sayfalık açılış sayfası</td><td>On iki sayfalık kurumsal yapı burada işe yaramıyor, sadece maliyet ve bakım yükü ekliyor</td></tr>
+        <tr><td>Birden fazla hizmet, farklı hedef kitle, blog, çok dil</td><td>Kurumsal site</td><td>Her hizmetin kendi sayfası olmadan arama motorunda ayrı ayrı bulunamazsınız</td></tr>
+        <tr><td>Ürün satıyorsunuz; stok, kargo ve ödeme işin içinde</td><td>E-ticaret</td><td>Kurumsal siteye sonradan sepet eklemek, baştan e-ticaret kurmaktan pahalıya geliyor</td></tr>
+        <tr><td>İş akışınızın karşılığı hazır üründe yok (bayi, rezervasyon, saha ekibi)</td><td>Özel yazılım</td><td>Eklenti yığınıyla taklit edilen akışlar altı ay sonra bakılamaz hale geliyor</td></tr>
+        <tr><td>Site iki yaşında, çalışıyor, sadece görsel olarak eskimiş</td><td>Yüzey yenilemesi</td><td>Altyapı sağlamsa yeniden yazmak para yakmaktır</td></tr>
+        </tbody>
+        </table></div>
+        <p>Tablodaki tek sayfalık açılış sayfası ve yüzey yenilemesi de bizim yaptığımız işler; ikisi de bandın alt ucunda kalır, teklifte kurumsal siteden ayrı kalem olarak yazılır.</p>
+        <p><strong>Bütçeniz 45 binin belirgin altındaysa bizimle çalışmayın.</strong> O bütçede iyi seçilmiş bir hazır tema, düzgün kurulmuş bir alan adı ve doğru yazılmış beş sayfa; kötü yapılmış bir “özel tasarım”dan iyidir. Bunu söylemek işimize gelmiyor, doğrusu bu.</p>
+        <p>Bazı işletmelerin siteye şu an hiç ihtiyacı yok. Müşteriniz sizi haritadan buluyorsa, önce işletme kaydınızı, fotoğraflarınızı ve çalışma saatlerinizi düzeltin.</p>
+        
+        <h2 id="sektor">Sektöre göre değişen şey tasarım değil</h2>
+        <p>Hastane sitesiyle otel sitesini birbirinden ayıran şey renk paleti değil, sayfanın hangi anı kurtarmak zorunda olduğudur.</p>
+        <h3>Hastane ve klinik web sitesinde olması gerekenler</h3>
+        <p>Sağlık Bakanlığı'nın tanıtım mevzuatı, Türkçe yayında fiyat bilgisini, hasta deneyimi paylaşımını ve öncesi-sonrası görselini sınırlıyor. İçerik mimarisini bu süzgece göre kuruyoruz; tasarım kararlarından önce gelen kısım bu. Sonradan sayfa toplamak, baştan doğru kurmaktan zahmetli.</p>
+        <h3>Otel web sitesi nasıl olmalı: rezervasyon motoruna kadar olan yol</h3>
+        <p>Rezervasyon çoğu zaman dışarıdaki bir motorda tamamlanıyor. Sitenin işi satışı kendisi bitirmek değil, kişiyi kararlı halde o motora taşımak. Galeri ağır bir yük ve yavaş açılan galeri rezervasyon kaybettiriyor; hız bu sektörde doğrudan gelire dokunuyor.</p>
+        <h3>E-ticaret sitesinde ana sayfa değil ürün sayfası kazandırıyor</h3>
+        <p>Ana sayfa sanıldığı kadar önemli değil; ziyaretçilerin çoğu ürün sayfasına arama sonucundan ya da reklamdan doğrudan iniyor. Bu yüzden bütçenin ağırlığını ürün sayfası şablonuna, site içi aramaya ve varyant–stok görünümüne koyuyoruz. Ana sayfa animasyonu sıraya en sonda giriyor, çoğu projede de hiç sıra gelmiyor.</p>
+        <h3>B2B ve sanayi web sitesi: katalog, ürün kodu, teknik doküman</h3>
+        <p>Ziyaretçi az, teklif başına değer yüksek. Burada işi yapan şey teknik doküman, ürün kodu araması ve indirilebilir katalog.</p>
+        <h3>Anaokulu ve eğitim kurumu sitesi: telefondan bakan veliye göre kurgu</h3>
+        <p>Karar veren kişi telefondan, akşam saatlerinde bakıyor: konum, fotoğraf ve tek dokunuşla arama.</p>
       </div>
     </div>
   </section>
@@ -639,8 +847,8 @@ button[data-olay]{font-family:inherit;color:inherit}
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>Bu modülde neler var</span>
-        <h2 data-kin>Beş iş, tek altyapı</h2>
-        <p>Beşi de aynı tasarım sistemi ve aynı ölçüm şeması üzerinde çalışır.
+        <h2 data-kin>Bu hizmetin kapsamı: kurumsal siteden özel yazılıma neler yapıyoruz</h2>
+        <p>Beş alt hizmetin hepsi aynı tasarım sistemi ve aynı ölçüm şeması üzerinde çalışıyor.
           Bugün kurumsal siteyle başlayıp altı ay sonra e-ticaret eklemek, sıfırdan proje değildir.</p>
       </div>
 
@@ -718,13 +926,14 @@ button[data-olay]{font-family:inherit;color:inherit}
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>Diğer modüllerle bağı</span>
-        <h2 data-kin>Bu modül üçünü birden besliyor</h2>
-        <p>Web'i ayrı bir ajansa yaptırdığınızda kaybettiğiniz şey site değil, bu bağlantılar.</p>
+        <h2 data-kin>Tek altyapı, dört modül: web sitesi reklamı, SEO'yu, uygulamayı ve videoyu nasıl besliyor</h2>
+        <p>Bu modül diğer dördünü birden besliyor. Web'i ayrı bir ajansa yaptırdığınızda
+          kaybettiğiniz şey site değil, aşağıdaki bağlantılar.</p>
       </div>
 
       <div class="bsl rv d1">
         <div class="bsl-k" style="--h:var(--amber)">
-          <b>Dijital Pazarlama'ya</b>
+          <b>Meta &amp; Google Ads'e</b>
           <span>Reklamın ineceği hızlı açılış sayfaları. Kampanya için ayrı sayfa gerektiğinde
             iki ajans arasında hafta kaybedilmiyor.</span>
         </div>
@@ -738,6 +947,63 @@ button[data-olay]{font-family:inherit;color:inherit}
           <span>Ortak API ve tasarım sistemi. Uygulama sıfırdan değil, sitenin altyapısının
             üzerine kuruluyor.</span>
         </div>
+        <div class="bsl-k" style="--h:var(--pink)">
+          <b>Video Prodüksiyon'a</b>
+          <span>Videonun yayınlanacağı hızlı sayfa ve ölçüm şeması. Hangi videonun izlendiği
+            ve sonrasında ne yapıldığı sitede takip ediliyor.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec" id="takvim-bolum" style="padding-top:0">
+    <div class="wrap">
+      <div class="yazi rv">
+        <h2 id="takvim">Takvim: kurumsal web sitesi kaç haftada teslim edilir — 6–10 hafta</h2>
+        <h3>Hafta hafta ne oluyor</h3>
+        <p>Kurumsal site için verdiğimiz band 6–10 hafta. Aşağıdaki tablo bu bandın içindeki akışı gösteriyor; kapsam darsa bandın alt ucunda, çok dilli yapı ve entegrasyon eklendikçe üst ucunda kalıyor.</p>
+        <div class="yazi-tablo"><table>
+        <thead><tr><th>Hafta</th><th>Bizde ne var</th><th>Sizden ne bekleniyor</th></tr></thead>
+        <tbody>
+        <tr><td>1–2. hafta</td><td>Keşif, mevcut sitenin ölçümü, adres envanteri, kapsamın yazıya dökülmesi</td><td>Karar verecek kişinin toplantıda olması</td></tr>
+        <tr><td>2–3. hafta</td><td>Bilgi mimarisi ve ana sayfa tasarımı</td><td>Logo kaynak dosyaları, marka malzemeleri, metin taslakları</td></tr>
+        <tr><td>3–5. hafta</td><td>İç sayfa şablonları, mobil düzen, tasarım sistemi</td><td>Tasarım onayı — dağınık değil, tek turda toplu geri bildirim</td></tr>
+        <tr><td>5–7. hafta</td><td>Kodlama, yönetim paneli, içerik girişi</td><td>Son metinler ve gerçek fotoğraflar</td></tr>
+        <tr><td>7–8. hafta</td><td>Entegrasyonlar, form ve ölçüm kurulumu, hız çalışması</td><td>Test hesapları; ödeme, kargo, muhasebe erişimleri</td></tr>
+        <tr><td>8–10. hafta</td><td>Cihaz ve tarayıcı testleri, kırık bağlantı taraması, yayın, yönlendirmeler, arama motoruna bildirim</td><td>Ekibinizin kendi gözüyle test etmesi ve yayın gününe onay</td></tr>
+        <tr><td>Sonraki 30 gün</td><td>Düzeltme desteği, panel eğitimi, ilk ölçüm okuması</td><td>Eğitime katılacak kişilerin belirlenmesi</td></tr>
+        </tbody>
+        </table></div>
+        <p>Takvimi bandın dışına taşıyan şey neredeyse hiç kod olmuyor; bekleyen metin oluyor. Onay bekleyen tek bir sayfa yazısı sonraki bütün adımları kaydırabiliyor, çünkü tasarım o metne göre nefes alıyor, başlık yapısı ona göre çıkıyor, görsel boyutu ona göre belirleniyor. Bu yüzden içerik teslim tarihlerini de takvime yazıyoruz. Ceza kesmek için değil; ikimizin aynı takvime bakması için.</p>
+        <p>Projede tek muhatabınız oluyor ve her hafta aynı gün kısa bir durum notu gidiyor: bu hafta ne bitti, sırada ne var, sizden ne bekleniyor.</p>
+        
+        <h3>Başlarken sizden istediğimiz altı şey</h3>
+        <ol>
+        <li>Logonun kaynak dosyası. Vektörel olanı, jpg değil — jpg logo büyütüldüğünde kenarları dağılıyor ve büyük ekranda bunu herkes görüyor.</li>
+        <li>Varsa marka rehberiniz: renk kodları, yazı tipi tercihi. Yoksa biz kuruyoruz, bu da bir kalem.</li>
+        <li>Hizmet veya ürün metinleri. Ya sizde hazır olacak ya da kimin yazacağına ilk hafta karar vereceğiz.</li>
+        <li>Gerçek fotoğraflar. Stok fotoğraflı ekip sayfası güven kazandırmıyor, tam tersini yapıyor.</li>
+        <li>Alan adı ve hosting erişimi; ya da bunları sizin adınıza açmamız için yetki.</li>
+        <li>Mevcut siteniz varsa analytics ve arama konsolu erişimi. Neyin çalıştığını bilmeden neyin taşınacağına karar veremiyoruz.</li>
+        </ol>
+        <p>Bunların hepsi ilk gün hazır olmuyor, olmaması da normal. Eksik olduğunu bilmek de bir bilgi: takvimi ona göre kuruyoruz.</p>
+        <p>Metin yazarlığı ve fotoğraf çekimi bizde değil. İkisini de organize edebiliyoruz, ama ayrı kalem olarak yazıyoruz — pakete gizlice gömüp fiyatı şişirmiyoruz.</p>
+        
+        <h2 id="tasima">Mevcut siteyi taşırken kaybedilmemesi gereken şey: adresler</h2>
+        <p>Bize gelen yenileme taleplerinin bir kısmı tam olarak şu cümleyle başlıyor: “yeni site yaptırdık, trafiğimiz düştü”.</p>
+        <p>Sebebi çoğu zaman tasarım olmuyor. Eski sitede yıllardır bağlantı almış, arama motorunun tanıdığı sayfalar var; yeni siteye geçerken bu adresler değişiyor ve karşılıkları tanımlanmazsa o sayfalara gelen herkes hata sayfası görüyor. Birikmiş güven birkaç hafta içinde eriyor.</p>
+        <p>Taşımada izlediğimiz sıra:</p>
+        <ol>
+        <li>Eski sitenin bütün adreslerini çıkarıyoruz — sayfalar, görseller, indirilen dosyalar dahil.</li>
+        <li>Hangi adresin gerçekten trafik ve dış bağlantı aldığını ölçüm verisinden buluyoruz. Liste genelde sanılandan kısa çıkıyor.</li>
+        <li>Her eski adresin yeni karşılığını tek tek yazıyoruz. Karşılığı olmayanı ana sayfaya atmıyoruz; en yakın anlamlı sayfaya yönlendiriyoruz.</li>
+        <li>301 yönlendirmeler yayınla aynı anda açılıyor. Arada bir gün bile boşluk bırakılmıyor.</li>
+        <li>Arama konsolunda adres değişikliği bildiriliyor, yeni site haritası gönderiliyor.</li>
+        <li>İlk otuz gün hata kayıtlarını izliyoruz; gözden kaçmış bir adres çıkarsa aynı hafta ekleniyor.</li>
+        </ol>
+        <p>Dürüst olmak gerekirse ilk iki üç haftada dalgalanma oluyor. Arama motoru yeni yapıyı yeniden taramak zorunda. Sıralamanızın hiç düşmeyeceğini söyleyen kimseye inanmayın; söz verilebilecek şey, düşerse sebebinin taşıma hatası olmaması.</p>
+        <p>İçerik tarafında da bir eleme var. Eski sitede hâlâ okunan yazılar taşınıyor; kimsenin açmadığı eski duyuru sayfaları taşınmıyor. Neyin geleceğine hisle değil, trafik verisine bakarak birlikte karar veriyoruz.</p>
       </div>
     </div>
   </section>
@@ -779,12 +1045,25 @@ button[data-olay]{font-family:inherit;color:inherit}
     </div>
   </section>
 
+
+  <section class="sec" id="kvkk-bolum" style="padding-top:0">
+    <div class="wrap">
+      <div class="yazi rv">
+        <h3 id="kvkk">KVKK, çerez ve erişilebilirlik kimin işi</h3>
+        <p>Bu üç başlıkta iş bölümü net: teknik uygulama bizde, hukuki metnin içeriği sizin danışmanınızda.</p>
+        <p>Bizde olan taraf: çerez onay katmanı, form verisinin nereye gittiği, iletişim formundaki açık rıza kutusu, aydınlatma metni sayfasının kurulumu, sunucu tarafındaki temel güvenlik. Bunları kuruyor ve nasıl çalıştığını yazılı anlatıyoruz.</p>
+        <p>Sizde olan taraf: aydınlatma metniniz, varsa mesafeli satış sözleşmeniz. Bunları hukuk danışmanınız yazmalı. Biz avukat değiliz ve internetten bulunmuş şablon bir metni sitenize koymak size hiçbir koruma sağlamaz. Metni siz verirsiniz, biz doğru sayfaya ve doğru akışa bağlarız.</p>
+        <p>Erişilebilirlikte temel işleri baştan yapıyoruz: klavyeyle gezilebilen menü, ekran okuyucunun anlayacağı başlık düzeni, okunabilir renk kontrastı, görsellerde alternatif metin. Tam bir uyum denetimi ve raporu ayrı bir iş; kamu, sağlık ve eğitim projelerinde gerekiyorsa kapsamını ayrıca konuşuyoruz. Pakete gizlice koyup “erişilebilir site” diye teslim etmiyoruz.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== FİYAT ===== -->
   <section class="sec" id="fiyat" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>Bütçe</span>
-        <h2 data-kin>Rakamı neyin belirlediği</h2>
+        <h2 data-kin>Kurumsal web sitesi fiyatları 2026: 45.000–90.000 ₺ bandını neyin belirlediği</h2>
       </div>
 
       <div class="fyt rv d1">
@@ -792,9 +1071,10 @@ button[data-olay]{font-family:inherit;color:inherit}
           <b>45 – 90 bin ₺</b>
           <span>KURUMSAL SİTE · 6–10 HAFTA</span>
         </div>
-        <p>Bu bir “başlangıç fiyatı” değil, gerçekten çalıştığımız aralık. E-ticaret ve özel yazılım
-          bu bandın üzerine çıkar; ürün sayısı ve entegrasyonlar belirleyici olur.
-          Bandın neresinde olduğunuzu şu beş şey belirliyor:</p>
+        <p>Bu band <strong>2026 yılı için</strong> geçerlidir ve tek dilli, sınırlı sayıda şablon içeren
+          kurumsal siteyi kapsar. KDV durumu teklifte ayrıca belirtilir. E-ticaret ve özel yazılım
+          projeleri bandın dışında, kapsama göre ayrı fiyatlanır. Bu bir başlangıç fiyatı değil,
+          gerçekten çalıştığımız aralık. Bandın neresinde olduğunuzu şu beş şey belirliyor:</p>
         <ul class="fyt-ne">
           <li>Sayfa sayısı ve kaç dilde yayınlanacağı</li>
           <li>E-ticaret var mı, kaç ürünle başlanıyor</li>
@@ -808,43 +1088,178 @@ button[data-olay]{font-family:inherit;color:inherit}
     </div>
   </section>
 
+
+  <section class="sec" id="sablon-bolum" style="padding-top:0">
+    <div class="wrap">
+      <div class="yazi rv">
+        <h2 id="sablon">Teklifi okurken sayfa sayısına değil, şablon sayısına bakın</h2>
+        <p>Teklifleri yan yana koyduğunuzda ilk bakacağınız satır sayfa sayısı olmasın. Maliyeti büyüten şey farklı <strong>şablon</strong> sayısı.</p>
+        <p>Aynı düzeni paylaşan altmış ürün sayfası tek kalemdir; altmışıncıyı eklemek dakikalar sürer. Buna karşılık ana sayfa, hizmet sayfası, blog yazısı, ürün detayı, iletişim ve kampanya sayfası altı ayrı düzendir. Altısı da ayrı tasarlanır, ayrı kodlanır, ayrı test edilir, mobilde ayrı kontrol edilir.</p>
+        <p>Pratik karşılığı şu: bütçeyi sayfa sayısını kısarak düşürmek çoğu zaman işe yaramıyor, şablon çeşidini azaltmak yarıyor. “Bu üç bölüm aynı düzende dursun” cümlesi, “beş sayfa çıkaralım” cümlesinden daha çok tasarruf ettiriyor. Teklifimizde şablon listesini adıyla yazıyoruz — hangi ekranın ayrı tasarlanacağını imzadan önce görürsünüz, proje ortasında “bu ayrı şablonmuş” tartışması çıkmaz.</p>
+        <p>Bir de etiket meselesi var. Özel tasarım adıyla satılan bir iş, lisanslı bir temanın renk ve yazı tipi ayarıyla özelleştirilmesinden ibaret olabiliyor. Bunu yapmak suç değil; bazı bütçelerde en doğrusu bile olabilir. Ama parası farklı olmalı.</p>
+        <p>Teklif alırken sorun: <em>arayüz hangi temanın üzerine kuruluyor, tema ve eklenti lisansları kimin hesabına kayıtlı?</em> Cevap net gelmiyorsa iki teklifi karşılaştırıyor sayılmazsınız — birinde satın aldığınız şey tasarım, diğerinde kurulum emeği olabilir.</p>
+        
+        <h2 id="on-ucuncu-ay">On üçüncü ay: yayından sonra ne ödüyorsunuz</h2>
+        <p>Site yayına girdikten on iki ay sonra ne ödeyeceğinizi bilmek, kurulum bedelini bilmek kadar işe yarıyor. Aşağıdaki tablo yenilenen kalemlerin tamamını gösteriyor.</p>
+        <div class="yazi-tablo"><table>
+        <thead><tr><th>Kalem</th><th>Sıklık</th><th>Kime ödenir</th><th>Not</th></tr></thead>
+        <tbody>
+        <tr><td>Alan adı yenileme</td><td>Yıllık</td><td>Kayıt sağlayıcısı</td><td>Sizin adınıza kayıtlı; biz aradan çıksak da yenilenir</td></tr>
+        <tr><td>Hosting veya sunucu</td><td>Yıllık ya da aylık</td><td>Barındırma firması</td><td>Trafik ve e-ticaret yükü büyüdükçe paket değişir</td></tr>
+        <tr><td>SSL sertifikası</td><td>Yıllık</td><td>Sertifika sağlayıcısı</td><td>Çoğu sitede ücretsiz sertifika otomatik yenilendiği için bu satır sıfır kalır; ücretlisi yalnızca özel durumlarda gerekir</td></tr>
+        <tr><td>Tema ve eklenti lisansları</td><td>Yıllık</td><td>Sağlayıcı</td><td>Genellikle döviz üzerinden faturalanır</td></tr>
+        <tr><td>Kurumsal e-posta</td><td>Aylık ya da yıllık</td><td>Servis sağlayıcı</td><td>Kullanıcı başına ücretlendirilir, ekip büyüdükçe artar</td></tr>
+        <tr><td>Ödeme altyapısı komisyonu</td><td>İşlem başına</td><td>Banka veya ödeme kuruluşu</td><td>Yalnızca e-ticarette</td></tr>
+        <tr><td>Bakım paketi</td><td>Aylık</td><td>Bize</td><td>İsteğe bağlı; almadığınızda site durmaz, sorumluluk size geçer</td></tr>
+        <tr><td>Yenileme payı</td><td>Birkaç yılda bir</td><td>Proje bütçesi</td><td>Hiçbir site sonsuza kadar taze durmuyor; baştan bütçelemek sonra şaşırmaktan iyi</td></tr>
+        </tbody>
+        </table></div>
+        <p>Alan adı, hosting, ölçüm ve ödeme hesaplarının tamamı sizin adınıza açılır; faturalar doğrudan size gelir, araya girip üzerine pay koymuyoruz. Aracılık ettiğimiz her kalem, ilişki bittiğinde sizin elinizden alınacak bir kaldıraç olurdu.</p>
+        <p>Kur riski taşıyan kalemleri teklifte işaretliyoruz: lisans abonelikleri, bazı e-posta ve içerik dağıtım servisleri döviz üzerinden ilerliyor. Bugün ödediğiniz rakam gelecek yıl aynı olmayabilir. Bunu teklif aşamasında söylemek, on üçüncü ayda söylemekten iyi.</p>
+        <p>Üç yıllık toplamı görmek isterseniz teklife ayrı bir satır olarak koyuyoruz. Tek seferlik ödeme diye bir şey yok; olan şey, öngörülebilir bir gider tablosu.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="riskler-bolum" style="padding-top:0">
+    <div class="wrap">
+      <div class="yazi rv">
+        <h2 id="otuz-gun">Yayından sonraki otuz gün ve sonrası</h2>
+        <p>Yayın gününde iş bitmiyor, takvimin ikinci bölümü başlıyor. Bu bölümde neyin dahil olduğu da teklifte yazılı.</p>
+        <p><strong>İlk otuz gün.</strong> Bu sürede çıkan hataları ücretsiz düzeltiyoruz. Neyin düzeltme sayıldığını baştan tanımlamak önemli: kabul ettiğiniz kapsamda olup da yanlış çalışan her şey düzeltmedir. Yeni sayfa, yeni özellik veya fikir değişikliği düzeltme değil; onu ayrı konuşur, ayrı yazarız. Bu sınırı belirsiz bırakan ajans da müşteri de kaybediyor.</p>
+        <p><strong>Eğitim.</strong> Paneli kullanacak kişilerle canlı oturum yapıyor ve kaydını size bırakıyoruz. Altı ay sonra o kişi işten ayrılırsa kayıt duruyor; sıfırdan anlatma turu gerekmiyor.</p>
+        <p><strong>Yedek.</strong> Otomatik yedek almak yetmiyor. Hiç geri yüklenmemiş yedek, yedek değildir. Bakım kapsamında yedeği belirli aralıklarla gerçekten geri yükleyip açılıyor mu diye bakıyoruz — bozuk yedeğin farkına varmanın tek yolu denemek.</p>
+        <p><strong>Aylık rapor.</strong> Tek sayfa: kaç kişi geldi, kaç form dolduruldu, kaç arama yapıldı, hız ne durumda, geçen ay ne yaptık. Kırk sayfalık dosya göndermiyoruz; kimse okumuyor ve okunmayan rapor iş yapmıyor.</p>
+        <p>Bakım paketi zorunlu değil. Almadığınızda site kapanmaz; güncellemeler ve yedek sizin sorumluluğunuza geçer. Güncellemeler geciktikçe eski bir eklenti açığından girilme ihtimali artıyor — rakam vermiyoruz, tahmin de yürütmüyoruz; kararı bilerek verin diye yazıyoruz.</p>
+        <p>Yanıt sürelerini teklifte yazılı veriyoruz. “Ne zaman arasanız buradayız” cümlesi ölçülebilir bir taahhüt değil.</p>
+        
+        <h2 id="ters-giderse">İşler ters giderse</h2>
+        <p>Teklif görüşmelerinde en sık duyduğumuz soru fiyatla ilgili değil: ya bir şey ters giderse ne oluyor? Beş senaryonun karşılığı aşağıda; aynısı sözleşmede de yazılı.</p>
+        <h3>Proje gecikirse</h3>
+        <p>Gecikmenin kaynağı haftalık durum notunda görünüyor: bizden mi, bekleyen içerikten mi. Kimin hangi kalemi hangi tarihte teslim edeceği ilk hafta yazıya döküldüğü için bu tartışma hafıza üzerinden yürümüyor. Gecikme bizden kaynaklanıyorsa telafisi bizim işimiz ve nasıl telafi edileceği sözleşmede yazıyor. Sizden kaynaklanıyorsa takvim kayar — bunu proje sonunda sürpriz olarak değil, o hafta söylüyoruz.</p>
+        <h3>Site saldırıya uğrarsa</h3>
+        <p>Bakım kapsamındaysanız temiz yedekten dönüş ve açığın kapatılması dahil. Değilseniz de kapıyı kapatmıyoruz, iş olarak fiyatlandırıyoruz. Şunu bilmek işe yarıyor: bu olayların büyük kısmı gizemli bir açık değil, güncellenmemiş bir eklenti.</p>
+        <h3>Sunucu çökerse</h3>
+        <p>Barındırma hesabı sizin adınıza olduğu için destek talebini siz de açabilirsiniz, biz de (hesap sahipliği için “On üçüncü ay” bölümüne bakın). Kimsenin kimseyi beklemesi gerekmiyor; ajansın uykuda olduğu saatte siteniz kapalı kalmaz.</p>
+        <h3>Ayrılırsak</h3>
+        <p>Aylık çıkış hakkınız var, ay sonunda durdurabilirsiniz. Devir paketinde şunlar oluyor: kaynak dosyalar, bizde duran yönetim paneli erişimleri, tasarım dosyaları ve teknik dokümantasyon. Hepsi tek klasörde teslim edilir. Devralan ekiple geçiş görüşmesi yapıyoruz; işin nasıl kurulduğunu anlatmak da teslimin parçası.</p>
+        <h3>Biz kapanırsak</h3>
+        <p>Sitenizin bize bağlı çalışan hiçbir parçası yok. Bizim sunucumuzda duran bir lisans denetimi ya da ajans paneli bulunmuyor; site ilk günden bizden bağımsız ayakta kalacak şekilde kuruluyor (hesap sahipliği için “On üçüncü ay” bölümüne bakın).</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== SSS ===== -->
   <section class="sec" id="sss" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>Sık sorulanlar</span>
-        <h2 data-kin>Bu modülde en çok sorulanlar</h2>
+        <h2 data-kin>Sık sorulan sorular: kurumsal web sitesi süresi, fiyatı ve teslim sonrası</h2>
+        <p>Teklif görüşmelerinde en çok gelen soruları kısa cevabıyla birlikte buraya aldık.
+          Bir konunun ayrıntısı sayfada başka bir bölümdeyse cevabın sonunda o bölüme bağlantı var.</p>
+        <p class="sss-not">SON GÜNCELLEME: 19 AĞUSTOS 2026</p>
       </div>
 
       <div class="sss rv d1">
         <details>
-          <summary>Hazır tema kullanıyor musunuz?</summary>
-          <p class="cvp">Arayüzü hazır tema üzerine kurmuyoruz; tasarım ve ön yüz sıfırdan yazılıyor.
-            Altyapıda WordPress veya WooCommerce gibi olgun sistemleri kullanabiliyoruz — fark,
-            temanın hazır olması değil, sizin işinize göre yazılmış olması.</p>
+        <summary>Kurumsal site ne kadar sürüyor, süreyi asıl ne uzatıyor?</summary>
+        <p>Kurumsal bir site 6–10 haftada teslim edilir. Takvimi asıl uzatan kalem kod değil içerik: metin, fotoğraf ve logo dosyaları geciktiğinde sonraki bütün adımlar kayıyor.</p>
+        <p>Hangi işin hangi haftada yapıldığını <a href="#takvim">takvim bölümündeki tabloda</a> hafta hafta yazdık.</p>
         </details>
         <details>
-          <summary>Site bittikten sonra kendim güncelleyebilir miyim?</summary>
-          <p class="cvp">Evet. Yönetim paneli teslimin bir parçası ve ekibinize canlı eğitim veriyoruz.
-            İçerik güncellemek için ajansa bağımlı kalmanız gereken bir kurulum teslim etmiyoruz.</p>
+        <summary>Proje gecikirse ne oluyor?</summary>
+        <p>Gecikme olduğunda haber verip yeni tarihi yazılı veriyoruz, sessizce sürüklemiyoruz. Takvimi aşamalara böldüğümüz için gecikmenin hangi aşamada ve kimden kaynaklandığı görünür kalıyor.</p>
+        <p>Gecikmenin kaynağını ve telafisini <a href="#ters-giderse">“İşler ters giderse” bölümünde</a> madde madde yazdık.</p>
         </details>
         <details>
-          <summary>Kaynak dosyalar ve hesaplar kimde kalıyor?</summary>
-          <p class="cvp">Sizde. Hosting, alan adı ve analytics hesapları sizin adınıza açılır;
-            ayrılırsak tüm kaynak dosyalar ve teknik dokümantasyon tek klasörde teslim edilir.
-            Ajans değiştirmek, sıfırdan başlamak olmamalı.</p>
+        <summary>Revizyon hakkım nasıl belirleniyor?</summary>
+        <p>Revizyon turlarının sayısı ve her turun neyi kapsadığı teklifte kalem kalem yazılır; imzadan önce görürsünüz. Yayından sonra ayrıca 30 gün düzeltme desteği var, o sürede çıkan hatalar ücretsiz düzeltiliyor.</p>
+        <p>Revizyon, kararlaştırılan kapsam içinde düzeltme demektir; yeni sayfa veya yeni özellik istemek revizyon değil kapsam değişikliğidir ve ayrıca fiyatlanır. Bu ayrımı teklife yazıyoruz ki proje ortasında tartışma çıkmasın. “Sınırsız revizyon” gibi tanımsız bir söz vermiyoruz; tanımsız söz, ilk anlaşmazlıkta işe yaramıyor. Otuz günlük desteğin neyi kapsayıp neyi kapsamadığını <a href="#otuz-gun">“Yayından sonraki otuz gün ve sonrası” bölümünde</a> yazdık.</p>
         </details>
         <details>
-          <summary>Mevcut sitem var, sıfırdan mı yapmak gerekiyor?</summary>
-          <p class="cvp">Her zaman değil. Önce ölçüyoruz; sorun hızsa ya da dönüşüm akışındaysa
-            mevcut siteyi iyileştirmek daha ucuz ve hızlı olabilir. Sıfırdan yapmayı ancak mevcut
-            altyapı gerçekten engel olduğunda öneriyoruz.</p>
+        <summary>Sitedeki yazıları ve fotoğrafları kim hazırlıyor?</summary>
+        <p>Metin ve fotoğraf sizden geliyor; ikisi de fiyata dahil değil. İhtiyaç olursa metin yazarlığı ve çekimi ayrı kalem olarak planlıyoruz.</p>
+        <p>Hazır metin ve fotoğrafınız varsa süre kısalır; yoksa takvimi bu işlerin süresini de hesaba katarak kuruyoruz. Ürün ve hizmet anlatımının ham hâlini sizin ekibinizden almayı tercih ediyoruz, düzenlemesini biz yapıyoruz. Hazır fotoğrafınız yoksa çekim takvimini de projeye yazıyoruz; ziyaretçi stok fotoğrafı tanıyor.</p>
         </details>
         <details>
-          <summary>Ne kadar sürüyor?</summary>
-          <p class="cvp">Kurumsal site tipik olarak 6–10 hafta. Süreyi en çok içerik hazırlığı ve
-            onay turları belirliyor; e-ticaret ve özel yazılımda ürün sayısı ile entegrasyonlar
-            süreyi uzatabiliyor. Takvimi ilk görüşmede birlikte çıkarıyoruz.</p>
+        <summary>Hazır tema mı özel tasarım mı benim için doğru?</summary>
+        <p>Hazır tema; bütçesi sınırlı olan ve siteden tek beklentisi internette görünür olmak olan işletme için doğru karardır. Özel tasarım, siteden ölçülebilir telefon, form ve satış bekleyen işletmeler için anlamlıdır.</p>
+        <p>Hazır tema sizin için doğru karar olduğunda bunu ilk görüşmede söylüyoruz; iş almak için kimseyi özel tasarıma ikna etmeye çalışmıyoruz. İki yaklaşımın karşılaştırma tablosunu ve hangi bütçede hangisinin doğru olduğunu <a href="#fark">“hazır tema ile özel tasarım arasındaki fark” bölümünde</a> yazdık.</p>
+        </details>
+        <details>
+        <summary>WordPress mi yaptırmalıyım yoksa özel yazılım mı?</summary>
+        <p>İçerik yayınlayan ve ürün satan işlerin çoğunda WordPress ve WooCommerce yeterlidir. Özel yazılım, hazır sistemin karşılamadığı iş akışları için gerekir: bayi paneli, rezervasyon, yetki yönetimi, ERP’ye bağlanan süreçler.</p>
+        <p>WordPress’i altyapı olarak kullanmak ile hazır tema kurmak aynı şey değil; sistemi WordPress üzerine kurup ön yüzü kendimiz yazıyoruz. Özel yazılım kararı fiyatla değil ihtiyaçla verilir: hazır bir eklentiyle çözülen şeyi özel yazmak boşa para. Hangi tarafta olduğunuzu iş akışınıza bakarak birlikte belirliyoruz.</p>
+        </details>
+        <details>
+        <summary>Ajansla mı çalışmalıyım, freelancer yeterli mi?</summary>
+        <p>Tek kişilik bir iş için freelancer daha ucuz ve genelde yeterlidir. Ajans; tasarım, yazılım, reklam ve içerik aynı anda yürüyorsa ve işin iki yıl sonra da ayakta kalması gerekiyorsa anlamlı oluyor.</p>
+        <p>Fark yetenek değil, süreklilik ve kapsam. Tek kişi hastalandığında ya da başka işe geçtiğinde proje durur; sekiz kişilik ekipte iş devam eder ve muhatabınız değişmez. Kaynak dosyaların, panel erişimlerinin ve dokümantasyonun kimde durduğu da yazılı olur. Buna karşılık küçük ve tek seferlik bir işte ajans yapısı gereksiz maliyet yaratır.</p>
+        </details>
+        <details>
+        <summary>Bizim sektörümüzde daha önce iş yaptınız mı?</summary>
+        <p>Büyük ihtimalle evet: 2026 itibarıyla 14 yılda 120 marka için 165 proje tamamladık, yakın bir işte çalışmış olma ihtimalimiz yüksek. Sizin sektörünüzde deneyimimiz yoksa bunu ilk görüşmede söylüyoruz.</p>
+        <p>Sektör deneyimi kadar önemli olan şey, sizin müşterinizin nasıl karar verdiğini anlamak: neye bakıp arıyor, neyi görmeden aramıyor. Bunu ilk görüşmede sorularla çıkarıyoruz, hazır bir sektör şablonu uygulamıyoruz. Sektöre göre neyin değiştiğini <a href="#sektor">“Sektöre göre değişen şey tasarım değil” bölümünde</a> ayrı ayrı yazdık.</p>
+        </details>
+        <details>
+        <summary>Web sitesi ücreti tek seferlik mi, ikinci yıl da para ödeyecek miyim?</summary>
+        <p>Hayır, tek seferlik değil. Kurulum bedelinin dışında her yıl alan adı, hosting, SSL ve kullandığınız lisanslar yenilenir; bakım paketi isterseniz aylık gider olarak eklenir.</p>
+        <p>Bakım paketi zorunlu değil; almazsanız güncelleme ve yedek sorumluluğu size geçer, bunu da baştan söylüyoruz. Ücretli bir lisans kullanılıyorsa hangisi olduğunu ve yıllık yenileme bedelini teklifte açıkça yazıyoruz. Faturalar doğrudan size gelir, araya girip üzerine pay koymuyoruz (hesap sahipliği için <a href="#on-ucuncu-ay">“On üçüncü ay” bölümüne</a> bakın). Kalemlerin tam listesini, sıklığını ve kime ödendiğini sayfadaki gider tablosunda görebilirsiniz.</p>
+        </details>
+        <details>
+        <summary>Web sitesi fiyatı sayfa sayısına göre mi belirleniyor?</summary>
+        <p>Hayır. Maliyeti sayfa sayısı değil, kaç farklı şablon gerektiği belirliyor. Aynı şablondan üretilen altmışıncı sayfa neredeyse maliyetsizdir; altı farklı tasarım isteyen altı sayfa ise pahalıdır.</p>
+        <p>Teklifleri yan yana koyarken neye bakmanız gerektiğini <a href="#sablon">“Teklifi okurken sayfa sayısına değil, şablon sayısına bakın” bölümünde</a> örnekle yazdık.</p>
+        </details>
+        <details>
+        <summary>E-ticaret sitesinde site ücretinin dışında hangi masraflar çıkıyor?</summary>
+        <p>Site bedelinin dışında sanal POS komisyonu, kargo anlaşması, e-fatura servisi ve kullandığınız üçüncü taraf abonelikleri çıkar. Bunların faturaları doğrudan size gelir; biz entegrasyonunu yapıyoruz.</p>
+        <p>Sanal POS komisyonu bankayla sizin aranızdadır ve ciroya göre değişir; kargo ile e-fatura da kendi abonelik bedelleriyle gelir. Bu servislerin arasına girmiyor, üzerine pay koymuyoruz (hesap sahipliği için <a href="#on-ucuncu-ay">“On üçüncü ay” bölümüne</a> bakın). Hangisinin gerçekten gerektiğini de konuşuyoruz — ilk gün dört entegrasyonla başlamanız gerekmiyor.</p>
+        </details>
+        <details>
+        <summary>Sitenin hızı için sayısal bir garanti veriyor musunuz?</summary>
+        <p>Hayır, belirli bir puan taahhüt etmiyoruz; çünkü skoru sunucunuz ve sonradan eklenen üçüncü taraf kodları da değiştiriyor. Teslimde ölçümü öncesi-sonrası olarak yapıp yazılı veriyoruz.</p>
+        <p>Hız için yapılabileceklerin listesi ilk günden bellidir; proje sonunda keşfedilen bir kalem değildir. Rakam düşük çıkarsa sebebini de yazıyoruz. Hangi eşiklere baktığımızı ve ölçümü nasıl yaptığımızı <a href="#hiz">sayfadaki hız bölümünde</a> yazdık.</p>
+        </details>
+        <details>
+        <summary>Yeni site yaptırınca Google’da ilk sayfaya çıkar mıyım?</summary>
+        <p>Hayır, sıralama garantisi vermiyoruz. Yeni site aramada çıkmanın önündeki teknik engelleri kaldırır — hız, temiz yapı, işaretleme — ama sıralama içerik ve rekabetle zamanla gelir.</p>
+        <p>Sıralamayı içerik, bağlantı profili ve rakiplerin ne yaptığı belirler; bunların hepsi zaman ister. Sitenin yaptığı iş teknik borcu temizlemek ve ölçümü kurmaktır, böylece arama çalışması ilk aylarını altyapı düzeltmekle geçirmez. Belirli bir kelimede belirli bir tarihte ilk sayfa sözü veren teklifleri ciddiye almayın.</p>
+        </details>
+        <details>
+        <summary>Sitemi yenilersem Google’daki sıralamamı kaybeder miyim?</summary>
+        <p>Hayır, doğru planlanırsa kalıcı kayıp olmaz; ilk iki-üç haftada dalgalanma normaldir. Eski adresleri 301 yönlendirmeyle yeni karşılıklarına eşliyor, yayından sonra sıralama ve trafik verisini birkaç hafta takip ediyoruz.</p>
+        <p>Eşleme tablosunu nasıl çıkardığımızı, dalgalanmanın ne kadar sürdüğünü ve yayın sonrası takibi <a href="#tasima">“Mevcut siteyi taşırken kaybedilmemesi gereken şey: adresler” bölümünde</a> yazdık.</p>
+        </details>
+        <details>
+        <summary>Yapay zekaya bir şey sorulduğunda sitemin çıkması için ne yapıyorsunuz?</summary>
+        <p>Net soru-cevap yapısı ve schema işaretlemesi sayfanın makine tarafından okunmasını kolaylaştırıyor; ikisini de baştan kuruyoruz. Yapay zeka özetlerinde görüneceğinizi kimse garanti edemez.</p>
+        <p>Sohbet asistanları ve arama özetleri sayfadan doğrudan cevap cümlesi çekebiliyor. Bu yüzden soruları kullanıcıların yazdığı gibi kuruyor, cevabı ilk iki cümlede tamamlıyor ve FAQPage işaretlemesiyle makineye de okutuyoruz. Bu, alıntılanabilir hâle gelmenin teknik tarafıdır; satın alınabilen bir yer değildir. Sonucu ölçüp raporda gösteriyoruz.</p>
+        </details>
+        <details>
+        <summary>Çok dilli kurumsal web sitesi nasıl kuruluyor?</summary>
+        <p>Her dil kendi adresinde yayınlanır ve hreflang etiketiyle eşlenir; menü, form ve yönetim paneli de o dile çevrilir. Otomatik çeviri kullanmıyoruz, metinleri siz veya çevirmeniniz verir.</p>
+        <p>Dil sayısı hem takvimi hem bandı yukarı çeker: her yeni dil ek içerik girişi, ek kontrol turu ve ek bakım demek. Bu yüzden hangi dillerin gerçekten gerektiğini baştan konuşuyoruz. Sonradan dil eklemek mümkün, ama baştan planlanmış olması hem ucuz hem hızlı oluyor.</p>
+        </details>
+        <details>
+        <summary>Siteyi teslimden sonra kendim güncelleyebilir miyim?</summary>
+        <p>Evet. Metin, görsel, blog yazısı ve ürün girişini panelden kendiniz yaparsınız; teslimde canlı eğitim veriyor ve kaydını size bırakıyoruz. Şablon ve kod değişikliği isteyen işler bizde kalır.</p>
+        <p>İçerik güncellemek için ajansa bağımlı kalmanız gereken bir kurulum teslim etmiyoruz. Panelde kimin neyi değiştirebileceğini yetki seviyeleriyle ayırıyoruz, böylece yanlışlıkla bozulan bir düzenle uğraşmıyorsunuz. Bakım paketi almazsanız güncelleme ve yedek sorumluluğu size geçer.</p>
+        </details>
+        <details>
+        <summary>İleride başka bir ajansa geçmek istersem siteyi taşıyabilir miyim?</summary>
+        <p>Evet, taşıyabilirsiniz. Hosting, alan adı ve ölçüm hesapları zaten sizin adınıza açık — o tarafta devir işlemi gerekmiyor. Bizde duran yönetim paneli erişimlerini devir paketiyle birlikte veriyoruz.</p>
+        <p>Sözleşme aylık çıkış hakkı içerir; kalan süre için ceza yoktur. Devir paketinin içinde ne olduğunu <a href="#ters-giderse">“İşler ters giderse” bölümünün</a> “Ayrılırsak” başlığında tek tek listeledik. Bunu iş almak için değil, ajans değiştirmenin sıfırdan başlamak anlamına gelmemesi için yapıyoruz.</p>
+        </details>
+        <details>
+        <summary>KVKK metinleri ve çerez onayı dahil mi?</summary>
+        <p>Evet. Çerez onay katmanı, aydınlatma metni sayfasının kurulumu ve form onay kutuları kuruluma dahildir. Metinlerin hukuki içeriğini avukatınız yazar; biz teknik uygulamasını ve doğru yerde görünmesini üstleniyoruz.</p>
+        <p>İş bölümünün tamamını <a href="#kvkk">“KVKK, çerez ve erişilebilirlik kimin işi” bölümünde</a> yazdık.</p>
+        </details>
+        <details>
+        <summary>Site erişilebilir olacak mı, WCAG denetimi dahil mi?</summary>
+        <p>Temel erişilebilirlik standarttır: klavyeyle gezinme, okunabilir renk kontrastı, etiketlenmiş form alanları, görsellerde alternatif metin. Kapsamlı WCAG denetimi ve raporu ise ayrı bir iştir.</p>
+        <p>Kamu, sağlık ve eğitim projelerinde denetimin kapsamını baştan konuşuyoruz. Ayrıntılı iş bölümü <a href="#kvkk">“KVKK, çerez ve erişilebilirlik kimin işi” bölümünde</a> yazılı.</p>
         </details>
       </div>
     </div>
@@ -853,9 +1268,10 @@ button[data-olay]{font-family:inherit;color:inherit}
   <section class="sec" style="padding-top:0">
     <div class="wrap">
       <div class="band rv">
-        <h2>Web projeniz için kapsam ve takvim çıkaralım</h2>
-        <p>Beş adımlık sihirbazda birkaç tıkla kapsamı belirleyin; ekranda süre ve bütçe bandını görün.
-          Zorunlu alan yalnızca ad ve telefon.</p>
+        <h2>Web tasarım fiyat teklifi alın: kapsamı, takvimi ve fiyat aralığını birlikte çıkaralım</h2>
+        <p>Beş adımlık sihirbazda birkaç tıkla kapsamı belirleyin; ekranda süreyi ve fiyat aralığını
+          görün. Zorunlu alan yalnızca ad ve telefon. Reklam, SEO, uygulama ve video tarafını da
+          aynı ekip yürütüyor.</p>
         <div class="band-cta">
           <a class="btn btn-p" href="../../teklif/#web">Kapsam çıkaralım
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -880,7 +1296,9 @@ button[data-olay]{font-family:inherit;color:inherit}
         <ul>
           <li><a href="../">Tüm hizmetler</a></li>
           <li><a href="./" aria-current="page">Web &amp; Yazılım</a></li>
-          <li><a href="../#moduller">Dijital Pazarlama</a></li>
+          <li><a href="../#moduller">Mobil Uygulama</a></li>
+          <li><a href="../#moduller">Meta &amp; Google Ads</a></li>
+          <li><a href="../#moduller">Video Prodüksiyon</a></li>
           <li><a href="../#moduller">SEO Hizmetleri</a></li>
         </ul>
       </div>
@@ -940,6 +1358,42 @@ document.getElementById('yil').textContent = new Date().getFullYear();
       setTimeout(function(){ if (!olc() && panel) panel.style.display = 'none'; }, 60);
     });
   }
+})();
+
+/* Geniş tablolar: yalnızca gerçekten taşıyorsa "yana kaydırın" ipucu göster.
+   Sığan tabloda ipucu çıkarsa gürültü olur; ekran döndürülünce yeniden ölçülür. */
+(function tabloIpucu(){
+  var kaplar = [].slice.call(document.querySelectorAll('.yazi-tablo'));
+  if (!kaplar.length) return;
+
+  kaplar.forEach(function(k){
+    if (k.nextElementSibling && k.nextElementSibling.classList.contains('yazi-tablo-ipucu')) return;
+    var n = document.createElement('p');
+    n.className = 'yazi-tablo-ipucu';
+    n.textContent = 'Tabloyu yana kaydırın';
+    k.parentNode.insertBefore(n, k.nextSibling);
+  });
+
+  function olc(){
+    kaplar.forEach(function(k){
+      k.classList.toggle('kayar', k.scrollWidth > k.clientWidth + 1);
+    });
+  }
+  olc();
+
+  /* Ölçümü pencere olayına DEĞİL kabın kendi boyutuna bağlıyoruz: kap, pencere
+     yeniden boyutlanmadan da genişlik değiştirebilir (yazı tipi geç yüklenir,
+     düzen oturur). ResizeObserver yoksa pencere olayına düşüyoruz. */
+  if (window.ResizeObserver) {
+    var gozlemci = new ResizeObserver(olc);
+    kaplar.forEach(function(k){ gozlemci.observe(k); });
+  }
+  /* ResizeObserver'a TEK BAŞINA güvenmiyoruz: bazı gömülü/önizleme bağlamlarında
+     geri çağrı hiç tetiklenmiyor (bu projede ölçüldü). Pencere olayı da bağlı kalsın. */
+  window.addEventListener('resize', olc, { passive: true });
+  window.addEventListener('load', olc);
+  /* yazı tipi sonradan gelince sütun genişlikleri değişiyor */
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(olc);
 })();
 
 /* ---------------------------------------------------------------------------
