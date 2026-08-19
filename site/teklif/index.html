@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teklif Al — 5 adımda kapsam ve bütçe bandı | TasarımMania</title>
+<meta name="description" content="Beş kısa adımda projenizin kapsamını çıkarın; ekranda bütçe bandı ve takvim tahmini görün. Telefon en sonda, tek alan.">
+<link rel="canonical" href="https://www.tasarimmania.com/teklif/">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="Teklif Al — 5 adımda kapsam ve bütçe bandı">
+<meta property="og:description" content="Formu doldurmadan önce ne alacağınızı görün: kapsam özeti, bütçe bandı ve takvim tahmini ekranda çıkar.">
+<meta property="og:url" content="https://www.tasarimmania.com/teklif/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<link rel="icon" type="image/png" href="../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tm.css">
+<style>
+/* --- üst menü (hizmetler sayfasıyla aynı) --- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:26px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+
+/* --- sayfa başlığı --- */
+.phd{padding:calc(var(--nav-h) + clamp(26px,4vw,52px)) 0 clamp(22px,3vw,34px);
+  border-bottom:1px solid var(--hair);
+  background:radial-gradient(880px 400px at 16% -10%,rgba(var(--acc-rgb),.12),transparent 62%)}
+.phd .crumb{margin-bottom:18px}
+.phd h1{font-size:clamp(30px,4.8vw,50px);letter-spacing:-.045em;margin-bottom:14px}
+.phd .lead{color:var(--fg-dim);font-size:clamp(15px,1.7vw,17.5px);max-width:58ch}
+
+/* --- sihirbaz --- */
+.shr{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:start;
+  padding:clamp(30px,4vw,54px) 0 clamp(50px,6vw,84px)}
+.shr-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);overflow:hidden}
+
+.shr-ray{display:flex;gap:0;border-bottom:1px solid var(--hair);background:rgba(255,255,255,.015)}
+.shr-ray div{flex:1;padding:13px 8px;text-align:center;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted);position:relative;transition:.3s}
+.shr-ray div::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:0;
+  background:var(--acc);transition:width .45s var(--ease)}
+.shr-ray div.gecti{color:var(--fg-dim)}
+.shr-ray div.gecti::after,.shr-ray div.aktif::after{width:100%}
+.shr-ray div.aktif{color:var(--acc)}
+
+.shr-govde{padding:clamp(22px,3vw,34px)}
+.adim{display:none}
+.adim.acik{display:block;animation:adimGir .4s var(--ease) both}
+@keyframes adimGir{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.adim h2{font-size:clamp(20px,2.5vw,26px);margin-bottom:8px;letter-spacing:-.03em}
+.adim .yardim{color:var(--muted);font-size:13.8px;margin-bottom:22px}
+
+.secenekler{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:11px}
+.sec-k{border:1px solid var(--hair);border-radius:var(--r-md);padding:16px 17px;cursor:pointer;
+  background:rgba(255,255,255,.02);transition:.28s var(--ease);display:grid;gap:5px;text-align:left;
+  font-family:inherit;color:inherit}
+.sec-k:hover{border-color:var(--hair-strong);background:var(--panel-2);transform:translateY(-2px)}
+.sec-k.secili{border-color:var(--acc);background:rgba(var(--acc-rgb),.09);
+  box-shadow:0 0 0 3px rgba(var(--acc-rgb),.1)}
+.sec-k b{font-size:15px;font-weight:600;letter-spacing:-.01em}
+.sec-k span{font-size:12.6px;color:var(--muted);line-height:1.45}
+.sec-k.secili b{color:var(--acc)}
+
+.alan{display:grid;gap:7px;margin-bottom:16px}
+.alan label{font-size:13px;color:var(--fg-dim);font-weight:500}
+.alan input,.alan textarea{width:100%;padding:13px 15px;border-radius:var(--r-sm);
+  border:1px solid var(--hair-strong);background:rgba(11,13,18,.6);color:var(--fg);
+  font-family:inherit;font-size:15px;transition:.25s;outline:none}
+.alan input:focus,.alan textarea:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(var(--acc-rgb),.12)}
+.alan textarea{min-height:96px;resize:vertical}
+.alan .ipucu{font-size:12px;color:var(--muted)}
+.hata{color:#FF7A93;font-size:12.5px;display:none}
+.alan.bozuk input{border-color:#FF4D6D}
+.alan.bozuk .hata{display:block}
+
+.kvkk{display:flex;gap:10px;align-items:flex-start;font-size:12.8px;color:var(--muted);margin:6px 0 18px}
+.kvkk input{width:17px;height:17px;flex:none;margin-top:1px;accent-color:var(--acc)}
+.kvkk a{color:var(--fg-dim);text-decoration:underline}
+
+.shr-alt{display:flex;gap:12px;align-items:center;margin-top:26px;padding-top:20px;
+  border-top:1px solid var(--hair);flex-wrap:wrap}
+.shr-alt .geri{background:none;border:0;color:var(--muted);font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.08em;cursor:pointer;padding:8px 4px;transition:color .25s}
+.shr-alt .geri:hover{color:var(--fg)}
+.shr-alt .ileri{margin-left:auto}
+.shr-not{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.06em;
+  width:100%;order:3}
+
+/* --- canlı kapsam kartı --- */
+.kart{position:sticky;top:calc(var(--nav-h) + 18px);border:1px solid rgba(var(--acc-rgb),.28);
+  border-radius:var(--r-lg);padding:24px;background:linear-gradient(160deg,rgba(var(--acc-rgb),.08),rgba(122,34,255,.05))}
+.kart h3{font-size:17px;margin-bottom:4px}
+.kart > p{font-size:12.8px;color:var(--muted);margin-bottom:18px}
+.kart-sat{display:flex;justify-content:space-between;gap:12px;padding:11px 0;
+  border-bottom:1px solid var(--hair);font-size:13.6px}
+.kart-sat:last-of-type{border-bottom:0}
+.kart-sat span:first-child{color:var(--muted)}
+.kart-sat span:last-child{color:var(--fg);text-align:right;font-weight:500}
+.kart-bant{margin-top:18px;padding:16px;border-radius:var(--r-md);background:rgba(11,13,18,.5);
+  border:1px solid var(--hair)}
+.kart-bant .etk{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);display:block;margin-bottom:7px}
+.kart-bant b{display:block;font-family:var(--mono);font-size:clamp(19px,2.4vw,24px);color:var(--acc);
+  letter-spacing:-.02em;line-height:1.15}
+.kart-bant small{display:block;margin-top:8px;font-size:11.6px;color:var(--muted);line-height:1.5}
+.kart-bos{font-size:13.4px;color:var(--muted);line-height:1.6}
+
+/* --- başarı ekranı --- */
+.bitti{display:none;text-align:center;padding:clamp(30px,5vw,56px) 24px}
+.bitti.acik{display:block;animation:adimGir .5s var(--ease) both}
+.bitti .rozet{width:64px;height:64px;border-radius:50%;margin:0 auto 20px;display:grid;place-items:center;
+  background:rgba(var(--acc-rgb),.12);border:1px solid rgba(var(--acc-rgb),.45)}
+.bitti .rozet svg{width:30px;height:30px;color:var(--acc)}
+.bitti h2{font-size:clamp(22px,3vw,30px);margin-bottom:10px}
+.bitti p{color:var(--fg-dim);max-width:46ch;margin:0 auto 8px;font-size:15px}
+.bitti .kod{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:16px}
+.bitti-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+
+.ftr{border-top:1px solid var(--hair);padding:44px 0 36px;background:rgba(255,255,255,.012)}
+.ftr-in{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center;
+  font-size:12.8px;color:var(--muted)}
+.ftr-in img{height:40px;width:auto}
+.ftr-in a{color:var(--fg-dim)}
+.ftr-in a:hover{color:var(--acc)}
+
+.wa{position:fixed;right:22px;bottom:22px;z-index:90;width:54px;height:54px;border-radius:50%;
+  background:#25D366;display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+
+@media(max-width:900px){
+  .shr{grid-template-columns:1fr}
+  .kart{position:static}
+}
+@media(max-width:760px){
+  .nav-links,.nav-tel{display:none}
+  .burger{display:block}
+  .shr-ray div{font-size:0;padding:11px 4px}
+  .shr-ray div::before{content:attr(data-no);font-size:10px}
+  .shr-alt .ileri{width:100%;justify-content:center;order:1}
+  .shr-alt .geri{order:2}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#ana">İçeriğe geç</a>
+
+<nav class="nav" data-nav aria-label="Ana menü">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../" aria-label="TasarımMania ana sayfa">
+      <img src="../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async">
+    </a>
+    <div class="nav-links">
+      <a href="../hizmetler/">Hizmetler</a>
+      <a href="../#isler">İşler</a>
+      <a href="../#surec">Süreç</a>
+      <a href="../#sss">SSS</a>
+      <a href="./" aria-current="page">Teklif Al</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../hizmetler/">Hizmetler</a><a href="../#isler">İşler</a><a href="../#surec">Süreç</a>
+  <a href="../#sss">SSS</a><a href="./">Teklif Al</a><a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Konum">
+        <a href="../">Ana sayfa</a><span aria-hidden="true">/</span><span>Teklif Al</span>
+      </nav>
+      <h1>Formu doldurmadan önce<br>ne alacağınızı görün</h1>
+      <p class="lead">Beş kısa adım. Sonunda ekranda kapsam özeti, bütçe bandı ve takvim tahmini çıkar —
+        telefonunuzu sadece en son adımda, tek alanda istiyoruz.</p>
+    </div>
+  </header>
+
+  <div class="wrap shr">
+
+    <!-- ---------- SİHİRBAZ ---------- -->
+    <div class="shr-kutu">
+      <div class="shr-ray" id="shrRay" role="list">
+        <div data-no="1" class="aktif" role="listitem">Hizmet</div>
+        <div data-no="2" role="listitem">Durum</div>
+        <div data-no="3" role="listitem">Kapsam</div>
+        <div data-no="4" role="listitem">Bütçe</div>
+        <div data-no="5" role="listitem">İletişim</div>
+      </div>
+
+      <form class="shr-govde" id="shrForm" novalidate>
+
+        <!-- 1 -->
+        <section class="adim acik" data-adim="1" aria-label="Adım 1: hizmet">
+          <h2>Neye ihtiyacınız var?</h2>
+          <p class="yardim">Birden fazla seçebilirsiniz. Modüller birlikte alındığında kurulum işi bir kez yapılır.</p>
+          <div class="secenekler" id="hizmetSec"></div>
+        </section>
+
+        <!-- 2 -->
+        <section class="adim" data-adim="2" aria-label="Adım 2: mevcut durum">
+          <h2>Şu an nerede duruyorsunuz?</h2>
+          <p class="yardim">Bu, işin sıfırdan mı kurulacağını yoksa mevcut yapının mı düzeltileceğini belirler.</p>
+          <div class="secenekler" id="durumSec"></div>
+        </section>
+
+        <!-- 3 -->
+        <section class="adim" data-adim="3" aria-label="Adım 3: kapsam">
+          <h2>Kapsamı biraz netleştirelim</h2>
+          <p class="yardim">Emin değilseniz boş bırakın; görüşmede birlikte doldururuz.</p>
+          <div class="secenekler" id="kapsamSec"></div>
+          <div class="alan" style="margin-top:20px">
+            <label for="fNot">Eklemek istediğiniz bir şey var mı?</label>
+            <textarea id="fNot" name="not" placeholder="Örn. Almanya pazarına açılıyoruz, mevcut sitemiz WordPress."></textarea>
+          </div>
+        </section>
+
+        <!-- 4 -->
+        <section class="adim" data-adim="4" aria-label="Adım 4: bütçe">
+          <h2>Aklınızdaki bütçe aralığı</h2>
+          <p class="yardim">Bağlayıcı değil. Kapsamı doğru boyutlandırmak için soruyoruz —
+            netleşmediyse çekinmeden son seçeneği işaretleyin.</p>
+          <div class="secenekler" id="butceSec"></div>
+        </section>
+
+        <!-- 5 -->
+        <section class="adim" data-adim="5" aria-label="Adım 5: iletişim">
+          <h2>Son adım</h2>
+          <p class="yardim">Kapsam özetinizi hazırladık. Nereye dönelim?</p>
+          <div class="alan" id="alanAd">
+            <label for="fAd">Ad Soyad</label>
+            <input id="fAd" name="ad" type="text" autocomplete="name" placeholder="Adınız Soyadınız">
+            <span class="hata">Lütfen adınızı yazın.</span>
+          </div>
+          <div class="alan" id="alanTel">
+            <label for="fTel">Telefon</label>
+            <input id="fTel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="05__ ___ __ __">
+            <span class="ipucu">WhatsApp’tan yazmamızı isterseniz bu numarayı kullanırız.</span>
+            <span class="hata">Geçerli bir telefon numarası yazın.</span>
+          </div>
+          <div class="alan">
+            <label for="fMail">E-posta <span style="color:var(--muted);font-weight:400">(isteğe bağlı)</span></label>
+            <input id="fMail" name="mail" type="email" autocomplete="email" placeholder="ornek@firma.com">
+          </div>
+          <label class="kvkk">
+            <input type="checkbox" id="fKvkk">
+            <span>Talebimin değerlendirilmesi için verilerimin işlenmesini kabul ediyorum.
+              <a href="../kvkk/">Aydınlatma metni</a></span>
+          </label>
+        </section>
+
+        <div class="shr-alt">
+          <button type="button" class="geri" id="btnGeri" hidden>← Geri</button>
+          <button type="button" class="btn btn-p ileri" id="btnIleri">Devam et
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <span class="shr-not" id="shrNot">Adım 1 / 5 · yaklaşık 40 saniye</span>
+        </div>
+      </form>
+
+      <!-- başarı -->
+      <div class="bitti" id="bitti">
+        <div class="rozet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h2>Kapsamınız elimize ulaştı</h2>
+        <p>Bir iş günü içinde, hazırladığınız kapsam üzerinden tek sayfalık teklifle döneceğiz.
+          Acele ediyorsanız WhatsApp’tan yazın, aynı gün bakalım.</p>
+        <p class="kod" id="bittiKod"></p>
+        <div class="bitti-cta">
+          <a class="btn btn-p" href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp’tan yazın</a>
+          <a class="btn btn-g" href="../hizmetler/">Modülleri incele</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------- CANLI KAPSAM KARTI ---------- -->
+    <aside class="kart" id="kart" aria-live="polite">
+      <h3>Kapsam kartınız</h3>
+      <p>Seçtikçe burası dolar.</p>
+      <div id="kartIc"><p class="kart-bos">Henüz seçim yapılmadı. Soldan başlayın —
+        her adımda burası güncellenir.</p></div>
+    </aside>
+  </div>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <img src="../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+    <span>Zeytinlik Mah. Pancar Sk. No:19-11 · Bakırköy / İstanbul</span>
+    <span><a href="tel:+905547916545">0554 791 65 45</a> · <a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></span>
+    <span>© <span id="yil">2026</span> TasarımMania</span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+
+(function sihirbaz(){
+  /* ---- veri ---- */
+  var HIZMET = [
+    { id:'web',   ad:'Web & Yazılım',    aciklama:'Kurumsal site, e-ticaret, özel uygulama', taban:[45,90],  hafta:[6,10] },
+    { id:'mobil', ad:'Mobil Uygulama',   aciklama:'iOS & Android, mağaza yayını',            taban:[120,260],hafta:[8,16] },
+    { id:'ads',   ad:'Reklam Yönetimi',  aciklama:'Google Ads, Meta & Instagram',            taban:[18,40],  hafta:[2,3], aylik:true },
+    { id:'video', ad:'Video Prodüksiyon',aciklama:'Reklam filmi, ürün ve kanal içeriği',     taban:[35,85],  hafta:[3,6] },
+    { id:'seo',   ad:'SEO',              aciklama:'Teknik, içerik, yerel ve çok dilli',      taban:[22,45],  hafta:[8,12], aylik:true }
+  ];
+  var DURUM = [
+    { id:'yok',   ad:'Sıfırdan başlıyoruz', aciklama:'Henüz site veya kampanya yok', carpan:1.15 },
+    { id:'var',   ad:'Var ama çalışmıyor',  aciklama:'Yapı duruyor, sonuç alınmıyor', carpan:1 },
+    { id:'buyume',ad:'Çalışıyor, büyütmek istiyoruz', aciklama:'Mevcut yapı sağlam', carpan:.9 }
+  ];
+  var KAPSAM = [
+    { id:'eticaret', ad:'E-ticaret var',      aciklama:'Ürün, sepet, ödeme', ek:[25,55] },
+    { id:'cokdil',   ad:'Çok dilli',          aciklama:'TR + en az bir dil',  ek:[15,35] },
+    { id:'icerik',   ad:'İçerik üretimi bizde',aciklama:'Metin, görsel, video', ek:[12,30] },
+    { id:'ai',       ad:'AI asistan',          aciklama:'Site içi chatbot',    ek:[18,35] }
+  ];
+  var BUTCE = [
+    { id:'a', ad:'50 bin ₺ altı' }, { id:'b', ad:'50 – 150 bin ₺' },
+    { id:'c', ad:'150 – 400 bin ₺' }, { id:'d', ad:'400 bin ₺ üzeri' },
+    { id:'x', ad:'Henüz netleştirmedik' }
+  ];
+
+  var secim = { hizmet:[], durum:null, kapsam:[], butce:null };
+  var adim = 1, TOPLAM = 5;
+
+  var $ = function(s){ return document.querySelector(s); };
+  var form = $('#shrForm'), kartIc = $('#kartIc'), not = $('#shrNot');
+  var btnIleri = $('#btnIleri'), btnGeri = $('#btnGeri');
+
+  /* ---- seçenek kartlarını bas ---- */
+  function bas(kap, liste, coklu, anahtar){
+    kap.innerHTML = liste.map(function(o){
+      return '<button type="button" class="sec-k" data-id="'+o.id+'">' +
+             '<b>'+o.ad+'</b>' + (o.aciklama ? '<span>'+o.aciklama+'</span>' : '') + '</button>';
+    }).join('');
+    kap.addEventListener('click', function(e){
+      var b = e.target.closest('.sec-k'); if(!b) return;
+      var id = b.dataset.id;
+      if (coklu) {
+        var i = secim[anahtar].indexOf(id);
+        if (i > -1) secim[anahtar].splice(i,1); else secim[anahtar].push(id);
+        b.classList.toggle('secili');
+      } else {
+        secim[anahtar] = id;
+        [].forEach.call(kap.children, function(x){ x.classList.toggle('secili', x === b); });
+      }
+      kartiCiz();
+    });
+  }
+  bas($('#hizmetSec'), HIZMET, true,  'hizmet');
+  bas($('#durumSec'),  DURUM,  false, 'durum');
+  bas($('#kapsamSec'), KAPSAM, true,  'kapsam');
+  bas($('#butceSec'),  BUTCE,  false, 'butce');
+
+  /* ---- bütçe bandı hesabı (bağlayıcı değil, aralık verir) ---- */
+  function hesapla(){
+    if (!secim.hizmet.length) return null;
+    var alt = 0, ust = 0, haftaAlt = 0, haftaUst = 0, aylikVar = false;
+    secim.hizmet.forEach(function(id){
+      var h = HIZMET.filter(function(x){ return x.id === id; })[0];
+      alt += h.taban[0]; ust += h.taban[1];
+      haftaAlt = Math.max(haftaAlt, h.hafta[0]); haftaUst = Math.max(haftaUst, h.hafta[1]);
+      if (h.aylik) aylikVar = true;
+    });
+    secim.kapsam.forEach(function(id){
+      var k = KAPSAM.filter(function(x){ return x.id === id; })[0];
+      alt += k.ek[0]; ust += k.ek[1];
+    });
+    var c = 1;
+    if (secim.durum) c = DURUM.filter(function(x){ return x.id === secim.durum; })[0].carpan;
+    alt = Math.round(alt * c); ust = Math.round(ust * c);
+    // birden fazla modül aynı ekipte: kurulum bir kez yapılır
+    if (secim.hizmet.length > 1) { alt = Math.round(alt * .88); ust = Math.round(ust * .92); }
+    return { alt:alt, ust:ust, haftaAlt:haftaAlt, haftaUst:haftaUst, aylikVar:aylikVar };
+  }
+
+  function adlar(liste, secilenler){
+    return liste.filter(function(o){ return secilenler.indexOf(o.id) > -1; })
+                .map(function(o){ return o.ad; }).join(', ');
+  }
+
+  function kartiCiz(){
+    var h = hesapla();
+    if (!h) {
+      kartIc.innerHTML = '<p class="kart-bos">Henüz seçim yapılmadı. Soldan başlayın — ' +
+        'her adımda burası güncellenir.</p>';
+      return;
+    }
+    var satir = '';
+    satir += sat('Modüller', adlar(HIZMET, secim.hizmet));
+    if (secim.durum) satir += sat('Durum', DURUM.filter(function(x){return x.id===secim.durum;})[0].ad);
+    if (secim.kapsam.length) satir += sat('Ek kapsam', adlar(KAPSAM, secim.kapsam));
+    satir += sat('Tahmini süre', h.haftaAlt + '–' + h.haftaUst + ' hafta');
+
+    kartIc.innerHTML = satir +
+      '<div class="kart-bant"><span class="etk">Bütçe bandı</span>' +
+      '<b>' + h.alt + ' – ' + h.ust + ' bin ₺</b>' +
+      '<small>' + (h.aylikVar ? 'Aylık yönetim kalemleri ayrıca aylıklandırılır. ' : '') +
+      'Bu bir bağlayıcı teklif değildir; kapsam netleştikçe daralır.</small></div>';
+  }
+  function sat(a,b){ return '<div class="kart-sat"><span>'+a+'</span><span>'+b+'</span></div>'; }
+
+  /* ---- adım gezinme ---- */
+  function goster(n){
+    adim = n;
+    [].forEach.call(form.querySelectorAll('.adim'), function(s){
+      s.classList.toggle('acik', +s.dataset.adim === n);
+    });
+    [].forEach.call($('#shrRay').children, function(d,i){
+      d.classList.toggle('aktif', i === n-1);
+      d.classList.toggle('gecti', i < n-1);
+    });
+    btnGeri.hidden = n === 1;
+    btnIleri.innerHTML = (n === TOPLAM ? 'Kapsamı gönder' : 'Devam et') +
+      ' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+    not.textContent = 'Adım ' + n + ' / ' + TOPLAM + (n === TOPLAM ? ' · son adım' : ' · yaklaşık 40 saniye');
+  }
+
+  function ilerle(){
+    if (adim === 1 && !secim.hizmet.length) { titret($('#hizmetSec')); return; }
+    if (adim === TOPLAM) { gonder(); return; }
+    goster(adim + 1);
+    form.scrollIntoView({ block:'nearest' });
+  }
+  function titret(el){
+    el.animate([{transform:'translateX(0)'},{transform:'translateX(-6px)'},
+                {transform:'translateX(6px)'},{transform:'translateX(0)'}], {duration:260});
+  }
+
+  btnIleri.addEventListener('click', ilerle);
+  btnGeri.addEventListener('click', function(){ if (adim > 1) goster(adim - 1); });
+
+  /* ---- gönderim (demo: sunucuya gitmez) ---- */
+  function gonder(){
+    var ad = $('#fAd'), tel = $('#fTel'), gecerli = true;
+    var aAd = $('#alanAd'), aTel = $('#alanTel');
+    aAd.classList.remove('bozuk'); aTel.classList.remove('bozuk');
+    if (!ad.value.trim()) { aAd.classList.add('bozuk'); gecerli = false; }
+    var rakam = tel.value.replace(/\D/g,'');
+    if (rakam.length < 10) { aTel.classList.add('bozuk'); gecerli = false; }
+    if (!gecerli) { titret(form); return; }
+
+    var d = new Date();
+    var kod = 'TM-' + d.getFullYear() + String(d.getMonth()+1).padStart(2,'0') +
+              String(d.getDate()).padStart(2,'0') + '-' +
+              String(Math.floor(Math.random()*9000+1000));
+    form.style.display = 'none';
+    document.querySelector('.shr-ray').style.display = 'none';
+    var b = $('#bitti');
+    b.classList.add('acik');
+    $('#bittiKod').textContent = 'Kayıt no ' + kod + ' · Demo sürümünde veri sunucuya gönderilmez.';
+    b.scrollIntoView({ block:'center' });
+  }
+
+  goster(1);
+})();
+</script>
+</body>
+</html>
