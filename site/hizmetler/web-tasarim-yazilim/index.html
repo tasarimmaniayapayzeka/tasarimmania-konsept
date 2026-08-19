@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Web Tasarım ve Yazılım — Kurumsal Site, E-Ticaret, Özel Yazılım | TasarımMania</title>
-<meta name="description" content="Şablon değil, sıfırdan yazılmış sistem. Kurumsal site, e-ticaret, özel yazılım ve AI entegrasyonu. 6–10 hafta, 45–90 bin ₺ bandı. Kaynak dosyalar ve hesaplar sizde kalır.">
+<meta name="description" content="Şablon değil, sıfırdan yazılmış sistem. Kurumsal site, e-ticaret, özel yazılım ve AI entegrasyonu. 15–30 iş günü, 45–90 bin ₺ bandı. Kaynak dosyalar ve hesaplar sizde kalır.">
 <link rel="canonical" href="https://www.tasarimmania.com/hizmetler/web-tasarim-yazilim/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="tr_TR">
@@ -416,6 +416,62 @@ button[data-olay]{font-family:inherit;color:inherit}
 .sss summary:hover,.akor summary:hover{color:var(--acc)}
 .sss .cvp,.akor .cvp{padding:0 22px 20px;font-size:14.4px;color:var(--muted);line-height:1.7}
 
+/* --- iki sütun: akordiyon solda, yan içerik sağda -----------------------
+   Akordiyonlar tek başına tam genişlik kaplayınca sağ taraf boş kalıyordu.
+   Sağ sütun sticky: uzun akordiyon listesi boyunca görünürde kalıyor. */
+.iki{display:grid;grid-template-columns:1.45fr .8fr;gap:clamp(20px,3vw,38px);align-items:start}
+.iki-yan{position:sticky;top:calc(var(--nav-h) + 20px);display:grid;gap:12px}
+
+/* 3D dönen tarayıcı ekranı (kütüphane yok, saf CSS preserve-3d) */
+.don{perspective:1200px;perspective-origin:50% 45%}
+.don-sahne{position:relative;transform-style:preserve-3d;animation:donDur 18s linear infinite;
+  aspect-ratio:4/3.1}
+.don:hover .don-sahne{animation-play-state:paused}
+@keyframes donDur{
+  0%{transform:rotateX(9deg) rotateY(-22deg)}
+  50%{transform:rotateX(9deg) rotateY(22deg)}
+  100%{transform:rotateX(9deg) rotateY(-22deg)}
+}
+.don-cam{position:absolute;inset:0;border:1px solid var(--hair);border-radius:13px;overflow:hidden;
+  background:var(--bg-2);box-shadow:0 26px 60px -28px rgba(0,0,0,.95);transform:translateZ(26px)}
+.don-bar{display:flex;align-items:center;gap:6px;padding:8px 11px;border-bottom:1px solid var(--hair);
+  background:rgba(255,255,255,.035)}
+.don-bar i{width:6px;height:6px;border-radius:50%;background:#3A4152;flex:none}
+.don-bar i:nth-child(1){background:#FF5F57}.don-bar i:nth-child(2){background:#FEBC2E}.don-bar i:nth-child(3){background:#28C840}
+.don-bar span{font-family:var(--mono);font-size:8.6px;color:var(--muted);margin-left:6px;letter-spacing:.05em}
+.don-ic{padding:12px;display:flex;flex-direction:column;gap:8px;height:calc(100% - 30px)}
+.don-ic .cz{height:9px;border-radius:3px;background:rgba(255,255,255,.14)}
+.don-ic .cz.a{width:62%;background:rgba(var(--acc-rgb),.55);height:11px}
+.don-ic .cz.b{width:86%}
+.don-ic .cz.c{width:48%}
+.don-kart{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:2px}
+.don-kart i{height:34px;border-radius:6px;border:1px solid var(--hair);
+  background:linear-gradient(160deg,rgba(var(--acc-rgb),.16),transparent)}
+.don-btn{margin-top:auto;width:74px;height:16px;border-radius:99px;background:var(--acc);opacity:.9}
+/* arkada duran ikinci katman: derinlik hissi */
+.don-arka{position:absolute;inset:12px 12px auto 12px;height:70%;border:1px solid var(--hair);
+  border-radius:12px;background:rgba(255,255,255,.02);transform:translateZ(-34px)}
+.don-not{margin-top:14px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);text-align:center}
+
+/* yan hizmet kartları */
+.yk{display:block;border:1px solid var(--hair);border-radius:var(--r-md);padding:15px 16px;
+  background:var(--panel);transition:.3s var(--ease)}
+.yk:hover{border-color:var(--k,var(--acc));transform:translateY(-2px)}
+.yk b{display:flex;align-items:center;gap:9px;font-size:14.2px;margin-bottom:5px;letter-spacing:-.02em}
+.yk b::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--k,var(--acc));flex:none}
+.yk span{font-size:12.4px;color:var(--muted);line-height:1.55}
+.yk-cta{border-color:rgba(var(--acc-rgb),.4);background:rgba(var(--acc-rgb),.07)}
+.yk-cta .btn{width:100%;justify-content:center;margin-top:11px}
+.yk-bas{font-family:var(--mono);font-size:9.6px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:2px}
+
+@media(max-width:960px){
+  .iki{grid-template-columns:1fr}
+  .iki-yan{position:static}
+  .don{display:none}          /* dar ekranda dekoratif 3D yer kaplamasın */
+}
+
 /* --- satın alma yolundaki CTA'lar ---
    Ölçüldü: 14 bölümün 12'sinde hiç CTA yoktu, hero'da bile. Artık karar
    anlarında (kapsamı gördükten ve fiyatı gördükten sonra) çıkıyor. */
@@ -536,7 +592,7 @@ button[data-olay]{font-family:inherit;color:inherit}
       "name": "Kurumsal site ne kadar sürüyor, süreyi asıl ne uzatıyor?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Kurumsal bir site 6–10 haftada teslim edilir. Takvimi asıl uzatan kalem kod değil içerik: metin, fotoğraf ve logo dosyaları geciktiğinde sonraki bütün adımlar kayıyor. Hangi işin hangi haftada yapıldığını takvim bölümündeki tabloda hafta hafta yazdık."
+        "text": "Kurumsal bir site 15–30 iş gününde teslim edilir. Takvimi asıl uzatan kalem kod değil içerik: metin, fotoğraf ve logo dosyaları geciktiğinde sonraki bütün adımlar kayıyor. Hangi işin hangi haftada yapıldığını takvim bölümündeki tabloda hafta hafta yazdık."
       }
     },
     {
@@ -736,7 +792,7 @@ button[data-olay]{font-family:inherit;color:inherit}
           <span class="mod-no">Modül 01</span>
           <h1 data-kin>Kurumsal web tasarım ve yazılım —<br>şablon değil, sıfırdan yazılmış sistem</h1>
           <p class="h1-alt">KURUMSAL SİTE · E-TİCARET · ÖZEL YAZILIM · AI ENTEGRASYONU</p>
-          <p class="lead">Hazır tema kurmuyoruz; ön yüzü projeye özel yazıyoruz. Kurumsal site, e-ticaret, özel yazılım, AI entegrasyonu ve bakım tek ekipten yürür. Teslim 6–10 hafta, 2026 bandı 45.000–90.000 ₺; hesaplar ve kaynak dosyalar sizde.</p>
+          <p class="lead">Hazır tema kurmuyoruz; ön yüzü projeye özel yazıyoruz. Kurumsal site, e-ticaret, özel yazılım, AI entegrasyonu ve bakım tek ekipten yürür. Teslim 15–30 iş günü, 2026 bandı 45.000–90.000 ₺; hesaplar ve kaynak dosyalar sizde.</p>
         </div>
 
         <!-- ETKİLEŞİMLİ 3D INFOGRAFİK: aynı sayfanın üç katmanı -->
@@ -821,7 +877,7 @@ button[data-olay]{font-family:inherit;color:inherit}
       </div>
 
       <div class="kny">
-        <div><b>6–10<i> hafta</i></b><span>Kurumsal site için<br>tipik teslim süresi</span></div>
+        <div><b>15–30<i> iş günü</i></b><span>Kurumsal site için<br>tipik teslim süresi</span></div>
         <div><b>45–90<i> bin ₺</i></b><span>Kapsama göre<br>bütçe bandı</span></div>
         <div><b>14 yıl</b><span>Web ve yazılımda<br>saha deneyimi</span></div>
         <div><b>Sizde</b><span>Kaynak dosyalar,<br>hesaplar ve alan adı</span></div>
@@ -933,7 +989,7 @@ button[data-olay]{font-family:inherit;color:inherit}
       <div class="fyt rv d1">
         <div class="fyt-band">
           <b>45 – 90 bin ₺</b>
-          <span>KURUMSAL SİTE · 6–10 HAFTA</span>
+          <span>KURUMSAL SİTE · 15 – 30 İŞ GÜNÜ</span>
         </div>
         <p>Bu band <strong>2026 yılı için</strong> geçerlidir; tek dilli, sınırlı şablonlu kurumsal siteyi kapsar.
           KDV teklifte belirtilir; e-ticaret ve özel yazılım ayrı fiyatlanır. Bandı belirleyen beş şey:</p>
@@ -1043,14 +1099,14 @@ button[data-olay]{font-family:inherit;color:inherit}
         <span class="eyebrow"><i></i>Sık sorulanlar</span>
         <h2 data-kin>Sık sorulan sorular: kurumsal web sitesi süresi, fiyatı ve teslim sonrası</h2>
         <p>En çok gelen sorular ve kısa cevapları. Ayrıntısı başka bölümdeyse cevabın sonunda bağlantı var.</p>
-        <p class="sss-not">SON GÜNCELLEME: 19 AĞUSTOS 2026</p>
       </div>
 
-      <div class="sss rv d1">
+      <div class="iki">
+        <div class="sss rv d1">
         <details>
         <summary>Kurumsal site ne kadar sürüyor, süreyi asıl ne uzatıyor?</summary>
-        <p>Kurumsal bir site 6–10 haftada teslim edilir. Takvimi asıl uzatan kalem kod değil içerik: metin, fotoğraf ve logo dosyaları geciktiğinde sonraki bütün adımlar kayıyor.</p>
-        <p>Hangi işin hangi haftada yapıldığını <a href="#takvim">takvim bölümündeki tabloda</a> hafta hafta yazdık.</p>
+        <p>Kurumsal bir site 15–30 iş gününde teslim edilir. Takvimi asıl uzatan kalem kod değil içerik: metin, fotoğraf ve logo dosyaları geciktiğinde sonraki bütün adımlar kayıyor.</p>
+        <p>Hangi işin hangi günlerde yapıldığını <a href="#takvim">takvim bölümündeki tabloda</a> yazdık.</p>
         </details>
         <details>
         <summary>Proje gecikirse ne oluyor?</summary>
@@ -1148,6 +1204,23 @@ button[data-olay]{font-family:inherit;color:inherit}
         <p>Ayrıntılı iş bölümü <a href="#kvkk">“KVKK, çerez ve erişilebilirlik kimin işi” bölümünde</a> yazılı.</p>
         </details>
       </div>
+        <div class="iki-yan">
+          <p class="yk-bas">Diğer modüller</p>
+          <a class="yk" style="--k:var(--vi)" href="../#moduller"><b>Mobil Uygulama</b>
+            <span>iOS ve Android; web ile ortak API ve tasarım sistemi.</span></a>
+          <a class="yk" style="--k:var(--amber)" href="../#moduller"><b>Meta &amp; Google Ads</b>
+            <span>Hesaplar sizin adınıza; reklamın ineceği sayfaları biz kuruyoruz.</span></a>
+          <a class="yk" style="--k:var(--pink)" href="../#moduller"><b>Video Prodüksiyon</b>
+            <span>Tek çekimden reklam, Reels ve ürün videosu.</span></a>
+          <a class="yk" style="--k:var(--lime)" href="../#moduller"><b>SEO Hizmetleri</b>
+            <span>Teknik SEO, içerik ve yerel görünürlük.</span></a>
+          <div class="yk yk-cta">
+            <b>Sorunuz listede yok mu?</b>
+            <span>Beş adımda kapsamı çıkarın; süreyi ve fiyat aralığını ekranda görün.</span>
+            <a class="btn btn-p btn-sm" href="../../teklif/#web">Kapsam çıkaralım</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
   <section class="sec" id="ayrintilar" style="padding-top:0">
@@ -1157,7 +1230,8 @@ button[data-olay]{font-family:inherit;color:inherit}
         <h2 data-kin>Karar vermeden önce bakmak isterseniz</h2>
         <p>Süreç, taşıma, yayın sonrası ve mevzuat tarafının tamamı burada — açıp okuyun, kapatın.</p>
       </div>
-      <div class="akor rv d1">
+      <div class="iki">
+        <div class="akor rv d1">
         <details id="karar">
           <summary>Önce şu soru: gerçekten yeni bir site mi gerekiyor?</summary>
           <div class="cvp">
@@ -1274,26 +1348,26 @@ button[data-olay]{font-family:inherit;color:inherit}
           </div>
         </details>
         <details id="takvim">
-          <summary>Takvim: kurumsal web sitesi kaç haftada teslim edilir — 6–10 hafta</summary>
+          <summary>Takvim: kurumsal web sitesi kaç günde teslim edilir — 15–30 iş günü</summary>
           <div class="cvp">
 <div class="yazi rv">
         <div class="gbs">
-          <img src="../../../assets/modul-web/takvim.jpg" alt="Kurumsal web sitesi teslim takvimi: keşiften yayına 6–10 haftalık aşamalar" width="640" height="640" loading="lazy" decoding="async">
+          <img src="../../../assets/modul-web/takvim.jpg" alt="Kurumsal web sitesi teslim takvimi: keşiften yayına 15–30 iş günlük aşamalar" width="640" height="640" loading="lazy" decoding="async">
           <div class="gbs-in">
             
           </div>
         </div>
-        <h3>Hafta hafta ne oluyor</h3>
+        <h3>Gün gün ne oluyor</h3>
         <p>Kapsam darsa bandın alt ucunda, çok dilli yapı ve entegrasyon eklendikçe üst ucunda kalıyor.</p>
         <div class="yazi-tablo"><table>
-        <thead><tr><th>Hafta</th><th>Bizde ne var</th><th>Sizden ne bekleniyor</th></tr></thead>
+        <thead><tr><th>İş günü</th><th>Bizde ne var</th><th>Sizden ne bekleniyor</th></tr></thead>
         <tbody>
-        <tr><td>1–2. hafta</td><td>Keşif, mevcut sitenin ölçümü, adres envanteri</td><td>Karar vericinin toplantıda olması</td></tr>
-        <tr><td>2–3. hafta</td><td>Bilgi mimarisi ve ana sayfa tasarımı</td><td>Logo kaynak dosyaları, marka malzemeleri, metin taslakları</td></tr>
-        <tr><td>3–5. hafta</td><td>İç sayfa şablonları, mobil düzen, tasarım sistemi</td><td>Tasarım onayı — tek turda toplu</td></tr>
-        <tr><td>5–7. hafta</td><td>Kodlama, yönetim paneli, içerik girişi</td><td>Son metinler ve gerçek fotoğraflar</td></tr>
-        <tr><td>7–8. hafta</td><td>Entegrasyonlar, form ve ölçüm kurulumu, hız çalışması</td><td>Test hesapları; ödeme ve kargo erişimleri</td></tr>
-        <tr><td>8–10. hafta</td><td>Cihaz testleri, kırık bağlantı taraması, yayın, yönlendirmeler</td><td>Ekibinizin testi ve yayın onayı</td></tr>
+        <tr><td>1–5. gün</td><td>Keşif, mevcut sitenin ölçümü, adres envanteri</td><td>Karar vericinin toplantıda olması</td></tr>
+        <tr><td>5–9. gün</td><td>Bilgi mimarisi ve ana sayfa tasarımı</td><td>Logo kaynak dosyaları, marka malzemeleri, metin taslakları</td></tr>
+        <tr><td>9–15. gün</td><td>İç sayfa şablonları, mobil düzen, tasarım sistemi</td><td>Tasarım onayı — tek turda toplu</td></tr>
+        <tr><td>15–21. gün</td><td>Kodlama, yönetim paneli, içerik girişi</td><td>Son metinler ve gerçek fotoğraflar</td></tr>
+        <tr><td>21–25. gün</td><td>Entegrasyonlar, form ve ölçüm kurulumu, hız çalışması</td><td>Test hesapları; ödeme ve kargo erişimleri</td></tr>
+        <tr><td>25–30. gün</td><td>Cihaz testleri, kırık bağlantı taraması, yayın, yönlendirmeler</td><td>Ekibinizin testi ve yayın onayı</td></tr>
         <tr><td>Sonraki 30 gün</td><td>Düzeltme desteği, panel eğitimi, ilk ölçüm okuması</td><td>Eğitime katılacak kişilerin belirlenmesi</td></tr>
         </tbody>
         </table></div>
@@ -1498,6 +1572,25 @@ button[data-olay]{font-family:inherit;color:inherit}
       </div>
           </div>
         </details>
+      </div>
+        <div class="iki-yan">
+          <div class="don" aria-hidden="true">
+            <div class="don-sahne">
+              <div class="don-arka"></div>
+              <div class="don-cam">
+                <div class="don-bar"><i></i><i></i><i></i><span>markaniz.com</span></div>
+                <div class="don-ic">
+                  <span class="cz a"></span>
+                  <span class="cz b"></span>
+                  <span class="cz c"></span>
+                  <div class="don-kart"><i></i><i></i><i></i></div>
+                  <span class="don-btn"></span>
+                </div>
+              </div>
+            </div>
+            <p class="don-not">Aynı sistem · her ekranda</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
