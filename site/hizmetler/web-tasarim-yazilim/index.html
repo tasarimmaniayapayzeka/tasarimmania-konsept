@@ -309,23 +309,97 @@ button[data-olay]{font-family:inherit;color:inherit}
 .yazi-tablo.kayar + .yazi-tablo-ipucu{display:flex;align-items:center;gap:7px}
 .yazi-tablo.kayar + .yazi-tablo-ipucu::before{content:"↔";font-size:13px;color:var(--acc)}
 
-/* --- SSS --- */
-.sss{display:grid;gap:11px;max-width:820px}
+/* --- düz yazı duvarlarını kıran bileşenler ---------------------------------
+   Ölçüldü: dört bölüm sayfanın %57'sini taşıyor ve görsel yapısı yok.
+   İçerik silinmiyor; aynı metin taranabilir bileşene çevriliyor. */
+
+/* senaryo kartları ("işler ters giderse") */
+.snr{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 8px}
+.snr-k{border:1px solid var(--hair);border-radius:var(--r-md);padding:20px;background:var(--panel);
+  transition:.35s var(--ease)}
+.snr-k:hover{border-color:var(--hair-strong);transform:translateY(-3px)}
+.snr-k h3{display:flex;align-items:center;gap:10px;font-size:15.4px;margin:0 0 9px;letter-spacing:-.02em}
+.snr-k h3::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--acc);flex:none}
+.snr-k p{font-size:13.4px;color:var(--muted);line-height:1.65;margin:0}
+
+/* etiketli satırlar (yayın sonrası kalemleri) */
+.etk{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 16px}
+.etk-s{display:flex;gap:13px;align-items:flex-start;border:1px solid var(--hair);
+  border-radius:var(--r-md);padding:16px 18px;background:var(--panel)}
+.etk-s .no{font-family:var(--mono);font-size:10.4px;letter-spacing:.1em;color:var(--acc);flex:none;
+  padding-top:2px}
+.etk-s b{display:block;font-size:14.6px;margin-bottom:5px}
+.etk-s span{font-size:13.2px;color:var(--muted);line-height:1.6}
+
+/* şablon-sayfa karşılaştırması: aynı argümanın tek bakışlık hali */
+.sbl{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 18px}
+.sbl-k{border:1px solid var(--hair);border-radius:var(--r-md);padding:20px;background:var(--panel)}
+.sbl-k u{display:block;text-decoration:none;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  color:var(--muted);margin-bottom:12px}
+.sbl-izgara{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:13px;min-height:54px;align-content:flex-start}
+.sbl-izgara i{width:13px;height:13px;border-radius:3px;background:rgba(var(--acc-rgb),.45);
+  border:1px solid rgba(var(--acc-rgb),.65)}
+/* farklı şablon = farklı biçim; göz çeşitliliği tek bakışta görüyor */
+.sbl-k--cok .sbl-izgara i{background:rgba(255,255,255,.09);border-color:var(--hair-strong)}
+.sbl-k--cok .sbl-izgara i:nth-child(1){width:36px}
+.sbl-k--cok .sbl-izgara i:nth-child(2){width:20px;height:20px}
+.sbl-k--cok .sbl-izgara i:nth-child(3){width:46px;height:9px}
+.sbl-k--cok .sbl-izgara i:nth-child(4){width:16px;height:24px}
+.sbl-k--cok .sbl-izgara i:nth-child(5){width:28px;height:15px}
+.sbl-k--cok .sbl-izgara i:nth-child(6){width:22px;height:11px}
+.sbl-k b{display:block;font-size:15px;margin-bottom:6px;letter-spacing:-.02em}
+.sbl-k > span{display:block;font-size:13.2px;color:var(--muted);line-height:1.6}
+.sbl-k .fiy{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:10.4px;
+  letter-spacing:.1em;padding:5px 11px;border-radius:99px;border:1px solid var(--hair)}
+.sbl-k--tek .fiy{color:var(--acc);border-color:rgba(var(--acc-rgb),.45)}
+.sbl-k--cok .fiy{color:var(--amber);border-color:rgba(255,176,32,.45)}
+
+/* vurgulu soru kutusu */
+.soru-k{border-left:2px solid var(--acc);padding:4px 0 4px 20px;margin:0 0 4px}
+.soru-k p{font-size:15px;color:var(--fg);line-height:1.7;margin:0}
+.soru-k em{color:var(--acc);font-style:normal}
+
+@media(max-width:640px){.sbl{grid-template-columns:1fr}}
+
+/* takvim şeridi */
+.tkv{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:0 0 18px;position:relative}
+.tkv-a{position:relative;border:1px solid var(--hair);border-radius:var(--r-md);padding:18px 15px;
+  background:var(--panel)}
+.tkv-a::before{content:"";position:absolute;left:15px;right:15px;top:0;height:2px;
+  background:linear-gradient(90deg,var(--acc),rgba(var(--acc-rgb),.2))}
+.tkv-a u{display:block;text-decoration:none;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  color:var(--acc);margin-bottom:9px}
+.tkv-a b{display:block;font-size:14.2px;margin-bottom:6px;letter-spacing:-.02em}
+.tkv-a span{font-size:12.6px;color:var(--muted);line-height:1.6}
+
+@media(max-width:960px){
+  .snr,.tkv{grid-template-columns:1fr 1fr}
+  .etk{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .snr,.tkv{grid-template-columns:1fr}
+}
+
+/* --- SSS ve içerik akordiyonu ---
+   .akor gorsel olarak .sss ile ayni ama FAQPage semasina GIRMEZ.
+   Ayri sinif sart: yoksa "gorunen soru = sema sorusu" denetimi yanlis alarm verir. */
+.sss,.akor{display:grid;gap:11px;max-width:820px}
+.akor{max-width:none}
 .sss .cvp a{color:var(--acc);text-decoration:underline;text-underline-offset:3px;
   text-decoration-color:rgba(var(--acc-rgb),.4)}
 .sss .cvp a:hover{text-decoration-color:var(--acc)}
 .sss-not{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em;margin-top:6px}
-.sss details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
-.sss details[open]{border-color:var(--hair-strong)}
-.sss summary{cursor:pointer;list-style:none;padding:18px 22px;font-size:15.6px;font-weight:600;
+.sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
+.sss details[open],.akor details[open]{border-color:var(--hair-strong)}
+.sss summary,.akor summary{cursor:pointer;list-style:none;padding:18px 22px;font-size:15.6px;font-weight:600;
   display:flex;align-items:center;gap:14px}
-.sss summary::-webkit-details-marker{display:none}
-.sss summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
+.sss summary::-webkit-details-marker,.akor summary::-webkit-details-marker{display:none}
+.sss summary::after,.akor summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
   border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
   transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
-.sss details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
-.sss summary:hover{color:var(--acc)}
-.sss .cvp{padding:0 22px 20px;font-size:14.4px;color:var(--muted);line-height:1.7}
+.sss details[open] summary::after,.akor details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.sss summary:hover,.akor summary:hover{color:var(--acc)}
+.sss .cvp,.akor .cvp{padding:0 22px 20px;font-size:14.4px;color:var(--muted);line-height:1.7}
 
 /* --- CTA --- */
 .band{position:relative;border:1px solid rgba(var(--acc-rgb),.28);border-radius:26px;
@@ -828,17 +902,31 @@ button[data-olay]{font-family:inherit;color:inherit}
         
         <h2 id="sektor">Sektöre göre değişen şey tasarım değil</h2>
         <p>Hastane sitesiyle otel sitesini birbirinden ayıran şey renk paleti değil, sayfanın hangi anı kurtarmak zorunda olduğudur.</p>
-        <h3>Hastane ve klinik web sitesinde olması gerekenler</h3>
-        <p>Sağlık Bakanlığı'nın tanıtım mevzuatı, Türkçe yayında fiyat bilgisini, hasta deneyimi paylaşımını ve öncesi-sonrası görselini sınırlıyor. İçerik mimarisini bu süzgece göre kuruyoruz; tasarım kararlarından önce gelen kısım bu. Sonradan sayfa toplamak, baştan doğru kurmaktan zahmetli.</p>
-        <h3>Otel web sitesi nasıl olmalı: rezervasyon motoruna kadar olan yol</h3>
-        <p>Rezervasyon çoğu zaman dışarıdaki bir motorda tamamlanıyor. Sitenin işi satışı kendisi bitirmek değil, kişiyi kararlı halde o motora taşımak. Galeri ağır bir yük ve yavaş açılan galeri rezervasyon kaybettiriyor; hız bu sektörde doğrudan gelire dokunuyor.</p>
-        <h3>E-ticaret sitesinde ana sayfa değil ürün sayfası kazandırıyor</h3>
-        <p>Ana sayfa sanıldığı kadar önemli değil; ziyaretçilerin çoğu ürün sayfasına arama sonucundan ya da reklamdan doğrudan iniyor. Bu yüzden bütçenin ağırlığını ürün sayfası şablonuna, site içi aramaya ve varyant–stok görünümüne koyuyoruz. Ana sayfa animasyonu sıraya en sonda giriyor, çoğu projede de hiç sıra gelmiyor.</p>
-        <h3>B2B ve sanayi web sitesi: katalog, ürün kodu, teknik doküman</h3>
-        <p>Ziyaretçi az, teklif başına değer yüksek. Burada işi yapan şey teknik doküman, ürün kodu araması ve indirilebilir katalog.</p>
-        <h3>Anaokulu ve eğitim kurumu sitesi: telefondan bakan veliye göre kurgu</h3>
-        <p>Karar veren kişi telefondan, akşam saatlerinde bakıyor: konum, fotoğraf ve tek dokunuşla arama.</p>
       </div>
+
+      <div class="akor rv d1">
+        <details>
+          <summary>Hastane ve klinik web sitesinde olması gerekenler</summary>
+          <p class="cvp">Sağlık Bakanlığı'nın tanıtım mevzuatı, Türkçe yayında fiyat bilgisini, hasta deneyimi paylaşımını ve öncesi-sonrası görselini sınırlıyor. İçerik mimarisini bu süzgece göre kuruyoruz; tasarım kararlarından önce gelen kısım bu. Sonradan sayfa toplamak, baştan doğru kurmaktan zahmetli.</p>
+        </details>
+        <details>
+          <summary>Otel web sitesi nasıl olmalı: rezervasyon motoruna kadar olan yol</summary>
+          <p class="cvp">Rezervasyon çoğu zaman dışarıdaki bir motorda tamamlanıyor. Sitenin işi satışı kendisi bitirmek değil, kişiyi kararlı halde o motora taşımak. Galeri ağır bir yük ve yavaş açılan galeri rezervasyon kaybettiriyor; hız bu sektörde doğrudan gelire dokunuyor.</p>
+        </details>
+        <details>
+          <summary>E-ticaret sitesinde ana sayfa değil ürün sayfası kazandırıyor</summary>
+          <p class="cvp">Ana sayfa sanıldığı kadar önemli değil; ziyaretçilerin çoğu ürün sayfasına arama sonucundan ya da reklamdan doğrudan iniyor. Bu yüzden bütçenin ağırlığını ürün sayfası şablonuna, site içi aramaya ve varyant–stok görünümüne koyuyoruz. Ana sayfa animasyonu sıraya en sonda giriyor, çoğu projede de hiç sıra gelmiyor.</p>
+        </details>
+        <details>
+          <summary>B2B ve sanayi web sitesi: katalog, ürün kodu, teknik doküman</summary>
+          <p class="cvp">Ziyaretçi az, teklif başına değer yüksek. Burada işi yapan şey teknik doküman, ürün kodu araması ve indirilebilir katalog.</p>
+        </details>
+        <details>
+          <summary>Anaokulu ve eğitim kurumu sitesi: telefondan bakan veliye göre kurgu</summary>
+          <p class="cvp">Karar veren kişi telefondan, akşam saatlerinde bakıyor: konum, fotoğraf ve tek dokunuşla arama.</p>
+        </details>
+      </div>
+      <div class="yazi"></div>
     </div>
   </section>
 
@@ -979,17 +1067,27 @@ button[data-olay]{font-family:inherit;color:inherit}
         <p>Projede tek muhatabınız oluyor ve her hafta aynı gün kısa bir durum notu gidiyor: bu hafta ne bitti, sırada ne var, sizden ne bekleniyor.</p>
         
         <h3>Başlarken sizden istediğimiz altı şey</h3>
-        <ol>
-        <li>Logonun kaynak dosyası. Vektörel olanı, jpg değil — jpg logo büyütüldüğünde kenarları dağılıyor ve büyük ekranda bunu herkes görüyor.</li>
-        <li>Varsa marka rehberiniz: renk kodları, yazı tipi tercihi. Yoksa biz kuruyoruz, bu da bir kalem.</li>
-        <li>Hizmet veya ürün metinleri. Ya sizde hazır olacak ya da kimin yazacağına ilk hafta karar vereceğiz.</li>
-        <li>Gerçek fotoğraflar. Stok fotoğraflı ekip sayfası güven kazandırmıyor, tam tersini yapıyor.</li>
-        <li>Alan adı ve hosting erişimi; ya da bunları sizin adınıza açmamız için yetki.</li>
-        <li>Mevcut siteniz varsa analytics ve arama konsolu erişimi. Neyin çalıştığını bilmeden neyin taşınacağına karar veremiyoruz.</li>
-        </ol>
-        <p>Bunların hepsi ilk gün hazır olmuyor, olmaması da normal. Eksik olduğunu bilmek de bir bilgi: takvimi ona göre kuruyoruz.</p>
-        <p>Metin yazarlığı ve fotoğraf çekimi bizde değil. İkisini de organize edebiliyoruz, ama ayrı kalem olarak yazıyoruz — pakete gizlice gömüp fiyatı şişirmiyoruz.</p>
-        
+      </div>
+
+      <div class="etk rv d1">
+        <div class="etk-s"><span class="no">01</span><span><b>Logonun kaynak dosyası</b>
+          <span>Vektörel olanı, jpg değil — jpg logo büyütüldüğünde kenarları dağılıyor.</span></span></div>
+        <div class="etk-s"><span class="no">02</span><span><b>Marka rehberi</b>
+          <span>Renk kodları ve yazı tipi tercihi. Yoksa biz kuruyoruz, bu da bir kalem.</span></span></div>
+        <div class="etk-s"><span class="no">03</span><span><b>Hizmet ve ürün metinleri</b>
+          <span>Ya sizde hazır olacak ya da kimin yazacağına ilk hafta karar vereceğiz.</span></span></div>
+        <div class="etk-s"><span class="no">04</span><span><b>Gerçek fotoğraflar</b>
+          <span>Stok fotoğraflı ekip sayfası güven kazandırmıyor, tam tersini yapıyor.</span></span></div>
+        <div class="etk-s"><span class="no">05</span><span><b>Alan adı ve hosting erişimi</b>
+          <span>Ya da bunları sizin adınıza açmamız için yetki.</span></span></div>
+        <div class="etk-s"><span class="no">06</span><span><b>Ölçüm erişimleri</b>
+          <span>Mevcut siteniz varsa analytics ve arama konsolu. Neyin çalıştığını bilmeden neyin
+          taşınacağına karar veremiyoruz.</span></span></div>
+      </div>
+
+      <div class="yazi rv">
+        <p>Hepsi ilk gün hazır olmuyor, olmaması da normal — eksik olduğunu bilmek de bir bilgi, takvimi ona göre kuruyoruz. Metin yazarlığı ve fotoğraf çekimi bizde değil; ikisini de organize edebiliyoruz ama ayrı kalem olarak yazıyoruz.</p>
+
         <h2 id="tasima">Mevcut siteyi taşırken kaybedilmemesi gereken şey: adresler</h2>
         <p>Bize gelen yenileme taleplerinin bir kısmı tam olarak şu cümleyle başlıyor: “yeni site yaptırdık, trafiğimiz düştü”.</p>
         <p>Sebebi çoğu zaman tasarım olmuyor. Eski sitede yıllardır bağlantı almış, arama motorunun tanıdığı sayfalar var; yeni siteye geçerken bu adresler değişiyor ve karşılıkları tanımlanmazsa o sayfalara gelen herkes hata sayfası görüyor. Birikmiş güven birkaç hafta içinde eriyor.</p>
@@ -1094,11 +1192,35 @@ button[data-olay]{font-family:inherit;color:inherit}
       <div class="yazi rv">
         <h2 id="sablon">Teklifi okurken sayfa sayısına değil, şablon sayısına bakın</h2>
         <p>Teklifleri yan yana koyduğunuzda ilk bakacağınız satır sayfa sayısı olmasın. Maliyeti büyüten şey farklı <strong>şablon</strong> sayısı.</p>
-        <p>Aynı düzeni paylaşan altmış ürün sayfası tek kalemdir; altmışıncıyı eklemek dakikalar sürer. Buna karşılık ana sayfa, hizmet sayfası, blog yazısı, ürün detayı, iletişim ve kampanya sayfası altı ayrı düzendir. Altısı da ayrı tasarlanır, ayrı kodlanır, ayrı test edilir, mobilde ayrı kontrol edilir.</p>
-        <p>Pratik karşılığı şu: bütçeyi sayfa sayısını kısarak düşürmek çoğu zaman işe yaramıyor, şablon çeşidini azaltmak yarıyor. “Bu üç bölüm aynı düzende dursun” cümlesi, “beş sayfa çıkaralım” cümlesinden daha çok tasarruf ettiriyor. Teklifimizde şablon listesini adıyla yazıyoruz — hangi ekranın ayrı tasarlanacağını imzadan önce görürsünüz, proje ortasında “bu ayrı şablonmuş” tartışması çıkmaz.</p>
-        <p>Bir de etiket meselesi var. Özel tasarım adıyla satılan bir iş, lisanslı bir temanın renk ve yazı tipi ayarıyla özelleştirilmesinden ibaret olabiliyor. Bunu yapmak suç değil; bazı bütçelerde en doğrusu bile olabilir. Ama parası farklı olmalı.</p>
-        <p>Teklif alırken sorun: <em>arayüz hangi temanın üzerine kuruluyor, tema ve eklenti lisansları kimin hesabına kayıtlı?</em> Cevap net gelmiyorsa iki teklifi karşılaştırıyor sayılmazsınız — birinde satın aldığınız şey tasarım, diğerinde kurulum emeği olabilir.</p>
-        
+        </div>
+
+      <div class="sbl rv d1">
+        <div class="sbl-k sbl-k--tek">
+          <u>60 SAYFA · 1 ŞABLON</u>
+          <span class="sbl-izgara" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <b>Aynı düzeni paylaşan sayfalar</b>
+          <span>Altmışıncı ürün sayfasını eklemek dakikalar sürüyor. Teklifte tek kalem.</span>
+          <span class="fiy">MALİYET DÜŞÜK</span>
+        </div>
+        <div class="sbl-k sbl-k--cok">
+          <u>6 SAYFA · 6 ŞABLON</u>
+          <span class="sbl-izgara" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <b>Her biri farklı düzen isteyen sayfalar</b>
+          <span>Ana sayfa, hizmet, blog yazısı, ürün detayı, iletişim — altısı ayrı tasarım, ayrı kod.</span>
+          <span class="fiy">MALİYET YÜKSEK</span>
+        </div>
+      </div>
+
+      <div class="yazi rv">
+        <p>Pratik karşılığı şu: bütçeyi <strong>sayfa sayısını kısarak</strong> düşürmek çoğu zaman işe yaramıyor, <strong>şablon çeşidini azaltmak</strong> yarıyor. Teklifte hangi şablonların yazılacağını adıyla listeliyoruz.</p>
+        <p>Bir de etiket meselesi var: “özel tasarım” adıyla satılan bir iş, lisanslı bir temanın renk ve yazı tipi ayarıyla özelleştirilmesinden ibaret olabiliyor. Bunu yapmak suç değil; bilmeden ödemek sorun.</p>
+      </div>
+
+      <div class="soru-k rv d1">
+        <p>Teklif alırken sorun: <em>arayüz hangi temanın üzerine kuruluyor, tema ve eklenti lisansları kimin hesabına kayıtlı?</em></p>
+      </div>
+
+      <div class="yazi rv">
         <h2 id="on-ucuncu-ay">On üçüncü ay: yayından sonra ne ödüyorsunuz</h2>
         <p>Site yayına girdikten on iki ay sonra ne ödeyeceğinizi bilmek, kurulum bedelini bilmek kadar işe yarıyor. Aşağıdaki tablo yenilenen kalemlerin tamamını gösteriyor.</p>
         <div class="yazi-tablo"><table>
@@ -1126,25 +1248,69 @@ button[data-olay]{font-family:inherit;color:inherit}
       <div class="yazi rv">
         <h2 id="otuz-gun">Yayından sonraki otuz gün ve sonrası</h2>
         <p>Yayın gününde iş bitmiyor, takvimin ikinci bölümü başlıyor. Bu bölümde neyin dahil olduğu da teklifte yazılı.</p>
-        <p><strong>İlk otuz gün.</strong> Bu sürede çıkan hataları ücretsiz düzeltiyoruz. Neyin düzeltme sayıldığını baştan tanımlamak önemli: kabul ettiğiniz kapsamda olup da yanlış çalışan her şey düzeltmedir. Yeni sayfa, yeni özellik veya fikir değişikliği düzeltme değil; onu ayrı konuşur, ayrı yazarız. Bu sınırı belirsiz bırakan ajans da müşteri de kaybediyor.</p>
-        <p><strong>Eğitim.</strong> Paneli kullanacak kişilerle canlı oturum yapıyor ve kaydını size bırakıyoruz. Altı ay sonra o kişi işten ayrılırsa kayıt duruyor; sıfırdan anlatma turu gerekmiyor.</p>
-        <p><strong>Yedek.</strong> Otomatik yedek almak yetmiyor. Hiç geri yüklenmemiş yedek, yedek değildir. Bakım kapsamında yedeği belirli aralıklarla gerçekten geri yükleyip açılıyor mu diye bakıyoruz — bozuk yedeğin farkına varmanın tek yolu denemek.</p>
-        <p><strong>Aylık rapor.</strong> Tek sayfa: kaç kişi geldi, kaç form dolduruldu, kaç arama yapıldı, hız ne durumda, geçen ay ne yaptık. Kırk sayfalık dosya göndermiyoruz; kimse okumuyor ve okunmayan rapor iş yapmıyor.</p>
-        <p>Bakım paketi zorunlu değil. Almadığınızda site kapanmaz; güncellemeler ve yedek sizin sorumluluğunuza geçer. Güncellemeler geciktikçe eski bir eklenti açığından girilme ihtimali artıyor — rakam vermiyoruz, tahmin de yürütmüyoruz; kararı bilerek verin diye yazıyoruz.</p>
-        <p>Yanıt sürelerini teklifte yazılı veriyoruz. “Ne zaman arasanız buradayız” cümlesi ölçülebilir bir taahhüt değil.</p>
-        
+      </div>
+
+      <div class="etk rv d1">
+        <div class="etk-s"><span class="no">01</span><span><b>İlk otuz gün</b>
+          <span>Çıkan hataları ücretsiz düzeltiyoruz. Kabul ettiğiniz kapsamda olup yanlış çalışan
+          her şey düzeltmedir. Yeni sayfa veya yeni özellik düzeltme değil; ayrı konuşur, ayrı yazarız.</span></span></div>
+        <div class="etk-s"><span class="no">02</span><span><b>Eğitim</b>
+          <span>Paneli kullanacak kişilerle canlı oturum yapıp kaydını size bırakıyoruz. O kişi
+          ayrılırsa kayıt duruyor; sıfırdan anlatma turu gerekmiyor.</span></span></div>
+        <div class="etk-s"><span class="no">03</span><span><b>Yedek</b>
+          <span>Hiç geri yüklenmemiş yedek, yedek değildir. Bakımda yedeği belirli aralıklarla
+          gerçekten geri yükleyip açılıyor mu diye bakıyoruz.</span></span></div>
+        <div class="etk-s"><span class="no">04</span><span><b>Aylık rapor</b>
+          <span>Tek sayfa: kaç kişi geldi, kaç form dolduruldu, kaç arama yapıldı, hız ne durumda,
+          geçen ay ne yaptık. Kırk sayfalık dosya göndermiyoruz.</span></span></div>
+      </div>
+
+      <div class="yazi rv">
+        <p><strong>Bakım paketi zorunlu değil.</strong> Almadığınızda site kapanmaz; güncellemeler ve yedek sizin sorumluluğunuza geçer. Yanıt sürelerini teklifte yazılı veriyoruz — “ne zaman arasanız buradayız” ölçülebilir bir taahhüt değil.</p>
+
         <h2 id="ters-giderse">İşler ters giderse</h2>
         <p>Teklif görüşmelerinde en sık duyduğumuz soru fiyatla ilgili değil: ya bir şey ters giderse ne oluyor? Beş senaryonun karşılığı aşağıda; aynısı sözleşmede de yazılı.</p>
-        <h3>Proje gecikirse</h3>
-        <p>Gecikmenin kaynağı haftalık durum notunda görünüyor: bizden mi, bekleyen içerikten mi. Kimin hangi kalemi hangi tarihte teslim edeceği ilk hafta yazıya döküldüğü için bu tartışma hafıza üzerinden yürümüyor. Gecikme bizden kaynaklanıyorsa telafisi bizim işimiz ve nasıl telafi edileceği sözleşmede yazıyor. Sizden kaynaklanıyorsa takvim kayar — bunu proje sonunda sürpriz olarak değil, o hafta söylüyoruz.</p>
-        <h3>Site saldırıya uğrarsa</h3>
-        <p>Bakım kapsamındaysanız temiz yedekten dönüş ve açığın kapatılması dahil. Değilseniz de kapıyı kapatmıyoruz, iş olarak fiyatlandırıyoruz. Şunu bilmek işe yarıyor: bu olayların büyük kısmı gizemli bir açık değil, güncellenmemiş bir eklenti.</p>
-        <h3>Sunucu çökerse</h3>
-        <p>Barındırma hesabı sizin adınıza olduğu için destek talebini siz de açabilirsiniz, biz de (hesap sahipliği için “On üçüncü ay” bölümüne bakın). Kimsenin kimseyi beklemesi gerekmiyor; ajansın uykuda olduğu saatte siteniz kapalı kalmaz.</p>
-        <h3>Ayrılırsak</h3>
-        <p>Aylık çıkış hakkınız var, ay sonunda durdurabilirsiniz. Devir paketinde şunlar oluyor: kaynak dosyalar, bizde duran yönetim paneli erişimleri, tasarım dosyaları ve teknik dokümantasyon. Hepsi tek klasörde teslim edilir. Devralan ekiple geçiş görüşmesi yapıyoruz; işin nasıl kurulduğunu anlatmak da teslimin parçası.</p>
-        <h3>Biz kapanırsak</h3>
-        <p>Sitenizin bize bağlı çalışan hiçbir parçası yok. Bizim sunucumuzda duran bir lisans denetimi ya da ajans paneli bulunmuyor; site ilk günden bizden bağımsız ayakta kalacak şekilde kuruluyor (hesap sahipliği için “On üçüncü ay” bölümüne bakın).</p>
+      </div>
+
+      <div class="snr rv d1">
+        <article class="snr-k">
+          <h3>Proje gecikirse</h3>
+          <p>Kaynağı haftalık durum notunda görünüyor: bizden mi, bekleyen içerikten mi. Kimin neyi
+            hangi tarihte teslim edeceği ilk hafta yazıya döküldüğü için tartışma hafıza üzerinden
+            yürümüyor. Bizden kaynaklanıyorsa telafisi bizim işimiz.</p>
+        </article>
+        <article class="snr-k">
+          <h3>Site saldırıya uğrarsa</h3>
+          <p>Bakım kapsamındaysanız temiz yedekten dönüş ve açığın kapatılması dahil. Değilseniz de
+            kapıyı kapatmıyoruz, iş olarak fiyatlandırıyoruz. Bu olayların büyük kısmı gizemli bir
+            açık değil, güncellenmemiş bir eklenti.</p>
+        </article>
+        <article class="snr-k">
+          <h3>Sunucu çökerse</h3>
+          <p>Barındırma hesabı sizin adınıza olduğu için destek talebini siz de açabilirsiniz, biz de.
+            Kimsenin kimseyi beklemesi gerekmiyor; ajansın uykuda olduğu saatte siteniz kapalı kalmaz.</p>
+        </article>
+        <article class="snr-k">
+          <h3>Ayrılırsak</h3>
+          <p>Aylık çıkış hakkınız var. Devir paketi: kaynak dosyalar, bizde duran panel erişimleri,
+            tasarım dosyaları ve teknik dokümantasyon — tek klasörde. Devralan ekiple geçiş
+            görüşmesi de teslimin parçası.</p>
+        </article>
+        <article class="snr-k">
+          <h3>Biz kapanırsak</h3>
+          <p>Sitenizin bize bağlı çalışan hiçbir parçası yok. Sunucumuzda duran bir lisans denetimi
+            ya da ajans paneli bulunmuyor; site ilk günden bizden bağımsız ayakta kalacak şekilde
+            kuruluyor.</p>
+        </article>
+        <article class="snr-k" style="border-style:dashed;background:transparent">
+          <h3>Hesaplar kimin adına?</h3>
+          <p>Alan adı, barındırma ve ölçüm hesapları sizin adınıza açılır — bu yüzden yukarıdaki
+            senaryoların hiçbirinde bize bağımlı kalmıyorsunuz.
+            <a href="#on-ucuncu-ay">Ayrıntısı “On üçüncü ay” bölümünde.</a></p>
+        </article>
+      </div>
+
+      <div class="yazi" hidden>
       </div>
     </div>
   </section>
