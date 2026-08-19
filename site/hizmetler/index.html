@@ -49,8 +49,21 @@
 .orb-sahne{position:relative;aspect-ratio:1;max-width:520px;width:100%;justify-self:center}
 .orb-sahne svg{width:100%;height:100%;overflow:visible}
 .orb-halka{fill:none;stroke:var(--hair);stroke-width:1}
-.orb-bag{stroke:var(--hair);stroke-width:1.4;fill:none;opacity:.35;transition:.4s var(--ease)}
-.orb-bag.aktif{opacity:1;stroke:var(--acc);stroke-width:2.2}
+/* zemin bağları: sadece sistemin şeklini gösterir, yön taşımaz */
+.orb-bag{stroke:var(--hair);stroke-width:1.2;fill:none;opacity:.28}
+/* yönlü ok: yalnızca seçili modülün BESLEDİĞİ modüllere çizilir */
+.orb-ok{fill:none;stroke-width:2.2;opacity:0;transition:opacity .35s var(--ease);
+  stroke-dasharray:var(--uz);stroke-dashoffset:var(--uz)}
+.orb-ok.aktif{opacity:1;animation:okCiz .7s var(--ease) forwards}
+@keyframes okCiz{to{stroke-dashoffset:0}}
+/* ipucu rozeti */
+.orb-ipucu{position:absolute;left:50%;top:6px;transform:translateX(-50%);z-index:2;
+  display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+  border:1px solid var(--hair);background:rgba(11,13,18,.7);backdrop-filter:blur(6px);
+  padding:7px 13px;border-radius:999px;transition:opacity .4s}
+.orb-ipucu svg{width:14px;height:14px}
+.orb-ipucu.gizli{opacity:0;pointer-events:none}
 .orb-cekirdek{fill:var(--bg-2);stroke:var(--hair-strong);stroke-width:1}
 .orb-cekirdek-yazi{font-family:var(--mono);font-size:10px;letter-spacing:.14em;fill:var(--fg);text-anchor:middle}
 .orb-nokta{cursor:pointer}
@@ -59,6 +72,9 @@
   text-anchor:middle;transition:.3s;pointer-events:none}
 .orb-nokta:hover circle,.orb-nokta.secili circle{stroke:var(--mrk);fill:rgba(255,255,255,.05);r:31}
 .orb-nokta.secili text,.orb-nokta:hover text{fill:var(--fg)}
+/* beslenen hedef modüller: seçili olanla aynı renkte ama daha sönük vurgulanır */
+.orb-nokta.hedef circle{stroke:var(--vurgu);fill:rgba(255,255,255,.03)}
+.orb-nokta.hedef text{fill:var(--fg-dim)}
 .orb-nokta .puls{fill:none;stroke:var(--mrk);stroke-width:1.5;opacity:0}
 .orb-nokta.secili .puls{animation:orbPuls 2.4s var(--ease) infinite}
 @keyframes orbPuls{0%{r:28;opacity:.85}100%{r:52;opacity:0}}
@@ -68,6 +84,9 @@
   border-radius:999px;padding:5px 12px;margin-bottom:16px}
 .orb-bilgi h3{font-size:clamp(20px,2.6vw,28px);margin-bottom:12px}
 .orb-bilgi > p{color:var(--fg-dim);font-size:15.4px;margin-bottom:18px;max-width:46ch}
+.orb-baslik-kucuk{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--mrk);margin-bottom:11px}
+.orb-baslik-kucuk span{color:var(--muted)}
 .orb-besler{display:grid;gap:9px;margin-bottom:22px}
 .orb-besler li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)}
 .orb-besler li::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--mrk);
@@ -228,13 +247,24 @@
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>İnfografik · Sistem haritası</span>
         <h2>Hangi modül hangisini besliyor?</h2>
-        <p>Bir modüle dokunun; o modülün diğerlerine ne gönderdiğini ve onlardan ne aldığını görün.
-          360 derece çalışmanın tek somut anlamı budur.</p>
+        <p>Bir modüle tıklayın; <b>oklar o modülün neyi beslediğini</b> gösterir.
+          360 derece çalışmanın tek somut anlamı budur: her modül diğerinin işini kolaylaştırır.</p>
       </div>
 
       <div class="orb rv d1">
         <div class="orb-sahne">
-          <svg viewBox="0 0 460 460" role="img" aria-label="Beş modülün birbirini beslediği yörünge diyagramı">
+          <span class="orb-ipucu" id="orbIpucu" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5V5.3a1.8 1.8 0 1 1 3.6 0v5.2"/><path d="M12.6 10.6V9a1.7 1.7 0 1 1 3.4 0v1.9"/><path d="M16 10.9V9.7a1.7 1.7 0 1 1 3.4 0v5.6a6 6 0 0 1-6 6h-1.8a5.5 5.5 0 0 1-4.2-2L4.6 16a1.7 1.7 0 0 1 2.6-2.2l1.8 1.7"/></svg>
+            Bir modüle tıklayın
+          </span>
+          <svg id="orbSvg" viewBox="0 0 460 460" role="img" aria-label="Beş modülün birbirini beslediği yörünge diyagramı">
+            <defs>
+              <marker id="ok-cy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#00E5FF"/></marker>
+              <marker id="ok-vi" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#7A22FF"/></marker>
+              <marker id="ok-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FFB020"/></marker>
+              <marker id="ok-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#FF2D9B"/></marker>
+              <marker id="ok-lime" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#A6FF00"/></marker>
+            </defs>
             <circle class="orb-halka" cx="230" cy="230" r="150"></circle>
             <circle class="orb-halka" cx="230" cy="230" r="196" style="opacity:.5"></circle>
             <g id="baglar"></g>
@@ -475,25 +505,26 @@ document.getElementById('yil').textContent = new Date().getFullYear();
 
 /* ===== İnfografik 1: yörünge sistemi ===== */
 (function orbit(){
+  /* besler: [hedefIndeks, 'ne gönderiyor'] — diyagramdaki oklarla BİREBİR aynı liste */
   var MODULLER = [
-    { ad:'WEB',        tam:'Web Tasarım & Yazılım', renk:'var(--cy)',
+    { ad:'WEB',       tam:'Web Tasarım & Yazılım', renk:'var(--cy)',    ok:'ok-cy', ham:'#00E5FF',
       ozet:'Her şeyin üzerinde çalıştığı zemin. Site hızlı ve ölçülebilir değilse diğer dört modül boşa çalışır.',
-      besler:[['Pazarlama','reklamın ineceği hızlı açılış sayfaları'],['SEO','temiz HTML, schema ve site mimarisi'],['Mobil','ortak API ve tasarım sistemi']] },
-    { ad:'MOBİL',      tam:'Mobil Uygulama', renk:'var(--vi)',
+      besler:[[2,'reklamın ineceği hızlı açılış sayfaları'],[4,'temiz HTML, schema ve site mimarisi'],[1,'ortak API ve tasarım sistemi']] },
+    { ad:'MOBİL',     tam:'Mobil Uygulama', renk:'var(--vi)',           ok:'ok-vi', ham:'#7A22FF',
       ozet:'Sadık müşteriyi elde tutan kanal. Web ile aynı tasarım sistemini ve aynı ölçüm şemasını kullanır.',
-      besler:[['Web','ortak bileşen kütüphanesi'],['Pazarlama','uygulama içi olay verisi ve kitleler']] },
-    { ad:'PAZARLAMA',  tam:'Meta & Google Ads', renk:'var(--amber)',
+      besler:[[0,'ortak bileşen kütüphanesi'],[2,'uygulama içi olay verisi ve kitleler']] },
+    { ad:'PAZARLAMA', tam:'Meta & Google Ads', renk:'var(--amber)',     ok:'ok-amber', ham:'#FFB020',
       ozet:'Trafiği getiren motor. Ama nereye indireceğini web, neyi göstereceğini video söyler.',
-      besler:[['Video','hangi kreatifin yorulduğunun verisi'],['SEO','hangi aramanın dönüştüğünün verisi'],['Web','dönüşüm testleri için trafik']] },
-    { ad:'VİDEO',      tam:'Video Prodüksiyon', renk:'var(--pink)',
+      besler:[[3,'hangi kreatifin yorulduğunun verisi'],[4,'hangi aramanın dönüştüğünün verisi'],[0,'dönüşüm testleri için trafik']] },
+    { ad:'VİDEO',     tam:'Video Prodüksiyon', renk:'var(--pink)',      ok:'ok-pink', ham:'#FF2D9B',
       ozet:'Reklamın ve sosyal kanalların yakıtı. Tek çekimden reklam, ürün ve kanal içeriği birlikte çıkar.',
-      besler:[['Pazarlama','haftalık kreatif rotasyonu'],['Web','ürün ve vaka videoları'],['SEO','video araması ve sayfada kalma']] },
-    { ad:'SEO',        tam:'SEO Hizmetleri', renk:'var(--lime)',
+      besler:[[2,'haftalık kreatif rotasyonu'],[0,'ürün ve vaka videoları'],[4,'video araması ve sayfada kalma']] },
+    { ad:'SEO',       tam:'SEO Hizmetleri', renk:'var(--lime)',         ok:'ok-lime', ham:'#A6FF00',
       ozet:'Zamanla ucuzlayan tek kanal. Reklamı kapattığınızda ayakta kalan trafik burada birikir.',
-      besler:[['Web','içerik mimarisi ve iç link planı'],['Pazarlama','reklam harcamasını düşüren organik kapsama']] }
+      besler:[[0,'içerik mimarisi ve iç link planı'],[2,'reklam harcamasını düşüren organik kapsama']] }
   ];
 
-  var svg = document.querySelector('.orb-sahne svg');
+  var svg = document.getElementById('orbSvg');   // '.orb-sahne svg' ipucu ikonuna da esleşiyordu
   if (!svg) return;
   var gNok = svg.querySelector('#noktalar'), gBag = svg.querySelector('#baglar');
   var bilgi = document.getElementById('orbBilgi');
@@ -505,21 +536,43 @@ document.getElementById('yil').textContent = new Date().getFullYear();
     return { x: CX + Math.cos(a)*R, y: CY + Math.sin(a)*R };
   });
 
-  // bağlantı yayları (her modül çiftini eğri ile bağla)
-  var baglar = [];
+  // eğri yolu üret: uçları düğüm yarıçapı kadar kısalt ki ok başı düğümün altında kalmasın
+  function yol(a, b, basBosluk, sonBosluk){
+    var ax=konum[a].x, ay=konum[a].y, bx=konum[b].x, by=konum[b].y;
+    var dx=bx-ax, dy=by-ay, uz=Math.sqrt(dx*dx+dy*dy) || 1;
+    var x1=ax+dx/uz*basBosluk, y1=ay+dy/uz*basBosluk;
+    var x2=bx-dx/uz*sonBosluk, y2=by-dy/uz*sonBosluk;
+    var mx=(x1+x2)/2, my=(y1+y2)/2, k=0.4;                 // merkeze doğru hafif kavis
+    var qx=CX+(mx-CX)*k, qy=CY+(my-CY)*k;
+    return 'M'+x1.toFixed(1)+' '+y1.toFixed(1)+' Q'+qx.toFixed(1)+' '+qy.toFixed(1)+' '+x2.toFixed(1)+' '+y2.toFixed(1);
+  }
+
+  // 1) zemin bağları — sistemin şeklini gösterir, yön taşımaz
   for (var i=0;i<MODULLER.length;i++){
     for (var j=i+1;j<MODULLER.length;j++){
       var p = document.createElementNS(NS,'path');
-      var k = 0.42;
-      var mx = (konum[i].x+konum[j].x)/2, my = (konum[i].y+konum[j].y)/2;
-      var qx = CX + (mx-CX)*k, qy = CY + (my-CY)*k;
-      p.setAttribute('d','M'+konum[i].x.toFixed(1)+' '+konum[i].y.toFixed(1)+
-                      ' Q'+qx.toFixed(1)+' '+qy.toFixed(1)+' '+konum[j].x.toFixed(1)+' '+konum[j].y.toFixed(1));
+      p.setAttribute('d', yol(i,j,30,30));
       p.setAttribute('class','orb-bag');
       gBag.appendChild(p);
-      baglar.push({ el:p, a:i, b:j });
     }
   }
+
+  // 2) yönlü oklar — her modülün BESLEDİĞİ hedefler için, yandaki listeyle birebir
+  var oklar = [];
+  MODULLER.forEach(function(m,i){
+    m.besler.forEach(function(b){
+      var p = document.createElementNS(NS,'path');
+      p.setAttribute('d', yol(i, b[0], 32, 40));
+      p.setAttribute('class','orb-ok');
+      p.setAttribute('stroke', m.ham);
+      p.setAttribute('marker-end','url(#'+m.ok+')');
+      gBag.appendChild(p);
+      var uzunluk = 0;
+      try { uzunluk = p.getTotalLength(); } catch(e) { uzunluk = 260; }
+      p.style.setProperty('--uz', (uzunluk||260).toFixed(0));
+      oklar.push({ el:p, kaynak:i, hedef:b[0] });
+    });
+  });
 
   MODULLER.forEach(function(m,i){
     var g = document.createElementNS(NS,'g');
@@ -535,30 +588,51 @@ document.getElementById('yil').textContent = new Date().getFullYear();
     var t = document.createElementNS(NS,'text');
     t.setAttribute('x',konum[i].x); t.setAttribute('y',konum[i].y+3.5); t.textContent = m.ad;
     g.appendChild(puls); g.appendChild(c); g.appendChild(t);
-    g.addEventListener('mouseenter', function(){ sec(i); });
-    g.addEventListener('click', function(){ sec(i); });
-    g.addEventListener('focus', function(){ sec(i); });
+    g.addEventListener('mouseenter', function(){ sec(i, true); });
+    g.addEventListener('click', function(){ sec(i, true); });
+    g.addEventListener('focus', function(){ sec(i, true); });
     g.addEventListener('keydown', function(e){
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); sec(i); }
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); sec(i, true); }
     });
     gNok.appendChild(g);
   });
 
-  function sec(i){
+  var ipucu = document.getElementById('orbIpucu');
+
+  function sec(i, kullaniciSecti){
     secili = i;
-    [].forEach.call(gNok.children, function(g,k){ g.classList.toggle('secili', k===i); });
-    baglar.forEach(function(b){ b.el.classList.toggle('aktif', b.a===i || b.b===i); });
     var m = MODULLER[i];
+    var hedefler = m.besler.map(function(b){ return b[0]; });
+
+    [].forEach.call(gNok.children, function(g,k){
+      g.classList.toggle('secili', k===i);
+      var hedefMi = hedefler.indexOf(k) > -1;
+      g.classList.toggle('hedef', hedefMi);
+      if (hedefMi) g.style.setProperty('--vurgu', m.ham); else g.style.removeProperty('--vurgu');
+    });
+
+    // yalnızca bu modülün okları yanar → diyagram ile yandaki liste birebir eşleşir
+    oklar.forEach(function(o){
+      var acik = o.kaynak === i;
+      if (acik) { o.el.classList.remove('aktif'); void o.el.offsetWidth; o.el.classList.add('aktif'); }
+      else o.el.classList.remove('aktif');
+    });
+
     bilgi.setAttribute('style','--mrk:'+m.renk);
     bilgi.innerHTML =
       '<span class="etk">Modül 0'+(i+1)+'</span>' +
       '<h3>'+m.tam+'</h3>' +
       '<p>'+m.ozet+'</p>' +
+      '<p class="orb-baslik-kucuk">Bu modül şunları besliyor <span>('+m.besler.length+' ok)</span></p>' +
       '<ul class="orb-besler">' +
-        m.besler.map(function(x){ return '<li><span><b>'+x[0]+'</b> modülüne: '+x[1]+'</span></li>'; }).join('') +
+        m.besler.map(function(x){
+          return '<li><span><b>'+MODULLER[x[0]].tam+'</b> → '+x[1]+'</span></li>';
+        }).join('') +
       '</ul>';
+
+    if (kullaniciSecti && ipucu) ipucu.classList.add('gizli');
   }
-  sec(0);
+  sec(0, false);
 })();
 
 /* ===== İnfografik 2: kayıp haritası — görününce doldur ===== */
