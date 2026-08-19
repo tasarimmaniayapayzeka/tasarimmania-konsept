@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İletişim — Telefon, WhatsApp ve ofis adresi | TasarımMania</title>
+<meta name="description" content="TasarımMania iletişim: 0554 791 65 45, WhatsApp, Zeytinlik Mah. Pancar Sk. No:19-11 Bakırköy / İstanbul. Hafta içi 09:00–19:00, Cumartesi 10:00–16:00. Marmaray ve metro yürüme mesafesinde.">
+<link rel="canonical" href="https://www.tasarimmania.com/iletisim/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="İletişim — Telefon, WhatsApp ve ofis adresi | TasarımMania">
+<meta property="og:description" content="Yazın, arayın ya da uğrayın. Üçünde de aynı ekip karşınızda. İstanbul / Bakırköy.">
+<meta property="og:url" content="https://www.tasarimmania.com/iletisim/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<link rel="icon" type="image/png" href="../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tm.css">
+<style>
+/* --- üst menü --- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+
+/* --- hero --- */
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(30px,4.5vw,58px)) 0 clamp(28px,3.5vw,44px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 420px at 16% -10%,rgba(var(--acc-rgb),.14),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.phd h1{font-size:clamp(30px,5.2vw,56px);letter-spacing:-.05em;line-height:1.05;margin-bottom:18px}
+.phd .lead{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18.5px);max-width:58ch}
+
+/* --- canlı durum rozeti --- */
+.durum{display:inline-flex;align-items:center;gap:11px;margin-top:26px;padding:11px 18px;
+  border-radius:999px;border:1px solid var(--hair-strong);background:var(--panel);
+  font-size:14px;color:var(--fg-dim)}
+.durum b{color:var(--fg);font-weight:600}
+.durum .nokta{width:9px;height:9px;border-radius:50%;flex:none;background:var(--muted)}
+.durum[data-acik="1"] .nokta{background:#22C55E;box-shadow:0 0 0 4px rgba(34,197,94,.18)}
+.durum[data-acik="0"] .nokta{background:var(--amber);box-shadow:0 0 0 4px rgba(255,176,32,.16)}
+.durum .mono{font-family:var(--mono);font-size:12.4px;color:var(--muted)}
+
+/* --- kanal kartları --- */
+.knl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.knl-k{position:relative;display:flex;flex-direction:column;border:1px solid var(--hair);
+  border-radius:var(--r-lg);padding:26px 24px;background:var(--panel);overflow:hidden;
+  transition:.38s var(--ease)}
+.knl-k::after{content:"";position:absolute;right:-70px;top:-70px;width:190px;height:190px;border-radius:50%;
+  background:radial-gradient(circle,rgba(var(--k-rgb),.16),transparent 70%);opacity:0;transition:.4s}
+.knl-k:hover{border-color:var(--k);transform:translateY(-4px)}
+.knl-k:hover::after{opacity:1}
+.knl-k > *{position:relative}
+.knl-rz{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;margin-bottom:16px;
+  background:rgba(var(--k-rgb),.10);border:1px solid rgba(var(--k-rgb),.30)}
+.knl-rz svg{width:21px;height:21px;color:var(--k)}
+.knl-k h3{font-size:19px;letter-spacing:-.03em;margin-bottom:8px}
+.knl-ne{font-family:var(--mono);font-size:10.6px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--k);margin-bottom:12px}
+.knl-k p{font-size:14.2px;color:var(--muted);line-height:1.65;margin-bottom:18px}
+.knl-k .btn{margin-top:auto;align-self:flex-start}
+.knl-sure{display:flex;align-items:center;gap:8px;margin-top:14px;font-family:var(--mono);
+  font-size:11.2px;color:var(--muted);letter-spacing:.04em}
+.knl-sure::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--k);flex:none}
+
+/* --- harita + adres --- */
+.hrt{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(20px,2.6vw,34px);align-items:stretch}
+.hrt-cerceve{position:relative;border:1px solid var(--hair);border-radius:var(--r-lg);overflow:hidden;
+  min-height:400px;background:var(--bg-2)}
+.hrt-cerceve iframe{position:absolute;inset:0;width:100%;height:100%;border:0;
+  filter:grayscale(.35) contrast(1.05) brightness(.92)}
+.hrt-yan{display:grid;gap:14px;align-content:start}
+.adr-k{border:1px solid var(--hair);border-radius:var(--r-md);padding:20px;background:var(--panel)}
+.adr-k h3{font-family:var(--mono);font-size:10.4px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;margin-bottom:11px}
+.adr-k p{font-size:15px;color:var(--fg);line-height:1.6}
+.adr-k p span{color:var(--muted);font-size:13.6px}
+.adr-k .btn{margin-top:15px}
+.ulasim{display:grid;gap:11px;margin-top:4px}
+.ulasim li{display:flex;align-items:flex-start;gap:11px;font-size:13.8px;color:var(--fg-dim);line-height:1.5}
+.ulasim li b{color:var(--fg);font-weight:600}
+.ulasim li span{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);
+  letter-spacing:.05em;margin-top:2px}
+.ulasim .ik{width:26px;height:26px;border-radius:8px;flex:none;display:grid;place-items:center;
+  background:rgba(255,255,255,.05);border:1px solid var(--hair)}
+.ulasim .ik svg{width:14px;height:14px;color:var(--acc)}
+.ulasim-not{font-family:var(--mono);font-size:10.6px;color:var(--muted);letter-spacing:.04em;
+  line-height:1.5;margin-top:14px;padding-top:13px;border-top:1px solid var(--hair)}
+
+/* --- WhatsApp mesaj kurucu --- */
+.msj{border:1px solid var(--hair);border-radius:var(--r-lg);padding:clamp(24px,3.2vw,34px);
+  background:var(--panel);max-width:760px}
+.msj h3{font-size:21px;letter-spacing:-.03em;margin-bottom:8px}
+.msj > p{font-size:14.4px;color:var(--muted);line-height:1.65;margin-bottom:22px}
+.msj-satir{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.msj-alan{display:grid;gap:7px}
+.msj-alan label{font-family:var(--mono);font-size:10.6px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted)}
+.msj-alan input,.msj-alan textarea,.msj-alan select{width:100%;background:var(--bg-2);color:var(--fg);
+  border:1px solid var(--hair);border-radius:var(--r-sm);padding:12px 14px;font:inherit;font-size:14.6px;
+  transition:border-color .25s}
+.msj-alan textarea{resize:vertical;min-height:104px;line-height:1.6}
+.msj-alan input:focus,.msj-alan textarea:focus,.msj-alan select:focus{outline:none;border-color:var(--acc)}
+.msj-alan select{appearance:none;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+  background-position:calc(100% - 19px) 50%,calc(100% - 13px) 50%;background-size:6px 6px,6px 6px;
+  background-repeat:no-repeat;padding-right:38px}
+.msj-onizleme{margin:18px 0;padding:15px 17px;border-radius:var(--r-sm);background:var(--bg-3);
+  border:1px dashed var(--hair-strong);font-family:var(--mono);font-size:12.4px;color:var(--fg-dim);
+  line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.msj-onizleme em{color:var(--muted);font-style:normal}
+.msj-alt{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.msj-not{font-size:12.4px;color:var(--muted);line-height:1.55;margin-top:16px}
+
+/* --- SSS --- */
+.sss{display:grid;gap:11px;max-width:820px}
+.sss details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);
+  transition:border-color .3s}
+.sss details[open]{border-color:var(--hair-strong)}
+.sss summary{cursor:pointer;list-style:none;padding:18px 22px;font-size:15.6px;font-weight:600;
+  display:flex;align-items:center;gap:14px}
+.sss summary::-webkit-details-marker{display:none}
+.sss summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.sss details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.sss summary:hover{color:var(--acc)}
+.sss .cvp{padding:0 22px 20px;font-size:14.4px;color:var(--muted);line-height:1.7}
+
+/* --- CTA --- */
+.band{position:relative;border:1px solid rgba(var(--acc-rgb),.28);border-radius:26px;
+  padding:clamp(38px,5vw,62px) 32px;text-align:center;overflow:hidden;
+  background:linear-gradient(140deg,rgba(var(--acc-rgb),.09),rgba(122,34,255,.07))}
+.band::before{content:"";position:absolute;inset:0;z-index:1;
+  background:radial-gradient(600px 280px at 50% -30%,rgba(var(--acc-rgb),.2),transparent 70%)}
+.band > *{position:relative;z-index:2}
+.band h2{font-size:clamp(24px,3.6vw,40px);margin-bottom:12px}
+.band p{color:var(--fg-dim);margin-bottom:28px;font-size:16px}
+.band-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* --- footer --- */
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h5{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+
+.wa{position:fixed;right:22px;bottom:22px;z-index:90;width:54px;height:54px;border-radius:50%;
+  background:#25D366;display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+
+@media(max-width:960px){
+  .knl{grid-template-columns:1fr}
+  .hrt{grid-template-columns:1fr}
+  .hrt-cerceve{min-height:320px}
+  .ftr-ust{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .nav-links,.nav-tel{display:none}
+  .burger{display:block}
+  .msj-satir{grid-template-columns:1fr}
+  .ftr-ust{grid-template-columns:1fr}
+  .durum{width:100%;flex-wrap:wrap;row-gap:6px}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "İletişim — TasarımMania",
+  "url": "https://www.tasarimmania.com/iletisim/",
+  "mainEntity": {
+    "@type": "ProfessionalService",
+    "name": "TasarımMania",
+    "url": "https://www.tasarimmania.com/",
+    "telephone": "+905547916545",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+      "addressLocality": "Bakırköy",
+      "addressRegion": "İstanbul",
+      "addressCountry": "TR"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday", "opens": "10:00", "closes": "16:00" }
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.tasarimmania.com/" },
+    { "@type": "ListItem", "position": 2, "name": "İletişim", "item": "https://www.tasarimmania.com/iletisim/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Görüşme için ofise gelmek zorunda mıyım?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Hayır. İlk görüşmeyi yüz yüze yapmayı tercih ederiz ama zorunlu değil; ekran paylaşımıyla da aynı işi yaparız. Yurt dışındaki ve şehir dışındaki markalarla tamamen uzaktan çalışıyoruz." }
+    },
+    {
+      "@type": "Question",
+      "name": "İlk görüşme ücretli mi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Değil. 30 dakikalık görüşmede ekranı paylaşır, sitenizin ve reklam hesabınızın para kaybettiği noktaları canlı işaretleriz. Çalışmasak da o liste sizde kalır." }
+    },
+    {
+      "@type": "Question",
+      "name": "Ne kadar sürede dönüş yapıyorsunuz?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Çalışma saatleri içinde ortalama iki saat. Hafta sonu ve mesai dışında gelen mesajlara bir sonraki iş gününün sabahında dönüyoruz." }
+    },
+    {
+      "@type": "Question",
+      "name": "Sadece tek bir hizmet alabilir miyim?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Evet. Beş modülün beşini birden almak zorunda değilsiniz; tek modülle başlayıp sonra genişletebilirsiniz. Yönetim hizmetlerinde 12 ay kilit yoktur, ay sonunda bırakabilirsiniz." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#ana">İçeriğe geç</a>
+
+<nav class="nav" data-nav aria-label="Ana menü">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../" aria-label="TasarımMania ana sayfa">
+      <img src="../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async">
+    </a>
+    <div class="nav-links">
+      <a href="../hizmetler/">Hizmetler</a>
+      <a href="../#isler">İşler</a>
+      <a href="../hakkimizda/">Ajans</a>
+      <a href="../#surec">Süreç</a>
+      <a href="../teklif/">Teklif Al</a>
+      <a href="./" aria-current="page">İletişim</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../hizmetler/">Hizmetler</a><a href="../#isler">İşler</a><a href="../hakkimizda/">Ajans</a><a href="../#surec">Süreç</a><a href="../teklif/">Teklif Al</a><a href="./">İletişim</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Konum">
+        <a href="../">Ana sayfa</a><span aria-hidden="true">/</span><span>İletişim</span>
+      </nav>
+      <span class="eyebrow"><i></i>İletişim</span>
+      <h1 data-kin>Yazın, arayın ya da uğrayın.<br>Üçünde de aynı ekip karşınızda.</h1>
+      <p class="lead">Santral yok, çağrı merkezi yok. Hangi kanaldan yazarsanız yazın
+        işi yapacak kişiye ulaşırsınız — ve ilk cümleden itibaren aynı kişiyle konuşursunuz.</p>
+
+      <!-- canlı durum: ziyaretçinin saat dilimi ne olursa olsun İstanbul saatine göre hesaplanır -->
+      <p class="durum" data-durum hidden>
+        <span class="nokta" aria-hidden="true"></span>
+        <span data-durum-yazi></span>
+        <span class="mono" data-durum-saat></span>
+      </p>
+    </div>
+  </header>
+
+  <!-- ===== KANALLAR ===== -->
+  <section class="sec" id="kanallar">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Kanal seçin</span>
+        <h2 data-kin>Hangi durumda hangisi</h2>
+        <p>Üçü de bize ulaşır; farkı ne kadar hazırlıkla geldiğinizde. Aceleniz varsa telefonla,
+          derdinizi yazmak istiyorsanız WhatsApp'la, teklif bekliyorsanız formla gelin.</p>
+      </div>
+
+      <div class="knl">
+        <article class="knl-k rv" style="--k:var(--cy);--k-rgb:0,229,255">
+          <span class="knl-rz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5c0 8 5 13 13 13l2-3.4-4-2-1.7 2c-2.6-1.3-4.6-3.3-5.9-5.9l2-1.7-2-4z"/></svg></span>
+          <span class="knl-ne">Acilse</span>
+          <h3>Telefon</h3>
+          <p>Anlatması uzun sürecek bir durum varsa ya da bugün cevap almanız gerekiyorsa
+            en kısa yol bu. Mesai içinde doğrudan ekipten biri açar.</p>
+          <a class="btn btn-p" href="tel:+905547916545">0554 791 65 45
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <span class="knl-sure">Mesai içinde anında</span>
+        </article>
+
+        <article class="knl-k rv d1" style="--k:#25D366;--k-rgb:37,211,102">
+          <span class="knl-rz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.8c0 4.6-3.9 8.3-8.7 8.3-1.5 0-2.9-.35-4.1-.98L3.5 20.5l1.45-4c-.72-1.25-1.15-2.7-1.15-4.7 0-4.6 3.9-8.3 8.7-8.3s8 3.7 8 8.3z"/></svg></span>
+          <span class="knl-ne">Yazmak isterseniz</span>
+          <h3>WhatsApp</h3>
+          <p>Site adresi, ekran görüntüsü, mevcut reklam hesabı — dosya göndermek en çok
+            burada kolay. Aşağıdaki alandan mesajınızı hazırlayıp tek tıkla açabilirsiniz.</p>
+          <a class="btn btn-p" href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp'tan yaz
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <span class="knl-sure">Mesai içinde ortalama 2 saat</span>
+        </article>
+
+        <article class="knl-k rv d2" style="--k:var(--vi);--k-rgb:122,34,255">
+          <span class="knl-rz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5h9l5 5V19a1 1 0 01-1 1H5a1 1 0 01-1-1V5.5a1 1 0 011-1z"/><path d="M13.6 4.7V10h5.2M8 13.5h8M8 16.5h5"/></svg></span>
+          <span class="knl-ne">Teklif bekliyorsanız</span>
+          <h3>Teklif formu</h3>
+          <p>Beş adımda kapsamı birlikte çıkarırız; sonunda hangi modüllerin gerektiğini,
+            tahmini süreyi ve bütçe aralığını ekranda görürsünüz. Zorunlu alan yalnızca ad ve telefon.</p>
+          <a class="btn btn-p" href="../teklif/">Kapsam çıkaralım
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <span class="knl-sure">Yaklaşık 2 dakika sürer</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HARİTA + ADRES ===== -->
+  <section class="sec" id="ofis" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Ofis</span>
+        <h2 data-kin>Bakırköy'de, sahile yürüme mesafesinde</h2>
+        <p>Uzaktan da çalışırız ama ilk görüşmeyi yüz yüze yapmayı tercih ederiz.
+          Gelmeden önce arayın; ekranı birlikte açabilmemiz için hazırlık yapalım.</p>
+      </div>
+
+      <div class="hrt rv d1">
+        <div class="hrt-cerceve">
+          <iframe
+            src="https://www.google.com/maps/embed?origin=mfe&amp;pb=!1m3!2m1!1zWmV5dGlubGlrIE1haC4gUGFuY2FyIFNrLiBObzoxOS0xMSBCYWvEsXJrw7Z5IMSwc3RhbmJ1bA!6i17!3m1!1str!5m1!1str"
+            title="TasarımMania ofisinin harita üzerindeki konumu"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+
+        <div class="hrt-yan">
+          <div class="adr-k">
+            <h3>Adres</h3>
+            <p>Zeytinlik Mah. Pancar Sk. No:19-11<br>
+              <span>Bakırköy / İstanbul</span></p>
+            <a class="btn btn-g btn-sm" href="https://www.google.com/maps/dir/?api=1&amp;destination=Zeytinlik%20Mah.%20Pancar%20Sk.%20No%3A19-11%20Bak%C4%B1rk%C3%B6y%20%C4%B0stanbul" target="_blank" rel="noopener">Yol tarifi al</a>
+          </div>
+
+          <div class="adr-k">
+            <h3>Toplu taşıma</h3>
+            <ul class="ulasim">
+              <li>
+                <span class="ik" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="13" rx="3"/><path d="M5 12h14M8.5 20l1.6-3.5M15.5 20l-1.6-3.5"/><circle cx="9" cy="13.6" r=".6" fill="currentColor"/><circle cx="15" cy="13.6" r=".6" fill="currentColor"/></svg></span>
+                <span><b>Bakırköy</b> — Marmaray <span>en yakın istasyon</span></span>
+              </li>
+              <li>
+                <span class="ik" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M7.5 15.5l3-7 3 4 3-4.5"/></svg></span>
+                <span><b>Özgürlük Meydanı</b> — Metro <span>İstanbul Metrosu</span></span>
+              </li>
+              <li>
+                <span class="ik" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M7.5 15.5l3-7 3 4 3-4.5"/></svg></span>
+                <span><b>Bakırköy Sahil</b> — Metro <span>İstanbul Metrosu</span></span>
+              </li>
+            </ul>
+            <p class="ulasim-not">Üçü de Zeytinlik Mahallesi'nden yürüme mesafesinde.
+              Kapıya kadar tarif için yol tarifi bağlantısını kullanın.</p>
+          </div>
+
+          <div class="adr-k">
+            <h3>Çalışma saatleri</h3>
+            <p>Hafta içi 09:00 – 19:00<br>
+              <span>Cumartesi 10:00 – 16:00 · Pazar kapalı</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MESAJ KURUCU ===== -->
+  <section class="sec" id="mesaj" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Hazır mesaj</span>
+        <h2 data-kin>Ne yazacağınızı düşünmeyin</h2>
+        <p>Alanları doldurun, mesajınızı sizin için yazalım. "Gönder" dediğinizde
+          form bir yere kaydedilmez — WhatsApp uygulamanız hazır metinle açılır,
+          göndermeden önce dilediğiniz gibi değiştirebilirsiniz.</p>
+      </div>
+
+      <div class="msj rv d1">
+        <h3>Mesajınızı hazırlayalım</h3>
+        <p>Hiçbir alan zorunlu değil; boş bıraktıklarınız mesaja eklenmez.</p>
+
+        <div class="msj-satir">
+          <div class="msj-alan">
+            <label for="m-ad">Adınız</label>
+            <input id="m-ad" type="text" autocomplete="name" placeholder="Örn. Ayşe Yılmaz" data-msj>
+          </div>
+          <div class="msj-alan">
+            <label for="m-marka">Marka / site adresi</label>
+            <input id="m-marka" type="text" placeholder="Örn. markaniz.com" data-msj>
+          </div>
+        </div>
+
+        <div class="msj-satir">
+          <div class="msj-alan">
+            <label for="m-konu">Konu</label>
+            <select id="m-konu" data-msj>
+              <option value="">Seçin (isteğe bağlı)</option>
+              <option>Web tasarım &amp; yazılım</option>
+              <option>Mobil uygulama</option>
+              <option>Meta &amp; Google Ads</option>
+              <option>Video prodüksiyon</option>
+              <option>SEO</option>
+              <option>Birden fazla modül</option>
+              <option>Henüz emin değilim</option>
+            </select>
+          </div>
+          <div class="msj-alan">
+            <label for="m-nezaman">Ne zaman başlamak istiyorsunuz?</label>
+            <select id="m-nezaman" data-msj>
+              <option value="">Seçin (isteğe bağlı)</option>
+              <option>En kısa sürede</option>
+              <option>1 ay içinde</option>
+              <option>2–3 ay içinde</option>
+              <option>Henüz araştırma aşamasındayım</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="msj-alan" style="margin-bottom:4px">
+          <label for="m-not">Eklemek istedikleriniz</label>
+          <textarea id="m-not" placeholder="Kısaca durumunuzu yazın — mevcut siteniz, bütçeniz, sizi rahatsız eden şey…" data-msj></textarea>
+        </div>
+
+        <div class="msj-onizleme" data-onizleme aria-live="polite"><em>Alanları doldurdukça mesajınız burada oluşacak.</em></div>
+
+        <div class="msj-alt">
+          <a class="btn btn-p" data-wa-git href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp'ta aç
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <button class="btn btn-g" type="button" data-kopyala>Metni kopyala</button>
+          <a class="btn btn-g" href="tel:+905547916545">Bunun yerine ara</a>
+        </div>
+
+        <p class="msj-not">Yazdıklarınız tarayıcınızdan çıkmaz; bağlantıya tıklayana kadar
+          hiçbir yere iletilmez. Detaylı bir teklif istiyorsanız
+          <a href="../teklif/" style="color:var(--acc)">beş adımlık teklif formu</a> daha uygun.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SSS ===== -->
+  <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Sık sorulanlar</span>
+        <h2 data-kin>Aramadan önce merak edilenler</h2>
+      </div>
+
+      <div class="sss rv d1">
+        <details>
+          <summary>Görüşme için ofise gelmek zorunda mıyım?</summary>
+          <p class="cvp">Hayır. İlk görüşmeyi yüz yüze yapmayı tercih ederiz ama zorunlu değil;
+            ekran paylaşımıyla da aynı işi yaparız. Yurt dışındaki ve şehir dışındaki markalarla
+            tamamen uzaktan çalışıyoruz.</p>
+        </details>
+        <details>
+          <summary>İlk görüşme ücretli mi?</summary>
+          <p class="cvp">Değil. 30 dakikalık görüşmede ekranı paylaşır, sitenizin ve reklam
+            hesabınızın para kaybettiği noktaları canlı işaretleriz. Çalışmasak da o liste sizde kalır.</p>
+        </details>
+        <details>
+          <summary>Ne kadar sürede dönüş yapıyorsunuz?</summary>
+          <p class="cvp">Çalışma saatleri içinde ortalama iki saat. Hafta sonu ve mesai dışında
+            gelen mesajlara bir sonraki iş gününün sabahında dönüyoruz.</p>
+        </details>
+        <details>
+          <summary>Sadece tek bir hizmet alabilir miyim?</summary>
+          <p class="cvp">Evet. Beş modülün beşini birden almak zorunda değilsiniz; tek modülle
+            başlayıp sonra genişletebilirsiniz. Yönetim hizmetlerinde 12 ay kilit yoktur,
+            ay sonunda bırakabilirsiniz.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="band rv">
+        <h2>Önce tanışalım, sonra karar verin</h2>
+        <p>30 dakikalık görüşmede ekranı paylaşır, sitenizin ve reklam hesabınızın
+          para kaybettiği noktaları canlı işaretleriz. Çalışmasak da o liste sizde kalır.</p>
+        <div class="band-cta">
+          <a class="btn btn-p" href="../teklif/">Kapsam çıkaralım
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="tel:+905547916545">0554 791 65 45</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>Web, mobil, reklam, video ve SEO’yu tek çatı altında birleştiren
+          İstanbul merkezli 360 derece dijital ajans.</p>
+      </div>
+      <div>
+        <h5>Modüller</h5>
+        <ul>
+          <li><a href="../hizmetler/">Tüm hizmetler</a></li>
+          <li><a href="../hizmetler/#moduller">Web &amp; Yazılım</a></li>
+          <li><a href="../hizmetler/#moduller">Dijital Pazarlama</a></li>
+          <li><a href="../hizmetler/#moduller">SEO Hizmetleri</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>İletişim</h5>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="./#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="./#ofis">Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</span>
+      <span class="mono">BEŞ MODÜL · TEK PANEL</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+
+/* ---------------------------------------------------------------------------
+   1) CANLI AÇIK/KAPALI ROZETİ
+   Ziyaretçi hangi saat diliminde olursa olsun İSTANBUL saatine göre hesaplanır.
+   Bunun için tarih formatlayıcıya timeZone veriyoruz; cihazın kendi saatine
+   güvenmiyoruz (yurt dışından bakan biri "kapalı"yı yanlış görürdü).
+--------------------------------------------------------------------------- */
+(function calismaSaati(){
+  var kutu = document.querySelector('[data-durum]');
+  if (!kutu) return;
+  var yaziEl = kutu.querySelector('[data-durum-yazi]');
+  var saatEl = kutu.querySelector('[data-durum-saat]');
+
+  /* 0=Pazar … 6=Cumartesi → [açılış, kapanış] dakika cinsinden; null = kapalı */
+  var TAKVIM = {
+    0: null,
+    1: [540, 1140], 2: [540, 1140], 3: [540, 1140], 4: [540, 1140], 5: [540, 1140],
+    6: [600, 960]
+  };
+  var GUN = ['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
+
+  function istanbulZamani(){
+    try {
+      var b = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Europe/Istanbul', weekday: 'short', hour: '2-digit',
+        minute: '2-digit', hour12: false
+      }).formatToParts(new Date());
+      var p = {};
+      b.forEach(function(x){ p[x.type] = x.value; });
+      var kisa = { Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6 };
+      var g = kisa[p.weekday];
+      if (g === undefined) return null;
+      return { gun: g, dk: parseInt(p.hour, 10) * 60 + parseInt(p.minute, 10) };
+    } catch (e) { return null; }
+  }
+
+  function ss(dk){
+    var s = Math.floor(dk / 60), d = dk % 60;
+    return (s < 10 ? '0' : '') + s + ':' + (d < 10 ? '0' : '') + d;
+  }
+
+  var z = istanbulZamani();
+  if (!z) return;                       /* Intl yoksa rozet hiç görünmesin */
+
+  var bugun = TAKVIM[z.gun], acik = !!bugun && z.dk >= bugun[0] && z.dk < bugun[1];
+
+  if (acik) {
+    yaziEl.innerHTML = '<b>Şu an açığız.</b> Arayabilirsiniz.';
+    saatEl.textContent = 'BUGÜN ' + ss(bugun[1]) + '’A KADAR';
+  } else {
+    /* bugün henüz açılmadıysa bugünü, açıldı-kapandıysa sonraki açık günü bul */
+    var hedefGun = z.gun, kacGun = 0;
+    if (!(bugun && z.dk < bugun[0])) {
+      do { hedefGun = (hedefGun + 1) % 7; kacGun++; }
+      while (!TAKVIM[hedefGun] && kacGun < 8);
+    }
+    var ac = TAKVIM[hedefGun];
+    yaziEl.innerHTML = '<b>Şu an kapalıyız.</b> Mesaj bırakın, dönüş yapalım.';
+    saatEl.textContent = (kacGun === 0 ? 'BUGÜN ' : (kacGun === 1 ? 'YARIN ' : GUN[hedefGun].toLocaleUpperCase('tr') + ' '))
+      + ss(ac[0]) + '’DA AÇILIYOR';
+  }
+  kutu.setAttribute('data-acik', acik ? '1' : '0');
+  kutu.hidden = false;
+})();
+
+/* ---------------------------------------------------------------------------
+   2) WHATSAPP MESAJ KURUCU
+   Arka uç yok. Alanlardan düz metin üretip wa.me bağlantısına gömüyoruz;
+   kullanıcı tıklayana kadar hiçbir veri tarayıcıdan çıkmıyor.
+--------------------------------------------------------------------------- */
+(function mesajKurucu(){
+  var alanlar = [].slice.call(document.querySelectorAll('[data-msj]'));
+  var onizleme = document.querySelector('[data-onizleme]');
+  var git = document.querySelector('[data-wa-git]');
+  var kopyalaBtn = document.querySelector('[data-kopyala]');
+  if (!alanlar.length || !onizleme || !git) return;
+
+  var TEL = '905547916545';
+
+  function deger(id){
+    var el = document.getElementById(id);
+    return el && el.value ? el.value.trim() : '';
+  }
+
+  function metinKur(){
+    var ad = deger('m-ad'), marka = deger('m-marka'),
+        konu = deger('m-konu'), ne = deger('m-nezaman'), not = deger('m-not');
+
+    var satirlar = [];
+    satirlar.push(ad ? 'Merhaba, ben ' + ad + '.' : 'Merhaba,');
+    if (marka) satirlar.push('Markam / sitem: ' + marka);
+    if (konu)  satirlar.push('İlgilendiğim konu: ' + konu);
+    if (ne)    satirlar.push('Başlama zamanı: ' + ne);
+    if (not)   satirlar.push('', not);
+    if (!marka && !konu && !ne && !not) satirlar.push('Bir projem için konuşmak istiyorum.');
+    return satirlar.join('\n');
+  }
+
+  function yenile(){
+    var m = metinKur();
+    onizleme.textContent = m;
+    git.href = 'https://wa.me/' + TEL + '?text=' + encodeURIComponent(m);
+  }
+
+  alanlar.forEach(function(el){
+    el.addEventListener('input', yenile);
+    el.addEventListener('change', yenile);
+  });
+  yenile();
+
+  if (kopyalaBtn) {
+    kopyalaBtn.addEventListener('click', function(){
+      var m = metinKur(), eski = kopyalaBtn.textContent;
+      function bitir(basarili){
+        kopyalaBtn.textContent = basarili ? 'Kopyalandı' : 'Kopyalanamadı';
+        setTimeout(function(){ kopyalaBtn.textContent = eski; }, 1800);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(m).then(function(){ bitir(true); }, function(){ bitir(false); });
+      } else {
+        /* eski tarayıcı yedeği */
+        var ta = document.createElement('textarea');
+        ta.value = m; ta.setAttribute('readonly',''); ta.style.position = 'fixed'; ta.style.left = '-9999px';
+        document.body.appendChild(ta); ta.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+        document.body.removeChild(ta);
+        bitir(ok);
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
