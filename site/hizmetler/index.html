@@ -355,8 +355,22 @@
     </div>
   </section>
 
+  <!-- iki bölüm arasındaki boşluğa ritim: ters yöne akan platform bandı -->
+  <div class="serit serit--ters" aria-hidden="true">
+    <div class="serit-ray" id="seritRay2">
+      <span><b>Google Ads</b></span><span><b>Meta Business Suite</b></span>
+      <span><b>Google Analytics 4</b></span><span><b>Search Console</b></span>
+      <span><b>Google Tag Manager</b></span><span><b>WordPress</b></span>
+      <span><b>WooCommerce</b></span><span><b>React Native</b></span>
+      <span><b>Shopify</b></span><span><b>Google İşletme Profili</b></span>
+      <span><b>Semrush</b></span><span><b>Ahrefs</b></span>
+      <span><b>Adobe Creative Cloud</b></span><span><b>OpenAI</b></span>
+      <span><b>Meta Pixel &amp; CAPI</b></span><span><b>Core Web Vitals</b></span>
+    </div>
+  </div>
+
   <!-- ===== SAHNE: sorumluluk topu ===== -->
-  <section class="sec" id="sorumluluk" style="padding-top:0">
+  <section class="sec" id="sorumluluk" style="padding-top:clamp(40px,5vw,68px)">
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>Tanıdık geldi mi?</span>
@@ -576,10 +590,12 @@
 "use strict";
 document.getElementById('yil').textContent = new Date().getFullYear();
 
-/* Kayan şerit: translateX(-50%) ile dikişsiz dönmesi için içerik iki kez yazılır */
+/* Kayan şeritler: translateX(-50%) ile dikişsiz dönmesi için içerik iki kez yazılır */
 (function serit(){
-  var ray = document.getElementById('seritRay');
-  if (ray) ray.innerHTML += ray.innerHTML;
+  ['seritRay','seritRay2'].forEach(function(id){
+    var ray = document.getElementById(id);
+    if (ray) ray.innerHTML += ray.innerHTML;
+  });
 })();
 
 /* ===== İnfografik 1: yörünge sistemi ===== */
