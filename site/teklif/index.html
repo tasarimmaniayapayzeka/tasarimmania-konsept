@@ -496,6 +496,21 @@ document.getElementById('yil').textContent = new Date().getFullYear();
     b.scrollIntoView({ block:'center' });
   }
 
+  /* ---- hash ile ön seçim ----
+     Modül sayfalarının CTA'ları buraya /teklif/#web gibi gelir ve ilgili hizmeti
+     işaretli getirir. Ayrı hizmet-teklif sayfaları AÇILMAZ (ince içerik üretir);
+     dallanma tek URL üzerinde hash ile yapılır.
+     Not: plandaki hash adı "reklam", sihirbazın iç id'si "ads" — eşleme tablosu bu yüzden. */
+  (function hashOnSecim(){
+    var ESLEME = { web:'web', mobil:'mobil', reklam:'ads', ads:'ads', video:'video', seo:'seo' };
+    var id = ESLEME[(location.hash || '').replace('#','').toLowerCase()];
+    if (!id) return;
+    if (secim.hizmet.indexOf(id) === -1) secim.hizmet.push(id);
+    var btn = $('#hizmetSec').querySelector('[data-id="' + id + '"]');
+    if (btn) btn.classList.add('secili');
+    kartiCiz();
+  })();
+
   goster(1);
 })();
 </script>

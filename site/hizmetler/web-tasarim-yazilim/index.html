@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Tasarım ve Yazılım — Kurumsal Site, E-Ticaret, Özel Yazılım | TasarımMania</title>
+<meta name="description" content="Şablon değil, sıfırdan yazılmış sistem. Kurumsal site, e-ticaret, özel yazılım ve AI entegrasyonu. 6–10 hafta, 45–90 bin ₺ bandı. Kaynak dosyalar ve hesaplar sizde kalır.">
+<link rel="canonical" href="https://www.tasarimmania.com/hizmetler/web-tasarim-yazilim/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="Web Tasarım ve Yazılım — Kurumsal Site, E-Ticaret, Özel Yazılım">
+<meta property="og:description" content="Şablon değil, sıfırdan yazılmış sistem. Diğer dört modülün üzerinde çalıştığı zemin.">
+<meta property="og:url" content="https://www.tasarimmania.com/hizmetler/web-tasarim-yazilim/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/tm.css">
+<style>
+/* --- üst menü --- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+
+/* --- hero --- */
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(28px,4vw,52px)) 0 clamp(30px,4vw,48px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.16),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.mod-no{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:16px;
+  border:1px solid rgba(var(--acc-rgb),.4);border-radius:999px;padding:7px 14px}
+.phd h1{font-size:clamp(31px,5.4vw,58px);letter-spacing:-.05em;line-height:1.04;margin-bottom:10px}
+.phd .h1-alt{font-family:var(--mono);font-size:clamp(12px,1.5vw,14.5px);letter-spacing:.05em;
+  color:var(--muted);margin-bottom:20px}
+.phd .lead{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18.5px);max-width:60ch}
+
+/* --- künye şeridi --- */
+.kny{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+.kny > div{border:1px solid var(--hair);border-radius:var(--r-md);padding:18px;background:var(--panel);
+  transition:.35s var(--ease)}
+.kny > div:hover{border-color:var(--hair-strong);transform:translateY(-3px)}
+.kny b{display:block;font-family:var(--mono);font-size:clamp(17px,2.2vw,23px);color:var(--acc);
+  letter-spacing:-.02em;line-height:1.15}
+.kny span{display:block;margin-top:8px;font-size:12.4px;color:var(--muted);line-height:1.45}
+
+/* --- karşılaştırma: şablon vs sıfırdan --- */
+.krs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.krs-k{border:1px solid var(--hair);border-radius:var(--r-lg);padding:26px 24px;background:var(--panel)}
+.krs-k--biz{border-color:rgba(var(--acc-rgb),.4);background:rgba(var(--acc-rgb),.05)}
+.krs-bas{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.krs-bas span{font-family:var(--mono);font-size:10.4px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--muted)}
+.krs-k--biz .krs-bas span{color:var(--acc)}
+.krs-k h3{font-size:19px;letter-spacing:-.03em}
+.krs ul{display:grid;gap:12px}
+.krs li{display:flex;gap:11px;align-items:flex-start;font-size:14.2px;color:var(--muted);line-height:1.6}
+.krs li svg{width:16px;height:16px;flex:none;margin-top:3px}
+.krs-k--sablon li svg{color:#F04A4A}
+.krs-k--biz li svg{color:var(--acc)}
+.krs-k--biz li{color:var(--fg-dim)}
+
+/* --- alt hizmet kartları --- */
+.alt{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.alt-k{position:relative;border:1px solid var(--hair);border-radius:var(--r-lg);padding:24px 22px;
+  background:var(--panel);overflow:hidden;transition:.38s var(--ease)}
+.alt-k::after{content:"";position:absolute;right:-70px;top:-70px;width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle,rgba(var(--acc-rgb),.14),transparent 70%);opacity:0;transition:.4s}
+.alt-k:hover{border-color:var(--hair-strong);transform:translateY(-4px)}
+.alt-k:hover::after{opacity:1}
+.alt-k > *{position:relative}
+.alt-no{font-family:var(--mono);font-size:10.6px;letter-spacing:.15em;color:var(--acc);display:block;
+  margin-bottom:13px}
+.alt-k h3{font-size:18px;letter-spacing:-.03em;margin-bottom:9px}
+.alt-k p{font-size:13.8px;color:var(--muted);line-height:1.65;margin-bottom:14px}
+.alt-k ul{display:grid;gap:7px}
+.alt-k li{font-size:12.8px;color:var(--fg-dim);display:flex;gap:8px;align-items:flex-start;line-height:1.5}
+.alt-k li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--acc);flex:none;margin-top:7px}
+
+/* --- hız kanıtı --- */
+.hiz{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,3.4vw,48px);align-items:center}
+.hiz-panel{border:1px solid rgba(var(--acc-rgb),.32);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(var(--acc-rgb),.08),transparent);padding:clamp(26px,3.4vw,38px)}
+/* DİKKAT: bu ikisi .hiz-panel'in DOĞRUDAN p çocuğu; aşağıdaki `.hiz-panel > p`
+   kuralı (0-1-1) sınıf seçicisini (0-1-0) ezer. Bu yüzden ikisi de > ile yazıldı. */
+.hiz-panel > .hiz-etiket{font-family:var(--mono);font-size:10.4px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:16px;display:flex;align-items:center;gap:9px}
+.hiz-etiket i{width:7px;height:7px;border-radius:50%;background:var(--acc);flex:none;
+  box-shadow:0 0 0 4px rgba(var(--acc-rgb),.16)}
+.hiz-panel > .hiz-buyuk{display:flex;align-items:baseline;gap:6px;font-family:var(--mono);
+  font-size:clamp(40px,7vw,68px);line-height:1;color:var(--fg);letter-spacing:-.04em}
+.hiz-buyuk i{font-style:normal;font-size:.3em;color:var(--muted);letter-spacing:0}
+.hiz-panel > p{font-size:14.2px;color:var(--fg-dim);line-height:1.65;margin-top:16px}
+.hiz-panel small{display:block;margin-top:14px;padding-top:13px;border-top:1px solid var(--hair);
+  font-family:var(--mono);font-size:10.6px;color:var(--muted);line-height:1.6;letter-spacing:.03em}
+.hiz-metin p{color:var(--fg-dim);font-size:15.4px;line-height:1.75;margin-bottom:15px}
+.hiz-metin p:last-child{margin-bottom:0}
+.hiz-metin b{color:var(--fg)}
+
+/* --- besleme --- */
+.bsl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.bsl-k{border:1px solid var(--hair);border-radius:var(--r-md);padding:20px;background:var(--panel);
+  border-left:2px solid var(--h)}
+.bsl-k b{display:flex;align-items:center;gap:9px;font-size:14.6px;margin-bottom:8px}
+.bsl-k b::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--h);flex:none}
+.bsl-k span{font-size:13.2px;color:var(--muted);line-height:1.6}
+
+/* --- kapsam tablosu --- */
+.kps{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.kps-k{border:1px solid var(--hair);border-radius:var(--r-lg);padding:24px 22px;background:var(--panel)}
+.kps-k h3{font-family:var(--mono);font-size:10.6px;letter-spacing:.15em;text-transform:uppercase;
+  margin-bottom:16px;font-weight:500}
+.kps-k--var h3{color:var(--acc)}
+.kps-k--yok h3{color:var(--muted)}
+.kps-k ul{display:grid;gap:10px}
+.kps-k li{font-size:13.8px;line-height:1.6;display:flex;gap:10px;align-items:flex-start}
+.kps-k li svg{width:15px;height:15px;flex:none;margin-top:3px}
+.kps-k--var li{color:var(--fg-dim)}
+.kps-k--var li svg{color:var(--acc)}
+.kps-k--yok li{color:var(--muted)}
+.kps-k--yok li svg{color:var(--muted)}
+
+/* --- fiyat --- */
+.fyt{border:1px solid var(--hair);border-radius:var(--r-lg);padding:clamp(26px,3.4vw,38px);
+  background:var(--panel);max-width:840px}
+.fyt-band{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.fyt-band b{font-family:var(--mono);font-size:clamp(28px,4.4vw,42px);color:var(--acc);letter-spacing:-.03em}
+.fyt-band span{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.fyt > p{font-size:14.4px;color:var(--muted);line-height:1.7;margin-bottom:22px}
+.fyt-ne{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-bottom:22px}
+.fyt-ne li{font-size:13.6px;color:var(--fg-dim);display:flex;gap:9px;align-items:flex-start;line-height:1.55}
+.fyt-ne li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:7px}
+.fyt-not{font-size:12.8px;color:var(--muted);line-height:1.6;padding-top:18px;border-top:1px solid var(--hair)}
+
+/* --- SSS --- */
+.sss{display:grid;gap:11px;max-width:820px}
+.sss details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
+.sss details[open]{border-color:var(--hair-strong)}
+.sss summary{cursor:pointer;list-style:none;padding:18px 22px;font-size:15.6px;font-weight:600;
+  display:flex;align-items:center;gap:14px}
+.sss summary::-webkit-details-marker{display:none}
+.sss summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.sss details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.sss summary:hover{color:var(--acc)}
+.sss .cvp{padding:0 22px 20px;font-size:14.4px;color:var(--muted);line-height:1.7}
+
+/* --- CTA --- */
+.band{position:relative;border:1px solid rgba(var(--acc-rgb),.28);border-radius:26px;
+  padding:clamp(38px,5vw,62px) 32px;text-align:center;overflow:hidden;
+  background:linear-gradient(140deg,rgba(var(--acc-rgb),.09),rgba(122,34,255,.07))}
+.band::before{content:"";position:absolute;inset:0;z-index:1;
+  background:radial-gradient(600px 280px at 50% -30%,rgba(var(--acc-rgb),.2),transparent 70%)}
+.band > *{position:relative;z-index:2}
+.band h2{font-size:clamp(23px,3.4vw,38px);margin-bottom:12px}
+.band p{color:var(--fg-dim);margin-bottom:28px;font-size:16px}
+.band-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* --- footer --- */
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h5{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+
+.wa{position:fixed;right:22px;bottom:22px;z-index:90;width:54px;height:54px;border-radius:50%;
+  background:#25D366;display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+
+@media(max-width:960px){
+  .krs,.kps,.hiz{grid-template-columns:1fr}
+  .alt,.bsl{grid-template-columns:1fr}
+  .kny{grid-template-columns:repeat(2,1fr)}
+  .fyt-ne{grid-template-columns:1fr}
+  .ftr-ust{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .nav-links,.nav-tel{display:none}
+  .burger{display:block}
+  .ftr-ust{grid-template-columns:1fr}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Web Tasarım ve Yazılım",
+  "serviceType": "Web tasarım, e-ticaret ve özel yazılım geliştirme",
+  "url": "https://www.tasarimmania.com/hizmetler/web-tasarim-yazilim/",
+  "description": "Şablon üzerine değil, sıfırdan yazılan kurumsal site, e-ticaret ve özel yazılım geliştirme. Hız ve ölçüm altyapısı baştan kurulur; kaynak dosyalar ve hesaplar müşteride kalır.",
+  "areaServed": { "@type": "Country", "name": "Türkiye" },
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "TasarımMania",
+    "url": "https://www.tasarimmania.com/",
+    "telephone": "+905547916545",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+      "addressLocality": "Bakırköy",
+      "addressRegion": "İstanbul",
+      "addressCountry": "TR"
+    }
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Web Tasarım ve Yazılım alt hizmetleri",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kurumsal web sitesi tasarımı" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-ticaret sitesi kurulumu" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Özel yazılım geliştirme" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI chatbot ve yapay zeka entegrasyonu" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bakım ve teknik destek" } }
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.tasarimmania.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Hizmetler", "item": "https://www.tasarimmania.com/hizmetler/" },
+    { "@type": "ListItem", "position": 3, "name": "Web Tasarım ve Yazılım", "item": "https://www.tasarimmania.com/hizmetler/web-tasarim-yazilim/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Hazır tema kullanıyor musunuz?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Arayüzü hazır tema üzerine kurmuyoruz; tasarım ve ön yüz sıfırdan yazılıyor. Altyapıda WordPress veya WooCommerce gibi olgun sistemleri kullanabiliyoruz — fark, temanın hazır olması değil, sizin işinize göre yazılmış olması." }
+    },
+    {
+      "@type": "Question",
+      "name": "Site bittikten sonra kendim güncelleyebilir miyim?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Evet. Yönetim paneli teslimin bir parçası ve ekibinize canlı eğitim veriyoruz. İçerik güncellemek için ajansa bağımlı kalmanız gereken bir kurulum teslim etmiyoruz." }
+    },
+    {
+      "@type": "Question",
+      "name": "Kaynak dosyalar ve hesaplar kimde kalıyor?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sizde. Hosting, alan adı ve analytics hesapları sizin adınıza açılır; ayrılırsak tüm kaynak dosyalar ve teknik dokümantasyon tek klasörde teslim edilir." }
+    },
+    {
+      "@type": "Question",
+      "name": "Mevcut sitem var, sıfırdan mı yapmak gerekiyor?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Her zaman değil. Önce ölçüyoruz; sorun hızsa ya da dönüşüm akışındaysa mevcut siteyi iyileştirmek daha ucuz ve hızlı olabilir. Sıfırdan yapmayı ancak mevcut altyapı gerçekten engel olduğunda öneriyoruz." }
+    },
+    {
+      "@type": "Question",
+      "name": "Ne kadar sürüyor?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Kurumsal site tipik olarak 6–10 hafta. Süreyi en çok içerik hazırlığı ve onay turları belirliyor; e-ticaret ve özel yazılımda ürün sayısı ile entegrasyonlar süreyi uzatabiliyor." }
+    }
+  ]
+}
+</script>
+</head>
+<body data-dal="web">
+
+<a class="skip" href="#ana">İçeriğe geç</a>
+
+<nav class="nav" data-nav aria-label="Ana menü">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../../" aria-label="TasarımMania ana sayfa">
+      <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async">
+    </a>
+    <div class="nav-links">
+      <a href="../" aria-current="page">Hizmetler</a>
+      <a href="../../#isler">İşler</a>
+      <a href="../../hakkimizda/">Ajans</a>
+      <a href="../../#surec">Süreç</a>
+      <a href="../../teklif/">Teklif Al</a>
+      <a href="../../iletisim/">İletişim</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../">Hizmetler</a><a href="../../#isler">İşler</a><a href="../../hakkimizda/">Ajans</a>
+  <a href="../../#surec">Süreç</a><a href="../../teklif/">Teklif Al</a><a href="../../iletisim/">İletişim</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Konum">
+        <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
+        <a href="../">Hizmetler</a><span aria-hidden="true">/</span>
+        <span>Web Tasarım &amp; Yazılım</span>
+      </nav>
+      <span class="mod-no">Modül 01</span>
+      <h1 data-kin>Şablon değil,<br>sıfırdan yazılmış sistem.</h1>
+      <p class="h1-alt">KURUMSAL SİTE · E-TİCARET · ÖZEL YAZILIM · AI ENTEGRASYONU</p>
+      <p class="lead">Bu modül diğer dördünün üzerinde çalıştığı zemin. Site yavaşsa reklam da SEO da
+        boşa gider; o yüzden hız ve ölçüm altyapısı sonradan eklenen bir kalem değil,
+        ilk günden kurulan parça.</p>
+
+      <div class="kny">
+        <div><b>6–10<i> hafta</i></b><span>Kurumsal site için<br>tipik teslim süresi</span></div>
+        <div><b>45–90<i> bin ₺</i></b><span>Kapsama göre<br>bütçe bandı</span></div>
+        <div><b>14 yıl</b><span>Web ve yazılımda<br>saha deneyimi</span></div>
+        <div><b>Sizde</b><span>Kaynak dosyalar,<br>hesaplar ve alan adı</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== ANA İDDİA: ŞABLON vs SIFIRDAN ===== -->
+  <section class="sec" id="fark">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Aradaki fark</span>
+        <h2 data-kin>“Web sitesi yaptırdım ama…”</h2>
+        <p>Bize gelen sitelerin çoğu bozuk değil — sadece başka birinin işi için tasarlanmış
+          bir şablonun üzerine sizin içeriğiniz konmuş. Fark burada başlıyor.</p>
+      </div>
+
+      <div class="krs rv d1">
+        <div class="krs-k krs-k--sablon">
+          <div class="krs-bas">
+            <span>Şablon üzerine kurulan site</span>
+          </div>
+          <h3 style="margin-bottom:18px">Hazır tema + içerik dolgusu</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              Kullanmadığınız 40 özelliğin kodu da her ziyaretçiye iniyor; telefonda açılış süresi uzuyor.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              Ölçüm sonradan eklendiği için hangi sayfanın gerçekten arattığı bilinmiyor.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              Küçük bir değişiklik için eklenti aranıyor; her eklenti yeni bir güvenlik yüzeyi.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              Tema güncellenince tasarım bozuluyor, düzeltmek için tekrar ajansa dönülüyor.</li>
+          </ul>
+        </div>
+
+        <div class="krs-k krs-k--biz">
+          <div class="krs-bas">
+            <span>Bizim kurduğumuz sistem</span>
+          </div>
+          <h3 style="margin-bottom:18px">İşinize göre yazılmış ön yüz</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Sayfada yalnızca o sayfanın ihtiyacı olan kod var — ağırlık baştan düşük.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Ölçüm şeması ilk günde kuruluyor; hangi form, hangi arama, hangi kampanya belli.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              İçeriği panelden siz güncelliyorsunuz; ekibinize canlı eğitim veriyoruz.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Kaynak dosyalar ve hesaplar sizde; ajans değiştirmek sıfırdan başlamak değil.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HIZ KANITI ===== -->
+  <section class="sec" id="hiz" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Hız</span>
+        <h2 data-kin>Hızı anlatmak yerine ölçelim</h2>
+      </div>
+
+      <div class="hiz rv d1">
+        <div class="hiz-panel">
+          <p class="hiz-etiket"><i></i>Şu anda ölçüldü</p>
+          <p class="hiz-buyuk"><span data-hiz>—</span><i>sn</i></p>
+          <p>Bu sayfa <b>sizin cihazınızda</b> ve <b>sizin bağlantınızda</b> bu sürede açıldı.
+            Rakamı biz yazmıyoruz; tarayıcınız ölçüyor ve sayfa her açıldığında yeniden hesaplanıyor.</p>
+          <small>Doğrulamak için F12 → Ağ sekmesini açıp sayfayı yenileyin.
+            Değer bağlantınıza göre değişir — yavaş bir hatta yüksek çıkması normaldir.</small>
+        </div>
+        <div class="hiz-metin">
+          <p>Hız bir “ekstra” değil, <b>diğer dört modülün getirisini belirleyen çarpan</b>.
+            Reklamdan gelen kişi açılmayan sayfayı beklemiyor; Google yavaş sayfayı üst sıraya
+            koymuyor; videoyu izleyen kişi ürüne ulaşamıyor.</p>
+          <p>Bu yüzden hız optimizasyonunu proje sonunda yapılan bir temizlik olarak değil,
+            <b>ilk günün mimari kararı</b> olarak ele alıyoruz: hangi görselin ne zaman yükleneceği,
+            hangi kodun hangi sayfaya ineceği, hangi yazı tipinin nereden geleceği baştan belli.</p>
+          <p>Teslimde Core Web Vitals değerlerini ölçüp yazılı veriyoruz — “hızlandırdık” demiyoruz,
+            <b>öncesi ve sonrası rakamı</b> gösteriyoruz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ALT HİZMETLER ===== -->
+  <section class="sec" id="kapsam" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Bu modülde neler var</span>
+        <h2 data-kin>Beş iş, tek altyapı</h2>
+        <p>Beşi de aynı tasarım sistemi ve aynı ölçüm şeması üzerinde çalışır.
+          Bugün kurumsal siteyle başlayıp altı ay sonra e-ticaret eklemek, sıfırdan proje değildir.</p>
+      </div>
+
+      <div class="alt">
+        <article class="alt-k rv">
+          <span class="alt-no">01</span>
+          <h3>Kurumsal web sitesi</h3>
+          <p>Markanızı anlatan, arama motorunda bulunan ve telefonu çaldıran ana sayfa yapısı.</p>
+          <ul>
+            <li>Sıfırdan arayüz tasarımı</li>
+            <li>Çok dilli yapı</li>
+            <li>Blog ve içerik mimarisi</li>
+            <li>Form ve ölçüm kurulumu</li>
+          </ul>
+        </article>
+        <article class="alt-k rv d1">
+          <span class="alt-no">02</span>
+          <h3>E-ticaret</h3>
+          <p>Ürün satan, sepeti terk edeni geri getiren ve stok/kargo tarafıyla konuşan mağaza.</p>
+          <ul>
+            <li>WooCommerce kurulumu</li>
+            <li>Ödeme ve kargo entegrasyonu</li>
+            <li>Sepet terk kurtarma akışı</li>
+            <li>Ürün içe aktarma</li>
+          </ul>
+        </article>
+        <article class="alt-k rv d2">
+          <span class="alt-no">03</span>
+          <h3>Özel yazılım</h3>
+          <p>Hazır ürünle çözülmeyen iş akışları: rezervasyon, bayi paneli, saha ekibi, üyelik.</p>
+          <ul>
+            <li>Bayi ve müşteri portalı</li>
+            <li>Rezervasyon ve randevu</li>
+            <li>ERP / muhasebe entegrasyonu</li>
+            <li>Yetki ve rol yönetimi</li>
+          </ul>
+        </article>
+        <article class="alt-k rv">
+          <span class="alt-no">04</span>
+          <h3>AI entegrasyonu</h3>
+          <p>Gece gelen soruyu cevaplayan, formu dolduran ve talebi doğru kişiye yönlendiren asistan.</p>
+          <ul>
+            <li>Siteye gömülü chatbot</li>
+            <li>Kendi içeriğinizle eğitim</li>
+            <li>WhatsApp'a aktarım</li>
+            <li>Konuşma kayıtları ve raporu</li>
+          </ul>
+        </article>
+        <article class="alt-k rv d1">
+          <span class="alt-no">05</span>
+          <h3>Bakım ve destek</h3>
+          <p>Yayına aldıktan sonra siteyi ayakta tutan kısım — güncelleme, yedek, izleme.</p>
+          <ul>
+            <li>Güvenlik güncellemeleri</li>
+            <li>Otomatik yedekleme</li>
+            <li>Kesinti izleme</li>
+            <li>Aylık sağlık raporu</li>
+          </ul>
+        </article>
+        <article class="alt-k rv d2" style="display:flex;flex-direction:column;justify-content:center;
+          border-style:dashed;background:transparent">
+          <span class="alt-no">Hangisi?</span>
+          <h3>Emin değilseniz</h3>
+          <p style="margin-bottom:18px">Beş adımlık teklif sihirbazında birkaç soruyla kapsamı
+            birlikte çıkarıyoruz; sonunda ekranda süre ve bütçe bandını görüyorsunuz.</p>
+          <a class="btn btn-p btn-sm" href="../../teklif/#web" style="align-self:flex-start">Kapsam çıkaralım
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BESLEME ===== -->
+  <section class="sec" id="besler" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Diğer modüllerle bağı</span>
+        <h2 data-kin>Bu modül üçünü birden besliyor</h2>
+        <p>Web'i ayrı bir ajansa yaptırdığınızda kaybettiğiniz şey site değil, bu bağlantılar.</p>
+      </div>
+
+      <div class="bsl rv d1">
+        <div class="bsl-k" style="--h:var(--amber)">
+          <b>Dijital Pazarlama'ya</b>
+          <span>Reklamın ineceği hızlı açılış sayfaları. Kampanya için ayrı sayfa gerektiğinde
+            iki ajans arasında hafta kaybedilmiyor.</span>
+        </div>
+        <div class="bsl-k" style="--h:var(--lime)">
+          <b>SEO'ya</b>
+          <span>Temiz HTML, schema işaretlemesi ve site mimarisi. SEO ekibinin ilk üç ayını
+            teknik borç temizlemekle geçirmesi gerekmiyor.</span>
+        </div>
+        <div class="bsl-k" style="--h:var(--vi)">
+          <b>Mobil Uygulama'ya</b>
+          <span>Ortak API ve tasarım sistemi. Uygulama sıfırdan değil, sitenin altyapısının
+            üzerine kuruluyor.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KAPSAM: DAHİL / DEĞİL ===== -->
+  <section class="sec" id="dahil" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Şeffaflık</span>
+        <h2 data-kin>Ne dahil, ne değil</h2>
+        <p>Sonradan “o ayrı kalem” cümlesini duymamanız için baştan yazıyoruz.</p>
+      </div>
+
+      <div class="kps rv d1">
+        <div class="kps-k kps-k--var">
+          <h3>Fiyata dahil</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Arayüz tasarımı ve tüm sayfa şablonları</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Mobil ve tablet uyumu</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Hız optimizasyonu ve Core Web Vitals ölçümü</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Analytics ve form ölçümü kurulumu</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Yönetim paneli + ekibinize canlı eğitim</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Yayın sonrası 30 gün düzeltme desteği</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Kaynak dosyalar ve teknik dokümantasyon</li>
+          </ul>
+        </div>
+        <div class="kps-k kps-k--yok">
+          <h3>Ayrı kalem</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Hosting ve alan adı ücreti — sizin adınıza alınır, faturası size gelir</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Metin yazarlığı ve profesyonel fotoğraf çekimi</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Ücretli üçüncü taraf servisleri (ödeme altyapısı, kargo, e-fatura)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Yayın sonrası aylık bakım paketi</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Reklam bütçesi ve reklam yönetimi (Modül 03)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Teslimden sonra istenen kapsam değişiklikleri — önce konuşur, sonra yazarız</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FİYAT ===== -->
+  <section class="sec" id="fiyat" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Bütçe</span>
+        <h2 data-kin>Rakamı neyin belirlediği</h2>
+      </div>
+
+      <div class="fyt rv d1">
+        <div class="fyt-band">
+          <b>45 – 90 bin ₺</b>
+          <span>KURUMSAL SİTE · 6–10 HAFTA</span>
+        </div>
+        <p>Bu bir “başlangıç fiyatı” değil, gerçekten çalıştığımız aralık. E-ticaret ve özel yazılım
+          bu bandın üzerine çıkar; ürün sayısı ve entegrasyonlar belirleyici olur.
+          Bandın neresinde olduğunuzu şu beş şey belirliyor:</p>
+        <ul class="fyt-ne">
+          <li>Sayfa sayısı ve kaç dilde yayınlanacağı</li>
+          <li>E-ticaret var mı, kaç ürünle başlanıyor</li>
+          <li>Dışarıyla konuşan sistem sayısı (ERP, kargo, ödeme)</li>
+          <li>İçerik ve görsellerin hazır olup olmadığı</li>
+          <li>Özel geliştirme gerektiren akışlar (panel, rezervasyon, üyelik)</li>
+        </ul>
+        <p class="fyt-not">Teklif sihirbazından geçtiğinizde bu beş soruyu birkaç tıkla yanıtlıyor
+          ve ekranda kendi bandınızı görüyorsunuz — form doldurup fiyat beklemenize gerek yok.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SSS ===== -->
+  <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Sık sorulanlar</span>
+        <h2 data-kin>Bu modülde en çok sorulanlar</h2>
+      </div>
+
+      <div class="sss rv d1">
+        <details>
+          <summary>Hazır tema kullanıyor musunuz?</summary>
+          <p class="cvp">Arayüzü hazır tema üzerine kurmuyoruz; tasarım ve ön yüz sıfırdan yazılıyor.
+            Altyapıda WordPress veya WooCommerce gibi olgun sistemleri kullanabiliyoruz — fark,
+            temanın hazır olması değil, sizin işinize göre yazılmış olması.</p>
+        </details>
+        <details>
+          <summary>Site bittikten sonra kendim güncelleyebilir miyim?</summary>
+          <p class="cvp">Evet. Yönetim paneli teslimin bir parçası ve ekibinize canlı eğitim veriyoruz.
+            İçerik güncellemek için ajansa bağımlı kalmanız gereken bir kurulum teslim etmiyoruz.</p>
+        </details>
+        <details>
+          <summary>Kaynak dosyalar ve hesaplar kimde kalıyor?</summary>
+          <p class="cvp">Sizde. Hosting, alan adı ve analytics hesapları sizin adınıza açılır;
+            ayrılırsak tüm kaynak dosyalar ve teknik dokümantasyon tek klasörde teslim edilir.
+            Ajans değiştirmek, sıfırdan başlamak olmamalı.</p>
+        </details>
+        <details>
+          <summary>Mevcut sitem var, sıfırdan mı yapmak gerekiyor?</summary>
+          <p class="cvp">Her zaman değil. Önce ölçüyoruz; sorun hızsa ya da dönüşüm akışındaysa
+            mevcut siteyi iyileştirmek daha ucuz ve hızlı olabilir. Sıfırdan yapmayı ancak mevcut
+            altyapı gerçekten engel olduğunda öneriyoruz.</p>
+        </details>
+        <details>
+          <summary>Ne kadar sürüyor?</summary>
+          <p class="cvp">Kurumsal site tipik olarak 6–10 hafta. Süreyi en çok içerik hazırlığı ve
+            onay turları belirliyor; e-ticaret ve özel yazılımda ürün sayısı ile entegrasyonlar
+            süreyi uzatabiliyor. Takvimi ilk görüşmede birlikte çıkarıyoruz.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="band rv">
+        <h2>Web projeniz için kapsam ve takvim çıkaralım</h2>
+        <p>Beş adımlık sihirbazda birkaç tıkla kapsamı belirleyin; ekranda süre ve bütçe bandını görün.
+          Zorunlu alan yalnızca ad ve telefon.</p>
+        <div class="band-cta">
+          <a class="btn btn-p" href="../../teklif/#web">Kapsam çıkaralım
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Web%20Tasar%C4%B1m%20%26%20Yaz%C4%B1l%C4%B1m%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%0AMevcut%20sitem%3A%20%0A%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>Web, mobil, reklam, video ve SEO’yu tek çatı altında birleştiren
+          İstanbul merkezli 360 derece dijital ajans.</p>
+      </div>
+      <div>
+        <h5>Modüller</h5>
+        <ul>
+          <li><a href="../">Tüm hizmetler</a></li>
+          <li><a href="./" aria-current="page">Web &amp; Yazılım</a></li>
+          <li><a href="../#moduller">Dijital Pazarlama</a></li>
+          <li><a href="../#moduller">SEO Hizmetleri</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>İletişim</h5>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../../iletisim/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../../iletisim/#ofis">Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</span>
+      <span class="mono">BEŞ MODÜL · TEK PANEL</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+
+/* Hız kanıtı: sayfanın bu ziyaretteki gerçek açılış süresi.
+   Rakam elle yazılmaz; Performance API'den okunur. Ölçüm alınamazsa
+   (eski tarayıcı, gizlilik kısıtı) panel bozuk "—" göstermesin diye gizlenir. */
+(function hizOlc(){
+  var el = document.querySelector('[data-hiz]');
+  if (!el || !window.performance) return;
+  var panel = el.closest('.hiz-panel');
+
+  function olc(){
+    var ms = 0;
+    var n = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+    if (n && n.domContentLoadedEventEnd) ms = n.domContentLoadedEventEnd;
+    else if (performance.timing && performance.timing.domContentLoadedEventEnd) {
+      ms = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
+    }
+    if (!(ms > 0)) return false;
+    el.textContent = (ms / 1000).toLocaleString('tr-TR',
+      { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return true;
+  }
+
+  /* domContentLoadedEventEnd sayfa yüklenirken 0 olabilir; load sonrası tekrar dene */
+  if (!olc()) {
+    window.addEventListener('load', function(){
+      setTimeout(function(){ if (!olc() && panel) panel.style.display = 'none'; }, 60);
+    });
+  }
+})();
+</script>
+</body>
+</html>
