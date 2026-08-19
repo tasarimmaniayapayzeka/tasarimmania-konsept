@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hizmetler — Beş modül, tek panel | TasarımMania</title>
+<meta name="description" content="Web &amp; yazılım, mobil uygulama, Meta &amp; Google Ads, video prodüksiyon ve SEO. Beş modül tek ekipte çalışır; aralarındaki bilgi kaybı sıfırlanır.">
+<link rel="canonical" href="https://www.tasarimmania.com/hizmetler/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="Hizmetler — Beş modül, tek panel | TasarımMania">
+<meta property="og:description" content="Web &amp; yazılım, mobil uygulama, reklam, video ve SEO tek ekipte. Modüller arası bilgi kaybı sıfır.">
+<meta property="og:url" content="https://www.tasarimmania.com/hizmetler/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<link rel="icon" type="image/png" href="../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tm.css">
+<style>
+/* ===== sayfaya özel ===== */
+
+/* --- üst menü --- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:29px;width:auto}
+.nav-links{display:flex;gap:26px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+
+/* --- 3D simülasyon sahnesi --- */
+.sim{position:relative;min-height:230vh}
+.sim-yapis{position:sticky;top:0;height:100vh;display:grid;place-items:center;overflow:hidden}
+.sim video{width:min(78vw,760px);height:auto;filter:drop-shadow(0 40px 90px rgba(0,0,0,.9))}
+.sim-arka{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(60% 50% at 50% 46%,rgba(var(--acc-rgb),.13),transparent 68%)}
+.sim-yazi{position:absolute;left:0;right:0;bottom:9vh;text-align:center;pointer-events:none;padding:0 24px}
+.sim-yazi .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--acc);display:block;margin-bottom:12px}
+.sim-yazi h2{font-size:clamp(22px,3.4vw,40px);margin-bottom:10px}
+.sim-yazi p{color:var(--fg-dim);font-size:15px;max-width:52ch;margin:0 auto}
+.sim-ipucu{position:absolute;right:26px;bottom:26px;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;color:var(--muted);display:flex;align-items:center;gap:9px}
+.sim-ipucu i{width:1px;height:26px;background:linear-gradient(180deg,transparent,var(--acc));display:block}
+
+/* --- infografik 1: yörünge sistemi --- */
+.orb{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.orb-sahne{position:relative;aspect-ratio:1;max-width:520px;width:100%;justify-self:center}
+.orb-sahne svg{width:100%;height:100%;overflow:visible}
+.orb-halka{fill:none;stroke:var(--hair);stroke-width:1}
+.orb-bag{stroke:var(--hair);stroke-width:1.4;fill:none;opacity:.35;transition:.4s var(--ease)}
+.orb-bag.aktif{opacity:1;stroke:var(--acc);stroke-width:2.2}
+.orb-cekirdek{fill:var(--bg-2);stroke:var(--hair-strong);stroke-width:1}
+.orb-cekirdek-yazi{font-family:var(--mono);font-size:10px;letter-spacing:.14em;fill:var(--fg);text-anchor:middle}
+.orb-nokta{cursor:pointer}
+.orb-nokta circle{fill:var(--bg-2);stroke:var(--hair-strong);stroke-width:1.4;transition:.35s var(--ease)}
+.orb-nokta text{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;fill:var(--muted);
+  text-anchor:middle;transition:.3s;pointer-events:none}
+.orb-nokta:hover circle,.orb-nokta.secili circle{stroke:var(--mrk);fill:rgba(255,255,255,.05);r:31}
+.orb-nokta.secili text,.orb-nokta:hover text{fill:var(--fg)}
+.orb-nokta .puls{fill:none;stroke:var(--mrk);stroke-width:1.5;opacity:0}
+.orb-nokta.secili .puls{animation:orbPuls 2.4s var(--ease) infinite}
+@keyframes orbPuls{0%{r:28;opacity:.85}100%{r:52;opacity:0}}
+.orb-bilgi{min-height:250px}
+.orb-bilgi .etk{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--mrk);border:1px solid currentColor;
+  border-radius:999px;padding:5px 12px;margin-bottom:16px}
+.orb-bilgi h3{font-size:clamp(20px,2.6vw,28px);margin-bottom:12px}
+.orb-bilgi > p{color:var(--fg-dim);font-size:15.4px;margin-bottom:18px;max-width:46ch}
+.orb-besler{display:grid;gap:9px;margin-bottom:22px}
+.orb-besler li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)}
+.orb-besler li::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--mrk);
+  margin-top:6px;flex:none}
+.orb-besler b{color:var(--fg);font-weight:600}
+
+/* --- infografik 2: kayıp haritası --- */
+.kayip{border:1px solid var(--hair);border-radius:var(--r-lg);overflow:hidden;background:var(--panel)}
+.kayip-ust{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--hair)}
+.kayip-ust > div{padding:20px 24px}
+.kayip-ust > div:first-child{border-right:1px solid var(--hair)}
+.kayip-ust h4{font-size:16px;margin-bottom:5px}
+.kayip-ust p{font-size:13px;color:var(--muted)}
+.kayip-govde{display:grid;grid-template-columns:1fr 1fr}
+.kayip-govde > div{padding:26px 24px 30px}
+.kayip-govde > div:first-child{border-right:1px solid var(--hair)}
+.akis{display:grid;gap:11px}
+.akis-sat{display:grid;grid-template-columns:118px 1fr 54px;gap:12px;align-items:center;font-size:13px}
+.akis-ad{color:var(--muted);font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase}
+.akis-bar{height:26px;border-radius:6px;background:rgba(255,255,255,.045);overflow:hidden;position:relative}
+.akis-dolu{height:100%;border-radius:6px;width:0;transition:width 1.2s var(--ease)}
+.akis-sol .akis-dolu{background:linear-gradient(90deg,rgba(255,45,155,.75),rgba(255,45,155,.35))}
+.akis-sag .akis-dolu{background:linear-gradient(90deg,var(--acc),rgba(var(--acc-rgb),.45))}
+.akis-deg{font-family:var(--mono);font-size:12.5px;text-align:right;color:var(--fg)}
+.akis-sol .akis-deg{color:#FF7FBE}
+.akis-sag .akis-deg{color:var(--acc)}
+.kayip-alt{border-top:1px solid var(--hair);padding:18px 24px;display:flex;gap:24px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
+.kayip-alt b{color:var(--fg)}
+
+/* --- modül kartları --- */
+.moduller{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.mod{border:1px solid var(--hair);border-radius:var(--r-lg);overflow:hidden;background:var(--panel);
+  transition:.4s var(--ease);display:flex;flex-direction:column}
+.mod:hover{border-color:var(--hair-strong);transform:translateY(-4px)}
+.mod-gorsel{position:relative;aspect-ratio:16/9;overflow:hidden;background:#080A0E;border-bottom:1px solid var(--hair)}
+.mod-gorsel video,.mod-gorsel img{width:100%;height:100%;object-fit:cover}
+.mod-gorsel::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,transparent 45%,rgba(11,13,18,.75))}
+.mod-etiket{position:absolute;left:16px;top:16px;z-index:2;font-family:var(--mono);font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;padding:6px 11px;border-radius:999px;
+  background:rgba(11,13,18,.62);backdrop-filter:blur(6px);border:1px solid currentColor}
+.mod-in{padding:24px;display:flex;flex-direction:column;flex:1}
+.mod-in h3{font-size:21px;margin-bottom:9px}
+.mod-in > p{color:var(--fg-dim);font-size:14.6px;margin-bottom:16px}
+.mod-liste{display:grid;gap:8px;margin-bottom:20px}
+.mod-liste li{font-size:13.6px;color:var(--muted);display:flex;gap:9px}
+.mod-liste li::before{content:"—";color:var(--mrk);flex:none}
+.mod-alt{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding-top:16px;border-top:1px solid var(--hair)}
+.mod-alt .fiy{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.mod-alt a{font-size:13.5px;font-weight:600;color:var(--mrk);display:inline-flex;align-items:center;gap:7px}
+.mod-alt a svg{width:14px;height:14px;transition:transform .3s}
+.mod:hover .mod-alt a svg{transform:translateX(4px)}
+
+/* --- CTA --- */
+.band{position:relative;border:1px solid rgba(var(--acc-rgb),.28);border-radius:26px;padding:clamp(38px,5vw,62px) 32px;
+  text-align:center;overflow:hidden;background:linear-gradient(140deg,rgba(var(--acc-rgb),.09),rgba(122,34,255,.07))}
+.band::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(600px 280px at 50% -30%,rgba(var(--acc-rgb),.2),transparent 70%)}
+.band > *{position:relative}
+.band h2{font-size:clamp(24px,3.6vw,40px);margin-bottom:12px}
+.band p{color:var(--fg-dim);margin-bottom:28px;font-size:16px}
+.band-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.band-mini{margin-top:30px;font-family:var(--mono);font-size:11.5px;color:var(--muted);letter-spacing:.06em}
+
+/* --- footer --- */
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:36px;width:auto;margin-bottom:14px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h5{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+
+.wa{position:fixed;right:22px;bottom:22px;z-index:90;width:54px;height:54px;border-radius:50%;
+  background:#25D366;display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+
+@media(max-width:960px){
+  .orb{grid-template-columns:1fr;gap:28px}
+  .moduller{grid-template-columns:1fr}
+  .ftr-ust{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .nav-links,.nav-tel{display:none}
+  .burger{display:block}
+  .sim{min-height:190vh}
+  .sim video{width:88vw}
+  .kayip-ust,.kayip-govde{grid-template-columns:1fr}
+  .kayip-ust > div:first-child,.kayip-govde > div:first-child{border-right:0;border-bottom:1px solid var(--hair)}
+  .akis-sat{grid-template-columns:96px 1fr 46px;gap:9px}
+  .ftr-ust{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .sim{min-height:auto}
+  .sim-yapis{position:static;height:auto;padding:60px 0}
+  .orb-nokta.secili .puls{animation:none}
+}
+</style>
+</head>
+<body data-dal="web">
+
+<a class="skip" href="#ana">İçeriğe geç</a>
+
+<nav class="nav" data-nav aria-label="Ana menü">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../" aria-label="TasarımMania ana sayfa">
+      <img src="../../assets/logo/marka-yatay.png" alt="TasarımMania — Creative Agency" width="435" height="132" decoding="async">
+    </a>
+    <div class="nav-links">
+      <a href="./" aria-current="page">Hizmetler</a>
+      <a href="../isler/">İşler</a>
+      <a href="../hakkimizda/">Ajans</a>
+      <a href="../fiyatlar/">Fiyatlar</a>
+      <a href="../iletisim/">İletişim</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="./">Hizmetler</a><a href="../isler/">İşler</a><a href="../hakkimizda/">Ajans</a>
+  <a href="../fiyatlar/">Fiyatlar</a><a href="../iletisim/">İletişim</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<main id="ana">
+
+  <div class="wrap"><nav class="crumb" aria-label="Konum">
+    <a href="../">Ana sayfa</a><span aria-hidden="true">/</span><span>Hizmetler</span>
+  </nav></div>
+
+  <header class="phd">
+    <div class="wrap">
+      <span class="eyebrow"><i></i>Beş modül · Tek panel</span>
+      <h1>Ajans değiştirmeden<br>tüm dijitalinizi tek yerden yönetin</h1>
+      <p class="lead">Web ve yazılım, mobil uygulama, Meta &amp; Google Ads, video prodüksiyon ve SEO.
+        Beşi de aynı ekipte, aynı takvimde ve aynı raporda çalışır — aralarındaki bilgi kaybı sıfırlanır.</p>
+      <div class="phd-meta">
+        <span><b>5</b> modül</span>
+        <span><b>Tek</b> ekip, tek rapor</span>
+        <span><b>48 saat</b> içinde teklif</span>
+        <span><b>Aylık</b> çıkış hakkı</span>
+      </div>
+      <div class="phd-cta">
+        <a class="btn btn-p" href="../teklif/">Kapsamı birlikte çıkaralım
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-g" href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp’tan sorun</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== 3D SİMÜLASYON: scroll ile dönen çekirdek ===== -->
+  <section class="sim" data-scrub aria-label="Dijital işletim sistemi çekirdeği">
+    <div class="sim-yapis">
+      <span class="sim-arka" aria-hidden="true"></span>
+      <video src="../video/hero-3d.mp4" muted playsinline preload="metadata"
+             aria-label="Yavaşça dönen krom çekirdek objesi"></video>
+      <div class="sim-yazi">
+        <span class="kicker">Çekirdek</span>
+        <h2>Beş modül aynı çekirdeğe bağlanır</h2>
+        <p>Kaydırın — sistem döndükçe her modülün aynı veriye baktığını görürsünüz.
+          Ayrı ajanslarda bu çekirdek yoktur; herkes kendi parçasına bakar.</p>
+      </div>
+      <div class="sim-ipucu" aria-hidden="true"><i></i>KAYDIRIN</div>
+    </div>
+  </section>
+
+  <!-- ===== İNFOGRAFİK 1: yörünge sistemi ===== -->
+  <section class="sec" id="sistem">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>İnfografik · Sistem haritası</span>
+        <h2>Hangi modül hangisini besliyor?</h2>
+        <p>Bir modüle dokunun; o modülün diğerlerine ne gönderdiğini ve onlardan ne aldığını görün.
+          360 derece çalışmanın tek somut anlamı budur.</p>
+      </div>
+
+      <div class="orb rv d1">
+        <div class="orb-sahne">
+          <svg viewBox="0 0 460 460" role="img" aria-label="Beş modülün birbirini beslediği yörünge diyagramı">
+            <circle class="orb-halka" cx="230" cy="230" r="150"></circle>
+            <circle class="orb-halka" cx="230" cy="230" r="196" style="opacity:.5"></circle>
+            <g id="baglar"></g>
+            <circle class="orb-cekirdek" cx="230" cy="230" r="46"></circle>
+            <text class="orb-cekirdek-yazi" x="230" y="226">TEK</text>
+            <text class="orb-cekirdek-yazi" x="230" y="240">PANEL</text>
+            <g id="noktalar"></g>
+          </svg>
+        </div>
+
+        <div class="orb-bilgi" id="orbBilgi" aria-live="polite">
+          <!-- JS doldurur -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== İNFOGRAFİK 2: kayıp haritası ===== -->
+  <section class="sec" id="kayip" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>İnfografik · Kayıp haritası</span>
+        <h2>100 birim bütçenin kaçı işe dönüşüyor?</h2>
+        <p>Aynı bütçe, iki farklı kurguda. Soldaki, işi üç ayrı tedarikçiye bölen tipik senaryo;
+          sağdaki tek ekip. Aradaki fark yetenek değil, <b>devir kaybı</b>.</p>
+      </div>
+
+      <div class="kayip rv d1" id="kayipGrafik">
+        <div class="kayip-ust">
+          <div><h4>Ayrı tedarikçiler</h4><p>Ajans + yazılımcı + prodüksiyon, üç ayrı takvim</p></div>
+          <div><h4>Tek çatı</h4><p>Beş modül, tek ekip, tek takvim</p></div>
+        </div>
+        <div class="kayip-govde">
+          <div class="akis akis-sol">
+            <div class="akis-sat"><span class="akis-ad">Başlangıç</span><div class="akis-bar"><div class="akis-dolu" data-oran="100"></div></div><span class="akis-deg" data-say="100">0</span></div>
+            <div class="akis-sat"><span class="akis-ad">Brief devri</span><div class="akis-bar"><div class="akis-dolu" data-oran="82"></div></div><span class="akis-deg" data-say="82">0</span></div>
+            <div class="akis-sat"><span class="akis-ad">Tasarım→kod</span><div class="akis-bar"><div class="akis-dolu" data-oran="68"></div></div><span class="akis-deg" data-say="68">0</span></div>
+            <div class="akis-sat"><span class="akis-ad">Ölçüm kurulumu</span><div class="akis-bar"><div class="akis-dolu" data-oran="54"></div></div><span class="akis-deg" data-say="54">0</span></div>
+            <div class="akis-sat"><span class="akis-ad">Kreatif rotasyon</span><div class="akis-bar"><div class="akis-dolu" data-oran="43"></div></div><span class="akis-deg" data-say="43">0</span></div>
+            <div class="akis-sat"><span class="akis-ad">İşe dönüşen</span><div class="akis-bar"><div class="akis-dolu" data-oran="43"></div></div><span class="akis-deg" data-say="43">0</span></div>
+          </div>
+          <div class="akis akis-sag">
+            <div class="akis-sat"><span class="akis-ad">Başlangıç</span><div class="akis-bar"><div class="akis-dolu" data-oran="100"></div></div><span class="akis-deg" data-say="100">0</span></div>
+            <div class="akis-sat"><span class="akis-ad">Brief devri</span><div class="akis-bar"><div class="akis-dolu" data-oran="97"></div></div><span class="akis-deg" data-say="97">0</span></div>
+            <div class="akis-sat"><span class="akis-ad">Tasarım→kod</span><div class="akis-bar"><div class="akis-dolu" data-oran="93"></div></div><span class="akis-deg" data-say="93">0</span></div>
+            <div class="akis-sat"><span class="akis-ad">Ölçüm kurulumu</span><div class="akis-bar"><div class="akis-dolu" data-oran="90"></div></div><span class="akis-deg" data-say="90">0</span></div>
+            <div class="akis-sat"><span class="akis-ad">Kreatif rotasyon</span><div class="akis-bar"><div class="akis-dolu" data-oran="86"></div></div><span class="akis-deg" data-say="86">0</span></div>
+            <div class="akis-sat"><span class="akis-ad">İşe dönüşen</span><div class="akis-bar"><div class="akis-dolu" data-oran="86"></div></div><span class="akis-deg" data-say="86">0</span></div>
+          </div>
+        </div>
+        <div class="kayip-alt">
+          <span>Kayıp noktaları: <b>brief devri</b> · <b>tasarım-kod aktarımı</b> · <b>ölçüm boşluğu</b> · <b>kreatif gecikmesi</b></span>
+          <span>Model, gerçek proje verisiyle güncellenecektir.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MODÜLLER ===== -->
+  <section class="sec" id="moduller" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Modüller</span>
+        <h2>Beşi ayrı ayrı da alınır, birlikte daha ucuza gelir</h2>
+        <p>Her modül tek başına satılır. Ama iki ve üzeri modül aynı ekipte çalıştığında
+          kurulum işi bir kez yapılır — bu yüzden birleşik kapsam daha az tutar.</p>
+      </div>
+
+      <div class="moduller">
+        <article class="mod rv" style="--mrk:var(--cy)">
+          <div class="mod-gorsel">
+            <span class="mod-etiket" style="color:var(--cy)">Modül 01</span>
+            <video src="../video/web-modul.mp4" data-dongu muted loop playsinline preload="none"
+                   poster="../../assets/icon-web.png" aria-hidden="true"></video>
+          </div>
+          <div class="mod-in">
+            <h3>Web Tasarım &amp; Yazılım</h3>
+            <p>Kurumsal site, e-ticaret ve özel web uygulamaları. Hız ve ölçüm, sonradan eklenen değil
+              baştan kurulan parça.</p>
+            <ul class="mod-liste">
+              <li>Kurumsal web sitesi</li><li>E-ticaret (WooCommerce)</li>
+              <li>Özel web uygulaması</li><li>AI chatbot entegrasyonu</li>
+            </ul>
+            <div class="mod-alt">
+              <span class="fiy">Kurulum + 6 hafta</span>
+              <a href="./web-tasarim-yazilim/">Modülü aç
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="mod rv d1" style="--mrk:var(--vi)">
+          <div class="mod-gorsel">
+            <span class="mod-etiket" style="color:var(--vi)">Modül 02</span>
+            <img src="../../assets/icon-mobil.png" alt="" loading="lazy" style="object-fit:contain;padding:9%">
+          </div>
+          <div class="mod-in">
+            <h3>Mobil Uygulama</h3>
+            <p>iOS ve Android. Mağaza yayını, sürüm yönetimi ve uygulama içi ölçüm dahil.</p>
+            <ul class="mod-liste">
+              <li>iOS &amp; Android yayın</li><li>React Native veya native</li>
+              <li>Push ve sadakat senaryoları</li><li>Uygulama içi analitik</li>
+            </ul>
+            <div class="mod-alt">
+              <span class="fiy">Kapsama göre 8–16 hafta</span>
+              <a href="./mobil-uygulama/">Modülü aç
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="mod rv" style="--mrk:var(--amber)">
+          <div class="mod-gorsel">
+            <span class="mod-etiket" style="color:var(--amber)">Modül 03</span>
+            <img src="../../assets/icon-reklam.png" alt="" loading="lazy" style="object-fit:contain;padding:9%">
+          </div>
+          <div class="mod-in">
+            <h3>Dijital Pazarlama</h3>
+            <p>Meta ve Google Ads yönetimi. Hesaplar sizin adınıza açılır, veri sizde kalır.</p>
+            <ul class="mod-liste">
+              <li>Google Ads yönetimi</li><li>Meta &amp; Instagram reklamları</li>
+              <li>Sosyal medya yönetimi</li><li>Yurt dışı kampanya</li>
+            </ul>
+            <div class="mod-alt">
+              <span class="fiy">Aylık · çıkış hakkı ay sonu</span>
+              <a href="./dijital-pazarlama/">Modülü aç
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="mod rv d1" style="--mrk:var(--pink)">
+          <div class="mod-gorsel">
+            <span class="mod-etiket" style="color:var(--pink)">Modül 04</span>
+            <img src="../../assets/icon-video.png" alt="" loading="lazy" style="object-fit:contain;padding:9%">
+          </div>
+          <div class="mod-in">
+            <h3>Video Prodüksiyon</h3>
+            <p>Reklam filmi, ürün videosu ve kanal içeriği. Aynı çekimden 16:9, 9:16 ve 1:1 çıkar.</p>
+            <ul class="mod-liste">
+              <li>Reklam ve tanıtım filmi</li><li>Ürün ve e-ticaret çekimi</li>
+              <li>YouTube &amp; Instagram formatları</li><li>AI destekli üretim</li>
+            </ul>
+            <div class="mod-alt">
+              <span class="fiy">Çekim + 2 hafta kurgu</span>
+              <a href="./video-produksiyon/">Modülü aç
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="mod rv" style="--mrk:var(--lime);grid-column:1/-1">
+          <div class="mod-gorsel" style="aspect-ratio:21/9">
+            <span class="mod-etiket" style="color:var(--lime)">Modül 05</span>
+            <video src="../video/seo-modul.mp4" data-dongu muted loop playsinline preload="none"
+                   poster="../../assets/icon-seo.png" aria-hidden="true"></video>
+          </div>
+          <div class="mod-in">
+            <h3>SEO Hizmetleri</h3>
+            <p>Teknik SEO, içerik mimarisi, yerel SEO ve çok dilli yapı. Diğer dört modülün ürettiği
+              her şey aynı anda arama görünürlüğüne çalışır.</p>
+            <ul class="mod-liste">
+              <li>Teknik SEO ve Core Web Vitals</li><li>İçerik stratejisi ve pillar yapısı</li>
+              <li>Yerel SEO ve Google İşletme Profili</li><li>Çok dilli / uluslararası SEO</li>
+            </ul>
+            <div class="mod-alt">
+              <span class="fiy">Aylık · ilk sonuç 8–12 hafta</span>
+              <a href="./seo/">Modülü aç
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="band rv">
+        <h2>Hangi modüllere ihtiyacınız var, birlikte çıkaralım</h2>
+        <p>30 dakikalık görüşmede ekranı paylaşır, sitenizin ve reklam hesabınızın
+          para kaybettiği noktaları canlı işaretleriz.</p>
+        <div class="band-cta">
+          <a class="btn btn-p" href="../teklif/">Kapsam çıkaralım
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="tel:+905547916545">0554 791 65 45</a>
+        </div>
+        <p class="band-mini">Görüşme ücretsizdir · Birlikte çalışmasak da çıkan liste sizde kalır</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../assets/logo/marka-yatay.png" alt="TasarımMania" width="435" height="132" loading="lazy">
+        <p>Web, mobil, reklam, video ve SEO’yu tek çatı altında birleştiren
+          İstanbul merkezli 360 derece dijital ajans.</p>
+      </div>
+      <div>
+        <h5>Modüller</h5>
+        <ul>
+          <li><a href="./web-tasarim-yazilim/">Web Tasarım &amp; Yazılım</a></li>
+          <li><a href="./mobil-uygulama/">Mobil Uygulama</a></li>
+          <li><a href="./dijital-pazarlama/">Dijital Pazarlama</a></li>
+          <li><a href="./video-produksiyon/">Video Prodüksiyon</a></li>
+          <li><a href="./seo/">SEO Hizmetleri</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>İletişim</h5>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../iletisim/">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../iletisim/">Hafta içi 09:00–19:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</span>
+      <span class="mono">BEŞ MODÜL · TEK PANEL</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+
+/* ===== İnfografik 1: yörünge sistemi ===== */
+(function orbit(){
+  var MODULLER = [
+    { ad:'WEB',        tam:'Web Tasarım & Yazılım', renk:'var(--cy)',
+      ozet:'Her şeyin üzerinde çalıştığı zemin. Site hızlı ve ölçülebilir değilse diğer dört modül boşa çalışır.',
+      besler:[['Pazarlama','reklamın ineceği hızlı açılış sayfaları'],['SEO','temiz HTML, schema ve site mimarisi'],['Mobil','ortak API ve tasarım sistemi']] },
+    { ad:'MOBİL',      tam:'Mobil Uygulama', renk:'var(--vi)',
+      ozet:'Sadık müşteriyi elde tutan kanal. Web ile aynı tasarım sistemini ve aynı ölçüm şemasını kullanır.',
+      besler:[['Web','ortak bileşen kütüphanesi'],['Pazarlama','uygulama içi olay verisi ve kitleler']] },
+    { ad:'PAZARLAMA',  tam:'Meta & Google Ads', renk:'var(--amber)',
+      ozet:'Trafiği getiren motor. Ama nereye indireceğini web, neyi göstereceğini video söyler.',
+      besler:[['Video','hangi kreatifin yorulduğunun verisi'],['SEO','hangi aramanın dönüştüğünün verisi'],['Web','dönüşüm testleri için trafik']] },
+    { ad:'VİDEO',      tam:'Video Prodüksiyon', renk:'var(--pink)',
+      ozet:'Reklamın ve sosyal kanalların yakıtı. Tek çekimden reklam, ürün ve kanal içeriği birlikte çıkar.',
+      besler:[['Pazarlama','haftalık kreatif rotasyonu'],['Web','ürün ve vaka videoları'],['SEO','video araması ve sayfada kalma']] },
+    { ad:'SEO',        tam:'SEO Hizmetleri', renk:'var(--lime)',
+      ozet:'Zamanla ucuzlayan tek kanal. Reklamı kapattığınızda ayakta kalan trafik burada birikir.',
+      besler:[['Web','içerik mimarisi ve iç link planı'],['Pazarlama','reklam harcamasını düşüren organik kapsama']] }
+  ];
+
+  var svg = document.querySelector('.orb-sahne svg');
+  if (!svg) return;
+  var gNok = svg.querySelector('#noktalar'), gBag = svg.querySelector('#baglar');
+  var bilgi = document.getElementById('orbBilgi');
+  var NS = 'http://www.w3.org/2000/svg';
+  var CX = 230, CY = 230, R = 150, secili = 0;
+
+  var konum = MODULLER.map(function(m,i){
+    var a = (-90 + i * (360/MODULLER.length)) * Math.PI/180;
+    return { x: CX + Math.cos(a)*R, y: CY + Math.sin(a)*R };
+  });
+
+  // bağlantı yayları (her modül çiftini eğri ile bağla)
+  var baglar = [];
+  for (var i=0;i<MODULLER.length;i++){
+    for (var j=i+1;j<MODULLER.length;j++){
+      var p = document.createElementNS(NS,'path');
+      var k = 0.42;
+      var mx = (konum[i].x+konum[j].x)/2, my = (konum[i].y+konum[j].y)/2;
+      var qx = CX + (mx-CX)*k, qy = CY + (my-CY)*k;
+      p.setAttribute('d','M'+konum[i].x.toFixed(1)+' '+konum[i].y.toFixed(1)+
+                      ' Q'+qx.toFixed(1)+' '+qy.toFixed(1)+' '+konum[j].x.toFixed(1)+' '+konum[j].y.toFixed(1));
+      p.setAttribute('class','orb-bag');
+      gBag.appendChild(p);
+      baglar.push({ el:p, a:i, b:j });
+    }
+  }
+
+  MODULLER.forEach(function(m,i){
+    var g = document.createElementNS(NS,'g');
+    g.setAttribute('class','orb-nokta');
+    g.setAttribute('style','--mrk:'+m.renk);
+    g.setAttribute('tabindex','0');
+    g.setAttribute('role','button');
+    g.setAttribute('aria-label', m.tam);
+    var puls = document.createElementNS(NS,'circle');
+    puls.setAttribute('class','puls'); puls.setAttribute('cx',konum[i].x); puls.setAttribute('cy',konum[i].y);
+    var c = document.createElementNS(NS,'circle');
+    c.setAttribute('cx',konum[i].x); c.setAttribute('cy',konum[i].y); c.setAttribute('r','28');
+    var t = document.createElementNS(NS,'text');
+    t.setAttribute('x',konum[i].x); t.setAttribute('y',konum[i].y+3.5); t.textContent = m.ad;
+    g.appendChild(puls); g.appendChild(c); g.appendChild(t);
+    g.addEventListener('mouseenter', function(){ sec(i); });
+    g.addEventListener('click', function(){ sec(i); });
+    g.addEventListener('focus', function(){ sec(i); });
+    g.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); sec(i); }
+    });
+    gNok.appendChild(g);
+  });
+
+  function sec(i){
+    secili = i;
+    [].forEach.call(gNok.children, function(g,k){ g.classList.toggle('secili', k===i); });
+    baglar.forEach(function(b){ b.el.classList.toggle('aktif', b.a===i || b.b===i); });
+    var m = MODULLER[i];
+    bilgi.setAttribute('style','--mrk:'+m.renk);
+    bilgi.innerHTML =
+      '<span class="etk">Modül 0'+(i+1)+'</span>' +
+      '<h3>'+m.tam+'</h3>' +
+      '<p>'+m.ozet+'</p>' +
+      '<ul class="orb-besler">' +
+        m.besler.map(function(x){ return '<li><span><b>'+x[0]+'</b> modülüne: '+x[1]+'</span></li>'; }).join('') +
+      '</ul>';
+  }
+  sec(0);
+})();
+
+/* ===== İnfografik 2: kayıp haritası — görününce doldur ===== */
+(function kayip(){
+  var kok = document.getElementById('kayipGrafik');
+  if (!kok) return;
+  var doldu = false;
+  function calistir(){
+    if (doldu) return;
+    var r = kok.getBoundingClientRect();
+    if (r.top > (window.innerHeight||800) * 0.85 || r.bottom < 0) return;
+    doldu = true;
+    [].forEach.call(kok.querySelectorAll('.akis-dolu'), function(el,i){
+      setTimeout(function(){ el.style.width = el.dataset.oran + '%'; }, i * 90);
+    });
+  }
+  window.addEventListener('scroll', calistir, { passive:true });
+  window.addEventListener('resize', calistir, { passive:true });
+  calistir();
+})();
+</script>
+</body>
+</html>
