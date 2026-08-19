@@ -115,29 +115,60 @@
   margin-top:6px;flex:none}
 .orb-besler b{color:var(--fg);font-weight:600}
 
-/* --- infografik 2: kayıp haritası --- */
-.kayip{border:1px solid var(--hair);border-radius:var(--r-lg);overflow:hidden;background:var(--panel)}
-.kayip-ust{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--hair)}
-.kayip-ust > div{padding:20px 24px}
-.kayip-ust > div:first-child{border-right:1px solid var(--hair)}
-.kayip-ust h4{font-size:16px;margin-bottom:5px}
-.kayip-ust p{font-size:13px;color:var(--muted)}
-.kayip-govde{display:grid;grid-template-columns:1fr 1fr}
-.kayip-govde > div{padding:26px 24px 30px}
-.kayip-govde > div:first-child{border-right:1px solid var(--hair)}
-.akis{display:grid;gap:11px}
-.akis-sat{display:grid;grid-template-columns:118px 1fr 54px;gap:12px;align-items:center;font-size:13px}
-.akis-ad{color:var(--muted);font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase}
-.akis-bar{height:26px;border-radius:6px;background:rgba(255,255,255,.045);overflow:hidden;position:relative}
-.akis-dolu{height:100%;border-radius:6px;width:0;transition:width 1.2s var(--ease)}
-.akis-sol .akis-dolu{background:linear-gradient(90deg,rgba(255,45,155,.75),rgba(255,45,155,.35))}
-.akis-sag .akis-dolu{background:linear-gradient(90deg,var(--acc),rgba(var(--acc-rgb),.45))}
-.akis-deg{font-family:var(--mono);font-size:12.5px;text-align:right;color:var(--fg)}
-.akis-sol .akis-deg{color:#FF7FBE}
-.akis-sag .akis-deg{color:var(--acc)}
-.kayip-alt{border-top:1px solid var(--hair);padding:18px 24px;display:flex;gap:24px;flex-wrap:wrap;
-  font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
-.kayip-alt b{color:var(--fg)}
+/* --- sahne: sorumluluk topu --- */
+.sah{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:stretch}
+.sah-sol{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);overflow:hidden;
+  display:flex;flex-direction:column}
+.sah-ust{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--hair);
+  background:rgba(255,255,255,.02);font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted)}
+.sah-nokta{width:8px;height:8px;border-radius:50%;background:#FF4D6D;flex:none;
+  box-shadow:0 0 10px rgba(255,77,109,.9);animation:sahYanip 1.8s ease-in-out infinite}
+@keyframes sahYanip{0%,100%{opacity:1}50%{opacity:.35}}
+.sah-tekrar{margin-left:auto;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);background:none;border:1px solid var(--hair);
+  border-radius:999px;padding:5px 11px;cursor:pointer;transition:.25s}
+.sah-tekrar:hover{color:var(--acc);border-color:var(--acc)}
+.sah-akis{padding:20px 18px 24px;display:grid;gap:13px;min-height:430px;align-content:start}
+
+.sah-msj{display:grid;gap:5px;max-width:86%;opacity:0;transform:translateY(12px);
+  animation:sahGir .45s var(--ease) forwards}
+@keyframes sahGir{to{opacity:1;transform:none}}
+.sah-msj .kim{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);padding-inline:4px}
+.sah-msj .balon{border:1px solid var(--hair);border-radius:14px;padding:12px 15px;font-size:14.2px;
+  line-height:1.55;color:var(--fg-dim);background:rgba(255,255,255,.035)}
+.sah-msj.siz{justify-items:end;margin-left:auto}
+.sah-msj.siz .balon{background:rgba(var(--acc-rgb),.10);border-color:rgba(var(--acc-rgb),.3);
+  color:var(--fg);border-bottom-right-radius:5px}
+.sah-msj.onlar .balon{border-bottom-left-radius:5px}
+.sah-msj.onlar .kim{color:var(--rnk)}
+.sah-msj.onlar .balon{border-left:2px solid var(--rnk)}
+.sah-yaziyor .balon{display:inline-flex;gap:4px;padding:14px 16px}
+.sah-yaziyor i{width:6px;height:6px;border-radius:50%;background:var(--muted);display:block;
+  animation:sahZipla 1.1s ease-in-out infinite}
+.sah-yaziyor i:nth-child(2){animation-delay:.15s}
+.sah-yaziyor i:nth-child(3){animation-delay:.3s}
+@keyframes sahZipla{0%,60%,100%{transform:translateY(0);opacity:.45}30%{transform:translateY(-5px);opacity:1}}
+.sah-sonuc{margin-top:6px;border-top:1px dashed var(--hair);padding-top:14px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:#FF7A93;
+  opacity:0;animation:sahGir .5s var(--ease) forwards}
+
+.sah-sag{border:1px solid rgba(var(--acc-rgb),.3);border-radius:var(--r-lg);padding:30px 28px;
+  background:linear-gradient(150deg,rgba(var(--acc-rgb),.09),rgba(122,34,255,.06));
+  display:flex;flex-direction:column}
+.sah-etk{display:inline-flex;align-self:flex-start;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--acc);border:1px solid currentColor;
+  border-radius:999px;padding:5px 12px;margin-bottom:18px}
+.sah-sag h3{font-size:clamp(22px,3vw,32px);line-height:1.15;margin-bottom:14px}
+.sah-sag > p{color:var(--fg-dim);font-size:15px;margin-bottom:20px}
+.sah-liste{display:grid;gap:11px;margin-bottom:26px}
+.sah-liste li{display:flex;gap:11px;align-items:flex-start;font-size:14.2px;color:var(--muted)}
+.sah-liste li::before{content:"";width:16px;height:16px;border-radius:50%;flex:none;margin-top:2px;
+  background:rgba(var(--acc-rgb),.16);border:1px solid rgba(var(--acc-rgb),.5);
+  background-image:linear-gradient(45deg,transparent 42%,var(--acc) 42%,var(--acc) 58%,transparent 58%)}
+.sah-liste b{color:var(--fg);font-weight:600}
+.sah-sag .btn{margin-top:auto;align-self:flex-start}
 
 /* --- modül kartları --- */
 .moduller{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
@@ -195,6 +226,7 @@
 
 @media(max-width:960px){
   .orb{grid-template-columns:1fr;gap:28px}
+  .sah{grid-template-columns:1fr}
   .moduller{grid-template-columns:1fr}
   .ftr-ust{grid-template-columns:1fr 1fr}
 }
@@ -205,9 +237,8 @@
   .nav-links,.nav-tel{display:none}
   .burger{display:block}
   .phd-fon{opacity:.4}
-  .kayip-ust,.kayip-govde{grid-template-columns:1fr}
-  .kayip-ust > div:first-child,.kayip-govde > div:first-child{border-right:0;border-bottom:1px solid var(--hair)}
-  .akis-sat{grid-template-columns:96px 1fr 46px;gap:9px}
+  .sah-akis{min-height:auto}
+  .sah-msj{max-width:94%}
   .ftr-ust{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
@@ -324,42 +355,39 @@
     </div>
   </section>
 
-  <!-- ===== İNFOGRAFİK 2: kayıp haritası ===== -->
-  <section class="sec" id="kayip" style="padding-top:0">
+  <!-- ===== SAHNE: sorumluluk topu ===== -->
+  <section class="sec" id="sorumluluk" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow"><i></i>İnfografik · Kayıp haritası</span>
-        <h2 data-kin>100 birim bütçenin kaçı işe dönüşüyor?</h2>
-        <p>Aynı bütçe, iki farklı kurguda. Soldaki, işi üç ayrı tedarikçiye bölen tipik senaryo;
-          sağdaki tek ekip. Aradaki fark yetenek değil, <b>devir kaybı</b>.</p>
+        <span class="eyebrow"><i></i>Tanıdık geldi mi?</span>
+        <h2 data-kin>Sorun çıkınca herkes<br>bir diğerini gösterir.</h2>
+        <p>Üç ayrı tedarikçiyle çalışırken en pahalı şey iş değil, <b>arada geçen süre</b>.
+          Aşağıdaki yazışmayı canlandırdık — ama bu cümleleri daha önce duyduysanız,
+          sorunun sizde olmadığını zaten biliyorsunuz.</p>
       </div>
 
-      <div class="kayip rv d1" id="kayipGrafik">
-        <div class="kayip-ust">
-          <div><h4>Ayrı tedarikçiler</h4><p>Ajans + yazılımcı + prodüksiyon, üç ayrı takvim</p></div>
-          <div><h4>Tek çatı</h4><p>Beş modül, tek ekip, tek takvim</p></div>
-        </div>
-        <div class="kayip-govde">
-          <div class="akis akis-sol">
-            <div class="akis-sat"><span class="akis-ad">Başlangıç</span><div class="akis-bar"><div class="akis-dolu" data-oran="100"></div></div><span class="akis-deg" data-say="100">0</span></div>
-            <div class="akis-sat"><span class="akis-ad">Brief devri</span><div class="akis-bar"><div class="akis-dolu" data-oran="82"></div></div><span class="akis-deg" data-say="82">0</span></div>
-            <div class="akis-sat"><span class="akis-ad">Tasarım→kod</span><div class="akis-bar"><div class="akis-dolu" data-oran="68"></div></div><span class="akis-deg" data-say="68">0</span></div>
-            <div class="akis-sat"><span class="akis-ad">Ölçüm kurulumu</span><div class="akis-bar"><div class="akis-dolu" data-oran="54"></div></div><span class="akis-deg" data-say="54">0</span></div>
-            <div class="akis-sat"><span class="akis-ad">Kreatif rotasyon</span><div class="akis-bar"><div class="akis-dolu" data-oran="43"></div></div><span class="akis-deg" data-say="43">0</span></div>
-            <div class="akis-sat"><span class="akis-ad">İşe dönüşen</span><div class="akis-bar"><div class="akis-dolu" data-oran="43"></div></div><span class="akis-deg" data-say="43">0</span></div>
+      <div class="sah rv d1">
+        <div class="sah-sol">
+          <div class="sah-ust">
+            <span class="sah-nokta" aria-hidden="true"></span>
+            <span>Proje grubu · 3 tedarikçi</span>
+            <button class="sah-tekrar" id="sahTekrar" type="button">Tekrar oynat</button>
           </div>
-          <div class="akis akis-sag">
-            <div class="akis-sat"><span class="akis-ad">Başlangıç</span><div class="akis-bar"><div class="akis-dolu" data-oran="100"></div></div><span class="akis-deg" data-say="100">0</span></div>
-            <div class="akis-sat"><span class="akis-ad">Brief devri</span><div class="akis-bar"><div class="akis-dolu" data-oran="97"></div></div><span class="akis-deg" data-say="97">0</span></div>
-            <div class="akis-sat"><span class="akis-ad">Tasarım→kod</span><div class="akis-bar"><div class="akis-dolu" data-oran="93"></div></div><span class="akis-deg" data-say="93">0</span></div>
-            <div class="akis-sat"><span class="akis-ad">Ölçüm kurulumu</span><div class="akis-bar"><div class="akis-dolu" data-oran="90"></div></div><span class="akis-deg" data-say="90">0</span></div>
-            <div class="akis-sat"><span class="akis-ad">Kreatif rotasyon</span><div class="akis-bar"><div class="akis-dolu" data-oran="86"></div></div><span class="akis-deg" data-say="86">0</span></div>
-            <div class="akis-sat"><span class="akis-ad">İşe dönüşen</span><div class="akis-bar"><div class="akis-dolu" data-oran="86"></div></div><span class="akis-deg" data-say="86">0</span></div>
-          </div>
+          <div class="sah-akis" id="sahAkis" aria-live="polite"></div>
         </div>
-        <div class="kayip-alt">
-          <span>Kayıp noktaları: <b>brief devri</b> · <b>tasarım-kod aktarımı</b> · <b>ölçüm boşluğu</b> · <b>kreatif gecikmesi</b></span>
-          <span>Model, gerçek proje verisiyle güncellenecektir.</span>
+
+        <div class="sah-sag">
+          <span class="sah-etk">Tek çatıda</span>
+          <h3>Tek cümle vardır:<br><span class="grad">“Biz hallederiz.”</span></h3>
+          <p>Web, reklam ve video aynı ekipte olduğu için kimin yapacağı tartışılmaz.
+            Sorunu siz taşımazsınız, proje yöneticisi taşır.</p>
+          <ul class="sah-liste">
+            <li><b>Tek muhatap</b> — her konuda aynı kişi</li>
+            <li><b>Tek takvim</b> — bekleme süresi yok</li>
+            <li><b>Tek rapor</b> — hangi kanalın ne getirdiği tek sayfada</li>
+          </ul>
+          <a class="btn btn-p" href="../teklif/">Tek muhatapla başlayalım
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
     </div>
@@ -686,23 +714,77 @@ document.getElementById('yil').textContent = new Date().getFullYear();
   sec(0, false);
 })();
 
-/* ===== İnfografik 2: kayıp haritası — görününce doldur ===== */
-(function kayip(){
-  var kok = document.getElementById('kayipGrafik');
-  if (!kok) return;
-  var doldu = false;
-  function calistir(){
-    if (doldu) return;
-    var r = kok.getBoundingClientRect();
-    if (r.top > (window.innerHeight||800) * 0.85 || r.bottom < 0) return;
-    doldu = true;
-    [].forEach.call(kok.querySelectorAll('.akis-dolu'), function(el,i){
-      setTimeout(function(){ el.style.width = el.dataset.oran + '%'; }, i * 90);
+/* ===== Sahne: sorumluluk topu — görününce oynat ===== */
+(function sahne(){
+  var akis = document.getElementById('sahAkis');
+  var tekrar = document.getElementById('sahTekrar');
+  if (!akis) return;
+  var AZALT = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var MESAJLAR = [
+    { kim:'Siz', tip:'siz', metin:'Site mobilde bozuk görünüyor, reklamdan gelenler çıkıp gidiyor.' },
+    { kim:'Web Ajansı', tip:'onlar', renk:'var(--cy)', metin:'Tasarımı biz yapmadık, grafikerden geldi. Biz sadece uyguladık.' },
+    { kim:'Grafik Ajansı', tip:'onlar', renk:'var(--pink)', metin:'Bizim verdiğimiz ölçüler doğruydu. Kodlarken bozulmuş olabilir.' },
+    { kim:'Reklam Ajansı', tip:'onlar', renk:'var(--amber)', metin:'Bizde sorun yok, tıklama geliyor. Site yavaş olduğu için dönüşmüyor.' },
+    { kim:'Siz', tip:'siz', metin:'Peki bunu kim düzeltecek?' },
+    { kim:'', tip:'sessiz', metin:'…' }
+  ];
+
+  var zamanlayicilar = [];
+  function temizle(){ zamanlayicilar.forEach(clearTimeout); zamanlayicilar = []; akis.innerHTML = ''; }
+
+  function yaz(m, gecikme){
+    zamanlayicilar.push(setTimeout(function(){
+      if (m.tip !== 'siz' && m.tip !== 'sessiz') {
+        var y = document.createElement('div');
+        y.className = 'sah-msj onlar sah-yaziyor';
+        y.style.setProperty('--rnk', m.renk || 'var(--muted)');
+        y.innerHTML = '<span class="kim">' + m.kim + '</span><span class="balon"><i></i><i></i><i></i></span>';
+        akis.appendChild(y);
+        zamanlayicilar.push(setTimeout(function(){ y.remove(); ekle(m); }, 850));
+      } else { ekle(m); }
+    }, gecikme));
+  }
+
+  function ekle(m){
+    if (m.tip === 'sessiz') {
+      var s = document.createElement('div');
+      s.className = 'sah-sonuc';
+      s.textContent = 'Üç gün geçti. Sorun hâlâ duruyor, fatura üçe bölünmeye devam ediyor.';
+      akis.appendChild(s);
+      return;
+    }
+    var d = document.createElement('div');
+    d.className = 'sah-msj ' + m.tip;
+    if (m.renk) d.style.setProperty('--rnk', m.renk);
+    d.innerHTML = '<span class="kim">' + m.kim + '</span><span class="balon">' + m.metin + '</span>';
+    akis.appendChild(d);
+  }
+
+  function oynat(){
+    temizle();
+    if (AZALT) { MESAJLAR.forEach(function(m){ ekle(m); }); return; }
+    var t = 200;
+    MESAJLAR.forEach(function(m){
+      yaz(m, t);
+      t += (m.tip === 'siz' ? 900 : 1750);
     });
   }
-  window.addEventListener('scroll', calistir, { passive:true });
-  window.addEventListener('resize', calistir, { passive:true });
-  calistir();
+
+  var oynadi = false, sonKontrol = 0;
+  function kontrol(){
+    var simdi = Date.now();
+    if (simdi - sonKontrol < 150) return;
+    sonKontrol = simdi;
+    if (oynadi) return;
+    var r = akis.getBoundingClientRect();
+    if (r.top < (window.innerHeight||800) * 0.8 && r.bottom > 0) { oynadi = true; oynat(); }
+  }
+  window.addEventListener('scroll', kontrol, { passive:true });
+  window.addEventListener('resize', kontrol, { passive:true });
+  kontrol();
+
+  if (tekrar) tekrar.addEventListener('click', oynat);
 })();
 </script>
 </body>
