@@ -23,6 +23,9 @@
   /* geometri ve hareket */
   --r-lg:20px; --r-md:14px; --r-sm:9px;
   --maxw:1240px;
+  /* sabit üst menünün yüksekliği — sayfa içeriği bu kadar aşağıdan başlamalı,
+     yoksa ilk öğe (breadcrumb) menünün altında kalır */
+  --nav-h:74px;
   --ease:cubic-bezier(.22,.8,.24,1);
 
   /* tipografi — fontlar kendi sunucumuzdan (bkz. @font-face) */
@@ -83,7 +86,7 @@ ul{margin:0;padding:0;list-style:none}
 .btn-sm{padding:9px 17px;font-size:13px}
 
 /* --- kırıntı (breadcrumb) --- */
-.crumb{font-family:var(--mono);font-size:11.5px;color:var(--muted);padding:22px 0 0;
+.crumb{font-family:var(--mono);font-size:11.5px;color:var(--muted);
   display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .crumb a{transition:color .22s}
 .crumb a:hover{color:var(--acc)}

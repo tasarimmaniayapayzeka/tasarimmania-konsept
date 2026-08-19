@@ -46,7 +46,9 @@
 
 /* --- hero: canlı fon + vurucu rakamlar --- */
 .phd{position:relative;overflow:hidden;isolation:isolate;
-  padding:clamp(46px,7vw,92px) 0 clamp(38px,5vw,64px)}
+  /* ust bosluk sabit menuyu temizler; hero fonu yine y=0 dan baslar (menu seffaf) */
+  padding:calc(var(--nav-h) + clamp(26px,4vw,54px)) 0 clamp(38px,5vw,64px)}
+.phd .crumb{margin-bottom:20px}
 .phd-fon{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.55}
 .phd-perde{position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:linear-gradient(180deg,rgba(11,13,18,.72) 0%,rgba(11,13,18,.86) 55%,var(--bg) 100%),
@@ -290,15 +292,14 @@
 
 <main id="ana">
 
-  <div class="wrap"><nav class="crumb" aria-label="Konum">
-    <a href="../">Ana sayfa</a><span aria-hidden="true">/</span><span>Hizmetler</span>
-  </nav></div>
-
   <header class="phd">
     <video class="phd-fon" src="../video/hero-fon.mp4" data-dongu muted loop playsinline
            preload="none" aria-hidden="true"></video>
     <span class="phd-perde" aria-hidden="true"></span>
     <div class="wrap phd-in">
+      <nav class="crumb" aria-label="Konum">
+        <a href="../">Ana sayfa</a><span aria-hidden="true">/</span><span>Hizmetler</span>
+      </nav>
       <span class="eyebrow"><i></i>5 modül · Tek ekip · Tek rapor</span>
       <h1 data-kin>Beş ayrı ajansla<br>uğraşmayı bırakın.</h1>
       <p class="lead">Web, mobil uygulama, reklam, video ve SEO. Hepsi aynı ekipte,
