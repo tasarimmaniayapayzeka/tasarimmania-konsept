@@ -185,9 +185,21 @@
 .mod-in{padding:24px;display:flex;flex-direction:column;flex:1}
 .mod-in h3{font-size:21px;margin-bottom:9px}
 .mod-in > p{color:var(--fg-dim);font-size:14.6px;margin-bottom:16px}
-.mod-liste{display:grid;gap:8px;margin-bottom:20px}
-.mod-liste li{font-size:13.6px;color:var(--muted);display:flex;gap:9px}
-.mod-liste li::before{content:"—";color:var(--mrk);flex:none}
+.mod-liste{display:grid;gap:13px;margin-bottom:22px}
+.mod-liste li{display:grid;gap:2px;padding-left:15px;position:relative}
+.mod-liste li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;
+  border-radius:2px;background:var(--mrk)}
+.mod-liste b{font-size:14.4px;color:var(--fg);font-weight:600;letter-spacing:-.01em;line-height:1.4}
+.mod-liste span{font-size:12.4px;color:var(--muted);line-height:1.4}
+
+/* amiral kart: tam genişlik + yatay yerleşim — grid ritmini kırar */
+.mod--amiral{grid-column:1/-1;flex-direction:row}
+.mod--amiral .mod-gorsel{width:44%;flex:none;border-bottom:0;border-right:1px solid var(--hair)}
+.mod--amiral .mod-gorsel::after{background:linear-gradient(90deg,transparent 55%,rgba(11,13,18,.55))}
+.mod--amiral .mod-in{width:56%;padding:clamp(26px,3vw,38px)}
+.mod--amiral h3{font-size:clamp(23px,2.6vw,29px)}
+.mod--amiral > .mod-in > p{font-size:15.2px;max-width:46ch}
+.mod--amiral .mod-liste{grid-template-columns:1fr 1fr;gap:15px 22px}
 .mod-alt{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;
   padding-top:16px;border-top:1px solid var(--hair)}
 .mod-alt .fiy{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
@@ -228,6 +240,10 @@
   .orb{grid-template-columns:1fr;gap:28px}
   .sah{grid-template-columns:1fr}
   .moduller{grid-template-columns:1fr}
+  .mod--amiral{flex-direction:column}
+  .mod--amiral .mod-gorsel{width:100%;aspect-ratio:16/9;border-right:0;border-bottom:1px solid var(--hair)}
+  .mod--amiral .mod-in{width:100%}
+  .mod--amiral .mod-liste{grid-template-columns:1fr}
   .ftr-ust{grid-template-columns:1fr 1fr}
 }
 @media(max-width:960px){
@@ -418,29 +434,28 @@
       </div>
 
       <div class="moduller">
-        <article class="mod rv" style="--mrk:var(--cy)">
-          <div class="mod-gorsel">
+        <article class="mod rv mod--amiral" style="--mrk:var(--cy)">
+          <div class="mod-gorsel" style="aspect-ratio:auto">
             <span class="mod-etiket" style="color:var(--cy)">Modül 01</span>
             <video src="../video/web-modul.mp4" data-dongu muted loop playsinline preload="none"
                    poster="../../assets/icon-web.png" aria-hidden="true"></video>
           </div>
           <div class="mod-in">
             <h3>Web Tasarım &amp; Yazılım</h3>
-            <p>Kurumsal site, e-ticaret ve özel web uygulamaları. Hız ve ölçüm, sonradan eklenen değil
-              baştan kurulan parça.</p>
+            <p>Diğer dört modülün üzerinde çalıştığı zemin. Site yavaşsa reklam da SEO da boşa gider — o yüzden hız ve ölçüm sonradan eklenen değil, baştan kurulan parça.</p>
             <ul class="mod-liste">
-              <li>Kurumsal web sitesi</li><li>E-ticaret (WooCommerce)</li>
-              <li>Özel web uygulaması</li><li>AI chatbot entegrasyonu</li>
+              <li><b>Telefonda 3 saniyede açılsın</b><span>Hız optimizasyonu ve Core Web Vitals</span></li>
+              <li><b>Sepeti terk edeni geri getirin</b><span>E-ticaret kurulumu — WooCommerce</span></li>
+              <li><b>İçeriği ajansa sormadan güncelleyin</b><span>Yönetim paneli ve eğitim</span></li>
+              <li><b>Gece gelen soruyu asistan cevaplasın</b><span>AI chatbot entegrasyonu</span></li>
             </ul>
             <div class="mod-alt">
               <span class="fiy">Kurulum + 6 hafta</span>
-              <a href="./web-tasarim-yazilim/">Modülü aç
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a href="./web-tasarim-yazilim/">Modülü aç <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
           </div>
         </article>
-
-        <article class="mod rv d1" style="--mrk:var(--vi)">
+        <article class="mod rv" style="--mrk:var(--vi)">
           <div class="mod-gorsel">
             <span class="mod-etiket" style="color:var(--vi)">Modül 02</span>
             <video src="../video/mobil-modul.mp4" data-dongu muted loop playsinline preload="none"
@@ -448,19 +463,19 @@
           </div>
           <div class="mod-in">
             <h3>Mobil Uygulama</h3>
-            <p>iOS ve Android. Mağaza yayını, sürüm yönetimi ve uygulama içi ölçüm dahil.</p>
+            <p>Sadık müşteriyi elde tutan kanal. Web ile aynı tasarım sistemini ve aynı ölçüm şemasını kullanır.</p>
             <ul class="mod-liste">
-              <li>iOS &amp; Android yayın</li><li>React Native veya native</li>
-              <li>Push ve sadakat senaryoları</li><li>Uygulama içi analitik</li>
+              <li><b>Markanız müşterinin cebinde dursun</b><span>iOS &amp; Android mağaza yayını</span></li>
+              <li><b>Kampanyayı bildirimle ücretsiz duyurun</b><span>Push senaryoları</span></li>
+              <li><b>Sadakat kartını cüzdandan çıkarın</b><span>Puan ve üyelik akışı</span></li>
+              <li><b>Hangi ekranda kaybettiğinizi görün</b><span>Uygulama içi analitik</span></li>
             </ul>
             <div class="mod-alt">
               <span class="fiy">Kapsama göre 8–16 hafta</span>
-              <a href="./mobil-uygulama/">Modülü aç
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a href="./mobil-uygulama/">Modülü aç <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
           </div>
         </article>
-
         <article class="mod rv" style="--mrk:var(--amber)">
           <div class="mod-gorsel">
             <span class="mod-etiket" style="color:var(--amber)">Modül 03</span>
@@ -469,20 +484,20 @@
           </div>
           <div class="mod-in">
             <h3>Dijital Pazarlama</h3>
-            <p>Meta ve Google Ads yönetimi. Hesaplar sizin adınıza açılır, veri sizde kalır.</p>
+            <p>Trafiği getiren motor. Nereye indireceğini web, neyi göstereceğini video söyler — üçü aynı ekipte olunca bütçe boşa akmaz.</p>
             <ul class="mod-liste">
-              <li>Google Ads yönetimi</li><li>Meta &amp; Instagram reklamları</li>
-              <li>Sosyal medya yönetimi</li><li>Yurt dışı kampanya</li>
+              <li><b>Bütçe doğru kişiye gitsin</b><span>Google Ads yönetimi</span></li>
+              <li><b>Aynı kitleye tekrar tekrar ödemeyin</b><span>Meta &amp; Instagram reklamları</span></li>
+              <li><b>Hesaplar sizin adınıza açılsın</b><span>Veri ve mülkiyet sizde kalır</span></li>
+              <li><b>Yurt dışında da aynı kaliteyle yayın</b><span>Çok dilli kampanya yönetimi</span></li>
             </ul>
             <div class="mod-alt">
               <span class="fiy">Aylık · çıkış hakkı ay sonu</span>
-              <a href="./dijital-pazarlama/">Modülü aç
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a href="./dijital-pazarlama/">Modülü aç <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
           </div>
         </article>
-
-        <article class="mod rv d1" style="--mrk:var(--pink)">
+        <article class="mod rv" style="--mrk:var(--pink)">
           <div class="mod-gorsel">
             <span class="mod-etiket" style="color:var(--pink)">Modül 04</span>
             <video src="../video/video-modul.mp4" data-dongu muted loop playsinline preload="none"
@@ -490,37 +505,37 @@
           </div>
           <div class="mod-in">
             <h3>Video Prodüksiyon</h3>
-            <p>Reklam filmi, ürün videosu ve kanal içeriği. Aynı çekimden 16:9, 9:16 ve 1:1 çıkar.</p>
+            <p>Reklamın ve sosyal kanalların yakıtı. Tek çekim planından üç format birden çıkar.</p>
             <ul class="mod-liste">
-              <li>Reklam ve tanıtım filmi</li><li>Ürün ve e-ticaret çekimi</li>
-              <li>YouTube &amp; Instagram formatları</li><li>AI destekli üretim</li>
+              <li><b>Tek çekimden üç format çıksın</b><span>16:9 reklam, 9:16 Reels, 1:1 post</span></li>
+              <li><b>Ürününüz ekranda hak ettiği gibi görünsün</b><span>Ürün ve e-ticaret çekimi</span></li>
+              <li><b>Kreatif yorulmadan yenisi hazır olsun</b><span>Haftalık rotasyon planı</span></li>
+              <li><b>Kurgu için ay beklemeyin</b><span>AI destekli hızlı üretim hattı</span></li>
             </ul>
             <div class="mod-alt">
               <span class="fiy">Çekim + 2 hafta kurgu</span>
-              <a href="./video-produksiyon/">Modülü aç
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a href="./video-produksiyon/">Modülü aç <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
           </div>
         </article>
-
-        <article class="mod rv" style="--mrk:var(--lime);grid-column:1/-1">
-          <div class="mod-gorsel" style="aspect-ratio:21/9">
+        <article class="mod rv" style="--mrk:var(--lime)">
+          <div class="mod-gorsel">
             <span class="mod-etiket" style="color:var(--lime)">Modül 05</span>
             <video src="../video/seo-modul.mp4" data-dongu muted loop playsinline preload="none"
                    poster="../../assets/icon-seo.png" aria-hidden="true"></video>
           </div>
           <div class="mod-in">
             <h3>SEO Hizmetleri</h3>
-            <p>Teknik SEO, içerik mimarisi, yerel SEO ve çok dilli yapı. Diğer dört modülün ürettiği
-              her şey aynı anda arama görünürlüğüne çalışır.</p>
+            <p>Zamanla ucuzlayan tek kanal. Reklamı kapattığınızda ayakta kalan trafik burada birikir.</p>
             <ul class="mod-liste">
-              <li>Teknik SEO ve Core Web Vitals</li><li>İçerik stratejisi ve pillar yapısı</li>
-              <li>Yerel SEO ve Google İşletme Profili</li><li>Çok dilli / uluslararası SEO</li>
+              <li><b>Reklamı kapatınca da telefon çalsın</b><span>Organik trafik ve içerik stratejisi</span></li>
+              <li><b>Bakırköy’de arayan sizi bulsun</b><span>Yerel SEO ve İşletme Profili</span></li>
+              <li><b>Google’ın neyi beğenmediğini öğrenin</b><span>Teknik SEO denetimi</span></li>
+              <li><b>Yurt dışı aramalarında görünün</b><span>Çok dilli / uluslararası SEO</span></li>
             </ul>
             <div class="mod-alt">
               <span class="fiy">Aylık · ilk sonuç 8–12 hafta</span>
-              <a href="./seo/">Modülü aç
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a href="./seo/">Modülü aç <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
           </div>
         </article>
