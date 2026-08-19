@@ -97,13 +97,34 @@
 /* kat 1 — arayüz (çizilmiş mini site) */
 .ui-nav{display:flex;align-items:center;gap:6px;padding-bottom:9px;border-bottom:1px solid var(--hair)}
 .ui-logo{width:36px;height:7px;border-radius:3px;background:var(--k);opacity:.9}
-.ui-mn{display:flex;gap:6px;margin-left:auto}
+.ui-mn{display:flex;align-items:center;gap:6px;margin-left:auto}
 .ui-mn span{width:22px;height:5px;border-radius:3px;background:rgba(255,255,255,.16)}
 .ui-h1{height:13px;width:78%;border-radius:4px;background:rgba(255,255,255,.30)}
 .ui-h1.k{width:52%;height:11px;background:rgba(255,255,255,.16)}
 .ui-kart{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:2px}
-.ui-kart div{height:44px;border-radius:7px;border:1px solid var(--hair);
+.ui-kart > *{height:44px;border-radius:7px;border:1px solid var(--hair);padding:0;
   background:linear-gradient(160deg,rgba(var(--k-rgb),.14),transparent)}
+
+/* --- ölçülen noktalar: mock'ta tıklanabilir her şey ---------------------
+   Üç ayrı olay çapası. Amaç "ölçüm baştan kurulu" cümlesini iddia olmaktan
+   çıkarıp denenebilir hale getirmek: neye dokunursanız karşılığı yanıyor. */
+[data-olay]{cursor:pointer;position:relative;transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
+[data-olay]:hover,[data-olay]:focus-visible{transform:translateY(-1px)}
+/* Mock minyatür olduğu için telefon çipi 18px yükseklikte kalıyor — WCAG 2.5.8'in
+   24px eşiğinin altında. Görsel boyutu bozmadan tıklama alanını büyütüyoruz. */
+[data-olay]::after{content:"";position:absolute;left:50%;top:50%;
+  transform:translate(-50%,-50%);width:100%;min-width:26px;height:100%;min-height:26px}
+button[data-olay]{font-family:inherit;color:inherit}
+.ui-tel{display:inline-flex;align-items:center;gap:4px;height:15px;padding:0 7px;border-radius:99px;
+  border:1px solid rgba(var(--k-rgb),.45);background:rgba(var(--k-rgb),.10);color:var(--k);
+  font-family:var(--mono);font-size:7.4px;letter-spacing:.04em}
+.ui-tel svg{width:7px;height:7px}
+.ui-tel:hover{background:rgba(var(--k-rgb),.2)}
+.ui-kart button[data-olay]:hover{border-color:rgba(var(--k-rgb),.7);
+  box-shadow:0 6px 16px -8px rgba(var(--k-rgb),.9)}
+.ui-kart .ek{position:absolute;left:50%;bottom:6px;transform:translateX(-50%);
+  font-family:var(--mono);font-size:6.8px;letter-spacing:.08em;color:var(--k);white-space:nowrap;
+  opacity:.75}
 /* Mock CTA: artık gerçek bir buton. Üç katmanda izlenebilen çapa öğe —
    tıklanınca ölçüm katmanına geçip karşılığı olan olayı yakıyor. */
 .ui-btn{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:6px;
@@ -460,14 +481,26 @@
                 <div class="h3-bar"><i></i><i></i><i></i><span>markaniz.com</span><b>ARAYÜZ</b></div>
                 <div class="h3-ic">
                   <div class="ui-nav"><span class="ui-logo"></span>
-                    <span class="ui-mn"><span></span><span></span><span></span></span></div>
+                    <span class="ui-mn"><span></span><span></span>
+                      <button type="button" class="ui-tel" data-olay="telefon_tikla"
+                              aria-label="Örnek: telefon bağlantısı — ölçüm karşılığını göster">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5c0 8 5 13 13 13l2-3.4-4-2-1.7 2c-2.6-1.3-4.6-3.3-5.9-5.9l2-1.7-2-4z"/></svg>
+                        ARA
+                      </button>
+                    </span></div>
                   <div class="ui-h1"></div>
                   <div class="ui-h1 k"></div>
-                  <div class="ui-kart"><div></div><div></div><div></div></div>
-                  <button type="button" class="ui-btn" data-mock-cta>TasarımMania
+                  <div class="ui-kart">
+                    <button type="button" data-olay="sepete_ekle"
+                            aria-label="Örnek: ürün kartı — ölçüm karşılığını göster">
+                      <span class="ek">SEPETE EKLE</span>
+                    </button>
+                    <div></div><div></div>
+                  </div>
+                  <button type="button" class="ui-btn" data-olay="form_gonder">Teklif Al
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                   </button>
-                  <p class="ui-ipucu">↑ BUTONA BASIN — ÖLÇÜM KATMANINDA KARŞILIĞINI GÖRÜN</p>
+                  <p class="ui-ipucu">↑ ÜÇÜNDEN BİRİNE BASIN — ÖLÇÜM KATMANINDA KARŞILIĞI YANAR</p>
                 </div>
               </div>
 
@@ -495,10 +528,10 @@
                     <div class="ol-cip"><u>CLS</u><b>izleniyor</b></div>
                   </div>
                   <ul class="ol-olay">
-                    <li><i></i>form_gonder</li>
-                    <li><i></i>telefon_tikla</li>
-                    <li><i></i>whatsapp_tikla</li>
-                    <li><i></i>sepete_ekle</li>
+                    <li data-ad="form_gonder"><i></i>form_gonder</li>
+                    <li data-ad="telefon_tikla"><i></i>telefon_tikla</li>
+                    <li data-ad="whatsapp_tikla"><i></i>whatsapp_tikla</li>
+                    <li data-ad="sepete_ekle"><i></i>sepete_ekle</li>
                   </ul>
                   <p class="ol-not">Olaylar ilk günde tanımlanır; hangi sayfanın telefonu
                     çaldırdığı ilk aydan itibaren bilinir.</p>
@@ -949,23 +982,27 @@ document.getElementById('yil').textContent = new Date().getFullYear();
     k.addEventListener('click', function(){ durdur(); ciz(+k.dataset.kat); });
   });
 
-  /* Mock CTA → ölçüm katmanına geç ve karşılığı olan olayı yak.
-     Sayfanın tezinin bir hareketle gösterimi: bastığınız buton ölçülüyor.
+  /* Ölçülen noktalar → ölçüm katmanına geç ve karşılığı olan olayı yak.
+     Mock'taki üç öğe (telefon, ürün kartı, CTA) kendi olayına bağlı.
+     Sayfanın tezinin denenebilir hali: neye dokunursanız karşılığı zaten kurulu.
      stopPropagation şart — yoksa üstteki katman tıklaması hemen 0'a geri döndürür. */
-  var mockCta = kok.querySelector('[data-mock-cta]');
-  if (mockCta) {
-    mockCta.addEventListener('click', function(e){
+  var zamanlayici = null;
+  [].slice.call(kok.querySelectorAll('[data-olay]')).forEach(function(nokta){
+    nokta.addEventListener('click', function(e){
       e.stopPropagation();
       durdur();
       ciz(2);
-      var olay = kok.querySelector('.ol-olay li');   /* form_gonder */
+      var olay = kok.querySelector('.ol-olay li[data-ad="' + nokta.dataset.olay + '"]');
       if (!olay) return;
-      olay.classList.remove('parla');
+      /* önceki parlamayı temizle: hızlı arka arkaya tıklamada iki olay birden yanmasın */
+      [].slice.call(kok.querySelectorAll('.ol-olay li.parla'))
+        .forEach(function(x){ x.classList.remove('parla'); });
+      if (zamanlayici) clearTimeout(zamanlayici);
       void olay.offsetWidth;                          /* animasyonu yeniden başlat */
       olay.classList.add('parla');
-      setTimeout(function(){ olay.classList.remove('parla'); }, 2900);
+      zamanlayici = setTimeout(function(){ olay.classList.remove('parla'); }, 2900);
     });
-  }
+  });
 
   if (!AZALT) {
     dongu = setInterval(function(){ if (!mudahale) ciz((aktif + 1) % 3); }, 3600);
