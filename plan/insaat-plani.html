@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site İnşaat Planı — TasarımMania</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0D12; --bg-2:#0E1118; --panel:rgba(255,255,255,.03); --panel-2:rgba(255,255,255,.055);
+  --hair:rgba(255,255,255,.085); --hair-strong:rgba(255,255,255,.16);
+  --fg:#E7EAF0; --fg-dim:#A7B0C2; --muted:#727D93;
+  --cy:#00E5FF; --vi:#7A22FF; --lime:#A6FF00; --amber:#FFB020; --pink:#FF2D9B;
+  --yesil:#22C55E; --kirmizi:#FF4D6D;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --sans:"Inter Tight",system-ui,sans-serif;
+  --ease:cubic-bezier(.22,.8,.24,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+a{color:var(--cy);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* --- başlık --- */
+header{padding:52px 0 34px;border-bottom:1px solid var(--hair);
+  background:radial-gradient(900px 400px at 15% -10%,rgba(0,229,255,.10),transparent 62%)}
+.eti{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--cy);margin-bottom:14px}
+.eti i{width:7px;height:7px;border-radius:50%;background:var(--cy);
+  box-shadow:0 0 0 4px rgba(0,229,255,.15)}
+h1{font-size:clamp(28px,4.6vw,46px);letter-spacing:-.045em;line-height:1.08;margin-bottom:12px}
+.lead{color:var(--fg-dim);font-size:16px;max-width:72ch}
+.kaynaklar{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.kaynaklar span{font-family:var(--mono);font-size:10.4px;letter-spacing:.06em;color:var(--muted);
+  border:1px solid var(--hair);border-radius:99px;padding:6px 12px}
+.kaynaklar b{color:var(--fg-dim);font-weight:500}
+
+/* --- bölüm --- */
+section{padding:44px 0 8px}
+h2{font-size:clamp(21px,2.8vw,30px);letter-spacing:-.035em;margin-bottom:8px}
+.h2alt{color:var(--muted);font-size:14px;margin-bottom:26px;max-width:78ch}
+
+/* --- bina kesiti --- */
+.bina{display:grid;gap:10px;position:relative}
+.kat{border:1px solid var(--hair);border-radius:14px;background:var(--panel);overflow:hidden;
+  transition:border-color .3s}
+.kat[open]{border-color:var(--hair-strong)}
+.kat summary{cursor:pointer;list-style:none;display:grid;
+  grid-template-columns:92px 1fr auto auto;gap:18px;align-items:center;padding:17px 20px}
+.kat summary::-webkit-details-marker{display:none}
+.kat summary:hover{background:var(--panel-2)}
+.kat-no{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--muted);
+  text-transform:uppercase;line-height:1.5}
+.kat-no b{display:block;font-size:15px;color:var(--fg);letter-spacing:-.02em}
+.kat-ad{min-width:0}
+.kat-ad b{display:block;font-size:16.5px;letter-spacing:-.02em;margin-bottom:3px}
+.kat-ad span{display:block;font-size:12.8px;color:var(--muted)}
+.kat-say{font-family:var(--mono);font-size:12px;color:var(--fg-dim);white-space:nowrap}
+.rozet{font-family:var(--mono);font-size:9.6px;letter-spacing:.13em;text-transform:uppercase;
+  padding:6px 12px;border-radius:99px;border:1px solid;white-space:nowrap}
+.r-canli{color:var(--yesil);border-color:rgba(34,197,94,.45);background:rgba(34,197,94,.08)}
+.r-insaat{color:var(--cy);border-color:rgba(0,229,255,.45);background:rgba(0,229,255,.07)}
+.r-sirada{color:var(--amber);border-color:rgba(255,176,32,.45);background:rgba(255,176,32,.07)}
+.r-kosul{color:var(--vi);border-color:rgba(122,34,255,.5);background:rgba(122,34,255,.09)}
+.r-eksik{color:var(--kirmizi);border-color:rgba(255,77,109,.5);background:rgba(255,77,109,.08)}
+.kat-ic{padding:6px 20px 22px;border-top:1px solid var(--hair)}
+.kapi{display:flex;gap:11px;align-items:flex-start;margin:14px 0 16px;padding:13px 16px;
+  border-radius:10px;border:1px dashed var(--hair-strong);background:rgba(255,255,255,.02)}
+.kapi svg{width:16px;height:16px;flex:none;margin-top:2px;color:var(--amber)}
+.kapi p{font-size:13.2px;color:var(--fg-dim)}
+.kapi b{color:var(--fg)}
+.kat-ic h4{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--muted);margin:18px 0 10px;font-weight:500}
+.sayfa-izgara{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.sayfa{border:1px solid var(--hair);border-radius:9px;padding:10px 13px;background:rgba(255,255,255,.015)}
+.sayfa u{display:block;text-decoration:none;font-family:var(--mono);font-size:10.2px;
+  color:var(--muted);margin-bottom:3px;word-break:break-all}
+.sayfa b{font-size:12.8px;font-weight:600;color:var(--fg-dim)}
+.sayfa.hub{border-color:var(--dal,var(--cy));background:
+  linear-gradient(160deg,rgba(255,255,255,.04),transparent)}
+.sayfa.hub b{color:var(--fg)}
+.sayfa.hub::before{content:"HUB";float:right;font-family:var(--mono);font-size:8.4px;
+  letter-spacing:.12em;color:var(--dal,var(--cy));padding-top:2px}
+.notlar{display:grid;gap:7px;margin-top:14px}
+.notlar li{list-style:none;display:flex;gap:9px;font-size:13px;color:var(--fg-dim);line-height:1.55}
+.notlar li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--cy);
+  flex:none;margin-top:8px}
+
+/* --- topoloji --- */
+.topo{border:1px solid var(--hair);border-radius:14px;background:var(--panel);
+  padding:26px;overflow-x:auto}
+.topo svg{display:block;min-width:640px;width:100%;height:auto}
+.topo-not{font-family:var(--mono);font-size:10.6px;letter-spacing:.06em;color:var(--muted);
+  margin-top:14px;line-height:1.7}
+
+/* --- takvim --- */
+.takvim{display:grid;gap:10px}
+.yil{border:1px solid var(--hair);border-radius:14px;background:var(--panel);padding:20px}
+.yil h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--cy);
+  text-transform:uppercase;margin-bottom:14px}
+.ceyrek{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.cy-k{border:1px solid var(--hair);border-radius:10px;padding:14px 15px;background:rgba(255,255,255,.015)}
+.cy-k u{display:block;text-decoration:none;font-family:var(--mono);font-size:9.6px;
+  letter-spacing:.13em;color:var(--muted);margin-bottom:7px}
+.cy-k b{display:block;font-size:13.6px;margin-bottom:5px;letter-spacing:-.01em}
+.cy-k span{font-size:12.2px;color:var(--muted);line-height:1.55}
+
+/* --- imar yasağı --- */
+.yasak{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:9px}
+.ys{border:1px solid rgba(255,77,109,.28);border-radius:10px;padding:13px 16px;
+  background:rgba(255,77,109,.045)}
+.ys b{display:flex;gap:9px;align-items:center;font-family:var(--mono);font-size:11.6px;
+  color:var(--kirmizi);margin-bottom:5px;word-break:break-all}
+.ys b::before{content:"×";font-size:15px;flex:none}
+.ys span{font-size:12.4px;color:var(--fg-dim);line-height:1.55}
+
+/* --- karar noktaları --- */
+.karar{display:grid;gap:9px}
+.kr{display:grid;grid-template-columns:34px 1fr;gap:14px;border:1px solid var(--hair);
+  border-radius:11px;padding:15px 17px;background:var(--panel)}
+.kr i{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--amber);
+  border:1px solid rgba(255,176,32,.4);border-radius:8px;width:30px;height:30px;
+  display:grid;place-items:center}
+.kr b{display:block;font-size:14.4px;margin-bottom:3px;letter-spacing:-.01em}
+.kr span{font-size:12.8px;color:var(--muted);line-height:1.55}
+
+footer{margin-top:52px;padding:22px 0 40px;border-top:1px solid var(--hair)}
+footer p{font-family:var(--mono);font-size:10.6px;letter-spacing:.06em;color:var(--muted);line-height:1.8}
+
+@media(max-width:720px){
+  .kat summary{grid-template-columns:1fr auto;grid-template-rows:auto auto;gap:8px 12px}
+  .kat-no{grid-column:1/-1;display:flex;gap:10px;align-items:baseline}
+  .kat-say{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="eti"><i></i>İç belge · yayına çıkmaz (noindex)</span>
+    <h1>TasarımMania — Site İnşaat Planı</h1>
+    <p class="lead">Yıllara yayılan içerik inşaatının tek çizimi. Her kat bir sayfa katmanı;
+      her katın bir <b>açılma koşulu</b> var — koşul sağlanmadan o kata çıkılmaz.
+      Temel sağlam olmadan üst kat yapılmaz; kanıtı olmayan kat hiç yapılmaz.</p>
+    <div class="kaynaklar">
+      <span>Kaynak 1 · <b>kelime-haritasi.json</b> — 27 sayfa, 3.349 ifadeden süzüldü</span>
+      <span>Kaynak 2 · <b>coksayfa-mimari.html</b> — 19 ajanlı karar belgesi</span>
+      <span>Kaynak 3 · <b>İhsan SEO Blog standardı</b></span>
+      <span>Güncelleme · <b>29 Ağustos 2026</b></span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ BİNA KESİTİ ============ -->
+  <section>
+    <h2>Bina kesiti — katlar yukarıdan aşağıya</h2>
+    <p class="h2alt">Çatıdan temele. Her katı açıp sayfalarını ve koşulunu görebilirsin.
+      Rozetler: <span class="rozet r-canli" style="padding:2px 8px">CANLI</span>
+      <span class="rozet r-insaat" style="padding:2px 8px">İNŞAATTA</span>
+      <span class="rozet r-sirada" style="padding:2px 8px">SIRADA</span>
+      <span class="rozet r-kosul" style="padding:2px 8px">KOŞULA BAĞLI</span>
+      <span class="rozet r-eksik" style="padding:2px 8px">EKSİK</span></p>
+
+    <div class="bina">
+
+      <!-- KAT 6 -->
+      <details class="kat">
+        <summary>
+          <span class="kat-no">Kat 6<b>Çatı</b></span>
+          <span class="kat-ad"><b>Bölge sayfaları + İngilizce site</b>
+            <span>Yerel yakınlık ve yurt dışı görünürlük — en son, en koşullu kat</span></span>
+          <span class="kat-say">~10+ sayfa</span>
+          <span class="rozet r-kosul">KOŞULA BAĞLI</span>
+        </summary>
+        <div class="kat-ic">
+          <div class="kapi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
+            <p><b>Açılma koşulu:</b> Bölge sayfası için o bölgeden gerçek müşteri + ofis fotoğrafı.
+            İngilizce site için en az bir yurt dışı vaka + çeviri bütçesi. Hasatta 219 şehir ifadesi
+            ayrı kovada bekliyor — talep kanıtı hazır, vaka kanıtı bekleniyor.</p></div>
+          <ul class="notlar">
+            <li>Rakip kanıtı (karar belgesinden): Bakırköy'de Protan'ın bölge sayfası 3.500+ kelime ve randevu takvimli — standart 300 kelimelik ilçe sayfasıyla geçilmez. Ofisin fiziken orada olması bizim tek gerçek üstünlüğümüz.</li>
+            <li>Çok dillilik kalıbı: Locomotive tam-ayna modeli (/en/work ↔ /fr/projets) DEPT'in bölge-dil önekinden daha uygulanabilir bulunmuştu.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- KAT 5 -->
+      <details class="kat">
+        <summary>
+          <span class="kat-no">Kat 5<b>Araçlar</b></span>
+          <span class="kat-ad"><b>Hesaplayıcılar ve etkileşimli araçlar</b>
+            <span>Lead üretimi + GEO alıntılanabilirliği — "ölçen ajans" kanıtı</span></span>
+          <span class="kat-say">~4-6 araç</span>
+          <span class="rozet r-sirada">SIRADA</span>
+        </summary>
+        <div class="kat-ic">
+          <div class="kapi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
+            <p><b>Açılma koşulu:</b> Kat 1 hizmet sayfaları yayında olmalı (araç sonuç ekranı
+            ilgili hizmete bağlanır) + form arka ucu çalışıyor olmalı.</p></div>
+          <h4>Aday araçlar (karar belgesi + hasat verisi)</h4>
+          <div class="sayfa-izgara">
+            <div class="sayfa"><u>/araclar/site-hiz-testi/</u><b>Hız skoru ölçer — CWV canlı</b></div>
+            <div class="sayfa"><u>/araclar/web-sitesi-maliyet-hesaplayici/</u><b>Bant hesaplayıcı (BOFU mıknatısı)</b></div>
+            <div class="sayfa"><u>/araclar/reklam-butcesi-hesaplayici/</u><b>Ads bütçe simülasyonu</b></div>
+            <div class="sayfa"><u>/rehberler/web-sitesi-brief-sablonu/</u><b>Tek lead-magnet (e-posta kapısı)</b></div>
+          </div>
+          <ul class="notlar">
+            <li>Karar belgesi kuralı: araç sonuç ekranında aynı bulguyu düzelttiğimiz 1 gerçek vaka gösterilir.</li>
+            <li>"Sitenizde 47 kritik hata var" tipi korku pazarlaması YASAK (yapma listesinde).</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- KAT 4 -->
+      <details class="kat">
+        <summary>
+          <span class="kat-no">Kat 4<b>Sektörler</b></span>
+          <span class="kat-ad"><b>Sektör sayfaları</b>
+            <span>"Diş kliniği için web sitesi" tipi aramalar — vaka kanıtı kapısının arkasında</span></span>
+          <span class="kat-say">vaka başına 1</span>
+          <span class="rozet r-kosul">KOŞULA BAĞLI</span>
+        </summary>
+        <div class="kat-ic">
+          <div class="kapi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
+            <p><b>Açılma koşulu (karar belgesinden, KURAL):</b> Gerçek vakası olmayan sektör sayfası
+            AÇILMAZ — ziyaretçide "bunlar bu işi yapmamış" algısı dönüşümü ana sayfanın altına düşürür.
+            Her sektör sayfası = o sektörden en az 1 yayınlanmış vaka (Kat 2) + mevzuat hâkimiyeti kanıtı.</p></div>
+          <h4>Portföyden aday sektörler (izin alınırsa)</h4>
+          <div class="sayfa-izgara">
+            <div class="sayfa"><u>/sektorler/klinik-ve-saglik/</u><b>Sağlık tanıtım mevzuatı bilgisiyle</b></div>
+            <div class="sayfa"><u>/sektorler/e-ticaret-markalari/</u><b>Mağaza + performans birlikte</b></div>
+            <div class="sayfa"><u>/sektorler/uretici-ve-b2b/</u><b>Katalog, ürün kodu, teknik doküman</b></div>
+            <div class="sayfa"><u>/sektorler/turizm-ve-otel/</u><b>Rezervasyon motoruna taşıyan site</b></div>
+          </div>
+          <ul class="notlar">
+            <li>Sağlık vakalarında hasta yorumu / öncesi-sonrası / tedavi fiyatı GÖSTERİLMEZ; kanıt yalnız teknik ve pazarlama metrikleri (hız, trafik, form sayısı). Her müşteriden yazılı izin şart.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- KAT 3 -->
+      <details class="kat">
+        <summary>
+          <span class="kat-no">Kat 3<b>Blog</b></span>
+          <span class="kat-ad"><b>Rehber / blog — İhsan SEO Blog standardı</b>
+            <span>Ayda 15 yazı: 10 TOFU · 3 MOFU · 2 BOFU — hub'ları besleyen spoke katmanı</span></span>
+          <span class="kat-say">15/ay · yıl sonunda ~180</span>
+          <span class="rozet r-sirada">SIRADA</span>
+        </summary>
+        <div class="kat-ic">
+          <div class="kapi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
+            <p><b>Açılma koşulu:</b> Kat 1'deki 5 hub yayında olmalı (yazıların YUKARI linki hub'lara
+            gider; hub yoksa otorite akacak yer yok). İlk parti yayınlanmadan bülten/abone toplanmaz.</p></div>
+          <ul class="notlar">
+            <li>Format: hizmet sayfası DEĞİL — yazı başına 1000-1200 kelime, H2×5-7, her H2 altında 40-60 kelimelik doğrudan cevap, 7-9 soruluk SSS, 6-9 iç link (2 yukarı + 3 yatay + 2 dönüşüm).</li>
+            <li>Odak 2-3 kelime, yoğunluk %2.2-2.4; uzun kuyruk başlıklara. MOFU'da karşılaştırma tablosu, BOFU'da numaralı kontrol listesi zorunlu.</li>
+            <li>Konu havuzu hazır: hasattaki 3.141 TOFU ifadesi kümelere bölünecek; her yazıya kanibalizasyon ekseni yazılacak (27 hizmet sayfasıyla çakışmayacak).</li>
+            <li>Tarih yayılımı: yazılar aya ~2 gün arayla dağıtılır, tek günde yığılmaz. Mevcut sitenin dersi: 73 yazının tamamı tek günde 95 dakikada dökülmüş, o günden beri sessiz — bunun tekrarı yasak.</li>
+            <li><b style="color:var(--amber)">Tempo kapısı (belgeden):</b> yayın temposu 3 ay üst üste tutturulamıyorsa üst katlara geçilmez — genişleme durur, tempo düzelir, sonra devam.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- KAT 2 -->
+      <details class="kat">
+        <summary>
+          <span class="kat-no">Kat 2<b>Güven</b></span>
+          <span class="kat-ad"><b>İşler (vaka çalışmaları) + güven sayfaları</b>
+            <span>Satın alma kararını kapatan kat: kanıt, süreç, fiyat çerçevesi</span></span>
+          <span class="kat-say">~8-12 sayfa</span>
+          <span class="rozet r-sirada">SIRADA</span>
+        </summary>
+        <div class="kat-ic">
+          <div class="kapi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
+            <p><b>Açılma koşulu:</b> Vaka sayfaları için müşteriden <b>yazılı izin</b> (ad + rakam
+            kullanımı). Belgenin denetçisi ilk dalga için <b>rakamı olan 5 vakayı</b> seçmiş:
+            EsteTouch, Dr. Ramazan Ersoy, Estezone, Griarts, Workroom — TOR Thermal ikinci dalgaya
+            (34 AI görsel + 9 videonun izin/hazırlık yükü ağır). Hangilerinden izin isteneceği Karar #3.</p></div>
+          <h4>Sayfalar</h4>
+          <div class="sayfa-izgara">
+            <div class="sayfa hub" style="--dal:var(--amber)"><u>/isler/</u><b>Vaka vitrini (filtreli)</b></div>
+            <div class="sayfa"><u>/isler/[vaka-slug]/</u><b>Vaka şablonu: sorun → iş → ölçülen sonuç</b></div>
+            <div class="sayfa"><u>/nasil-calisiyoruz/</u><b>Süreç + taahhütler (sözleşme maddeleri)</b></div>
+            <div class="sayfa"><u>/fiyatlar/</u><b>Rakam değil: 3 gerçek proje profili (kapsam+süre+bant)</b></div>
+            <div class="sayfa"><u>/gorusme/</u><b>Takvim — İKİNCİ dalga (denetçi: ilk fazda gereksiz risk, keşif WhatsApp'tan)</b></div>
+            <div class="sayfa"><u>/kvkk/ /gizlilik/ /cerez/</u><b>Hukuki küme (dock CTA girmez)</b></div>
+          </div>
+          <ul class="notlar">
+            <li>Karar belgesi: takvim linki YALNIZ huninin dibinde görünür (fiyatlar sonu, teşekkür sayfası, vaka sonu). Ana sayfada ve blogda randevu çağrısı olmaz — soğuk trafikte dönüşümü düşürür.</li>
+            <li>CTA yanında isimli tek müşteri sonucu, jenerik ifadeden kat kat iyi çalışır (vaka geldiğinde teklif sayfasına eklenecek).</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- KAT 1 -->
+      <details class="kat" open>
+        <summary>
+          <span class="kat-no">Kat 1<b>Hizmet</b></span>
+          <span class="kat-ad"><b>27 hizmet sayfası — 5 hub + 22 alt sayfa</b>
+            <span>Kelime haritası tamam; odaklar çakışmasız, her sayfanın ayırt edici ekseni yazılı</span></span>
+          <span class="kat-say">1/27 canlı</span>
+          <span class="rozet r-insaat">İNŞAATTA</span>
+        </summary>
+        <div class="kat-ic">
+          <div class="kapi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
+            <p><b>Kural:</b> Hizmet sayfası formatı = Modül 01 şablonu: 600-900 kelime görünür metin,
+            satış sıralı (kapsam→fiyat→dahil/değil→SSS), derinlik akordiyonda, 3D görsel, 8 SSS = 8 şema.
+            Blog formatı DEĞİL. <b>Sıra (belge denetçisinin kesimi):</b> önce 4 hub, sonra
+            <b>301 hedefi olan alt sayfalar</b> (kurumsal-web-sitesi, e-ticaret, sosyal-medya-yonetimi,
+            teknik-seo — eski URL'lerin backlink'i bunlara akacak), kalan alt sayfalar dal dal.
+            Belgenin faz kapısı: "sonraki fazlar hiç gelmese bile bu kat eksiksiz görünmeli."</p></div>
+
+          <h4 style="color:var(--cy)">Web &amp; Yazılım — hub odağı: web yazılım ajansı</h4>
+          <div class="sayfa-izgara">
+            <div class="sayfa hub" style="--dal:var(--cy)"><u>/hizmetler/web-tasarim-yazilim/ ✓ CANLI</u><b>web yazılım ajansı</b></div>
+            <div class="sayfa"><u>…/kurumsal-web-sitesi/</u><b>kurumsal web yazılım</b></div>
+            <div class="sayfa"><u>…/e-ticaret/</u><b>e-ticaret sitesi</b></div>
+            <div class="sayfa"><u>…/ozel-yazilim/</u><b>özel yazılım geliştirme</b></div>
+            <div class="sayfa"><u>…/ai-entegrasyonu/</u><b>web tasarım ai</b></div>
+            <div class="sayfa"><u>…/bakim-destek/</u><b>wordpress site yönetimi</b></div>
+          </div>
+
+          <h4 style="color:var(--vi)">Mobil Uygulama — hub odağı: mobil uygulama ajansı</h4>
+          <div class="sayfa-izgara">
+            <div class="sayfa hub" style="--dal:var(--vi)"><u>/hizmetler/mobil-uygulama/</u><b>mobil uygulama ajansı</b></div>
+            <div class="sayfa"><u>…/ios-android/</u><b>android ios uygulama</b></div>
+            <div class="sayfa"><u>…/react-native/</u><b>react native</b></div>
+            <div class="sayfa"><u>…/uygulama-ui-ux/</u><b>mobil uygulama arayüzü</b></div>
+            <div class="sayfa"><u>…/aso-uygulama-pazarlamasi/</u><b>mobil uygulama pazarlama</b></div>
+          </div>
+
+          <h4 style="color:var(--amber)">Dijital Pazarlama — hub odağı: dijital pazarlama ajansı</h4>
+          <div class="sayfa-izgara">
+            <div class="sayfa hub" style="--dal:var(--amber)"><u>/hizmetler/dijital-pazarlama/</u><b>dijital pazarlama ajansı</b></div>
+            <div class="sayfa"><u>…/google-ads/</u><b>google reklam ajansı</b></div>
+            <div class="sayfa"><u>…/meta-ads/</u><b>meta reklam ajansı</b></div>
+            <div class="sayfa"><u>…/performans-pazarlamasi/</u><b>performans pazarlama hizmeti</b></div>
+            <div class="sayfa"><u>…/sosyal-medya-yonetimi/</u><b>instagram reklam yönetimi</b></div>
+          </div>
+
+          <h4 style="color:var(--pink)">Video Prodüksiyon — hub odağı: video prodüksiyon ajansı</h4>
+          <div class="sayfa-izgara">
+            <div class="sayfa hub" style="--dal:var(--pink)"><u>/hizmetler/video-produksiyon/</u><b>video prodüksiyon ajansı</b></div>
+            <div class="sayfa"><u>…/reklam-filmi/</u><b>reklam filmi fiyatları</b></div>
+            <div class="sayfa"><u>…/urun-videosu/</u><b>ürün videosu çekimi</b></div>
+            <div class="sayfa"><u>…/sosyal-video-reels/</u><b>instagram reklam reels</b></div>
+            <div class="sayfa"><u>…/ai-destekli-produksiyon/</u><b>ai video prodüksiyon</b></div>
+          </div>
+
+          <h4 style="color:var(--lime)">SEO — hub odağı: seo firmaları</h4>
+          <div class="sayfa-izgara">
+            <div class="sayfa hub" style="--dal:var(--lime)"><u>/hizmetler/seo/</u><b>seo firmaları</b></div>
+            <div class="sayfa"><u>…/teknik-seo/</u><b>teknik seo hizmeti</b></div>
+            <div class="sayfa"><u>…/icerik-stratejisi/</u><b>seo blog</b></div>
+            <div class="sayfa"><u>…/yerel-seo/</u><b>seo ajansı istanbul</b></div>
+            <div class="sayfa"><u>…/cok-dilli-seo/</u><b>internet sitesi çeviri</b></div>
+            <div class="sayfa"><u>…/e-ticaret-seo/</u><b>shopify seo hizmeti</b></div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ZEMİN -->
+      <details class="kat">
+        <summary>
+          <span class="kat-no">Zemin<b>Giriş</b></span>
+          <span class="kat-ad"><b>Ana sayfa + kurumsal çekirdek</b>
+            <span>Bugün canlıda olan 6 sayfa</span></span>
+          <span class="kat-say">6/6 canlı</span>
+          <span class="rozet r-canli">CANLI</span>
+        </summary>
+        <div class="kat-ic">
+          <div class="sayfa-izgara" style="margin-top:14px">
+            <div class="sayfa"><u>/</u><b>Ana sayfa (Bento OS)</b></div>
+            <div class="sayfa"><u>/hizmetler/</u><b>Hizmet vitrini + yörünge infografiği</b></div>
+            <div class="sayfa"><u>/hakkimizda/</u><b>Ajans + Hizalanma Paneli</b></div>
+            <div class="sayfa"><u>/teklif/</u><b>5 adımlı sihirbaz (hash ön seçimli)</b></div>
+            <div class="sayfa"><u>/iletisim/</u><b>Harita + canlı saat + WA kurucu</b></div>
+            <div class="sayfa"><u>/hizmetler/web-tasarim-yazilim/</u><b>İlk hizmet sayfası (şablon)</b></div>
+          </div>
+        </div>
+      </details>
+
+      <!-- TEMEL -->
+      <details class="kat" open>
+        <summary>
+          <span class="kat-no">Temel<b>Altyapı</b></span>
+          <span class="kat-ad"><b>Teknik temel — bir kısmı hâlâ eksik</b>
+            <span>Üst katlar bunların üstüne oturuyor; eksikler kapatılmadan Kat 2-3 riskli</span></span>
+          <span class="kat-say">4 eksik</span>
+          <span class="rozet r-eksik">EKSİK VAR</span>
+        </summary>
+        <div class="kat-ic">
+          <h4>Durum</h4>
+          <div class="sayfa-izgara">
+            <div class="sayfa"><u>✓ tasarım sistemi</u><b>tm.css + tm.js + Modül 01 şablonu</b></div>
+            <div class="sayfa"><u>✓ şema altyapısı</u><b>Service/FAQ/Breadcrumb + NAP tutarlı</b></div>
+            <div class="sayfa"><u>✓ kelime haritası</u><b>27 sayfa, denetimli</b></div>
+            <div class="sayfa" style="border-color:rgba(255,77,109,.4)"><u>✗ sitemap.xml + robots.txt</u><b>YOK — onay bekliyor</b></div>
+            <div class="sayfa" style="border-color:rgba(255,77,109,.4)"><u>✗ form arka ucu</u><b>Formlar hiçbir yere gitmiyor</b></div>
+            <div class="sayfa" style="border-color:rgba(255,77,109,.4)"><u>✗ GA4 + Search Console</u><b>Ölçüm yok — "ölçen ajans"ın kendi ölçümü</b></div>
+            <div class="sayfa" style="border-color:rgba(255,77,109,.4)"><u>✗ kurumsal e-posta</u><b>Sitede hiç yok</b></div>
+          </div>
+          <ul class="notlar">
+            <li><b style="color:var(--amber)">FAZ 0 (karar belgesinden):</b> GA4 + Consent Mode v2 + Pixel/CAPI + Search Console yayından ÖNCE, <b>mevcut</b> siteye kurulur — 1 hafta. Gerekçesi net: "Bu olmadan Faz 1'in başarısı ölçülemez." Yeni site açılınca öncesi-sonrası kıyası ancak böyle yapılır.</li>
+            <li>301 haritası: eski sitenin backlink taşıyan URL'leri (/kurumsal-web-tasarim/, /e-ticaret-sitesi-paketleri/, /kurumsal-seo-danismanligi/, /sosyal-medya-danismanligi/, /grafik-tasarim/) yeni karşılıklarına eşlenmeden yayına geçilmez — geçmiş yanar.</li>
+            <li><b style="color:var(--kirmizi)">Tespit edilen boşluk:</b> /grafik-tasarim/ eski URL'si backlink taşıyor ama kelime haritasının 27 sayfasında grafik tasarım sayfası YOK — hasat tohumlarında da yoktu. Karar #8'e taşındı.</li>
+            <li>Zincir kırığı uyarıları (belge denetçisinden): 404 sayfasının CTA'sı /arama/'ya işaret ederse ve arama sonraki fazda kalırsa kırık zincir; KVKK metni yayındayken başvuru formu sonraki fazdaysa kırık link. Kural: bir sayfa, linklediği sayfayla AYNI fazda açılır.</li>
+            <li>WordPress'e giydirme + chatbot planlandı; içerik WP editörüne temiz geçecek biçimde üretiliyor (sınıf adsız markup, details/summary akordiyon).</li>
+          </ul>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ============ TOPOLOJİ ============ -->
+  <section>
+    <h2>Otorite akışı — hub &amp; spoke</h2>
+    <p class="h2alt">Her linkin sebebi var: blog yazıları hub'lara akıtır (yukarı), kardeşler
+      birbirine küme içi sayaçla bağlanır (öksüz kalmaz), vakalar hizmet sayfasını kanıtlar,
+      hepsi teklif sihirbazına iner.</p>
+    <div class="topo">
+      <svg viewBox="0 0 860 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Site otorite akışı diyagramı">
+        <defs>
+          <marker id="ok" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0 0L8 4L0 8z" fill="#727D93"/>
+          </marker>
+        </defs>
+        <!-- ana sayfa -->
+        <rect x="375" y="18" width="110" height="40" rx="10" fill="rgba(0,229,255,.08)" stroke="#00E5FF"/>
+        <text x="430" y="43" text-anchor="middle" fill="#E7EAF0" font-family="JetBrains Mono" font-size="12">ANA SAYFA</text>
+        <!-- hublar -->
+        <g font-family="JetBrains Mono" font-size="10.5" text-anchor="middle">
+          <rect x="40"  y="120" width="130" height="36" rx="9" fill="rgba(0,229,255,.07)"  stroke="#00E5FF"/><text x="105" y="142" fill="#E7EAF0">WEB HUB</text>
+          <rect x="205" y="120" width="130" height="36" rx="9" fill="rgba(122,34,255,.09)" stroke="#7A22FF"/><text x="270" y="142" fill="#E7EAF0">MOBİL HUB</text>
+          <rect x="370" y="120" width="130" height="36" rx="9" fill="rgba(255,176,32,.08)" stroke="#FFB020"/><text x="435" y="142" fill="#E7EAF0">REKLAM HUB</text>
+          <rect x="535" y="120" width="130" height="36" rx="9" fill="rgba(255,45,155,.08)" stroke="#FF2D9B"/><text x="600" y="142" fill="#E7EAF0">VİDEO HUB</text>
+          <rect x="700" y="120" width="130" height="36" rx="9" fill="rgba(166,255,0,.07)"  stroke="#A6FF00"/><text x="765" y="142" fill="#E7EAF0">SEO HUB</text>
+        </g>
+        <!-- ana -> hub okları -->
+        <g stroke="#727D93" stroke-width="1.3" fill="none" marker-end="url(#ok)" opacity=".7">
+          <path d="M395 58 L120 118"/><path d="M412 58 L278 118"/><path d="M430 58 L435 118"/>
+          <path d="M448 58 L592 118"/><path d="M465 58 L750 118"/>
+        </g>
+        <!-- alt sayfalar (spoke noktaları) -->
+        <g fill="none" stroke="#727D93" stroke-width="1.1" opacity=".55">
+          <path d="M105 156 v22"/><path d="M270 156 v22"/><path d="M435 156 v22"/><path d="M600 156 v22"/><path d="M765 156 v22"/>
+        </g>
+        <g font-family="JetBrains Mono" font-size="9" text-anchor="middle" fill="#A7B0C2">
+          <rect x="47"  y="178" width="116" height="26" rx="7" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.12)"/><text x="105" y="195">5 alt sayfa</text>
+          <rect x="212" y="178" width="116" height="26" rx="7" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.12)"/><text x="270" y="195">4 alt sayfa</text>
+          <rect x="377" y="178" width="116" height="26" rx="7" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.12)"/><text x="435" y="195">4 alt sayfa</text>
+          <rect x="542" y="178" width="116" height="26" rx="7" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.12)"/><text x="600" y="195">4 alt sayfa</text>
+          <rect x="707" y="178" width="116" height="26" rx="7" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.12)"/><text x="765" y="195">5 alt sayfa</text>
+        </g>
+        <!-- blog katmanı -->
+        <rect x="60" y="252" width="330" height="40" rx="10" fill="rgba(255,255,255,.025)" stroke="rgba(255,255,255,.16)" stroke-dasharray="5 4"/>
+        <text x="225" y="272" text-anchor="middle" fill="#A7B0C2" font-family="JetBrains Mono" font-size="10.5">BLOG / REHBER — 15 yazı/ay</text>
+        <text x="225" y="285" text-anchor="middle" fill="#727D93" font-family="JetBrains Mono" font-size="8.5">her yazı: 2↑ hub + 3↔ kardeş + 2→ dönüşüm</text>
+        <!-- vaka katmanı -->
+        <rect x="470" y="252" width="330" height="40" rx="10" fill="rgba(255,255,255,.025)" stroke="rgba(255,255,255,.16)" stroke-dasharray="5 4"/>
+        <text x="635" y="272" text-anchor="middle" fill="#A7B0C2" font-family="JetBrains Mono" font-size="10.5">İŞLER / VAKALAR</text>
+        <text x="635" y="285" text-anchor="middle" fill="#727D93" font-family="JetBrains Mono" font-size="8.5">hizmet sayfasına kanıt + sektör sayfasına kapı</text>
+        <!-- yukarı akış okları -->
+        <g stroke="#727D93" stroke-width="1.2" fill="none" marker-end="url(#ok)" opacity=".6">
+          <path d="M150 252 C140 230 120 220 108 208"/>
+          <path d="M240 252 C255 232 262 220 268 208"/>
+          <path d="M340 252 C380 230 415 215 430 208"/>
+          <path d="M560 252 C580 230 592 220 598 208"/>
+          <path d="M700 252 C730 232 752 216 762 208"/>
+        </g>
+        <!-- teklif -->
+        <rect x="345" y="330" width="170" height="38" rx="10" fill="rgba(0,229,255,.10)" stroke="#00E5FF" stroke-width="1.4"/>
+        <text x="430" y="354" text-anchor="middle" fill="#EAFDFF" font-family="JetBrains Mono" font-size="11.5">TEKLİF SİHİRBAZI</text>
+        <g stroke="#00E5FF" stroke-width="1.2" fill="none" marker-end="url(#ok)" opacity=".55">
+          <path d="M225 292 C270 315 330 330 355 340"/>
+          <path d="M635 292 C580 315 530 330 505 340"/>
+        </g>
+      </svg>
+      <p class="topo-not">KURALLAR — kardeş rotasyonu küme İÇİ sayaçla (global sayaç 48 üyeden 5'ini öksüz bırakmıştı) ·
+        hub'lar alt sayfalara geri link verir (tek yönlü akış yasak) · her sayfanın uzun kuyruğunda başka
+        sayfanın odağı geçemez (denetimli, şu an 0 ihlal) · dönüşüm linki hash ile ön seçim yapar (/teklif/#web).</p>
+    </div>
+  </section>
+
+  <!-- ============ TAKVİM ============ -->
+  <section>
+    <h2>İnşaat takvimi — öneri</h2>
+    <p class="h2alt">Çeyreklere bağlı değil, koşullara bağlı: bir çeyreğin işi bitmeden
+      sonraki başlamaz. Süreler tempoya göre kayar; sıra kaymaz.</p>
+    <div class="takvim">
+      <div class="yil">
+        <h3>Yıl 1 — Gövde</h3>
+        <div class="ceyrek">
+          <div class="cy-k"><u>Ç1 · FAZ 0 + HUB'LAR</u><b>Önce ölçüm, sonra 4 hub</b>
+            <span>GA4/Consent/Pixel MEVCUT siteye (öncesi-sonrası kıyası için) + sitemap/robots, form arka ucu, e-posta → sonra mobil/reklam/video/seo hub'ları</span></div>
+          <div class="cy-k"><u>Ç2 · ALT SAYFALAR</u><b>Önce 301 hedefleri, sonra kalanlar</b>
+            <span>kurumsal-web-sitesi, e-ticaret, sosyal-medya-yonetimi, teknik-seo önce (backlink bunlara akacak); kalan 18 dal dal. SSS devrindeki 12 soru sahiplerine dağıtılır</span></div>
+          <div class="cy-k"><u>Ç3 · GÜVEN KATI</u><b>İşler + nasıl-çalışıyoruz + fiyatlar</b>
+            <span>Vaka izinleri Ç2'de istenir; ilk 3-5 vaka yayında. Blog hasadı kümelenir</span></div>
+          <div class="cy-k"><u>Ç4 · BLOG AÇILIŞI</u><b>İlk 15 yazı + araç 1</b>
+            <span>İhsan SEO Blog hattı tam: üret→denetle→onar. Hız testi aracı yayında</span></div>
+        </div>
+      </div>
+      <div class="yil">
+        <h3>Yıl 2 — Derinlik</h3>
+        <div class="ceyrek">
+          <div class="cy-k"><u>SÜREKLİ</u><b>Blog 15/ay devam</b>
+            <span>Çeyrek başına küme raporu: hangi yazı hangi hub'ı ne kadar besledi (Search Console)</span></div>
+          <div class="cy-k"><u>KOŞULLU</u><b>Sektör sayfaları</b>
+            <span>Vaka kanıtı gelen sektör açılır — vakasız sektör sayfası yasak</span></div>
+          <div class="cy-k"><u>KOŞULLU</u><b>Araç ailesi büyür</b>
+            <span>Maliyet + reklam bütçesi hesaplayıcıları; sonuç ekranına gerçek vaka bağlanır</span></div>
+          <div class="cy-k"><u>ALTYAPI</u><b>WordPress'e giydirme + chatbot</b>
+            <span>İçerik WP editörüne taşınır (temiz markup hazır); AI asistan hizmet sayfalarına bağlanır</span></div>
+        </div>
+      </div>
+      <div class="yil">
+        <h3>Yıl 3+ — Genişleme</h3>
+        <div class="ceyrek">
+          <div class="cy-k"><u>KOŞULLU</u><b>Bölge sayfaları</b>
+            <span>219 şehir ifadesi kovada hazır; o bölgeden müşteri kanıtı gelince açılır</span></div>
+          <div class="cy-k"><u>KOŞULLU</u><b>İngilizce site</b>
+            <span>Yurt dışı vaka + çeviri bütçesi şart; Locomotive tam-ayna modeli</span></div>
+          <div class="cy-k"><u>SÜREKLİ</u><b>Budama ve tazeleme</b>
+            <span>12 aydır trafiksiz yazı birleştirilir/budanır; fiyat bantları yılda 2 kez güncellenir</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ İMAR YASAĞI ============ -->
+  <section>
+    <h2>İmar yasağı — açılmayacak sayfalar</h2>
+    <p class="h2alt">Karar belgesinden gerekçeli liste + bu haftanın eklemesi. Bunlar "sonra yaparız"
+      değil; yapılmaması kararlaştırılmış şeyler.</p>
+    <div class="yasak">
+      <div class="ys"><b>/dijital-pazarlama/yurtdisi-kampanya-yonetimi/</b>
+        <span>YENİ (29 Ağu): Hasatta yurt dışı kampanya niyetli sıfır kayıt; tek aday odak "meta reklam stopaj"dı — onu arayan mali müşavir arıyor. Yurt dışı hizmeti hub içinde bölüm olarak anlatılır.</span></div>
+      <div class="ys"><b>/bulten/ · /abone-ol/</b>
+        <span>Yayın temposu kanıtlanmadan abone listesi ölü varlık. Mevcut sitenin dersi: 73 yazı tek günde döküldü, sonra 2 yıl sessizlik. E-posta yakalama tek lead-magnet üzerinden.</span></div>
+      <div class="ys"><b>/teklif-al/web/ …hizmet başına teklif sayfaları</b>
+        <span>İçerik %90 aynı olur → ince içerik sinyali. Dallanma tek URL'de hash ile: /teklif/#web (kuruldu, çalışıyor).</span></div>
+      <div class="ys"><b>/canli-destek/</b>
+        <span>Chat bir sayfa değil bileşendir. Otomatik açılan baloncuk da yasak — yalnız tıklanınca açılan sessiz düğme.</span></div>
+      <div class="ys"><b>/whatsapp/ ara sayfası</b>
+        <span>wa.me doğrudan verilir; araya sayfa koymak sürtünme ekler.</span></div>
+      <div class="ys"><b>/musteri-girisi/ · /panel/</b>
+        <span>Arkasında gerçek sistem yokken boş giriş ekranı güven kaybettirir.</span></div>
+      <div class="ys"><b>?term= tipi filtre URL'leri</b>
+        <span>Mevcut sitede var; yeni siteye taşınmaz — indekslenebilir çöp üretir.</span></div>
+      <div class="ys"><b>/tesekkurler-google/ …kaynak başına teşekkür kopyaları</b>
+        <span>Kaynak ayrımı GA4 parametresiyle yapılır, URL çoğaltılmaz.</span></div>
+      <div class="ys"><b>Vakasız sektör sayfası</b>
+        <span>"Bunlar bu işi yapmamış" algısı dönüşümü ana sayfanın altına düşürür. Kanıt kapısı: Kat 4.</span></div>
+    </div>
+  </section>
+
+  <!-- ============ KARAR NOKTALARI ============ -->
+  <section>
+    <h2>Senin karar noktaların</h2>
+    <p class="h2alt">İnşaat bunlar olmadan da ilerler ama bu kararlar sırayı ve kapsamı değiştirir.</p>
+    <div class="karar">
+      <div class="kr"><i>1</i><div><b>Kurumsal e-posta adresi</b>
+        <span>Sitede hiç yok. Adres gelince iletişim sayfası + 4 altbilgi + 2 schema güncellenir. Temel katının son eksiklerinden.</span></div></div>
+      <div class="kr"><i>2</i><div><b>sitemap.xml + robots.txt onayı</b>
+        <span>"Yap" demen yeterli — Kat 1 sayfaları açıldıkça dinamik güncellenecek biçimde kurarım.</span></div></div>
+      <div class="kr"><i>3</i><div><b>Vaka izinleri: hangi müşteriler?</b>
+        <span>Ad + rakam kullanımı yazılı izin ister. Portföyden adaylar: EsteTouch, GoldPen, TOR Thermal, Griarts, klinik projeleri. Sağlık vakalarında mevzuat sınırı var (hasta yorumu/fiyat gösterilmez).</span></div></div>
+      <div class="kr"><i>4</i><div><b>Domain kararı: yayın nereye?</b>
+        <span>Şu an GitHub Pages konsepti. Gerçek yayın tasarimmania.com'a mı, ne zaman? 301 haritası o karara göre kurulur — backlink taşıyan 3 eski URL kaybedilmemeli.</span></div></div>
+      <div class="kr"><i>5</i><div><b>WordPress'e geçiş zamanı</b>
+        <span>Öneri: Kat 1-2 statik bitsin, WP + chatbot Yıl 2'de (içerik zaten WP-uyumlu üretiliyor). Erken geçmek istersen sıra değişir.</span></div></div>
+      <div class="kr"><i>6</i><div><b>Blog temposu onayı</b>
+        <span>İhsan standardı 15 yazı/ay. Bu tempo taahhüt ister — düşük tempoyla başlamak istersen 8/ay öneririm (10-3-2 oranı korunarak 5-2-1). Belgenin tempo kapısı her iki durumda geçerli: 3 ay tutturulamazsa genişleme durur.</span></div></div>
+      <div class="kr"><i>7</i><div><b>Bakırköy bölge sayfası — gerilim var</b>
+        <span>Belge /bolgeler/bakirkoy-dijital-ajans/ sayfasını öneriyor (Protan orada 3.500+ kelimeyle yarışıyor, fiziki ofis gerçek üstünlük). Ama sen pazarlama metninden "Bakırköy"ü çıkardın. Bölge sayfası pazarlama metni değil yerel SEO varlığı — yine de bu kararı sen vermelisin: açılsın mı, açılırsa ne zaman?</span></div></div>
+      <div class="kr"><i>8</i><div><b>Grafik tasarım sayfası — harita boşluğu</b>
+        <span>Eski /grafik-tasarim/ URL'si backlink taşıyor ve belge onu ilk faz 301 hedefi sayıyor. Ama kelime haritasının 27 sayfasında grafik tasarım yok — hasat tohumlarında da yoktu (benim eksiğim). Seçenekler: (a) hasadı grafik tasarım tohumlarıyla genişletip 28. sayfa olarak ekle, (b) eski URL'yi video-prodüksiyon ya da web hub'ına 301'le. Önerim (a) — backlink'i sayfasız karşılamak israf.</span></div></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="padding:0">
+      <p>KAYNAKLAR: plan/kelime-haritasi.json (27 sayfa, denetim sayaçları 0) · plan/kelime-havuzu.json (3.349 ticari ifade)
+      · plan/coksayfa-mimari.html (19 ajanlı karar belgesi) · plan/sss-alt-sayfa-devri.json (12 devredilen soru)
+      · İhsan SEO Blog standardı<br>
+      Bu çizim yaşayan belge: her kat açılışında güncellenir. Yayına çıkmaz (noindex).</p>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>
