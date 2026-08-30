@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WordPress Site Yönetimi — Bakım, Yedekleme, Güvenlik | TasarımMania</title>
+<meta name="description" content="WordPress site yönetimi: güvenlik güncellemesi, otomatik yedekleme, kesinti izleme ve site taşıma/klonlama hizmeti.">
+<link rel="canonical" href="https://www.tasarimmania.com/hizmetler/web-tasarim-yazilim/bakim-destek/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="WordPress Site Yönetimi — Bakım, Yedekleme, Güvenlik | TasarımMania">
+<meta property="og:description" content="WordPress site yönetimi: güvenlik güncellemesi, otomatik yedekleme, kesinti izleme ve site taşıma/klonlama hizmeti.">
+<meta property="og:url" content="https://www.tasarimmania.com/hizmetler/web-tasarim-yazilim/bakim-destek/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<link rel="icon" type="image/png" href="../../../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../css/tm.css">
+<style>
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(28px,4vw,52px)) 0 clamp(30px,4vw,48px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.16),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.mod-no{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:16px;
+  border:1px solid rgba(var(--acc-rgb),.4);border-radius:999px;padding:7px 14px}
+.phd h1{font-size:clamp(29px,4.6vw,48px);letter-spacing:-.05em;line-height:1.08;margin-bottom:14px;max-width:20ch}
+.phd .lead{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18.5px);max-width:66ch}
+
+.yazi{max-width:780px}
+.yazi h2{font-size:clamp(21px,2.9vw,30px);letter-spacing:-.04em;line-height:1.18;margin:0 0 14px}
+.yazi h3{font-size:clamp(17px,2vw,20px);letter-spacing:-.03em;margin:0 0 11px}
+.yazi p{color:var(--fg-dim);font-size:15.4px;line-height:1.78;margin:0 0 15px}
+.yazi strong{color:var(--fg);font-weight:600}
+.yazi a{color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.4);transition:text-decoration-color .25s}
+.yazi a:hover{text-decoration-color:var(--acc)}
+
+.sss,.akor{display:grid;gap:11px;max-width:820px}
+.sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
+.sss details[open],.akor details[open]{border-color:var(--hair-strong)}
+.sss summary,.akor summary{cursor:pointer;list-style:none;padding:18px 22px;font-size:15.4px;font-weight:600;
+  display:flex;align-items:center;gap:14px}
+.sss summary::-webkit-details-marker,.akor summary::-webkit-details-marker{display:none}
+.sss summary::after,.akor summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.sss details[open] summary::after,.akor details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.sss summary:hover,.akor summary:hover{color:var(--acc)}
+.sss p,.akor .cvp{padding:0 22px 20px;font-size:14.2px;color:var(--muted);line-height:1.7;margin:0}
+.sss details > p{margin:0}
+
+.yk{display:block;border:1px solid var(--hair);border-radius:var(--r-md);padding:15px 16px;
+  background:var(--panel);transition:.3s var(--ease)}
+.yk:hover{border-color:var(--acc);transform:translateY(-2px)}
+.yk b{display:block;font-size:14.2px;margin-bottom:5px;letter-spacing:-.02em}
+.yk span{font-size:12.4px;color:var(--muted);line-height:1.55}
+.ilgili{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+
+.ara-cta{border-block:1px solid var(--hair);background:rgba(var(--acc-rgb),.045);
+  padding:clamp(20px,2.6vw,28px) 0;margin:clamp(28px,3.6vw,44px) 0}
+.ara-cta-in{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.ara-cta p{margin:0}
+.ara-cta p b{display:block;font-size:clamp(16px,2vw,19px);letter-spacing:-.02em;margin-bottom:5px}
+.ara-cta p span{font-size:13.6px;color:var(--muted)}
+.ara-cta-btn{display:flex;gap:10px;flex-wrap:wrap;flex:none}
+@media(max-width:640px){
+  .ara-cta-in{flex-direction:column;align-items:flex-start}
+  .ara-cta-btn .btn{flex:1}
+}
+
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+
+.band{position:relative;border:1px solid rgba(var(--acc-rgb),.28);border-radius:26px;
+  padding:clamp(38px,5vw,62px) 32px;text-align:center;overflow:hidden;
+  background:linear-gradient(140deg,rgba(var(--acc-rgb),.09),rgba(0,229,255,.07))}
+.band::before{content:"";position:absolute;inset:0;z-index:1;
+  background:radial-gradient(600px 280px at 50% -30%,rgba(var(--acc-rgb),.2),transparent 70%)}
+.band > *{position:relative;z-index:2}
+.band h2{font-size:clamp(23px,3.4vw,38px);margin-bottom:12px}
+.band p{color:var(--fg-dim);margin-bottom:28px;font-size:16px}
+.band-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h5{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+
+.wa{position:fixed;right:22px;bottom:22px;z-index:90;width:54px;height:54px;border-radius:50%;
+  background:#25D366;display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+
+@media(max-width:960px){
+  .ilgili{grid-template-columns:1fr}
+  .ftr-ust{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .nav-links,.nav-tel{display:none}
+  .burger{display:block}
+  .ftr-ust{grid-template-columns:1fr}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "WordPress Site Yönetimi ve Bakım Hizmeti",
+  "serviceType": "wordpress site yönetimi",
+  "url": "https://www.tasarimmania.com/hizmetler/web-tasarim-yazilim/bakim-destek/",
+  "description": "WordPress site yönetimi: güvenlik güncellemesi, otomatik yedekleme, kesinti izleme ve site taşıma/klonlama hizmeti.",
+  "areaServed": { "@type": "Country", "name": "Türkiye" },
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "TasarımMania",
+    "url": "https://www.tasarimmania.com/",
+    "telephone": "+905547916545",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+      "addressLocality": "Bakırköy",
+      "addressRegion": "İstanbul",
+      "addressCountry": "TR"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.tasarimmania.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Hizmetler", "item": "https://www.tasarimmania.com/hizmetler/" },
+    { "@type": "ListItem", "position": 3, "name": "Web Tasarım & Yazılım", "item": "https://www.tasarimmania.com/hizmetler/web-tasarim-yazilim/" },
+    { "@type": "ListItem", "position": 4, "name": "Bakım ve Destek", "item": "https://www.tasarimmania.com/hizmetler/web-tasarim-yazilim/bakim-destek/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-08-30",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "WordPress site yönetimi hizmetine hangi işler dahil?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Kapsam; çekirdek ve eklenti güncellemeleri, düzenli yedekleme, kesinti izleme, temel güvenlik taraması ve gerektiğinde küçük içerik/teknik destek taleplerini kapsar. Paket detayları ve kapsam sınırları için fiyatlandırma bölümüne bakabilirsiniz." }
+    },
+    {
+      "@type": "Question",
+      "name": "Sitem yavaş açılıyor, bakım paketi bunu çözer mi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yavaşlığın kaynağı çoğunlukla önbellekleme eksikliği, optimize edilmemiş görseller, gereksiz eklenti yükü veya sunucu kaynak sınırıdır. Bakım kapsamında bu noktalar denetlenir ve performansı etkileyen sorunlar önceliklendirilerek giderilir." }
+    },
+    {
+      "@type": "Question",
+      "name": "Site yedeği ne sıklıkla alınıyor, bir sorun çıkarsa geri dönüş ne kadar sürer?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yedekleme rutini ve geri yükleme süresi seçilen pakete göre belirlenir; net bilgi fiyatlandırma bölümünde yer alır. Genel prensip, sorun anında en yakın sağlıklı kopyaya hızlıca dönebilmektir." }
+    },
+    {
+      "@type": "Question",
+      "name": "WordPress site taşıma veya klonlama gerektiğinde süreç nasıl işliyor?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Dosya ve veritabanı bütünlüğü korunarak hedef ortama aktarım yapılır, adres referansları güncellenir ve DNS/SSL adımı tamamlanana kadar eski ortam canlı tutulur. Klonlama talebinde aynı adımlar canlı siteyi etkilemeyen bir test alanı için uygulanır." }
+    },
+    {
+      "@type": "Question",
+      "name": "Bakım paketi olmadan siteyi kendi başımıza yönetebilir miyiz?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Teknik olarak mümkündür, fakat güncellemelerin düzenli takip edilmemesi zafiyet penceresini büyütür. Ekip desteği olmadan bir sorun fark edilmeden uzun süre devam edebilir ve müdahale gecikebilir." }
+    },
+    {
+      "@type": "Question",
+      "name": "Güvenlik güncellemesi yapılmazsa site gerçekten risk altında mı?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Evet; bilinen güvenlik açıkları duyurulduğu andan itibaren otomatik saldırı araçlarının hedefine girer. Güncel tutulmayan bir çekirdek, tema veya eklenti bu araçlar için doğrudan giriş noktası oluşturur." }
+    }
+  ]
+}
+</script>
+</head>
+<body data-dal="web">
+
+<a class="skip" href="#ana">İçeriğe geç</a>
+
+<nav class="nav" data-nav aria-label="Ana menü">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../../../" aria-label="TasarımMania ana sayfa">
+      <img src="../../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async">
+    </a>
+    <div class="nav-links">
+      <a href="../../../hizmetler/" aria-current="page">Hizmetler</a>
+      <a href="../../../#isler">İşler</a>
+      <a href="../../../hakkimizda/">Ajans</a>
+      <a href="../../../#surec">Süreç</a>
+      <a href="../../../teklif/">Teklif Al</a>
+      <a href="../../../iletisim/">İletişim</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../../../hizmetler/">Hizmetler</a><a href="../../../#isler">İşler</a><a href="../../../hakkimizda/">Ajans</a>
+  <a href="../../../#surec">Süreç</a><a href="../../../teklif/">Teklif Al</a><a href="../../../iletisim/">İletişim</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Konum">
+        <a href="../../../">Ana sayfa</a><span aria-hidden="true">/</span>
+        <a href="../../../hizmetler/">Hizmetler</a><span aria-hidden="true">/</span>
+        <a href="../../../hizmetler/web-tasarim-yazilim/">Web Tasarım & Yazılım</a><span aria-hidden="true">/</span>
+        <span>Bakım ve Destek</span>
+      </nav>
+      <span class="mod-no">Modül 01 · Web Tasarım & Yazılım</span>
+      <h1 data-kin>WordPress Site Yönetimi ve Bakım Hizmeti</h1>
+      <p class="lead">Yayındaki bir WordPress sitesi kendiliğinden güvende kalmaz; çekirdek, tema ve eklenti katmanı sürekli izlenmezse zamanla savunmasız hale gelir. Sunduğumuz wordpress site yönetimi hizmeti güvenlik güncellemelerini, düzenli yedeklemeyi ve kesinti izlemeyi tek bir operasyon altında birleştirir.</p>
+      <div class="hero-cta">
+        <a class="btn btn-p" href="../../../teklif/#web">Kapsam ve fiyat aralığı çıkaralım
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Bak%C4%B1m%20ve%20Destek%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="sec" id="detay" style="padding-top:0">
+    <div class="wrap yazi rv">
+      <h2>Güvenlik Güncellemesi, Yedekleme ve Kesinti İzleme Katmanları</h2>
+      <p>WordPress tarafında risk genellikle tek bir noktadan değil, çekirdek sürümü ile tema ve eklenti bileşenlerinin birlikte oluşturduğu yüzeyden doğar. Ekibimiz güncellemeleri doğrudan canlı ortamda değil, önce bir test kopyası üzerinde deneyerek uygular; böylece bir eklenti çakışması sitenizi değil, sadece test ortamını etkiler. Güvenlik duvarı kuralları ve giriş denemesi sınırlamaları, kaba kuvvet saldırılarına karşı arka planda çalışır. Yedekleme tarafında dosya ve veritabanı kopyaları sunucudan bağımsız bir depolama noktasına aktarılır; tek bir sunucu arızası hem siteyi hem yedeği aynı anda götürmez. Kesinti izleme ise sitenizin dışarıdan erişilebilirliğini düzenli aralıklarla kontrol eder ve bir kesinti tespit edildiğinde müdahale süreci otomatik olarak başlar. Bu üç katman ayrı ayrı değil, birbirini tamamlayan tek bir bakım rutini olarak yürütülür.</p>
+      <h3>WordPress Site Taşıma ve Klonlama Süreci</h3>
+      <p>Site taşıma talebi genellikle sunucu değişikliği, alan adı geçişi veya yeni bir geliştirme ortamı ihtiyacından doğar. Süreç, mevcut dosya yapısının ve veritabanının bütünlüğü bozulmadan hedef ortama aktarılmasıyla başlar; sonrasında veritabanı içindeki adres referansları yeni ortama göre güncellenir. Klonlama isteniyorsa aynı adımlar, canlı siteyi etkilemeyen ayrı bir test alanı için tekrarlanır ve tasarım denemeleri veya eklenti testleri burada yapılır. DNS yönlendirmesi ve SSL sertifikası taşımanın son adımıdır; bu adım tamamlanana kadar eski ve yeni ortam paralel tutulur, ziyaretçi trafiği kesintiye uğramaz. Taşıma sonrasında sitenin form gönderimi, ödeme entegrasyonu ve önbellekleme ayarları tek tek doğrulanır.</p>
+      <p><strong>Fiyat ve süre bandı</strong> Modül 01 · Web Tasarım & Yazılım sayfasındaki <a href="../../../hizmetler/web-tasarim-yazilim/#fiyat">fiyatlandırma bölümünde</a> yer alıyor; bu sayfada ayrıca tekrar etmiyoruz.</p>
+    </div>
+  </section>
+
+  <div class="ara-cta rv">
+    <div class="wrap ara-cta-in">
+      <p><b>Kapsamı birlikte çıkaralım</b><span>Beş adım, iki dakika. Ekranda süre ve fiyat aralığı çıkar.</span></p>
+      <div class="ara-cta-btn">
+        <a class="btn btn-p" href="../../../teklif/#web">Kapsam çıkaralım
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-g" href="tel:+905547916545">0554 791 65 45</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Sık sorulanlar</span>
+        <h2 data-kin>Sık sorulan sorular: WordPress site yönetimi ve bakım</h2>
+      </div>
+      <div class="sss rv d1">
+        <details id="sss-1">
+        <summary>WordPress site yönetimi hizmetine hangi işler dahil?</summary>
+        <p>Kapsam; çekirdek ve eklenti güncellemeleri, düzenli yedekleme, kesinti izleme, temel güvenlik taraması ve gerektiğinde küçük içerik/teknik destek taleplerini kapsar. Paket detayları ve kapsam sınırları için fiyatlandırma bölümüne bakabilirsiniz.</p>
+        </details>
+        <details>
+        <summary>Sitem yavaş açılıyor, bakım paketi bunu çözer mi?</summary>
+        <p>Yavaşlığın kaynağı çoğunlukla önbellekleme eksikliği, optimize edilmemiş görseller, gereksiz eklenti yükü veya sunucu kaynak sınırıdır. Bakım kapsamında bu noktalar denetlenir ve performansı etkileyen sorunlar önceliklendirilerek giderilir.</p>
+        </details>
+        <details>
+        <summary>Site yedeği ne sıklıkla alınıyor, bir sorun çıkarsa geri dönüş ne kadar sürer?</summary>
+        <p>Yedekleme rutini ve geri yükleme süresi seçilen pakete göre belirlenir; net bilgi fiyatlandırma bölümünde yer alır. Genel prensip, sorun anında en yakın sağlıklı kopyaya hızlıca dönebilmektir.</p>
+        </details>
+        <details>
+        <summary>WordPress site taşıma veya klonlama gerektiğinde süreç nasıl işliyor?</summary>
+        <p>Dosya ve veritabanı bütünlüğü korunarak hedef ortama aktarım yapılır, adres referansları güncellenir ve DNS/SSL adımı tamamlanana kadar eski ortam canlı tutulur. Klonlama talebinde aynı adımlar canlı siteyi etkilemeyen bir test alanı için uygulanır.</p>
+        </details>
+        <details>
+        <summary>Bakım paketi olmadan siteyi kendi başımıza yönetebilir miyiz?</summary>
+        <p>Teknik olarak mümkündür, fakat güncellemelerin düzenli takip edilmemesi zafiyet penceresini büyütür. Ekip desteği olmadan bir sorun fark edilmeden uzun süre devam edebilir ve müdahale gecikebilir.</p>
+        </details>
+        <details>
+        <summary>Güvenlik güncellemesi yapılmazsa site gerçekten risk altında mı?</summary>
+        <p>Evet; bilinen güvenlik açıkları duyurulduğu andan itibaren otomatik saldırı araçlarının hedefine girer. Güncel tutulmayan bir çekirdek, tema veya eklenti bu araçlar için doğrudan giriş noktası oluşturur.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ayrintilar" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Ayrıntılar</span>
+        <h2 data-kin>Karar vermeden önce bakmak isterseniz</h2>
+      </div>
+      <div class="akor rv d1">
+        <details id="ayr-1">
+          <summary>Kapsam Dışında Kalanlar</summary>
+          <p class="cvp">Yeni özellik geliştirme, kapsamlı tasarım değişikliği veya farklı bir platforma geçiş gibi talepler bakım paketinin dışındadır; bu tür ihtiyaçlar Web Tasarım & Yazılım hizmetimiz altında ayrı bir proje olarak ele alınır.</p>
+        </details>
+        <details id="ayr-2">
+          <summary>Hangi Site Büyüklüklerine Uygun</summary>
+          <p class="cvp">Kurumsal tanıtım siteleri, blog altyapıları ve e-ticaret siteleri farklı bakım yoğunluğu gerektirir; kapsam site büyüklüğüne ve trafik hacmine göre şekillendirilir.</p>
+        </details>
+        <details id="ayr-3">
+          <summary>Acil Müdahale Süreci</summary>
+          <p class="cvp">Kesinti veya şüpheli erişim tespit edildiğinde bildirim anında iletilir, kaynak belirlenir ve site güvenli bir kopyaya döndürülerek erişim yeniden sağlanır.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ilgili" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>İlgili hizmetler</span>
+        <h2 data-kin>Bu konuyla bağlantılı sayfalar</h2>
+      </div>
+      <div class="ilgili rv d1">
+          <a class="yk" href="../e-ticaret/"><b>E-Ticaret</b>
+            <span>Sürekli yönetim gerektiren mağaza altyapısı.</span></a>
+          <a class="yk" href="../ai-entegrasyonu/"><b>AI Entegrasyonu</b>
+            <span>Bakımı yapılan siteye chatbot entegrasyonu.</span></a>
+          <a class="yk" href="../kurumsal-web-sitesi/"><b>Kurumsal Web Sitesi</b>
+            <span>Bakım paketinin kapsadığı çok sayfalı site yapısı.</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="band rv">
+        <h2>Sitenizin Sürekli Takip Altında Olmasını İster misiniz?</h2>
+        <p>Güncelleme, yedekleme ve izleme adımlarını tek elden yürüterek sitenizin arka planda güvende kalmasını sağlıyoruz. Kapsam ve koşullar için fiyatlandırma bölümünü inceleyebilir veya ekibimizle iletişime geçebilirsiniz.</p>
+        <div class="band-cta">
+          <a class="btn btn-p" href="../../../teklif/#web">Kapsam çıkaralım
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Bak%C4%B1m%20ve%20Destek%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>Web, mobil, reklam, video ve SEO’yu tek çatı altında birleştiren
+          İstanbul merkezli 360 derece dijital ajans.</p>
+      </div>
+      <div>
+        <h5>Modüller</h5>
+        <ul>
+          <li><a href="../../../hizmetler/">Tüm hizmetler</a></li>
+          <li><a href="../../../hizmetler/web-tasarim-yazilim/">Web &amp; Yazılım</a></li>
+          <li><a href="../../../hizmetler/mobil-uygulama/">Mobil Uygulama</a></li>
+          <li><a href="../../../hizmetler/dijital-pazarlama/">Dijital Pazarlama</a></li>
+          <li><a href="../../../hizmetler/video-produksiyon/">Video Prodüksiyon</a></li>
+          <li><a href="../../../hizmetler/seo/">SEO Hizmetleri</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>İletişim</h5>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../../../iletisim/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../../../iletisim/#ofis">Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</span>
+      <span class="mono">BEŞ MODÜL · TEK PANEL</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../../../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
