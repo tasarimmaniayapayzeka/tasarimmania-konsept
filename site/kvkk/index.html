@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KVKK Aydınlatma Metni | TasarımMania</title>
+<meta name="description" content="TasarımMania'nın 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında veri sorumlusu sıfatıyla yayınladığı aydınlatma metni.">
+<link rel="canonical" href="https://www.tasarimmania.com/kvkk/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="KVKK Aydınlatma Metni | TasarımMania">
+<meta property="og:description" content="6698 sayılı Kanun kapsamında kişisel verilerin işlenmesine ilişkin aydınlatma metni.">
+<meta property="og:url" content="https://www.tasarimmania.com/kvkk/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<link rel="icon" type="image/png" href="../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tm.css">
+<style>
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(28px,4vw,52px)) 0 clamp(24px,3vw,36px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.14),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.phd h1{font-size:clamp(27px,4.2vw,42px);letter-spacing:-.04em;line-height:1.1;margin-bottom:10px}
+.phd .lead{color:var(--fg-dim);font-size:clamp(14.5px,1.6vw,16.5px);max-width:66ch}
+.phd .guncelleme{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:14px}
+
+.yazi{max-width:780px}
+.yazi h2{font-size:19px;letter-spacing:-.02em;margin:38px 0 12px}
+.yazi h2:first-child{margin-top:0}
+.yazi p{color:var(--fg-dim);font-size:14.8px;line-height:1.75;margin:0 0 14px}
+.yazi ul{margin:0 0 14px;padding-left:0;list-style:none;display:grid;gap:9px}
+.yazi li{color:var(--fg-dim);font-size:14.8px;line-height:1.65;display:flex;gap:10px;align-items:flex-start}
+.yazi li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:8px}
+.yazi strong{color:var(--fg);font-weight:600}
+.yazi a{color:var(--acc);text-decoration:underline;text-underline-offset:3px}
+
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h5{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+
+.wa{position:fixed;right:22px;bottom:22px;z-index:90;width:54px;height:54px;border-radius:50%;
+  background:#25D366;display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+
+@media(max-width:960px){.ftr-ust{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){
+  .nav-links,.nav-tel{display:none}
+  .burger{display:block}
+  .ftr-ust{grid-template-columns:1fr}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.tasarimmania.com/" },
+    { "@type": "ListItem", "position": 2, "name": "KVKK Aydınlatma Metni", "item": "https://www.tasarimmania.com/kvkk/" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#ana">İçeriğe geç</a>
+
+<nav class="nav" data-nav aria-label="Ana menü">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../" aria-label="TasarımMania ana sayfa">
+      <img src="../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async">
+    </a>
+    <div class="nav-links">
+      <a href="../hizmetler/">Hizmetler</a>
+      <a href="../#isler">İşler</a>
+      <a href="../hakkimizda/">Ajans</a>
+      <a href="../#surec">Süreç</a>
+      <a href="../teklif/">Teklif Al</a>
+      <a href="../iletisim/">İletişim</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../hizmetler/">Hizmetler</a><a href="../#isler">İşler</a><a href="../hakkimizda/">Ajans</a>
+  <a href="../#surec">Süreç</a><a href="../teklif/">Teklif Al</a><a href="../iletisim/">İletişim</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Konum">
+        <a href="../">Ana sayfa</a><span aria-hidden="true">/</span><span>KVKK Aydınlatma Metni</span>
+      </nav>
+      <h1>KVKK Aydınlatma Metni</h1>
+      <p class="lead">6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, TasarımMania olarak
+        veri sorumlusu sıfatıyla kişisel verilerinizi hangi amaçla, hangi yöntemle işlediğimizi ve
+        haklarınızı bu metinle açıklıyoruz.</p>
+      <p class="guncelleme">Son güncelleme: 30 Ağustos 2026</p>
+    </div>
+  </header>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap yazi">
+
+      <h2>1. Veri Sorumlusu</h2>
+      <p>Bu aydınlatma metni kapsamında kişisel verileriniz, veri sorumlusu sıfatıyla <strong>TasarımMania</strong>
+        (Zeytinlik Mah. Pancar Sk. No:19-11, Bakırköy / İstanbul) tarafından, aşağıda açıklanan kapsam ve
+        şartlarda işlenmektedir.</p>
+
+      <h2>2. İşlenen Kişisel Veriler</h2>
+      <p>Web sitemizdeki teklif formu, iletişim formu veya WhatsApp/telefon üzerinden bizimle iletişime
+        geçtiğinizde aşağıdaki kişisel verileriniz işlenebilir:</p>
+      <ul>
+        <li><strong>Kimlik bilgisi:</strong> ad, soyad</li>
+        <li><strong>İletişim bilgisi:</strong> telefon numarası, e-posta adresi</li>
+        <li><strong>Talep/işlem bilgisi:</strong> ilgilendiğiniz hizmet, proje kapsamı, bütçe aralığı, formda
+          veya görüşmede paylaştığınız diğer bilgiler</li>
+      </ul>
+
+      <h2>3. Kişisel Verilerin İşlenme Amaçları</h2>
+      <p>Kişisel verileriniz; talebinizin değerlendirilmesi, size uygun teklifin hazırlanması, sizinle iletişime
+        geçilmesi, sunduğumuz hizmetler hakkında bilgilendirme yapılması ve varsa aramızda kurulacak sözleşme
+        ilişkisinin yürütülmesi amaçlarıyla sınırlı olarak işlenir. Verileriniz, açık rızanız veya talebiniz
+        dışında pazarlama amaçlı toplu iletişim (SMS, e-posta bülteni vb.) için kullanılmaz.</p>
+
+      <h2>4. Kişisel Verilerin Aktarılması</h2>
+      <p>Kişisel verileriniz, yasal bir zorunluluk bulunmadıkça veya hizmetin ifası için zorunlu olmadıkça
+        (örneğin form/e-posta altyapısını sağlayan hizmet sağlayıcılar) üçüncü kişilerle paylaşılmaz;
+        yurt dışına aktarılmaz.</p>
+
+      <h2>5. Toplama Yöntemi ve Hukuki Sebep</h2>
+      <p>Kişisel verileriniz, web sitemizdeki formlar, WhatsApp/telefon görüşmeleri veya e-posta yoluyla,
+        elektronik ortamda doğrudan sizin tarafınızdan iletilmesi suretiyle toplanır. İşleme faaliyeti,
+        KVKK madde 5/2 kapsamında <strong>talebinizin değerlendirilmesi ve bir sözleşmenin kurulması veya
+        ifasıyla doğrudan ilgili olması</strong> ile açık rızanızın bulunduğu hallerde açık rıza hukuki
+        sebeplerine dayanır.</p>
+
+      <h2>6. KVKK Kapsamındaki Haklarınız</h2>
+      <p>KVKK'nın 11. maddesi uyarınca bize başvurarak; kişisel verinizin işlenip işlenmediğini öğrenme,
+        işlenmişse buna ilişkin bilgi talep etme, işlenme amacını ve amacına uygun kullanılıp kullanılmadığını
+        öğrenme, yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme, eksik veya yanlış işlenmişse
+        düzeltilmesini isteme, KVKK'da öngörülen şartlar çerçevesinde silinmesini veya yok edilmesini isteme,
+        yapılan işlemlerin verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme, işlenen verilerin
+        münhasıran otomatik sistemler ile analiz edilmesi suretiyle aleyhinize bir sonucun ortaya çıkmasına
+        itiraz etme ve kanuna aykırı işleme nedeniyle zarara uğramanız hâlinde zararın giderilmesini talep
+        etme haklarına sahipsiniz.</p>
+
+      <h2>7. Başvuru Yöntemi</h2>
+      <p>Yukarıdaki haklarınızı kullanmak için talebinizi, kimliğinizi tespit edici bilgilerle birlikte
+        aşağıdaki iletişim kanallarından bize iletebilirsiniz. Başvurunuz, niteliğine göre en kısa sürede ve
+        en geç 30 gün içinde sonuçlandırılır.</p>
+      <ul>
+        <li><strong>Telefon:</strong> <a href="tel:+905547916545">0554 791 65 45</a></li>
+        <li><strong>WhatsApp:</strong> <a href="https://wa.me/905547916545" target="_blank" rel="noopener">wa.me/905547916545</a></li>
+        <li><strong>Posta adresi:</strong> Zeytinlik Mah. Pancar Sk. No:19-11, Bakırköy / İstanbul</li>
+      </ul>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>Web, mobil, reklam, video ve SEO’yu tek çatı altında birleştiren
+          İstanbul merkezli 360 derece dijital ajans.</p>
+      </div>
+      <div>
+        <h5>Modüller</h5>
+        <ul>
+          <li><a href="../hizmetler/">Tüm hizmetler</a></li>
+          <li><a href="../hizmetler/#moduller">Web &amp; Yazılım</a></li>
+          <li><a href="../hizmetler/#moduller">Dijital Pazarlama</a></li>
+          <li><a href="../hizmetler/#moduller">SEO Hizmetleri</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>İletişim</h5>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../iletisim/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../iletisim/#ofis">Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</span>
+      <span class="mono">BEŞ MODÜL · TEK PANEL</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
