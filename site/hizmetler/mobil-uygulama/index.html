@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobil Uygulama Geliştirme Ajansı — iOS, Android, React Native | TasarımMania</title>
+<meta name="description" content="iOS ve Android için native, ya da React Native ile çapraz platform mobil uygulama geliştirme. 2026 bandı 120.000–260.000 ₺, teslim 8–16 hafta. Kaynak kod ve mağaza hesapları sizde kalır.">
+<link rel="canonical" href="https://www.tasarimmania.com/hizmetler/mobil-uygulama/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="Mobil Uygulama Geliştirme Ajansı — iOS, Android, React Native">
+<meta property="og:description" content="Önce şu soruyu soruyoruz: gerçekten bir uygulamaya mı ihtiyacınız var? Sonra iOS, Android ve React Native ile geliştiriyoruz.">
+<meta property="og:url" content="https://www.tasarimmania.com/hizmetler/mobil-uygulama/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/tm.css">
+<style>
+/* --- üst menü --- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+
+/* --- hero --- */
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(28px,4vw,52px)) 0 clamp(30px,4vw,48px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.16),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.mod-no{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:16px;
+  border:1px solid rgba(var(--acc-rgb),.4);border-radius:999px;padding:7px 14px}
+.phd h1{font-size:clamp(31px,5.4vw,58px);letter-spacing:-.05em;line-height:1.04;margin-bottom:10px}
+.phd .h1-alt{font-family:var(--mono);font-size:clamp(12px,1.5vw,14.5px);letter-spacing:.05em;
+  color:var(--muted);margin-bottom:20px}
+.phd .lead{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18.5px);max-width:60ch}
+
+/* --- hero: iki sütun --- */
+.phd-iki{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(28px,4vw,56px);align-items:center}
+.hero-img{width:100%;height:auto;aspect-ratio:1;border-radius:var(--r-lg);border:1px solid var(--hair);
+  background:var(--bg-2);box-shadow:0 30px 70px -30px rgba(0,0,0,.9)}
+
+/* --- künye şeridi --- */
+.kny{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+.kny > div{border:1px solid var(--hair);border-radius:var(--r-md);padding:18px;background:var(--panel);
+  transition:.35s var(--ease)}
+.kny > div:hover{border-color:var(--hair-strong);transform:translateY(-3px)}
+.kny b{display:block;font-family:var(--mono);font-size:clamp(17px,2.2vw,23px);color:var(--acc);
+  letter-spacing:-.02em;line-height:1.15}
+.kny span{display:block;margin-top:8px;font-size:12.4px;color:var(--muted);line-height:1.45}
+
+/* --- karşılaştırma: native vs react native --- */
+.krs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.krs-k{border:1px solid var(--hair);border-radius:var(--r-lg);padding:26px 24px;background:var(--panel)}
+.krs-k--biz{border-color:rgba(var(--acc-rgb),.4);background:rgba(var(--acc-rgb),.05)}
+.krs-bas{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.krs-bas span{font-family:var(--mono);font-size:10.4px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--muted)}
+.krs-k--biz .krs-bas span{color:var(--acc)}
+.krs-k h3{font-size:19px;letter-spacing:-.03em}
+.krs ul{display:grid;gap:12px}
+.krs li{display:flex;gap:11px;align-items:flex-start;font-size:14.2px;color:var(--muted);line-height:1.6}
+.krs li svg{width:16px;height:16px;flex:none;margin-top:3px}
+.krs-k--sablon li svg{color:#F04A4A}
+.krs-k--biz li svg{color:var(--acc)}
+.krs-k--biz li{color:var(--fg-dim)}
+
+/* --- alt hizmet kartları --- */
+.alt{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.alt-k{position:relative;border:1px solid var(--hair);border-radius:var(--r-lg);padding:24px 22px;
+  background:var(--panel);overflow:hidden;transition:.38s var(--ease)}
+.alt-k::after{content:"";position:absolute;right:-70px;top:-70px;width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle,rgba(var(--acc-rgb),.14),transparent 70%);opacity:0;transition:.4s}
+.alt-k:hover{border-color:var(--hair-strong);transform:translateY(-4px)}
+.alt-k:hover::after{opacity:1}
+.alt-k > *{position:relative}
+.alt-no{font-family:var(--mono);font-size:10.6px;letter-spacing:.15em;color:var(--acc);display:block;
+  margin-bottom:13px}
+.alt-k h3{font-size:18px;letter-spacing:-.03em;margin-bottom:9px}
+.alt-k p{font-size:13.8px;color:var(--muted);line-height:1.65;margin-bottom:14px}
+.alt-k ul{display:grid;gap:7px}
+.alt-k li{font-size:12.8px;color:var(--fg-dim);display:flex;gap:8px;align-items:flex-start;line-height:1.5}
+.alt-k li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--acc);flex:none;margin-top:7px}
+
+/* --- kapsam tablosu --- */
+.kps{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.kps-k{border:1px solid var(--hair);border-radius:var(--r-lg);padding:24px 22px;background:var(--panel)}
+.kps-k h3{font-family:var(--mono);font-size:10.6px;letter-spacing:.15em;text-transform:uppercase;
+  margin-bottom:16px;font-weight:500}
+.kps-k--var h3{color:var(--acc)}
+.kps-k--yok h3{color:var(--muted)}
+.kps-k ul{display:grid;gap:10px}
+.kps-k li{font-size:13.8px;line-height:1.6;display:flex;gap:10px;align-items:flex-start}
+.kps-k li svg{width:15px;height:15px;flex:none;margin-top:3px}
+.kps-k--var li{color:var(--fg-dim)}
+.kps-k--var li svg{color:var(--acc)}
+.kps-k--yok li{color:var(--muted)}
+.kps-k--yok li svg{color:var(--muted)}
+
+/* --- fiyat --- */
+.fyt{border:1px solid var(--hair);border-radius:var(--r-lg);padding:clamp(26px,3.4vw,38px);
+  background:var(--panel);max-width:840px}
+.fyt-band{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.fyt-band b{font-family:var(--mono);font-size:clamp(28px,4.4vw,42px);color:var(--acc);letter-spacing:-.03em}
+.fyt-band span{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.fyt > p{font-size:14.4px;color:var(--muted);line-height:1.7;margin-bottom:22px}
+.fyt-ne{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-bottom:22px}
+.fyt-ne li{font-size:13.6px;color:var(--fg-dim);display:flex;gap:9px;align-items:flex-start;line-height:1.55}
+.fyt-ne li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:7px}
+
+/* --- düzyazı bölümleri --- */
+.yazi{max-width:780px}
+.yazi h2{font-size:clamp(21px,2.9vw,32px);letter-spacing:-.04em;line-height:1.18;margin:0 0 14px}
+.yazi h3{font-size:clamp(17px,2vw,21px);letter-spacing:-.03em;margin:34px 0 11px}
+.yazi p{color:var(--fg-dim);font-size:15.4px;line-height:1.78;margin:0 0 15px}
+.yazi strong{color:var(--fg);font-weight:600}
+
+/* --- bölüm başlığı + 3D görsel --- */
+.gbs{display:flex;align-items:center;gap:clamp(16px,2.4vw,30px);margin:0 0 20px}
+.gbs img{width:clamp(84px,11vw,132px);height:auto;aspect-ratio:1;flex:none;border-radius:var(--r-md);
+  border:1px solid var(--hair);background:var(--bg-2)}
+.gbs-in{flex:1;min-width:0}
+.gbs-in h3{margin:0 0 10px}
+.gbs-in p{margin:0}
+@media(max-width:560px){
+  .gbs{flex-direction:column;align-items:flex-start;gap:14px}
+  .gbs img{width:88px}
+}
+
+/* --- PWA dürüstlük kutusu --- */
+.durust{border:1px solid rgba(var(--acc-rgb),.32);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(var(--acc-rgb),.08),transparent);padding:clamp(24px,3.2vw,34px)}
+.durust h3{font-size:clamp(18px,2.4vw,23px);letter-spacing:-.03em;margin:0 0 12px}
+.durust p{color:var(--fg-dim);font-size:15px;line-height:1.75;margin:0}
+
+/* --- SSS ve içerik akordiyonu --- */
+.sss,.akor{display:grid;gap:11px;max-width:820px}
+.akor{max-width:none}
+.sss-not{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em;margin-top:6px}
+.sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
+.sss details[open],.akor details[open]{border-color:var(--hair-strong)}
+.sss summary,.akor summary{cursor:pointer;list-style:none;padding:18px 22px;font-size:15.6px;font-weight:600;
+  display:flex;align-items:center;gap:14px}
+.sss summary::-webkit-details-marker,.akor summary::-webkit-details-marker{display:none}
+.sss summary::after,.akor summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.sss details[open] summary::after,.akor details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.sss summary:hover,.akor summary:hover{color:var(--acc)}
+.sss .cvp,.akor .cvp{padding:0 22px 20px;font-size:14.4px;color:var(--muted);line-height:1.7}
+
+/* --- iki sütun: akordiyon solda, yan içerik sağda --- */
+.iki{display:grid;grid-template-columns:1.45fr .8fr;gap:clamp(20px,3vw,38px);align-items:start}
+.iki-yan{position:sticky;top:calc(var(--nav-h) + 20px);display:grid;gap:12px}
+
+/* 3D dönen uygulama ekranı (kütüphane yok, saf CSS preserve-3d) */
+.don{perspective:1200px;perspective-origin:50% 45%}
+.don-sahne{position:relative;transform-style:preserve-3d;animation:donDur 18s linear infinite;
+  aspect-ratio:4/3.1}
+.don:hover .don-sahne{animation-play-state:paused}
+@keyframes donDur{
+  0%{transform:rotateX(9deg) rotateY(-22deg)}
+  50%{transform:rotateX(9deg) rotateY(22deg)}
+  100%{transform:rotateX(9deg) rotateY(-22deg)}
+}
+.don-cam{position:absolute;inset:0;border:1px solid var(--hair);border-radius:13px;overflow:hidden;
+  background:var(--bg-2);box-shadow:0 26px 60px -28px rgba(0,0,0,.95);transform:translateZ(26px)}
+.don-bar{display:flex;align-items:center;gap:6px;padding:8px 11px;border-bottom:1px solid var(--hair);
+  background:rgba(255,255,255,.035)}
+.don-bar i{width:6px;height:6px;border-radius:50%;background:#3A4152;flex:none}
+.don-bar i:nth-child(1){background:#FF5F57}.don-bar i:nth-child(2){background:#FEBC2E}.don-bar i:nth-child(3){background:#28C840}
+.don-bar span{font-family:var(--mono);font-size:8.6px;color:var(--muted);margin-left:6px;letter-spacing:.05em}
+.don-ic{padding:12px;display:flex;flex-direction:column;gap:8px;height:calc(100% - 30px)}
+.don-ic .cz{height:9px;border-radius:3px;background:rgba(255,255,255,.14)}
+.don-ic .cz.a{width:62%;background:rgba(var(--acc-rgb),.55);height:11px}
+.don-ic .cz.b{width:86%}
+.don-ic .cz.c{width:48%}
+.don-kart{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:2px}
+.don-kart i{height:34px;border-radius:6px;border:1px solid var(--hair);
+  background:linear-gradient(160deg,rgba(var(--acc-rgb),.16),transparent)}
+.don-btn{margin-top:auto;width:74px;height:16px;border-radius:99px;background:var(--acc);opacity:.9}
+.don-arka{position:absolute;inset:12px 12px auto 12px;height:70%;border:1px solid var(--hair);
+  border-radius:12px;background:rgba(255,255,255,.02);transform:translateZ(-34px)}
+.don-not{margin-top:14px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);text-align:center}
+
+/* yan hizmet kartları */
+.yk{display:block;border:1px solid var(--hair);border-radius:var(--r-md);padding:15px 16px;
+  background:var(--panel);transition:.3s var(--ease)}
+.yk:hover{border-color:var(--k,var(--acc));transform:translateY(-2px)}
+.yk b{display:flex;align-items:center;gap:9px;font-size:14.2px;margin-bottom:5px;letter-spacing:-.02em}
+.yk b::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--k,var(--acc));flex:none}
+.yk span{font-size:12.4px;color:var(--muted);line-height:1.55}
+.yk-cta{border-color:rgba(var(--acc-rgb),.4);background:rgba(var(--acc-rgb),.07)}
+.yk-cta .btn{width:100%;justify-content:center;margin-top:11px}
+.yk-bas{font-family:var(--mono);font-size:9.6px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:2px}
+
+@media(max-width:960px){
+  .iki{grid-template-columns:1fr}
+  .iki-yan{position:static}
+  .don{display:none}
+}
+
+/* --- satın alma yolundaki CTA'lar --- */
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.ara-cta{border-block:1px solid var(--hair);background:rgba(var(--acc-rgb),.045);
+  padding:clamp(20px,2.6vw,28px) 0;margin:clamp(28px,3.6vw,44px) 0}
+.ara-cta-in{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.ara-cta p{margin:0}
+.ara-cta p b{display:block;font-size:clamp(16px,2vw,19px);letter-spacing:-.02em;margin-bottom:5px}
+.ara-cta p span{font-size:13.6px;color:var(--muted)}
+.ara-cta-btn{display:flex;gap:10px;flex-wrap:wrap;flex:none}
+@media(max-width:640px){
+  .ara-cta-in{flex-direction:column;align-items:flex-start}
+  .ara-cta-btn .btn{flex:1}
+}
+
+/* --- CTA --- */
+.band{position:relative;border:1px solid rgba(var(--acc-rgb),.28);border-radius:26px;
+  padding:clamp(38px,5vw,62px) 32px;text-align:center;overflow:hidden;
+  background:linear-gradient(140deg,rgba(var(--acc-rgb),.09),rgba(0,229,255,.07))}
+.band::before{content:"";position:absolute;inset:0;z-index:1;
+  background:radial-gradient(600px 280px at 50% -30%,rgba(var(--acc-rgb),.2),transparent 70%)}
+.band > *{position:relative;z-index:2}
+.band h2{font-size:clamp(23px,3.4vw,38px);margin-bottom:12px}
+.band p{color:var(--fg-dim);margin-bottom:28px;font-size:16px}
+.band-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* --- footer --- */
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h5{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+
+.wa{position:fixed;right:22px;bottom:22px;z-index:90;width:54px;height:54px;border-radius:50%;
+  background:#25D366;display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+
+@media(max-width:960px){
+  .phd-iki{grid-template-columns:1fr}
+  .krs,.kps{grid-template-columns:1fr}
+  .alt{grid-template-columns:1fr}
+  .kny{grid-template-columns:repeat(2,1fr)}
+  .fyt-ne{grid-template-columns:1fr}
+  .ftr-ust{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .nav-links,.nav-tel{display:none}
+  .burger{display:block}
+  .ftr-ust{grid-template-columns:1fr}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Mobil Uygulama Geliştirme",
+  "serviceType": "iOS, Android ve React Native mobil uygulama geliştirme",
+  "url": "https://www.tasarimmania.com/hizmetler/mobil-uygulama/",
+  "description": "iOS ve Android için native, ya da React Native ile çapraz platform mobil uygulama geliştirme. Arayüz tasarımı, backend entegrasyonu, mağaza yayını ve ASO tek ekipten yürür.",
+  "areaServed": { "@type": "Country", "name": "Türkiye" },
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "TasarımMania",
+    "url": "https://www.tasarimmania.com/",
+    "telephone": "+905547916545",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+      "addressLocality": "Bakırköy",
+      "addressRegion": "İstanbul",
+      "addressCountry": "TR"
+    }
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Mobil Uygulama alt hizmetleri",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "iOS ve Android native uygulama geliştirme" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "React Native çapraz platform geliştirme" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobil uygulama arayüz tasarımı (UI/UX)" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ASO ve uygulama pazarlaması" } }
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.tasarimmania.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Hizmetler", "item": "https://www.tasarimmania.com/hizmetler/" },
+    { "@type": "ListItem", "position": 3, "name": "Mobil Uygulama", "item": "https://www.tasarimmania.com/hizmetler/mobil-uygulama/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-08-30",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Mobil uygulama fiyatı nasıl hesaplanıyor, 2026 bandı ne kadar?",
+      "acceptedAnswer": { "@type": "Answer", "text": "2026 bandı 120.000–260.000 ₺ arasında değişir; fiyatı platform sayısı (tek mi çift mi), ekran sayısı, backend ihtiyacı ve üçüncü taraf entegrasyonlar belirler, sabit tek fiyat yoktur. Teklif sihirbazında kapsamı birlikte çıkarıp bandı ve tahmini süreyi ekranda görürsünüz." }
+    },
+    {
+      "@type": "Question",
+      "name": "Mobil uygulama geliştirme süreci hangi aşamalardan oluşuyor, ne kadar sürüyor?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Süreç keşif, arayüz tasarımı, geliştirme, test ve mağaza yayınından oluşur; toplam süre kapsamın büyüklüğüne göre 8 ile 16 hafta arasında değişir, kesin gün sayısı vermiyoruz. Hafta hafta değil aşama aşama ilerliyoruz, her aşama onaylanmadan sıradakine geçmiyoruz." }
+    },
+    {
+      "@type": "Question",
+      "name": "React Native mi, native (Swift/Kotlin) mi seçmeliyim?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Çoğu ticari uygulama için React Native yeterli ve daha ekonomiktir; kamera, sensör, yoğun grafik veya donanıma derin erişim gerektiren işlerde native (Swift/Kotlin) tercih ediyoruz. Hangi teknolojinin size uygun olduğuna kapsamı gördükten sonra birlikte karar veriyoruz." }
+    },
+    {
+      "@type": "Question",
+      "name": "Uygulama App Store ve Google Play'e nasıl yükleniyor, reddedilme riski var mı?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Evet, her iki mağazanın da inceleme süreci vardır; Apple genelde birkaç gün, Google Play birkaç saatten birkaç güne sürer ve ilk başvuruda ret almak olağandır. Ret gerekçesini düzeltip yeniden gönderiyoruz, bu revizyon fiyata dahil." }
+    },
+    {
+      "@type": "Question",
+      "name": "Kodsuz (no-code) araçlarla veya PWA ile yaptırsam olmaz mı?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Bazı durumlarda evet: içerik gösterimi ağırlıklıysa, kamera veya offline kullanım gerekmiyorsa PWA (mağazasız, telefona eklenen web uygulaması) çok daha ucuz ve hızlı bir çözümdür. Kamera, konum, offline kullanım ya da mağazada görünürlük gerekiyorsa gerçek uygulama doğru karardır." }
+    },
+    {
+      "@type": "Question",
+      "name": "Uygulama içinden ödeme almak (in-app purchase, abonelik) nasıl kuruluyor?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Apple ve Google'ın kendi ödeme altyapısı üzerinden kuruluyor; dijital ürün ve abonelik satışında mağaza komisyonu otomatik kesiliyor. Fiziksel ürün veya hizmet satışında bu zorunluluk yoktur, dış ödeme sistemleri kullanılabilir." }
+    },
+    {
+      "@type": "Question",
+      "name": "Uygulama yayınlandıktan sonra bakımı ve güncellemesi kimde?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yayın sonrası 30 gün düzeltme desteği fiyata dahildir; sonrasında aylık bakım paketiyle işletim sistemi güncellemelerini ve mağaza kurallarındaki değişiklikleri takip ediyoruz. iOS ve Android her yıl yeni sürüm çıkarır, uyumu kaybetmemek için düzenli test ve güncelleme gerekir." }
+    },
+    {
+      "@type": "Question",
+      "name": "Hazırlanan uygulamanın kaynak kodu ve mağaza hesapları kime ait oluyor?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Evet, kaynak kod size ait olur ve teslim edilir; Apple Developer ve Google Play hesapları da baştan sizin adınıza açılır, bizim adımıza değil. Bizimle çalışmayı bıraktığınızda uygulamanız başka bir ekiple de devam edebilir." }
+    }
+  ]
+}
+</script>
+</head>
+<body data-dal="mobil">
+
+<a class="skip" href="#ana">İçeriğe geç</a>
+
+<nav class="nav" data-nav aria-label="Ana menü">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../../" aria-label="TasarımMania ana sayfa">
+      <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async">
+    </a>
+    <div class="nav-links">
+      <a href="../" aria-current="page">Hizmetler</a>
+      <a href="../../#isler">İşler</a>
+      <a href="../../hakkimizda/">Ajans</a>
+      <a href="../../#surec">Süreç</a>
+      <a href="../../teklif/">Teklif Al</a>
+      <a href="../../iletisim/">İletişim</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../">Hizmetler</a><a href="../../#isler">İşler</a><a href="../../hakkimizda/">Ajans</a>
+  <a href="../../#surec">Süreç</a><a href="../../teklif/">Teklif Al</a><a href="../../iletisim/">İletişim</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Konum">
+        <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
+        <a href="../">Hizmetler</a><span aria-hidden="true">/</span>
+        <span>Mobil Uygulama</span>
+      </nav>
+      <div class="phd-iki">
+        <div>
+          <span class="mod-no">Modül 02</span>
+          <h1 data-kin>Mobil uygulama ajansı — iOS, Android ve React Native ile uygulamanıza gerçekten ihtiyacınız var mı?</h1>
+          <p class="h1-alt">iOS &amp; ANDROID · REACT NATIVE · UI/UX · ASO</p>
+          <p class="lead">TasarımMania, mobil uygulama ajansı olarak 14 yıllık 8 kişilik ekibiyle iOS ve Android için native ve React Native ile çapraz platform mobil uygulama geliştiriyor; 2026 bandı 120.000–260.000 ₺, teslim 8–16 hafta, kaynak kod ve mağaza hesapları size ait kalıyor.</p>
+        </div>
+        <img class="hero-img" src="../../../assets/modul-mobil/hero.jpg" alt="3D render: cam ve krom dokulu akıllı telefon, ekranda mobil uygulama arayüzü" width="800" height="800" loading="eager" decoding="async">
+      </div>
+
+      <div class="kny">
+        <div><b>8–16<i> hafta</i></b><span>Kapsama göre<br>tipik teslim süresi</span></div>
+        <div><b>120–260<i> bin ₺</i></b><span>2026 yılı<br>bütçe bandı</span></div>
+        <div><b>14 yıl</b><span>Web ve yazılımda<br>saha deneyimi</span></div>
+        <div><b>Sizde</b><span>Kaynak kod ve<br>mağaza hesapları</span></div>
+      </div>
+
+      <div class="hero-cta">
+        <a class="btn btn-p" href="../../teklif/#mobil">Kapsam ve fiyat aralığı çıkaralım
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Mobil%20Uygulama%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%0AUygulama%20fikrim%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== ÖNCE DÜRÜSTLÜK: GERÇEKTEN UYGULAMA MI GEREKİYOR ===== -->
+  <section class="sec" id="durustluk" style="padding-top:0">
+    <div class="wrap">
+      <div class="durust rv">
+        <h3>Önce bu soruyu sormalıyız: gerçekten bir uygulamaya mı ihtiyacınız var?</h3>
+        <p>Mobil uygulama, portföyümüzde en az kanıtı olan modül — bunu saklamıyoruz. Uygulama yaptırmadan önce sorulması gereken soru şu: kullanıcı kamera, bildirim veya offline kullanım gibi telefona özgü bir şey mi istiyor, yoksa sadece bilgiye mobilden hızlı erişmek mi? İkincisiyse çözüm PWA (telefona eklenebilen, mağazasız web uygulaması) olabilir; çok daha ucuz, haftalar içinde yayında ve mağaza onayı beklemiyor. Kamera, konum takibi, offline çalışma veya mağazada görünürlük gerekiyorsa gerçek uygulama doğru karardır.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KAPSAM ===== -->
+  <section class="sec" id="kapsam" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Bu modülde neler var</span>
+        <h2 data-kin>Bu hizmetin kapsamı: native, React Native, arayüz ve pazarlama</h2>
+        <p>Uygulamanızı native mi, çapraz platform mu yazacağımıza karar vermeden önce kapsamı netleştiriyoruz: dört uzmanlık alanı aşağıda.</p>
+      </div>
+
+      <div class="alt">
+        <article class="alt-k rv">
+          <span class="alt-no">01</span>
+          <h3>iOS ve Android (Native)</h3>
+          <p>Swift ve Kotlin ile platforma özel, performansı en yüksek uygulama; kamera, sensör ve yoğun grafik gerektiren işler için doğru seçim.</p>
+          <ul>
+            <li>Swift (iOS) ve Kotlin (Android) ile native geliştirme</li>
+            <li>Cihaz donanımına tam erişim (kamera, sensör, Bluetooth)</li>
+            <li>Platforma özgü tasarım dili (Human Interface / Material)</li>
+            <li>Push bildirim ve arka plan servisleri</li>
+          </ul>
+        </article>
+        <article class="alt-k rv d1">
+          <span class="alt-no">02</span>
+          <h3>React Native (Çapraz Platform)</h3>
+          <p>Tek kod tabanıyla hem iOS hem Android; çoğu ticari uygulama için daha hızlı ve ekonomik yol.</p>
+          <ul>
+            <li>Tek kod tabanından iki platforma yayın</li>
+            <li>Native'e yakın performans, daha kısa geliştirme süresi</li>
+            <li>Web sitesiyle ortak API kullanımı</li>
+            <li>Güncellemeyi tek seferde iki mağazaya gönderme</li>
+          </ul>
+        </article>
+        <article class="alt-k rv">
+          <span class="alt-no">03</span>
+          <h3>Arayüz Tasarımı (UI/UX)</h3>
+          <p>Ekran akışı, buton yerleşimi ve renk sistemi kullanıcı testinden geçmeden kodlanmıyor.</p>
+          <ul>
+            <li>Kullanıcı akışı ve wireframe</li>
+            <li>Yüksek çözünürlüklü ekran tasarımları (Figma)</li>
+            <li>Uygulama içi ikon ve görsel dil</li>
+            <li>Erişilebilirlik ve dokunma alanı standartları</li>
+          </ul>
+        </article>
+        <article class="alt-k rv d1">
+          <span class="alt-no">04</span>
+          <h3>Pazarlama (ASO ve Mağaza Optimizasyonu)</h3>
+          <p>Uygulama yayınlanınca iş bitmiyor; mağazada bulunması ve indirilmesi ayrı bir çalışma.</p>
+          <ul>
+            <li>App Store / Google Play anahtar kelime optimizasyonu</li>
+            <li>Mağaza görselleri ve tanıtım videosu</li>
+            <li>Google Ads / Meta ile indirme kampanyası</li>
+            <li>İndirme ve elde tutma (retention) ölçümü</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+  <div class="ara-cta rv">
+    <div class="wrap ara-cta-in">
+      <p><b>Hangi kapsam size uygun, birlikte çıkaralım</b><span>Beş adım, iki dakika. Ekranda süre ve fiyat aralığı çıkar.</span></p>
+      <div class="ara-cta-btn">
+        <a class="btn btn-p" href="../../teklif/#mobil">Kapsam çıkaralım
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-g" href="tel:+905547916545">0554 791 65 45</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FİYAT ===== -->
+  <section class="sec" id="fiyat" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Bütçe</span>
+        <h2 data-kin>Mobil uygulama fiyatları 2026: 120.000–260.000 ₺ bandını neyin belirlediği</h2>
+      </div>
+
+      <div class="fyt rv d1">
+        <div class="fyt-band">
+          <b>120 – 260 bin ₺</b>
+          <span>MOBİL UYGULAMA · 8 – 16 HAFTA</span>
+        </div>
+        <p>Bu band <strong>2026 yılı için</strong> geçerlidir. KDV teklifte belirtilir; React Native ile tek kod tabanı genelde native'den daha ekonomik çıkar. Bandı belirleyen beş şey:</p>
+        <ul class="fyt-ne">
+          <li>Platform sayısı: tek platform mu, hem iOS hem Android mi</li>
+          <li>Native mi React Native mi seçildiği</li>
+          <li>Ekran sayısı ve akış karmaşıklığı</li>
+          <li>Backend, API ve üçüncü taraf entegrasyon ihtiyacı</li>
+          <li>Tasarımın hazır olup olmadığı (Figma dosyası var mı)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NE DAHİL, NE DEĞİL ===== -->
+  <section class="sec" id="dahil" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Şeffaflık</span>
+        <h2 data-kin>Ne dahil, ne değil</h2>
+      </div>
+
+      <div class="kps rv d1">
+        <div class="kps-k kps-k--var">
+          <h3>Fiyata dahil</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Arayüz tasarımı (UI/UX) ve kullanıcı akışı</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>iOS ve/veya Android geliştirme</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Backend ve API entegrasyonu (kapsamdaysa)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>App Store ve Google Play yayın süreci</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Push bildirim altyapısı kurulumu</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Cihaz ve işletim sistemi testleri</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Yayın sonrası 30 gün düzeltme desteği</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Kaynak kod ve teknik dokümantasyon</li>
+          </ul>
+        </div>
+        <div class="kps-k kps-k--yok">
+          <h3>Ayrı kalem</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Apple Developer (yıllık) ve Google Play (tek seferlik) hesap ücretleri</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Mağaza reklam bütçesi (ASO / Google Ads kampanyası)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Aylık bakım ve işletim sistemi güncelleme paketi</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Uygulama içi ödeme sisteminin mağaza komisyonları</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Teslimden sonra istenen kapsam değişiklikleri</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="ara-cta rv">
+    <div class="wrap ara-cta-in">
+      <p><b>Projenizin bandını ekranda görün</b><span>Zorunlu alan yalnızca ad ve telefon.</span></p>
+      <div class="ara-cta-btn">
+        <a class="btn btn-p" href="../../teklif/#mobil">Kapsam çıkaralım
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-g" href="tel:+905547916545">0554 791 65 45</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NATIVE VS REACT NATIVE ===== -->
+  <section class="sec" id="fark">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Aradaki fark</span>
+        <h2 data-kin>Native mi, React Native mi — teknolojiyi tek taraflı dayatmıyoruz</h2>
+        <p>İki yol da doğru olabilir; doğru olan sizin kullanım senaryonuza bağlı. Farkı anlatmıyor, hangi işte hangisinin kazandığını yazıyoruz.</p>
+      </div>
+
+      <div class="krs rv d1">
+        <div class="krs-k krs-k--sablon">
+          <div class="krs-bas"><span>Native (Swift / Kotlin)</span></div>
+          <h3 style="margin-bottom:18px">Platforma özel, en yüksek performans</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              İki platform için ayrı kod tabanı; geliştirme ve bakım maliyeti daha yüksek.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              Güncelleme her iki mağazaya ayrı ayrı hazırlanır.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              Kamera, sensör, Bluetooth ve yoğun grafik işlerinde doğru seçim.</li>
+          </ul>
+        </div>
+        <div class="krs-k krs-k--biz">
+          <div class="krs-bas"><span>React Native (Çapraz Platform)</span></div>
+          <h3 style="margin-bottom:18px">Tek kod tabanı, iki mağaza</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Tek kod tabanından hem iOS hem Android'e yayın; geliştirme süresi kısalır.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Web sitesiyle ortak API; form, liste ve içerik akışlarında native'e yakın performans.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Standart ticari uygulamaların çoğunda daha ekonomik ve yeterli.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SSS ===== -->
+  <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Sık sorulanlar</span>
+        <h2 data-kin>Sık sorulan sorular: mobil uygulama fiyatı, süreci ve mülkiyeti</h2>
+        <p>En çok gelen sorular ve kısa cevapları. Ayrıntısı başka bölümdeyse cevabın sonunda bağlantı var.</p>
+      </div>
+
+      <div class="iki">
+        <div class="sss rv d1">
+        <details>
+        <summary>Mobil uygulama fiyatı nasıl hesaplanıyor, 2026 bandı ne kadar?</summary>
+        <p>2026 bandı 120.000–260.000 ₺ arasında değişir; fiyatı platform sayısı (tek mi çift mi), ekran sayısı, backend ihtiyacı ve üçüncü taraf entegrasyonlar belirler, sabit tek fiyat yoktur.</p>
+        <p>Teklif sihirbazında kapsamı birlikte çıkarıp bandı ve tahmini süreyi <a href="#fiyat">ekranda görürsünüz</a>; sabit paket satmıyoruz.</p>
+        </details>
+        <details>
+        <summary>Mobil uygulama geliştirme süreci hangi aşamalardan oluşuyor, ne kadar sürüyor?</summary>
+        <p>Süreç keşif, arayüz tasarımı, geliştirme, test ve mağaza yayınından oluşur; toplam süre kapsamın büyüklüğüne göre 8 ile 16 hafta arasında değişir, kesin gün sayısı vermiyoruz.</p>
+        <p>Hafta hafta değil aşama aşama ilerliyoruz, her aşama onaylanmadan sıradakine geçmiyoruz; ayrıntısını <a href="#surec">süreç bölümünde</a> anlattık.</p>
+        </details>
+        <details>
+        <summary>React Native mi, native (Swift/Kotlin) mi seçmeliyim?</summary>
+        <p>Çoğu ticari uygulama için React Native yeterli ve daha ekonomiktir; kamera, sensör, yoğun grafik veya donanıma derin erişim gerektiren işlerde native (Swift/Kotlin) tercih ediyoruz.</p>
+        <p>Hangi teknolojinin size uygun olduğuna kapsamı gördükten sonra <a href="#fark">birlikte karar veriyoruz</a>, teknolojiyi tek taraflı dayatmıyoruz.</p>
+        </details>
+        <details>
+        <summary>Uygulama App Store ve Google Play'e nasıl yükleniyor, reddedilme riski var mı?</summary>
+        <p>Evet, her iki mağazanın da inceleme süreci vardır; Apple genelde birkaç gün, Google Play birkaç saatten birkaç güne sürer ve ilk başvuruda ret almak olağandır.</p>
+        <p>Ret gerekçesini düzeltip yeniden gönderiyoruz, bu revizyon fiyata dahil; ayrıntısını <a href="#magaza">mağaza yayın süreci bölümünde</a> yazdık.</p>
+        </details>
+        <details>
+        <summary>Kodsuz (no-code) araçlarla veya PWA ile yaptırsam olmaz mı?</summary>
+        <p>Bazı durumlarda evet: içerik gösterimi ağırlıklıysa, kamera veya offline kullanım gerekmiyorsa PWA (mağazasız, telefona eklenen web uygulaması) çok daha ucuz ve hızlı bir çözümdür.</p>
+        <p>Kamera, konum, offline kullanım ya da mağazada görünürlük gerekiyorsa gerçek uygulama doğru karardır; farkı <a href="#durustluk">yukarıda dürüstçe açıkladık</a>.</p>
+        </details>
+        <details>
+        <summary>Uygulama içinden ödeme almak (in-app purchase, abonelik) nasıl kuruluyor?</summary>
+        <p>Apple ve Google'ın kendi ödeme altyapısı üzerinden kuruluyor; dijital ürün ve abonelik satışında mağaza komisyonu otomatik kesiliyor.</p>
+        <p>Fiziksel ürün veya hizmet satışında bu zorunluluk yoktur, dış ödeme sistemleri kullanılabilir; hangi modelin size uyduğunu kapsam görüşmesinde netleştiriyoruz.</p>
+        </details>
+        <details>
+        <summary>Uygulama yayınlandıktan sonra bakımı ve güncellemesi kimde?</summary>
+        <p>Yayın sonrası 30 gün düzeltme desteği fiyata dahildir; sonrasında aylık bakım paketiyle işletim sistemi güncellemelerini ve mağaza kurallarındaki değişiklikleri takip ediyoruz.</p>
+        <p>iOS ve Android her yıl yeni sürüm çıkarır, uyumu kaybetmemek için düzenli test ve güncelleme gerekir.</p>
+        </details>
+        <details>
+        <summary>Hazırlanan uygulamanın kaynak kodu ve mağaza hesapları kime ait oluyor?</summary>
+        <p>Evet, kaynak kod size ait olur ve teslim edilir; Apple Developer ve Google Play hesapları da baştan sizin adınıza açılır, bizim adımıza değil.</p>
+        <p>Bizimle çalışmayı bıraktığınızda uygulamanız başka bir ekiple de devam edebilir; <a href="#mulkiyet">mülkiyet bölümünde</a> ayrıntısını yazdık.</p>
+        </details>
+      </div>
+        <div class="iki-yan">
+          <p class="yk-bas">Diğer modüller</p>
+          <a class="yk" style="--k:var(--cy)" href="../#moduller"><b>Web Tasarım &amp; Yazılım</b>
+            <span>Diğer dört modülün üzerinde çalıştığı zemin.</span></a>
+          <a class="yk" style="--k:var(--amber)" href="../#moduller"><b>Meta &amp; Google Ads</b>
+            <span>Hesaplar sizin adınıza; reklamın ineceği sayfaları biz kuruyoruz.</span></a>
+          <a class="yk" style="--k:var(--pink)" href="../#moduller"><b>Video Prodüksiyon</b>
+            <span>Tek çekimden reklam, Reels ve ürün videosu.</span></a>
+          <a class="yk" style="--k:var(--lime)" href="../#moduller"><b>SEO Hizmetleri</b>
+            <span>Teknik SEO, içerik ve yerel görünürlük.</span></a>
+          <div class="yk yk-cta">
+            <b>Sorunuz listede yok mu?</b>
+            <span>Beş adımda kapsamı çıkarın; süreyi ve fiyat aralığını ekranda görün.</span>
+            <a class="btn btn-p btn-sm" href="../../teklif/#mobil">Kapsam çıkaralım</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AYRINTILAR ===== -->
+  <section class="sec" id="ayrintilar" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Ayrıntılar</span>
+        <h2 data-kin>Karar vermeden önce bakmak isterseniz</h2>
+        <p>Süreç, mağaza yayını, teslim sonrası ve mülkiyet tarafının tamamı burada — açıp okuyun, kapatın.</p>
+      </div>
+      <div class="iki">
+        <div class="akor rv d1">
+        <details id="surec">
+          <summary>Süreç: keşiften mağaza yayınına nasıl ilerliyoruz</summary>
+          <p class="cvp">Kesin hafta sayısı vermiyoruz çünkü kapsam her projede farklı; akış sabit: önce keşif ve ekran listesi çıkarılır, sonra arayüz tasarımı onaylanır, ardından geliştirme başlar. Geliştirme bitince test aşamasında cihaz ve işletim sistemi kombinasyonlarında deneme yapılır, son olarak mağaza yayını gerçekleşir. Her aşama bir öncekinin onayından sonra başlar, atlama yapılmaz; toplam süre 8–16 hafta bandında kalır.</p>
+        </details>
+        <details id="magaza">
+          <summary>Mağaza yayın süreci: App Store ve Google Play onayı</summary>
+          <div class="cvp">
+            <div class="gbs">
+              <img src="../../../assets/modul-mobil/magaza.jpg" alt="3D render: mağaza onay sürecini temsil eden iki simgesel panel" width="640" height="640" loading="lazy" decoding="async">
+              <div class="gbs-in">
+                <p>İki mağazanın kuralları farklı işliyor. Google Play incelemesi genelde birkaç saat ile birkaç gün arasında sonuçlanır; Apple'ın App Store incelemesi daha katıdır ve birkaç günü bulabilir. İlk başvuruda gizlilik metni eksikliği, test hesabı verilmemesi veya ekran görüntüsü uyumsuzluğu gibi nedenlerle ret almak olağandır. Reddedilirse gerekçeyi düzeltip yeniden gönderiyoruz; bu revizyon süreci ek ücret gerektirmez.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+        <details id="bakim">
+          <summary>Teslim sonrası: güncelleme, bakım ve sürüm uyumu</summary>
+          <p class="cvp">Yayınla iş bitmiyor. Apple ve Google her yıl yeni işletim sistemi sürümü çıkarır; uygulama bir süre sonra eski API'lerle uyumsuz hale gelip mağazadan kaldırılma uyarısı alabilir. Yayın sonrası 30 gün düzeltme desteği fiyata dahildir; sonrasında aylık bakım paketiyle sürüm uyumunu, güvenlik yamalarını ve küçük hata düzeltmelerini takip ediyoruz. Bakım almayan uygulamalarda bu risk zamanla birikir.</p>
+        </details>
+        <details id="mulkiyet">
+          <summary>Mülkiyet: kaynak kod ve mağaza hesapları kimde</summary>
+          <div class="cvp">
+            <div class="gbs">
+              <img src="../../../assets/modul-mobil/guvence.jpg" alt="3D render: kaynak kodu koruyan cam ve krom dokulu kalkan" width="640" height="640" loading="lazy" decoding="async">
+              <div class="gbs-in">
+                <p>Apple Developer ve Google Play Console hesapları baştan sizin adınıza, sizin e-postanızla açılır; biz yönetici olarak eklenir, sahibi olmayız. Proje bittiğinde kaynak kod deposu ve teknik dokümantasyon size teslim edilir. Bu iki kural aylık çıkış hakkınızı gerçek kılar: bizimle çalışmayı bıraktığınızda uygulamanız başka bir ekiple sorunsuz devam edebilir.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+        <details id="karar-teknoloji">
+          <summary>Native mi, React Native mi: karar nasıl veriliyor</summary>
+          <p class="cvp">Kamera, Bluetooth, yoğun grafik veya donanıma derin erişim gerektiren uygulamalarda native (Swift/Kotlin) daha sağlıklı çalışır. Standart bir ticari uygulama — form, liste, bildirim, basit içerik — React Native ile tek kod tabanından hem iOS hem Android'e yayınlanır; geliştirme süresi ve maliyeti düşer. Kararı ilk keşif görüşmesinde birlikte veriyoruz, teknolojiyi tek taraflı dayatmıyoruz.</p>
+        </details>
+      </div>
+        <div class="iki-yan">
+          <div class="don">
+            <div class="don-sahne">
+              <div class="don-cam">
+                <div class="don-bar"><i></i><i></i><i></i><span>uygulamanız</span></div>
+                <div class="don-ic">
+                  <div class="cz a"></div>
+                  <div class="cz b"></div>
+                  <div class="cz c"></div>
+                  <div class="don-kart"><i></i><i></i><i></i></div>
+                  <div class="don-btn"></div>
+                </div>
+              </div>
+              <div class="don-arka"></div>
+            </div>
+            <p class="don-not">iOS · Android · React Native</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="band rv">
+        <h2>Uygulamaya gerçekten ihtiyacınız olduğuna karar verdiyseniz</h2>
+        <p>Kapsamı birlikte çıkaralım; teklif sihirbazında beş adımda süre ve fiyat bandını ekranda görün, ya da doğrudan WhatsApp'tan yazın.</p>
+        <div class="band-cta">
+          <a class="btn btn-p" href="../../teklif/#mobil">Kapsam çıkaralım
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Mobil%20Uygulama%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%0AUygulama%20fikrim%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>Web, mobil, reklam, video ve SEO’yu tek çatı altında birleştiren
+          İstanbul merkezli 360 derece dijital ajans.</p>
+      </div>
+      <div>
+        <h5>Modüller</h5>
+        <ul>
+          <li><a href="../">Tüm hizmetler</a></li>
+          <li><a href="../web-tasarim-yazilim/">Web &amp; Yazılım</a></li>
+          <li><a href="./" aria-current="page">Mobil Uygulama</a></li>
+          <li><a href="../#moduller">Meta &amp; Google Ads</a></li>
+          <li><a href="../#moduller">Video Prodüksiyon</a></li>
+          <li><a href="../#moduller">SEO Hizmetleri</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>İletişim</h5>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../../iletisim/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../../iletisim/#ofis">Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</span>
+      <span class="mono">BEŞ MODÜL · TEK PANEL</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+
+/* Geniş tablolar: yalnızca gerçekten taşıyorsa "yana kaydırın" ipucu göster. */
+(function tabloIpucu(){
+  var kaplar = [].slice.call(document.querySelectorAll('.yazi-tablo'));
+  if (!kaplar.length) return;
+  kaplar.forEach(function(k){
+    if (k.nextElementSibling && k.nextElementSibling.classList.contains('yazi-tablo-ipucu')) return;
+    var n = document.createElement('p');
+    n.className = 'yazi-tablo-ipucu';
+    n.textContent = 'Tabloyu yana kaydırın';
+    k.parentNode.insertBefore(n, k.nextSibling);
+  });
+  function olc(){
+    kaplar.forEach(function(k){
+      k.classList.toggle('kayar', k.scrollWidth > k.clientWidth + 1);
+    });
+  }
+  olc();
+  if (window.ResizeObserver) {
+    var gozlemci = new ResizeObserver(olc);
+    kaplar.forEach(function(k){ gozlemci.observe(k); });
+  }
+  window.addEventListener('resize', olc, { passive: true });
+  window.addEventListener('load', olc);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(olc);
+})();
+</script>
+</body>
+</html>
