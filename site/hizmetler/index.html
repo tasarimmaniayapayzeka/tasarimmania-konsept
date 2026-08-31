@@ -273,6 +273,20 @@
   ]
 }
 </script>
+<style>
+/* bağımsız hizmet bandı: modül değil, ayrı hizmet sayfası */
+.ekhiz{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:16px;
+  border:1px dashed var(--hair-strong);border-radius:16px;padding:20px 24px;
+  background:rgba(255,255,255,.02);transition:.3s var(--ease);color:inherit}
+.ekhiz:hover{border-color:var(--cy);transform:translateY(-2px)}
+.ekhiz .et{font-family:var(--mono);font-size:9.6px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--hair);border-radius:99px;padding:5px 11px;flex:none}
+.ekhiz b{font-size:16.5px;letter-spacing:-.02em}
+.ekhiz span.aci{font-size:13.2px;color:var(--muted);flex:1;min-width:200px}
+.ekhiz .git{font-family:var(--mono);font-size:10.4px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--cy);display:inline-flex;align-items:center;gap:7px;flex:none;transition:gap .3s}
+.ekhiz:hover .git{gap:12px}
+</style>
 </head>
 <body data-dal="web">
 
@@ -551,6 +565,14 @@
           </div>
         </article>
       </div>
+
+      <!-- modül değil, bağımsız hizmet -->
+      <a class="ekhiz rv" href="./grafik-tasarim/">
+        <span class="et">Bağımsız Hizmet</span>
+        <b>Grafik Tasarım</b>
+        <span class="aci">Logo, kurumsal kimlik kılavuzu, kartvizit/katalog ve sosyal medya görsel şablonları — beş modülden ayrı, kendi sayfasında.</span>
+        <span class="git">Sayfayı aç <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
     </div>
   </section>
 
@@ -588,6 +610,7 @@
           <li><a href="./dijital-pazarlama/">Dijital Pazarlama</a></li>
           <li><a href="./video-produksiyon/">Video Prodüksiyon</a></li>
           <li><a href="./seo/">SEO Hizmetleri</a></li>
+          <li><a href="./grafik-tasarim/">Grafik Tasarım</a></li>
         </ul>
       </div>
       <div>
