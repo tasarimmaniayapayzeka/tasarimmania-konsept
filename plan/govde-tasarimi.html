@@ -291,6 +291,22 @@
   letter-spacing:-.015em;line-height:1.5;margin-bottom:9px}
 .dtay-k p{font-size:13.5px;color:var(--muted)}
 
+/* --- derinlemesine: "Daha fazla" ile açılan devam metni --- */
+p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.015em;
+  line-height:1.5;margin:0}
+.dtay-devam{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.dtay-devam.acik{grid-template-rows:1fr}
+.dtay-devam > div{overflow:hidden}
+.dtay-devam p{font-size:13.5px;color:var(--muted);line-height:1.76;margin:12px 0 0}
+.dtay-more{display:inline-flex;align-items:center;gap:8px;margin-top:14px;cursor:pointer;
+  font-family:var(--mono);font-size:10.4px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--acc);background:rgba(var(--acc-rgb),.06);border:1px solid rgba(var(--acc-rgb),.35);
+  border-radius:99px;padding:8px 15px;transition:.3s var(--ease)}
+.dtay-more:hover{background:rgba(var(--acc-rgb),.13);border-color:rgba(var(--acc-rgb),.6)}
+.dtay-more svg{width:11px;height:11px;transition:transform .4s var(--ease)}
+.dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
+@media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
+
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
 .sss details[open],.akor details[open]{border-color:var(--hair-strong)}
@@ -509,12 +525,16 @@
         <article class="dtay-k rv">
           <span class="dtay-no">01</span>
           <h2>Sayfa Mimarisi ve Bilgi Hiyerarşisi Nasıl Kurulur</h2>
-          <p><span class="dtay-vurgu">Kurumsal bir sitede sayfa sayısı keyfi belirlenmez; hizmet ve ürün gruplarının genişliği, hedef kitle segmentlerinin çeşitliliği ve karar vericilerin farklı bilgi ihtiyaçları bu sayıyı şekillendirir.</span>Önce kurumsal iletişim ekibiyle birlikte bir site haritası çıkarıyor, ana menü başlıklarını, alt menüleri ve mega menü gerektiren derin kategorileri belirliyoruz. Her hizmet veya ürün grubu kendi iniş sayfasına kavuşurken; kurumsal sayfalar (yönetim kadrosu, değerler, sürdürülebilirlik), kariyer bölümü, basın odası ve yatırımcı ilişkileri gibi kurumsal iletişim sayfaları ayrı bir hiyerarşi katmanında konumlanır. Breadcrumb yapısı ve iç link stratejisi, ziyaretçinin hiçbir sayfada yön kaybetmemesini sağlayacak şekilde kurgulanır. Böylece geniş bir içerik hacmi, karmaşık değil; kolay gezinilebilir bir yapıya dönüşür.</p>
+          <p class="dtay-vurgu">Kurumsal bir sitede sayfa sayısı keyfi belirlenmez; hizmet ve ürün gruplarının genişliği, hedef kitle segmentlerinin çeşitliliği ve karar vericilerin farklı bilgi ihtiyaçları bu sayıyı şekillendirir.</p>
+          <div class="dtay-devam"><div><p>Önce kurumsal iletişim ekibiyle birlikte bir site haritası çıkarıyor, ana menü başlıklarını, alt menüleri ve mega menü gerektiren derin kategorileri belirliyoruz. Her hizmet veya ürün grubu kendi iniş sayfasına kavuşurken; kurumsal sayfalar (yönetim kadrosu, değerler, sürdürülebilirlik), kariyer bölümü, basın odası ve yatırımcı ilişkileri gibi kurumsal iletişim sayfaları ayrı bir hiyerarşi katmanında konumlanır. Breadcrumb yapısı ve iç link stratejisi, ziyaretçinin hiçbir sayfada yön kaybetmemesini sağlayacak şekilde kurgulanır. Böylece geniş bir içerik hacmi, karmaşık değil; kolay gezinilebilir bir yapıya dönüşür.</p></div></div>
+          <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
         <article class="dtay-k rv d1">
           <span class="dtay-no">02</span>
           <h2>Yönetim Paneli, Kurumsal Kimlik ve Sistem Entegrasyonları</h2>
-          <p><span class="dtay-vurgu">Çok sayfalı bir yapı, güçlü bir içerik yönetim panelini zorunlu kılar; pazarlama, insan kaynakları ve satış ekiplerinin kendi bölümlerini birbirine karışmadan güncelleyebilmesi için rol bazlı yetkilendirme kuruyoruz.</span>Kurumsal kimlik rehberinizdeki renk, tipografi ve logo kullanım kuralları, panelde önceden tanımlı bileşen kütüphanesine gömülür; böylece hangi departman içerik eklerse eklesin marka tutarlılığı bozulmaz. Blog ve haber modülü, şirket duyurularının ve sektörel içeriklerin düzenli yayınlanmasına imkân tanırken; şema işaretlemesi, kurumsal veri (Organization schema), XML site haritası ve kanonik etiketler arama motorlarının site mimarisini doğru okumasını sağlar. Çok uluslu şirketler için dil bazlı hreflang yapısı kuruyoruz. CRM, başvuru formu, bayi bulucu veya ERP gibi mevcut sistemlerinizle entegrasyon ihtiyacınız varsa, bu bağlantıları da mimariye baştan dahil ediyoruz.</p>
+          <p class="dtay-vurgu">Çok sayfalı bir yapı, güçlü bir içerik yönetim panelini zorunlu kılar; pazarlama, insan kaynakları ve satış ekiplerinin kendi bölümlerini birbirine karışmadan güncelleyebilmesi için rol bazlı yetkilendirme kuruyoruz.</p>
+          <div class="dtay-devam"><div><p>Kurumsal kimlik rehberinizdeki renk, tipografi ve logo kullanım kuralları, panelde önceden tanımlı bileşen kütüphanesine gömülür; böylece hangi departman içerik eklerse eklesin marka tutarlılığı bozulmaz. Blog ve haber modülü, şirket duyurularının ve sektörel içeriklerin düzenli yayınlanmasına imkân tanırken; şema işaretlemesi, kurumsal veri (Organization schema), XML site haritası ve kanonik etiketler arama motorlarının site mimarisini doğru okumasını sağlar. Çok uluslu şirketler için dil bazlı hreflang yapısı kuruyoruz. CRM, başvuru formu, bayi bulucu veya ERP gibi mevcut sistemlerinizle entegrasyon ihtiyacınız varsa, bu bağlantıları da mimariye baştan dahil ediyoruz.</p></div></div>
+          <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>
       <div class="dtay-fiyat rv d1">
@@ -754,6 +774,20 @@ document.getElementById('yil').textContent = new Date().getFullYear();
       if (g.isIntersecting) { v.play().catch(function(){}); } else { v.pause(); }
     });
   }, { threshold: .15 }).observe(v);
+})();
+</script>
+<script>
+"use strict";
+(function(){
+  [].slice.call(document.querySelectorAll('.dtay-more')).forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var acikMi = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', acikMi ? 'false' : 'true');
+      btn.querySelector('span').textContent = acikMi ? 'Daha fazla' : 'Daha az';
+      var devam = btn.parentElement.querySelector('.dtay-devam');
+      if (devam) devam.classList.toggle('acik', !acikMi);
+    });
+  });
 })();
 </script>
 </body>
