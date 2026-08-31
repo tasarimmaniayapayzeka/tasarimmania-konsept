@@ -170,6 +170,32 @@
 .der-k p{font-size:13.2px;color:var(--muted);line-height:1.68;margin:0}
 @media(max-width:880px){.der{grid-template-columns:1fr}}
 
+/* --- AYRINTILAR v3: dikey adımlar + 3D döngü videosu --- */
+.akv{display:grid;grid-template-columns:1fr 1.06fr;gap:clamp(24px,3.4vw,48px);align-items:center}
+.akv-liste{list-style:none;margin:0;padding:0;display:grid;gap:0;position:relative}
+.akv-liste li{position:relative;display:flex;gap:16px;padding:18px 0}
+.akv-liste li + li{border-top:1px solid var(--hair)}
+.akv-no{flex:none;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+  font-family:var(--mono);font-size:11px;color:var(--acc);letter-spacing:.06em;
+  border:1px solid rgba(var(--acc-rgb),.4);background:rgba(var(--acc-rgb),.07)}
+.akv-liste h3{font-size:15.4px;letter-spacing:-.02em;line-height:1.3;margin:0 0 6px;padding-top:8px}
+.akv-liste p{font-size:13.4px;color:var(--muted);line-height:1.7;margin:0}
+.akv-video{position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(var(--acc-rgb),.3);
+  box-shadow:0 34px 80px -30px rgba(0,0,0,.95),0 0 44px -12px rgba(var(--acc-rgb),.25);
+  background:var(--bg-2)}
+.akv-video video{display:block;width:100%;height:auto;aspect-ratio:16/9}
+.akv-video::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 100% at 50% 0%,transparent 62%,rgba(11,13,18,.42) 100%)}
+.akv-rozet{position:absolute;left:14px;top:12px;z-index:2;display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--fg-dim);
+  background:rgba(11,13,18,.72);border:1px solid var(--hair-strong);border-radius:99px;padding:5px 11px;
+  backdrop-filter:blur(6px)}
+.akv-rozet i{width:6px;height:6px;border-radius:50%;background:var(--acc);flex:none;
+  box-shadow:0 0 8px 1px rgba(var(--acc-rgb),.9);animation:akvNabiz 1.8s infinite}
+@keyframes akvNabiz{50%{opacity:.3}}
+@media(max-width:960px){.akv{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.akv-rozet i{animation:none}}
+
 /* --- CANLI AKIŞ DİYAGRAMI: ihtiyaç → 3 aşama → canlı --- */
 .aks{position:relative;display:grid;align-items:stretch;gap:10px;overflow:hidden;
   grid-template-columns:88px 1fr minmax(150px,1.7fr) 1fr minmax(150px,1.7fr) 1fr minmax(150px,1.7fr) 1fr 88px;
@@ -546,29 +572,27 @@
         <span class="eyebrow"><i></i>Ayrıntılar</span>
         <h2 data-kin>Karar vermeden önce bakmak isterseniz</h2>
       </div>
-      <div class="aks rv" role="list" aria-label="Süreç akışı">
-        <i class="aks-zemin" aria-hidden="true"></i>
-        <div class="aks-uc" style="--w:0"><i class="aks-halka"></i><b>İHTİYACINIZ</b></div>
-        <i class="aks-bag" style="--w:1" aria-hidden="true"></i>
-        <article class="aks-k" role="listitem" style="--w:2">
-          <span>01</span>
-          <h3>Sayfa Mimarisi ve Menü Kurgusu</h3>
-          <p>Ana menü, alt menüler ve mega menü ihtiyacı; hizmet/ürün grubu sayısına ve kurumsal iletişim sayfalarının kapsamına göre birlikte tasarlanır. Breadcrumb ve iç link stratejisiyle geniş içerik hacmi kolay gezinilebilir hale gelir.</p>
-        </article>
-        <i class="aks-bag" style="--w:3" aria-hidden="true"></i>
-        <article class="aks-k" role="listitem" style="--w:4">
-          <span>02</span>
-          <h3>Yönetim Paneli ve Yetkilendirme</h3>
-          <p>Departmanlar kendi içerik bölümlerini rol bazlı yetkilerle güncelleyebilir; kurumsal kimlik kuralları önceden tanımlı bileşenlere gömülü olduğundan marka tutarlılığı korunur.</p>
-        </article>
-        <i class="aks-bag" style="--w:5" aria-hidden="true"></i>
-        <article class="aks-k" role="listitem" style="--w:6">
-          <span>03</span>
-          <h3>SEO ve Sistem Entegrasyonları</h3>
-          <p>Şema işaretlemesi, XML site haritası ve kanonik yapı arama motoru görünürlüğünü güçlendirir; CRM, başvuru formu veya bayi bulucu gibi mevcut sistemleriniz mimariye entegre edilir.</p>
-        </article>
-        <i class="aks-bag" style="--w:7" aria-hidden="true"></i>
-        <div class="aks-uc" style="--w:8"><i class="aks-tik">✓</i><b>CANLI</b></div>
+      <div class="akv rv d1">
+        <ol class="akv-liste">
+          <li>
+            <span class="akv-no">01</span>
+            <div><h3>Sayfa Mimarisi ve Menü Kurgusu</h3><p>Ana menü, alt menüler ve mega menü ihtiyacı; hizmet/ürün grubu sayısına ve kurumsal iletişim sayfalarının kapsamına göre birlikte tasarlanır. Breadcrumb ve iç link stratejisiyle geniş içerik hacmi kolay gezinilebilir hale gelir.</p></div>
+          </li>
+          <li>
+            <span class="akv-no">02</span>
+            <div><h3>Yönetim Paneli ve Yetkilendirme</h3><p>Departmanlar kendi içerik bölümlerini rol bazlı yetkilerle güncelleyebilir; kurumsal kimlik kuralları önceden tanımlı bileşenlere gömülü olduğundan marka tutarlılığı korunur.</p></div>
+          </li>
+          <li>
+            <span class="akv-no">03</span>
+            <div><h3>SEO ve Sistem Entegrasyonları</h3><p>Şema işaretlemesi, XML site haritası ve kanonik yapı arama motoru görünürlüğünü güçlendirir; CRM, başvuru formu veya bayi bulucu gibi mevcut sistemleriniz mimariye entegre edilir.</p></div>
+          </li>
+        </ol>
+        <div class="akv-video">
+          <span class="akv-rozet"><i></i>CANLI DÖNGÜ</span>
+          <video muted loop playsinline preload="metadata" poster="../assets/modul-web/akis.jpg" aria-hidden="true">
+            <source src="../assets/modul-web/akis.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
     </div>
   </section>
@@ -716,6 +740,20 @@ document.getElementById('yil').textContent = new Date().getFullYear();
   });
   ciz(0);
   if (!AZALT) zaman = setInterval(function(){ if (!durdu) ciz((aktif+1) % sorular.length); }, 6000);
+})();
+</script>
+<script>
+"use strict";
+/* döngü videosu yalnız ekrandayken oynar */
+(function(){
+  var v = document.querySelector('.akv-video video');
+  if (!v) return;
+  if (!('IntersectionObserver' in window)) { v.play().catch(function(){}); return; }
+  new IntersectionObserver(function(girdiler){
+    girdiler.forEach(function(g){
+      if (g.isIntersecting) { v.play().catch(function(){}); } else { v.pause(); }
+    });
+  }, { threshold: .15 }).observe(v);
 })();
 </script>
 </body>
