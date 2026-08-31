@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alt Sayfa Hero Alternatifleri — TasarımMania</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0D12; --bg-2:#0E1118; --panel:rgba(255,255,255,.03);
+  --hair:rgba(255,255,255,.085); --hair-strong:rgba(255,255,255,.16);
+  --fg:#E7EAF0; --fg-dim:#A7B0C2; --muted:#727D93;
+  --cy:#00E5FF; --cy-rgb:0,229,255;
+  --vi:#7A22FF; --amber:#FFB020; --pink:#FF2D9B; --lime:#A6FF00;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --sans:"Inter Tight",system-ui,sans-serif;
+  --ease:cubic-bezier(.22,.8,.24,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+header.ust{padding:52px 0 30px;border-bottom:1px solid var(--hair)}
+.eti{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--cy);margin-bottom:14px}
+.eti i{width:7px;height:7px;border-radius:50%;background:var(--cy);box-shadow:0 0 0 4px rgba(0,229,255,.15)}
+h1{font-size:clamp(26px,4vw,40px);letter-spacing:-.04em;line-height:1.1;margin-bottom:10px}
+.ustnot{color:var(--muted);font-size:14.5px;max-width:70ch}
+
+.blok{padding:56px 0 30px}
+.blok + .blok{border-top:1px solid var(--hair)}
+.blok-bas{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+.blok-bas b{font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--cy);
+  border:1px solid rgba(var(--cy-rgb),.4);border-radius:99px;padding:5px 13px}
+.blok-bas h2{font-size:clamp(19px,2.6vw,26px);letter-spacing:-.03em}
+.blok-not{color:var(--muted);font-size:13.5px;max-width:74ch;margin-bottom:30px}
+
+/* ============ ortak hero düzeni (gerçek alt sayfadaki gibi) ============ */
+.hero{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(28px,4vw,56px);align-items:center;
+  border:1px solid var(--hair);border-radius:18px;padding:clamp(24px,3.4vw,44px);
+  background:radial-gradient(700px 380px at 12% -10%,rgba(var(--cy-rgb),.13),transparent 62%),var(--panel)}
+.mod-no{display:inline-flex;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--cy);margin-bottom:14px;
+  border:1px solid rgba(var(--cy-rgb),.4);border-radius:999px;padding:6px 13px}
+.hero h3{font-size:clamp(22px,3vw,32px);letter-spacing:-.04em;line-height:1.12;margin-bottom:12px}
+.hero .lead{color:var(--fg-dim);font-size:14.5px;max-width:56ch}
+.hero .cta{display:flex;gap:10px;margin-top:22px}
+.hero .btn{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;
+  border-radius:999px;padding:11px 20px;border:1px solid var(--hair-strong);color:var(--fg-dim)}
+.hero .btn.p{background:var(--cy);border-color:var(--cy);color:#04141A}
+@media(max-width:920px){.hero{grid-template-columns:1fr}}
+
+/* ============ A — YÖRÜNGE: dönen cam panel halkası ============ */
+.orb-kutu{position:relative;height:clamp(280px,30vw,380px);perspective:1300px;perspective-origin:50% 38%}
+.orb-sahne{position:absolute;inset:0;transform-style:preserve-3d;
+  animation:orbDon 22s linear infinite}
+.orb-kutu:hover .orb-sahne{animation-play-state:paused}
+@keyframes orbDon{from{transform:rotateX(8deg) rotateY(0)}to{transform:rotateX(8deg) rotateY(-360deg)}}
+.orb-panel{position:absolute;left:50%;top:50%;width:min(46%,220px);height:72%;
+  margin:calc(-36% * .72) 0 0 calc(min(46%,220px) / -2);margin-top:-27%;
+  transform:rotateY(var(--a)) translateZ(clamp(120px,14vw,170px));
+  border:1px solid var(--hair-strong);border-radius:12px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(20,25,36,.94),rgba(11,13,18,.9));
+  box-shadow:0 24px 50px -24px rgba(0,0,0,.9);backface-visibility:hidden}
+.orb-panel .bar{display:flex;align-items:center;gap:5px;padding:8px 10px;border-bottom:1px solid var(--hair)}
+.orb-panel .bar i{width:6px;height:6px;border-radius:50%;background:#3A4152}
+.orb-panel .bar i:nth-child(1){background:#FF5F57}.orb-panel .bar i:nth-child(2){background:#FEBC2E}.orb-panel .bar i:nth-child(3){background:#28C840}
+.orb-panel .bar span{font-family:var(--mono);font-size:8.6px;color:var(--muted);margin-left:5px;letter-spacing:.08em}
+.orb-ic{padding:11px;display:flex;flex-direction:column;gap:7px;height:calc(100% - 29px)}
+.orb-ic .cz{height:8px;border-radius:3px;background:rgba(255,255,255,.13)}
+.orb-ic .cz.a{width:64%;background:rgba(var(--cy-rgb),.5);height:10px}
+.orb-ic .cz.b{width:88%}.orb-ic .cz.c{width:46%}
+.orb-ic .kart{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:2px}
+.orb-ic .kart i{height:30px;border-radius:6px;border:1px solid var(--hair);
+  background:linear-gradient(160deg,rgba(var(--cy-rgb),.15),transparent)}
+.orb-ic .agac{font-family:var(--mono);font-size:8.8px;color:var(--fg-dim);line-height:1.9;letter-spacing:.03em}
+.orb-ic .agac b{color:var(--cy);font-weight:500}
+.orb-ic .cip{margin-top:auto;display:flex;gap:5px;flex-wrap:wrap}
+.orb-ic .cip i{font-style:normal;font-family:var(--mono);font-size:7.6px;letter-spacing:.08em;
+  color:var(--fg-dim);border:1px solid var(--hair);border-radius:5px;padding:3px 6px}
+/* merkez çekirdek */
+.orb-cekirdek{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);
+  font-family:var(--mono);font-size:clamp(10px,1.2vw,12px);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--cy);border:1px solid rgba(var(--cy-rgb),.5);border-radius:99px;padding:9px 18px;
+  background:rgba(11,13,18,.88);box-shadow:0 0 34px 2px rgba(var(--cy-rgb),.25);white-space:nowrap;z-index:5}
+.orb-zemin{position:absolute;left:50%;bottom:4%;transform:translateX(-50%);width:72%;height:15%;
+  border-radius:50%;background:radial-gradient(closest-side,rgba(var(--cy-rgb),.16),transparent 72%)}
+.orb-not{margin-top:12px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);text-align:center}
+
+/* ============ B — SONSUZ DALIŞ: derinlik tüneli ============ */
+.tnl-kutu{position:relative;height:clamp(280px,30vw,380px);perspective:900px;overflow:hidden;border-radius:14px}
+.tnl-kutu::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(90% 84% at 50% 50%,transparent 55%,rgba(11,13,18,.9) 96%)}
+.tnl-kat{position:absolute;left:50%;top:50%;width:min(66%,320px);aspect-ratio:16/10.2;
+  transform:translate(-50%,-50%);transform-style:preserve-3d;
+  border:1px solid rgba(var(--cy-rgb),.34);border-radius:12px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(17,22,32,.96),rgba(11,13,18,.92));
+  animation:tnlDal 12s linear infinite;animation-delay:var(--d);opacity:0}
+@keyframes tnlDal{
+  0%{transform:translate(-50%,-50%) translateZ(-760px);opacity:0}
+  14%{opacity:.9}
+  78%{opacity:1}
+  100%{transform:translate(-50%,-50%) translateZ(240px);opacity:0}
+}
+.tnl-kat .bar{display:flex;align-items:center;gap:5px;padding:8px 11px;border-bottom:1px solid var(--hair)}
+.tnl-kat .bar i{width:6px;height:6px;border-radius:50%;background:#3A4152}
+.tnl-kat .bar i:nth-child(1){background:#FF5F57}.tnl-kat .bar i:nth-child(2){background:#FEBC2E}.tnl-kat .bar i:nth-child(3){background:#28C840}
+.tnl-kat .bar span{font-family:var(--mono);font-size:8.8px;color:var(--muted);margin-left:5px;letter-spacing:.07em}
+.tnl-kat .bar b{margin-left:auto;font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--cy);
+  border:1px solid rgba(var(--cy-rgb),.42);border-radius:99px;padding:2px 7px;font-weight:500}
+.tnl-ic{padding:11px;display:flex;flex-direction:column;gap:7px;height:calc(100% - 29px)}
+.tnl-ic .cz{height:8px;border-radius:3px;background:rgba(255,255,255,.13)}
+.tnl-ic .cz.a{width:60%;background:rgba(var(--cy-rgb),.5);height:10px}
+.tnl-ic .cz.b{width:86%}
+.tnl-ic .kart{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:auto}
+.tnl-ic .kart i{height:30px;border-radius:6px;border:1px solid var(--hair);
+  background:linear-gradient(160deg,rgba(var(--cy-rgb),.15),transparent)}
+/* tünel çizgileri */
+.tnl-cizgi{position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(90deg,transparent 49.7%,rgba(var(--cy-rgb),.05) 50%,transparent 50.3%),
+    linear-gradient(0deg,transparent 49.7%,rgba(var(--cy-rgb),.05) 50%,transparent 50.3%)}
+.tnl-not{margin-top:12px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);text-align:center}
+
+/* ============ C — KENDİNİ ÇİZEN SAYFA: canlı şantiye ============ */
+.ciz-kutu{position:relative;height:clamp(280px,30vw,380px);display:grid;place-items:center}
+.ciz-cerceve{width:min(100%,430px);height:92%;border:1px solid var(--hair-strong);border-radius:13px;
+  overflow:hidden;background:linear-gradient(180deg,rgba(15,19,28,.95),rgba(11,13,18,.92));
+  box-shadow:0 26px 60px -28px rgba(0,0,0,.95);display:flex;flex-direction:column}
+.ciz-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--hair);flex:none}
+.ciz-bar i{width:7px;height:7px;border-radius:50%;background:#3A4152}
+.ciz-bar i:nth-child(1){background:#FF5F57}.ciz-bar i:nth-child(2){background:#FEBC2E}.ciz-bar i:nth-child(3){background:#28C840}
+.ciz-bar span{font-family:var(--mono);font-size:9.4px;color:var(--muted);margin-left:6px;letter-spacing:.06em}
+.ciz-bar b{margin-left:auto;font-family:var(--mono);font-size:8.6px;letter-spacing:.13em;color:var(--lime);
+  border:1px solid rgba(166,255,0,.4);border-radius:99px;padding:3px 8px;font-weight:500;
+  animation:cizRozet 9s linear infinite}
+@keyframes cizRozet{0%,55%{opacity:1}56%,64%{opacity:.25}65%,100%{opacity:1}}
+.ciz-svg{flex:1;width:100%}
+.ciz-svg svg{width:100%;height:100%;display:block}
+/* çizim animasyonu: her öğe dash ile çiziliyor, sonra dolgu beliriyor */
+.cz-cizgi{fill:none;stroke:rgba(var(--cy-rgb),.85);stroke-width:1.4;
+  stroke-dasharray:var(--u);stroke-dashoffset:var(--u);
+  animation:cizStroke 9s linear infinite;animation-delay:var(--d)}
+@keyframes cizStroke{
+  0%{stroke-dashoffset:var(--u)}
+  16%{stroke-dashoffset:0}
+  78%{stroke-dashoffset:0;opacity:1}
+  88%,100%{stroke-dashoffset:var(--u);opacity:0}
+}
+.cz-dolgu{fill:rgba(var(--cy-rgb),.10);opacity:0;
+  animation:cizDolgu 9s linear infinite;animation-delay:var(--d)}
+@keyframes cizDolgu{0%,14%{opacity:0}22%{opacity:1}80%{opacity:1}88%,100%{opacity:0}}
+.cz-etiket{font-family:var(--mono);font-size:8.4px;fill:#727D93;letter-spacing:.6px;opacity:0;
+  animation:cizDolgu 9s linear infinite;animation-delay:var(--d)}
+.cz-etiket.vurgu{fill:rgba(var(--cy-rgb),1)}
+/* ölçüm çipleri sayaçla */
+.ciz-alt{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--hair);flex:none}
+.ciz-cip{flex:1;border:1px solid var(--hair);border-radius:8px;padding:7px 9px;background:rgba(255,255,255,.025)}
+.ciz-cip u{display:block;text-decoration:none;font-family:var(--mono);font-size:7.8px;letter-spacing:.12em;color:var(--muted)}
+.ciz-cip b{display:block;font-family:var(--mono);font-size:13px;color:var(--cy);margin-top:2px;letter-spacing:-.01em;font-weight:500}
+.ciz-not{margin-top:12px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);text-align:center}
+
+@media(prefers-reduced-motion:reduce){
+  .orb-sahne,.tnl-kat,.cz-cizgi,.cz-dolgu,.cz-etiket,.ciz-bar b{animation:none}
+  .tnl-kat{opacity:1;transform:translate(-50%,-50%) translateZ(0)}
+  .tnl-kat:nth-child(2),.tnl-kat:nth-child(3){display:none}
+  .cz-cizgi{stroke-dashoffset:0}
+  .cz-dolgu,.cz-etiket{opacity:1}
+}
+
+footer{padding:40px 0 60px;color:var(--muted);font-size:12.5px;border-top:1px solid var(--hair);margin-top:40px}
+</style>
+</head>
+<body>
+
+<header class="ust">
+  <div class="wrap">
+    <span class="eti"><i></i>İç çalışma — alt sayfa hero seçimi</span>
+    <h1>Üç canlı hero alternatifi</h1>
+    <p class="ustnot">Üçü de saf CSS/JS — statik görsel yok, anasayfadaki gibi kendi kendine dönen canlı sahneler.
+      Her blok, gerçek alt sayfa düzeninde (sol metin + sağ sahne) örneklendi. Fareyi sahnenin üzerine getirip bekleyin,
+      mobilde kaydırarak izleyin. Örnek içerik: kurumsal-web-sitesi sayfası, turkuaz modül rengi — seçilen konsept
+      23 alt sayfaya kendi modül renginde uygulanır.</p>
+  </div>
+</header>
+
+<!-- ============ A ============ -->
+<section class="blok">
+  <div class="wrap">
+    <div class="blok-bas"><b>A</b><h2>Yörünge — konu, etrafında dönen katmanlarla</h2></div>
+    <p class="blok-not">Dört cam panel (sayfa taslağı, site ağacı, panel arayüzü, şema etiketleri) merkezdeki odak
+      kelimenin etrafında sürekli döner. Fare üzerine gelince durur — kullanıcı istediği paneli okur. Metafor:
+      alt sayfa, konuyu her açıdan gösterir.</p>
+
+    <div class="hero">
+      <div>
+        <span class="mod-no">Modül 01 · Web Tasarım &amp; Yazılım</span>
+        <h3>Kurumsal Web Sitesi: Çok Sayfalı Marka Sunumu</h3>
+        <p class="lead">Kurumsal web yazılım çözümümüz, şirketinizi tek bir açılış sayfasına değil; hizmetlerinizi,
+          ürün gruplarınızı ve kurumsal kimliğinizi bir arada taşıyan çok sayfalı bir yapıya taşır.</p>
+        <div class="cta"><span class="btn p">Kapsam çıkaralım →</span><span class="btn">WhatsApp'tan yaz</span></div>
+      </div>
+      <div>
+        <div class="orb-kutu">
+          <div class="orb-zemin"></div>
+          <div class="orb-sahne">
+            <div class="orb-panel" style="--a:0deg">
+              <div class="bar"><i></i><i></i><i></i><span>ana sayfa</span></div>
+              <div class="orb-ic"><div class="cz a"></div><div class="cz b"></div><div class="cz c"></div>
+                <div class="kart"><i></i><i></i></div></div>
+            </div>
+            <div class="orb-panel" style="--a:90deg">
+              <div class="bar"><i></i><i></i><i></i><span>site ağacı</span></div>
+              <div class="orb-ic"><div class="agac"><b>/</b> ana sayfa<br>├ <b>/hizmetler/</b><br>│ ├ alt sayfa × 6<br>├ /hakkimizda/<br>└ /iletisim/</div></div>
+            </div>
+            <div class="orb-panel" style="--a:180deg">
+              <div class="bar"><i></i><i></i><i></i><span>yönetim paneli</span></div>
+              <div class="orb-ic"><div class="cz a" style="width:44%"></div>
+                <div class="kart"><i></i><i></i></div><div class="cz b"></div><div class="cz c"></div></div>
+            </div>
+            <div class="orb-panel" style="--a:270deg">
+              <div class="bar"><i></i><i></i><i></i><span>anlamsal yapı</span></div>
+              <div class="orb-ic"><div class="cip"><i>Organization</i><i>Service</i><i>Breadcrumb</i><i>hreflang</i><i>sitemap.xml</i><i>canonical</i></div></div>
+            </div>
+          </div>
+          <div class="orb-cekirdek">kurumsal web sitesi</div>
+        </div>
+        <p class="orb-not">Sürekli döner · üzerine gelince durur</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ B ============ -->
+<section class="blok">
+  <div class="wrap">
+    <div class="blok-bas"><b>B</b><h2>Sonsuz dalış — derinlik tüneli</h2></div>
+    <p class="blok-not">Sayfa katmanları arkadan öne doğru sürekli akar; izleyici konunun "derinine iniyormuş"
+      hissi alır. Alt sayfanın doğasına birebir metafor: hub'ın kartını açıp derine dalıyorsunuz. En hipnotik olan bu.</p>
+
+    <div class="hero">
+      <div>
+        <span class="mod-no">Modül 01 · Web Tasarım &amp; Yazılım</span>
+        <h3>Kurumsal Web Sitesi: Çok Sayfalı Marka Sunumu</h3>
+        <p class="lead">Kurumsal web yazılım çözümümüz, şirketinizi tek bir açılış sayfasına değil; hizmetlerinizi,
+          ürün gruplarınızı ve kurumsal kimliğinizi bir arada taşıyan çok sayfalı bir yapıya taşır.</p>
+        <div class="cta"><span class="btn p">Kapsam çıkaralım →</span><span class="btn">WhatsApp'tan yaz</span></div>
+      </div>
+      <div>
+        <div class="tnl-kutu">
+          <div class="tnl-cizgi"></div>
+          <div class="tnl-kat" style="--d:0s">
+            <div class="bar"><i></i><i></i><i></i><span>markaniz.com</span><b>ARAYÜZ</b></div>
+            <div class="tnl-ic"><div class="cz a"></div><div class="cz b"></div>
+              <div class="kart"><i></i><i></i><i></i></div></div>
+          </div>
+          <div class="tnl-kat" style="--d:-4s">
+            <div class="bar"><i></i><i></i><i></i><span>bilgi mimarisi</span><b>YAPI</b></div>
+            <div class="tnl-ic"><div class="cz a" style="width:38%"></div><div class="cz b" style="width:72%"></div>
+              <div class="kart"><i></i><i></i><i></i></div></div>
+          </div>
+          <div class="tnl-kat" style="--d:-8s">
+            <div class="bar"><i></i><i></i><i></i><span>ölçüm şeması</span><b>ÖLÇÜM</b></div>
+            <div class="tnl-ic"><div class="cz a" style="width:52%"></div><div class="cz b" style="width:64%"></div>
+              <div class="kart"><i></i><i></i><i></i></div></div>
+          </div>
+        </div>
+        <p class="tnl-not">Katmanlar sürekli derinden yüzeye akar</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ C ============ -->
+<section class="blok">
+  <div class="wrap">
+    <div class="blok-bas"><b>C</b><h2>Kendini çizen sayfa — canlı şantiye</h2></div>
+    <p class="blok-not">Sayfanın taslağı mimari çizim gibi çizgi çizgi çizilir, bloklar dolar, "YAYINDA" rozeti yanar,
+      sonra sahne silinip baştan başlar. Ajansın "inşa eden" kimliğine en yakın metafor; İnşaat Planı belgemizle de
+      aynı dili konuşur.</p>
+
+    <div class="hero">
+      <div>
+        <span class="mod-no">Modül 01 · Web Tasarım &amp; Yazılım</span>
+        <h3>Kurumsal Web Sitesi: Çok Sayfalı Marka Sunumu</h3>
+        <p class="lead">Kurumsal web yazılım çözümümüz, şirketinizi tek bir açılış sayfasına değil; hizmetlerinizi,
+          ürün gruplarınızı ve kurumsal kimliğinizi bir arada taşıyan çok sayfalı bir yapıya taşır.</p>
+        <div class="cta"><span class="btn p">Kapsam çıkaralım →</span><span class="btn">WhatsApp'tan yaz</span></div>
+      </div>
+      <div>
+        <div class="ciz-kutu">
+          <div class="ciz-cerceve">
+            <div class="ciz-bar"><i></i><i></i><i></i><span>markaniz.com — inşa halinde</span><b>YAYINDA</b></div>
+            <div class="ciz-svg">
+              <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                <rect class="cz-cizgi" style="--u:820;--d:0s"   x="14" y="12" width="402" height="30" rx="6"/>
+                <rect class="cz-dolgu" style="--d:0s"           x="14" y="12" width="402" height="30" rx="6"/>
+                <text class="cz-etiket" style="--d:.2s" x="24" y="31">&lt;header&gt;</text>
+
+                <rect class="cz-cizgi" style="--u:560;--d:.9s"  x="14" y="52" width="250" height="26" rx="6"/>
+                <rect class="cz-dolgu" style="--d:.9s"          x="14" y="52" width="250" height="26" rx="6"/>
+                <text class="cz-etiket vurgu" style="--d:1.1s" x="24" y="69">&lt;h1&gt; kurumsal web sitesi</text>
+
+                <rect class="cz-cizgi" style="--u:420;--d:1.7s" x="14" y="88" width="126" height="74" rx="6"/>
+                <rect class="cz-dolgu" style="--d:1.7s"         x="14" y="88" width="126" height="74" rx="6"/>
+                <text class="cz-etiket" style="--d:1.9s" x="24" y="106">&lt;article&gt;</text>
+
+                <rect class="cz-cizgi" style="--u:420;--d:2.3s" x="152" y="88" width="126" height="74" rx="6"/>
+                <rect class="cz-dolgu" style="--d:2.3s"         x="152" y="88" width="126" height="74" rx="6"/>
+                <text class="cz-etiket" style="--d:2.5s" x="162" y="106">&lt;article&gt;</text>
+
+                <rect class="cz-cizgi" style="--u:420;--d:2.9s" x="290" y="88" width="126" height="74" rx="6"/>
+                <rect class="cz-dolgu" style="--d:2.9s"         x="290" y="88" width="126" height="74" rx="6"/>
+                <text class="cz-etiket" style="--d:3.1s" x="300" y="106">&lt;aside&gt;</text>
+
+                <rect class="cz-cizgi" style="--u:340;--d:3.7s" x="14" y="172" width="150" height="26" rx="13"/>
+                <rect class="cz-dolgu" style="--d:3.7s"         x="14" y="172" width="150" height="26" rx="13"/>
+                <text class="cz-etiket vurgu" style="--d:3.9s" x="34" y="189">teklif al →</text>
+
+                <text class="cz-etiket" style="--d:4.4s" x="290" y="189">schema · sitemap · ölçüm ✓</text>
+              </svg>
+            </div>
+            <div class="ciz-alt">
+              <div class="ciz-cip"><u>AÇILIŞ</u><b data-sayac="0.8" data-birim=" sn">0.0 sn</b></div>
+              <div class="ciz-cip"><u>SAYFA</u><b data-sayac="24" data-birim="">0</b></div>
+              <div class="ciz-cip"><u>ŞEMA</u><b data-sayac="3" data-birim=" tür">0 tür</b></div>
+            </div>
+          </div>
+        </div>
+        <p class="ciz-not">Çizilir → dolar → yayına girer → yeniden başlar</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Karar: A / B / C — seçilen konsept 23 alt sayfaya modül renginde uygulanacak.
+    Üç sahne de <code style="font-family:var(--mono)">prefers-reduced-motion</code> durumunda durağan hâle geçer; harici kütüphane yok.</div>
+</footer>
+
+<script>
+"use strict";
+/* C konseptindeki sayaçlar: 9 sn'lik çizim döngüsüyle senkron artar, döngü başında sıfırlanır */
+(function(){
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('[data-sayac]').forEach(function(b){
+      b.textContent = b.dataset.sayac.replace('.', ',') + b.dataset.birim;
+    });
+    return;
+  }
+  var DONGU = 9000;
+  var basla = performance.now();
+  function kare(t){
+    var gecen = (t - basla) % DONGU;
+    var oran = Math.min(1, Math.max(0, (gecen - 1200) / 3800));
+    document.querySelectorAll('[data-sayac]').forEach(function(b){
+      var hedef = parseFloat(b.dataset.sayac);
+      var deger = hedef * oran;
+      var metin = hedef % 1 === 0 ? Math.round(deger) : deger.toFixed(1).replace('.', ',');
+      b.textContent = metin + b.dataset.birim;
+    });
+    requestAnimationFrame(kare);
+  }
+  requestAnimationFrame(kare);
+})();
+</script>
+</body>
+</html>
