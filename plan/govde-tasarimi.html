@@ -359,6 +359,40 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .ara-cta p b{display:block;font-size:clamp(16px,2vw,19px);letter-spacing:-.02em;margin-bottom:5px}
 .ara-cta p span{font-size:13.6px;color:var(--muted)}
 .ara-cta-btn{display:flex;gap:10px;flex-wrap:wrap;flex:none}
+
+/* --- ARA CTA: 3D akışkan şerit --- */
+.ara-cta{position:relative;overflow:hidden;isolation:isolate;
+  background:linear-gradient(180deg,rgba(var(--acc-rgb),.06),rgba(11,13,18,.6))}
+.ac3-zemin{position:absolute;left:-12%;right:-12%;bottom:-58%;height:130%;pointer-events:none;z-index:-2;
+  transform:perspective(520px) rotateX(60deg);transform-origin:top;
+  background:
+    repeating-linear-gradient(90deg,rgba(var(--acc-rgb),.18) 0 1px,transparent 1px 72px),
+    repeating-linear-gradient(0deg,rgba(var(--acc-rgb),.14) 0 1px,transparent 1px 72px);
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 34%);
+  mask-image:linear-gradient(180deg,transparent,#000 34%);
+  animation:ac3Zemin 3.2s linear infinite}
+@keyframes ac3Zemin{to{background-position:0 0,0 72px}}
+.ac3-s{position:absolute;top:-35%;bottom:-35%;width:170px;pointer-events:none;z-index:-1;
+  transform:skewX(-18deg);filter:blur(7px);
+  background:linear-gradient(90deg,transparent,rgba(var(--acc-rgb),.14) 42%,
+    rgba(255,255,255,.09) 50%,rgba(var(--acc-rgb),.14) 58%,transparent);
+  animation:ac3Kay 7s linear infinite}
+.ac3-s.s2{width:90px;filter:blur(5px);animation-duration:5.2s;animation-delay:2.2s;opacity:.8}
+@keyframes ac3Kay{from{left:-22%}to{left:118%}}
+.ara-cta-btn .btn-p{position:relative;overflow:hidden;
+  box-shadow:0 10px 32px -10px rgba(var(--acc-rgb),.6);animation:ac3Nabz 2.6s ease-in-out infinite}
+@keyframes ac3Nabz{50%{box-shadow:0 10px 40px -6px rgba(var(--acc-rgb),.95)}}
+.ara-cta-btn .btn-p::after{content:"";position:absolute;top:-45%;bottom:-45%;left:-55%;width:38%;
+  transform:skewX(-25deg);pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);
+  animation:ac3Parla 3.4s var(--ease) infinite}
+@keyframes ac3Parla{0%,52%{left:-55%}88%,100%{left:135%}}
+.ara-cta-btn .btn-p svg{animation:ac3Ok 1.7s var(--ease) infinite}
+@keyframes ac3Ok{50%{transform:translateX(4px)}}
+@media(prefers-reduced-motion:reduce){
+  .ac3-zemin,.ac3-s,.ara-cta-btn .btn-p,.ara-cta-btn .btn-p::after,.ara-cta-btn .btn-p svg{animation:none}
+  .ac3-s{display:none}
+}
 @media(max-width:640px){
   .ara-cta-in{flex-direction:column;align-items:flex-start}
   .ara-cta-btn .btn{flex:1}
@@ -568,7 +602,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
     </div>
   </section>
 
-  <div class="ara-cta rv">
+  <div class="ara-cta rv"><i class="ac3-zemin" aria-hidden="true"></i><i class="ac3-s s1" aria-hidden="true"></i><i class="ac3-s s2" aria-hidden="true"></i>
     <div class="wrap ara-cta-in">
       <p><b>Kapsamı birlikte çıkaralım</b><span>Beş adım, iki dakika. Ekranda süre ve fiyat aralığı çıkar.</span></p>
       <div class="ara-cta-btn">
