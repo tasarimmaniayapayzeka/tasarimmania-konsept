@@ -52,6 +52,55 @@
 .phd h1{font-size:clamp(29px,4.6vw,48px);letter-spacing:-.05em;line-height:1.08;margin-bottom:14px;max-width:20ch}
 .phd .lead{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18.5px);max-width:66ch}
 
+/* --- C HERO: kendini çizen sahne (sayfaya özgü) --- */
+.phd-iki{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,3.6vw,52px);align-items:center}
+.ciz-kutu{position:relative;height:clamp(240px,26vw,330px);display:grid;place-items:center}
+.ciz-cerceve{width:100%;height:100%;border:1px solid var(--hair-strong);border-radius:13px;
+  overflow:hidden;background:linear-gradient(180deg,rgba(15,19,28,.95),rgba(11,13,18,.92));
+  box-shadow:0 26px 60px -28px rgba(0,0,0,.95);display:flex;flex-direction:column}
+.ciz-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--hair);flex:none}
+.ciz-bar i{width:7px;height:7px;border-radius:50%;background:#3A4152}
+.ciz-bar i:nth-child(1){background:#FF5F57}.ciz-bar i:nth-child(2){background:#FEBC2E}.ciz-bar i:nth-child(3){background:#28C840}
+.ciz-bar span{font-family:var(--mono);font-size:9.4px;color:var(--muted);margin-left:6px;letter-spacing:.06em}
+.ciz-bar b{margin-left:auto;font-family:var(--mono);font-size:8.6px;letter-spacing:.13em;color:var(--acc);
+  border:1px solid rgba(var(--acc-rgb),.4);border-radius:99px;padding:3px 8px;font-weight:500;
+  animation:cizRozet 9s linear infinite}
+@keyframes cizRozet{0%,55%{opacity:1}56%,64%{opacity:.25}65%,100%{opacity:1}}
+.ciz-svg{flex:1;width:100%;min-height:0}
+.ciz-svg svg{width:100%;height:100%;display:block}
+.cz-cizgi{fill:none;stroke:rgba(var(--acc-rgb),.85);stroke-width:1.4;
+  stroke-dasharray:var(--u);stroke-dashoffset:var(--u);
+  animation:cizStroke 9s linear infinite;animation-delay:var(--d)}
+@keyframes cizStroke{
+  0%{stroke-dashoffset:var(--u)}
+  16%{stroke-dashoffset:0}
+  78%{stroke-dashoffset:0;opacity:1}
+  88%,100%{stroke-dashoffset:var(--u);opacity:0}
+}
+.cz-dolgu{fill:rgba(var(--acc-rgb),.10);opacity:0;animation:cizDolgu 9s linear infinite;animation-delay:var(--d)}
+@keyframes cizDolgu{0%,14%{opacity:0}22%{opacity:1}80%{opacity:1}88%,100%{opacity:0}}
+.cz-etiket{font-family:var(--mono);font-size:8.6px;fill:#727D93;letter-spacing:.6px;opacity:0;
+  animation:cizDolgu 9s linear infinite;animation-delay:var(--d)}
+.cz-etiket.vurgu{fill:rgba(var(--acc-rgb),1)}
+.cz-sonradan{fill:none;stroke:rgba(var(--acc-rgb),.55);stroke-width:1.2;stroke-dasharray:4 5;opacity:0;
+  animation:cizDolgu 9s linear infinite;animation-delay:var(--d)}
+.ciz-alt{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--hair);flex:none}
+.ciz-cip{flex:1;border:1px solid var(--hair);border-radius:8px;padding:7px 9px;background:rgba(255,255,255,.025);min-width:0}
+.ciz-cip u{display:block;text-decoration:none;font-family:var(--mono);font-size:7.8px;letter-spacing:.1em;color:var(--muted);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ciz-cip b{display:block;font-family:var(--mono);font-size:12px;color:var(--acc);margin-top:2px;letter-spacing:-.01em;font-weight:500;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:920px){
+  .phd-iki{grid-template-columns:1fr}
+  .ciz-kutu{height:auto}
+  .ciz-cerceve{aspect-ratio:16/11;height:auto}
+}
+@media(prefers-reduced-motion:reduce){
+  .cz-cizgi,.cz-dolgu,.cz-etiket,.cz-sonradan,.ciz-bar b{animation:none}
+  .cz-cizgi{stroke-dashoffset:0}
+  .cz-dolgu,.cz-etiket,.cz-sonradan{opacity:1}
+}
+
 .yazi{max-width:780px}
 .yazi h2{font-size:clamp(21px,2.9vw,30px);letter-spacing:-.04em;line-height:1.18;margin:0 0 14px}
 .yazi h3{font-size:clamp(17px,2vw,20px);letter-spacing:-.03em;margin:0 0 11px}
@@ -246,13 +295,28 @@
         <a href="../../../hizmetler/video-produksiyon/">Video Prodüksiyon</a><span aria-hidden="true">/</span>
         <span>AI Destekli Prodüksiyon</span>
       </nav>
-      <span class="mod-no">Modül 04 · Video Prodüksiyon</span>
+      <div class="phd-iki">
+        <div>
+<span class="mod-no">Modül 04 · Video Prodüksiyon</span>
       <h1 data-kin>AI Destekli Video Prodüksiyon</h1>
       <p class="lead">TasarımMania'nın ai video prodüksiyon hattı, kamera ekibi, stüdyo veya oyuncu olmadan; yapay zeka modelleriyle sahneyi, hareketi ve sesi baştan üreterek marka içeriği çıkarır. Kaynak, tek bir ürün fotoğrafı kadar basit olabilir.</p>
       <div class="hero-cta">
         <a class="btn btn-p" href="../../../teklif/#video">Kapsam ve fiyat aralığı çıkaralım
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20AI%20Destekli%20Prod%C3%BCksiyon%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20Proje%20fikrim%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+      </div>
+        </div>
+        <div class="ciz-kutu" aria-hidden="true">
+          <div class="ciz-cerceve">
+            <div class="ciz-bar"><i></i><i></i><i></i><span>fotoğraftan videoya</span><b>RENDER</b></div>
+            <div class="ciz-svg">
+              <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<rect class="cz-cizgi" style="--u:448;--d:0.00s" x="20" y="44" width="122" height="92" rx="8"/><rect class="cz-dolgu" style="--d:0.00s" x="20" y="44" width="122" height="92" rx="8"/><path class="cz-cizgi" style="--u:150;--d:0.42s" d="M32,120 l30,-38 l22,26 l18,-20 l20,32"/><circle class="cz-cizgi" style="--u:69;--d:0.84s" cx="52" cy="66" r="9"/><text class="cz-etiket vurgu" style="--d:1.38s" x="20" y="156">tek ürün fotoğrafı</text><line class="cz-cizgi" style="--u:40;--d:1.26s" x1="190" y1="44" x2="190" y2="76"/><line class="cz-cizgi" style="--u:40;--d:1.68s" x1="174" y1="60" x2="206" y2="60"/><line class="cz-cizgi" style="--u:100;--d:2.10s" x1="152" y1="94" x2="244" y2="94"/><line class="cz-cizgi" style="--u:20;--d:2.52s" x1="244" y1="94" x2="234" y2="87"/><line class="cz-cizgi" style="--u:20;--d:2.94s" x1="244" y1="94" x2="234" y2="101"/><rect class="cz-cizgi" style="--u:392;--d:3.36s" x="260" y="30" width="142" height="44" rx="6"/><rect class="cz-dolgu" style="--d:3.36s" x="260" y="30" width="142" height="44" rx="6"/><rect class="cz-cizgi" style="--u:392;--d:3.78s" x="260" y="84" width="142" height="44" rx="6"/><rect class="cz-dolgu" style="--d:3.78s" x="260" y="84" width="142" height="44" rx="6"/><rect class="cz-cizgi" style="--u:392;--d:4.20s" x="260" y="138" width="142" height="44" rx="6"/><rect class="cz-dolgu" style="--d:4.20s" x="260" y="138" width="142" height="44" rx="6"/><line class="cz-cizgi" style="--u:160;--d:4.62s" x1="272" y1="30" x2="272" y2="182"/><text class="cz-etiket" style="--d:5.16s" x="288" y="200">video kareleri</text>
+              </svg>
+            </div>
+            <div class="ciz-alt"><div class="ciz-cip"><u>KAYNAK</u><b data-sayac="1" data-birim=" foto">0 foto</b></div><div class="ciz-cip"><u>VARYANT</u><b data-sayac="4" data-birim="">0</b></div><div class="ciz-cip"><u>KAMERA</u><b data-sayac="0" data-birim="">0</b></div></div>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -413,6 +477,31 @@
 <script>
 "use strict";
 document.getElementById('yil').textContent = new Date().getFullYear();
+</script>
+<script>
+"use strict";
+/* hero sahne sayaçları: 9 sn'lik çizim döngüsüyle senkron */
+(function(){
+  var cipler = document.querySelectorAll('.ciz-cip [data-sayac]');
+  if (!cipler.length) return;
+  function bicim(hedef, deger){
+    return (hedef % 1 === 0 ? Math.round(deger) : deger.toFixed(1).replace('.', ','));
+  }
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    cipler.forEach(function(b){ b.textContent = bicim(parseFloat(b.dataset.sayac), parseFloat(b.dataset.sayac)) + b.dataset.birim; });
+    return;
+  }
+  var DONGU = 9000, basla = performance.now();
+  function kare(t){
+    var oran = Math.min(1, Math.max(0, (((t - basla) % DONGU) - 1200) / 3800));
+    cipler.forEach(function(b){
+      var hedef = parseFloat(b.dataset.sayac);
+      b.textContent = bicim(hedef, hedef * oran) + b.dataset.birim;
+    });
+    requestAnimationFrame(kare);
+  }
+  requestAnimationFrame(kare);
+})();
 </script>
 </body>
 </html>

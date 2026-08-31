@@ -52,6 +52,55 @@
 .phd h1{font-size:clamp(29px,4.6vw,48px);letter-spacing:-.05em;line-height:1.08;margin-bottom:14px;max-width:20ch}
 .phd .lead{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18.5px);max-width:66ch}
 
+/* --- C HERO: kendini çizen sahne (sayfaya özgü) --- */
+.phd-iki{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,3.6vw,52px);align-items:center}
+.ciz-kutu{position:relative;height:clamp(240px,26vw,330px);display:grid;place-items:center}
+.ciz-cerceve{width:100%;height:100%;border:1px solid var(--hair-strong);border-radius:13px;
+  overflow:hidden;background:linear-gradient(180deg,rgba(15,19,28,.95),rgba(11,13,18,.92));
+  box-shadow:0 26px 60px -28px rgba(0,0,0,.95);display:flex;flex-direction:column}
+.ciz-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--hair);flex:none}
+.ciz-bar i{width:7px;height:7px;border-radius:50%;background:#3A4152}
+.ciz-bar i:nth-child(1){background:#FF5F57}.ciz-bar i:nth-child(2){background:#FEBC2E}.ciz-bar i:nth-child(3){background:#28C840}
+.ciz-bar span{font-family:var(--mono);font-size:9.4px;color:var(--muted);margin-left:6px;letter-spacing:.06em}
+.ciz-bar b{margin-left:auto;font-family:var(--mono);font-size:8.6px;letter-spacing:.13em;color:var(--acc);
+  border:1px solid rgba(var(--acc-rgb),.4);border-radius:99px;padding:3px 8px;font-weight:500;
+  animation:cizRozet 9s linear infinite}
+@keyframes cizRozet{0%,55%{opacity:1}56%,64%{opacity:.25}65%,100%{opacity:1}}
+.ciz-svg{flex:1;width:100%;min-height:0}
+.ciz-svg svg{width:100%;height:100%;display:block}
+.cz-cizgi{fill:none;stroke:rgba(var(--acc-rgb),.85);stroke-width:1.4;
+  stroke-dasharray:var(--u);stroke-dashoffset:var(--u);
+  animation:cizStroke 9s linear infinite;animation-delay:var(--d)}
+@keyframes cizStroke{
+  0%{stroke-dashoffset:var(--u)}
+  16%{stroke-dashoffset:0}
+  78%{stroke-dashoffset:0;opacity:1}
+  88%,100%{stroke-dashoffset:var(--u);opacity:0}
+}
+.cz-dolgu{fill:rgba(var(--acc-rgb),.10);opacity:0;animation:cizDolgu 9s linear infinite;animation-delay:var(--d)}
+@keyframes cizDolgu{0%,14%{opacity:0}22%{opacity:1}80%{opacity:1}88%,100%{opacity:0}}
+.cz-etiket{font-family:var(--mono);font-size:8.6px;fill:#727D93;letter-spacing:.6px;opacity:0;
+  animation:cizDolgu 9s linear infinite;animation-delay:var(--d)}
+.cz-etiket.vurgu{fill:rgba(var(--acc-rgb),1)}
+.cz-sonradan{fill:none;stroke:rgba(var(--acc-rgb),.55);stroke-width:1.2;stroke-dasharray:4 5;opacity:0;
+  animation:cizDolgu 9s linear infinite;animation-delay:var(--d)}
+.ciz-alt{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--hair);flex:none}
+.ciz-cip{flex:1;border:1px solid var(--hair);border-radius:8px;padding:7px 9px;background:rgba(255,255,255,.025);min-width:0}
+.ciz-cip u{display:block;text-decoration:none;font-family:var(--mono);font-size:7.8px;letter-spacing:.1em;color:var(--muted);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ciz-cip b{display:block;font-family:var(--mono);font-size:12px;color:var(--acc);margin-top:2px;letter-spacing:-.01em;font-weight:500;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:920px){
+  .phd-iki{grid-template-columns:1fr}
+  .ciz-kutu{height:auto}
+  .ciz-cerceve{aspect-ratio:16/11;height:auto}
+}
+@media(prefers-reduced-motion:reduce){
+  .cz-cizgi,.cz-dolgu,.cz-etiket,.cz-sonradan,.ciz-bar b{animation:none}
+  .cz-cizgi{stroke-dashoffset:0}
+  .cz-dolgu,.cz-etiket,.cz-sonradan{opacity:1}
+}
+
 .yazi{max-width:780px}
 .yazi h2{font-size:clamp(21px,2.9vw,30px);letter-spacing:-.04em;line-height:1.18;margin:0 0 14px}
 .yazi h3{font-size:clamp(17px,2vw,20px);letter-spacing:-.03em;margin:0 0 11px}
@@ -246,13 +295,28 @@
         <a href="../../../hizmetler/seo/">SEO Hizmetleri</a><span aria-hidden="true">/</span>
         <span>Teknik SEO</span>
       </nav>
-      <span class="mod-no">Modül 05 · SEO Hizmetleri</span>
+      <div class="phd-iki">
+        <div>
+<span class="mod-no">Modül 05 · SEO Hizmetleri</span>
       <h1 data-kin>Teknik SEO Hizmeti: Sitenizin Arama Motoru Altyapısını Güçlendirin</h1>
       <p class="lead">TasarımMania'nın teknik seo hizmeti, sitenizin arama motorları tarafından doğru taranıp indekslenmesini sağlayan altyapı sorunlarını çözer; Core Web Vitals performansından sitemap ve robots.txt düzenine, Search Console entegrasyonundan yapılandırılmış veri (schema) kurulumuna kadar teknik zemini baştan sona kurar.</p>
       <div class="hero-cta">
         <a class="btn btn-p" href="../../../teklif/#seo">Kapsam ve fiyat aralığı çıkaralım
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Teknik%20SEO%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20Sitem%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+      </div>
+        </div>
+        <div class="ciz-kutu" aria-hidden="true">
+          <div class="ciz-cerceve">
+            <div class="ciz-bar"><i></i><i></i><i></i><span>site taranıyor</span><b>İNDEKSTE</b></div>
+            <div class="ciz-svg">
+              <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<rect class="cz-cizgi" style="--u:648;--d:0.00s" x="14" y="14" width="202" height="112" rx="8"/><rect class="cz-dolgu" style="--d:0.00s" x="14" y="14" width="202" height="112" rx="8"/><line class="cz-cizgi" style="--u:210;--d:0.42s" x1="14" y1="38" x2="216" y2="38"/><circle class="cz-cizgi" style="--u:31;--d:0.84s" cx="28" cy="26" r="3"/><circle class="cz-dolgu" style="--d:0.84s" cx="28" cy="26" r="3"/><circle class="cz-cizgi" style="--u:31;--d:1.26s" cx="40" cy="26" r="3"/><circle class="cz-dolgu" style="--d:1.26s" cx="40" cy="26" r="3"/><text class="cz-etiket vurgu" style="--d:1.80s" x="26" y="60">robots.txt ✓</text><text class="cz-etiket" style="--d:1.80s" x="26" y="80">sitemap.xml ✓</text><text class="cz-etiket" style="--d:1.80s" x="26" y="100">canonical ✓</text><path class="cz-cizgi" style="--u:200;--d:1.68s" d="M252,120 a58,58 0 0 1 116,0"/><line class="cz-cizgi" style="--u:58;--d:2.10s" x1="310" y1="120" x2="342" y2="82"/><circle class="cz-cizgi" style="--u:44;--d:2.52s" cx="310" cy="120" r="5"/><circle class="cz-dolgu" style="--d:2.52s" cx="310" cy="120" r="5"/><text class="cz-etiket vurgu" style="--d:3.06s" x="276" y="144">site hızı</text><circle class="cz-cizgi" style="--u:50;--d:2.94s" cx="250" cy="176" r="6"/><circle class="cz-cizgi" style="--u:50;--d:3.36s" cx="300" cy="158" r="6"/><circle class="cz-cizgi" style="--u:50;--d:3.78s" cx="334" cy="186" r="6"/><circle class="cz-cizgi" style="--u:50;--d:4.20s" cx="374" cy="164" r="6"/><line class="cz-cizgi" style="--u:48;--d:4.62s" x1="256" y1="174" x2="294" y2="160"/><line class="cz-cizgi" style="--u:39;--d:5.04s" x1="306" y1="160" x2="328" y2="182"/><line class="cz-cizgi" style="--u:41;--d:5.46s" x1="340" y1="184" x2="368" y2="166"/>
+              </svg>
+            </div>
+            <div class="ciz-alt"><div class="ciz-cip"><u>LCP</u><b data-sayac="1.2" data-birim=" sn">0 sn</b></div><div class="ciz-cip"><u>HATA</u><b data-sayac="0" data-birim="">0</b></div><div class="ciz-cip"><u>ŞEMA</u><b data-sayac="5" data-birim=" tür">0 tür</b></div></div>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -413,6 +477,31 @@
 <script>
 "use strict";
 document.getElementById('yil').textContent = new Date().getFullYear();
+</script>
+<script>
+"use strict";
+/* hero sahne sayaçları: 9 sn'lik çizim döngüsüyle senkron */
+(function(){
+  var cipler = document.querySelectorAll('.ciz-cip [data-sayac]');
+  if (!cipler.length) return;
+  function bicim(hedef, deger){
+    return (hedef % 1 === 0 ? Math.round(deger) : deger.toFixed(1).replace('.', ','));
+  }
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    cipler.forEach(function(b){ b.textContent = bicim(parseFloat(b.dataset.sayac), parseFloat(b.dataset.sayac)) + b.dataset.birim; });
+    return;
+  }
+  var DONGU = 9000, basla = performance.now();
+  function kare(t){
+    var oran = Math.min(1, Math.max(0, (((t - basla) % DONGU) - 1200) / 3800));
+    cipler.forEach(function(b){
+      var hedef = parseFloat(b.dataset.sayac);
+      b.textContent = bicim(hedef, hedef * oran) + b.dataset.birim;
+    });
+    requestAnimationFrame(kare);
+  }
+  requestAnimationFrame(kare);
+})();
 </script>
 </body>
 </html>
