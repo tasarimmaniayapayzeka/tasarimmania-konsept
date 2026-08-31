@@ -165,12 +165,125 @@ h1{font-size:clamp(26px,4vw,40px);letter-spacing:-.04em;line-height:1.1;margin-b
 .ciz-not{margin-top:12px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--muted);text-align:center}
 
+/* ============ D — POV DALIŞ: sitenin içinde film gibi yolculuk ============ */
+.pov-kutu{position:relative;height:clamp(280px,30vw,380px);overflow:hidden;border-radius:14px;
+  background:#04060B;perspective:500px}
+.pov-kamera{position:absolute;inset:0;transform-style:preserve-3d;
+  animation:povSway 7s ease-in-out infinite alternate}
+@keyframes povSway{from{transform:rotateY(-1.7deg) rotateX(.6deg)}to{transform:rotateY(1.7deg) rotateX(-.7deg)}}
+.pov-sahne{position:absolute;inset:0;transform-style:preserve-3d;
+  animation:povYuru 19s linear infinite}
+@keyframes povYuru{0%{transform:translateZ(40px)}100%{transform:translateZ(1560px)}}
+/* zemin ızgarası — kameranın altından akar */
+.pov-zemin{position:absolute;left:50%;top:57%;width:1500px;height:2400px;
+  transform:translateX(-50%) rotateX(90deg);transform-origin:50% 0;
+  background:
+    repeating-linear-gradient(0deg,rgba(var(--cy-rgb),.14) 0 1px,transparent 1px 120px),
+    repeating-linear-gradient(90deg,rgba(var(--cy-rgb),.10) 0 1px,transparent 1px 120px),
+    linear-gradient(180deg,rgba(var(--cy-rgb),.07),transparent 60%)}
+/* koridor panoları */
+.pov-pano{position:absolute;left:50%;top:50%;width:212px;
+  transform:translate(-50%,-52%) translateX(var(--x)) translateZ(var(--z)) rotateY(var(--r,0deg));
+  border:1px solid rgba(var(--cy-rgb),.38);border-radius:10px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(16,21,31,.95),rgba(11,13,18,.9));
+  box-shadow:0 18px 44px -18px rgba(0,0,0,.85);
+  animation:19s linear infinite}
+.pov-pano .bar{display:flex;align-items:center;gap:5px;padding:7px 10px;border-bottom:1px solid var(--hair)}
+.pov-pano .bar i{width:5.5px;height:5.5px;border-radius:50%;background:#3A4152}
+.pov-pano .bar i:nth-child(1){background:#FF5F57}.pov-pano .bar i:nth-child(2){background:#FEBC2E}.pov-pano .bar i:nth-child(3){background:#28C840}
+.pov-pano .bar span{font-family:var(--mono);font-size:8.4px;color:var(--muted);margin-left:5px;letter-spacing:.07em}
+.pov-ic{padding:10px;display:flex;flex-direction:column;gap:6px}
+.pov-ic .cz{height:7px;border-radius:3px;background:rgba(255,255,255,.13)}
+.pov-ic .cz.a{width:62%;background:rgba(var(--cy-rgb),.5);height:9px}
+.pov-ic .cz.b{width:86%}
+.pov-ic .kart{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.pov-ic .kart i{height:26px;border-radius:5px;border:1px solid var(--hair);
+  background:linear-gradient(160deg,rgba(var(--cy-rgb),.15),transparent)}
+/* her pano kameranın önünden geçerken söner (geçiş anları povYuru ile senkron) */
+.pov-pano.g1{animation-name:povGec1}
+.pov-pano.g2{animation-name:povGec2}
+.pov-pano.g3{animation-name:povGec3}
+.pov-pano.g4{animation-name:povGec4}
+@keyframes povGec1{0%{opacity:0}3%,20%{opacity:1}24%,100%{opacity:0}}
+@keyframes povGec2{0%{opacity:0}3%,38%{opacity:1}42%,100%{opacity:0}}
+@keyframes povGec3{0%{opacity:0}3%,57%{opacity:1}61%,100%{opacity:0}}
+@keyframes povGec4{0%{opacity:0}3%,70%{opacity:1}74%,100%{opacity:0}}
+/* son duvar: kamera içine uçar, ekran kararırken */
+.pov-son{position:absolute;left:50%;top:50%;width:330px;
+  transform:translate(-50%,-50%) translateZ(-1460px);
+  border:1px solid rgba(var(--cy-rgb),.5);border-radius:13px;padding:26px 22px;text-align:center;
+  background:linear-gradient(180deg,rgba(15,20,30,.97),rgba(11,13,18,.94));
+  box-shadow:0 0 60px 4px rgba(var(--cy-rgb),.14)}
+.pov-son b{display:block;font-size:19px;letter-spacing:-.03em;margin-bottom:7px}
+.pov-son span{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.pov-son i{font-style:normal;display:inline-block;font-size:11.5px;font-weight:700;color:#04141A;
+  background:var(--cy);border-radius:99px;padding:8px 18px}
+/* sinema katmanları */
+.pov-serit{position:absolute;left:0;right:0;height:9%;background:#02040788;z-index:6;pointer-events:none}
+.pov-serit.u{top:0;background:linear-gradient(180deg,#020407,transparent)}
+.pov-serit.a{bottom:0;background:linear-gradient(0deg,#020407,transparent)}
+.pov-vinyet{position:absolute;inset:0;z-index:5;pointer-events:none;
+  background:radial-gradient(88% 82% at 50% 48%,transparent 58%,rgba(2,4,7,.78) 100%)}
+.pov-kes{position:absolute;inset:0;background:#020407;z-index:7;pointer-events:none;
+  animation:povKes 19s linear infinite}
+@keyframes povKes{0%{opacity:1}6%{opacity:0}88%{opacity:0}96%,100%{opacity:1}}
+.pov-hud{position:absolute;left:14px;top:12px;z-index:8;display:flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;color:var(--fg-dim)}
+.pov-hud i{width:7px;height:7px;border-radius:50%;background:#FF3B30;box-shadow:0 0 9px #FF3B30;
+  animation:povRec 1.6s infinite}
+@keyframes povRec{50%{opacity:.25}}
+.pov-hud b{margin-left:6px;color:var(--muted);font-weight:400}
+.pov-not{margin-top:12px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);text-align:center}
+
+/* ============ E — KESİT: patlayan katman çizimi ============ */
+.kes-kutu{position:relative;height:clamp(280px,30vw,380px);perspective:1150px;
+  display:grid;place-items:center;overflow:hidden}
+.kes-don{transform-style:preserve-3d;animation:kesSalin 12s ease-in-out infinite alternate}
+@keyframes kesSalin{from{transform:rotateX(56deg) rotateZ(-34deg)}to{transform:rotateX(56deg) rotateZ(-44deg)}}
+.kes-sahne{position:relative;width:clamp(200px,24vw,290px);aspect-ratio:16/10.5;transform-style:preserve-3d}
+.kes-kat{position:absolute;inset:0;border:1px solid rgba(var(--cy-rgb),.42);border-radius:10px;
+  background:rgba(13,17,26,.93);overflow:hidden;
+  animation:kesAc 11s var(--ease) infinite;box-shadow:0 0 26px -8px rgba(var(--cy-rgb),.28)}
+@keyframes kesAc{0%,10%{transform:translateZ(0)}28%,74%{transform:translateZ(var(--z))}92%,100%{transform:translateZ(0)}}
+.kes-kat .ic{padding:10px;display:flex;flex-direction:column;gap:6px;height:100%}
+.kes-kat .cz{height:7px;border-radius:3px;background:rgba(255,255,255,.14)}
+.kes-kat .cz.a{width:58%;background:rgba(var(--cy-rgb),.5);height:9px}
+.kes-kat .kart{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:auto}
+.kes-kat .kart i{height:24px;border-radius:5px;border:1px solid var(--hair);
+  background:linear-gradient(160deg,rgba(var(--cy-rgb),.16),transparent)}
+.kes-kat .tag{font-family:var(--mono);font-size:8.6px;color:rgba(var(--cy-rgb),.95);
+  border:1px dashed rgba(var(--cy-rgb),.5);border-radius:5px;padding:4px 7px;align-self:flex-start}
+.kes-kat .cipler{display:flex;gap:4px;flex-wrap:wrap}
+.kes-kat .cipler i{font-style:normal;font-family:var(--mono);font-size:7.4px;letter-spacing:.07em;
+  color:var(--fg-dim);border:1px solid var(--hair);border-radius:4px;padding:3px 5px}
+/* sağdaki katman etiketleri — açılma penceresiyle senkron belirir */
+.kes-etiketler{position:absolute;right:4%;top:50%;transform:translateY(-50%);display:grid;gap:14px;z-index:4}
+.kes-et{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:9.6px;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--fg-dim);opacity:0;
+  animation:kesEt 11s var(--ease) infinite}
+@keyframes kesEt{0%,14%{opacity:0;transform:translateX(8px)}30%,72%{opacity:1;transform:none}88%,100%{opacity:0}}
+.kes-et i{width:22px;height:1px;background:rgba(var(--cy-rgb),.7);flex:none}
+.kes-et b{color:var(--cy);font-weight:500}
+.kes-kutu:hover .kes-kat,.kes-kutu:hover .kes-et,.kes-kutu:hover .kes-don{animation-play-state:paused}
+.kes-not{margin-top:12px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);text-align:center}
+
 @media(prefers-reduced-motion:reduce){
   .orb-sahne,.tnl-kat,.cz-cizgi,.cz-dolgu,.cz-etiket,.ciz-bar b{animation:none}
   .tnl-kat{opacity:1;transform:translate(-50%,-50%) translateZ(0)}
   .tnl-kat:nth-child(2),.tnl-kat:nth-child(3){display:none}
   .cz-cizgi{stroke-dashoffset:0}
   .cz-dolgu,.cz-etiket{opacity:1}
+  .pov-kamera,.pov-sahne,.pov-pano,.pov-kes,.pov-hud i{animation:none}
+  .pov-pano{opacity:1}
+  .pov-pano.g3,.pov-pano.g4{display:none}
+  .pov-kes{opacity:0}
+  .kes-don,.kes-kat,.kes-et{animation:none}
+  .kes-don{transform:rotateX(56deg) rotateZ(-38deg)}
+  .kes-kat{transform:translateZ(var(--z))}
+  .kes-et{opacity:1;transform:none}
 }
 
 footer{padding:40px 0 60px;color:var(--muted);font-size:12.5px;border-top:1px solid var(--hair);margin-top:40px}
@@ -181,8 +294,8 @@ footer{padding:40px 0 60px;color:var(--muted);font-size:12.5px;border-top:1px so
 <header class="ust">
   <div class="wrap">
     <span class="eti"><i></i>İç çalışma — alt sayfa hero seçimi</span>
-    <h1>Üç canlı hero alternatifi</h1>
-    <p class="ustnot">Üçü de saf CSS/JS — statik görsel yok, anasayfadaki gibi kendi kendine dönen canlı sahneler.
+    <h1>Beş canlı hero alternatifi</h1>
+    <p class="ustnot">Beşi de saf CSS/JS — statik görsel yok, anasayfadaki gibi kendi kendine dönen canlı sahneler.
       Her blok, gerçek alt sayfa düzeninde (sol metin + sağ sahne) örneklendi. Fareyi sahnenin üzerine getirip bekleyin,
       mobilde kaydırarak izleyin. Örnek içerik: kurumsal-web-sitesi sayfası, turkuaz modül rengi — seçilen konsept
       23 alt sayfaya kendi modül renginde uygulanır.</p>
@@ -338,8 +451,117 @@ footer{padding:40px 0 60px;color:var(--muted);font-size:12.5px;border-top:1px so
   </div>
 </section>
 
+<!-- ============ D ============ -->
+<section class="blok">
+  <div class="wrap">
+    <div class="blok-bas"><b>D</b><h2>POV dalış — sitenin içinde film gibi yolculuk</h2></div>
+    <p class="blok-not">Kamera sayfaya zoom yapıp İÇİNE girer: zemin ızgarası altınızdan akar, bölüm panoları
+      koridor duvarları gibi iki yandan geçer, en sonda büyük CTA duvarının içine uçarken ekran kararır ve film
+      baştan başlar. Letterbox şeritler + hafif kamera sallanması + REC göstergesi sinema hissini tamamlar.</p>
+
+    <div class="hero">
+      <div>
+        <span class="mod-no">Modül 01 · Web Tasarım &amp; Yazılım</span>
+        <h3>Kurumsal Web Sitesi: Çok Sayfalı Marka Sunumu</h3>
+        <p class="lead">Kurumsal web yazılım çözümümüz, şirketinizi tek bir açılış sayfasına değil; hizmetlerinizi,
+          ürün gruplarınızı ve kurumsal kimliğinizi bir arada taşıyan çok sayfalı bir yapıya taşır.</p>
+        <div class="cta"><span class="btn p">Kapsam çıkaralım →</span><span class="btn">WhatsApp'tan yaz</span></div>
+      </div>
+      <div>
+        <div class="pov-kutu">
+          <div class="pov-kamera">
+            <div class="pov-sahne">
+              <div class="pov-zemin"></div>
+              <div class="pov-pano g1" style="--x:-185px;--z:-420px;--r:26deg">
+                <div class="bar"><i></i><i></i><i></i><span>giriş — hero</span></div>
+                <div class="pov-ic"><div class="cz a"></div><div class="cz b"></div>
+                  <div class="kart"><i></i><i></i></div></div>
+              </div>
+              <div class="pov-pano g2" style="--x:182px;--z:-700px;--r:-24deg">
+                <div class="bar"><i></i><i></i><i></i><span>hizmet kartları</span></div>
+                <div class="pov-ic"><div class="cz a" style="width:44%"></div>
+                  <div class="kart"><i></i><i></i></div><div class="cz b"></div></div>
+              </div>
+              <div class="pov-pano g3" style="--x:-183px;--z:-980px;--r:25deg">
+                <div class="bar"><i></i><i></i><i></i><span>teklif formu</span></div>
+                <div class="pov-ic"><div class="cz b" style="width:78%"></div><div class="cz b" style="width:78%"></div>
+                  <div class="cz a" style="width:38%;margin-top:4px"></div></div>
+              </div>
+              <div class="pov-pano g4" style="--x:180px;--z:-1180px;--r:-23deg">
+                <div class="bar"><i></i><i></i><i></i><span>ölçüm paneli</span></div>
+                <div class="pov-ic"><div class="cz a" style="width:52%"></div>
+                  <div class="kart"><i></i><i></i></div></div>
+              </div>
+              <div class="pov-son">
+                <b>Kurumsal Web Sitesi</b>
+                <span>çok sayfalı marka sunumu</span>
+                <i>Kapsam çıkaralım →</i>
+              </div>
+            </div>
+          </div>
+          <div class="pov-vinyet"></div>
+          <div class="pov-serit u"></div>
+          <div class="pov-serit a"></div>
+          <div class="pov-kes"></div>
+          <div class="pov-hud"><i></i>REC<b>POV · SİTENİN İÇİ</b></div>
+        </div>
+        <p class="pov-not">Kamera sayfanın içinden geçer · sonda CTA duvarına dalar · döngü</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ E ============ -->
+<section class="blok">
+  <div class="wrap">
+    <div class="blok-bas"><b>E</b><h2>Kesit — sayfa, katmanlarına ayrılıyor</h2></div>
+    <p class="blok-not">Mühendislik patlatılmış çizimi (exploded view): sayfa izometrik durur, sonra dört katmanı
+      —arayüz, bileşenler, anlamsal yapı, ölçüm— havaya kalkar, sağda etiketleri belirir, birkaç saniye askıda
+      kalır ve tekrar kapanır. "Sıfırdan yazılmış sistem" iddiasının görsel kanıtı: içinde ne olduğunu gösteriyoruz.</p>
+
+    <div class="hero">
+      <div>
+        <span class="mod-no">Modül 01 · Web Tasarım &amp; Yazılım</span>
+        <h3>Kurumsal Web Sitesi: Çok Sayfalı Marka Sunumu</h3>
+        <p class="lead">Kurumsal web yazılım çözümümüz, şirketinizi tek bir açılış sayfasına değil; hizmetlerinizi,
+          ürün gruplarınızı ve kurumsal kimliğinizi bir arada taşıyan çok sayfalı bir yapıya taşır.</p>
+        <div class="cta"><span class="btn p">Kapsam çıkaralım →</span><span class="btn">WhatsApp'tan yaz</span></div>
+      </div>
+      <div>
+        <div class="kes-kutu">
+          <div class="kes-don">
+            <div class="kes-sahne">
+              <div class="kes-kat" style="--z:0px">
+                <div class="ic"><div class="cipler" style="margin-top:auto"><i>form_gonder</i><i>telefon_tikla</i><i>sepete_ekle</i><i>LCP</i><i>CLS</i></div></div>
+              </div>
+              <div class="kes-kat" style="--z:52px">
+                <div class="ic"><span class="tag">&lt;header&gt;</span><span class="tag">&lt;article&gt; × 3</span><span class="tag" style="margin-top:auto">schema.org ✓</span></div>
+              </div>
+              <div class="kes-kat" style="--z:104px">
+                <div class="ic"><div class="cz" style="width:40%"></div>
+                  <div class="kart"><i></i><i></i><i></i></div><div class="cz" style="width:70%"></div></div>
+              </div>
+              <div class="kes-kat" style="--z:156px">
+                <div class="ic"><div class="cz a"></div><div class="cz" style="width:84%"></div>
+                  <div class="kart"><i></i><i></i><i></i></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="kes-etiketler">
+            <span class="kes-et" style="animation-delay:.5s"><i></i><b>ARAYÜZ</b></span>
+            <span class="kes-et" style="animation-delay:.34s"><i></i>BİLEŞENLER</span>
+            <span class="kes-et" style="animation-delay:.18s"><i></i>ANLAMSAL YAPI</span>
+            <span class="kes-et"><i></i>ÖLÇÜM</span>
+          </div>
+        </div>
+        <p class="kes-not">Katmanlar açılır → etiketler belirir → kapanır · üzerine gelince durur</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
-  <div class="wrap">Karar: A / B / C — seçilen konsept 23 alt sayfaya modül renginde uygulanacak.
+  <div class="wrap">Karar: A / B / C / D / E — seçilen konsept 23 alt sayfaya modül renginde uygulanacak.
     Üç sahne de <code style="font-family:var(--mono)">prefers-reduced-motion</code> durumunda durağan hâle geçer; harici kütüphane yok.</div>
 </footer>
 
