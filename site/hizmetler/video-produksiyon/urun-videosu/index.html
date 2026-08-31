@@ -110,6 +110,28 @@
   text-decoration-color:rgba(var(--acc-rgb),.4);transition:text-decoration-color .25s}
 .yazi a:hover{text-decoration-color:var(--acc)}
 
+/* --- derinlemesine: iki kart + fiyat şeridi (yazı duvarı yerine) --- */
+.dtay-eb{display:inline-flex;margin-bottom:18px}
+.dtay{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.dtay-k{position:relative;border:1px solid var(--hair);border-radius:var(--r-lg);
+  padding:26px 24px;background:var(--panel);overflow:hidden;transition:.38s var(--ease)}
+.dtay-k:hover{border-color:var(--hair-strong);transform:translateY(-3px)}
+.dtay-k::after{content:"";position:absolute;right:-70px;top:-70px;width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle,rgba(var(--acc-rgb),.12),transparent 70%);opacity:0;transition:.4s}
+.dtay-k:hover::after{opacity:1}
+.dtay-k > *{position:relative}
+.dtay-no{font-family:var(--mono);font-size:10.6px;letter-spacing:.15em;color:var(--acc);
+  display:block;margin-bottom:13px}
+.dtay-k h2{font-size:clamp(17px,2.1vw,21px);letter-spacing:-.03em;line-height:1.28;margin:0 0 12px}
+.dtay-k p{font-size:14.4px;color:var(--fg-dim);line-height:1.76;margin:0}
+.dtay-fiyat{margin-top:16px;border:1px solid rgba(var(--acc-rgb),.3);border-radius:var(--r-md);
+  background:rgba(var(--acc-rgb),.05);padding:15px 20px;display:flex;gap:13px;align-items:flex-start}
+.dtay-fiyat svg{width:17px;height:17px;flex:none;margin-top:2px;color:var(--acc)}
+.dtay-fiyat p{margin:0;font-size:13.8px;color:var(--fg-dim);line-height:1.65}
+.dtay-fiyat strong{color:var(--fg)}
+.dtay-fiyat a{color:var(--acc);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:880px){.dtay{grid-template-columns:1fr}}
+
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
 .sss details[open],.akor details[open]{border-color:var(--hair-strong)}
@@ -322,12 +344,24 @@
   </header>
 
   <section class="sec" id="detay" style="padding-top:0">
-    <div class="wrap yazi rv">
-      <h2>Stüdyo Çekimi mi, İşletme Mekanında Çekim mi?</h2>
-      <p>İki yaklaşım da farklı ihtiyaca cevap verir. Stüdyo ortamında sabit aydınlatma, cyclorama fon ve döner sehpa kullanılır; bu kurulum ürünün her açısını tutarlı ışıkla göstermeyi, arka planı sade tutmayı ve post prodüksiyonda renk tutarlılığını kolaylaştırır. Kozmetik, takı, elektronik aksesuar gibi ürünlerde detay netliği öne çıktığından stüdyo tercih edilir. İşletmenin kendi mekanında çekim ise ürünü gerçek kullanım bağlamında gösterir; mobilya, ekipman veya hizmet destekli ürünlerde mekanın atmosferi, ölçek algısı ve kullanım senaryosu izleyiciye güven verir. Seçim, ürünün boyutuna ve hedeflenen platformun görsel diline göre belirlenir.</p>
-      <h3>Pazaryeri Formatı ve Teknik Kurgu Detayları</h3>
-      <p>Trendyol gibi pazaryerlerinde ürün videosu, kare veya dikey oranda, sessiz oynatmaya uygun ve ilk saniyelerde ürünü net gösterecek şekilde kurgulanır; sistemin ses açık izlenmeden de mesaj vermesini beklediği için bilgi genelde altyazı veya ekran içi metinle taşınır. Kendi e-ticaret sitesi için hazırlanan video ise yatay veya kare oranda, ürün sayfasının galerisine gömülmeye uygun sıkıştırma ve kapak karesiyle teslim edilir. Kurgu aşamasında ürünün en güçlü özelliği ilk plana alınır, gereksiz geçiş efektlerinden kaçınılır ve marka logosu ile ürün adı sahneye sade biçimde yerleştirilir. Format farkı gözetilmeden hazırlanan video, platformlar arasında görüntü kırpılması veya mesaj kaybına yol açabilir.</p>
-      <p><strong>Fiyat ve süre bandı</strong> Modül 04 · Video Prodüksiyon sayfasındaki <a href="../../../hizmetler/video-produksiyon/#fiyat">fiyatlandırma bölümünde</a> yer alıyor; bu sayfada ayrıca tekrar etmiyoruz.</p>
+    <div class="wrap">
+      <span class="eyebrow dtay-eb rv"><i></i>Derinlemesine</span>
+      <div class="dtay">
+        <article class="dtay-k rv">
+          <span class="dtay-no">01</span>
+          <h2>Stüdyo Çekimi mi, İşletme Mekanında Çekim mi?</h2>
+          <p>İki yaklaşım da farklı ihtiyaca cevap verir. Stüdyo ortamında sabit aydınlatma, cyclorama fon ve döner sehpa kullanılır; bu kurulum ürünün her açısını tutarlı ışıkla göstermeyi, arka planı sade tutmayı ve post prodüksiyonda renk tutarlılığını kolaylaştırır. Kozmetik, takı, elektronik aksesuar gibi ürünlerde detay netliği öne çıktığından stüdyo tercih edilir. İşletmenin kendi mekanında çekim ise ürünü gerçek kullanım bağlamında gösterir; mobilya, ekipman veya hizmet destekli ürünlerde mekanın atmosferi, ölçek algısı ve kullanım senaryosu izleyiciye güven verir. Seçim, ürünün boyutuna ve hedeflenen platformun görsel diline göre belirlenir.</p>
+        </article>
+        <article class="dtay-k rv d1">
+          <span class="dtay-no">02</span>
+          <h2>Pazaryeri Formatı ve Teknik Kurgu Detayları</h2>
+          <p>Trendyol gibi pazaryerlerinde ürün videosu, kare veya dikey oranda, sessiz oynatmaya uygun ve ilk saniyelerde ürünü net gösterecek şekilde kurgulanır; sistemin ses açık izlenmeden de mesaj vermesini beklediği için bilgi genelde altyazı veya ekran içi metinle taşınır. Kendi e-ticaret sitesi için hazırlanan video ise yatay veya kare oranda, ürün sayfasının galerisine gömülmeye uygun sıkıştırma ve kapak karesiyle teslim edilir. Kurgu aşamasında ürünün en güçlü özelliği ilk plana alınır, gereksiz geçiş efektlerinden kaçınılır ve marka logosu ile ürün adı sahneye sade biçimde yerleştirilir. Format farkı gözetilmeden hazırlanan video, platformlar arasında görüntü kırpılması veya mesaj kaybına yol açabilir.</p>
+        </article>
+      </div>
+      <div class="dtay-fiyat rv d1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
+        <p><strong>Fiyat ve süre bandı</strong> Modül 04 · Video Prodüksiyon sayfasındaki <a href="../../../hizmetler/video-produksiyon/#fiyat">fiyatlandırma bölümünde</a> yer alıyor; bu sayfada ayrıca tekrar etmiyoruz.</p>
+      </div>
     </div>
   </section>
 

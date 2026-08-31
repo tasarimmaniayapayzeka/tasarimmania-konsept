@@ -110,6 +110,28 @@
   text-decoration-color:rgba(var(--acc-rgb),.4);transition:text-decoration-color .25s}
 .yazi a:hover{text-decoration-color:var(--acc)}
 
+/* --- derinlemesine: iki kart + fiyat şeridi (yazı duvarı yerine) --- */
+.dtay-eb{display:inline-flex;margin-bottom:18px}
+.dtay{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.dtay-k{position:relative;border:1px solid var(--hair);border-radius:var(--r-lg);
+  padding:26px 24px;background:var(--panel);overflow:hidden;transition:.38s var(--ease)}
+.dtay-k:hover{border-color:var(--hair-strong);transform:translateY(-3px)}
+.dtay-k::after{content:"";position:absolute;right:-70px;top:-70px;width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle,rgba(var(--acc-rgb),.12),transparent 70%);opacity:0;transition:.4s}
+.dtay-k:hover::after{opacity:1}
+.dtay-k > *{position:relative}
+.dtay-no{font-family:var(--mono);font-size:10.6px;letter-spacing:.15em;color:var(--acc);
+  display:block;margin-bottom:13px}
+.dtay-k h2{font-size:clamp(17px,2.1vw,21px);letter-spacing:-.03em;line-height:1.28;margin:0 0 12px}
+.dtay-k p{font-size:14.4px;color:var(--fg-dim);line-height:1.76;margin:0}
+.dtay-fiyat{margin-top:16px;border:1px solid rgba(var(--acc-rgb),.3);border-radius:var(--r-md);
+  background:rgba(var(--acc-rgb),.05);padding:15px 20px;display:flex;gap:13px;align-items:flex-start}
+.dtay-fiyat svg{width:17px;height:17px;flex:none;margin-top:2px;color:var(--acc)}
+.dtay-fiyat p{margin:0;font-size:13.8px;color:var(--fg-dim);line-height:1.65}
+.dtay-fiyat strong{color:var(--fg)}
+.dtay-fiyat a{color:var(--acc);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:880px){.dtay{grid-template-columns:1fr}}
+
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
 .sss details[open],.akor details[open]{border-color:var(--hair-strong)}
@@ -322,12 +344,24 @@
   </header>
 
   <section class="sec" id="detay" style="padding-top:0">
-    <div class="wrap yazi rv">
-      <h2>Core Web Vitals ve Sayfa Performansı</h2>
-      <p>Google'ın sıralama sinyallerinden Core Web Vitals, sayfanın yüklenme hızını, etkileşime tepki süresini ve görsel kararlılığını ölçer. LCP en büyük içerik bloğunun ekrana geliş hızını, INP etkileşime verilen tepkiyi, CLS ise yüklenme sırasındaki ani kaymaları değerlendirir. Bu metrikler zayıf çıktığında arama motoru kullanıcı deneyimini yetersiz bulur ve sayfayı geride bırakır. Denetimde render-blocking kaynaklar ayıklanır, görseller modern formatlara dönüştürülüp sıkıştırılır, kritik CSS öne çekilir, gereksiz üçüncü parti betikler inceye alınır ve sunucu yanıt süresi iyileştirilir. Mobil öncelikli indeksleme nedeniyle tüm bu ölçümler öncelikle mobil deneyim üzerinden test edilir. Performans çalışması tek seferlik değildir; her güncelleme metrikleri yeniden etkileyebileceği için düzenli izleme gerektirir.</p>
-      <h3>Taranabilirlik, Search Console ve Yapılandırılmış Veri</h3>
-      <p>Arama motorunun bir sayfayı sıralayabilmesi için önce onu bulup taraması, sonra indekslemesi gerekir. Sitemap.xml, sitenin öncelikli sayfalarını gösteren bir harita işlevi görür; robots.txt ise hangi bölümlerin taranmayacağını tarif eder. Bu dosyalardan biri hatalı kurulduğunda sonuç ağır olabilir: yanlış bir robots.txt kuralı tüm siteyi taramaya kapatabilir, bozuk bir sitemap ise yeni sayfaların indekse girmesini geciktirir. Yönlendirme zincirleri, kırık bağlantılar ve tutarsız canonical etiketleri de tarama bütçesini boşa harcayan sorunlardır ve denetimde tek tek düzeltilir. Search Console entegrasyonu bu çalışmanın doğrulama katmanıdır; kapsama raporu hangi sayfaların indekslendiğini ve dışarıda kalanların gerekçesini gösterir. Yapılandırılmış veri, yani schema işaretlemesi, sayfa içeriğinin anlamını arama motoruna makine diliyle açıklar; doğru işaretlenen hizmet veya soru-cevap verileri, arama sonuçlarında zenginleştirilmiş görünümler doğurabilir.</p>
-      <p><strong>Fiyat ve süre bandı</strong> Modül 05 · SEO Hizmetleri sayfasındaki <a href="../../../hizmetler/seo/#fiyat">fiyatlandırma bölümünde</a> yer alıyor; bu sayfada ayrıca tekrar etmiyoruz.</p>
+    <div class="wrap">
+      <span class="eyebrow dtay-eb rv"><i></i>Derinlemesine</span>
+      <div class="dtay">
+        <article class="dtay-k rv">
+          <span class="dtay-no">01</span>
+          <h2>Core Web Vitals ve Sayfa Performansı</h2>
+          <p>Google'ın sıralama sinyallerinden Core Web Vitals, sayfanın yüklenme hızını, etkileşime tepki süresini ve görsel kararlılığını ölçer. LCP en büyük içerik bloğunun ekrana geliş hızını, INP etkileşime verilen tepkiyi, CLS ise yüklenme sırasındaki ani kaymaları değerlendirir. Bu metrikler zayıf çıktığında arama motoru kullanıcı deneyimini yetersiz bulur ve sayfayı geride bırakır. Denetimde render-blocking kaynaklar ayıklanır, görseller modern formatlara dönüştürülüp sıkıştırılır, kritik CSS öne çekilir, gereksiz üçüncü parti betikler inceye alınır ve sunucu yanıt süresi iyileştirilir. Mobil öncelikli indeksleme nedeniyle tüm bu ölçümler öncelikle mobil deneyim üzerinden test edilir. Performans çalışması tek seferlik değildir; her güncelleme metrikleri yeniden etkileyebileceği için düzenli izleme gerektirir.</p>
+        </article>
+        <article class="dtay-k rv d1">
+          <span class="dtay-no">02</span>
+          <h2>Taranabilirlik, Search Console ve Yapılandırılmış Veri</h2>
+          <p>Arama motorunun bir sayfayı sıralayabilmesi için önce onu bulup taraması, sonra indekslemesi gerekir. Sitemap.xml, sitenin öncelikli sayfalarını gösteren bir harita işlevi görür; robots.txt ise hangi bölümlerin taranmayacağını tarif eder. Bu dosyalardan biri hatalı kurulduğunda sonuç ağır olabilir: yanlış bir robots.txt kuralı tüm siteyi taramaya kapatabilir, bozuk bir sitemap ise yeni sayfaların indekse girmesini geciktirir. Yönlendirme zincirleri, kırık bağlantılar ve tutarsız canonical etiketleri de tarama bütçesini boşa harcayan sorunlardır ve denetimde tek tek düzeltilir. Search Console entegrasyonu bu çalışmanın doğrulama katmanıdır; kapsama raporu hangi sayfaların indekslendiğini ve dışarıda kalanların gerekçesini gösterir. Yapılandırılmış veri, yani schema işaretlemesi, sayfa içeriğinin anlamını arama motoruna makine diliyle açıklar; doğru işaretlenen hizmet veya soru-cevap verileri, arama sonuçlarında zenginleştirilmiş görünümler doğurabilir.</p>
+        </article>
+      </div>
+      <div class="dtay-fiyat rv d1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
+        <p><strong>Fiyat ve süre bandı</strong> Modül 05 · SEO Hizmetleri sayfasındaki <a href="../../../hizmetler/seo/#fiyat">fiyatlandırma bölümünde</a> yer alıyor; bu sayfada ayrıca tekrar etmiyoruz.</p>
+      </div>
     </div>
   </section>
 
