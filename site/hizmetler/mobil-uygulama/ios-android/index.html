@@ -156,6 +156,115 @@
 }
 @media(max-width:880px){.dtay{grid-template-columns:1fr}}
 
+/* --- İLGİLİ: akan bağlantı haritası --- */
+.hrt{display:grid;grid-template-columns:200px 96px 1fr;align-items:center}
+.hrt-ben{border:1px solid rgba(var(--acc-rgb),.5);border-radius:14px;padding:20px 16px;
+  background:rgba(var(--acc-rgb),.06);text-align:center}
+.hrt-ben i{display:block;width:11px;height:11px;border-radius:50%;background:var(--acc);
+  margin:0 auto 10px;animation:hrtNabiz 2.4s ease-out infinite}
+@keyframes hrtNabiz{0%{box-shadow:0 0 0 0 rgba(var(--acc-rgb),.55)}
+  70%{box-shadow:0 0 0 15px rgba(var(--acc-rgb),0)}100%{box-shadow:0 0 0 0 rgba(var(--acc-rgb),0)}}
+.hrt-ben b{display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.13em;color:var(--fg)}
+.hrt-ben span{display:block;font-size:10.6px;color:var(--muted);margin-top:4px}
+.hrt-svg{width:100%;height:100%;min-height:210px;display:block}
+.hrt-yol{fill:none;stroke:rgba(var(--acc-rgb),.16);stroke-width:1.5;vector-effect:non-scaling-stroke}
+.hrt-akis{fill:none;stroke:rgba(var(--acc-rgb),.7);stroke-width:1.5;vector-effect:non-scaling-stroke;
+  stroke-dasharray:3 11;animation:hrtAkis 1.1s linear infinite}
+.hrt-akis.g2{animation-delay:.36s}.hrt-akis.g3{animation-delay:.72s}
+@keyframes hrtAkis{to{stroke-dashoffset:-14}}
+.hrt-sag{display:grid;gap:12px}
+@media(max-width:880px){
+  .hrt{grid-template-columns:1fr;gap:14px}
+  .hrt-svg{display:none}
+  .hrt-ben{display:flex;align-items:center;gap:12px;text-align:left;padding:14px 16px}
+  .hrt-ben i{margin:0}
+}
+@media(prefers-reduced-motion:reduce){.hrt-ben i,.hrt-akis{animation:none}}
+
+/* --- SORU PANELİ: akordiyon yerine dönen sahne --- */
+.sd{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(18px,2.6vw,30px);align-items:stretch}
+.sd-sol{display:grid;gap:8px;align-content:start}
+.sd-soru{display:flex;align-items:center;gap:12px;text-align:left;font-family:var(--sans);
+  font-size:13.6px;font-weight:600;color:var(--fg-dim);background:var(--panel);
+  border:1px solid var(--hair);border-radius:11px;padding:12px 15px;cursor:pointer;
+  transition:.3s var(--ease);letter-spacing:-.01em;line-height:1.4}
+.sd-soru i{font-style:normal;font-family:var(--mono);font-size:9.4px;color:var(--muted);
+  letter-spacing:.1em;flex:none;border:1px solid var(--hair);border-radius:99px;padding:3px 7px;transition:.3s}
+.sd-soru:hover{border-color:var(--hair-strong);color:var(--fg)}
+.sd-soru.acik{border-color:rgba(var(--acc-rgb),.55);background:rgba(var(--acc-rgb),.07);color:var(--fg)}
+.sd-soru.acik i{color:var(--acc);border-color:rgba(var(--acc-rgb),.5)}
+.sd-sag{position:relative;border:1px solid rgba(var(--acc-rgb),.32);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(var(--acc-rgb),.07),transparent);
+  padding:clamp(20px,2.6vw,30px);display:flex;flex-direction:column}
+.sd-cevap{display:none;animation:sdGel .45s var(--ease)}
+.sd-cevap.acik{display:block}
+@keyframes sdGel{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+.sd-cevap h3{font-size:clamp(16px,2vw,19px);letter-spacing:-.02em;line-height:1.3;margin:0 0 10px}
+.sd-cevap p{font-size:14.6px;color:var(--fg-dim);line-height:1.75;margin:0}
+.sd-alt{margin-top:auto;padding-top:18px;display:flex;align-items:center;gap:14px}
+.sd-cubuk{flex:1;height:2px;border-radius:2px;background:rgba(255,255,255,.08);overflow:hidden}
+.sd-cubuk i{display:block;height:100%;width:0;background:var(--acc)}
+.sd-cubuk i.akiyor{width:100%;transition:width 6s linear}
+.sd-wa{font-size:12.4px;font-weight:600;color:var(--acc);white-space:nowrap}
+@media(max-width:880px){.sd{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.sd-cevap{animation:none}.sd-cubuk{display:none}}
+/* --- AYRINTILAR: 3 açık kart --- */
+.der{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.der-k{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);
+  padding:20px 19px;transition:.3s var(--ease)}
+.der-k:hover{border-color:var(--hair-strong);transform:translateY(-2px)}
+.der-no{font-family:var(--mono);font-size:9.8px;letter-spacing:.14em;color:var(--acc);
+  display:block;margin-bottom:10px}
+.der-k h3{font-size:14.8px;letter-spacing:-.02em;line-height:1.35;margin:0 0 8px}
+.der-k p{font-size:13.2px;color:var(--muted);line-height:1.68;margin:0}
+@media(max-width:880px){.der{grid-template-columns:1fr}}
+
+/* --- AYRINTILAR v3: dikey adımlar + 3D döngü videosu --- */
+.akv{display:grid;grid-template-columns:1fr 1.06fr;gap:clamp(24px,3.4vw,48px);align-items:center}
+.akv-liste{list-style:none;margin:0;padding:0;display:grid;gap:0;position:relative}
+.akv-liste li{position:relative;display:flex;gap:16px;padding:18px 0}
+.akv-liste li + li{border-top:1px solid var(--hair)}
+.akv-no{flex:none;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+  font-family:var(--mono);font-size:11px;color:var(--acc);letter-spacing:.06em;
+  border:1px solid rgba(var(--acc-rgb),.4);background:rgba(var(--acc-rgb),.07)}
+.akv-liste h3{font-size:15.4px;letter-spacing:-.02em;line-height:1.3;margin:0 0 6px;padding-top:8px}
+.akv-liste p{font-size:13.4px;color:var(--muted);line-height:1.7;margin:0}
+.akv-video{position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(var(--acc-rgb),.3);
+  box-shadow:0 34px 80px -30px rgba(0,0,0,.95),0 0 44px -12px rgba(var(--acc-rgb),.25);
+  background:var(--bg-2)}
+.akv-video video{display:block;width:100%;height:auto;aspect-ratio:16/9}
+.akv-video::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 100% at 50% 0%,transparent 62%,rgba(11,13,18,.42) 100%)}
+.akv-rozet{position:absolute;left:14px;top:12px;z-index:2;display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--fg-dim);
+  background:rgba(11,13,18,.72);border:1px solid var(--hair-strong);border-radius:99px;padding:5px 11px;
+  backdrop-filter:blur(6px)}
+.akv-rozet i{width:6px;height:6px;border-radius:50%;background:var(--acc);flex:none;
+  box-shadow:0 0 8px 1px rgba(var(--acc-rgb),.9);animation:akvNabiz 1.8s infinite}
+@keyframes akvNabiz{50%{opacity:.3}}
+@media(max-width:960px){.akv{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.akv-rozet i{animation:none}}
+/* --- derinlemesine kartlarda iddia cümlesi + sakin gövde --- */
+.dtay-vurgu{display:block;font-size:15.2px;font-weight:600;color:var(--fg);
+  letter-spacing:-.015em;line-height:1.5;margin-bottom:9px}
+.dtay-k p{font-size:13.5px;color:var(--muted)}
+
+/* --- derinlemesine: "Daha fazla" ile açılan devam metni --- */
+p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.015em;
+  line-height:1.5;margin:0}
+.dtay-devam{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.dtay-devam.acik{grid-template-rows:1fr}
+.dtay-devam > div{overflow:hidden}
+.dtay-devam p{font-size:13.5px;color:var(--muted);line-height:1.76;margin:12px 0 0}
+.dtay-more{display:inline-flex;align-items:center;gap:8px;margin-top:14px;cursor:pointer;
+  font-family:var(--mono);font-size:10.4px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--acc);background:rgba(var(--acc-rgb),.06);border:1px solid rgba(var(--acc-rgb),.35);
+  border-radius:99px;padding:8px 15px;transition:.3s var(--ease)}
+.dtay-more:hover{background:rgba(var(--acc-rgb),.13);border-color:rgba(var(--acc-rgb),.6)}
+.dtay-more svg{width:11px;height:11px;transition:transform .4s var(--ease)}
+.dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
+@media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
+
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
 .sss details[open],.akor details[open]{border-color:var(--hair-strong)}
@@ -408,12 +517,16 @@
         <article class="dtay-k rv">
           <span class="dtay-no">01</span>
           <h2>Platforma Özgü Tasarım Dili: Human Interface ve Material Design</h2>
-          <p>iOS tarafında Swift ile Human Interface Guidelines'a, Android tarafında Kotlin ile Material Design prensiplerine bağlı kalarak iki ayrı arayüz kodu yazıyoruz. Bu yaklaşım, React Native'deki tek kod tabanının aksine, geçiş animasyonundan buton davranışına kadar her bileşenin kullanıcının alıştığı platform diline birebir uymasını sağlar. Navigasyon çubuğu, jest tanıma ve klavye davranışı iOS ve Android'de farklı çalıştığından, native derleyici bu farkları taviz vermeden yansıtır. Kotlin ve Swift üretici firmaların kendi işletim sistemi için optimize ettiği diller olduğundan, arayüz doğrudan sistemle konuşur.</p>
+          <p class="dtay-vurgu">iOS tarafında Swift ile Human Interface Guidelines'a, Android tarafında Kotlin ile Material Design prensiplerine bağlı kalarak iki ayrı arayüz kodu yazıyoruz.</p>
+          <div class="dtay-devam"><div><p>Bu yaklaşım, React Native'deki tek kod tabanının aksine, geçiş animasyonundan buton davranışına kadar her bileşenin kullanıcının alıştığı platform diline birebir uymasını sağlar. Navigasyon çubuğu, jest tanıma ve klavye davranışı iOS ve Android'de farklı çalıştığından, native derleyici bu farkları taviz vermeden yansıtır. Kotlin ve Swift üretici firmaların kendi işletim sistemi için optimize ettiği diller olduğundan, arayüz doğrudan sistemle konuşur.</p></div></div>
+          <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
         <article class="dtay-k rv d1">
           <span class="dtay-no">02</span>
           <h2>Donanıma Doğrudan Erişim: Kamera, Sensör ve Bluetooth</h2>
-          <p>Native geliştirme; kamera modülü, ivmeölçer, GPS, parmak izi okuyucu ve Bluetooth çevre birimleri gibi donanım katmanlarına işletim sisteminin kendi API'leri üzerinden erişir. Bu yol, kamera önizlemesinin gecikmesiz akmasını, sensör verisinin arka planda kesintisiz toplanmasını ve harici cihazlarla (akıllı saat, ölçüm cihazı, POS terminali) düşük gecikmeli eşleşmeyi mümkün kılar. Bildirim izinleri, konum takibi ve biyometrik doğrulama gibi işlemler de platformun güvenlik katmanına doğrudan bağlanır; bu da kullanıcı onayı akışını ve veri güvenliğini native tarafta daha öngörülebilir kılar. Görüntü işleme, ölçüm veya konum bazlı hizmet sunan uygulamalarda bu doğrudan bağlantı, performans farkının en çok hissedildiği noktadır.</p>
+          <p class="dtay-vurgu">Native geliştirme; kamera modülü, ivmeölçer, GPS, parmak izi okuyucu ve Bluetooth çevre birimleri gibi donanım katmanlarına işletim sisteminin kendi API'leri üzerinden erişir.</p>
+          <div class="dtay-devam"><div><p>Bu yol, kamera önizlemesinin gecikmesiz akmasını, sensör verisinin arka planda kesintisiz toplanmasını ve harici cihazlarla (akıllı saat, ölçüm cihazı, POS terminali) düşük gecikmeli eşleşmeyi mümkün kılar. Bildirim izinleri, konum takibi ve biyometrik doğrulama gibi işlemler de platformun güvenlik katmanına doğrudan bağlanır; bu da kullanıcı onayı akışını ve veri güvenliğini native tarafta daha öngörülebilir kılar. Görüntü işleme, ölçüm veya konum bazlı hizmet sunan uygulamalarda bu doğrudan bağlantı, performans farkının en çok hissedildiği noktadır.</p></div></div>
+          <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>
       <div class="dtay-fiyat rv d1">
@@ -440,31 +553,27 @@
         <span class="eyebrow"><i></i>Sık sorulanlar</span>
         <h2 data-kin>Sık sorulan sorular: native iOS ve Android uygulama geliştirme</h2>
       </div>
-      <div class="sss rv d1">
-        <details id="sss-1">
-        <summary>iOS ve Android için ayrı ayrı mı, yoksa aynı anda mı geliştirme yapılıyor?</summary>
-        <p>İki platform için ayrı kod tabanı hazırlanır; ancak tasarım, API entegrasyonu ve test süreçleri paralel yürütülerek iOS ve Android sürümleri birlikte ilerler.</p>
-        </details>
-        <details>
-        <summary>Native uygulama hangi durumlarda React Native'den daha doğru bir seçim?</summary>
-        <p>Yoğun grafik işleme, karmaşık animasyon, kamera veya sensör tabanlı özellikler ve platforma özgü his beklenen projelerde native tercih edilir. Ortak arayüzle hızlı yayına çıkmak öncelikliyse React Native değerlendirilir.</p>
-        </details>
-        <details>
-        <summary>Swift ve Kotlin dilleri neden platforma özgü seçiliyor?</summary>
-        <p>Swift, iOS'un üretici dili olarak sistem API'leriyle doğrudan uyumludur; Kotlin ise Android için aynı rolü üstlenir. Bu seçim, her iki işletim sisteminin güncellemelerine hızlı ve sorunsuz uyum sağlar.</p>
-        </details>
-        <details>
-        <summary>Native uygulamada cihaz donanımına (kamera, sensör) erişim nasıl çalışıyor?</summary>
-        <p>Uygulama, işletim sisteminin sunduğu donanım API'lerine ek bir katman olmadan bağlanır. Bu sayede kamera, konum, Bluetooth ve diğer sensör verileri gecikmesiz ve tam yetkiyle işlenir.</p>
-        </details>
-        <details>
-        <summary>İki platform için ayrı geliştirme, bakım maliyetini nasıl etkiliyor?</summary>
-        <p>İki ayrı kod tabanı, güncelleme ve hata düzeltme sürecinin her platformda tekrarlanmasını gerektirir. Bu detay teklif aşamasında değerlendirilir; güncel maliyet kalemleri fiyatlandırma bölümünde yer alır.</p>
-        </details>
-        <details>
-        <summary>Sadece iOS ya da sadece Android için başlayıp sonra diğerini eklemek mümkün mü?</summary>
-        <p>Evet, tek platformla başlayıp pazar geri bildirimine göre ikinci platforma geçmek yaygın bir stratejidir. Mimari, ikinci platformun sonradan eklenmesine uygun şekilde planlanır.</p>
-        </details>
+      <div class="sd rv d1" data-sd>
+        <div class="sd-sol" role="tablist" aria-label="Sorular">
+        <button type="button" class="sd-soru acik" role="tab" aria-selected="true"><i>01</i><span>iOS ve Android için ayrı ayrı mı, yoksa aynı anda mı geliştirme yapılıyor?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>02</i><span>Native uygulama hangi durumlarda React Native'den daha doğru bir seçim?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>03</i><span>Swift ve Kotlin dilleri neden platforma özgü seçiliyor?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>04</i><span>Native uygulamada cihaz donanımına (kamera, sensör) erişim nasıl çalışıyor?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>05</i><span>İki platform için ayrı geliştirme, bakım maliyetini nasıl etkiliyor?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>06</i><span>Sadece iOS ya da sadece Android için başlayıp sonra diğerini eklemek mümkün mü?</span></button>
+        </div>
+        <div class="sd-sag">
+        <div class="sd-cevap acik" role="tabpanel"><h3>iOS ve Android için ayrı ayrı mı, yoksa aynı anda mı geliştirme yapılıyor?</h3><p>İki platform için ayrı kod tabanı hazırlanır; ancak tasarım, API entegrasyonu ve test süreçleri paralel yürütülerek iOS ve Android sürümleri birlikte ilerler.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Native uygulama hangi durumlarda React Native'den daha doğru bir seçim?</h3><p>Yoğun grafik işleme, karmaşık animasyon, kamera veya sensör tabanlı özellikler ve platforma özgü his beklenen projelerde native tercih edilir. Ortak arayüzle hızlı yayına çıkmak öncelikliyse React Native değerlendirilir.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Swift ve Kotlin dilleri neden platforma özgü seçiliyor?</h3><p>Swift, iOS'un üretici dili olarak sistem API'leriyle doğrudan uyumludur; Kotlin ise Android için aynı rolü üstlenir. Bu seçim, her iki işletim sisteminin güncellemelerine hızlı ve sorunsuz uyum sağlar.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Native uygulamada cihaz donanımına (kamera, sensör) erişim nasıl çalışıyor?</h3><p>Uygulama, işletim sisteminin sunduğu donanım API'lerine ek bir katman olmadan bağlanır. Bu sayede kamera, konum, Bluetooth ve diğer sensör verileri gecikmesiz ve tam yetkiyle işlenir.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>İki platform için ayrı geliştirme, bakım maliyetini nasıl etkiliyor?</h3><p>İki ayrı kod tabanı, güncelleme ve hata düzeltme sürecinin her platformda tekrarlanmasını gerektirir. Bu detay teklif aşamasında değerlendirilir; güncel maliyet kalemleri fiyatlandırma bölümünde yer alır.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Sadece iOS ya da sadece Android için başlayıp sonra diğerini eklemek mümkün mü?</h3><p>Evet, tek platformla başlayıp pazar geri bildirimine göre ikinci platforma geçmek yaygın bir stratejidir. Mimari, ikinci platformun sonradan eklenmesine uygun şekilde planlanır.</p></div>
+          <div class="sd-alt">
+            <div class="sd-cubuk" aria-hidden="true"><i data-sd-cubuk></i></div>
+            <a class="sd-wa" href="https://wa.me/905547916545?text=Merhaba%2C%20iOS%20ve%20Android%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Sorunuz farklı mı? WhatsApp'tan sorun →</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -475,19 +584,27 @@
         <span class="eyebrow"><i></i>Ayrıntılar</span>
         <h2 data-kin>Karar vermeden önce bakmak isterseniz</h2>
       </div>
-      <div class="akor rv d1">
-        <details id="ayr-1">
-          <summary>Mağaza Onay ve Yayınlama Süreci</summary>
-          <p class="cvp">App Store ve Google Play, her sürümü kendi inceleme kriterlerine göre değerlendirir; gizlilik bildirimleri, izin metinleri ve ikon standartları platforma göre farklılaşır. Native geliştirme sürecinde bu gereksinimler baştan uygulama mimarisine dahil edilir, böylece inceleme aşamasında geri çevrilme riski azalır.</p>
-        </details>
-        <details id="ayr-2">
-          <summary>Sürüm Yönetimi ve Cihaz Uyumluluğu</summary>
-          <p class="cvp">Farklı ekran boyutları, işletim sistemi sürümleri ve donanım kapasiteleri için ayrı test matrisleri oluşturulur. Native derleyici, her cihaz sınıfında performansı ayrı ayrı optimize etmeye imkan tanır; bu da eski veya düşük donanımlı cihazlarda da stabil çalışmayı güvence altına alır.</p>
-        </details>
-        <details id="ayr-3">
-          <summary>Arka Plan Görevleri ve Bildirim Altyapısı</summary>
-          <p class="cvp">Konum takibi, senkronizasyon veya ölçüm gibi arka planda çalışması gereken işlemler, işletim sisteminin enerji yönetimi kurallarına native seviyede uyarlanır. Anlık bildirim altyapısı da platforma özgü servislerle kurulur, böylece teslim oranı ve gecikme performansı yüksek tutulur.</p>
-        </details>
+      <div class="akv rv d1">
+        <ol class="akv-liste">
+          <li>
+            <span class="akv-no">01</span>
+            <div><h3>Mağaza Onay ve Yayınlama Süreci</h3><p>App Store ve Google Play, her sürümü kendi inceleme kriterlerine göre değerlendirir; gizlilik bildirimleri, izin metinleri ve ikon standartları platforma göre farklılaşır. Native geliştirme sürecinde bu gereksinimler baştan uygulama mimarisine dahil edilir, böylece inceleme aşamasında geri çevrilme riski azalır.</p></div>
+          </li>
+          <li>
+            <span class="akv-no">02</span>
+            <div><h3>Sürüm Yönetimi ve Cihaz Uyumluluğu</h3><p>Farklı ekran boyutları, işletim sistemi sürümleri ve donanım kapasiteleri için ayrı test matrisleri oluşturulur. Native derleyici, her cihaz sınıfında performansı ayrı ayrı optimize etmeye imkan tanır; bu da eski veya düşük donanımlı cihazlarda da stabil çalışmayı güvence altına alır.</p></div>
+          </li>
+          <li>
+            <span class="akv-no">03</span>
+            <div><h3>Arka Plan Görevleri ve Bildirim Altyapısı</h3><p>Konum takibi, senkronizasyon veya ölçüm gibi arka planda çalışması gereken işlemler, işletim sisteminin enerji yönetimi kurallarına native seviyede uyarlanır. Anlık bildirim altyapısı da platforma özgü servislerle kurulur, böylece teslim oranı ve gecikme performansı yüksek tutulur.</p></div>
+          </li>
+        </ol>
+        <div class="akv-video">
+          <span class="akv-rozet"><i></i>CANLI DÖNGÜ</span>
+          <video muted loop playsinline preload="metadata" poster="../../../../assets/modul-mobil/akis.jpg" aria-hidden="true">
+            <source src="../../../../assets/modul-mobil/akis.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
     </div>
   </section>
@@ -498,13 +615,26 @@
         <span class="eyebrow"><i></i>İlgili hizmetler</span>
         <h2 data-kin>Bu konuyla bağlantılı sayfalar</h2>
       </div>
-      <div class="ilgili rv d1">
+      <div class="hrt rv d1">
+        <div class="hrt-sol">
+          <div class="hrt-ben"><i></i><div><b>BU SAYFA</b><span>şu an buradasınız</span></div></div>
+        </div>
+        <svg class="hrt-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path class="hrt-yol" d="M0,50 C42,50 55,15 100,15"/>
+          <path class="hrt-yol" d="M0,50 H100"/>
+          <path class="hrt-yol" d="M0,50 C42,50 55,85 100,85"/>
+          <path class="hrt-akis" d="M0,50 C42,50 55,15 100,15"/>
+          <path class="hrt-akis g2" d="M0,50 H100"/>
+          <path class="hrt-akis g3" d="M0,50 C42,50 55,85 100,85"/>
+        </svg>
+        <div class="hrt-sag">
           <a class="yk" href="../react-native/"><b>React Native</b>
             <span>Tek kod tabanından iki platforma yayın.</span></a>
           <a class="yk" href="../uygulama-ui-ux/"><b>Arayüz Tasarımı (UI/UX)</b>
             <span>Native geliştirmeden önceki tasarım aşaması.</span></a>
           <a class="yk" href="../aso-uygulama-pazarlamasi/"><b>ASO ve Uygulama Pazarlaması</b>
             <span>Yayınlanan uygulamanın mağazada bulunması.</span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -593,6 +723,63 @@ document.getElementById('yil').textContent = new Date().getFullYear();
     requestAnimationFrame(kare);
   }
   requestAnimationFrame(kare);
+})();
+</script>
+<script>
+"use strict";
+/* soru paneli: 6 sn'de bir kendisi döner; kullanıcı dokununca döngü kalıcı durur */
+(function(){
+  var kok = document.querySelector('[data-sd]');
+  if (!kok) return;
+  var sorular  = [].slice.call(kok.querySelectorAll('.sd-soru'));
+  var cevaplar = [].slice.call(kok.querySelectorAll('.sd-cevap'));
+  var cubuk = kok.querySelector('[data-sd-cubuk]');
+  var AZALT = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var aktif = 0, zaman = null, durdu = false;
+  function ciz(n){
+    aktif = n;
+    sorular.forEach(function(b,i){ b.classList.toggle('acik', i===n); b.setAttribute('aria-selected', i===n?'true':'false'); });
+    cevaplar.forEach(function(c,i){ c.classList.toggle('acik', i===n); });
+    if (cubuk && !AZALT && !durdu) { cubuk.classList.remove('akiyor'); void cubuk.offsetWidth; cubuk.classList.add('akiyor'); }
+  }
+  sorular.forEach(function(b,i){
+    b.addEventListener('click', function(){
+      durdu = true;
+      if (zaman) { clearInterval(zaman); zaman = null; }
+      if (cubuk) { cubuk.classList.remove('akiyor'); cubuk.style.width = '0'; }
+      ciz(i);
+    });
+  });
+  ciz(0);
+  if (!AZALT) zaman = setInterval(function(){ if (!durdu) ciz((aktif+1) % sorular.length); }, 6000);
+})();
+</script>
+<script>
+"use strict";
+/* döngü videosu yalnız ekrandayken oynar */
+(function(){
+  var v = document.querySelector('.akv-video video');
+  if (!v) return;
+  if (!('IntersectionObserver' in window)) { v.play().catch(function(){}); return; }
+  new IntersectionObserver(function(girdiler){
+    girdiler.forEach(function(g){
+      if (g.isIntersecting) { v.play().catch(function(){}); } else { v.pause(); }
+    });
+  }, { threshold: .15 }).observe(v);
+})();
+</script>
+<script>
+"use strict";
+(function(){
+  [].slice.call(document.querySelectorAll('.dtay-more')).forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var acikMi = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', acikMi ? 'false' : 'true');
+      btn.querySelector('span').textContent = acikMi ? 'Daha fazla' : 'Daha az';
+      var devam = btn.parentElement.querySelector('.dtay-devam');
+      if (devam) devam.classList.toggle('acik', !acikMi);
+    });
+  });
 })();
 </script>
 </body>
