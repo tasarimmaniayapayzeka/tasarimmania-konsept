@@ -680,6 +680,12 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
 @media (max-width:960px){
   .nav-links,.nav-tel{display:none}
   .burger{display:flex}
+  /* 641-960px aralığında birincil CTA kaybolmasın: nav'daki "Teklif Al"
+     kalır, yalnız alt çubuğun (.mbar) devreye girdiği 640px altında gizlenir.
+     (Reklam denetimi bulgusu: bu aralıkta sayfada hiçbir birincil CTA
+     görünmüyordu.) */
+}
+@media (max-width:640px){
   .navbar .btn-p{display:none}
 }
 @media (max-width:820px){
