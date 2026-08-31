@@ -51,10 +51,10 @@
 .mod-no{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;
   letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:16px;
   border:1px solid rgba(var(--acc-rgb),.4);border-radius:999px;padding:7px 14px}
-.phd h1{font-size:clamp(31px,5.4vw,58px);letter-spacing:-.05em;line-height:1.04;margin-bottom:10px}
+.phd h1{font-size:clamp(31px,5.4vw,58px);letter-spacing:-.035em;line-height:1.12;margin-bottom:16px}
 .phd .h1-alt{font-family:var(--mono);font-size:clamp(12px,1.5vw,14.5px);letter-spacing:.05em;
-  color:var(--muted);margin-bottom:20px}
-.phd .lead{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18.5px);max-width:60ch}
+  color:var(--muted);margin-bottom:24px}
+.phd .lead{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18.5px);max-width:60ch;line-height:1.75}
 
 /* --- hero: iki sütun --- */
 .phd-iki{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(28px,4vw,56px);align-items:center}
@@ -222,6 +222,13 @@ button[data-olay]{font-family:inherit;color:inherit}
 .alt-k ul{display:grid;gap:7px}
 .alt-k li{font-size:12.8px;color:var(--fg-dim);display:flex;gap:8px;align-items:flex-start;line-height:1.5}
 .alt-k li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--acc);flex:none;margin-top:7px}
+
+/* kapsam kartları artık alt sayfa linki */
+a.alt-k{display:block;color:inherit}
+.alt-git{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-family:var(--mono);
+  font-size:10.2px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);
+  transition:gap .3s var(--ease)}
+a.alt-k:hover .alt-git{gap:12px}
 
 /* --- hız kanıtı --- */
 .hiz{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,3.4vw,48px);align-items:center}
@@ -475,7 +482,7 @@ button[data-olay]{font-family:inherit;color:inherit}
 /* --- satın alma yolundaki CTA'lar ---
    Ölçüldü: 14 bölümün 12'sinde hiç CTA yoktu, hero'da bile. Artık karar
    anlarında (kapsamı gördükten ve fiyatı gördükten sonra) çıkıyor. */
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
 .ara-cta{border-block:1px solid var(--hair);background:rgba(var(--acc-rgb),.045);
   padding:clamp(20px,2.6vw,28px) 0;margin:clamp(28px,3.6vw,44px) 0}
 .ara-cta-in{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
@@ -840,7 +847,7 @@ button[data-olay]{font-family:inherit;color:inherit}
       </div>
 
       <div class="alt">
-        <article class="alt-k rv">
+        <a class="alt-k rv" href="./kurumsal-web-sitesi/">
           <span class="alt-no">01</span>
           <h3>Kurumsal web sitesi</h3>
           
@@ -850,8 +857,9 @@ button[data-olay]{font-family:inherit;color:inherit}
             <li>Blog ve içerik mimarisi</li>
             <li>Form ve ölçüm kurulumu</li>
           </ul>
-        </article>
-        <article class="alt-k rv d1">
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="alt-k rv d1" href="./e-ticaret/">
           <span class="alt-no">02</span>
           <h3>E-ticaret</h3>
           
@@ -861,8 +869,9 @@ button[data-olay]{font-family:inherit;color:inherit}
             <li>Sepet terk kurtarma akışı</li>
             <li>Ürün içe aktarma</li>
           </ul>
-        </article>
-        <article class="alt-k rv d2">
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="alt-k rv d2" href="./ozel-yazilim/">
           <span class="alt-no">03</span>
           <h3>Özel yazılım</h3>
           
@@ -872,8 +881,9 @@ button[data-olay]{font-family:inherit;color:inherit}
             <li>ERP / muhasebe entegrasyonu</li>
             <li>Yetki ve rol yönetimi</li>
           </ul>
-        </article>
-        <article class="alt-k rv">
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="alt-k rv" href="./ai-entegrasyonu/">
           <span class="alt-no">04</span>
           <h3>AI entegrasyonu</h3>
           
@@ -883,8 +893,9 @@ button[data-olay]{font-family:inherit;color:inherit}
             <li>WhatsApp'a aktarım</li>
             <li>Konuşma kayıtları ve raporu</li>
           </ul>
-        </article>
-        <article class="alt-k rv d1">
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="alt-k rv d1" href="./bakim-destek/">
           <span class="alt-no">05</span>
           <h3>Bakım ve destek</h3>
           
@@ -894,8 +905,20 @@ button[data-olay]{font-family:inherit;color:inherit}
             <li>Kesinti izleme</li>
             <li>Aylık sağlık raporu</li>
           </ul>
-        </article>
-        <article class="alt-k rv d2" style="display:flex;flex-direction:column;justify-content:center;
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="alt-k rv d2" href="./grafik-tasarim/">
+          <span class="alt-no">06</span>
+          <h3>Grafik tasarım</h3>
+          <ul>
+            <li>Logo ve kurumsal kimlik kılavuzu</li>
+            <li>Kartvizit, katalog, broşür</li>
+            <li>Sosyal medya görsel şablonları</li>
+            <li>Baskıya hazır + dijital teslim</li>
+          </ul>
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <article class="alt-k rv" style="grid-column:1/-1;display:flex;flex-direction:column;justify-content:center;
           border-style:dashed;background:transparent">
           <span class="alt-no">Hangisi?</span>
           <h3>Emin değilseniz</h3>

@@ -51,10 +51,10 @@
 .mod-no{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;
   letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:16px;
   border:1px solid rgba(var(--acc-rgb),.4);border-radius:999px;padding:7px 14px}
-.phd h1{font-size:clamp(31px,5.4vw,58px);letter-spacing:-.05em;line-height:1.04;margin-bottom:10px}
+.phd h1{font-size:clamp(31px,5.4vw,58px);letter-spacing:-.035em;line-height:1.12;margin-bottom:16px}
 .phd .h1-alt{font-family:var(--mono);font-size:clamp(12px,1.5vw,14.5px);letter-spacing:.05em;
-  color:var(--muted);margin-bottom:20px}
-.phd .lead{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18.5px);max-width:60ch}
+  color:var(--muted);margin-bottom:24px}
+.phd .lead{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18.5px);max-width:60ch;line-height:1.75}
 
 /* --- hero: iki sütun --- */
 .phd-iki{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(28px,4vw,56px);align-items:center}
@@ -196,6 +196,13 @@ button[data-olay]{font-family:inherit;color:inherit}
 .alt-k li{font-size:12.8px;color:var(--fg-dim);display:flex;gap:8px;align-items:flex-start;line-height:1.5}
 .alt-k li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--acc);flex:none;margin-top:7px}
 
+/* kapsam kartları artık alt sayfa linki */
+a.alt-k{display:block;color:inherit}
+.alt-git{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-family:var(--mono);
+  font-size:10.2px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);
+  transition:gap .3s var(--ease)}
+a.alt-k:hover .alt-git{gap:12px}
+
 /* --- kapsam tablosu --- */
 .kps{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .kps-k{border:1px solid var(--hair);border-radius:var(--r-lg);padding:24px 22px;background:var(--panel)}
@@ -317,7 +324,7 @@ button[data-olay]{font-family:inherit;color:inherit}
 }
 
 /* --- satın alma yolundaki CTA'lar --- */
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
 .ara-cta{border-block:1px solid var(--hair);background:rgba(var(--acc-rgb),.045);
   padding:clamp(20px,2.6vw,28px) 0;margin:clamp(28px,3.6vw,44px) 0}
 .ara-cta-in{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
@@ -630,7 +637,7 @@ button[data-olay]{font-family:inherit;color:inherit}
       </div>
 
       <div class="alt">
-        <article class="alt-k rv">
+        <a class="alt-k rv" href="./ios-android/">
           <span class="alt-no">01</span>
           <h3>iOS ve Android (Native)</h3>
           <p>Swift ve Kotlin ile platforma özel, performansı en yüksek uygulama; kamera, sensör ve yoğun grafik gerektiren işler için doğru seçim.</p>
@@ -640,8 +647,9 @@ button[data-olay]{font-family:inherit;color:inherit}
             <li>Platforma özgü tasarım dili (Human Interface / Material)</li>
             <li>Push bildirim ve arka plan servisleri</li>
           </ul>
-        </article>
-        <article class="alt-k rv d1">
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="alt-k rv d1" href="./react-native/">
           <span class="alt-no">02</span>
           <h3>React Native (Çapraz Platform)</h3>
           <p>Tek kod tabanıyla hem iOS hem Android; çoğu ticari uygulama için daha hızlı ve ekonomik yol.</p>
@@ -651,8 +659,9 @@ button[data-olay]{font-family:inherit;color:inherit}
             <li>Web sitesiyle ortak API kullanımı</li>
             <li>Güncellemeyi tek seferde iki mağazaya gönderme</li>
           </ul>
-        </article>
-        <article class="alt-k rv">
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="alt-k rv" href="./uygulama-ui-ux/">
           <span class="alt-no">03</span>
           <h3>Arayüz Tasarımı (UI/UX)</h3>
           <p>Ekran akışı, buton yerleşimi ve renk sistemi kullanıcı testinden geçmeden kodlanmıyor.</p>
@@ -662,8 +671,9 @@ button[data-olay]{font-family:inherit;color:inherit}
             <li>Uygulama içi ikon ve görsel dil</li>
             <li>Erişilebilirlik ve dokunma alanı standartları</li>
           </ul>
-        </article>
-        <article class="alt-k rv d1">
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="alt-k rv d1" href="./aso-uygulama-pazarlamasi/">
           <span class="alt-no">04</span>
           <h3>Pazarlama (ASO ve Mağaza Optimizasyonu)</h3>
           <p>Uygulama yayınlanınca iş bitmiyor; mağazada bulunması ve indirilmesi ayrı bir çalışma.</p>
@@ -673,7 +683,8 @@ button[data-olay]{font-family:inherit;color:inherit}
             <li>Google Ads / Meta ile indirme kampanyası</li>
             <li>İndirme ve elde tutma (retention) ölçümü</li>
           </ul>
-        </article>
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
       </div>
     </div>
   </section>

@@ -49,10 +49,10 @@
 .mod-no{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;
   letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:16px;
   border:1px solid rgba(var(--acc-rgb),.4);border-radius:999px;padding:7px 14px}
-.phd h1{font-size:clamp(31px,5.4vw,58px);letter-spacing:-.05em;line-height:1.04;margin-bottom:10px}
+.phd h1{font-size:clamp(31px,5.4vw,58px);letter-spacing:-.035em;line-height:1.12;margin-bottom:16px}
 .phd .h1-alt{font-family:var(--mono);font-size:clamp(12px,1.5vw,14.5px);letter-spacing:.05em;
-  color:var(--muted);margin-bottom:20px}
-.phd .lead{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18.5px);max-width:60ch}
+  color:var(--muted);margin-bottom:24px}
+.phd .lead{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18.5px);max-width:60ch;line-height:1.75}
 
 .phd-iki{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(28px,4vw,56px);align-items:center}
 .hero-img{width:100%;height:auto;aspect-ratio:1;border-radius:var(--r-lg);border:1px solid var(--hair);
@@ -175,6 +175,13 @@ button[data-olay]{font-family:inherit;color:inherit}
 .alt-k li{font-size:12.8px;color:var(--fg-dim);display:flex;gap:8px;align-items:flex-start;line-height:1.5}
 .alt-k li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--acc);flex:none;margin-top:7px}
 
+/* kapsam kartları artık alt sayfa linki */
+a.alt-k{display:block;color:inherit}
+.alt-git{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-family:var(--mono);
+  font-size:10.2px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);
+  transition:gap .3s var(--ease)}
+a.alt-k:hover .alt-git{gap:12px}
+
 .kps{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .kps-k{border:1px solid var(--hair);border-radius:var(--r-lg);padding:24px 22px;background:var(--panel)}
 .kps-k h3{font-family:var(--mono);font-size:10.6px;letter-spacing:.15em;text-transform:uppercase;
@@ -279,7 +286,7 @@ button[data-olay]{font-family:inherit;color:inherit}
   .don{display:none}
 }
 
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
 .ara-cta{border-block:1px solid var(--hair);background:rgba(var(--acc-rgb),.045);
   padding:clamp(20px,2.6vw,28px) 0;margin:clamp(28px,3.6vw,44px) 0}
 .ara-cta-in{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
@@ -546,7 +553,7 @@ button[data-olay]{font-family:inherit;color:inherit}
       </div>
 
       <div class="alt">
-        <article class="alt-k rv">
+        <a class="alt-k rv" href="./teknik-seo/">
           <span class="alt-no">01</span>
           <h3>Teknik SEO</h3>
           <p>Arama motorlarının sitenizi hatasız tarayıp hızlıca indeksleyebilmesi için altyapı temizliği yapılır.</p>
@@ -556,8 +563,9 @@ button[data-olay]{font-family:inherit;color:inherit}
             <li>Search Console entegrasyonu ve indeks takibi</li>
             <li>Mobil uyumluluk ve yapılandırılmış veri kontrolü</li>
           </ul>
-        </article>
-        <article class="alt-k rv d1">
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="alt-k rv d1" href="./icerik-stratejisi/">
           <span class="alt-no">02</span>
           <h3>İçerik Stratejisi</h3>
           <p>Anahtar kelime araştırmasına dayalı, satışa hizmet eden bir içerik takvimi kurulur.</p>
@@ -567,8 +575,9 @@ button[data-olay]{font-family:inherit;color:inherit}
             <li>Rakip içerik boşluklarının tespiti</li>
             <li>Mevcut içeriklerde güncelleme ve iç bağlantı kurgusu</li>
           </ul>
-        </article>
-        <article class="alt-k rv">
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="alt-k rv" href="./yerel-seo/">
           <span class="alt-no">03</span>
           <h3>Yerel SEO</h3>
           <p>Şubesi veya hizmet bölgesi olan işletmeler için semt bazlı görünürlük hedeflenir.</p>
@@ -578,18 +587,32 @@ button[data-olay]{font-family:inherit;color:inherit}
             <li>Yerel dizin kayıtları ve adres tutarlılığı</li>
             <li>Müşteri yorumu yönetimi için süreç önerisi</li>
           </ul>
-        </article>
-        <article class="alt-k rv d1">
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="alt-k rv d1" href="./cok-dilli-seo/">
           <span class="alt-no">04</span>
-          <h3>Çok Dilli / E-ticaret SEO</h3>
-          <p>Birden fazla pazara veya mağaza altyapısına sahip siteler için ayrı bir optimizasyon katmanı kurulur.</p>
+          <h3>Çok Dilli SEO</h3>
+          <p>Birden fazla pazara açılan siteler için dil-ülke yapılandırması kurulur.</p>
           <ul>
             <li>Site çevirisinde hreflang ve dil/ülke yapılandırması</li>
+            <li>Çok dilli site haritası ve indeksleme kontrolü</li>
+            <li>Yurt dışı pazar hedefleme</li>
+            <li>ccTLD / alt dizin kararı</li>
+          </ul>
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="alt-k rv" style="grid-column:1/-1" href="./e-ticaret-seo/">
+          <span class="alt-no">05</span>
+          <h3>E-ticaret SEO</h3>
+          <p>Mağaza altyapısına özel optimizasyon katmanı kurulur.</p>
+          <ul>
             <li>Shopify, ikas gibi altyapılara özel teknik ayarlar</li>
             <li>Ürün ve kategori sayfalarında SEO uyumlu kurgu</li>
-            <li>Çok dilli site haritası ve indeksleme kontrolü</li>
+            <li>Kopya içerik (ürün açıklaması) önleme</li>
+            <li>Altyapı kısıtlarının yönetimi</li>
           </ul>
-        </article>
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
       </div>
     </div>
   </section>

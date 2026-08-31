@@ -49,10 +49,10 @@
 .mod-no{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;
   letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:16px;
   border:1px solid rgba(var(--acc-rgb),.4);border-radius:999px;padding:7px 14px}
-.phd h1{font-size:clamp(31px,5.4vw,58px);letter-spacing:-.05em;line-height:1.04;margin-bottom:10px}
+.phd h1{font-size:clamp(31px,5.4vw,58px);letter-spacing:-.035em;line-height:1.12;margin-bottom:16px}
 .phd .h1-alt{font-family:var(--mono);font-size:clamp(12px,1.5vw,14.5px);letter-spacing:.05em;
-  color:var(--muted);margin-bottom:20px}
-.phd .lead{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18.5px);max-width:60ch}
+  color:var(--muted);margin-bottom:24px}
+.phd .lead{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18.5px);max-width:60ch;line-height:1.75}
 
 .phd-iki{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(28px,4vw,56px);align-items:center}
 .hero-img{width:100%;height:auto;aspect-ratio:1;border-radius:var(--r-lg);border:1px solid var(--hair);
@@ -175,6 +175,13 @@ button[data-olay]{font-family:inherit;color:inherit}
 .alt-k li{font-size:12.8px;color:var(--fg-dim);display:flex;gap:8px;align-items:flex-start;line-height:1.5}
 .alt-k li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--acc);flex:none;margin-top:7px}
 
+/* kapsam kartları artık alt sayfa linki */
+a.alt-k{display:block;color:inherit}
+.alt-git{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-family:var(--mono);
+  font-size:10.2px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);
+  transition:gap .3s var(--ease)}
+a.alt-k:hover .alt-git{gap:12px}
+
 .kps{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .kps-k{border:1px solid var(--hair);border-radius:var(--r-lg);padding:24px 22px;background:var(--panel)}
 .kps-k h3{font-family:var(--mono);font-size:10.6px;letter-spacing:.15em;text-transform:uppercase;
@@ -279,7 +286,7 @@ button[data-olay]{font-family:inherit;color:inherit}
   .don{display:none}
 }
 
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
 .ara-cta{border-block:1px solid var(--hair);background:rgba(var(--acc-rgb),.045);
   padding:clamp(20px,2.6vw,28px) 0;margin:clamp(28px,3.6vw,44px) 0}
 .ara-cta-in{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
@@ -547,7 +554,7 @@ button[data-olay]{font-family:inherit;color:inherit}
       </div>
 
       <div class="alt">
-        <article class="alt-k rv">
+        <a class="alt-k rv" href="./google-ads/">
           <span class="alt-no">01</span>
           <h3>Google Ads: Arama ve Görsel Ağ Reklamları</h3>
           <p>Aranırken karşınıza çıkmanızı sağlayan hızlı, ölçülebilir reklam kanalı.</p>
@@ -557,8 +564,9 @@ button[data-olay]{font-family:inherit;color:inherit}
             <li>Dönüşüm takibi ve teklif optimizasyonu</li>
             <li>Rekabet analizine dayalı hedefleme</li>
           </ul>
-        </article>
-        <article class="alt-k rv d1">
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="alt-k rv d1" href="./meta-ads/">
           <span class="alt-no">02</span>
           <h3>Meta Ads: Facebook ve Instagram Reklamları</h3>
           <p>Doğru kitleye doğru kreatifle ulaşıp bilinirlik ve satışı birlikte büyüten yönetim.</p>
@@ -568,8 +576,9 @@ button[data-olay]{font-family:inherit;color:inherit}
             <li>A/B testleriyle optimizasyon</li>
             <li>Yeniden pazarlama (retargeting) kurgusu</li>
           </ul>
-        </article>
-        <article class="alt-k rv">
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="alt-k rv" href="./performans-pazarlamasi/">
           <span class="alt-no">03</span>
           <h3>Performans Pazarlaması: Dönüşüm ve Huni Yönetimi</h3>
           <p>Tüm kanalların verisini birleştirip dönüşüm odaklı karar veren yaklaşım.</p>
@@ -579,8 +588,9 @@ button[data-olay]{font-family:inherit;color:inherit}
             <li>Edinme maliyeti ve yaşam boyu değer takibi</li>
             <li>Bütçenin en verimli kanala yönlendirilmesi</li>
           </ul>
-        </article>
-        <article class="alt-k rv d1">
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="alt-k rv d1" href="./sosyal-medya-yonetimi/">
           <span class="alt-no">04</span>
           <h3>Sosyal Medya Yönetimi: Sürekli İçerik ve Reklam</h3>
           <p>Hesabınızı organik içerik ve reklam desteğiyle sürekli canlı tutan yönetim.</p>
@@ -590,7 +600,8 @@ button[data-olay]{font-family:inherit;color:inherit}
             <li>Organik içeriğin reklamla desteklenmesi</li>
             <li>Düzenli büyüme ve etkileşim raporu</li>
           </ul>
-        </article>
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
       </div>
     </div>
   </section>
