@@ -130,6 +130,30 @@
 .dtay-fiyat p{margin:0;font-size:13.8px;color:var(--fg-dim);line-height:1.65}
 .dtay-fiyat strong{color:var(--fg)}
 .dtay-fiyat a{color:var(--acc);text-decoration:underline;text-underline-offset:3px}
+
+/* --- fiyat şeridi: akışkan kenar ışığı + parıltı süpürmesi --- */
+@property --dfA{syntax:'<angle>';initial-value:0deg;inherits:false}
+.dtay-fiyat{position:relative;overflow:hidden;isolation:isolate}
+.dtay-fiyat::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1.5px;
+  background:conic-gradient(from var(--dfA),transparent 0 58%,
+    rgba(var(--acc-rgb),.25) 72%,rgba(var(--acc-rgb),.95) 82%,
+    rgba(var(--acc-rgb),.25) 92%,transparent 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude;
+  animation:dfDon 4.6s linear infinite;pointer-events:none;z-index:1}
+@keyframes dfDon{to{--dfA:360deg}}
+.dtay-fiyat::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:linear-gradient(105deg,transparent 42%,rgba(var(--acc-rgb),.09) 50%,transparent 58%);
+  transform:translateX(-130%);animation:dfParla 5.5s var(--ease) infinite}
+@keyframes dfParla{0%,55%{transform:translateX(-130%)}85%,100%{transform:translateX(130%)}}
+.dtay-fiyat svg{animation:dfIkon 2.2s ease-in-out infinite}
+@keyframes dfIkon{50%{opacity:.45;transform:translateY(2px) scale(.94)}}
+@media(prefers-reduced-motion:reduce){
+  .dtay-fiyat::before,.dtay-fiyat::after,.dtay-fiyat svg{animation:none}
+  .dtay-fiyat::after{display:none}
+}
 @media(max-width:880px){.dtay{grid-template-columns:1fr}}
 
 .sss,.akor{display:grid;gap:11px;max-width:820px}
