@@ -166,3 +166,15 @@ ul{margin:0;padding:0;list-style:none}
     transition-duration:.001ms!important;scroll-behavior:auto!important}
   .rv{opacity:1;transform:none}
 }
+
+/* --- MOBİL DOKUNMA HEDEFLERİ (WCAG 2.5.8: en az 24px) -------------------
+   390px denetiminde ölçülen küçük hedefler: breadcrumb ~20px, footer link
+   listeleri ~16px, bento t-link 22px, soru paneli WA köprüsü 21px, fiyat
+   şeridi linki 16px. Satır içi (inline) bağlantıda dikey padding satır
+   yüksekliğini İTMEZ ama tıklama alanını büyütür — görsel düzen değişmez.
+   inline-flex olanlarda negatif margin ile denge kuruldu. */
+.crumb a{padding-block:8px}
+.ftr ul a{padding-block:7px}
+.t-link{padding-block:7px;margin-block:-7px}
+.sd-wa{padding-block:7px;margin-block:-7px}
+.dtay-fiyat a{padding-block:7px}
