@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>23 Özgün Hero Sahnesi — Onay Galerisi | TasarımMania</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0D12; --hair:rgba(255,255,255,.085); --hair-strong:rgba(255,255,255,.16);
+  --fg:#E7EAF0; --fg-dim:#A7B0C2; --muted:#727D93;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --sans:"Inter Tight",system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px 80px}
+header{padding:52px 0 26px}
+h1{font-size:clamp(25px,3.8vw,38px);letter-spacing:-.04em;margin-bottom:10px}
+.not{color:var(--muted);font-size:14px;max-width:72ch}
+.modul-bas{grid-column:1/-1;display:flex;align-items:center;gap:11px;font-size:17px;letter-spacing:-.02em;
+  margin:44px 0 16px;padding-top:26px;border-top:1px solid var(--hair)}
+.modul-bas i{width:10px;height:10px;border-radius:3px;background:var(--acc);
+  box-shadow:0 0 0 3px rgba(var(--acc-rgb),.2)}
+.izgara{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px}
+.kart{border:1px solid var(--hair);border-radius:16px;padding:14px;background:rgba(255,255,255,.02)}
+.kart-bas{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:11px}
+.kart-bas b{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--fg-dim);font-weight:500}
+.kart-bas a{font-family:var(--mono);font-size:10px;color:var(--muted);text-decoration:none;letter-spacing:.06em}
+.kart-bas a:hover{color:var(--acc)}
+
+/* --- C HERO: kendini çizen sahne (sayfaya özgü) --- */
+
+.ciz-kutu{position:relative;height:clamp(240px,26vw,330px);display:grid;place-items:center}
+.ciz-cerceve{width:100%;height:100%;border:1px solid var(--hair-strong);border-radius:13px;
+  overflow:hidden;background:linear-gradient(180deg,rgba(15,19,28,.95),rgba(11,13,18,.92));
+  box-shadow:0 26px 60px -28px rgba(0,0,0,.95);display:flex;flex-direction:column}
+.ciz-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--hair);flex:none}
+.ciz-bar i{width:7px;height:7px;border-radius:50%;background:#3A4152}
+.ciz-bar i:nth-child(1){background:#FF5F57}.ciz-bar i:nth-child(2){background:#FEBC2E}.ciz-bar i:nth-child(3){background:#28C840}
+.ciz-bar span{font-family:var(--mono);font-size:9.4px;color:var(--muted);margin-left:6px;letter-spacing:.06em}
+.ciz-bar b{margin-left:auto;font-family:var(--mono);font-size:8.6px;letter-spacing:.13em;color:var(--acc);
+  border:1px solid rgba(var(--acc-rgb),.4);border-radius:99px;padding:3px 8px;font-weight:500;
+  animation:cizRozet 9s linear infinite}
+@keyframes cizRozet{0%,55%{opacity:1}56%,64%{opacity:.25}65%,100%{opacity:1}}
+.ciz-svg{flex:1;width:100%;min-height:0}
+.ciz-svg svg{width:100%;height:100%;display:block}
+.cz-cizgi{fill:none;stroke:rgba(var(--acc-rgb),.85);stroke-width:1.4;
+  stroke-dasharray:var(--u);stroke-dashoffset:var(--u);
+  animation:cizStroke 9s linear infinite;animation-delay:var(--d)}
+@keyframes cizStroke{
+  0%{stroke-dashoffset:var(--u)}
+  16%{stroke-dashoffset:0}
+  78%{stroke-dashoffset:0;opacity:1}
+  88%,100%{stroke-dashoffset:var(--u);opacity:0}
+}
+.cz-dolgu{fill:rgba(var(--acc-rgb),.10);opacity:0;animation:cizDolgu 9s linear infinite;animation-delay:var(--d)}
+@keyframes cizDolgu{0%,14%{opacity:0}22%{opacity:1}80%{opacity:1}88%,100%{opacity:0}}
+.cz-etiket{font-family:var(--mono);font-size:8.6px;fill:#727D93;letter-spacing:.6px;opacity:0;
+  animation:cizDolgu 9s linear infinite;animation-delay:var(--d)}
+.cz-etiket.vurgu{fill:rgba(var(--acc-rgb),1)}
+.cz-sonradan{fill:none;stroke:rgba(var(--acc-rgb),.55);stroke-width:1.2;stroke-dasharray:4 5;opacity:0;
+  animation:cizDolgu 9s linear infinite;animation-delay:var(--d)}
+.ciz-alt{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--hair);flex:none}
+.ciz-cip{flex:1;border:1px solid var(--hair);border-radius:8px;padding:7px 9px;background:rgba(255,255,255,.025);min-width:0}
+.ciz-cip u{display:block;text-decoration:none;font-family:var(--mono);font-size:7.8px;letter-spacing:.1em;color:var(--muted);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ciz-cip b{display:block;font-family:var(--mono);font-size:12px;color:var(--acc);margin-top:2px;letter-spacing:-.01em;font-weight:500;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ciz-kutu{height:auto}
+  .ciz-cerceve{aspect-ratio:16/11;height:auto}
+}
+@media(prefers-reduced-motion:reduce){
+  .cz-cizgi,.cz-dolgu,.cz-etiket,.cz-sonradan,.ciz-bar b{animation:none}
+  .cz-cizgi{stroke-dashoffset:0}
+  .cz-dolgu,.cz-etiket,.cz-sonradan{opacity:1}
+}
+.ciz-kutu{height:auto}
+.ciz-cerceve{aspect-ratio:16/10.6;height:auto}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap" style="padding-bottom:0">
+    <h1>23 özgün hero sahnesi — onay galerisi</h1>
+    <p class="not">C konsepti, her alt sayfa için ayrı tasarlandı: her sahne o sayfanın konusunu çizer
+      (site ağacı, mağaza+kargo, huni, klaket, harita pini, küre+hreflang…). Renk, modülün kendi rengi.
+      9 saniyede bir çizilir → dolar → silinir → yeniden başlar. Onayladıklarını söyle; istemediğini söylersen
+      o sahneyi yeniden tasarlarım.</p>
+  </div>
+</header>
+<div class="wrap">
+<div class="izgara">
+
+<h2 class="modul-bas" data-genis style="--acc:rgb(0,229,255);--acc-rgb:0,229,255"><i></i>Web Tasarım & Yazılım</h2>
+
+<div class="kart" style="--acc:rgb(0,229,255);--acc-rgb:0,229,255">
+  <div class="kart-bas">
+    <b>/kurumsal-web-sitesi/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/web-tasarim-yazilim/kurumsal-web-sitesi/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>site mimarisi çiziliyor</span><b>İNŞA HALİNDE</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<rect class="cz-cizgi" style="--u:272;--d:0.00s" x="165" y="14" width="100" height="26" rx="6"/><rect class="cz-dolgu" style="--d:0.00s" x="165" y="14" width="100" height="26" rx="6"/><text class="cz-etiket vurgu" style="--d:0.54s" x="178" y="31">/ ana sayfa</text><line class="cz-cizgi" style="--u:136;--d:0.42s" x1="215" y1="40" x2="93" y2="78"/><line class="cz-cizgi" style="--u:46;--d:0.84s" x1="215" y1="40" x2="215" y2="78"/><line class="cz-cizgi" style="--u:136;--d:1.26s" x1="215" y1="40" x2="337" y2="78"/><rect class="cz-cizgi" style="--u:292;--d:1.68s" x="38" y="78" width="110" height="26" rx="6"/><rect class="cz-dolgu" style="--d:1.68s" x="38" y="78" width="110" height="26" rx="6"/><text class="cz-etiket" style="--d:2.22s" x="50" y="95">/hizmetler</text><rect class="cz-cizgi" style="--u:292;--d:2.10s" x="160" y="78" width="110" height="26" rx="6"/><rect class="cz-dolgu" style="--d:2.10s" x="160" y="78" width="110" height="26" rx="6"/><text class="cz-etiket" style="--d:2.64s" x="172" y="95">/hakkimizda</text><rect class="cz-cizgi" style="--u:292;--d:2.52s" x="282" y="78" width="110" height="26" rx="6"/><rect class="cz-dolgu" style="--d:2.52s" x="282" y="78" width="110" height="26" rx="6"/><text class="cz-etiket" style="--d:3.06s" x="294" y="95">/iletisim</text><line class="cz-cizgi" style="--u:61;--d:2.94s" x1="93" y1="104" x2="54" y2="140"/><line class="cz-cizgi" style="--u:60;--d:3.36s" x1="93" y1="104" x2="130" y2="140"/><rect class="cz-cizgi" style="--u:200;--d:3.78s" x="20" y="140" width="68" height="22" rx="5"/><rect class="cz-dolgu" style="--d:3.78s" x="20" y="140" width="68" height="22" rx="5"/><rect class="cz-cizgi" style="--u:200;--d:4.20s" x="96" y="140" width="68" height="22" rx="5"/><rect class="cz-dolgu" style="--d:4.20s" x="96" y="140" width="68" height="22" rx="5"/><text class="cz-etiket" style="--d:4.74s" x="24" y="178">alt sayfa × 6</text><text class="cz-etiket" style="--d:4.74s" x="282" y="150">breadcrumb ✓</text><text class="cz-etiket" style="--d:4.74s" x="282" y="168">mega menü ✓</text><text class="cz-etiket" style="--d:4.74s" x="282" y="186">rol bazlı panel ✓</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>SAYFA</u><b data-sayac="24" data-birim="">0</b></div><div class="ciz-cip"><u>ŞEMA</u><b data-sayac="3" data-birim=" tür">0 tür</b></div><div class="ciz-cip"><u>MENÜ</u><b data-sayac="2" data-birim=" seviye">0 seviye</b></div></div>
+    </div>
+  </div>
+</div>
+<div class="kart" style="--acc:rgb(0,229,255);--acc-rgb:0,229,255">
+  <div class="kart-bas">
+    <b>/e-ticaret/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/web-tasarim-yazilim/e-ticaret/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>mağaza kuruluyor</span><b>SATIŞA HAZIR</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<rect class="cz-cizgi" style="--u:340;--d:0.00s" x="14" y="14" width="86" height="74" rx="6"/><rect class="cz-dolgu" style="--d:0.00s" x="14" y="14" width="86" height="74" rx="6"/><rect class="cz-cizgi" style="--u:340;--d:0.42s" x="108" y="14" width="86" height="74" rx="6"/><rect class="cz-dolgu" style="--d:0.42s" x="108" y="14" width="86" height="74" rx="6"/><rect class="cz-cizgi" style="--u:340;--d:0.84s" x="202" y="14" width="86" height="74" rx="6"/><rect class="cz-dolgu" style="--d:0.84s" x="202" y="14" width="86" height="74" rx="6"/><line class="cz-cizgi" style="--u:74;--d:1.26s" x1="24" y1="66" x2="90" y2="66"/><line class="cz-cizgi" style="--u:74;--d:1.68s" x1="118" y1="66" x2="184" y2="66"/><line class="cz-cizgi" style="--u:74;--d:2.10s" x1="212" y1="66" x2="278" y2="66"/><rect class="cz-cizgi" style="--u:288;--d:2.52s" x="310" y="14" width="104" height="30" rx="15"/><rect class="cz-dolgu" style="--d:2.52s" x="310" y="14" width="104" height="30" rx="15"/><text class="cz-etiket vurgu" style="--d:3.06s" x="324" y="33">sepet (3)</text><rect class="cz-cizgi" style="--u:632;--d:2.94s" x="14" y="118" width="270" height="36" rx="6"/><rect class="cz-dolgu" style="--d:2.94s" x="14" y="118" width="270" height="36" rx="6"/><text class="cz-etiket" style="--d:3.48s" x="28" y="140">ödeme — 3D Secure ✓</text><rect class="cz-cizgi" style="--u:200;--d:3.36s" x="300" y="118" width="54" height="36" rx="6"/><rect class="cz-dolgu" style="--d:3.36s" x="300" y="118" width="54" height="36" rx="6"/><line class="cz-cizgi" style="--u:46;--d:3.78s" x1="308" y1="132" x2="346" y2="132"/><path class="cz-cizgi" style="--u:356;--d:4.20s" d="M14,182 h340"/><line class="cz-cizgi" style="--u:22;--d:4.62s" x1="354" y1="182" x2="342" y2="175"/><line class="cz-cizgi" style="--u:22;--d:5.04s" x1="354" y1="182" x2="342" y2="189"/><text class="cz-etiket vurgu" style="--d:5.58s" x="364" y="186">kargo</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>ÜRÜN</u><b data-sayac="500" data-birim="+">0+</b></div><div class="ciz-cip"><u>BANKA</u><b data-sayac="2" data-birim=" pos">0 pos</b></div><div class="ciz-cip"><u>KARGO</u><b>otomatik</b></div></div>
+    </div>
+  </div>
+</div>
+<div class="kart" style="--acc:rgb(0,229,255);--acc-rgb:0,229,255">
+  <div class="kart-bas">
+    <b>/ozel-yazilim/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/web-tasarim-yazilim/ozel-yazilim/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>sistem şeması çiziliyor</span><b>DERLENDİ</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<text class="cz-etiket vurgu" style="--d:0.12s" x="158" y="40">{ iş kurallarınız }</text><rect class="cz-cizgi" style="--u:292;--d:0.00s" x="14" y="80" width="96" height="40" rx="6"/><rect class="cz-dolgu" style="--d:0.00s" x="14" y="80" width="96" height="40" rx="6"/><text class="cz-etiket" style="--d:0.54s" x="38" y="104">PANEL</text><line class="cz-cizgi" style="--u:66;--d:0.42s" x1="110" y1="100" x2="168" y2="100"/><rect class="cz-cizgi" style="--u:292;--d:0.84s" x="168" y="80" width="96" height="40" rx="6"/><rect class="cz-dolgu" style="--d:0.84s" x="168" y="80" width="96" height="40" rx="6"/><text class="cz-etiket" style="--d:1.38s" x="200" y="104">API</text><line class="cz-cizgi" style="--u:66;--d:1.26s" x1="264" y1="100" x2="322" y2="100"/><rect class="cz-cizgi" style="--u:288;--d:1.68s" x="322" y="80" width="94" height="40" rx="6"/><rect class="cz-dolgu" style="--d:1.68s" x="322" y="80" width="94" height="40" rx="6"/><text class="cz-etiket" style="--d:2.22s" x="352" y="104">ERP</text><line class="cz-cizgi" style="--u:38;--d:2.10s" x1="62" y1="120" x2="62" y2="150"/><rect class="cz-cizgi" style="--u:216;--d:2.52s" x="30" y="150" width="64" height="34" rx="10"/><rect class="cz-dolgu" style="--d:2.52s" x="30" y="150" width="64" height="34" rx="10"/><text class="cz-etiket" style="--d:3.06s" x="20" y="200">veritabanı</text><text class="cz-etiket" style="--d:3.06s" x="230" y="170">rol bazlı yetki ✓</text><text class="cz-etiket" style="--d:3.06s" x="230" y="188">kaynak kod sizde ✓</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>MODÜL</u><b data-sayac="6" data-birim="">0</b></div><div class="ciz-cip"><u>ENTEGRASYON</u><b data-sayac="3" data-birim="">0</b></div><div class="ciz-cip"><u>KOD</u><b>sizde kalır</b></div></div>
+    </div>
+  </div>
+</div>
+<div class="kart" style="--acc:rgb(0,229,255);--acc-rgb:0,229,255">
+  <div class="kart-bas">
+    <b>/ai-entegrasyonu/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/web-tasarim-yazilim/ai-entegrasyonu/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>asistan eğitiliyor</span><b>CANLI</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<rect class="cz-cizgi" style="--u:416;--d:0.00s" x="14" y="20" width="152" height="46" rx="12"/><rect class="cz-dolgu" style="--d:0.00s" x="14" y="20" width="152" height="46" rx="12"/><line class="cz-cizgi" style="--u:120;--d:0.42s" x1="28" y1="38" x2="140" y2="38"/><line class="cz-cizgi" style="--u:86;--d:0.84s" x1="28" y1="52" x2="106" y2="52"/><rect class="cz-cizgi" style="--u:512;--d:1.26s" x="120" y="86" width="192" height="54" rx="12"/><rect class="cz-dolgu" style="--d:1.26s" x="120" y="86" width="192" height="54" rx="12"/><text class="cz-etiket vurgu" style="--d:1.80s" x="134" y="108">yapay zeka yanıtı</text><circle class="cz-cizgi" style="--u:31;--d:1.68s" cx="142" cy="124" r="3"/><circle class="cz-dolgu" style="--d:1.68s" cx="142" cy="124" r="3"/><circle class="cz-cizgi" style="--u:31;--d:2.10s" cx="156" cy="124" r="3"/><circle class="cz-dolgu" style="--d:2.10s" cx="156" cy="124" r="3"/><circle class="cz-cizgi" style="--u:31;--d:2.52s" cx="170" cy="124" r="3"/><circle class="cz-dolgu" style="--d:2.52s" cx="170" cy="124" r="3"/><line class="cz-cizgi" style="--u:52;--d:2.94s" x1="312" y1="112" x2="356" y2="112"/><line class="cz-cizgi" style="--u:20;--d:3.36s" x1="356" y1="112" x2="346" y2="105"/><line class="cz-cizgi" style="--u:20;--d:3.78s" x1="356" y1="112" x2="346" y2="119"/><rect class="cz-cizgi" style="--u:204;--d:4.20s" x="360" y="94" width="56" height="36" rx="18"/><rect class="cz-dolgu" style="--d:4.20s" x="360" y="94" width="56" height="36" rx="18"/><text class="cz-etiket vurgu" style="--d:4.74s" x="370" y="116">WA</text><text class="cz-etiket" style="--d:4.74s" x="14" y="172">kaynak: yalnız site içeriğiniz</text><text class="cz-etiket" style="--d:4.74s" x="14" y="190">kaynak dışına çıkmaz ✓</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>CEVAP</u><b>7/24</b></div><div class="ciz-cip"><u>EĞİTİM</u><b>kendi içeriğiniz</b></div><div class="ciz-cip"><u>DEVİR</u><b>WhatsApp</b></div></div>
+    </div>
+  </div>
+</div>
+<div class="kart" style="--acc:rgb(0,229,255);--acc-rgb:0,229,255">
+  <div class="kart-bas">
+    <b>/bakim-destek/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/web-tasarim-yazilim/bakim-destek/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>site izleniyor</span><b>SAĞLIKLI</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<path class="cz-cizgi" style="--u:340;--d:0.00s" d="M14,60 h56 l10,-18 l12,36 l10,-18 h56 l10,-18 l12,36 l10,-18 h56"/><text class="cz-etiket vurgu" style="--d:0.54s" x="14" y="34">kesintisiz izleme</text><path class="cz-cizgi" style="--u:250;--d:0.42s" d="M330,26 l36,11 v27 c0,21 -15,34 -36,42 c-21,-8 -36,-21 -36,-42 v-27 z"/><text class="cz-etiket" style="--d:0.96s" x="320" y="66">güvenlik ✓</text><rect class="cz-cizgi" style="--u:232;--d:0.84s" x="30" y="120" width="80" height="26" rx="6"/><rect class="cz-dolgu" style="--d:0.84s" x="30" y="120" width="80" height="26" rx="6"/><rect class="cz-cizgi" style="--u:232;--d:1.26s" x="30" y="154" width="80" height="26" rx="6"/><rect class="cz-dolgu" style="--d:1.26s" x="30" y="154" width="80" height="26" rx="6"/><line class="cz-cizgi" style="--u:42;--d:1.68s" x1="118" y1="146" x2="152" y2="146"/><line class="cz-cizgi" style="--u:19;--d:2.10s" x1="152" y1="146" x2="143" y2="140"/><line class="cz-cizgi" style="--u:19;--d:2.52s" x1="152" y1="146" x2="143" y2="152"/><rect class="cz-cizgi" style="--u:340;--d:2.94s" x="162" y="130" width="128" height="32" rx="16"/><rect class="cz-dolgu" style="--d:2.94s" x="162" y="130" width="128" height="32" rx="16"/><text class="cz-etiket vurgu" style="--d:3.48s" x="176" y="150">yedek: günlük</text><text class="cz-etiket" style="--d:3.48s" x="30" y="200">güncelleme: otomatik</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>İZLEME</u><b>7/24</b></div><div class="ciz-cip"><u>KESİNTİ</u><b data-sayac="0" data-birim="">0</b></div><div class="ciz-cip"><u>YEDEK</u><b>günlük</b></div></div>
+    </div>
+  </div>
+</div>
+<div class="kart" style="--acc:rgb(0,229,255);--acc-rgb:0,229,255">
+  <div class="kart-bas">
+    <b>/grafik-tasarim/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/web-tasarim-yazilim/grafik-tasarim/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>kimlik çiziliyor</span><b>ONAYA HAZIR</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<circle class="cz-cizgi" style="--u:352;--d:0.00s" cx="100" cy="90" r="54"/><circle class="cz-cizgi" style="--u:176;--d:0.42s" cx="128" cy="90" r="26"/><line class="cz-cizgi" style="--u:120;--d:0.84s" x1="44" y1="90" x2="156" y2="90"/><line class="cz-cizgi" style="--u:120;--d:1.26s" x1="100" y1="34" x2="100" y2="146"/><text class="cz-etiket vurgu" style="--d:1.80s" x="58" y="170">logo ızgarası</text><rect class="cz-cizgi" style="--u:180;--d:1.68s" x="200" y="30" width="40" height="40" rx="8"/><rect class="cz-dolgu" style="--d:1.68s" x="200" y="30" width="40" height="40" rx="8"/><rect class="cz-cizgi" style="--u:180;--d:2.10s" x="248" y="30" width="40" height="40" rx="8"/><rect class="cz-dolgu" style="--d:2.10s" x="248" y="30" width="40" height="40" rx="8"/><rect class="cz-cizgi" style="--u:180;--d:2.52s" x="296" y="30" width="40" height="40" rx="8"/><rect class="cz-dolgu" style="--d:2.52s" x="296" y="30" width="40" height="40" rx="8"/><text class="cz-etiket" style="--d:3.06s" x="200" y="88">ana palet</text><rect class="cz-cizgi" style="--u:488;--d:2.94s" x="200" y="110" width="152" height="82" rx="8"/><rect class="cz-dolgu" style="--d:2.94s" x="200" y="110" width="152" height="82" rx="8"/><circle class="cz-cizgi" style="--u:62;--d:3.36s" cx="222" cy="132" r="8"/><circle class="cz-dolgu" style="--d:3.36s" cx="222" cy="132" r="8"/><line class="cz-cizgi" style="--u:116;--d:3.78s" x1="214" y1="162" x2="322" y2="162"/><line class="cz-cizgi" style="--u:86;--d:4.20s" x1="214" y1="176" x2="292" y2="176"/><text class="cz-etiket" style="--d:4.74s" x="358" y="130">kartvizit</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>RENK</u><b data-sayac="3" data-birim=" ana">0 ana</b></div><div class="ciz-cip"><u>VARYANT</u><b data-sayac="2" data-birim="">0</b></div><div class="ciz-cip"><u>TESLİM</u><b>baskı + dijital</b></div></div>
+    </div>
+  </div>
+</div>
+<h2 class="modul-bas" data-genis style="--acc:rgb(122,34,255);--acc-rgb:122,34,255"><i></i>Mobil Uygulama</h2>
+
+<div class="kart" style="--acc:rgb(122,34,255);--acc-rgb:122,34,255">
+  <div class="kart-bas">
+    <b>/ios-android/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/mobil-uygulama/ios-android/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>iki platform çiziliyor</span><b>MAĞAZADA</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<rect class="cz-cizgi" style="--u:588;--d:0.00s" x="58" y="20" width="112" height="172" rx="18"/><rect class="cz-dolgu" style="--d:0.00s" x="58" y="20" width="112" height="172" rx="18"/><line class="cz-cizgi" style="--u:48;--d:0.42s" x1="94" y1="32" x2="134" y2="32"/><text class="cz-etiket vurgu" style="--d:0.96s" x="76" y="56">Swift</text><rect class="cz-cizgi" style="--u:252;--d:0.84s" x="72" y="68" width="84" height="32" rx="6"/><rect class="cz-dolgu" style="--d:0.84s" x="72" y="68" width="84" height="32" rx="6"/><line class="cz-cizgi" style="--u:92;--d:1.26s" x1="72" y1="118" x2="156" y2="118"/><line class="cz-cizgi" style="--u:40;--d:1.68s" x1="98" y1="180" x2="130" y2="180"/><rect class="cz-cizgi" style="--u:588;--d:2.10s" x="258" y="20" width="112" height="172" rx="18"/><rect class="cz-dolgu" style="--d:2.10s" x="258" y="20" width="112" height="172" rx="18"/><circle class="cz-cizgi" style="--u:31;--d:2.52s" cx="314" cy="31" r="3"/><circle class="cz-dolgu" style="--d:2.52s" cx="314" cy="31" r="3"/><text class="cz-etiket vurgu" style="--d:3.06s" x="274" y="56">Kotlin</text><rect class="cz-cizgi" style="--u:252;--d:2.94s" x="272" y="68" width="84" height="32" rx="6"/><rect class="cz-dolgu" style="--d:2.94s" x="272" y="68" width="84" height="32" rx="6"/><line class="cz-cizgi" style="--u:92;--d:3.36s" x1="272" y1="118" x2="356" y2="118"/><circle class="cz-cizgi" style="--u:31;--d:3.78s" cx="296" cy="180" r="3"/><circle class="cz-dolgu" style="--d:3.78s" cx="296" cy="180" r="3"/><circle class="cz-cizgi" style="--u:31;--d:4.20s" cx="314" cy="180" r="3"/><circle class="cz-dolgu" style="--d:4.20s" cx="314" cy="180" r="3"/><circle class="cz-cizgi" style="--u:31;--d:4.62s" cx="332" cy="180" r="3"/><circle class="cz-dolgu" style="--d:4.62s" cx="332" cy="180" r="3"/><text class="cz-etiket" style="--d:5.16s" x="190" y="108">native</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>PLATFORM</u><b data-sayac="2" data-birim="">0</b></div><div class="ciz-cip"><u>DİL</u><b>Swift + Kotlin</b></div><div class="ciz-cip"><u>DONANIM</u><b>tam erişim</b></div></div>
+    </div>
+  </div>
+</div>
+<div class="kart" style="--acc:rgb(122,34,255);--acc-rgb:122,34,255">
+  <div class="kart-bas">
+    <b>/react-native/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/mobil-uygulama/react-native/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>tek koddan iki uygulama</span><b>DERLENDİ</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<text class="cz-etiket" style="--d:0.12s" x="150" y="44">JavaScript / TypeScript</text><rect class="cz-cizgi" style="--u:444;--d:0.00s" x="150" y="64" width="130" height="82" rx="10"/><rect class="cz-dolgu" style="--d:0.00s" x="150" y="64" width="130" height="82" rx="10"/><line class="cz-cizgi" style="--u:110;--d:0.42s" x1="164" y1="86" x2="266" y2="86"/><line class="cz-cizgi" style="--u:82;--d:0.84s" x1="164" y1="102" x2="238" y2="102"/><line class="cz-cizgi" style="--u:110;--d:1.26s" x1="164" y1="118" x2="266" y2="118"/><text class="cz-etiket vurgu" style="--d:1.80s" x="164" y="138">{ tek kod tabanı }</text><line class="cz-cizgi" style="--u:60;--d:1.68s" x1="148" y1="104" x2="96" y2="104"/><line class="cz-cizgi" style="--u:20;--d:2.10s" x1="96" y1="104" x2="106" y2="97"/><line class="cz-cizgi" style="--u:20;--d:2.52s" x1="96" y1="104" x2="106" y2="111"/><line class="cz-cizgi" style="--u:60;--d:2.94s" x1="282" y1="104" x2="334" y2="104"/><line class="cz-cizgi" style="--u:20;--d:3.36s" x1="334" y1="104" x2="324" y2="97"/><line class="cz-cizgi" style="--u:20;--d:3.78s" x1="334" y1="104" x2="324" y2="111"/><rect class="cz-cizgi" style="--u:336;--d:4.20s" x="30" y="58" width="62" height="96" rx="12"/><rect class="cz-dolgu" style="--d:4.20s" x="30" y="58" width="62" height="96" rx="12"/><line class="cz-cizgi" style="--u:46;--d:4.62s" x1="42" y1="82" x2="80" y2="82"/><rect class="cz-cizgi" style="--u:336;--d:5.04s" x="338" y="58" width="62" height="96" rx="12"/><rect class="cz-dolgu" style="--d:5.04s" x="338" y="58" width="62" height="96" rx="12"/><line class="cz-cizgi" style="--u:46;--d:5.46s" x1="350" y1="82" x2="388" y2="82"/><text class="cz-etiket" style="--d:6.00s" x="30" y="176">iOS</text><text class="cz-etiket" style="--d:6.00s" x="338" y="176">Android</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>KOD TABANI</u><b data-sayac="1" data-birim="">0</b></div><div class="ciz-cip"><u>MAĞAZA</u><b data-sayac="2" data-birim="">0</b></div><div class="ciz-cip"><u>API</u><b>web ile ortak</b></div></div>
+    </div>
+  </div>
+</div>
+<div class="kart" style="--acc:rgb(122,34,255);--acc-rgb:122,34,255">
+  <div class="kart-bas">
+    <b>/uygulama-ui-ux/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/mobil-uygulama/uygulama-ui-ux/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>akış çiziliyor</span><b>PROTOTİP</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<circle class="cz-cizgi" style="--u:62;--d:0.00s" cx="30" cy="40" r="8"/><line class="cz-cizgi" style="--u:36;--d:0.42s" x1="40" y1="40" x2="68" y2="40"/><circle class="cz-cizgi" style="--u:62;--d:0.84s" cx="78" cy="40" r="8"/><line class="cz-cizgi" style="--u:36;--d:1.26s" x1="88" y1="40" x2="116" y2="40"/><circle class="cz-cizgi" style="--u:62;--d:1.68s" cx="126" cy="40" r="8"/><text class="cz-etiket vurgu" style="--d:2.22s" x="18" y="66">kullanıcı akışı</text><rect class="cz-cizgi" style="--u:572;--d:2.10s" x="160" y="24" width="110" height="166" rx="16"/><rect class="cz-dolgu" style="--d:2.10s" x="160" y="24" width="110" height="166" rx="16"/><rect class="cz-cizgi" style="--u:240;--d:2.52s" x="172" y="44" width="86" height="24" rx="4"/><rect class="cz-dolgu" style="--d:2.52s" x="172" y="44" width="86" height="24" rx="4"/><rect class="cz-cizgi" style="--u:180;--d:2.94s" x="172" y="76" width="40" height="40" rx="4"/><rect class="cz-dolgu" style="--d:2.94s" x="172" y="76" width="40" height="40" rx="4"/><rect class="cz-cizgi" style="--u:180;--d:3.36s" x="218" y="76" width="40" height="40" rx="4"/><rect class="cz-dolgu" style="--d:3.36s" x="218" y="76" width="40" height="40" rx="4"/><line class="cz-cizgi" style="--u:94;--d:3.78s" x1="172" y1="132" x2="258" y2="132"/><rect class="cz-cizgi" style="--u:236;--d:4.20s" x="172" y="150" width="86" height="22" rx="11"/><rect class="cz-dolgu" style="--d:4.20s" x="172" y="150" width="86" height="22" rx="11"/><circle class="cz-sonradan" style="--d:4.74s" cx="215" cy="161" r="24"/><rect class="cz-cizgi" style="--u:304;--d:4.62s" x="300" y="40" width="112" height="30" rx="6"/><rect class="cz-dolgu" style="--d:4.62s" x="300" y="40" width="112" height="30" rx="6"/><rect class="cz-cizgi" style="--u:304;--d:5.04s" x="300" y="78" width="112" height="30" rx="6"/><rect class="cz-dolgu" style="--d:5.04s" x="300" y="78" width="112" height="30" rx="6"/><rect class="cz-cizgi" style="--u:304;--d:5.46s" x="300" y="116" width="112" height="30" rx="6"/><rect class="cz-dolgu" style="--d:5.46s" x="300" y="116" width="112" height="30" rx="6"/><text class="cz-etiket" style="--d:6.00s" x="300" y="166">bileşen kütüphanesi</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>EKRAN</u><b data-sayac="24" data-birim="">0</b></div><div class="ciz-cip"><u>BİLEŞEN</u><b data-sayac="40" data-birim="+">0+</b></div><div class="ciz-cip"><u>DOSYA</u><b>Figma sizde</b></div></div>
+    </div>
+  </div>
+</div>
+<div class="kart" style="--acc:rgb(122,34,255);--acc-rgb:122,34,255">
+  <div class="kart-bas">
+    <b>/aso-uygulama-pazarlamasi/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/mobil-uygulama/aso-uygulama-pazarlamasi/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>mağaza sayfası kuruluyor</span><b>YÜKSELİŞTE</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<rect class="cz-cizgi" style="--u:748;--d:0.00s" x="14" y="20" width="242" height="122" rx="10"/><rect class="cz-dolgu" style="--d:0.00s" x="14" y="20" width="242" height="122" rx="10"/><rect class="cz-cizgi" style="--u:196;--d:0.42s" x="28" y="34" width="44" height="44" rx="10"/><rect class="cz-dolgu" style="--d:0.42s" x="28" y="34" width="44" height="44" rx="10"/><line class="cz-cizgi" style="--u:146;--d:0.84s" x1="84" y1="46" x2="222" y2="46"/><line class="cz-cizgi" style="--u:106;--d:1.26s" x1="84" y1="62" x2="182" y2="62"/><circle class="cz-cizgi" style="--u:44;--d:1.68s" cx="94" cy="88" r="5"/><circle class="cz-dolgu" style="--d:1.68s" cx="94" cy="88" r="5"/><circle class="cz-cizgi" style="--u:44;--d:2.10s" cx="112" cy="88" r="5"/><circle class="cz-dolgu" style="--d:2.10s" cx="112" cy="88" r="5"/><circle class="cz-cizgi" style="--u:44;--d:2.52s" cx="130" cy="88" r="5"/><circle class="cz-dolgu" style="--d:2.52s" cx="130" cy="88" r="5"/><circle class="cz-cizgi" style="--u:44;--d:2.94s" cx="148" cy="88" r="5"/><circle class="cz-dolgu" style="--d:2.94s" cx="148" cy="88" r="5"/><circle class="cz-cizgi" style="--u:44;--d:3.36s" cx="166" cy="88" r="5"/><circle class="cz-dolgu" style="--d:3.36s" cx="166" cy="88" r="5"/><rect class="cz-cizgi" style="--u:256;--d:3.78s" x="28" y="104" width="92" height="26" rx="13"/><rect class="cz-dolgu" style="--d:3.78s" x="28" y="104" width="92" height="26" rx="13"/><text class="cz-etiket vurgu" style="--d:4.32s" x="48" y="121">yükle</text><line class="cz-cizgi" style="--u:126;--d:4.20s" x1="284" y1="40" x2="284" y2="158"/><line class="cz-cizgi" style="--u:142;--d:4.62s" x1="284" y1="158" x2="418" y2="158"/><path class="cz-cizgi" style="--u:170;--d:5.04s" d="M292,150 l28,-22 l24,10 l34,-38 l26,-16"/><line class="cz-cizgi" style="--u:19;--d:5.46s" x1="404" y1="84" x2="396" y2="92"/><line class="cz-cizgi" style="--u:18;--d:5.88s" x1="404" y1="84" x2="396" y2="78"/><text class="cz-etiket vurgu" style="--d:6.42s" x="292" y="40">görünürlük</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>KELİME</u><b data-sayac="30" data-birim="">0</b></div><div class="ciz-cip"><u>GÖRSEL</u><b data-sayac="8" data-birim="">0</b></div><div class="ciz-cip"><u>PUAN</u><b data-sayac="4.8" data-birim="">0</b></div></div>
+    </div>
+  </div>
+</div>
+<h2 class="modul-bas" data-genis style="--acc:rgb(255,176,32);--acc-rgb:255,176,32"><i></i>Meta & Google Ads</h2>
+
+<div class="kart" style="--acc:rgb(255,176,32);--acc-rgb:255,176,32">
+  <div class="kart-bas">
+    <b>/google-ads/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/dijital-pazarlama/google-ads/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>kampanya kuruluyor</span><b>YAYINDA</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<rect class="cz-cizgi" style="--u:692;--d:0.00s" x="14" y="18" width="302" height="34" rx="17"/><rect class="cz-dolgu" style="--d:0.00s" x="14" y="18" width="302" height="34" rx="17"/><circle class="cz-cizgi" style="--u:62;--d:0.42s" cx="40" cy="35" r="8"/><line class="cz-cizgi" style="--u:19;--d:0.84s" x1="46" y1="41" x2="54" y2="49"/><line class="cz-cizgi" style="--u:184;--d:1.26s" x1="64" y1="35" x2="240" y2="35"/><rect class="cz-cizgi" style="--u:128;--d:1.68s" x="14" y="74" width="36" height="18" rx="4"/><rect class="cz-dolgu" style="--d:1.68s" x="14" y="74" width="36" height="18" rx="4"/><text class="cz-etiket vurgu" style="--d:2.22s" x="22" y="87">Ad</text><line class="cz-cizgi" style="--u:250;--d:2.10s" x1="60" y1="84" x2="302" y2="84"/><line class="cz-cizgi" style="--u:336;--d:2.52s" x1="14" y1="106" x2="342" y2="106"/><line class="cz-cizgi" style="--u:294;--d:2.94s" x1="14" y1="122" x2="300" y2="122"/><line class="cz-cizgi" style="--u:274;--d:3.36s" x1="14" y1="152" x2="280" y2="152"/><line class="cz-cizgi" style="--u:232;--d:3.78s" x1="14" y1="168" x2="238" y2="168"/><rect class="cz-cizgi" style="--u:296;--d:4.20s" x="330" y="70" width="88" height="50" rx="8"/><rect class="cz-dolgu" style="--d:4.20s" x="330" y="70" width="88" height="50" rx="8"/><text class="cz-etiket vurgu" style="--d:4.74s" x="342" y="92">kalite</text><text class="cz-etiket" style="--d:4.74s" x="342" y="108">puanı ↑</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>KAMPANYA</u><b data-sayac="4" data-birim=" tür">0 tür</b></div><div class="ciz-cip"><u>NEGATİF</u><b>liste kurulu</b></div><div class="ciz-cip"><u>DÖNÜŞÜM</u><b>izleniyor</b></div></div>
+    </div>
+  </div>
+</div>
+<div class="kart" style="--acc:rgb(255,176,32);--acc-rgb:255,176,32">
+  <div class="kart-bas">
+    <b>/meta-ads/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/dijital-pazarlama/meta-ads/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>kreatif hazırlanıyor</span><b>TESTTE</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<rect class="cz-cizgi" style="--u:688;--d:0.00s" x="14" y="14" width="152" height="182" rx="10"/><rect class="cz-dolgu" style="--d:0.00s" x="14" y="14" width="152" height="182" rx="10"/><circle class="cz-cizgi" style="--u:62;--d:0.42s" cx="32" cy="34" r="8"/><line class="cz-cizgi" style="--u:72;--d:0.84s" x1="48" y1="34" x2="112" y2="34"/><rect class="cz-cizgi" style="--u:468;--d:1.26s" x="24" y="50" width="132" height="92" rx="6"/><rect class="cz-dolgu" style="--d:1.26s" x="24" y="50" width="132" height="92" rx="6"/><line class="cz-cizgi" style="--u:169;--d:1.68s" x1="24" y1="142" x2="156" y2="50"/><circle class="cz-cizgi" style="--u:56;--d:2.10s" cx="36" cy="166" r="7"/><circle class="cz-cizgi" style="--u:56;--d:2.52s" cx="62" cy="166" r="7"/><circle class="cz-cizgi" style="--u:56;--d:2.94s" cx="88" cy="166" r="7"/><circle class="cz-cizgi" style="--u:226;--d:3.36s" cx="248" cy="78" r="34"/><circle class="cz-cizgi" style="--u:226;--d:3.78s" cx="292" cy="78" r="34"/><text class="cz-etiket vurgu" style="--d:4.32s" x="230" y="136">kitle kesişimi</text><rect class="cz-cizgi" style="--u:232;--d:4.20s" x="346" y="34" width="66" height="40" rx="8"/><rect class="cz-dolgu" style="--d:4.20s" x="346" y="34" width="66" height="40" rx="8"/><text class="cz-etiket" style="--d:4.74s" x="372" y="58">A</text><rect class="cz-cizgi" style="--u:232;--d:4.62s" x="346" y="90" width="66" height="40" rx="8"/><rect class="cz-dolgu" style="--d:4.62s" x="346" y="90" width="66" height="40" rx="8"/><text class="cz-etiket" style="--d:5.16s" x="372" y="114">B</text><text class="cz-etiket" style="--d:5.16s" x="346" y="156">varyant testi</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>KİTLE</u><b data-sayac="3" data-birim=" katman">0 katman</b></div><div class="ciz-cip"><u>YERLEŞİM</u><b data-sayac="4" data-birim="">0</b></div><div class="ciz-cip"><u>TEST</u><b>A/B sürekli</b></div></div>
+    </div>
+  </div>
+</div>
+<div class="kart" style="--acc:rgb(255,176,32);--acc-rgb:255,176,32">
+  <div class="kart-bas">
+    <b>/performans-pazarlamasi/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/dijital-pazarlama/performans-pazarlamasi/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>huni kuruluyor</span><b>OPTİMİZE</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<text class="cz-etiket" style="--d:0.12s" x="14" y="34">reklam</text><line class="cz-cizgi" style="--u:62;--d:0.00s" x1="62" y1="40" x2="116" y2="40"/><text class="cz-etiket" style="--d:0.54s" x="360" y="34">sosyal</text><line class="cz-cizgi" style="--u:62;--d:0.42s" x1="368" y1="40" x2="314" y2="40"/><path class="cz-cizgi" style="--u:520;--d:0.84s" d="M120,20 h190 l-30,40 h-130 z"/><path class="cz-cizgi" style="--u:380;--d:1.26s" d="M152,74 h126 l-22,38 h-82 z"/><path class="cz-cizgi" style="--u:250;--d:1.68s" d="M176,126 h78 l-15,34 h-48 z"/><circle class="cz-cizgi" style="--u:81;--d:2.10s" cx="215" cy="184" r="11"/><circle class="cz-cizgi" style="--u:37;--d:2.52s" cx="215" cy="184" r="4"/><circle class="cz-dolgu" style="--d:2.52s" cx="215" cy="184" r="4"/><line class="cz-cizgi" style="--u:78;--d:2.94s" x1="258" y1="143" x2="328" y2="143"/><rect class="cz-cizgi" style="--u:316;--d:3.36s" x="328" y="118" width="90" height="58" rx="8"/><rect class="cz-dolgu" style="--d:3.36s" x="328" y="118" width="90" height="58" rx="8"/><line class="cz-cizgi" style="--u:74;--d:3.78s" x1="340" y1="138" x2="406" y2="138"/><line class="cz-cizgi" style="--u:58;--d:4.20s" x1="340" y1="154" x2="390" y2="154"/><text class="cz-etiket vurgu" style="--d:4.74s" x="328" y="196">tek rapor</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>KANAL</u><b data-sayac="3" data-birim="+">0+</b></div><div class="ciz-cip"><u>RAPOR</u><b data-sayac="1" data-birim="">0</b></div><div class="ciz-cip"><u>MALİYET</u><b>edinme ↓</b></div></div>
+    </div>
+  </div>
+</div>
+<div class="kart" style="--acc:rgb(255,176,32);--acc-rgb:255,176,32">
+  <div class="kart-bas">
+    <b>/sosyal-medya-yonetimi/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/dijital-pazarlama/sosyal-medya-yonetimi/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>takvim dolduruluyor</span><b>PLANLANDI</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<rect class="cz-cizgi" style="--u:808;--d:0.00s" x="14" y="20" width="242" height="152" rx="10"/><rect class="cz-dolgu" style="--d:0.00s" x="14" y="20" width="242" height="152" rx="10"/><line class="cz-cizgi" style="--u:160;--d:0.42s" x1="94" y1="20" x2="94" y2="172"/><line class="cz-cizgi" style="--u:160;--d:0.84s" x1="174" y1="20" x2="174" y2="172"/><line class="cz-cizgi" style="--u:250;--d:1.26s" x1="14" y1="70" x2="256" y2="70"/><line class="cz-cizgi" style="--u:250;--d:1.68s" x1="14" y1="120" x2="256" y2="120"/><rect class="cz-cizgi" style="--u:88;--d:2.10s" x="28" y="34" width="20" height="14" rx="3"/><rect class="cz-dolgu" style="--d:2.10s" x="28" y="34" width="20" height="14" rx="3"/><rect class="cz-cizgi" style="--u:88;--d:2.52s" x="108" y="84" width="20" height="14" rx="3"/><rect class="cz-dolgu" style="--d:2.52s" x="108" y="84" width="20" height="14" rx="3"/><rect class="cz-cizgi" style="--u:88;--d:2.94s" x="188" y="134" width="20" height="14" rx="3"/><rect class="cz-dolgu" style="--d:2.94s" x="188" y="134" width="20" height="14" rx="3"/><path class="cz-cizgi" style="--u:60;--d:3.36s" d="M122,34 l14,8 l-14,8 z"/><circle class="cz-cizgi" style="--u:201;--d:3.78s" cx="330" cy="60" r="30"/><line class="cz-cizgi" style="--u:28;--d:4.20s" x1="330" y1="60" x2="330" y2="40"/><line class="cz-cizgi" style="--u:26;--d:4.62s" x1="330" y1="60" x2="346" y2="68"/><text class="cz-etiket vurgu" style="--d:5.16s" x="306" y="108">yayın saati</text><rect class="cz-cizgi" style="--u:308;--d:5.04s" x="300" y="126" width="112" height="32" rx="16"/><rect class="cz-dolgu" style="--d:5.04s" x="300" y="126" width="112" height="32" rx="16"/><text class="cz-etiket" style="--d:5.58s" x="316" y="146">@markaniz</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>GÖNDERİ</u><b data-sayac="12" data-birim="">0</b></div><div class="ciz-cip"><u>REELS</u><b data-sayac="4" data-birim="">0</b></div><div class="ciz-cip"><u>ONAY</u><b>sizde</b></div></div>
+    </div>
+  </div>
+</div>
+<h2 class="modul-bas" data-genis style="--acc:rgb(255,45,155);--acc-rgb:255,45,155"><i></i>Video Prodüksiyon</h2>
+
+<div class="kart" style="--acc:rgb(255,45,155);--acc-rgb:255,45,155">
+  <div class="kart-bas">
+    <b>/reklam-filmi/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/video-produksiyon/reklam-filmi/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>storyboard çiziliyor</span><b>ÇEKİMDE</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<rect class="cz-cizgi" style="--u:308;--d:0.00s" x="20" y="20" width="120" height="24" rx="4"/><rect class="cz-dolgu" style="--d:0.00s" x="20" y="20" width="120" height="24" rx="4"/><line class="cz-cizgi" style="--u:37;--d:0.42s" x1="36" y1="20" x2="52" y2="44"/><line class="cz-cizgi" style="--u:37;--d:0.84s" x1="68" y1="20" x2="84" y2="44"/><line class="cz-cizgi" style="--u:37;--d:1.26s" x1="100" y1="20" x2="116" y2="44"/><rect class="cz-cizgi" style="--u:404;--d:1.68s" x="20" y="44" width="120" height="72" rx="4"/><rect class="cz-dolgu" style="--d:1.68s" x="20" y="44" width="120" height="72" rx="4"/><text class="cz-etiket vurgu" style="--d:2.22s" x="38" y="84">SAHNE 01</text><rect class="cz-cizgi" style="--u:304;--d:2.10s" x="160" y="20" width="80" height="62" rx="6"/><rect class="cz-dolgu" style="--d:2.10s" x="160" y="20" width="80" height="62" rx="6"/><line class="cz-cizgi" style="--u:73;--d:2.52s" x1="170" y1="66" x2="230" y2="40"/><rect class="cz-cizgi" style="--u:304;--d:2.94s" x="250" y="20" width="80" height="62" rx="6"/><rect class="cz-dolgu" style="--d:2.94s" x="250" y="20" width="80" height="62" rx="6"/><circle class="cz-cizgi" style="--u:100;--d:3.36s" cx="290" cy="50" r="14"/><rect class="cz-cizgi" style="--u:296;--d:3.78s" x="340" y="20" width="76" height="62" rx="6"/><rect class="cz-dolgu" style="--d:3.78s" x="340" y="20" width="76" height="62" rx="6"/><line class="cz-cizgi" style="--u:64;--d:4.20s" x1="350" y1="34" x2="406" y2="34"/><line class="cz-cizgi" style="--u:48;--d:4.62s" x1="350" y1="50" x2="390" y2="50"/><text class="cz-etiket" style="--d:5.16s" x="160" y="100">storyboard</text><rect class="cz-cizgi" style="--u:584;--d:5.04s" x="160" y="150" width="256" height="26" rx="6"/><rect class="cz-dolgu" style="--d:5.04s" x="160" y="150" width="256" height="26" rx="6"/><line class="cz-cizgi" style="--u:34;--d:5.46s" x1="196" y1="150" x2="196" y2="176"/><line class="cz-cizgi" style="--u:34;--d:5.88s" x1="232" y1="150" x2="232" y2="176"/><line class="cz-cizgi" style="--u:46;--d:6.30s" x1="268" y1="144" x2="268" y2="182"/><text class="cz-etiket" style="--d:6.84s" x="20" y="140">senaryo ✓</text><text class="cz-etiket" style="--d:6.84s" x="20" y="158">seslendirme ✓</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>SAHNE</u><b data-sayac="8" data-birim="">0</b></div><div class="ciz-cip"><u>SES</u><b>stüdyo kayıt</b></div><div class="ciz-cip"><u>TESLİM</u><b data-sayac="3" data-birim=" format">0 format</b></div></div>
+    </div>
+  </div>
+</div>
+<div class="kart" style="--acc:rgb(255,45,155);--acc-rgb:255,45,155">
+  <div class="kart-bas">
+    <b>/urun-videosu/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/video-produksiyon/urun-videosu/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>sahne kuruluyor</span><b>KAYITTA</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<ellipse class="cz-cizgi" style="--u:374;--d:0.00s" cx="250" cy="162" rx="92" ry="20"/><rect class="cz-cizgi" style="--u:308;--d:0.42s" x="214" y="90" width="72" height="72" rx="8"/><rect class="cz-dolgu" style="--d:0.42s" x="214" y="90" width="72" height="72" rx="8"/><line class="cz-cizgi" style="--u:52;--d:0.84s" x1="228" y1="112" x2="272" y2="112"/><path class="cz-cizgi" style="--u:60;--d:1.26s" d="M158,166 a92,20 0 0 1 20,-14"/><line class="cz-cizgi" style="--u:18;--d:1.68s" x1="178" y1="152" x2="168" y2="150"/><line class="cz-cizgi" style="--u:17;--d:2.10s" x1="178" y1="152" x2="176" y2="161"/><rect class="cz-cizgi" style="--u:224;--d:2.52s" x="38" y="92" width="62" height="40" rx="8"/><rect class="cz-dolgu" style="--d:2.52s" x="38" y="92" width="62" height="40" rx="8"/><circle class="cz-cizgi" style="--u:94;--d:2.94s" cx="110" cy="112" r="13"/><line class="cz-cizgi" style="--u:48;--d:3.36s" x1="69" y1="132" x2="69" y2="172"/><line class="cz-cizgi" style="--u:36;--d:3.78s" x1="55" y1="172" x2="83" y2="172"/><rect class="cz-cizgi" style="--u:192;--d:4.20s" x="40" y="20" width="52" height="34" rx="4"/><rect class="cz-dolgu" style="--d:4.20s" x="40" y="20" width="52" height="34" rx="4"/><line class="cz-cizgi" style="--u:70;--d:4.62s" x1="40" y1="20" x2="92" y2="54"/><line class="cz-cizgi" style="--u:70;--d:5.04s" x1="92" y1="20" x2="40" y2="54"/><line class="cz-cizgi" style="--u:30;--d:5.46s" x1="66" y1="54" x2="66" y2="76"/><circle class="cz-cizgi" style="--u:44;--d:5.88s" cx="392" cy="26" r="5"/><circle class="cz-dolgu" style="--d:5.88s" cx="392" cy="26" r="5"/><text class="cz-etiket vurgu" style="--d:6.42s" x="360" y="46">REC</text><text class="cz-etiket" style="--d:6.42s" x="330" y="190">döner sahne</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>AÇI</u><b data-sayac="360" data-birim="°">0°</b></div><div class="ciz-cip"><u>KLİP</u><b data-sayac="6" data-birim="">0</b></div><div class="ciz-cip"><u>FORMAT</u><b>kare + dikey</b></div></div>
+    </div>
+  </div>
+</div>
+<div class="kart" style="--acc:rgb(255,45,155);--acc-rgb:255,45,155">
+  <div class="kart-bas">
+    <b>/sosyal-video-reels/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/video-produksiyon/sosyal-video-reels/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>dikey kurgu</span><b>TRENDDE</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<rect class="cz-cizgi" style="--u:604;--d:0.00s" x="160" y="14" width="110" height="182" rx="16"/><rect class="cz-dolgu" style="--d:0.00s" x="160" y="14" width="110" height="182" rx="16"/><line class="cz-cizgi" style="--u:106;--d:0.42s" x1="166" y1="24" x2="264" y2="24"/><rect class="cz-sonradan" style="--d:0.96s" x="172" y="42" width="86" height="118" rx="4"/><line class="cz-cizgi" style="--u:78;--d:0.84s" x1="180" y1="140" x2="250" y2="140"/><line class="cz-cizgi" style="--u:60;--d:1.26s" x1="180" y1="152" x2="232" y2="152"/><line class="cz-cizgi" style="--u:20;--d:1.68s" x1="178" y1="186" x2="178" y2="174"/><line class="cz-cizgi" style="--u:28;--d:2.10s" x1="190" y1="186" x2="190" y2="166"/><line class="cz-cizgi" style="--u:16;--d:2.52s" x1="202" y1="186" x2="202" y2="178"/><line class="cz-cizgi" style="--u:32;--d:2.94s" x1="214" y1="186" x2="214" y2="162"/><line class="cz-cizgi" style="--u:22;--d:3.36s" x1="226" y1="186" x2="226" y2="172"/><line class="cz-cizgi" style="--u:14;--d:3.78s" x1="238" y1="186" x2="238" y2="180"/><line class="cz-cizgi" style="--u:26;--d:4.20s" x1="250" y1="186" x2="250" y2="168"/><circle class="cz-cizgi" style="--u:69;--d:4.62s" cx="304" cy="76" r="9"/><circle class="cz-cizgi" style="--u:69;--d:5.04s" cx="304" cy="110" r="9"/><circle class="cz-cizgi" style="--u:69;--d:5.46s" cx="304" cy="144" r="9"/><text class="cz-etiket vurgu" style="--d:6.00s" x="24" y="60">kanca ✓</text><text class="cz-etiket" style="--d:6.00s" x="24" y="84">altyazı ✓</text><text class="cz-etiket" style="--d:6.00s" x="24" y="108">safe-zone ✓</text><text class="cz-etiket" style="--d:6.00s" x="290" y="176">paylaşım</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>ORAN</u><b>9:16</b></div><div class="ciz-cip"><u>VERSİYON</u><b data-sayac="3" data-birim="">0</b></div><div class="ciz-cip"><u>MÜZİK</u><b>telifsiz</b></div></div>
+    </div>
+  </div>
+</div>
+<div class="kart" style="--acc:rgb(255,45,155);--acc-rgb:255,45,155">
+  <div class="kart-bas">
+    <b>/ai-destekli-produksiyon/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/video-produksiyon/ai-destekli-produksiyon/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>fotoğraftan videoya</span><b>RENDER</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<rect class="cz-cizgi" style="--u:448;--d:0.00s" x="20" y="44" width="122" height="92" rx="8"/><rect class="cz-dolgu" style="--d:0.00s" x="20" y="44" width="122" height="92" rx="8"/><path class="cz-cizgi" style="--u:150;--d:0.42s" d="M32,120 l30,-38 l22,26 l18,-20 l20,32"/><circle class="cz-cizgi" style="--u:69;--d:0.84s" cx="52" cy="66" r="9"/><text class="cz-etiket vurgu" style="--d:1.38s" x="20" y="156">tek ürün fotoğrafı</text><line class="cz-cizgi" style="--u:40;--d:1.26s" x1="190" y1="44" x2="190" y2="76"/><line class="cz-cizgi" style="--u:40;--d:1.68s" x1="174" y1="60" x2="206" y2="60"/><line class="cz-cizgi" style="--u:100;--d:2.10s" x1="152" y1="94" x2="244" y2="94"/><line class="cz-cizgi" style="--u:20;--d:2.52s" x1="244" y1="94" x2="234" y2="87"/><line class="cz-cizgi" style="--u:20;--d:2.94s" x1="244" y1="94" x2="234" y2="101"/><rect class="cz-cizgi" style="--u:392;--d:3.36s" x="260" y="30" width="142" height="44" rx="6"/><rect class="cz-dolgu" style="--d:3.36s" x="260" y="30" width="142" height="44" rx="6"/><rect class="cz-cizgi" style="--u:392;--d:3.78s" x="260" y="84" width="142" height="44" rx="6"/><rect class="cz-dolgu" style="--d:3.78s" x="260" y="84" width="142" height="44" rx="6"/><rect class="cz-cizgi" style="--u:392;--d:4.20s" x="260" y="138" width="142" height="44" rx="6"/><rect class="cz-dolgu" style="--d:4.20s" x="260" y="138" width="142" height="44" rx="6"/><line class="cz-cizgi" style="--u:160;--d:4.62s" x1="272" y1="30" x2="272" y2="182"/><text class="cz-etiket" style="--d:5.16s" x="288" y="200">video kareleri</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>KAYNAK</u><b data-sayac="1" data-birim=" foto">0 foto</b></div><div class="ciz-cip"><u>VARYANT</u><b data-sayac="4" data-birim="">0</b></div><div class="ciz-cip"><u>KAMERA</u><b data-sayac="0" data-birim="">0</b></div></div>
+    </div>
+  </div>
+</div>
+<h2 class="modul-bas" data-genis style="--acc:rgb(166,255,0);--acc-rgb:166,255,0"><i></i>SEO Hizmetleri</h2>
+
+<div class="kart" style="--acc:rgb(166,255,0);--acc-rgb:166,255,0">
+  <div class="kart-bas">
+    <b>/teknik-seo/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/seo/teknik-seo/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>site taranıyor</span><b>İNDEKSTE</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<rect class="cz-cizgi" style="--u:648;--d:0.00s" x="14" y="14" width="202" height="112" rx="8"/><rect class="cz-dolgu" style="--d:0.00s" x="14" y="14" width="202" height="112" rx="8"/><line class="cz-cizgi" style="--u:210;--d:0.42s" x1="14" y1="38" x2="216" y2="38"/><circle class="cz-cizgi" style="--u:31;--d:0.84s" cx="28" cy="26" r="3"/><circle class="cz-dolgu" style="--d:0.84s" cx="28" cy="26" r="3"/><circle class="cz-cizgi" style="--u:31;--d:1.26s" cx="40" cy="26" r="3"/><circle class="cz-dolgu" style="--d:1.26s" cx="40" cy="26" r="3"/><text class="cz-etiket vurgu" style="--d:1.80s" x="26" y="60">robots.txt ✓</text><text class="cz-etiket" style="--d:1.80s" x="26" y="80">sitemap.xml ✓</text><text class="cz-etiket" style="--d:1.80s" x="26" y="100">canonical ✓</text><path class="cz-cizgi" style="--u:200;--d:1.68s" d="M252,120 a58,58 0 0 1 116,0"/><line class="cz-cizgi" style="--u:58;--d:2.10s" x1="310" y1="120" x2="342" y2="82"/><circle class="cz-cizgi" style="--u:44;--d:2.52s" cx="310" cy="120" r="5"/><circle class="cz-dolgu" style="--d:2.52s" cx="310" cy="120" r="5"/><text class="cz-etiket vurgu" style="--d:3.06s" x="276" y="144">site hızı</text><circle class="cz-cizgi" style="--u:50;--d:2.94s" cx="250" cy="176" r="6"/><circle class="cz-cizgi" style="--u:50;--d:3.36s" cx="300" cy="158" r="6"/><circle class="cz-cizgi" style="--u:50;--d:3.78s" cx="334" cy="186" r="6"/><circle class="cz-cizgi" style="--u:50;--d:4.20s" cx="374" cy="164" r="6"/><line class="cz-cizgi" style="--u:48;--d:4.62s" x1="256" y1="174" x2="294" y2="160"/><line class="cz-cizgi" style="--u:39;--d:5.04s" x1="306" y1="160" x2="328" y2="182"/><line class="cz-cizgi" style="--u:41;--d:5.46s" x1="340" y1="184" x2="368" y2="166"/>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>LCP</u><b data-sayac="1.2" data-birim=" sn">0 sn</b></div><div class="ciz-cip"><u>HATA</u><b data-sayac="0" data-birim="">0</b></div><div class="ciz-cip"><u>ŞEMA</u><b data-sayac="5" data-birim=" tür">0 tür</b></div></div>
+    </div>
+  </div>
+</div>
+<div class="kart" style="--acc:rgb(166,255,0);--acc-rgb:166,255,0">
+  <div class="kart-bas">
+    <b>/icerik-stratejisi/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/seo/icerik-stratejisi/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>içerik haritası</span><b>SIRALAMADA</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<rect class="cz-cizgi" style="--u:728;--d:0.00s" x="14" y="20" width="182" height="172" rx="8"/><rect class="cz-dolgu" style="--d:0.00s" x="14" y="20" width="182" height="172" rx="8"/><line class="cz-cizgi" style="--u:132;--d:0.42s" x1="28" y1="48" x2="152" y2="48"/><line class="cz-cizgi" style="--u:160;--d:0.84s" x1="28" y1="74" x2="180" y2="74"/><line class="cz-cizgi" style="--u:148;--d:1.26s" x1="28" y1="90" x2="168" y2="90"/><line class="cz-cizgi" style="--u:160;--d:1.68s" x1="28" y1="106" x2="180" y2="106"/><line class="cz-cizgi" style="--u:100;--d:2.10s" x1="28" y1="132" x2="120" y2="132"/><line class="cz-cizgi" style="--u:152;--d:2.52s" x1="28" y1="156" x2="172" y2="156"/><text class="cz-etiket vurgu" style="--d:3.06s" x="28" y="40">H1 — odak kelime</text><rect class="cz-cizgi" style="--u:244;--d:2.94s" x="230" y="28" width="86" height="26" rx="13"/><rect class="cz-dolgu" style="--d:2.94s" x="230" y="28" width="86" height="26" rx="13"/><text class="cz-etiket" style="--d:3.48s" x="244" y="45">anahtar</text><rect class="cz-cizgi" style="--u:252;--d:3.36s" x="326" y="28" width="90" height="26" rx="13"/><rect class="cz-dolgu" style="--d:3.36s" x="326" y="28" width="90" height="26" rx="13"/><text class="cz-etiket" style="--d:3.90s" x="340" y="45">niyet</text><line class="cz-cizgi" style="--u:56;--d:3.78s" x1="196" y1="100" x2="232" y2="132"/><line class="cz-cizgi" style="--u:54;--d:4.20s" x1="196" y1="140" x2="232" y2="168"/><rect class="cz-cizgi" style="--u:288;--d:4.62s" x="232" y="118" width="82" height="52" rx="6"/><rect class="cz-dolgu" style="--d:4.62s" x="232" y="118" width="82" height="52" rx="6"/><rect class="cz-cizgi" style="--u:288;--d:5.04s" x="324" y="118" width="82" height="52" rx="6"/><rect class="cz-dolgu" style="--d:5.04s" x="324" y="118" width="82" height="52" rx="6"/><text class="cz-etiket vurgu" style="--d:5.58s" x="232" y="190">iç link ağı</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>KÜME</u><b data-sayac="5" data-birim="">0</b></div><div class="ciz-cip"><u>İÇ LİNK</u><b data-sayac="7" data-birim="/sayfa">0/sayfa</b></div><div class="ciz-cip"><u>YOAST</u><b>yeşil ışık</b></div></div>
+    </div>
+  </div>
+</div>
+<div class="kart" style="--acc:rgb(166,255,0);--acc-rgb:166,255,0">
+  <div class="kart-bas">
+    <b>/yerel-seo/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/seo/yerel-seo/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>harita kaydı</span><b>HARİTADA</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<circle class="cz-cizgi" style="--u:176;--d:0.00s" cx="120" cy="78" r="26"/><circle class="cz-cizgi" style="--u:75;--d:0.42s" cx="120" cy="78" r="10"/><circle class="cz-dolgu" style="--d:0.42s" cx="120" cy="78" r="10"/><path class="cz-cizgi" style="--u:130;--d:0.84s" d="M98,92 L120,138 L142,92"/><circle class="cz-sonradan" style="--d:1.38s" cx="120" cy="95" r="55"/><circle class="cz-sonradan" style="--d:1.38s" cx="120" cy="95" r="82"/><text class="cz-etiket vurgu" style="--d:1.38s" x="74" y="176">semt yarıçapı</text><rect class="cz-cizgi" style="--u:508;--d:1.26s" x="258" y="46" width="152" height="92" rx="10"/><rect class="cz-dolgu" style="--d:1.26s" x="258" y="46" width="152" height="92" rx="10"/><circle class="cz-cizgi" style="--u:62;--d:1.68s" cx="280" cy="68" r="8"/><line class="cz-cizgi" style="--u:104;--d:2.10s" x1="296" y1="68" x2="392" y2="68"/><line class="cz-cizgi" style="--u:130;--d:2.52s" x1="274" y1="92" x2="396" y2="92"/><line class="cz-cizgi" style="--u:104;--d:2.94s" x1="274" y1="108" x2="370" y2="108"/><circle class="cz-cizgi" style="--u:37;--d:3.36s" cx="282" cy="124" r="4"/><circle class="cz-dolgu" style="--d:3.36s" cx="282" cy="124" r="4"/><circle class="cz-cizgi" style="--u:37;--d:3.78s" cx="296" cy="124" r="4"/><circle class="cz-dolgu" style="--d:3.78s" cx="296" cy="124" r="4"/><circle class="cz-cizgi" style="--u:37;--d:4.20s" cx="310" cy="124" r="4"/><circle class="cz-dolgu" style="--d:4.20s" cx="310" cy="124" r="4"/><circle class="cz-cizgi" style="--u:37;--d:4.62s" cx="324" cy="124" r="4"/><circle class="cz-dolgu" style="--d:4.62s" cx="324" cy="124" r="4"/><circle class="cz-cizgi" style="--u:37;--d:5.04s" cx="338" cy="124" r="4"/><circle class="cz-dolgu" style="--d:5.04s" cx="338" cy="124" r="4"/><text class="cz-etiket vurgu" style="--d:5.58s" x="258" y="160">Google İşletme Profili</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>PUAN</u><b data-sayac="4.9" data-birim="">0</b></div><div class="ciz-cip"><u>YORUM</u><b>yanıtlanıyor</b></div><div class="ciz-cip"><u>HEDEF</u><b>semt bazlı</b></div></div>
+    </div>
+  </div>
+</div>
+<div class="kart" style="--acc:rgb(166,255,0);--acc-rgb:166,255,0">
+  <div class="kart-bas">
+    <b>/cok-dilli-seo/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/seo/cok-dilli-seo/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>diller bağlanıyor</span><b>KÜRESEL</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<circle class="cz-cizgi" style="--u:377;--d:0.00s" cx="110" cy="100" r="58"/><ellipse class="cz-cizgi" style="--u:285;--d:0.42s" cx="110" cy="100" rx="26" ry="58"/><line class="cz-cizgi" style="--u:124;--d:0.84s" x1="52" y1="100" x2="168" y2="100"/><line class="cz-cizgi" style="--u:97;--d:1.26s" x1="166" y1="78" x2="250" y2="48"/><line class="cz-cizgi" style="--u:90;--d:1.68s" x1="168" y1="100" x2="250" y2="108"/><line class="cz-cizgi" style="--u:104;--d:2.10s" x1="166" y1="122" x2="250" y2="168"/><rect class="cz-cizgi" style="--u:248;--d:2.52s" x="250" y="26" width="70" height="44" rx="6"/><rect class="cz-dolgu" style="--d:2.52s" x="250" y="26" width="70" height="44" rx="6"/><text class="cz-etiket vurgu" style="--d:3.06s" x="276" y="52">TR</text><rect class="cz-cizgi" style="--u:248;--d:2.94s" x="250" y="86" width="70" height="44" rx="6"/><rect class="cz-dolgu" style="--d:2.94s" x="250" y="86" width="70" height="44" rx="6"/><text class="cz-etiket vurgu" style="--d:3.48s" x="276" y="112">EN</text><rect class="cz-cizgi" style="--u:248;--d:3.36s" x="250" y="146" width="70" height="44" rx="6"/><rect class="cz-dolgu" style="--d:3.36s" x="250" y="146" width="70" height="44" rx="6"/><text class="cz-etiket vurgu" style="--d:3.90s" x="276" y="172">DE</text><line class="cz-cizgi" style="--u:28;--d:3.78s" x1="320" y1="108" x2="340" y2="108"/><rect class="cz-cizgi" style="--u:256;--d:4.20s" x="340" y="88" width="78" height="40" rx="10"/><rect class="cz-dolgu" style="--d:4.20s" x="340" y="88" width="78" height="40" rx="10"/><text class="cz-etiket" style="--d:4.74s" x="348" y="112">hreflang ✓</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>DİL</u><b data-sayac="3" data-birim="+">0+</b></div><div class="ciz-cip"><u>HARİTA</u><b>dil başına</b></div><div class="ciz-cip"><u>HEDEF</u><b>yurt dışı</b></div></div>
+    </div>
+  </div>
+</div>
+<div class="kart" style="--acc:rgb(166,255,0);--acc-rgb:166,255,0">
+  <div class="kart-bas">
+    <b>/e-ticaret-seo/</b>
+    <a href="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/hizmetler/seo/e-ticaret-seo/" target="_blank" rel="noopener">sayfayı aç ↗</a>
+  </div>
+  <div class="ciz-kutu" aria-hidden="true">
+    <div class="ciz-cerceve">
+      <div class="ciz-bar"><i></i><i></i><i></i><span>mağaza optimize ediliyor</span><b>GÖRÜNÜRDE</b></div>
+      <div class="ciz-svg">
+        <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<rect class="cz-cizgi" style="--u:708;--d:0.00s" x="14" y="20" width="172" height="172" rx="8"/><rect class="cz-dolgu" style="--d:0.00s" x="14" y="20" width="172" height="172" rx="8"/><rect class="cz-cizgi" style="--u:308;--d:0.42s" x="28" y="34" width="80" height="64" rx="6"/><rect class="cz-dolgu" style="--d:0.42s" x="28" y="34" width="80" height="64" rx="6"/><line class="cz-cizgi" style="--u:62;--d:0.84s" x1="120" y1="46" x2="174" y2="46"/><line class="cz-cizgi" style="--u:50;--d:1.26s" x1="120" y1="62" x2="162" y2="62"/><line class="cz-cizgi" style="--u:150;--d:1.68s" x1="28" y1="118" x2="170" y2="118"/><line class="cz-cizgi" style="--u:130;--d:2.10s" x1="28" y1="134" x2="150" y2="134"/><rect class="cz-cizgi" style="--u:212;--d:2.52s" x="28" y="154" width="72" height="24" rx="12"/><rect class="cz-dolgu" style="--d:2.52s" x="28" y="154" width="72" height="24" rx="12"/><circle class="cz-cizgi" style="--u:176;--d:2.94s" cx="232" cy="68" r="26"/><line class="cz-cizgi" style="--u:45;--d:3.36s" x1="250" y1="86" x2="276" y2="112"/><text class="cz-etiket vurgu" style="--d:3.90s" x="212" y="116">denetim</text><path class="cz-cizgi" style="--u:210;--d:3.78s" d="M292,172 h30 v-24 h30 v-24 h30 v-24 h22"/><line class="cz-cizgi" style="--u:32;--d:4.20s" x1="404" y1="100" x2="404" y2="76"/><line class="cz-cizgi" style="--u:19;--d:4.62s" x1="404" y1="76" x2="397" y2="84"/><line class="cz-cizgi" style="--u:19;--d:5.04s" x1="404" y1="76" x2="411" y2="84"/><text class="cz-etiket vurgu" style="--d:5.58s" x="300" y="192">sıralama</text>
+        </svg>
+      </div>
+      <div class="ciz-alt"><div class="ciz-cip"><u>ŞABLON</u><b>ürün + kategori</b></div><div class="ciz-cip"><u>KOPYA İÇERİK</u><b data-sayac="0" data-birim="">0</b></div><div class="ciz-cip"><u>HIZ</u><b>optimize</b></div></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<script>
+"use strict";
+(function(){
+  var cipler = document.querySelectorAll('.ciz-cip [data-sayac]');
+  function bicim(hedef, deger){ return (hedef % 1 === 0 ? Math.round(deger) : deger.toFixed(1).replace('.', ',')); }
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    cipler.forEach(function(b){ b.textContent = bicim(parseFloat(b.dataset.sayac), parseFloat(b.dataset.sayac)) + b.dataset.birim; });
+    return;
+  }
+  var DONGU = 9000, basla = performance.now();
+  function kare(t){
+    var oran = Math.min(1, Math.max(0, (((t - basla) % DONGU) - 1200) / 3800));
+    cipler.forEach(function(b){
+      var hedef = parseFloat(b.dataset.sayac);
+      b.textContent = bicim(hedef, hedef * oran) + b.dataset.birim;
+    });
+    requestAnimationFrame(kare);
+  }
+  requestAnimationFrame(kare);
+})();
+</script>
+</body>
+</html>
