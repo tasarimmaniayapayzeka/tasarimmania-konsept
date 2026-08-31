@@ -61,6 +61,99 @@
 .hero-img{width:100%;height:auto;aspect-ratio:1;border-radius:var(--r-lg);border:1px solid var(--hair);
   background:var(--bg-2);box-shadow:0 30px 70px -30px rgba(0,0,0,.9)}
 
+/* --- HERO 3D (hub): üç katman, sekme + otomatik döngü + fare eğimi --- */
+.hero3d{position:relative}
+.h3-sekme{display:flex;gap:7px;margin-bottom:16px;flex-wrap:wrap}
+.h3-sekme button{font-family:var(--mono);font-size:10.6px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);background:var(--panel);border:1px solid var(--hair);border-radius:999px;
+  padding:8px 15px;cursor:pointer;transition:.3s var(--ease)}
+.h3-sekme button:hover{color:var(--fg-dim);border-color:var(--hair-strong)}
+.h3-sekme button.acik{color:var(--acc);border-color:var(--acc);background:rgba(var(--acc-rgb),.10)}
+.h3-kutu{position:relative;height:clamp(300px,32vw,420px);perspective:1500px;perspective-origin:58% 42%}
+.h3-sahne{position:absolute;inset:0;transform-style:preserve-3d;
+  transform:rotateX(var(--rx,7deg)) rotateY(var(--ry,-15deg));transition:transform .5s var(--ease)}
+.h3-kat{position:absolute;left:0;right:0;top:50%;height:82%;transform-style:preserve-3d;
+  border:1px solid var(--hair);border-radius:13px;overflow:hidden;background:var(--bg-2);
+  box-shadow:0 30px 70px -30px rgba(0,0,0,.9);
+  transform:translateY(-50%) translateZ(var(--z)) translateX(var(--x)) scale(var(--s));
+  opacity:var(--o);transition:transform .6s var(--ease),opacity .6s var(--ease),border-color .4s}
+.h3-kat[data-durum="on"]  {--z:70px;  --x:0;  --s:1;   --o:1;  border-color:rgba(var(--acc-rgb),.5)}
+.h3-kat[data-durum="orta"]{--z:-30px; --x:3%; --s:.94; --o:.5}
+.h3-kat[data-durum="arka"]{--z:-130px;--x:6%; --s:.88; --o:.26}
+.h3-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--hair);
+  background:rgba(255,255,255,.035)}
+.h3-bar i{width:7px;height:7px;border-radius:50%;background:#3A4152;flex:none}
+.h3-bar i:nth-child(1){background:#FF5F57}.h3-bar i:nth-child(2){background:#FEBC2E}.h3-bar i:nth-child(3){background:#28C840}
+.h3-bar span{font-family:var(--mono);font-size:9.6px;color:var(--muted);margin-left:7px;letter-spacing:.05em}
+.h3-bar b{margin-left:auto;font-family:var(--mono);font-size:8.6px;letter-spacing:.13em;color:var(--acc);
+  border:1px solid rgba(var(--acc-rgb),.45);border-radius:99px;padding:3px 8px;font-weight:500}
+.h3-ic{padding:14px;height:calc(100% - 33px);display:flex;flex-direction:column;gap:9px}
+.h3-not{margin-top:16px;font-size:13px;color:var(--muted);line-height:1.6}
+.h3-not b{color:var(--fg-dim);font-weight:500}
+[data-olay]{cursor:pointer;position:relative;transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
+[data-olay]:hover,[data-olay]:focus-visible{transform:translateY(-1px)}
+[data-olay]::after{content:"";position:absolute;left:50%;top:50%;
+  transform:translate(-50%,-50%);width:100%;min-width:26px;height:100%;min-height:26px}
+button[data-olay]{font-family:inherit;color:inherit}
+.ol-sat{display:flex;gap:6px}
+.ol-cip{flex:1;border:1px solid var(--hair);border-radius:7px;padding:7px 8px;background:rgba(255,255,255,.03)}
+.ol-cip u{display:block;text-decoration:none;font-family:var(--mono);font-size:8.2px;letter-spacing:.12em;color:var(--muted)}
+.ol-cip b{display:block;font-family:var(--mono);font-size:13px;color:var(--acc);margin-top:3px;letter-spacing:-.02em}
+.ol-olay{display:grid;gap:6px;margin-top:3px;list-style:none;padding:0}
+.ol-olay li{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:8.8px;
+  color:var(--fg-dim);letter-spacing:.04em}
+.ol-olay i{width:6px;height:6px;border-radius:50%;background:var(--acc);flex:none;
+  box-shadow:0 0 8px 1px rgba(var(--acc-rgb),.8)}
+.ol-olay li.parla{color:var(--acc)}
+.ol-olay li.parla i{animation:olayParla .9s var(--ease) 3}
+@keyframes olayParla{
+  0%,100%{transform:scale(1);box-shadow:0 0 8px 1px rgba(var(--acc-rgb),.8)}
+  50%{transform:scale(1.6);box-shadow:0 0 18px 5px rgba(var(--acc-rgb),1)}}
+.ol-not{margin-top:auto;font-family:var(--mono);font-size:8.4px;color:var(--muted);
+  border-top:1px solid var(--hair);padding-top:8px;line-height:1.5}
+/* hub içerik yardımcıları */
+.hb-cz{height:9px;border-radius:3px;background:rgba(255,255,255,.16)}
+.hb-cz.a{background:rgba(var(--acc-rgb),.5);height:11px}
+.hb-kart{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
+.hb-kart i{height:38px;border-radius:7px;border:1px solid var(--hair);
+  background:linear-gradient(160deg,rgba(var(--acc-rgb),.14),transparent)}
+.hb-cip{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:8.4px;
+  letter-spacing:.08em;color:var(--fg-dim);border:1px solid var(--hair);border-radius:99px;padding:4px 9px}
+.hb-cip.vur{color:var(--acc);border-color:rgba(var(--acc-rgb),.5);background:rgba(var(--acc-rgb),.08)}
+.hb-cipler{display:flex;gap:5px;flex-wrap:wrap}
+.hb-btn{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:6px;
+  height:24px;padding:0 12px;border:0;border-radius:99px;background:var(--acc);color:#04141A;
+  font-family:var(--sans);font-size:9.4px;font-weight:700;cursor:pointer;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.hb-btn:hover,.hb-btn:focus-visible{transform:translateY(-1px);box-shadow:0 7px 18px -6px rgba(var(--acc-rgb),.95)}
+.hb-ipucu{font-family:var(--mono);font-size:7.8px;letter-spacing:.09em;color:var(--muted);margin-top:5px}
+.hb-term{font-family:var(--mono);font-size:9.2px;line-height:2;color:var(--fg-dim);letter-spacing:.03em}
+.hb-term b{color:var(--acc);font-weight:500}
+.hb-daireler{position:relative;height:74px;margin:4px 0}
+.hb-daireler i{position:absolute;top:0;width:70px;height:70px;border-radius:50%;
+  border:1.4px solid rgba(var(--acc-rgb),.6);background:rgba(var(--acc-rgb),.07)}
+.hb-daireler i:nth-child(1){left:calc(50% - 58px)}
+.hb-daireler i:nth-child(2){left:calc(50% - 12px);opacity:.75}
+.hb-dalga{display:flex;align-items:flex-end;gap:3px;height:34px}
+.hb-dalga i{flex:1;border-radius:2px;background:rgba(var(--acc-rgb),.55);height:var(--h)}
+.hb-serp{display:grid;gap:7px}
+.hb-serp > div{border:1px solid var(--hair);border-radius:7px;padding:7px 9px}
+.hb-serp .siz{border-color:rgba(var(--acc-rgb),.55);background:rgba(var(--acc-rgb),.07)}
+.hb-serp u{display:block;text-decoration:none;font-family:var(--mono);font-size:8px;color:var(--muted)}
+.hb-serp span{display:block;height:7px;border-radius:3px;background:rgba(255,255,255,.16);margin-top:5px;width:72%}
+.hb-serp .siz span{background:rgba(var(--acc-rgb),.5)}
+.hb-film{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.hb-film > *{aspect-ratio:16/10;border-radius:7px;border:1px solid var(--hair);position:relative;
+  background:linear-gradient(160deg,rgba(var(--acc-rgb),.13),transparent);padding:0}
+.hb-zaman{border:1px solid var(--hair);border-radius:7px;padding:6px;display:grid;gap:5px}
+.hb-zaman i{display:block;height:12px;border-radius:4px;background:rgba(var(--acc-rgb),.35)}
+.hb-zaman i.k{width:62%;background:rgba(255,255,255,.14)}
+@media(prefers-reduced-motion:reduce){
+  .h3-sahne{transform:none}
+  .h3-kat{transition:none}
+  .ol-olay li.parla i{animation:none}
+}
+
 /* --- künye şeridi --- */
 .kny{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
 .kny > div{border:1px solid var(--hair);border-radius:var(--r-md);padding:18px;background:var(--panel);
@@ -452,7 +545,54 @@
           <p class="h1-alt">iOS &amp; ANDROID · REACT NATIVE · UI/UX · ASO</p>
           <p class="lead">TasarımMania, mobil uygulama ajansı olarak 14 yıllık 8 kişilik ekibiyle iOS ve Android için native ve React Native ile çapraz platform mobil uygulama geliştiriyor; 2026 bandı 120.000–260.000 ₺, teslim 8–16 hafta, kaynak kod ve mağaza hesapları size ait kalıyor.</p>
         </div>
-        <img class="hero-img" src="../../../assets/modul-mobil/hero.jpg" alt="3D render: cam ve krom dokulu akıllı telefon, ekranda mobil uygulama arayüzü" width="800" height="800" loading="eager" decoding="async">
+        <div class="hero3d" data-h3>
+          <div class="h3-sekme" role="tablist" aria-label="Katmanlar">
+            <button type="button" role="tab" class="acik" data-kat="0" aria-selected="true">Uygulama</button>
+            <button type="button" role="tab" data-kat="1" aria-selected="false">Tek Kod</button>
+            <button type="button" role="tab" data-kat="2" aria-selected="false">Mağaza</button>
+          </div>
+          <div class="h3-kutu">
+            <div class="h3-sahne" data-h3-sahne>
+          <div class="h3-kat" data-kat="0" data-durum="on" role="tabpanel" aria-label="Uygulama katmanı">
+            <div class="h3-bar"><i></i><i></i><i></i><span>uygulamaniz</span><b>UYGULAMA</b></div>
+            <div class="h3-ic">
+              <div class="hb-cz a" style="width:58%"></div>
+              <div class="hb-kart"><i></i><i></i></div>
+              <div class="hb-cipler">
+                <button type="button" class="hb-cip vur" data-olay="bildirim_izni" aria-label="Örnek: bildirim izni — ölçüm karşılığını göster">BİLDİRİM İZNİ</button>
+              </div>
+              <button type="button" class="hb-btn" data-olay="satin_alma">Satın Al
+                <svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              <p class="hb-ipucu">↑ İKİSİNDEN BİRİNE BASIN — MAĞAZA KATMANINDA KARŞILIĞI YANAR</p>
+            </div>
+          </div>
+          <div class="h3-kat" data-kat="1" data-durum="orta" role="tabpanel" aria-label="Yapı katmanı">
+            <div class="h3-bar"><i></i><i></i><i></i><span>tek kod tabanı</span><b>YAPI</b></div>
+            <div class="h3-ic">
+              <div class="hb-term">import { uygulama }<br>├ ekranlar / bileşenler<br>├ ortak API — web ile aynı<br>└ derle → iki mağaza</div>
+              <div class="hb-cipler" style="margin-top:auto"><span class="hb-cip vur">iOS ✓</span><span class="hb-cip vur">Android ✓</span><span class="hb-cip">tek güncelleme</span></div>
+            </div>
+          </div>
+          <div class="h3-kat" data-kat="2" data-durum="arka" role="tabpanel" aria-label="Ölçüm katmanı">
+            <div class="h3-bar"><i></i><i></i><i></i><span>mağaza paneli</span><b>ÖLÇÜM</b></div>
+            <div class="h3-ic">
+              <div class="ol-sat">
+                <div class="ol-cip"><u>PUAN</u><b>4,8</b></div>
+                <div class="ol-cip"><u>İNDİRME</u><b>izleniyor</b></div>
+                <div class="ol-cip"><u>ÇÖKME</u><b>izleniyor</b></div>
+              </div>
+              <ul class="ol-olay">
+                <li data-ad="satin_alma"><i></i>satin_alma</li>
+                <li data-ad="bildirim_izni"><i></i>bildirim_izni</li>
+                <li data-ad="kayit_ol"><i></i>kayit_ol</li>
+              </ul>
+              <p class="ol-not">Mağaza istatistikleri ve uygulama içi olaylar tek panelde.</p>
+            </div>
+          </div>
+            </div>
+          </div>
+          <p class="h3-not"><b>Uygulama, kod ve mağaza aynı anda kurulur;</b> ölçüm sonradan eklenmez.</p>
+        </div>
       </div>
 
       <div class="kny">
@@ -881,6 +1021,63 @@ document.getElementById('yil').textContent = new Date().getFullYear();
   window.addEventListener('resize', olc, { passive: true });
   window.addEventListener('load', olc);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(olc);
+})();
+</script>
+<script>
+"use strict";
+/* HERO 3D (hub) — web hub'daki çekirdeğin aynısı: sekme/otomatik döngü/eğim/ölçülen noktalar */
+(function hubHero3d(){
+  var kok = document.querySelector('[data-h3]');
+  if (!kok) return;
+  var sahne = kok.querySelector('[data-h3-sahne]');
+  var katlar = [].slice.call(kok.querySelectorAll('.h3-kat'));
+  var sekmeler = [].slice.call(kok.querySelectorAll('.h3-sekme button'));
+  if (!sahne || katlar.length !== 3) return;
+  var AZALT = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var aktif = 0, dongu = null, mudahale = false;
+  var SIRA = ['on', 'orta', 'arka'];
+  function ciz(n){
+    aktif = n;
+    katlar.forEach(function(k, i){ k.setAttribute('data-durum', SIRA[(i - n + 3) % 3]); });
+    sekmeler.forEach(function(b, i){
+      b.classList.toggle('acik', i === n);
+      b.setAttribute('aria-selected', i === n ? 'true' : 'false');
+    });
+  }
+  function durdur(){ if (dongu) { clearInterval(dongu); dongu = null; } mudahale = true; }
+  sekmeler.forEach(function(b){ b.addEventListener('click', function(){ durdur(); ciz(+b.dataset.kat); }); });
+  katlar.forEach(function(k){ k.addEventListener('click', function(){ durdur(); ciz(+k.dataset.kat); }); });
+  var zamanlayici = null;
+  [].slice.call(kok.querySelectorAll('[data-olay]')).forEach(function(nokta){
+    nokta.addEventListener('click', function(e){
+      e.stopPropagation();
+      durdur();
+      ciz(2);
+      var olay = kok.querySelector('.ol-olay li[data-ad="' + nokta.dataset.olay + '"]');
+      if (!olay) return;
+      [].slice.call(kok.querySelectorAll('.ol-olay li.parla')).forEach(function(x){ x.classList.remove('parla'); });
+      if (zamanlayici) clearTimeout(zamanlayici);
+      void olay.offsetWidth;
+      olay.classList.add('parla');
+      zamanlayici = setTimeout(function(){ olay.classList.remove('parla'); }, 2900);
+    });
+  });
+  if (!AZALT) {
+    dongu = setInterval(function(){ if (!mudahale) ciz((aktif + 1) % 3); }, 3600);
+    var kutu = kok.querySelector('.h3-kutu');
+    kutu.addEventListener('mousemove', function(e){
+      var r = kutu.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - .5;
+      var y = (e.clientY - r.top) / r.height - .5;
+      sahne.style.setProperty('--ry', (-15 + x * 16).toFixed(2) + 'deg');
+      sahne.style.setProperty('--rx', (7 - y * 12).toFixed(2) + 'deg');
+    }, { passive: true });
+    kutu.addEventListener('mouseleave', function(){
+      sahne.style.removeProperty('--ry');
+      sahne.style.removeProperty('--rx');
+    });
+  }
+  ciz(0);
 })();
 </script>
 </body>
