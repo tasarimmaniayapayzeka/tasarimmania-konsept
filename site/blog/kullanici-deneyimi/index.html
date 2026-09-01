@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Ticaret Kullanıcı Deneyimi: Sepete Giden Yolu Kısaltın</title>
+<meta name="description" content="E-ticaret kullanıcı deneyimi rotasını kısaltmanın yolu: ana sayfa, ürün sayfası, sepet ve ödeme adımlarında dönüşümü artıran somut öneriler ve 10 adımlık liste.">
+<link rel="canonical" href="https://www.tasarimmania.com/blog/kullanici-deneyimi/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="E-Ticaret Kullanıcı Deneyimi: Sepete Giden Yolu Kısaltın">
+<meta property="og:description" content="E-ticaret kullanıcı deneyimi rotasını kısaltmanın yolu: ana sayfa, ürün sayfası, sepet ve ödeme adımlarında dönüşümü artıran somut öneriler ve 10 adımlık liste.">
+<meta property="og:url" content="https://www.tasarimmania.com/blog/kullanici-deneyimi/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/kullanici-deneyimi/gorsel/kullanici-deneyimi-kapak-1440.jpg">
+<meta property="og:image:width" content="1440">
+<meta property="og:image:height" content="810">
+<meta property="og:image:alt" content="E-ticaret kullanıcı deneyimi rotasını temsil eden, kısalan ışıklı yol temalı soyut 3B illüstrasyon">
+<meta property="article:published_time" content="2026-09-17">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/kullanici-deneyimi/gorsel/kullanici-deneyimi-kapak-1440.jpg">
+<link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/tm.css">
+<style>
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  max-height:calc(100dvh - 74px);overflow-y:auto;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(28px,4vw,52px)) 0 clamp(22px,3vw,34px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.14),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.wa{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:90;width:54px;height:54px;
+  border-radius:50%;background:#25D366;display:grid;place-items:center;
+  box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s;padding-block:7px}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+@media(max-width:960px){.ftr-ust{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.nav-links,.nav-tel{display:none}.burger{display:block}.ftr-ust{grid-template-columns:1fr}}
+/* --- blog yazısı: okuma düzeni --- */
+.yz-ust{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.yz-kat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acc);border:1px solid rgba(var(--acc-rgb),.4);border-radius:99px;padding:6px 13px}
+.yz-meta{font-family:var(--mono);font-size:11.4px;color:var(--muted)}
+.phd h1{font-size:clamp(28px,4.4vw,46px);letter-spacing:-.035em;line-height:1.16;margin-bottom:16px;max-width:22ch}
+.phd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18px);max-width:62ch;line-height:1.78}
+.yz-govde{max-width:760px}
+.yz-govde h2{font-size:clamp(21px,2.9vw,28px);letter-spacing:-.03em;line-height:1.25;margin:44px 0 0}
+.yz-govde h3{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;line-height:1.35;margin:30px 0 10px}
+.yz-govde h4{font-size:15.6px;letter-spacing:-.01em;margin:22px 0 8px;color:var(--fg-dim)}
+.yz-govde p{font-size:15.6px;color:var(--fg-dim);line-height:1.85;margin:0 0 16px}
+.yz-govde ul,.yz-govde ol{margin:0 0 18px;padding-left:0;list-style:none;display:grid;gap:10px}
+.yz-govde li{font-size:15.2px;color:var(--fg-dim);line-height:1.72;display:flex;gap:11px;align-items:flex-start}
+.yz-govde li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:10px}
+.yz-govde ol{counter-reset:s}
+.yz-govde ol li{counter-increment:s}
+.yz-govde ol li::before{content:counter(s);width:auto;height:auto;border-radius:0;background:none;
+  color:var(--acc);font-family:var(--mono);font-size:12px;margin-top:2px;min-width:16px}
+.yz-govde strong{color:var(--fg);font-weight:600}
+.yz-govde p a{padding-block:4px}
+.yz-govde a:not(.btn){color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.4);transition:text-decoration-color .25s;padding-block:2px}
+.yz-govde a:not(.btn):hover{text-decoration-color:var(--acc)}
+/* doğrudan cevap kutusu (snippet hedefi) */
+.yz-cevap{border-left:2px solid var(--acc);background:rgba(var(--acc-rgb),.05);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:16px 20px;margin:16px 0 22px}
+.yz-cevap p{margin:0;color:var(--fg);font-size:15.4px;line-height:1.75}
+/* karşılaştırma tablosu */
+.yz-tablo{margin:26px 0;border:1px solid var(--hair);border-radius:var(--r-md);overflow-x:auto}
+.yz-tablo table{width:100%;border-collapse:collapse;min-width:520px}
+.yz-tablo th{font-family:var(--mono);font-size:10.4px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--acc);text-align:left;padding:14px 16px;border-bottom:1px solid var(--hair);
+  background:rgba(var(--acc-rgb),.05);font-weight:500;white-space:nowrap}
+.yz-tablo td{font-size:13.8px;color:var(--fg-dim);padding:14px 16px;border-bottom:1px solid var(--hair);
+  line-height:1.6;vertical-align:top}
+.yz-tablo tr:last-child td{border-bottom:0}
+.yz-tablo td:first-child{color:var(--fg);font-weight:600}
+.yz-tablo-not{font-family:var(--mono);font-size:10.4px;color:var(--muted);margin:-16px 0 26px;
+  letter-spacing:.04em}
+/* SSS */
+.yz-sss{display:grid;gap:11px;max-width:760px}
+.yz-sss details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
+.yz-sss details[open]{border-color:var(--hair-strong)}
+.yz-sss summary{cursor:pointer;list-style:none;padding:17px 21px;font-size:15.2px;font-weight:600;
+  display:flex;align-items:center;gap:14px;line-height:1.4}
+.yz-sss summary::-webkit-details-marker{display:none}
+.yz-sss summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.yz-sss details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.yz-sss summary:hover{color:var(--acc)}
+.yz-sss p{padding:0 21px 19px;margin:0;font-size:14.4px;color:var(--muted);line-height:1.75}
+/* hizmet köprüsü */
+.yz-kopru{border:1px solid rgba(var(--acc-rgb),.32);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(var(--acc-rgb),.07),transparent);
+  padding:clamp(22px,3vw,32px);margin:36px 0;max-width:760px}
+.yz-kopru b{display:block;font-size:clamp(17px,2.2vw,21px);letter-spacing:-.02em;margin-bottom:9px}
+.yz-kopru p{font-size:14.6px;color:var(--fg-dim);line-height:1.72;margin:0 0 18px}
+.yz-kopru .btn{margin-right:10px}
+/* okuma ilerlemesi */
+.yz-cizgi{position:fixed;top:0;left:0;height:2px;background:var(--acc);z-index:101;width:0;
+  transition:width .1s linear}
+@media(max-width:760px){.yz-govde h2{margin-top:34px}}
+@media(prefers-reduced-motion:reduce){.yz-cizgi{display:none}}
+/* --- 1.2 eklentileri --- */
+.yz-kapak{margin:0 0 clamp(26px,4vw,44px)}
+.yz-kapak img,.yz-gorsel img{width:100%;height:auto;display:block;border-radius:14px;
+  border:1px solid var(--hair);background:#0d1017}
+.yz-kapak figcaption,.yz-gorsel figcaption{margin-top:11px;font-size:13.2px;line-height:1.55;
+  color:var(--muted);max-width:760px}
+.yz-gorsel{margin:clamp(26px,4vw,38px) 0}
+.yz-ai{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--fg-dim);opacity:.72;white-space:nowrap}
+.yz-govde ol{margin:16px 0 20px;padding-left:22px;display:grid;gap:10px}
+.yz-govde ol li{padding-left:4px}
+.yz-govde ol li::marker{color:var(--acc);font-family:var(--mono);font-weight:600}
+.yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
+  background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
+.yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.tasarimmania.com/blog/kullanici-deneyimi/#article",
+      "headline": "E-Ticaret Kullanıcı Deneyimi: Sepete Giden Yol Nasıl Kısalır?",
+      "description": "E-ticaret kullanıcı deneyimi rotasını kısaltmanın yolu: ana sayfa, ürün sayfası, sepet ve ödeme adımlarında dönüşümü artıran somut öneriler ve 10 adımlık liste.",
+      "datePublished": "2026-09-17",
+      "dateModified": "2026-09-17",
+      "inLanguage": "tr-TR",
+      "mainEntityOfPage": "https://www.tasarimmania.com/blog/kullanici-deneyimi/",
+      "author": { "@type": "Organization", "name": "TasarımMania", "url": "https://www.tasarimmania.com/" },
+      "publisher": { "@id": "https://www.tasarimmania.com/#kurulus" },
+      "articleSection": "E-Ticaret",
+      "wordCount": 1184,
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/kullanici-deneyimi/gorsel/kullanici-deneyimi-kapak-1440.jpg",
+        "width": 1440, "height": 810,
+        "caption": "E-ticaret kullanıcı deneyimi rotasını temsil eden, kısalan ışıklı yol temalı soyut 3B illüstrasyon"
+      },
+      "about": [{"@type":"Thing","name":"E-ticaret kullanıcı deneyimi","description":"Bir çevrim içi mağaza ziyaretçisinin siteye girişinden sipariş onayına kadar yaşadığı tüm etkileşimlerin bütünü."},{"@type":"Thing","name":"Kullanıcı yolculuğu","description":"Ziyaretçinin hedefine ulaşana kadar geçtiği ekranların ve kararların sıralı haritası."}],
+      "mentions": [{"@type":"Thing","name":"kullanıcı yolculuğu"},{"@type":"Thing","name":"dönüşüm oranı"},{"@type":"Thing","name":"sepet terk oranı"},{"@type":"Thing","name":"site içi arama"},{"@type":"Thing","name":"misafir alışverişi"},{"@type":"Thing","name":"ödeme akışı"}],
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".ozet", ".yz-cevap"] }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.tasarimmania.com/#kurulus",
+      "name": "TasarımMania",
+      "url": "https://www.tasarimmania.com/",
+      "telephone": "+905547916545",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/logo/marka-yatay-optik.png",
+        "width": 435, "height": 163
+      },
+      "address": { "@type": "PostalAddress", "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+        "addressLocality": "Bakırköy", "addressRegion": "İstanbul", "addressCountry": "TR" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.tasarimmania.com/blog/kullanici-deneyimi/#sss",
+      "mainEntity": [
+    { "@type": "Question", "name": "Sepete giden yol en fazla kaç tık olmalı?", "acceptedAnswer": { "@type": "Answer", "text": "Evrensel bir sayı yok; pratik hedef, ana sayfadan ürüne en çok üç tık, üründen ödeme onayına en çok üç adımdır. Kendi rotanızı sayarak başlayın." } },
+    { "@type": "Question", "name": "Misafir alışverişi üyelik sayısını düşürür mü?", "acceptedAnswer": { "@type": "Answer", "text": "Kısa vadede biraz düşürür; sipariş kaybıyla kıyaslandığında önemsiz kalır. Siparişi tamamlayan müşteriye tek tıkla hesap oluşturma önerdiğinizde üyeliklerin büyük bölümü geri kazanılır. Bu üyeler zaten alışveriş yapmış, değeri kanıtlanmış kişilerdir." } },
+    { "@type": "Question", "name": "Kullanıcı deneyimi iyileştirmeleri ne kadar sürede sonuç verir?", "acceptedAnswer": { "@type": "Answer", "text": "Düğme konumu, form sadeleştirme gibi teknik düzeltmeler yayına alındığı gün etkisini göstermeye başlar; anlamlı bir ölçüm için dört haftalık veri toplamak gerekir. Menü mimarisi veya arama motoru değişikliği gibi yapısal işlerde etki, ziyaretçilerin yeni düzene alışmasıyla birlikte ikinci ayda netleşir. Sabırlı olun, tek günlük dalgalanmalara bakıp karar vermeyin; büyük kampanya dönemlerini karşılaştırma dışında tutun, çünkü indirim trafiği normal davranışı temsil etmez ve ölçümü yanıltır." } },
+    { "@type": "Question", "name": "Hangi metriği önce takip etmeliyim?", "acceptedAnswer": { "@type": "Answer", "text": "Sepet terk oranını; kaybın en yoğun yaşandığı noktayı tek başına gösterir." } },
+    { "@type": "Question", "name": "Mobil ve masaüstü rotası ayrı mı tasarlanmalı?", "acceptedAnswer": { "@type": "Answer", "text": "Rota aynı kalır, ekran düzeni ayrışır. Mobilde başparmak erişimi ve form kolaylığı öncelik kazanırken masaüstünde karşılaştırma ve detay inceleme davranışı öne çıkar. İkisini ayrı test edin." } },
+    { "@type": "Question", "name": "Site hızı kullanıcı deneyiminin parçası mı?", "acceptedAnswer": { "@type": "Answer", "text": "Kesinlikle; geç açılan sayfa, rotanın en başında kaybedilen ziyaretçi demektir. Hız iyileştirmesi, bu yazıdaki tüm adımların etkisini çarpan gibi büyütür." } },
+    { "@type": "Question", "name": "A/B testi yapmadan değişiklik uygulamak riskli mi?", "acceptedAnswer": { "@type": "Answer", "text": "Küçük trafikli sitelerde A/B testi istatistiksel olarak anlamlı sonuç üretmeyebilir; öncesi-sonrası karşılaştırması yeterlidir. Yüksek trafikte ise kritik adımları testle doğrulamak daha güvenlidir." } },
+    { "@type": "Question", "name": "Bu listeyi ajans desteği olmadan uygulayabilir miyim?", "acceptedAnswer": { "@type": "Answer", "text": "Menü sadeleştirme, buton metni ve kargo bilgisi gibi maddeleri kendi panelinizden yapabilirsiniz. Arama motoru, tek sayfa ödeme ve ölçüm kurulumu gibi maddeler yazılım desteği ister." } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.tasarimmania.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.tasarimmania.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "E-Ticaret Kullanıcı Deneyimi: Sepete Giden Yol Nasıl Kısalır?", "item": "https://www.tasarimmania.com/blog/kullanici-deneyimi/" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body data-dal="web">
+
+<i class="yz-cizgi" data-ilerleme aria-hidden="true"></i>
+<a class="skip" href="#ana">İçeriğe geç</a>
+
+<nav class="nav" data-nav aria-label="Ana menü">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../../" aria-label="TasarımMania ana sayfa">
+      <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async">
+    </a>
+    <div class="nav-links">
+      <a href="../../hizmetler/">Hizmetler</a>
+      <a href="../../#isler">İşler</a>
+      <a href="../../hakkimizda/">Ajans</a>
+      <a href="../../blog/" aria-current="page">Blog</a>
+      <a href="../../teklif/">Teklif Al</a>
+      <a href="../../iletisim/">İletişim</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../../hizmetler/">Hizmetler</a><a href="../../#isler">İşler</a><a href="../../hakkimizda/">Ajans</a>
+  <a href="../../blog/">Blog</a><a href="../../teklif/">Teklif Al</a><a href="../../iletisim/">İletişim</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<!-- AYIRT EDİCİ EKSEN: ROTA — Ana sayfadan ödemeye kullanıcı yolculuğu rotasının adım adım iyileştirilmesi; UX/kullanıcı yolculuğu anlatımının kanonik yazısı budur — arayüz (UI) ilkeleri ui-tasarim-ilkeleri'nin, görsel sunum ve ödeme araçları diğer kardeşlerin ekseni.
+     Huni türü: BOFU · Küme: E-Ticaret Deneyimi · Kardeşler (enjeksiyon turunda): odeme-guvenligi, e-ticaret-urun-fotograflari, ui-tasarim-ilkeleri -->
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Konum">
+        <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
+        <a href="../../blog/">Blog</a><span aria-hidden="true">/</span>
+        <span>undefined</span>
+      </nav>
+      <div class="yz-ust">
+        <span class="yz-kat">E-Ticaret</span>
+        <span class="yz-meta">17 Eylül 2026 · 7 dakikalık okuma</span>
+      </div>
+      <h1>E-Ticaret Kullanıcı Deneyimi: Sepete Giden Yol Nasıl Kısalır?</h1>
+      <p class="ozet">Türkiye'de çevrim içi mağaza açmak hiç olmadığı kadar kolaylaştı. Farkı yaratan ise artık vitrinin arkasındaki yolculuk. E-ticaret kullanıcı deneyimi, ziyaretçinin ilk tıkından ödeme onayına dek geçen rotanın toplam kalitesidir. Rota uzadıkça sepetler yarıda kalır, kısaldıkça satın alma oranı yükselir. Bu yazıda ana sayfadan ödemeye uzanan güzergâhı durak durak ele alıyoruz. Her adımda uygulanabilir düzeltmeler öneriyoruz. Hedef net: tıklama sayısını azaltmak, kararsızlık anlarını silmek, müşteriyi hedefe kısa yoldan ulaştırmak.</p>
+    </div>
+  </header>
+
+  <figure class="yz-kapak">
+    <div class="wrap">
+      <img src="./gorsel/kullanici-deneyimi-kapak-1440.webp"
+           srcset="./gorsel/kullanici-deneyimi-kapak-640.webp 640w, ./gorsel/kullanici-deneyimi-kapak-960.webp 960w, ./gorsel/kullanici-deneyimi-kapak-1440.webp 1440w, ./gorsel/kullanici-deneyimi-kapak-1920.webp 1920w"
+           sizes="(max-width: 1200px) 100vw, 1160px"
+           alt="E-ticaret kullanıcı deneyimi rotasını temsil eden, kısalan ışıklı yol temalı soyut 3B illüstrasyon"
+           width="1920" height="1080" fetchpriority="high" decoding="async">
+      <figcaption>Sepete giden yol kısaldıkça dönüşüm artar: rotanın sadeleşmesi <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
+    </div>
+  </figure>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <article class="yz-govde">
+      <h2>E-Ticaret Kullanıcı Deneyimi Nedir ve Satışı Nasıl Etkiler?</h2>
+      <div class="yz-cevap"><p>E-ticaret kullanıcı deneyimi, ziyaretçinin siteye girişinden sipariş onayına kadar yaşadığı tüm etkileşimlerin bütünüdür. Akıcı bir deneyim güven oluşturur. Sürtünme ise terk oranını büyütür. Rotadaki her gereksiz adım, satın alma olasılığını ölçülebilir biçimde düşürür. Bu yüzden deneyim yatırımı, reklam bütçesinden önce gelen bir dönüşüm kaldıracıdır.</p></div>
+      <p>Pazarın büyüklüğü konuyu stratejik kılıyor. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">Ticaret Bakanlığı'nın Türkiye'de E-Ticaretin Görünümü 2025 raporuna</a> göre e-ticaret hacmimiz 4,5 trilyon TL'ye ulaştı. Bu tutar gayrisafi yurt içi hasılanın yüzde 6,9'una karşılık geliyor. Rekabet 634 binin üzerinde işletme arasında yaşanıyor. Ürünler benzeştikçe e-ticaret kullanıcı deneyimi, mağazaları birbirinden ayıran asıl unsura dönüşüyor. Bu tabloyu fırsata çevirmenin yolu, yolculuğu rakiplerden daha akıcı kurmaktan geçiyor. Alışverişçinin sabrı sınırlı. Aradığını saniyeler içinde bulamayan ziyaretçi rakibe geçiyor. Kullanıcı deneyimi e-ticarette bir estetik tercihi değil, doğrudan ciro kalemidir.</p>
+      <h3>Kullanıcı Yolculuğu Rotası Ne Anlama Gelir?</h3>
+      Rota, ziyaretçinin hedefe ulaşana dek geçtiği ekran ve kararların sıralı haritasıdır. Bu haritaya kullanıcı yolculuğu denir. Tipik rota beş duraktan oluşur: ana sayfa, kategori, ürün sayfası, sepet ve ödeme. Her durakta iki soru sorarız: müşteri burada ne yapmak istiyor, onu yavaşlatan ne var? İki sorunun cevabı iyileştirme sırasını kendiliğinden belirler. Rotayı kısaltmak, bu yolculuğun en somut kazanım alanıdır.
+      <h2>Ana Sayfadan Ürüne Giden Adımlar Nasıl Kısalır?</h2>
+      <div class="yz-cevap"><p>Ana sayfadan ürüne giden yol en fazla üç tıkta biter. Bunun araçları sade menü, güçlü site içi arama ve net vitrin kurgusudur. Ziyaretçilerin önemli bölümü kategori gezinmek yerine doğrudan arama kutusuna yönelir. Menü derinliğini azaltmak ve popüler kategorileri öne çıkarmak, ürün keşfini belirgin biçimde hızlandırır.</p></div>
+      <p>Vitrin karmaşası, rotanın ilk metrelerindeki en yaygın kayıptır. Tek kampanyaya odaklanan ana sayfa, yedi banner'ın yarıştığı sayfadan çok daha iyi yönlendirir. <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TÜİK'in güncel araştırmaları</a> internet kullanımının her yaş grubunda yaygınlaştığını gösteriyor. Çevrim içi alışverişte deneyim beklentisi de buna paralel yükseliyor. Alışveriş deneyimini ana sayfada güçlendirmenin üç pratik yolu var. Kahraman alanında tek mesaj verin ve menüyü en çok üç seviyede tutun. Arama kutusunu her ekranda görünür yapın. <a href="../../hizmetler/web-tasarim-yazilim/kurumsal-web-sitesi/">Kurumsal web sitesi</a> projelerinde uyguladığımız bilgi mimarisi ilkeleri, çevrim içi mağazalarda aynı netlikle çalışır.</p>
+      <h3>Site İçi Arama Neden Rotanın Kestirmesidir?</h3>
+      Site içi arama, kategori ağacını atlayıp ziyaretçiyi doğrudan ürüne taşıyan en kısa güzergâhtır. Yazım hatasını tolere eden, önerileri anında listeleyen bir kutu hedefleyin. Bu yapı, üç dört tıklık gezintiyi tek adıma indirir. Boş sonuç dönen sorguları düzenli inceleyin. Bu liste hem eksik ürünleri hem yanlış adlandırmaları ortaya çıkarır. Aramayı kullanan ziyaretçinin dönüşüm oranını ölçmek, yatırımın karşılığını görünür kılar.
+      <h2>Ürün Sayfasından Sepete Geçiş Neden Kopar?</h2>
+      <div class="yz-cevap"><p>Kopuşun ana nedeni eksik bilgidir. Fiyat, stok, kargo süresi ve iade koşulu tek ekranda görünmelidir. Bu bilgileri bulamayan ziyaretçi karar veremez ve sayfayı terk eder. Sepete ekle düğmesinin kaydırma yapmadan görünmesi, geçiş oranını doğrudan etkiler. Belirsizliği azaltan her bilgi parçası, sepete giden adımı biraz daha kısaltır.</p></div>
+      <p>Ürün sayfası, e-ticaret kullanıcı deneyiminin karar anıdır; ziyaretçi burada ya sepete yönelir ya sekmeyi kapatır. Kargo ücretini ödeme adımına kadar gizlemek en pahalı hatalardan biridir; stok durumu, teslimat tarihi ve iade süresi düğmenin hemen yakınında durmalı. Beden, renk gibi zorunlu seçimlerde hata mesajını seçim alanının yanında gösterin; sayfanın tepesine fırlatılan uyarı alışverişçiyi yolundan eder.</p>
+      <h3>Sepete Ekle Adımını Netleştiren Üç Detay</h3>
+      Birincisi, düğme metni eylemi söylemeli: "Sepete Ekle" her zaman "Devam"dan iyidir. İkincisi, düğmeye basıldığında görünür bir onay belirmeli. Ürünün eklendiğinden emin olamayan ziyaretçi aynı ürünü iki kez ekler ya da süreci bırakır. Üçüncüsü, ekleme sonrası müşteriyi zorla sepet sayfasına taşımayın. Alışverişe devam seçeneği ortalama sepet tutarını büyütür.
+      <h4>Mobilde Başparmak Bölgesi</h4>
+      Başparmak bölgesi, mobil ekranda tek elle rahatça erişilen alt üçte birlik alandır. Sepete ekle düğmesini bu bölgeye sabitlemek, mobil geçişi iyileştiren düşük maliyetli bir düzenlemedir. <a href="https://www.btk.gov.tr/" target="_blank" rel="noopener">BTK'nın</a> yayımladığı erişim istatistikleri mobil internetin yaygınlığını düzenli olarak ortaya koyuyor. Rotanızı önce mobilde test edin.
+      <h2>Sepetten Ödemeye Rota Nasıl Sadeleşir?</h2>
+      <div class="yz-cevap"><p>Sepetten ödemeye rotayı üç araç sadeleştirir. Bunlar misafir alışverişi, tek sayfalık ödeme akışı ve yalnızca zorunlu form alanlarıdır. Zorunlu üyelik duvarı, bu aşamadaki en büyük kayıp noktasıdır. Adım ve alan sayısını azaltan her düzenleme, tamamlanan sipariş oranını yukarı çeker. İlerleme çubuğu da müşteriye yolun ne kadarının kaldığını gösterir.</p></div>
+      <p>Sepet sayfası bir ara durak değil, sözleşme masasıdır; toplam tutar, kargo bedeli ve teslim tarihi burada net görünmeli. Üyelik dayatması yerine misafir alışverişi sunun; form tarafında her alanı sorgulayın, faks numarası isteyen bir sayfa rotayı uzatmaktan başka işe yaramaz. Ödeme adımında dikkat dağıtan banner ve kampanya kutularını kaldırın; güven öğeleri görünür olsun ama akışı bölmesin. E-ticaret kullanıcı deneyimine yapılan yatırımın en hızlı geri döndüğü yer bu son iki adımdır.</p>
+      <h3>Misafir Alışverişi ve Form Alanları</h3>
+      Misafir alışverişi, üyelik oluşturmadan sipariş verme imkânı sunan hızlandırılmış ödeme seçeneğidir. Form alanlarında altın kural şu: her alan bir sipariş gereksinimine karşılık gelmeli. Adres için otomatik tamamlama, telefon için maskeli giriş kullanın. Hatalı girişleri anında, alanın yanında düzelttirin. Ödeme formundaki her fazladan alan, e-ticaret kullanıcı deneyiminde ölçülebilir bir vazgeçme riskidir.
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
+      <h2>E-Ticaret Kullanıcı Deneyimi İçin 10 Adımlık Uygulama Listesi</h2>
+      <div class="yz-cevap"><p>E-ticaret kullanıcı deneyimini geliştirmek için rotayı beş durakta ele alın. Ardından aşağıdaki on adımı sırayla uygulayın. Liste, en yüksek etkiyi en düşük eforla üretecek biçimde dizildi. Her adımı tamamladıkça dönüşüm hunisindeki değişimi ölçün. Ölçülmeyen iyileştirme varsayımdan öteye geçmez. Ölçüm için ücretsiz analiz araçları yeterlidir.</p></div>
+      <p>Listeyi bir sprint planı gibi düşünün. Her madde tek başına uygulanabilir.</p><ol><li>Ana sayfadaki kahraman alanını tek mesaja indirin. İkincil kampanyaları alt bölümlere taşıyın.</li><li>Menü derinliğini en çok üç seviyeye düşürün.</li><li>Arama kutusunu her ekranda görünür kılın. Yazım toleransı ve anlık öneri ekleyin.</li><li>Ürün sayfasında fiyat, stok, kargo süresi ve iade koşulunu tek ekranda toplayın.</li><li>Sepete ekle düğmesini mobilde başparmak bölgesine sabitleyin.</li><li>Ekleme sonrasında görünür onay gösterin. Zorunlu sepet yönlendirmesini kaldırın.</li><li>Kargo ücretini sepette, sürpriz bırakmadan paylaşın.</li><li>Misafir alışverişini açın. Üyeliği sipariş sonrasına erteleyin.</li><li>Ödeme formunu zorunlu alanlara indirin. Otomatik tamamlama ekleyin.</li><li>Ay sonunda huni raporunu inceleyin. En çok kaybın yaşandığı durağı yeniden ele alın.</li></ol><p>On adım, alışveriş deneyimini soyut bir hedeften yönetilebilir bir iş listesine çevirir. Uygulamada teknik destek gerekirse <a href="../../hizmetler/web-tasarim-yazilim/e-ticaret/">e-ticaret sitesi tasarımı ve yazılımı</a> ekibimiz rotanızı birlikte kurgular. Nitelikli trafiği büyütme tarafında <a href="../../hizmetler/seo/">SEO hizmetimiz</a> devreye girer.</p>
+      <h3>Sonucu Hangi Metriklerle Takip Etmelisiniz?</h3>
+      Dört gösterge yeterli. Bunlar sepete ekleme oranı, sepet terk oranı, ödeme tamamlama oranı, ürüne ulaşma tık sayısıdır. Metrikleri iyileştirme öncesiyle sonrasında karşılaştırın. Dört haftalık pencere mevsimsel gürültüyü azaltır. Bu dörtlü set, mağaza deneyiminin nabzını düzenli olarak tutar.
+      <figure class="yz-gorsel">
+        <img src="./gorsel/kullanici-deneyimi-govde-960.webp"
+             srcset="./gorsel/kullanici-deneyimi-govde-640.webp 640w, ./gorsel/kullanici-deneyimi-govde-960.webp 960w, ./gorsel/kullanici-deneyimi-govde-1440.webp 1440w, ./gorsel/kullanici-deneyimi-govde-1920.webp 1920w"
+             sizes="(max-width: 760px) 100vw, 760px"
+             alt="Ana sayfadan ödemeye beş duraklı kullanıcı yolculuğunu temsil eden soyut kapı dizisi ve ışık hattı" width="1920" height="1080" loading="lazy" decoding="async">
+        <figcaption>Beş durak, tek akıcı hat: ana sayfa, kategori, ürün, sepet ve ödeme <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
+      </figure>
+      <h2>Uzun Rota ile Kısaltılmış Rotanın Karşılaştırması</h2>
+      <div class="yz-tablo">
+        <table>
+          <thead><tr><th>Yolculuk Adımı</th><th>Tipik Uzun Rota</th><th>Kısaltılmış Rota</th></tr></thead>
+          <tbody>
+            <tr><td>Ana sayfa</td><td>Kampanya kalabalığı içinde yön arayışı</td><td>Tek vitrin mesajı ve belirgin arama kutusu</td></tr>
+            <tr><td>Kategori</td><td>Yedi sekiz seviyeli menüde gezinme</td><td>En çok üç tıkta ürüne ulaşan sade menü</td></tr>
+            <tr><td>Ürün sayfası</td><td>Eksik bilgi yüzünden sekmeler arası gidip gelme</td><td>Fiyat, stok ve kargo bilgisinin tek ekranda toplanması</td></tr>
+            <tr><td>Sepet</td><td>Zorunlu üyelik duvarı</td><td>Misafir alışverişi seçeneği</td></tr>
+            <tr><td>Ödeme</td><td>Beş sayfalık form maratonu</td><td>Tek sayfada, otomatik doldurmalı kısa form</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+        <div class="yz-kopru">
+          <b>E-Ticaret Kullanıcı Deneyimi İçin 10 Adımlık Uygulama Listesi</b>
+          <p>Kapsamınıza uygun yol haritasını birlikte çıkaralım; adımları ve zamanlamayı netleştirelim.</p>
+          <a class="btn btn-p" href="../../teklif/#web">Kapsam çıkaralım
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="../../hizmetler/web-tasarim-yazilim/e-ticaret/">Hizmet sayfasını gör</a>
+        </div>
+        <p>Sepete giden yol kısaldıkça satış artar. Formül bu kadar yalın. Rotanızı beş durakta gözden geçirin ve on adımlık listeyi takvime bağlayın. Her değişikliği ölçerek ilerleyin. Kullanıcı deneyimi tek seferlik bir proje değil, süreklilik isteyen bir bakım disiplinidir. Mağazanızın rotasını birlikte kısaltmak isterseniz <a href="../../hizmetler/web-tasarim-yazilim/e-ticaret/">e-ticaret çözümlerimiz</a> sayfasından bize ulaşın. Mevcut sitenizin yolculuk haritasını çıkarıp kayıp noktalarını raporluyoruz.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Sık sorulanlar</span>
+        <h2 data-kin>Sık sorulan sorular: e-ticaret kullanıcı deneyimi</h2>
+      </div>
+      <div class="yz-sss rv d1">
+        <details>
+          <summary>Sepete giden yol en fazla kaç tık olmalı?</summary>
+          <p>Evrensel bir sayı yok; pratik hedef, ana sayfadan ürüne en çok üç tık, üründen ödeme onayına en çok üç adımdır. Kendi rotanızı sayarak başlayın.</p>
+        </details>
+        <details>
+          <summary>Misafir alışverişi üyelik sayısını düşürür mü?</summary>
+          <p>Kısa vadede biraz düşürür; sipariş kaybıyla kıyaslandığında önemsiz kalır. Siparişi tamamlayan müşteriye tek tıkla hesap oluşturma önerdiğinizde üyeliklerin büyük bölümü geri kazanılır. Bu üyeler zaten alışveriş yapmış, değeri kanıtlanmış kişilerdir.</p>
+        </details>
+        <details>
+          <summary>Kullanıcı deneyimi iyileştirmeleri ne kadar sürede sonuç verir?</summary>
+          <p>Düğme konumu, form sadeleştirme gibi teknik düzeltmeler yayına alındığı gün etkisini göstermeye başlar; anlamlı bir ölçüm için dört haftalık veri toplamak gerekir. Menü mimarisi veya arama motoru değişikliği gibi yapısal işlerde etki, ziyaretçilerin yeni düzene alışmasıyla birlikte ikinci ayda netleşir. Sabırlı olun, tek günlük dalgalanmalara bakıp karar vermeyin; büyük kampanya dönemlerini karşılaştırma dışında tutun, çünkü indirim trafiği normal davranışı temsil etmez ve ölçümü yanıltır.</p>
+        </details>
+        <details>
+          <summary>Hangi metriği önce takip etmeliyim?</summary>
+          <p>Sepet terk oranını; kaybın en yoğun yaşandığı noktayı tek başına gösterir.</p>
+        </details>
+        <details>
+          <summary>Mobil ve masaüstü rotası ayrı mı tasarlanmalı?</summary>
+          <p>Rota aynı kalır, ekran düzeni ayrışır. Mobilde başparmak erişimi ve form kolaylığı öncelik kazanırken masaüstünde karşılaştırma ve detay inceleme davranışı öne çıkar. İkisini ayrı test edin.</p>
+        </details>
+        <details>
+          <summary>Site hızı kullanıcı deneyiminin parçası mı?</summary>
+          <p>Kesinlikle; geç açılan sayfa, rotanın en başında kaybedilen ziyaretçi demektir. Hız iyileştirmesi, bu yazıdaki tüm adımların etkisini çarpan gibi büyütür.</p>
+        </details>
+        <details>
+          <summary>A/B testi yapmadan değişiklik uygulamak riskli mi?</summary>
+          <p>Küçük trafikli sitelerde A/B testi istatistiksel olarak anlamlı sonuç üretmeyebilir; öncesi-sonrası karşılaştırması yeterlidir. Yüksek trafikte ise kritik adımları testle doğrulamak daha güvenlidir.</p>
+        </details>
+        <details>
+          <summary>Bu listeyi ajans desteği olmadan uygulayabilir miyim?</summary>
+          <p>Menü sadeleştirme, buton metni ve kargo bilgisi gibi maddeleri kendi panelinizden yapabilirsiniz. Arama motoru, tek sayfa ödeme ve ölçüm kurulumu gibi maddeler yazılım desteği ister.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>Web, mobil, reklam, video ve SEO’yu tek çatı altında birleştiren
+          İstanbul merkezli 360 derece dijital ajans.</p>
+      </div>
+      <div>
+        <h5>Modüller</h5>
+        <ul>
+          <li><a href="../../hizmetler/">Tüm hizmetler</a></li>
+          <li><a href="../../hizmetler/web-tasarim-yazilim/">Web &amp; Yazılım</a></li>
+          <li><a href="../../hizmetler/mobil-uygulama/">Mobil Uygulama</a></li>
+          <li><a href="../../hizmetler/dijital-pazarlama/">Dijital Pazarlama</a></li>
+          <li><a href="../../hizmetler/video-produksiyon/">Video Prodüksiyon</a></li>
+          <li><a href="../../hizmetler/seo/">SEO Hizmetleri</a></li>
+          <li><a href="../../hizmetler/grafik-tasarim/">Grafik Tasarım</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>İletişim</h5>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../../iletisim/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../../iletisim/#ofis">Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</span>
+      <span class="mono">BEŞ MODÜL · TEK PANEL</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+<script>
+"use strict";
+(function(){
+  var c = document.querySelector('[data-ilerleme]');
+  if (!c || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  function ciz(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    c.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', ciz, { passive: true });
+  ciz();
+})();
+</script>
