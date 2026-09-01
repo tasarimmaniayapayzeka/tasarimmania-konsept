@@ -1,10 +1,11 @@
 # SEO Kuralları — Birleşik Standart
 
-**Sürüm:** 1.1 · 1 Eylül 2026
+**Sürüm:** 1.2 · 1 Eylül 2026
 **Kapsam:** Blog ve içerik üretimi yapılan tüm projeler.
 **Kaynak:** "İhsan SEO Blog" standardı (29–30 Ağustos 2026) + 1 Eylül 2026 oturumundaki eklemeler.
 
-**1.1'de ne değişti:** Onay bekleyen 10 madde onaylandı ve yürürlüğe girdi · Snippet ve alıntılanma bölümü eklendi (Madde 48–57) · Ölçümle bulunan 300 karakter tavanı standarda işlendi.
+**1.1'de ne değişti:** Onay bekleyen 10 madde onaylandı · Snippet bölümü (48–57) · 300 karakter tavanı.
+**1.2'de ne değişti:** Saha araştırması sonrası BÖLÜM 13 eklendi (Madde 71–75): dış atıf, kaynaklı alıntı, havuz varlığı, Bing/IndexNow, video kararı. Kullanıcı 1 Eylül 2026'da onayladı.
 
 ---
 
@@ -337,18 +338,51 @@ Durum, etki veya risk iddiası **ölçüme dayanmalı**. "Genelde böyledir" yas
 | 57 | Meta description | 150–160 karakter |
 | 59 | Arşive karşı n-gram örtüşmesi | %0 hedef |
 | 66 | Bloker / önemli bulgu | 0 / ≤ 2 |
+| **71** | **Dış kaynak atıfı** | **2–3 link** |
+| **72** | **Kaynaklı alıntı** | **≥ 1** |
 
 ---
 
-## Proje durumu — TasarımMania (1 Eylül 2026)
+# BÖLÜM 13 — Alıntılanma taktikleri (saha araştırması, 1 Eylül 2026)
+
+Kaynaklar: Princeton GEO deneyi (9 taktik tek tek ölçüldü) · yapısal özellik çalışması (6 motorda +%17,3 alıntı artışı) · 2023–2026 eleştirel tarama · 2026 alıntı endeksleri.
+**Uyarı (Madde 70 gereği):** tüm çalışmalar İngilizce; Türkçe için ölçülmüş veri yok. Oranlar yön göstergesidir, garanti değil.
+
+### 71. `[Ö→✓]` Dış kaynak atıfı — her yazıda 2–3 güvenilir dış link
+Resmî istatistik, kurum raporu, akademik kaynak (TÜİK, ETBİS, bakanlık duyuruları). Princeton ölçümü: **+30–40%**, düşük otoriteli sitelerde **+115%** — yeni domain olarak tam bizim profilimiz.
+- Link `target="_blank" rel="noopener"` ile verilir.
+- **Ölü link yayın öncesi curl ile doğrulanır.** Yaşanmış: `eticaret.gov.tr` curl'e kapalı çıktı (000); yerine `ticaret.gov.tr` duyurusu kullanıldı (200).
+
+### 72. `[Ö→✓]` Kaynaklı alıntı — yazı başına en az 1
+Gerçek ve doğrulanabilir cümle, `<blockquote>` + `<cite>` ile. Princeton: +30–40%.
+**Alıntı uydurulmaz** — kaynakta birebir geçmeyen söz tırnak içine alınmaz (Madde 62'nin alıntı hâli).
+
+### 73. `[Ö→✓]` Havuz varlığı (off-page GEO)
+AI motorları alıntılarının %68'ini 15 domainden alıyor; alıntılanan URL'lerin yalnız %12'si Google ilk-10'u ile örtüşüyor. Kendi sitene yazmak yetmez — AI'ın zaten okuduğu havuzda var olmak gerekir:
+- **LinkedIn şirket sayfası** (kurulunca `Organization.sameAs`'e de girer — Madde 45'in açığı kapanır)
+- **Medium'da kanonik linkli özet** yeniden yayın (Gemini'nin sosyal diliminde Medium %28)
+- **Sektör dizinleri**
+
+### 74. `[Ö→✓]` Bing Webmaster Tools + IndexNow
+ChatGPT'nin arama hattı **Bing dizinine** dayanır; Gemini Google dizinine. Search Console tek başına ChatGPT tarafını kapsamaz. **Gerçek domaine geçiş kontrol listesine eklendi.**
+
+### 75. `[Ö→✓]` Video ve animasyon kararı — ölçüme dayalı
+- **CSS akışkan döngüler (Lumina Pro tarzı): blog gövdesinde KULLANILMAZ.** Crawler CSS/JS çalıştırmaz, metin okur → GEO değeri sıfır. Hizmet/satış sayfalarında insan dönüşümü için değerli, orada kalır.
+- **YouTube Shorts gömme yalnız İKİ koşulla değerli:** (1) video kendi kanalımızda yaşar → Madde 73 havuz varlığı (Gemini alıntılarının ~%43'ü Google mülklerine, YouTube dahil); (2) sayfaya **transkript** konur → LLM'in okuyabileceği metin doğar + `VideoObject` şeması eklenir.
+- **Transkriptsiz gömme = süs.** Alıntılanmaya ölçülmüş katkısı yok.
+- Öncelik: 71–72 (içerik) → 73 (dağıtım) → video. Video en pahalı taktik; seri üretimi bloke etmez, sonradan eklenebilir.
+
+---
+
+## Proje durumu — TasarımMania (1 Eylül 2026, akşam güncellemesi)
 
 | Kontrol | Durum |
 |---|---|
-| `robots.txt` | ✅ Yayında (`/site/robots.txt`), AI crawler engeli **yok** |
-| `sitemap.xml` | ✅ Yayında |
-| `llms.txt` | ❌ Yok (Madde 53) |
-| Meta description | ✅ 158 karakter |
-| Tablo `colspan` | ✅ 0, `<th>` 5 — snippet'e uygun |
-| Doğrudan cevap karakter | ❌ 305–382, hepsi 300 üstü (Madde 49) |
-| `<ol>` sıralı liste | ❌ 0 — liste snippet fırsatı kullanılmıyor |
-| GEO şema alanları | ❌ 7 alanın hiçbiri yok (Madde 45) |
+| `robots.txt` — AI crawler engeli yok | ✅ |
+| `sitemap.xml` — blog dahil 36 URL | ✅ |
+| `llms.txt` — 36 bağlantı | ✅ Yayında |
+| İlk yazı: 30/31 eşik + Madde 71–72 | ✅ 1200 kelime, %2,33, dış atıf 2, alıntı 1 |
+| GEO şema (Madde 45) | ✅ `sameAs` hariç hepsi — gerçek sosyal hesap bekliyor |
+| `Organization.sameAs` | ❌ LinkedIn kurulunca (Madde 73) |
+| Bing Webmaster + IndexNow | ❌ Gerçek domaine geçişte |
+| Havuz varlığı (LinkedIn/Medium) | ❌ Kullanıcı kararı bekliyor |
