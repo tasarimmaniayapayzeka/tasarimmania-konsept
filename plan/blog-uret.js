@@ -198,7 +198,32 @@ const YAZI_CSS = `
 .yz-cizgi{position:fixed;top:0;left:0;height:2px;background:var(--acc);z-index:101;width:0;
   transition:width .1s linear}
 @media(max-width:760px){.yz-govde h2{margin-top:34px}}
-@media(prefers-reduced-motion:reduce){.yz-cizgi{display:none}}`;
+@media(prefers-reduced-motion:reduce){.yz-cizgi{display:none}}
+/* --- 1.2 eklentileri --- */
+.yz-kapak{margin:0 0 clamp(26px,4vw,44px)}
+.yz-kapak img,.yz-gorsel img{width:100%;height:auto;display:block;border-radius:14px;
+  border:1px solid var(--hair);background:#0d1017}
+.yz-kapak figcaption,.yz-gorsel figcaption{margin-top:11px;font-size:13.2px;line-height:1.55;
+  color:var(--muted);max-width:760px}
+.yz-gorsel{margin:clamp(26px,4vw,38px) 0}
+.yz-ai{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--fg-dim);opacity:.72;white-space:nowrap}
+.yz-govde ol{margin:16px 0 20px;padding-left:22px;display:grid;gap:10px}
+.yz-govde ol li{padding-left:4px}
+.yz-govde ol li::marker{color:var(--acc);font-family:var(--mono);font-weight:600}
+.yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
+  background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
+.yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}`;
+
+/* Görsel URL kökü — GitHub Pages mutlak adres (og:image mutlak olmalı) */
+const G_KOK = 'https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/';
+
+/* 1.2: gövdeden görünür metni çıkarıp kelime sayan yardımcı (wordCount şema alanı için) */
+function kelimeSay(html) {
+  return html.replace(/<[^>]+>/g, ' ').replace(/&[a-z]+;/g, ' ')
+    .split(/\s+/).filter((w) => /[\wçğıöşüÇĞİÖŞÜ]/.test(w)).length;
+}
 
 function yaziUret(cfg) {
   const u = '../../';
@@ -208,7 +233,7 @@ function yaziUret(cfg) {
   const tarihTR = new Date(tarih).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
 
   let govde = '';
-  y.bolumler.forEach((b) => {
+  y.bolumler.forEach((b, bi) => {
     govde += `      <h2>${b.h2}</h2>\n`;
     govde += `      <div class="yz-cevap"><p>${b.dogrudanCevap}</p></div>\n`;
     govde += '      ' + b.govde.replace(/\n/g, '\n      ') + '\n';
@@ -216,11 +241,25 @@ function yaziUret(cfg) {
       govde += `      <${a.seviye}>${a.baslik}</${a.seviye}>\n`;
       govde += '      ' + a.metin.replace(/\n/g, '\n      ') + '\n';
     });
+    /* 1.2 M72: kaynaklı alıntı — belirtilen bölümün sonuna (varsayılan 4. bölüm) */
+    if (y.alinti && bi === (y.alintiKonum != null ? y.alintiKonum : 3)) {
+      govde += `      <blockquote class="yz-alinti"><p>&#8220;${y.alinti.metin}&#8221;</p><cite>— ${y.alinti.kaynak}</cite></blockquote>\n`;
+    }
   });
 
-  /* karşılaştırma tablosu */
+  /* 1.2 M36-41: gövde görseli — tablodan önce */
+  const gv = cfg.gorsel && cfg.gorsel.govde;
+  const govdeFigur = gv ? `      <figure class="yz-gorsel">
+        <img src="./gorsel/${gv.slug}-960.webp"
+             srcset="./gorsel/${gv.slug}-640.webp 640w, ./gorsel/${gv.slug}-960.webp 960w, ./gorsel/${gv.slug}-1440.webp 1440w, ./gorsel/${gv.slug}-1920.webp 1920w"
+             sizes="(max-width: 760px) 100vw, 760px"
+             alt="${gv.alt}" width="1920" height="1080" loading="lazy" decoding="async">
+        <figcaption>${gv.altyazi} <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
+      </figure>\n` : '';
+
+  /* karşılaştırma tablosu (M51: colspan/rowspan YASAK — düz hücreler) */
   const t = y.karsilastirmaTablosu;
-  let tablo = `      <h2>${t.baslik}</h2>\n      <div class="yz-tablo">\n        <table>\n          <thead><tr>` +
+  let tablo = govdeFigur + `      <h2>${t.baslik}</h2>\n      <div class="yz-tablo">\n        <table>\n          <thead><tr>` +
     t.sutunlar.map((s) => `<th>${s}</th>`).join('') + `</tr></thead>\n          <tbody>\n` +
     t.satirlar.map((r) => '            <tr>' + r.map((c) => `<td>${c}</td>`).join('') + '</tr>').join('\n') +
     `\n          </tbody>\n        </table>\n      </div>\n`;
@@ -247,10 +286,13 @@ function yaziUret(cfg) {
 <meta property="og:title" content="${y.metaBaslik}">
 <meta property="og:description" content="${y.metaAciklama}">
 <meta property="og:url" content="https://www.tasarimmania.com/blog/${cfg.slug}/">
-<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta property="og:image" content="${G_KOK}${cfg.slug}/gorsel/${cfg.gorsel.kapak.slug}-1440.jpg">
+<meta property="og:image:width" content="1440">
+<meta property="og:image:height" content="810">
+<meta property="og:image:alt" content="${cfg.gorsel.kapak.alt}">
 <meta property="article:published_time" content="${tarih}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta name="twitter:image" content="${G_KOK}${cfg.slug}/gorsel/${cfg.gorsel.kapak.slug}-1440.jpg">
 <link rel="icon" type="image/png" href="${u}../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -272,7 +314,17 @@ function yaziUret(cfg) {
       "mainEntityOfPage": "https://www.tasarimmania.com/blog/${cfg.slug}/",
       "author": { "@type": "Organization", "name": "TasarımMania", "url": "https://www.tasarimmania.com/" },
       "publisher": { "@id": "https://www.tasarimmania.com/#kurulus" },
-      "articleSection": ${JSON.stringify(cfg.kategori)}
+      "articleSection": ${JSON.stringify(cfg.kategori)},
+      "wordCount": ${kelimeSay(govde + tablo)},
+      "image": {
+        "@type": "ImageObject",
+        "url": "${G_KOK}${cfg.slug}/gorsel/${cfg.gorsel.kapak.slug}-1440.jpg",
+        "width": 1440, "height": 810,
+        "caption": ${JSON.stringify(cfg.gorsel.kapak.alt)}
+      },
+      "about": ${JSON.stringify(y.about || [])},
+      "mentions": ${JSON.stringify((y.mentions || []).map((m) => ({ '@type': 'Thing', name: m })))},
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".ozet", ".yz-cevap"] }
     },
     {
       "@type": "Organization",
@@ -280,6 +332,11 @@ function yaziUret(cfg) {
       "name": "TasarımMania",
       "url": "https://www.tasarimmania.com/",
       "telephone": "+905547916545",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/logo/marka-yatay-optik.png",
+        "width": 435, "height": 163
+      },
       "address": { "@type": "PostalAddress", "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
         "addressLocality": "Bakırköy", "addressRegion": "İstanbul", "addressCountry": "TR" }
     },
@@ -309,6 +366,8 @@ ${sssSema}
 
 ${nav(u, 'blog')}
 
+<!-- AYIRT EDİCİ EKSEN: ${cfg.eksen || 'TANIMSIZ'} — ${cfg.eksenAciklama || ''}
+     Huni türü: ${cfg.huni || '?'} · Küme: ${cfg.kume || '?'} · Kardeşler (enjeksiyon turunda): ${(cfg.kardesler || []).join(', ')} -->
 <main id="ana">
 
   <header class="phd">
@@ -326,6 +385,17 @@ ${nav(u, 'blog')}
       <p class="ozet">${y.girisParagraf}</p>
     </div>
   </header>
+
+  <figure class="yz-kapak">
+    <div class="wrap">
+      <img src="./gorsel/${cfg.gorsel.kapak.slug}-1440.webp"
+           srcset="./gorsel/${cfg.gorsel.kapak.slug}-640.webp 640w, ./gorsel/${cfg.gorsel.kapak.slug}-960.webp 960w, ./gorsel/${cfg.gorsel.kapak.slug}-1440.webp 1440w, ./gorsel/${cfg.gorsel.kapak.slug}-1920.webp 1920w"
+           sizes="(max-width: 1200px) 100vw, 1160px"
+           alt="${cfg.gorsel.kapak.alt}"
+           width="1920" height="1080" fetchpriority="high" decoding="async">
+      <figcaption>${cfg.gorsel.kapak.altyazi} <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
+    </div>
+  </figure>
 
   <section class="sec" style="padding-top:0">
     <div class="wrap">
