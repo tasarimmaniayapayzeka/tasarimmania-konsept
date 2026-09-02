@@ -256,23 +256,8 @@
   .ref-izgara img{height:60px;padding:14px 16px}}
 @media(prefers-reduced-motion:reduce){.ref-izgara li:hover img{transform:none}}
 
-/* --- Tanıtım videosu: tıklanana kadar YouTube'a bağlanmayan cephe --- */
-.yt-cephe{position:relative;display:block;width:100%;max-width:860px;margin:0 auto;
-  border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--hair);
-  cursor:pointer;aspect-ratio:16/9;background:#0d1017}
-.yt-cephe img{width:100%;height:100%;object-fit:cover;display:block;
-  filter:brightness(.72) saturate(.85);transition:filter .35s var(--ease),transform .5s var(--ease)}
-.yt-cephe:hover img,.yt-cephe:focus-visible img{filter:brightness(.85) saturate(1);transform:scale(1.02)}
-.yt-cephe:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
-.yt-play{position:absolute;inset:0;margin:auto;width:70px;height:70px;border-radius:50%;
-  display:grid;place-items:center;background:rgba(var(--acc-rgb),.92);color:#04141A;
-  box-shadow:0 12px 40px -8px rgba(var(--acc-rgb),.65);transition:transform .3s var(--ease)}
-.yt-cephe:hover .yt-play{transform:scale(1.08)}
-.yt-play svg{width:32px;height:32px;margin-left:3px}
-.yt-cephe iframe{width:100%;height:100%;border:0;display:block}
-.yt-not{text-align:center;font-size:12.8px;color:var(--muted);margin:12px 0 0}
-@media(max-width:520px){.yt-play{width:56px;height:56px}.yt-play svg{width:26px;height:26px}}
-@media(prefers-reduced-motion:reduce){.yt-cephe:hover img{transform:none}}
+/* Tanıtım videosu cephesinin stilleri de kaldırıldı (.yt-cephe/.yt-play/.yt-not).
+   Bölüm geri gelirse git geçmişinden alınabilir. */
 </style>
 <script type="application/ld+json">
 {
@@ -644,27 +629,14 @@
     </div>
   </section>
 
-  <section class="sec" id="tanitim" style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <span class="eyebrow"><i></i>Tanıtım filmi</span>
-        <h2 data-kin>Ajansı bir buçuk dakikada tanıyın</h2>
-        <p>Ekibi, stüdyoyu ve çalışma biçimimizi anlatan kısa tanıtım videomuz.</p>
-      </div>
-      <div class="yt-cephe rv d1" data-yt="PQxfYDP72OU"
-           role="button" tabindex="0" aria-label="Tanıtım videosunu oynat">
-        <img src="../../assets/ajans/tanitim-kapak-960.webp"
-             srcset="../../assets/ajans/tanitim-kapak-640.webp 640w, ../../assets/ajans/tanitim-kapak-960.webp 960w, ../../assets/ajans/tanitim-kapak-1280.webp 1280w"
-             sizes="(max-width: 900px) 100vw, 860px"
-             alt="TasarımMania tanıtım filmi kapak karesi" width="1280" height="720"
-             loading="lazy" decoding="async">
-        <span class="yt-play" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </span>
-      </div>
-      <p class="yt-not">Oynat'a basana kadar YouTube'a bağlanılmaz; çerez düşmez.</p>
-    </div>
-  </section>
+  <!-- TANITIM FİLMİ BÖLÜMÜ KALDIRILDI — kullanıcı kararı, 2 Eyl 2026.
+       Sebep: video eski KIRMIZI marka kimliğinde çekilmiş; site turkuaz-koyu
+       kimliğe geçtiği için kapak karesi ve içerik sayfayla çelişiyordu.
+       Kaldırılanlar: bu bölüm, tıkla-yükle YouTube cephesi ve JS'i,
+       .yt-cephe/.yt-play/.yt-not stilleri.
+       Kapak görselleri assets/ajans/tanitim-kapak-*.webp diskte DURUYOR;
+       yeni kimlikte bir tanıtım filmi çekilirse bölüm geri konabilir.
+       Video kimliği (YouTube): PQxfYDP72OU -->
 
   <section class="sec">
     <div class="wrap">
@@ -731,32 +703,8 @@
 "use strict";
 document.getElementById('yil').textContent = new Date().getFullYear();
 
-/* Tanıtım videosu: YouTube ancak KULLANICI oynat'a basınca yüklenir.
-   Sayfa açılışında hiçbir üçüncü taraf isteği gitmez; kapak karesi de yerelde. */
-(function tanitim(){
-  var cephe = document.querySelector('[data-yt]');
-  if (!cephe) return;
-  function ac(){
-    var id = cephe.dataset.yt;
-    if (!id || cephe.dataset.acildi) return;
-    cephe.dataset.acildi = '1';
-    var f = document.createElement('iframe');
-    f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
-    f.title = 'TasarımMania tanıtım filmi';
-    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture';
-    f.referrerPolicy = 'strict-origin-when-cross-origin';
-    f.allowFullscreen = true;
-    cephe.innerHTML = '';
-    cephe.appendChild(f);
-    cephe.style.cursor = 'default';
-    cephe.removeAttribute('role');
-    cephe.removeAttribute('tabindex');
-  }
-  cephe.addEventListener('click', ac);
-  cephe.addEventListener('keydown', function(e){
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ac(); }
-  });
-})();
+/* Tanıtım videosu betiği kaldırıldı — bölümün kendisiyle birlikte.
+   Sayfa artık hiçbir üçüncü taraf isteği yapmıyor. */
 
 /* Deneyim çubukları: bölüm görününce dolsun */
 (function deneyim(){
