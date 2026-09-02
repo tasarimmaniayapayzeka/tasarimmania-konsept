@@ -34,12 +34,27 @@
 }
 
 /* modül dalı aksanı — body[data-dal] ile ayarlanır, tek değişken üzerinden akar */
-body[data-dal="web"]       { --acc:var(--cy);    --acc-rgb:0,229,255 }
-body[data-dal="mobil"]     { --acc:var(--vi);    --acc-rgb:122,34,255 }
-body[data-dal="pazarlama"] { --acc:var(--amber); --acc-rgb:255,176,32 }
-body[data-dal="video"]     { --acc:var(--pink);  --acc-rgb:255,45,155 }
-body[data-dal="seo"]       { --acc:var(--lime);  --acc-rgb:166,255,0 }
-body                       { --acc:var(--cy);    --acc-rgb:0,229,255 }
+
+/* --acc-deep: aynı rengin BEYAZ yazıyı taşıyabilen derin tonu.
+   NEDEN VAR: parlak aksanların üstünde beyaz yazı okunmuyor. Ölçüm —
+   beyaz #FFF üzerine kontrast oranı:
+       --cy  #00E5FF 1.54     --lime  #A6FF00 1.24
+       --amber #FFB020 1.83   --pink  #FF2D9B 3.44   --vi #7A22FF 6.00
+   Beşinden dördü WCAG AA eşiğinin (4.5) çok altında.
+   AYRICA: eski koyu yazı (#04141A) --vi üzerinde 3.12 ölçüyordu; yani
+   mobil modülünün birincil butonu zaten AA'yı karşılamıyordu.
+   Derin tonlar aynı H/S değerinde tutulup L düşürülerek üretildi.
+   Ölçülen beyaz kontrastı: web 5.58  mobil 7.12  pazarlama 5.59
+                            video 5.53  seo 5.57  → beşi de AA ✓
+   Parlak --acc kenarlık ve ışık olarak KALIYOR; buton marka rengini
+   kaybetmiyor, yalnız beyaz yazıyı taşıyabilir hâle geliyor.
+   DİKKAT: --acc sözlüğü karar belgesiyle sabit, DEĞİŞTİRİLMEDİ. */
+body[data-dal="web"]       { --acc:var(--cy);    --acc-rgb:0,229,255;  --acc-deep:#05737F }
+body[data-dal="mobil"]     { --acc:var(--vi);    --acc-rgb:122,34,255; --acc-deep:#680AF5 }
+body[data-dal="pazarlama"] { --acc:var(--amber); --acc-rgb:255,176,32; --acc-deep:#8E5E06 }
+body[data-dal="video"]     { --acc:var(--pink);  --acc-rgb:255,45,155; --acc-deep:#CB086E }
+body[data-dal="seo"]       { --acc:var(--lime);  --acc-rgb:166,255,0;  --acc-deep:#4D7305 }
+body                       { --acc:var(--cy);    --acc-rgb:0,229,255;  --acc-deep:#05737F }
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:88px}
@@ -60,7 +75,9 @@ ul{margin:0;padding:0;list-style:none}
 .grad{background:linear-gradient(100deg,var(--acc),var(--vi));-webkit-background-clip:text;background-clip:text;color:transparent}
 
 /* --- atlama bağlantısı (erişilebilirlik) --- */
-.skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--acc);color:#04141A;
+/* Atlama bağlantısı da aksan zeminliydi ve mobil modülünde (--vi) koyu yazı
+   3.12 ölçüyordu. Butonla aynı derin ton + beyaz yazıya alındı. */
+.skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--acc-deep);color:#FFFFFF;
   padding:10px 18px;border-radius:0 0 var(--r-sm) 0;font-weight:600}
 .skip:focus{left:0}
 
@@ -79,7 +96,11 @@ ul{margin:0;padding:0;list-style:none}
   font-weight:600;font-size:14.5px;padding:13px 24px;border-radius:999px;border:1px solid transparent;
   cursor:pointer;transition:.28s var(--ease);white-space:nowrap}
 .btn svg{width:15px;height:15px;flex:none}
-.btn-p{background:var(--acc);color:#04141A;box-shadow:0 10px 30px -12px rgba(var(--acc-rgb),.65)}
+/* Birincil buton: derin aksan zemin + BEYAZ yazı + parlak aksan kenarlık.
+   Kenarlık ve ışık parlak --acc'te kaldığı için buton koyu zeminde
+   sönükleşmiyor; yazı ise AA eşiğini geçiyor (bkz. --acc-deep notu). */
+.btn-p{background:var(--acc-deep);color:#FFFFFF;border-color:var(--acc);
+  box-shadow:0 10px 30px -12px rgba(var(--acc-rgb),.65)}
 .btn-p:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(var(--acc-rgb),.8)}
 .btn-g{border-color:var(--hair-strong);color:var(--fg);background:rgba(255,255,255,.02)}
 .btn-g:hover{border-color:var(--acc);color:var(--acc)}
