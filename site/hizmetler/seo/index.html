@@ -204,7 +204,17 @@ a.alt-k:hover .alt-git{gap:12px}
 /* --- fiyat kutusu + SERP infografiği yan yana --- */
 .fyt-satir{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);
   gap:20px;align-items:start}
-.fyt-satir .fyt{max-width:none;height:100%}
+/* Kutu grafikle aynı yüksekliğe gerilir; içerik yukarı toplanıp
+   "sonraki adım" bloğu dibe yaslanır — böylece gerilme boşluk üretmez. */
+.fyt-satir .fyt{max-width:none;height:100%;display:flex;flex-direction:column}
+.fyt-satir .fyt-ne{margin-bottom:0}
+.fyt-adim{margin-top:auto;padding-top:26px;border-top:1px solid var(--hair)}
+.fyt-adim > p{font-size:13.8px;color:var(--muted);line-height:1.65;margin:0 0 16px;max-width:52ch}
+.fyt-adim > p a{color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.45)}
+.fyt-adim > p a:hover{text-decoration-color:var(--acc)}
+.fyt-btn{display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:1000px){.fyt-adim{margin-top:26px}}
 .serp{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);
   padding:18px 18px 16px;height:100%;display:flex;flex-direction:column}
 /* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
@@ -725,6 +735,21 @@ a.alt-k:hover .alt-git{gap:12px}
           <li>Fiyat; site büyüklüğü, rekabet ve hedef pazar sayısına göre belirlenir</li>
           <li>Sonuçlar kademeli ve birikimli biçimde ortaya çıkar</li>
         </ul>
+
+        <!-- Fiyat kutusunun altı boştu (ölçüldü: 217px) ve daha önemlisi
+             sayfanın en yüksek niyetli anında SONRAKİ ADIM yoktu.
+             Yeni iddia eklemiyor: dürüstlük cümlesi zaten #durustluk
+             bölümünde yazıyor, butonlar sayfada zaten kullanılan hedefler. -->
+        <div class="fyt-adim">
+          <p>Sıralama garantisi vermiyoruz —
+            <a href="#durustluk">nedenini aşağıda anlattık</a>.
+            Konuşmaya kapsam çıkararak başlıyoruz.</p>
+          <div class="fyt-btn">
+            <a class="btn btn-p" href="../../teklif/#seo">Kapsam çıkaralım
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20SEO%20Hizmetleri%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%0ASitem%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+          </div>
+        </div>
       </div>
 
       <!-- SERP infografiği — HEDEFİ gösterir, VAAT DEĞİL.
