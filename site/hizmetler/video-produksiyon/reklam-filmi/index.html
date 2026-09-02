@@ -268,6 +268,130 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
 
+/* --- akış durakları (alt sayfa standardı) ---
+   Desen teknik-seo alt sayfasından birebir alındı; yalnızca canlanma öneki
+   değişti (orada "ts-", burada "rf-") ki iki sayfa ileride birleşirse
+   kurallar çakışmasın.
+
+   ÖLÇÜLEN KUSUR 1 — mobilde okunmuyordu: tek parça geniş grafik 390px
+   ekranda ~296px'e sığınca içindeki yazı 2-3px'e düşüyordu. Doğrusu grafiği
+   kutulara bölüp alt alta açmak: her durak kendi 380x400 kutusunda.
+   Mobilde kutu iç genişliği ~281px / viewBox 380 = 0.74 ölçek, bu yüzden
+   SVG içindeki EN KÜÇÜK yazı 13 seçildi → ekranda en az 9.6px.
+
+   ÖLÇÜLEN KUSUR 2 — ad çakışması: tm.css'te (satır 161-171) GLOBAL bir kayan
+   yazı bileşeni var; onun "span{display:inline-flex}" ve
+   "span::before{content:...}" kuralları figure içine konan HER <span>'i ele
+   geçiriyor. Bu yüzden ad .akis; o ad bu sayfada hiç geçmiyor. Yine de
+   .akis-no / .akis-ad stilleri AÇIK yazıldı: <span> stili mirasa bırakılmıyor. */
+.akis{border:1px solid var(--hair);border-radius:var(--r-lg);
+  background:var(--panel);padding:18px;margin:26px 0 0}
+.akis-izgara{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:12px;align-items:stretch}
+.akis-kutu{border:1px solid var(--hair);border-radius:var(--r-md);
+  background:rgba(255,255,255,.02);padding:14px;display:flex;
+  flex-direction:column;gap:10px}
+.akis-no{display:inline-block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;color:var(--acc);opacity:.9}
+.akis-ad{display:block;font-size:13.5px;font-weight:600;color:var(--fg);
+  letter-spacing:-.01em;margin-top:-6px}
+/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
+.akis-kutu svg{width:100%;height:auto;display:block;border-radius:10px}
+.akis-ok{display:grid;place-items:center;color:var(--acc);opacity:.6}
+.akis-ok svg{width:22px;height:22px}
+.akis figcaption{margin-top:14px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.akis figcaption b{color:var(--fg-dim);font-weight:600}
+@media(max-width:1100px){
+  .akis-izgara{grid-template-columns:1fr;gap:10px}
+  .akis-ok svg{transform:rotate(90deg)}
+  .akis{padding:14px}
+  .akis-kutu{width:100%;max-width:520px;margin-inline:auto}
+}
+
+/* --- durak canlanması ---
+   YENİ JS YOK: figure zaten .rv sınıfında; site/js/tm.js görününce .in ekliyor.
+   prefers-reduced-motion: tm.css'teki global kural animation-duration'ı
+   0.001ms'e indiriyor, "forwards" sayesinde her öğe anında son hâline oturuyor.
+   BAŞLANGIÇ DURUMU VERİLEN HER ÖĞENİN .in KARŞILIĞI VAR (aşağıda birebir).
+   Çizelge — her kutu KENDİ içinde canlanır, kutular soldan sağa (mobilde
+   yukarıdan aşağı) sırayla girer:
+     KUTU 1 · 0.25s : kart 0.25 · marka briefi 0.38 · ok yolu 0.50 ·
+                      senaryo sayfası 0.56 · sahne blokları 0.74–0.90 ·
+                      alt satır 1.02
+     ok 1 · 0.80s
+     KUTU 2 · 0.90s : kart 0.90 · üst etiketler 0.98 ·
+                      altı kare 1.04–1.34 · onay işareti 1.40 · alt satır 1.46
+     ok 2 · 1.40s
+     KUTU 3 · 1.50s : kart 1.50 · başlık 1.56 · iki kart çerçevesi 1.62 ·
+                      katman yığını ve rozetler AYNI ANDA 1.70–1.82 ·
+                      zaman çizgisi dolar 1.90 · işaretçi 1.98 · alt satır 2.06 */
+.akis svg .rf-kart{opacity:0;transform:translateY(16px);transform-box:fill-box}
+.akis svg .rf-brief,
+.akis svg .rf-senaryo,
+.akis svg .rf-alt1,
+.akis svg .rf-ust2,
+.akis svg .rf-onay,
+.akis svg .rf-alt2,
+.akis svg .rf-ust3,
+.akis svg .rf-cerceve3,
+.akis svg .rf-et3,
+.akis svg .rf-alt3{opacity:0}
+.akis svg .rf-yol{stroke-dasharray:72;stroke-dashoffset:72}
+.akis svg .rf-blok > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.akis svg .rf-kareler > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.akis svg .rf-yigin > g{opacity:0;transform:translateX(-12px);transform-box:fill-box}
+.akis svg .rf-rozet > g{opacity:0;transform:translateX(12px);transform-box:fill-box}
+.akis svg .rf-dolgu{clip-path:inset(0 100% 0 0)}
+.akis svg .rf-isaret{opacity:0;transform:scale(.5);transform-box:fill-box;
+  transform-origin:center}
+/* oklar HTML'de: .akis-ok kutusu opaklığı taşıyor, ok çizimi 0'dan girer */
+.akis .rf-ok{opacity:0}
+
+.akis.in svg .rf-k1{animation:rfKart .6s var(--ease) .25s forwards}
+.akis.in svg .rf-brief{animation:rfBelir .5s var(--ease) .38s forwards}
+.akis.in svg .rf-yol{animation:rfCiz .75s var(--ease) .50s forwards}
+.akis.in svg .rf-senaryo{animation:rfBelir .5s var(--ease) .56s forwards}
+.akis.in svg .rf-blok > g:nth-child(1){animation:rfSatir .45s var(--ease) .74s forwards}
+.akis.in svg .rf-blok > g:nth-child(2){animation:rfSatir .45s var(--ease) .82s forwards}
+.akis.in svg .rf-blok > g:nth-child(3){animation:rfSatir .45s var(--ease) .90s forwards}
+.akis.in svg .rf-alt1{animation:rfBelir .45s var(--ease) 1.02s forwards}
+.akis.in .rf-ok1{animation:rfOkBelir .55s var(--ease) .80s forwards}
+.akis.in svg .rf-k2{animation:rfKart .6s var(--ease) .90s forwards}
+.akis.in svg .rf-ust2{animation:rfBelir .45s var(--ease) .98s forwards}
+.akis.in svg .rf-kareler > g:nth-child(1){animation:rfSatir .42s var(--ease) 1.04s forwards}
+.akis.in svg .rf-kareler > g:nth-child(2){animation:rfSatir .42s var(--ease) 1.10s forwards}
+.akis.in svg .rf-kareler > g:nth-child(3){animation:rfSatir .42s var(--ease) 1.16s forwards}
+.akis.in svg .rf-kareler > g:nth-child(4){animation:rfSatir .42s var(--ease) 1.22s forwards}
+.akis.in svg .rf-kareler > g:nth-child(5){animation:rfSatir .42s var(--ease) 1.28s forwards}
+.akis.in svg .rf-kareler > g:nth-child(6){animation:rfSatir .42s var(--ease) 1.34s forwards}
+.akis.in svg .rf-onay{animation:rfTik .5s var(--ease) 1.40s forwards}
+.akis.in svg .rf-alt2{animation:rfBelir .45s var(--ease) 1.46s forwards}
+.akis.in .rf-ok2{animation:rfOkBelir .55s var(--ease) 1.40s forwards}
+.akis.in svg .rf-k3{animation:rfKart .6s var(--ease) 1.50s forwards}
+.akis.in svg .rf-ust3{animation:rfBelir .45s var(--ease) 1.56s forwards}
+.akis.in svg .rf-cerceve3{animation:rfBelir .5s var(--ease) 1.62s forwards}
+/* sol yığın ve sağ rozetler AYNI gecikmelerle girer: iki format eşit ağırlıkta */
+.akis.in svg .rf-yigin > g:nth-child(1){animation:rfSol .45s var(--ease) 1.70s forwards}
+.akis.in svg .rf-yigin > g:nth-child(2){animation:rfSol .45s var(--ease) 1.76s forwards}
+.akis.in svg .rf-yigin > g:nth-child(3){animation:rfSol .45s var(--ease) 1.82s forwards}
+.akis.in svg .rf-rozet > g:nth-child(1){animation:rfSag .45s var(--ease) 1.70s forwards}
+.akis.in svg .rf-rozet > g:nth-child(2){animation:rfSag .45s var(--ease) 1.76s forwards}
+.akis.in svg .rf-rozet > g:nth-child(3){animation:rfSag .45s var(--ease) 1.82s forwards}
+.akis.in svg .rf-d1{animation:rfDol .7s var(--ease) 1.90s forwards}
+.akis.in svg .rf-i1{animation:rfTik .5s var(--ease) 1.98s forwards}
+.akis.in svg .rf-et3{animation:rfBelir .45s var(--ease) 1.90s forwards}
+.akis.in svg .rf-alt3{animation:rfBelir .45s var(--ease) 2.06s forwards}
+
+@keyframes rfKart{to{opacity:1;transform:translateY(0)}}
+@keyframes rfSatir{to{opacity:1;transform:translateY(0)}}
+@keyframes rfSol{to{opacity:1;transform:translateX(0)}}
+@keyframes rfSag{to{opacity:1;transform:translateX(0)}}
+@keyframes rfBelir{to{opacity:1}}
+@keyframes rfCiz{to{stroke-dashoffset:0}}
+@keyframes rfDol{to{clip-path:inset(0 0 0 0)}}
+@keyframes rfTik{to{opacity:1;transform:scale(1)}}
+@keyframes rfOkBelir{0%{opacity:0}45%{opacity:1;filter:brightness(1.7)}to{opacity:1;filter:brightness(1)}}
+
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
 .sss details[open],.akor details[open]{border-color:var(--hair-strong)}
@@ -372,6 +496,16 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   .nav-links,.nav-tel{display:none}
   .burger{display:block}
   .ftr-ust{grid-template-columns:1fr}
+}
+
+/* DAR-EKRAN-DOLGU */
+/* 375px (iPhone SE) olculdu: en kucuk yazi 8.49-8.82px, 9px esiginin altinda.
+   SVG'leri yeniden cizmek yerine dolguyu kisip SVG'ye alan aciliyor:
+   375 - 48(wrap) - 20(akis) - 20(kutu) - 4(kenarlik) = 283px → olcek 0.745
+   13 * 0.745 = 9.68px. Olcum sonrasi dogrulandi. */
+@media(max-width:400px){
+  .akis{padding:10px}
+  .akis-kutu{padding:10px;gap:8px}
 }
 </style>
 <script type="application/ld+json">
@@ -537,6 +671,381 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>
+
+      <!-- Akış durakları — bu sayfanın KENDİ anlattığı üretim öncesi yolu çizer:
+           brief → senaryo, storyboard, format kararı. Etiketlerin tamamı sayfada
+           geçen kavramlar: marka briefi, senaryo, metin yazarları, kaleme alınan,
+           storyboard, kamera açıları, görsel taslak, onay, çekim planı, format
+           kararı, animasyon, çekimli, oyuncu, mekan, ışık, katman, zamanlama,
+           ihtiyaç, seçilen. ("Metin yazarı" tekil biçimi sayfada geçmiyor; sayfanın
+           kendi çoğul biçimi "metin yazarları" kullanıldı.)
+
+           BİLEREK RAKAM YOK: bu sayfada fiyat rakamı yayımlanmıyor; süre, bütçe,
+           çekim günü ve kare sayısı da yazılmadı. Storyboard kareleri altındaki
+           sıra numaraları yerine nötr çubuk kondu, kareler yüz içermiyor —
+           temsilî kompozisyon işaretleri. Marka/platform/kamera logosu çizilmedi.
+
+           ÜÇÜNCÜ DURAK EŞİT AĞIRLIK: sayfa animasyon ile çekimli formatı iki
+           geçerli seçenek olarak anlatıyor, biri diğerinden üstün değil. Bu yüzden
+           iki kart aynı ölçüde, aynı kenarlık gücünde, aynı dolguda; hiçbiri sönük
+           ya da çapraz işaretli değil ve canlanmada AYNI gecikmelerle giriyorlar.
+
+           NEDEN ÜÇ AYRI SVG: tek parça geniş grafik 390px ekranda ~296px'e
+           sığınca yazısı okunmaz hâle geliyordu. Her durak kendi 380x400
+           kutusunda; 860px altında kutular alt alta açılır, aradaki oklar 90°
+           döner. En küçük yazı 13: mobilde kutu içi ~281px / viewBox 380 = 0.74
+           ölçek, yani ekranda en az 9.6px. Inline SVG: ek istek yok, her ölçekte
+           net, viewBox sayesinde oran sabit olduğu için düzen kaymaz (CLS yok). -->
+      <figure class="akis rv d2">
+        <div class="akis-izgara">
+
+          <!-- ===== DURAK 01 — BRIEF → SENARYO ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">01</span>
+            <span class="akis-ad">Brief → Senaryo</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="rfB1 rfA1"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="rfB1">Brief'ten senaryoya: marka briefi belgesinden senaryo belgesine uzanan ok — temsilî görsel</title>
+              <desc id="rfA1">Solda köşesi kıvrık bir belge, üzerinde üç metin çubuğu; altında
+                "Marka briefi" yazıyor. Ondan sağa bir ok. Sağda daha uzun bir belge: üç kısa kalın
+                çubuk sahne başlıklarını, altlarındaki ince çubuklar diyalog satırlarını temsil
+                ediyor; altında "Senaryo" yazıyor. En altta tek satır: "Metin yazarları kaleme
+                alır". Canlanmada önce brief belirir, ok soldan sağa çizilir, sonra senaryo
+                sayfası ve sahne blokları sırayla girer.</desc>
+              <defs>
+                <linearGradient id="rfSahne1" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="rfIsik1" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="rfGolge1" filterUnits="userSpaceOnUse" x="-20" y="-20" width="420" height="440">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#rfSahne1)"/>
+              <rect width="380" height="400" fill="url(#rfIsik1)"/>
+
+              <g class="rf-kart rf-k1">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#rfGolge1)"/>
+
+                <!-- marka briefi: sayfada "marka briefi doğrultusunda" olarak geçiyor -->
+                <g class="rf-brief">
+                  <path d="M44,58 H126 L150,82 V176 H44 Z" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4" stroke-linejoin="round"/>
+                  <path d="M126,58 V82 H150 Z" fill="#17222E" stroke="#33465A" stroke-width="1.2" stroke-linejoin="round"/>
+                  <rect x="58" y="100" width="76" height="9" rx="4.5" fill="#3A4A5E"/>
+                  <rect x="58" y="122" width="58" height="9" rx="4.5" fill="#2A3646"/>
+                  <rect x="58" y="144" width="70" height="9" rx="4.5" fill="#2A3646"/>
+                  <text x="97" y="200" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="14" fill="#9FD6E0">Marka briefi</text>
+                </g>
+
+                <!-- ok: canlanmada soldan sağa çizilir -->
+                <path class="rf-yol" d="M164,118 H196 M188,111 l8,7 -8,7" fill="none"
+                      stroke="#00E5FF" stroke-opacity=".8" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- senaryo: daha uzun belge; kalın çubuk = sahne başlığı,
+                     ince çubuklar = altındaki diyalog satırları. Sahne adı ve
+                     replik uydurulmadı, hepsi çubukla temsil edildi. -->
+                <g class="rf-senaryo">
+                  <path d="M214,44 H316 L340,68 V238 H214 Z" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".5" stroke-width="1.4" stroke-linejoin="round"/>
+                  <path d="M316,44 V68 H340 Z" fill="#17222E" stroke="#33465A" stroke-width="1.2" stroke-linejoin="round"/>
+                  <text x="277" y="262" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="14" fill="#8FF6FF">Senaryo</text>
+                </g>
+                <g class="rf-blok">
+                  <g>
+                    <rect x="228" y="86" width="52" height="11" rx="5.5" fill="#00E5FF" fill-opacity=".55"/>
+                    <rect x="228" y="105" width="94" height="6" rx="3" fill="#2A3646"/>
+                    <rect x="228" y="116" width="74" height="6" rx="3" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="228" y="134" width="52" height="11" rx="5.5" fill="#00E5FF" fill-opacity=".55"/>
+                    <rect x="228" y="153" width="90" height="6" rx="3" fill="#2A3646"/>
+                    <rect x="228" y="164" width="68" height="6" rx="3" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="228" y="182" width="52" height="11" rx="5.5" fill="#00E5FF" fill-opacity=".55"/>
+                    <rect x="228" y="201" width="96" height="6" rx="3" fill="#2A3646"/>
+                    <rect x="228" y="212" width="62" height="6" rx="3" fill="#2A3646"/>
+                  </g>
+                </g>
+
+                <g class="rf-alt1">
+                  <rect x="34" y="296" width="312" height="58" rx="12" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                  <path d="M57,337 l2.5,-8 15.5,-15.5 5.5,5.5 -15.5,15.5 z M71,316 l5.5,5.5"
+                        fill="none" stroke="#00E5FF" stroke-width="1.7"
+                        stroke-linecap="round" stroke-linejoin="round"/>
+                  <text x="94" y="330" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="14" fill="#D5E4EC">Metin yazarları kaleme alır</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="rf-ok rf-ok1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 02 — STORYBOARD ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">02</span>
+            <span class="akis-ad">Storyboard</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="rfB2 rfA2"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="rfB2">Storyboard: altı kare halinde kompozisyon taslakları, biri onaylanmış — temsilî görsel</title>
+              <desc id="rfA2">Üstte "Kamera açıları" başlığı ve "görsel taslak" etiketi. Altında
+                iki satır hâlinde altı kare çerçeve: birinde yatay ufuk çizgisiyle geniş plan,
+                birinde merkezde daireyle yakın plan, birinde küçük dikdörtgenle ürün, kalan
+                üçünde çubuk kompozisyon. Karelerin altında sıra numarası yerine ince çubuk var.
+                İkinci satırın ortasındaki kare aksan çerçeveli ve onay işaretli, altında
+                "Onaylanan" yazıyor. En altta tek satır: "Çekim planı storyboard onayından
+                sonra". Karelerde yüz ya da gerçek görüntü yok.</desc>
+              <defs>
+                <linearGradient id="rfSahne2" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="rfIsik2" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="rfGolge2" filterUnits="userSpaceOnUse" x="-20" y="-20" width="420" height="440">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#rfSahne2)"/>
+              <rect width="380" height="400" fill="url(#rfIsik2)"/>
+
+              <g class="rf-kart rf-k2">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#rfGolge2)"/>
+
+                <g class="rf-ust2">
+                  <text x="34" y="52" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="14" letter-spacing=".5" fill="#9FD6E0">Kamera açıları</text>
+                  <rect x="214" y="32" width="132" height="30" rx="9" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.3"/>
+                  <text x="280" y="52" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="13" letter-spacing=".4" fill="#8FF6FF">görsel taslak</text>
+                </g>
+
+                <!-- altı kare: kompozisyon işareti + altında sıra numarası
+                     YERİNE nötr çubuk. Yüz çizilmedi, gerçek kare sayısı iddiası yok. -->
+                <g class="rf-kareler">
+                  <g>
+                    <rect x="34" y="80" width="96" height="86" rx="10" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                    <rect x="46" y="94" width="72" height="28" rx="4" fill="#0D141B"/>
+                    <path d="M46,128 H118" fill="none" stroke="#00E5FF" stroke-opacity=".6"
+                          stroke-width="1.8" stroke-linecap="round"/>
+                    <rect x="46" y="132" width="72" height="22" rx="4" fill="#16222C"/>
+                    <rect x="42" y="176" width="40" height="7" rx="3.5" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="142" y="80" width="96" height="86" rx="10" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                    <circle cx="190" cy="123" r="20" fill="none" stroke="#00E5FF"
+                            stroke-opacity=".6" stroke-width="1.8"/>
+                    <circle cx="190" cy="123" r="8" fill="#00E5FF" fill-opacity=".18"/>
+                    <rect x="150" y="176" width="40" height="7" rx="3.5" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="250" y="80" width="96" height="86" rx="10" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                    <rect x="282" y="106" width="32" height="34" rx="5" fill="#0F1F2A"
+                          stroke="#00E5FF" stroke-opacity=".6" stroke-width="1.7"/>
+                    <path d="M268,150 H328" fill="none" stroke="#2A3646"
+                          stroke-width="2" stroke-linecap="round"/>
+                    <rect x="258" y="176" width="40" height="7" rx="3.5" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="34" y="200" width="96" height="86" rx="10" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                    <rect x="46" y="232" width="58" height="8" rx="4" fill="#3A4A5E"/>
+                    <rect x="46" y="248" width="38" height="8" rx="4" fill="#2A3646"/>
+                    <rect x="42" y="296" width="40" height="7" rx="3.5" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="142" y="200" width="96" height="86" rx="10" fill="#0F1A22"
+                          stroke="#00E5FF" stroke-opacity=".85" stroke-width="2"/>
+                    <rect x="154" y="232" width="58" height="8" rx="4" fill="#3A4A5E"/>
+                    <rect x="154" y="248" width="38" height="8" rx="4" fill="#2A3646"/>
+                    <g class="rf-onay">
+                      <circle cx="222" cy="216" r="9" fill="#00E5FF" fill-opacity=".14"
+                              stroke="#00E5FF" stroke-width="1.7"/>
+                      <path d="M217.5,216 l3.6,3.6 l6.3,-7.2" fill="none" stroke="#00E5FF"
+                            stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <text x="190" y="278" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#8FF6FF">Onaylanan</text>
+                    <rect x="150" y="296" width="40" height="7" rx="3.5" fill="#00E5FF" fill-opacity=".5"/>
+                  </g>
+                  <g>
+                    <rect x="250" y="200" width="96" height="86" rx="10" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                    <rect x="262" y="232" width="52" height="8" rx="4" fill="#3A4A5E"/>
+                    <rect x="262" y="248" width="34" height="8" rx="4" fill="#2A3646"/>
+                    <rect x="258" y="296" width="40" height="7" rx="3.5" fill="#2A3646"/>
+                  </g>
+                </g>
+
+                <g class="rf-alt2">
+                  <rect x="34" y="318" width="312" height="52" rx="12" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                  <text x="52" y="350" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#D5E4EC">Çekim planı storyboard onayından sonra</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="rf-ok rf-ok2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 03 — FORMAT KARARI ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">03</span>
+            <span class="akis-ad">Format kararı</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="rfB3 rfA3"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="rfB3">Format kararı: Animasyon ve Çekimli kartları yan yana, eşit ağırlıkta — temsilî görsel</title>
+              <desc id="rfA3">Yan yana iki eşit kart. Solda "Animasyon": üst üste kaymış üç
+                dikdörtgenden oluşan katman yığını ve altında küçük bir zaman çizgisi.
+                Sağda "Çekimli": üç rozet — Oyuncu, Mekan ve Işık — her biri ikon ve etiketten
+                oluşuyor. İki kart aynı boyutta, aynı kenarlık ve dolguda; hiçbiri sönük ya da
+                çapraz işaretli değil. En altta tek satır: "İhtiyaca göre seçilir".</desc>
+              <defs>
+                <linearGradient id="rfSahne3" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="rfIsik3" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="rfGolge3" filterUnits="userSpaceOnUse" x="-20" y="-20" width="420" height="440">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#rfSahne3)"/>
+              <rect width="380" height="400" fill="url(#rfIsik3)"/>
+
+              <g class="rf-kart rf-k3">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#rfGolge3)"/>
+
+                <text class="rf-ust3" x="34" y="52" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="14" letter-spacing=".5" fill="#9FD6E0">Format kararı</text>
+
+                <!-- İKİ KART EŞİT: aynı genişlik/yükseklik, aynı kenarlık gücü,
+                     aynı dolgu, aynı başlık boyu. Sayfa ikisini de geçerli
+                     anlatıyor; üstünlük ima eden sönüklük/çapraz işaret yok. -->
+                <g class="rf-cerceve3">
+                  <rect x="34" y="72" width="150" height="246" rx="12" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.4"/>
+                  <rect x="196" y="72" width="150" height="246" rx="12" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.4"/>
+                  <text x="109" y="102" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="15" font-weight="600" fill="#8FF6FF">Animasyon</text>
+                  <text x="271" y="102" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="15" font-weight="600" fill="#8FF6FF">Çekimli</text>
+                </g>
+
+                <!-- sol: katman yığını (sayfada "ses efekti katmanları", "kontrol katmanı") -->
+                <g class="rf-yigin">
+                  <g><rect x="64" y="120" width="88" height="32" rx="7" fill="#131E28"
+                           stroke="#33465A" stroke-width="1.3"/></g>
+                  <g><rect x="56" y="138" width="88" height="32" rx="7" fill="#16232F"
+                           stroke="#3E5468" stroke-width="1.3"/></g>
+                  <g>
+                    <rect x="48" y="156" width="88" height="32" rx="7" fill="#0F1F2A"
+                          stroke="#00E5FF" stroke-opacity=".7" stroke-width="1.5"/>
+                    <rect x="58" y="168" width="44" height="8" rx="4" fill="#00E5FF" fill-opacity=".45"/>
+                  </g>
+                </g>
+
+                <!-- sol: küçük zaman çizgisi. Üzerinde SÜRE YAZMIYOR:
+                     bant yalnızca "zamanlama var" demek, bir uzunluk iddiası değil. -->
+                <path d="M62,238 v10 M90,238 v10 M118,238 v10 M146,238 v10" fill="none"
+                      stroke="#33465A" stroke-width="1.4" stroke-linecap="round"/>
+                <rect x="50" y="256" width="118" height="8" rx="4" fill="#1B242E"/>
+                <rect class="rf-dolgu rf-d1" x="50" y="256" width="76" height="8" rx="4"
+                      fill="#00E5FF" fill-opacity=".55"/>
+                <circle class="rf-isaret rf-i1" cx="126" cy="260" r="7" fill="#0B0D12"
+                        stroke="#00E5FF" stroke-width="2.2"/>
+
+                <g class="rf-et3">
+                  <text x="109" y="210" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="13" letter-spacing=".4" fill="#A8B8C4">katman</text>
+                  <text x="109" y="290" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="13" letter-spacing=".4" fill="#A8B8C4">zamanlama</text>
+                </g>
+
+                <!-- sağ: üç rozet — sayfadaki "oyuncu, mekan ve ışık düzeni" -->
+                <g class="rf-rozet">
+                  <g>
+                    <rect x="208" y="122" width="126" height="48" rx="10" fill="#131E28"
+                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                    <circle cx="232" cy="139" r="5.4" fill="none" stroke="#00E5FF" stroke-width="1.7"/>
+                    <path d="M222.6,157 a9.4,9.4 0 0 1 18.8,0" fill="none" stroke="#00E5FF"
+                          stroke-width="1.7" stroke-linecap="round"/>
+                    <text x="258" y="151" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="14" fill="#D5E4EC">Oyuncu</text>
+                  </g>
+                  <g>
+                    <rect x="208" y="180" width="126" height="48" rx="10" fill="#131E28"
+                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                    <path d="M232,190 c-6.2,0 -11.2,5 -11.2,11.2 0,8 11.2,17.6 11.2,17.6 s11.2,-9.6 11.2,-17.6 c0,-6.2 -5,-11.2 -11.2,-11.2 Z"
+                          fill="none" stroke="#00E5FF" stroke-width="1.7" stroke-linejoin="round"/>
+                    <circle cx="232" cy="201" r="4" fill="none" stroke="#00E5FF" stroke-width="1.5"/>
+                    <text x="258" y="209" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="14" fill="#D5E4EC">Mekan</text>
+                  </g>
+                  <g>
+                    <rect x="208" y="238" width="126" height="48" rx="10" fill="#131E28"
+                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                    <circle cx="232" cy="262" r="6" fill="none" stroke="#00E5FF" stroke-width="1.7"/>
+                    <path d="M232,250 v-4 M232,274 v4 M220,262 h-4 M244,262 h4 M223.5,253.5 l-2.8,-2.8 M240.5,270.5 l2.8,2.8 M240.5,253.5 l2.8,-2.8 M223.5,270.5 l-2.8,2.8"
+                          fill="none" stroke="#00E5FF" stroke-opacity=".8" stroke-width="1.6" stroke-linecap="round"/>
+                    <text x="258" y="267" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="14" fill="#D5E4EC">Işık</text>
+                  </g>
+                </g>
+
+                <g class="rf-alt3">
+                  <rect x="34" y="332" width="312" height="48" rx="12" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                  <text x="190" y="362" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="14" fill="#D5E4EC">İhtiyaca göre seçilir</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <figcaption><b>Temsilî görsel.</b> Sayfanın anlattığı üretim öncesi yolu çiziyor: marka
+          briefinden senaryoya, oradan storyboard onayına ve format kararına. Belgeler ve kareler
+          örnek çizimdir, gerçek bir projeden alınmadı; sahne adı, replik ve kare numarası
+          uydurmamak için hepsi çubukla temsil edildi, karelerde yüz yok. Üçüncü duraktaki iki
+          kart bilerek eşit: sayfa animasyon ile çekimli formatı iki geçerli seçenek olarak
+          anlatıyor, hangisinin kullanılacağı ihtiyaca göre belirlenir. Zaman çizgisi yalnızca
+          "zamanlama planlanıyor" demek için var; üzerinde süre, bütçe ya da kare sayısı
+          göstermez, bu yüzden figürün tamamında bilerek rakam yok.</figcaption>
+      </figure>
+
       <div class="dtay-fiyat rv d1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
         <p><strong>Güncel fiyat ve süre bandı</strong> için Video Prodüksiyon sayfasının <a href="../../../hizmetler/video-produksiyon/#fiyat">fiyatlandırma bölümüne</a> göz atın — kapsamınıza göre bandı iki dakikada netleştirebilirsiniz.</p>

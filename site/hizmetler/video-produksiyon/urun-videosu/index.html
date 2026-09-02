@@ -268,6 +268,138 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
 
+/* --- akış durakları (alt sayfa standardı) ---
+   Desen teknik-seo alt sayfasından birebir alındı; yalnızca canlanma öneki
+   değişti (orada "ts-", burada "uv-") ki iki sayfa ileride birleşirse
+   kurallar çakışmasın.
+
+   ÖLÇÜLEN KUSUR 1 — mobilde okunmuyordu: tek parça geniş grafik 390px
+   ekranda ~296px'e sığınca içindeki yazı 2-3px'e düşüyordu. Doğrusu grafiği
+   kutulara bölüp alt alta açmak: her durak kendi 380x400 kutusunda.
+   Mobilde kutu iç genişliği ~281px / viewBox 380 = 0.74 ölçek, bu yüzden
+   SVG içindeki EN KÜÇÜK yazı 13 seçildi → ekranda en az 9.6px.
+
+   ÖLÇÜLEN KUSUR 2 — ad çakışması: tm.css'te (satır 161-171) GLOBAL bir kayan
+   yazı bileşeni var; onun "span{display:inline-flex}" ve
+   "span::before{content:...}" kuralları figure içine konan HER <span>'i ele
+   geçiriyor. Bu yüzden ad .akis; o ad bu sayfada hiç geçmiyor. Yine de
+   .akis-no / .akis-ad stilleri AÇIK yazıldı: <span> stili mirasa bırakılmıyor. */
+.akis{border:1px solid var(--hair);border-radius:var(--r-lg);
+  background:var(--panel);padding:18px;margin:26px 0 0}
+.akis-izgara{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:12px;align-items:stretch}
+.akis-kutu{border:1px solid var(--hair);border-radius:var(--r-md);
+  background:rgba(255,255,255,.02);padding:14px;display:flex;
+  flex-direction:column;gap:10px}
+.akis-no{display:inline-block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;color:var(--acc);opacity:.9}
+.akis-ad{display:block;font-size:13.5px;font-weight:600;color:var(--fg);
+  letter-spacing:-.01em;margin-top:-6px}
+/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
+.akis-kutu svg{width:100%;height:auto;display:block;border-radius:10px}
+.akis-ok{display:grid;place-items:center;color:var(--acc);opacity:.6}
+.akis-ok svg{width:22px;height:22px}
+.akis figcaption{margin-top:14px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.akis figcaption b{color:var(--fg-dim);font-weight:600}
+@media(max-width:1100px){
+  .akis-izgara{grid-template-columns:1fr;gap:10px}
+  .akis-ok svg{transform:rotate(90deg)}
+  .akis{padding:14px}
+  .akis-kutu{width:100%;max-width:520px;margin-inline:auto}
+}
+
+/* --- durak canlanması ---
+   YENİ JS YOK: figure zaten .rv sınıfında; site/js/tm.js görününce .in ekliyor.
+   prefers-reduced-motion: tm.css'teki global kural animation-duration'ı
+   0.001ms'e indiriyor, "forwards" sayesinde her öğe anında son hâline oturuyor.
+   BAŞLANGIÇ DURUMU VERİLEN HER ÖĞENİN .in KARŞILIĞI VAR (aşağıda birebir).
+   Çizelge — her kutu KENDİ içinde canlanır, kutular soldan sağa (mobilde
+   yukarıdan aşağı) sırayla girer:
+     KUTU 1 · 0.25s : kart 0.25 · stüdyo paneli 0.34 · mekan paneli 0.42 ·
+                      ışık konileri 0.52–0.64 · ürünler 0.66/0.70 ·
+                      alt satırlar 0.74–1.04 · alt not 1.10
+     ok 1 · 0.80s
+     KUTU 2 · 0.90s : kart 0.90 · üst etiketler 0.98 · ürün karesi 1.04 ·
+                      kesik çizgili çerçeve 1.12 · ürün 1.18 ·
+                      oran rozetleri 1.24–1.40 · alt not 1.46
+     ok 2 · 1.40s
+     KUTU 3 · 1.50s : kart 1.50 · başlık 1.56 · kurgu hattı 1.62 ·
+                      klipler 1.68–1.86 · aksan klip etiketi 1.92 ·
+                      ses bloğu 1.98 · dalga çizilir 2.04 ·
+                      işlem rozetleri 2.12–2.28 */
+.akis svg .uv-kart{opacity:0;transform:translateY(16px);transform-box:fill-box}
+.akis svg .uv-sol,
+.akis svg .uv-sag,
+.akis svg .uv-alt1,
+.akis svg .uv-ust2,
+.akis svg .uv-kare,
+.akis svg .uv-cerceve,
+.akis svg .uv-alt2,
+.akis svg .uv-ust3,
+.akis svg .uv-kurgu,
+.akis svg .uv-etiket,
+.akis svg .uv-ses,
+.akis svg .uv-koni{opacity:0}
+.akis svg .uv-urun{opacity:0;transform:scale(.6);transform-box:fill-box;
+  transform-origin:center}
+.akis svg .uv-satir > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.akis svg .uv-rozet > g{opacity:0;transform:translateX(12px);transform-box:fill-box}
+.akis svg .uv-klip > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.akis svg .uv-islem > g{opacity:0;transform:scale(.6);transform-box:fill-box;
+  transform-origin:center}
+/* dalganın gerçek yol uzunluğu getTotalLength() ile ölçüldü: 382.3 */
+.akis svg .uv-dalga{stroke-dasharray:384;stroke-dashoffset:384}
+/* oklar HTML'de: .akis-ok kutusu opaklığı taşıyor, ok çizimi 0'dan girer */
+.akis .uv-ok{opacity:0}
+
+.akis.in svg .uv-k1{animation:uvKart .6s var(--ease) .25s forwards}
+.akis.in svg .uv-sol{animation:uvBelir .5s var(--ease) .34s forwards}
+.akis.in svg .uv-sag{animation:uvBelir .5s var(--ease) .42s forwards}
+.akis.in svg .uv-koni1{animation:uvBelir .5s var(--ease) .52s forwards}
+.akis.in svg .uv-koni2{animation:uvBelir .5s var(--ease) .58s forwards}
+.akis.in svg .uv-koni3{animation:uvBelir .5s var(--ease) .64s forwards}
+.akis.in svg .uv-urun1{animation:uvNokta .45s var(--ease) .66s forwards}
+.akis.in svg .uv-urun2{animation:uvNokta .45s var(--ease) .70s forwards}
+.akis.in svg .uv-satir > g:nth-child(1){animation:uvSatir .45s var(--ease) .74s forwards}
+.akis.in svg .uv-satir > g:nth-child(2){animation:uvSatir .45s var(--ease) .80s forwards}
+.akis.in svg .uv-satir > g:nth-child(3){animation:uvSatir .45s var(--ease) .86s forwards}
+.akis.in svg .uv-satir > g:nth-child(4){animation:uvSatir .45s var(--ease) .92s forwards}
+.akis.in svg .uv-satir > g:nth-child(5){animation:uvSatir .45s var(--ease) .98s forwards}
+.akis.in svg .uv-satir > g:nth-child(6){animation:uvSatir .45s var(--ease) 1.04s forwards}
+.akis.in svg .uv-alt1{animation:uvBelir .45s var(--ease) 1.10s forwards}
+.akis.in .uv-ok1{animation:uvOkBelir .55s var(--ease) .80s forwards}
+.akis.in svg .uv-k2{animation:uvKart .6s var(--ease) .90s forwards}
+.akis.in svg .uv-ust2{animation:uvBelir .45s var(--ease) .98s forwards}
+.akis.in svg .uv-kare{animation:uvBelir .5s var(--ease) 1.04s forwards}
+.akis.in svg .uv-cerceve{animation:uvBelir .5s var(--ease) 1.12s forwards}
+.akis.in svg .uv-urun3{animation:uvNokta .45s var(--ease) 1.18s forwards}
+.akis.in svg .uv-rozet > g:nth-child(1){animation:uvSag .42s var(--ease) 1.24s forwards}
+.akis.in svg .uv-rozet > g:nth-child(2){animation:uvSag .42s var(--ease) 1.32s forwards}
+.akis.in svg .uv-rozet > g:nth-child(3){animation:uvSag .42s var(--ease) 1.40s forwards}
+.akis.in svg .uv-alt2{animation:uvBelir .45s var(--ease) 1.46s forwards}
+.akis.in .uv-ok2{animation:uvOkBelir .55s var(--ease) 1.40s forwards}
+.akis.in svg .uv-k3{animation:uvKart .6s var(--ease) 1.50s forwards}
+.akis.in svg .uv-ust3{animation:uvBelir .45s var(--ease) 1.56s forwards}
+.akis.in svg .uv-kurgu{animation:uvBelir .45s var(--ease) 1.62s forwards}
+.akis.in svg .uv-klip > g:nth-child(1){animation:uvSatir .45s var(--ease) 1.68s forwards}
+.akis.in svg .uv-klip > g:nth-child(2){animation:uvSatir .45s var(--ease) 1.74s forwards}
+.akis.in svg .uv-klip > g:nth-child(3){animation:uvSatir .45s var(--ease) 1.80s forwards}
+.akis.in svg .uv-klip > g:nth-child(4){animation:uvSatir .45s var(--ease) 1.86s forwards}
+.akis.in svg .uv-etiket{animation:uvBelir .45s var(--ease) 1.92s forwards}
+.akis.in svg .uv-ses{animation:uvBelir .45s var(--ease) 1.98s forwards}
+.akis.in svg .uv-dalga{animation:uvCiz .8s var(--ease) 2.04s forwards}
+.akis.in svg .uv-islem > g:nth-child(1){animation:uvNokta .5s var(--ease) 2.12s forwards}
+.akis.in svg .uv-islem > g:nth-child(2){animation:uvNokta .5s var(--ease) 2.20s forwards}
+.akis.in svg .uv-islem > g:nth-child(3){animation:uvNokta .5s var(--ease) 2.28s forwards}
+
+@keyframes uvKart{to{opacity:1;transform:translateY(0)}}
+@keyframes uvSatir{to{opacity:1;transform:translateY(0)}}
+@keyframes uvSag{to{opacity:1;transform:translateX(0)}}
+@keyframes uvBelir{to{opacity:1}}
+@keyframes uvCiz{to{stroke-dashoffset:0}}
+@keyframes uvNokta{to{opacity:1;transform:scale(1)}}
+@keyframes uvOkBelir{0%{opacity:0}45%{opacity:1;filter:brightness(1.7)}to{opacity:1;filter:brightness(1)}}
+
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
 .sss details[open],.akor details[open]{border-color:var(--hair-strong)}
@@ -372,6 +504,17 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   .nav-links,.nav-tel{display:none}
   .burger{display:block}
   .ftr-ust{grid-template-columns:1fr}
+}
+
+/* DAR-EKRAN-DOLGU */
+/* Dolgu kisilmadan 375px'te SVG ic genisligi ~250px'e dusuyor, en kucuk yazi
+   9px esiginin altina iniyordu. SVG'leri yeniden cizmek yerine dolguyu kisip
+   SVG'ye alan aciliyor. BU SAYFADA OLCULEN (Chrome, 375x812, fontlar yuklu):
+   SVG genisligi 278.8px / viewBox 380 = 0.734 olcek → 13 * 0.734 = 9.54px.
+   360px'te: 264px / 380 = 0.695 → 9.03px, esigin ustunde. */
+@media(max-width:400px){
+  .akis{padding:10px}
+  .akis-kutu{padding:10px;gap:8px}
 }
 </style>
 <script type="application/ld+json">
@@ -535,6 +678,425 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <p>Trendyol gibi pazaryerlerinde ürün videosu, kare veya dikey oranda, sessiz oynatmaya uygun ve ilk saniyelerde ürünü net gösterecek şekilde kurgulanır; sistemin ses açık izlenmeden de mesaj vermesini beklediği için bilgi genelde altyazı veya ekran içi metinle taşınır. Kendi e-ticaret sitesi için hazırlanan video ise yatay veya kare oranda, ürün sayfasının galerisine gömülmeye uygun sıkıştırma ve kapak karesiyle teslim edilir. Kurgu aşamasında ürünün en güçlü özelliği ilk plana alınır, gereksiz geçiş efektlerinden kaçınılır ve marka logosu ile ürün adı sahneye sade biçimde yerleştirilir. Format farkı gözetilmeden hazırlanan video, platformlar arasında görüntü kırpılması veya mesaj kaybına yol açabilir.</p>
         </article>
       </div>
+
+      <!-- Akış durakları — bu sayfanın KENDİ anlattığı yolu çizer:
+           stüdyo ya da işletme mekanında çekim → pazaryeri formatı → teknik
+           kurgu. Etiketlerin tamamı sayfada geçen kavramlar: stüdyo çekimi,
+           işletme mekanında çekim, sabit aydınlatma, cyclorama fon, döner
+           sehpa, gerçek kullanım, mekanın atmosferi, ölçek algısı, sessiz
+           oynatma, kare/dikey/yatay oran, görüntü kırpılması, pazaryeri
+           vitrini, kurgu, ürünün en güçlü özelliği, arka plan müziği, renk,
+           ses, altyazı.
+
+           BİLEREK RAKAM YOK: sayfada çözünürlük, süre, dosya boyutu ya da
+           fiyat rakamı yayımlanmıyor; oran kutuları bu yüzden boş bırakıldı,
+           içlerine ölçü yazılmadı. Pazaryeri adı, marka ya da platform
+           logosu çizilmedi.
+
+           KIYAS YOK: birinci durakta stüdyo ve mekan kurulumu bilerek aynı
+           ölçüde, aynı çerçevede ve aynı netlikte çizildi — sayfa ikisini de
+           "farklı ihtiyaca cevap veren" seçenekler olarak anlatıyor, biri
+           diğerinden iyi ya da kötü gösterilmedi.
+
+           NEDEN ÜÇ AYRI SVG: tek parça geniş grafik 390px ekranda ~296px'e
+           sığınca yazısı okunmaz hâle geliyordu (e-ticaret sayfasında ölçüldü).
+           Her durak kendi 380x400 kutusunda; 860px altında kutular alt alta
+           açılır, aradaki oklar 90° döner. En küçük yazı 13: mobilde kutu içi
+           ~281px / viewBox 380 = 0.74 ölçek, yani ekranda en az 9.6px.
+           Inline SVG: ek istek yok, her ölçekte net, viewBox sayesinde oran
+           sabit olduğu için düzen kaymaz (CLS yok). -->
+      <figure class="akis rv d2">
+        <div class="akis-izgara">
+
+          <!-- ===== DURAK 01 — STÜDYO VE MEKAN ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">01</span>
+            <span class="akis-ad">Stüdyo ve mekan</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="uvB1 uvA1"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="uvB1">Stüdyo kurulumu ve işletme mekanında çekim, yan yana iki eşit kart — temsilî görsel</title>
+              <desc id="uvA1">Solda stüdyo: cyclorama fon kavisi, zemine oturan ürün ve iki yandan
+                ışık konisi. Sağda işletme mekanında çekim: arka planda mekanı temsil eden basit
+                bloklar, önde aynı ürün ve tek yandan doğal ışık konisi. İki kurulum aynı ölçüde,
+                aynı çerçevede ve aynı netlikte çizildi. Altta "İki yaklaşım da farklı ihtiyaca
+                cevap verir" notu var. Canlanmada önce paneller, sonra ışık konileri ve ürünler,
+                en sonda alt satırlar girer.</desc>
+              <defs>
+                <linearGradient id="uvSahne1" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="uvIsik1" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="uvGolge1" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#uvSahne1)"/>
+              <rect width="380" height="400" fill="url(#uvIsik1)"/>
+
+              <g class="uv-kart uv-k1">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#uvGolge1)"/>
+
+                <!-- SOL: stüdyo çekimi — sayfada "Stüdyo ortamında sabit aydınlatma,
+                     cyclorama fon ve döner sehpa kullanılır" olarak geçiyor -->
+                <g class="uv-sol">
+                  <rect x="30" y="44" width="154" height="262" rx="12" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                  <text x="44" y="70" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="14" fill="#8FF6FF">Stüdyo</text>
+                  <text x="44" y="88" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="14" fill="#8FF6FF">çekimi</text>
+                  <rect x="42" y="98" width="130" height="118" rx="9" fill="#0C1218"
+                        stroke="#26333F" stroke-width="1.1"/>
+                  <!-- cyclorama: duvardan zemine geçen sonsuz fon kavisi -->
+                  <path d="M56,132 V152 C56,174 68,184 90,184 H160" fill="none"
+                        stroke="#3A4A5E" stroke-width="1.6" stroke-linecap="round"/>
+                  <rect x="44" y="106" width="18" height="9" rx="3" fill="#151F2B"
+                        stroke="#4A5C6E" stroke-width="1.1"/>
+                  <rect x="152" y="106" width="18" height="9" rx="3" fill="#151F2B"
+                        stroke="#4A5C6E" stroke-width="1.1"/>
+                  <polygon class="uv-koni uv-koni1" points="53,116 98,148 86,166"
+                           fill="#00E5FF" fill-opacity=".16"/>
+                  <polygon class="uv-koni uv-koni2" points="161,116 122,148 134,166"
+                           fill="#00E5FF" fill-opacity=".16"/>
+                  <rect class="uv-urun uv-urun1" x="94" y="154" width="32" height="30" rx="4"
+                        fill="#151F2B" stroke="#8FF6FF" stroke-opacity=".65" stroke-width="1.4"/>
+                </g>
+
+                <!-- SAĞ: işletme mekanında çekim — "ürünü gerçek kullanım bağlamında
+                     gösterir; mekanın atmosferi, ölçek algısı..." Aynı ölçü, aynı netlik. -->
+                <g class="uv-sag">
+                  <rect x="196" y="44" width="154" height="262" rx="12" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                  <text x="210" y="70" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="14" fill="#8FF6FF">İşletme</text>
+                  <text x="210" y="88" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="14" fill="#8FF6FF">mekanında</text>
+                  <rect x="208" y="98" width="130" height="118" rx="9" fill="#0C1218"
+                        stroke="#26333F" stroke-width="1.1"/>
+                  <!-- arka planda mekan silueti: ad/marka taşımayan basit bloklar -->
+                  <rect x="216" y="120" width="34" height="64" rx="4" fill="#121820"
+                        stroke="#2A3646" stroke-width="1.1"/>
+                  <rect x="254" y="136" width="26" height="48" rx="4" fill="#121820"
+                        stroke="#2A3646" stroke-width="1.1"/>
+                  <rect x="286" y="126" width="40" height="58" rx="4" fill="#121820"
+                        stroke="#2A3646" stroke-width="1.1"/>
+                  <path d="M214,184 H332" fill="none" stroke="#3A4A5E" stroke-width="1.6"
+                        stroke-linecap="round"/>
+                  <rect x="212" y="104" width="22" height="15" rx="2.5" fill="#151F2B"
+                        stroke="#4A5C6E" stroke-width="1.1"/>
+                  <path d="M223,104 v15 M212,111.5 h22" fill="none" stroke="#4A5C6E" stroke-width="1"/>
+                  <polygon class="uv-koni uv-koni3" points="223,120 266,150 254,170"
+                           fill="#00E5FF" fill-opacity=".16"/>
+                  <rect class="uv-urun uv-urun2" x="260" y="154" width="32" height="30" rx="4"
+                        fill="#151F2B" stroke="#8FF6FF" stroke-opacity=".65" stroke-width="1.4"/>
+                </g>
+
+                <!-- altı satır: üçü stüdyo kurulumunun, üçü mekan çekiminin
+                     sayfada yazılı kalemleri -->
+                <g class="uv-satir">
+                  <g>
+                    <circle cx="44" cy="234" r="2.6" fill="#00E5FF"/>
+                    <text x="54" y="238" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">sabit aydınlatma</text>
+                  </g>
+                  <g>
+                    <circle cx="44" cy="256" r="2.6" fill="#00E5FF"/>
+                    <text x="54" y="260" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">cyclorama fon</text>
+                  </g>
+                  <g>
+                    <circle cx="44" cy="278" r="2.6" fill="#00E5FF"/>
+                    <text x="54" y="282" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">döner sehpa</text>
+                  </g>
+                  <g>
+                    <circle cx="208" cy="234" r="2.6" fill="#00E5FF"/>
+                    <text x="218" y="238" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">gerçek kullanım</text>
+                  </g>
+                  <g>
+                    <circle cx="208" cy="256" r="2.6" fill="#00E5FF"/>
+                    <text x="218" y="260" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">mekanın atmosferi</text>
+                  </g>
+                  <g>
+                    <circle cx="208" cy="278" r="2.6" fill="#00E5FF"/>
+                    <text x="218" y="282" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">ölçek algısı</text>
+                  </g>
+                </g>
+
+                <g class="uv-alt1">
+                  <rect x="30" y="322" width="320" height="32" rx="9" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".28" stroke-width="1.2"/>
+                  <text x="190" y="343" text-anchor="middle"
+                        font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#D5E4EC">İki yaklaşım da farklı ihtiyaca cevap verir</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="uv-ok uv-ok1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 02 — PAZARYERİ FORMATI ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">02</span>
+            <span class="akis-ad">Pazaryeri formatı</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="uvB2 uvA2"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="uvB2">Pazaryeri formatı: dikey ürün karesi ve kare, dikey, yatay oran rozetleri — temsilî görsel</title>
+              <desc id="uvA2">Solda dikey bir ürün karesi; içinde ürün, çevresinde kesik çizgili bir
+                çerçeve görüntü kırpılmasının sınırını gösteriyor. Sağda alt alta üç oran rozeti:
+                kare, dikey ve yatay. Her rozetin yanında o oranı gösteren boş bir dikdörtgen var;
+                kutuların içine bilerek ölçü yazılmadı. Pazaryeri adı ya da logosu çizilmedi.
+                Canlanmada çerçeve belirir, rozetler sağdan sırayla girer.</desc>
+              <defs>
+                <linearGradient id="uvSahne2" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="uvIsik2" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="uvGolge2" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#uvSahne2)"/>
+              <rect width="380" height="400" fill="url(#uvIsik2)"/>
+
+              <g class="uv-kart uv-k2">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#uvGolge2)"/>
+
+                <g class="uv-ust2">
+                  <text x="34" y="54" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="14" letter-spacing=".5" fill="#9FD6E0">Pazaryeri</text>
+                  <rect x="196" y="34" width="150" height="30" rx="9" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.3"/>
+                  <text x="271" y="54" text-anchor="middle"
+                        font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#8FF6FF">sessiz oynatma</text>
+                </g>
+
+                <!-- dikey ürün karesi; kesik çizgi görüntü kırpılmasının sınırı -->
+                <g class="uv-kare">
+                  <rect x="58" y="108" width="108" height="152" rx="8" fill="#0C1218"
+                        stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.3"/>
+                  <path d="M70,224 H154" fill="none" stroke="#3A4A5E" stroke-width="1.5"
+                        stroke-linecap="round"/>
+                  <text x="112" y="248" text-anchor="middle"
+                        font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#A8B8C4">ürün</text>
+                </g>
+                <rect class="uv-urun uv-urun3" x="94" y="186" width="36" height="38" rx="6"
+                      fill="#151F2B" stroke="#8FF6FF" stroke-opacity=".65" stroke-width="1.4"/>
+                <g class="uv-cerceve">
+                  <rect x="46" y="96" width="132" height="176" rx="10" fill="none"
+                        stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.2"
+                        stroke-dasharray="5 6"/>
+                  <text x="46" y="292" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#7A8794">görüntü kırpılması</text>
+                </g>
+
+                <!-- üç oran rozeti: kutular BOŞ, içlerine ölçü yazılmadı -->
+                <g class="uv-rozet">
+                  <g>
+                    <rect x="202" y="88" width="144" height="64" rx="11" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                    <rect x="219" y="107" width="26" height="26" rx="3" fill="none"
+                          stroke="#8FF6FF" stroke-opacity=".75" stroke-width="1.5"/>
+                    <text x="262" y="115" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="15" fill="#D5E4EC">Kare</text>
+                    <text x="262" y="133" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#7A8794">pazaryeri</text>
+                  </g>
+                  <g>
+                    <rect x="202" y="162" width="144" height="64" rx="11" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                    <rect x="222" y="179" width="20" height="30" rx="3" fill="none"
+                          stroke="#8FF6FF" stroke-opacity=".75" stroke-width="1.5"/>
+                    <text x="262" y="189" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="15" fill="#D5E4EC">Dikey</text>
+                    <text x="262" y="207" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#7A8794">pazaryeri</text>
+                  </g>
+                  <g>
+                    <rect x="202" y="236" width="144" height="64" rx="11" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                    <rect x="215" y="258" width="34" height="20" rx="3" fill="none"
+                          stroke="#8FF6FF" stroke-opacity=".75" stroke-width="1.5"/>
+                    <text x="262" y="263" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="15" fill="#D5E4EC">Yatay</text>
+                    <text x="262" y="281" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#7A8794">e-ticaret</text>
+                  </g>
+                </g>
+
+                <g class="uv-alt2">
+                  <rect x="34" y="316" width="312" height="32" rx="9" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".28" stroke-width="1.2"/>
+                  <text x="190" y="337" text-anchor="middle"
+                        font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#D5E4EC">Pazaryeri vitrini için kare veya dikey oran</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="uv-ok uv-ok2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 03 — TEKNİK KURGU ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">03</span>
+            <span class="akis-ad">Teknik kurgu</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="uvB3 uvA3"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="uvB3">Teknik kurgu: dört klipli kurgu hattı, ses dalgası ve üç işlem rozeti — temsilî görsel</title>
+              <desc id="uvA3">Üstte dört farklı genişlikte klip kutusundan oluşan bir kurgu hattı;
+                biri aksan çerçeveli ve altında "en güçlü özellik" notu var. Ortada bir ses dalgası
+                çizgisi ve "arka plan müziği" etiketi. Altta üç işlem rozeti: renk, ses ve altyazı,
+                her biri ikon ve etiketten oluşuyor. Klip genişlikleri temsilîdir, süre değeri
+                göstermez. Canlanmada klipler sırayla girer, ses dalgası soldan sağa çizilir.</desc>
+              <defs>
+                <linearGradient id="uvSahne3" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="uvIsik3" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="uvGolge3" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#uvSahne3)"/>
+              <rect width="380" height="400" fill="url(#uvIsik3)"/>
+
+              <g class="uv-kart uv-k3">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#uvGolge3)"/>
+
+                <text class="uv-ust3" x="34" y="52" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="14" letter-spacing=".5" fill="#9FD6E0">Kurgu aşaması</text>
+
+                <!-- kurgu hattı: dört klip. Genişlikler TEMSİLÎ; sayfada süre
+                     rakamı yayımlanmadığı için kliplere süre yazılmadı. -->
+                <rect class="uv-kurgu" x="34" y="68" width="312" height="76" rx="11" fill="#0C1218"
+                      stroke="#00E5FF" stroke-opacity=".22" stroke-width="1.2"/>
+                <g class="uv-klip">
+                  <g>
+                    <rect x="46" y="86" width="64" height="48" rx="7" fill="#151F2B"
+                          stroke="#3A4A5E" stroke-width="1.2"/>
+                    <rect x="54" y="96" width="34" height="8" rx="4" fill="#3A4A5E"/>
+                    <rect x="54" y="112" width="22" height="7" rx="3.5" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="116" y="86" width="48" height="48" rx="7" fill="#151F2B"
+                          stroke="#3A4A5E" stroke-width="1.2"/>
+                    <rect x="124" y="96" width="26" height="8" rx="4" fill="#3A4A5E"/>
+                    <rect x="124" y="112" width="16" height="7" rx="3.5" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="170" y="86" width="86" height="48" rx="7" fill="#122531"
+                          stroke="#00E5FF" stroke-opacity=".75" stroke-width="1.7"/>
+                    <rect x="180" y="96" width="46" height="8" rx="4" fill="#00E5FF" fill-opacity=".55"/>
+                    <rect x="180" y="112" width="30" height="7" rx="3.5" fill="#00E5FF" fill-opacity=".3"/>
+                  </g>
+                  <g>
+                    <rect x="262" y="86" width="72" height="48" rx="7" fill="#151F2B"
+                          stroke="#3A4A5E" stroke-width="1.2"/>
+                    <rect x="270" y="96" width="38" height="8" rx="4" fill="#3A4A5E"/>
+                    <rect x="270" y="112" width="24" height="7" rx="3.5" fill="#2A3646"/>
+                  </g>
+                </g>
+                <g class="uv-etiket">
+                  <path d="M213,144 V156" fill="none" stroke="#00E5FF" stroke-opacity=".55"
+                        stroke-width="1.3" stroke-linecap="round"/>
+                  <text x="213" y="172" text-anchor="middle"
+                        font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#8FF6FF">en güçlü özelliği</text>
+                </g>
+
+                <!-- ses: dalga çizgisi + sayfanın kendi kalemi -->
+                <rect class="uv-ses" x="34" y="182" width="312" height="74" rx="11" fill="#101A22"
+                      stroke="#00E5FF" stroke-opacity=".3" stroke-width="1.3"/>
+                <text class="uv-ses" x="50" y="202" font-family="Inter Tight, system-ui, sans-serif"
+                      font-size="13" fill="#A8B8C4">arka plan müziği</text>
+                <path class="uv-dalga" d="M50,232 C57,216 64,248 71,232 C78,212 85,252 92,232
+                      C99,220 106,244 113,232 C120,214 127,250 134,232 C141,224 148,240 155,232
+                      C162,210 169,254 176,232 C183,218 190,246 197,232 C204,222 211,242 218,232
+                      C225,212 232,252 239,232 C246,220 253,244 260,232 C267,216 274,248 281,232
+                      C288,222 295,242 302,232 C309,214 316,250 323,232 C326,226 328,238 330,232"
+                      fill="none" stroke="#00E5FF" stroke-opacity=".7" stroke-width="1.8"
+                      stroke-linecap="round"/>
+
+                <!-- üç işlem rozeti: sayfanın "renk", "ses" ve "altyazı" kalemleri -->
+                <g class="uv-islem">
+                  <g>
+                    <rect x="34" y="272" width="98" height="72" rx="11" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                    <circle cx="75" cy="296" r="7" fill="#00E5FF" fill-opacity=".55"/>
+                    <circle cx="91" cy="296" r="7" fill="#3A4A5E"/>
+                    <circle cx="83" cy="308" r="7" fill="#8FF6FF" fill-opacity=".45"/>
+                    <text x="83" y="332" text-anchor="middle"
+                          font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="14" fill="#D5E4EC">Renk</text>
+                  </g>
+                  <g>
+                    <rect x="141" y="272" width="98" height="72" rx="11" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                    <rect x="174" y="295" width="5" height="10" rx="2.5" fill="#8FF6FF" fill-opacity=".6"/>
+                    <rect x="183" y="289" width="5" height="22" rx="2.5" fill="#00E5FF" fill-opacity=".75"/>
+                    <rect x="192" y="292" width="5" height="16" rx="2.5" fill="#00E5FF" fill-opacity=".6"/>
+                    <rect x="201" y="296" width="5" height="8" rx="2.5" fill="#8FF6FF" fill-opacity=".5"/>
+                    <text x="190" y="332" text-anchor="middle"
+                          font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="14" fill="#D5E4EC">Ses</text>
+                  </g>
+                  <g>
+                    <rect x="248" y="272" width="98" height="72" rx="11" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                    <rect x="277" y="287" width="40" height="26" rx="4" fill="none"
+                          stroke="#8FF6FF" stroke-opacity=".7" stroke-width="1.4"/>
+                    <path d="M284,303 h26 M284,309 h16" fill="none" stroke="#00E5FF"
+                          stroke-opacity=".7" stroke-width="1.6" stroke-linecap="round"/>
+                    <text x="297" y="332" text-anchor="middle"
+                          font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="14" fill="#D5E4EC">Altyazı</text>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <figcaption><b>Temsilî görsel.</b> Sayfanın anlattığı yolu çiziyor: stüdyo ya da işletme
+          mekanında çekim kurulumu, pazaryeri formatı ve teknik kurgu. Birinci durakta iki kurulum
+          bilerek aynı ölçüde ve aynı netlikte çizildi — sayfa ikisini de farklı ihtiyaca cevap
+          veren seçenekler olarak anlatıyor, biri diğerinden iyi ya da kötü gösterilmedi. Oran
+          kutuları bilerek boş: sayfada çözünürlük, süre veya dosya boyutu değeri yayımlanmıyor,
+          bu yüzden üzerlerine ölçü yazılmadı. Klip genişlikleri de süre değil, yalnızca kurgunun
+          farklı uzunlukta kesitlerden kurulduğunu anlatıyor. Pazaryeri adı, marka ya da platform
+          logosu çizilmedi.</figcaption>
+      </figure>
+
       <div class="dtay-fiyat rv d1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
         <p><strong>Güncel fiyat ve süre bandı</strong> için Video Prodüksiyon sayfasının <a href="../../../hizmetler/video-produksiyon/#fiyat">fiyatlandırma bölümüne</a> göz atın — kapsamınıza göre bandı iki dakikada netleştirebilirsiniz.</p>

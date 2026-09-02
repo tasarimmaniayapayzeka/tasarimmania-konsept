@@ -268,6 +268,131 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
 
+/* --- akış durakları (alt sayfa standardı) ---
+   Desen teknik-seo alt sayfasından birebir alındı; yalnızca canlanma öneki
+   değişti (orada "ts-", burada "sm-") ki iki sayfa ileride birleşirse
+   kurallar çakışmasın.
+
+   ÖLÇÜLEN KUSUR 1 — mobilde okunmuyordu: tek parça geniş grafik 390px
+   ekranda ~296px'e sığınca içindeki yazı 2-3px'e düşüyordu. Doğrusu grafiği
+   kutulara bölüp alt alta açmak: her durak kendi 380x400 kutusunda.
+   Mobilde kutu iç genişliği ~281px / viewBox 380 = 0.74 ölçek, bu yüzden
+   SVG içindeki EN KÜÇÜK yazı 13 seçildi → ekranda en az 9.6px.
+
+   ÖLÇÜLEN KUSUR 2 — ad çakışması: tm.css'te (satır 161-171) GLOBAL bir kayan
+   yazı bileşeni var; onun "span{display:inline-flex}" ve
+   "span::before{content:...}" kuralları figure içine konan HER <span>'i ele
+   geçiriyor. Bu yüzden ad .akis; o ad bu sayfada hiç geçmiyor. Yine de
+   .akis-no / .akis-ad stilleri AÇIK yazıldı: <span> stili mirasa bırakılmıyor. */
+.akis{border:1px solid var(--hair);border-radius:var(--r-lg);
+  background:var(--panel);padding:18px;margin:26px 0 0}
+.akis-izgara{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:12px;align-items:stretch}
+.akis-kutu{border:1px solid var(--hair);border-radius:var(--r-md);
+  background:rgba(255,255,255,.02);padding:14px;display:flex;
+  flex-direction:column;gap:10px}
+.akis-no{display:inline-block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;color:var(--acc);opacity:.9}
+.akis-ad{display:block;font-size:13.5px;font-weight:600;color:var(--fg);
+  letter-spacing:-.01em;margin-top:-6px}
+/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
+.akis-kutu svg{width:100%;height:auto;display:block;border-radius:10px}
+.akis-ok{display:grid;place-items:center;color:var(--acc);opacity:.6}
+.akis-ok svg{width:22px;height:22px}
+.akis figcaption{margin-top:14px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.akis figcaption b{color:var(--fg-dim);font-weight:600}
+/* ÖLÇÜLEN KUSUR 3 — ara genişlikler: üç kutu yan yana dururken 900px ekranda
+   kutu içi 210px'e iniyordu (ölçek .55), yani 13'lük yazı 7.2px. Kırılma
+   noktası bu yüzden 1100px; altında kutular alt alta açılıyor ve tek kutu
+   520px'i geçmiyor. Ölçüm: 1100px üstünde 13 → 11.1px, 375px'te 9.68px. */
+@media(max-width:1100px){
+  .akis-izgara{grid-template-columns:1fr;gap:10px}
+  .akis-ok svg{transform:rotate(90deg)}
+  .akis{padding:14px}
+  .akis-kutu{width:100%;max-width:520px;margin-inline:auto}
+}
+
+/* --- durak canlanması ---
+   YENİ JS YOK: figure zaten .rv sınıfında; site/js/tm.js görününce .in ekliyor.
+   prefers-reduced-motion: tm.css'teki global kural animation-duration'ı
+   0.001ms'e indiriyor, "forwards" sayesinde her öğe anında son hâline oturuyor.
+   BAŞLANGIÇ DURUMU VERİLEN HER ÖĞENİN .in KARŞILIĞI VAR (aşağıda birebir).
+   Çizelge — her kutu KENDİ içinde canlanır, kutular soldan sağa (mobilde
+   yukarıdan aşağı) sırayla girer:
+     KUTU 1 · 0.25s : kart 0.25 · başlık 0.34 · takvim/gösterge çerçevesi 0.40 ·
+                      takvim satırları 0.48–0.72 · gösterge maddeleri 0.80–0.96 ·
+                      alt not 1.04
+     ok 1 · 0.80s
+     KUTU 2 · 0.90s : kart 0.90 · üst etiketler 0.98 · gönderi kartı 1.06 ·
+                      yorum satırları 1.14–1.30 · yanıt işareti 1.38 · alt not 1.46
+     ok 2 · 1.40s
+     KUTU 3 · 1.50s : kart 1.50 · başlık 1.56 · katman satırları 1.62–1.78 ·
+                      bantlar soldan sağa dolar 1.86–2.02 · aşama okları 2.10/2.26 ·
+                      onay tiki 2.18 · yayın oku çizilir 2.34 */
+.akis svg .sm-kart{opacity:0;transform:translateY(16px);transform-box:fill-box}
+.akis svg .sm-ust1,
+.akis svg .sm-ust2,
+.akis svg .sm-ust3,
+.akis svg .sm-cerceve,
+.akis svg .sm-alt1,
+.akis svg .sm-alt2,
+.akis svg .sm-ok-asama{opacity:0}
+.akis svg .sm-gonderi{opacity:0;transform:translateY(12px);transform-box:fill-box}
+.akis svg .sm-satir > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.akis svg .sm-katman > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.akis svg .sm-gost > g{opacity:0;transform:translateX(12px);transform-box:fill-box}
+.akis svg .sm-yorum > g{opacity:0;transform:translateX(12px);transform-box:fill-box}
+.akis svg .sm-dolgu{clip-path:inset(0 100% 0 0)}
+.akis svg .sm-tik,
+.akis svg .sm-yanit{opacity:0;transform:scale(.5);transform-box:fill-box;
+  transform-origin:center}
+.akis svg .sm-yol{stroke-dasharray:118;stroke-dashoffset:118}
+/* oklar HTML'de: .akis-ok kutusu opaklığı taşıyor, ok çizimi 0'dan girer */
+.akis .sm-ok{opacity:0}
+
+.akis.in svg .sm-k1{animation:smKart .6s var(--ease) .25s forwards}
+.akis.in svg .sm-ust1{animation:smBelir .45s var(--ease) .34s forwards}
+.akis.in svg .sm-cerceve{animation:smBelir .5s var(--ease) .40s forwards}
+.akis.in svg .sm-satir > g:nth-child(1){animation:smSatir .45s var(--ease) .48s forwards}
+.akis.in svg .sm-satir > g:nth-child(2){animation:smSatir .45s var(--ease) .56s forwards}
+.akis.in svg .sm-satir > g:nth-child(3){animation:smSatir .45s var(--ease) .64s forwards}
+.akis.in svg .sm-satir > g:nth-child(4){animation:smSatir .45s var(--ease) .72s forwards}
+.akis.in svg .sm-gost > g:nth-child(1){animation:smSag .42s var(--ease) .80s forwards}
+.akis.in svg .sm-gost > g:nth-child(2){animation:smSag .42s var(--ease) .88s forwards}
+.akis.in svg .sm-gost > g:nth-child(3){animation:smSag .42s var(--ease) .96s forwards}
+.akis.in svg .sm-alt1{animation:smBelir .45s var(--ease) 1.04s forwards}
+.akis.in .sm-ok1{animation:smOkBelir .55s var(--ease) .80s forwards}
+.akis.in svg .sm-k2{animation:smKart .6s var(--ease) .90s forwards}
+.akis.in svg .sm-ust2{animation:smBelir .45s var(--ease) .98s forwards}
+.akis.in svg .sm-gonderi{animation:smKart .5s var(--ease) 1.06s forwards}
+.akis.in svg .sm-yorum > g:nth-child(1){animation:smSag .42s var(--ease) 1.14s forwards}
+.akis.in svg .sm-yorum > g:nth-child(2){animation:smSag .42s var(--ease) 1.22s forwards}
+.akis.in svg .sm-yorum > g:nth-child(3){animation:smSag .42s var(--ease) 1.30s forwards}
+.akis.in svg .sm-yanit{animation:smTik .5s var(--ease) 1.38s forwards}
+.akis.in svg .sm-alt2{animation:smBelir .45s var(--ease) 1.46s forwards}
+.akis.in .sm-ok2{animation:smOkBelir .55s var(--ease) 1.40s forwards}
+.akis.in svg .sm-k3{animation:smKart .6s var(--ease) 1.50s forwards}
+.akis.in svg .sm-ust3{animation:smBelir .45s var(--ease) 1.56s forwards}
+.akis.in svg .sm-katman > g:nth-child(1){animation:smSatir .45s var(--ease) 1.62s forwards}
+.akis.in svg .sm-katman > g:nth-child(2){animation:smSatir .45s var(--ease) 1.70s forwards}
+.akis.in svg .sm-katman > g:nth-child(3){animation:smSatir .45s var(--ease) 1.78s forwards}
+.akis.in svg .sm-d1{animation:smDol .7s var(--ease) 1.86s forwards}
+.akis.in svg .sm-d2{animation:smDol .7s var(--ease) 1.94s forwards}
+.akis.in svg .sm-d3{animation:smDol .7s var(--ease) 2.02s forwards}
+.akis.in svg .sm-a1{animation:smBelir .45s var(--ease) 2.10s forwards}
+.akis.in svg .sm-tik{animation:smTik .5s var(--ease) 2.18s forwards}
+.akis.in svg .sm-a2{animation:smBelir .45s var(--ease) 2.26s forwards}
+.akis.in svg .sm-yol{animation:smCiz .75s var(--ease) 2.34s forwards}
+
+@keyframes smKart{to{opacity:1;transform:translateY(0)}}
+@keyframes smSatir{to{opacity:1;transform:translateY(0)}}
+@keyframes smSag{to{opacity:1;transform:translateX(0)}}
+@keyframes smBelir{to{opacity:1}}
+@keyframes smCiz{to{stroke-dashoffset:0}}
+@keyframes smDol{to{clip-path:inset(0 0 0 0)}}
+@keyframes smTik{to{opacity:1;transform:scale(1)}}
+@keyframes smOkBelir{0%{opacity:0}45%{opacity:1;filter:brightness(1.7)}to{opacity:1;filter:brightness(1)}}
+
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
 .sss details[open],.akor details[open]{border-color:var(--hair-strong)}
@@ -372,6 +497,16 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   .nav-links,.nav-tel{display:none}
   .burger{display:block}
   .ftr-ust{grid-template-columns:1fr}
+}
+
+/* DAR-EKRAN-DOLGU */
+/* 375px (iPhone SE) olculdu: en kucuk yazi 8.49-8.82px, 9px esiginin altinda.
+   SVG'leri yeniden cizmek yerine dolguyu kisip SVG'ye alan aciliyor:
+   375 - 48(wrap) - 20(akis) - 20(kutu) - 4(kenarlik) = 283px → olcek 0.745
+   13 * 0.745 = 9.68px. Olcum sonrasi dogrulandi. */
+@media(max-width:400px){
+  .akis{padding:10px}
+  .akis-kutu{padding:10px;gap:8px}
 }
 </style>
 <script type="application/ld+json">
@@ -537,6 +672,370 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>
+
+      <!-- Akış durakları — bu sayfanın KENDİ anlattığı yolu çizer:
+           içerik takvimi → etkileşim → reklam ve onay. Etiketlerin tamamı
+           sayfada geçen kavramlar: içerik takvimi, marka mesajı, "ürün ve
+           hizmet vitrini", "topluluk sorularına yanıt", gönderi, yorum
+           yanıtlama, doğrudan mesaj takibi, hedefleme, takipçi kitlesi, özel
+           kitleler, "benzeyen geniş kitleler", müşteri onayı, marka dili
+           kontrolü, yayın, "erişimi genişletilir".
+
+           BİLEREK RAKAM YOK: bu sayfada takipçi sayısı, etkileşim oranı,
+           erişim ya da yanıt süresi gibi bir ölçü yayımlanmıyor; hiçbir kutuya
+           sayı, yüzde, tutar veya süre yazılmadı. Üç gönderi türü takvimde
+           EŞİT sayıda (beşer) duruyor: bu sayfanın tezi denge, kıyas değil.
+           Hedefleme bantları da aynı uzunlukta — kitle büyüklüğü iddiası
+           doğurmasın diye. Marka/platform logosu çizilmedi, avatarlar yüzsüz
+           nötr daire. Sayfa adı, kullanıcı adı ve tarih uydurulmadı; başlıklar
+           çubukla temsil edildi.
+
+           NEDEN ÜÇ AYRI SVG: tek parça geniş grafik 390px ekranda ~296px'e
+           sığınca yazısı okunmaz hâle geliyordu (e-ticaret sayfasında ölçüldü).
+           Her durak kendi 380x400 kutusunda; 860px altında kutular alt alta
+           açılır, aradaki oklar 90° döner. En küçük yazı 13: mobilde kutu içi
+           ~281px / viewBox 380 = 0.74 ölçek, yani ekranda en az 9.6px.
+           Inline SVG: ek istek yok, her ölçekte net, viewBox sayesinde oran
+           sabit olduğu için düzen kaymaz (CLS yok). -->
+      <figure class="akis rv d2">
+        <div class="akis-izgara">
+
+          <!-- ===== DURAK 01 — İÇERİK TAKVİMİ ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">01</span>
+            <span class="akis-ad">İçerik takvimi</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="smB1 smA1"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="smB1">İçerik takvimi: dört satırlık ızgarada üç gönderi türü ve türleri etiketleyen gösterge — temsilî görsel</title>
+              <desc id="smA1">Solda dört satırlık bir takvim ızgarası; her satırda üç-dört küçük
+                gönderi kutucuğu var ve kutucuklar dolgu ile kenarlık farkıyla üç türe ayrılıyor.
+                Sağdaki gösterge bu üç türü etiketler: marka mesajı, ürün ve hizmet vitrini,
+                topluluk sorularına yanıt. Üçü de ızgarada eşit sayıda; tarih, sayı ve hesap adı
+                yazılmadı. Canlanmada satırlar yukarıdan aşağı, gösterge maddeleri sırayla girer.</desc>
+              <defs>
+                <linearGradient id="smSahne1" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="smIsik1" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="smGolge1" filterUnits="userSpaceOnUse" x="-40" y="-40" width="460" height="480">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+
+                <!-- üç gönderi türü: ayrım renkle değil, dolgu + kenarlık + iç
+                     çizim farkıyla kuruldu ki tek başına renk taşımasın -->
+                <g id="smTurA">
+                  <rect x="0" y="0" width="34" height="44" rx="7" fill="#00E5FF" fill-opacity=".12"
+                        stroke="#00E5FF" stroke-opacity=".55" stroke-width="1.3"/>
+                  <rect x="6" y="7" width="22" height="16" rx="4" fill="#00E5FF" fill-opacity=".3"/>
+                  <rect x="6" y="28" width="18" height="5" rx="2.5" fill="#00E5FF" fill-opacity=".5"/>
+                  <rect x="6" y="36" width="11" height="4" rx="2" fill="#00E5FF" fill-opacity=".3"/>
+                </g>
+                <g id="smTurB">
+                  <rect x="0" y="0" width="34" height="44" rx="7" fill="#101A22" stroke="#00E5FF"
+                        stroke-opacity=".4" stroke-width="1.3" stroke-dasharray="5 4"/>
+                  <rect x="6" y="7" width="22" height="16" rx="4" fill="none" stroke="#4A5C6E" stroke-width="1.3"/>
+                  <path d="M8,20 l5,-6 l4,4 l4,-5 l5,7" fill="none" stroke="#4A5C6E" stroke-width="1.2"
+                        stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="6" y="28" width="18" height="5" rx="2.5" fill="#3A4A5E"/>
+                  <rect x="6" y="36" width="11" height="4" rx="2" fill="#2A3646"/>
+                </g>
+                <g id="smTurC">
+                  <rect x="0" y="0" width="34" height="44" rx="7" fill="#0D131A" stroke="#3A4A5E" stroke-width="1.3"/>
+                  <path d="M8,9 h18 a3,3 0 0 1 3,3 v8 a3,3 0 0 1 -3,3 h-9 l-5,4 v-4 h-4 a3,3 0 0 1 -3,-3 v-8 a3,3 0 0 1 3,-3 z"
+                        fill="#151F2B" stroke="#4A5C6E" stroke-width="1.2"/>
+                  <rect x="6" y="30" width="18" height="5" rx="2.5" fill="#2A3646"/>
+                  <rect x="6" y="38" width="11" height="4" rx="2" fill="#22303C"/>
+                </g>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#smSahne1)"/>
+              <rect width="380" height="400" fill="url(#smIsik1)"/>
+
+              <g class="sm-kart sm-k1">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#smGolge1)"/>
+
+                <!-- üst etiket kutu adını TEKRAR ETMİYOR: takvimin dağıttığı
+                     formatlar yazıyor — sayfa "gönderi, hikaye ve reels
+                     formatlarını konu başlıklarına göre dağıtır" diyor.
+                     Kutucukların TÜRÜNÜ ise sağdaki gösterge adlandırıyor. -->
+                <g class="sm-ust1">
+                  <text x="34" y="52" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="14" letter-spacing=".5" fill="#9FD6E0">gönderi · hikaye · reels</text>
+                </g>
+
+                <!-- solda takvim ızgarası, sağda gösterge; ikisi de aynı çerçevede belirir -->
+                <g class="sm-cerceve">
+                  <rect x="30" y="72" width="182" height="234" rx="12" fill="#0C1218"
+                        stroke="#00E5FF" stroke-opacity=".22" stroke-width="1.2"/>
+                  <rect x="224" y="72" width="122" height="234" rx="12" fill="#0C1218"
+                        stroke="#26333F" stroke-width="1.2"/>
+                  <text x="236" y="94" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#7A8794">gönderi türleri</text>
+                </g>
+
+                <!-- dört satır, satır başına üç-dört kutucuk: 15 kutucuk, her tür 5 kez -->
+                <g class="sm-satir">
+                  <g>
+                    <use href="#smTurA" x="42" y="86"/><use href="#smTurB" x="83" y="86"/>
+                    <use href="#smTurC" x="124" y="86"/><use href="#smTurA" x="165" y="86"/>
+                  </g>
+                  <g>
+                    <use href="#smTurB" x="42" y="140"/><use href="#smTurC" x="83" y="140"/>
+                    <use href="#smTurA" x="124" y="140"/><use href="#smTurB" x="165" y="140"/>
+                  </g>
+                  <g>
+                    <use href="#smTurC" x="42" y="194"/><use href="#smTurA" x="83" y="194"/>
+                    <use href="#smTurB" x="124" y="194"/><use href="#smTurC" x="165" y="194"/>
+                  </g>
+                  <g>
+                    <use href="#smTurA" x="42" y="248"/><use href="#smTurB" x="83" y="248"/>
+                    <use href="#smTurC" x="124" y="248"/>
+                  </g>
+                </g>
+
+                <!-- gösterge: aynı kutucuk çizimi küçültülerek etiketleniyor -->
+                <g class="sm-gost">
+                  <g>
+                    <use href="#smTurA" transform="translate(236,106) scale(.6)"/>
+                    <text x="236" y="150" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#8FF6FF">Marka mesajı</text>
+                  </g>
+                  <g>
+                    <use href="#smTurB" transform="translate(236,166) scale(.6)"/>
+                    <text x="236" y="210" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">Ürün ve hizmet</text>
+                    <text x="236" y="226" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">vitrini</text>
+                  </g>
+                  <g>
+                    <use href="#smTurC" transform="translate(236,240) scale(.6)"/>
+                    <text x="236" y="284" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">Topluluk</text>
+                    <text x="236" y="300" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">sorularına yanıt</text>
+                  </g>
+                </g>
+
+                <text class="sm-alt1" x="34" y="344" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="13" letter-spacing=".4" fill="#7A8794">gönderi türleri dengelenir</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="sm-ok sm-ok1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 02 — ETKİLEŞİM ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">02</span>
+            <span class="akis-ad">Etkileşim</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="smB2 smA2"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="smB2">Etkileşim: bir gönderi kartı, altında üç yorum satırı ve bir yanıt işareti — temsilî görsel</title>
+              <desc id="smA2">Üstte "yorum yanıtlama" etiketi. Altta bir gönderi kartı: solda görsel
+                alanını temsil eden bir kare, sağında başlık çubukları. Kartın altında üç yorum satırı;
+                her satırda nötr bir daire (yüz çizilmedi) ve bir metin çubuğu var. İlk satırın yanında
+                küçük bir yanıt oku ve "yanıt" etiketi duruyor. Altta "doğrudan mesaj takibi" notu.
+                Sayı, oran ve hesap adı yazılmadı.</desc>
+              <defs>
+                <linearGradient id="smSahne2" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="smIsik2" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="smGolge2" filterUnits="userSpaceOnUse" x="-40" y="-40" width="460" height="480">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#smSahne2)"/>
+              <rect width="380" height="400" fill="url(#smIsik2)"/>
+
+              <g class="sm-kart sm-k2">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#smGolge2)"/>
+
+                <g class="sm-ust2">
+                  <text x="34" y="54" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="14" letter-spacing=".5" fill="#9FD6E0">Gönderi</text>
+                  <rect x="196" y="34" width="150" height="30" rx="9" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.3"/>
+                  <text x="271" y="54" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="13" letter-spacing=".2" fill="#8FF6FF">yorum yanıtlama</text>
+                </g>
+
+                <!-- gönderi kartı: görsel alanı nötr yer tutucu, başlık çubukla temsil edildi -->
+                <g class="sm-gonderi">
+                  <rect x="34" y="80" width="312" height="104" rx="12" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                  <rect x="50" y="94" width="76" height="76" rx="10" fill="#151F2B" stroke="#3A4A5E"/>
+                  <circle cx="72" cy="116" r="7" fill="#2A3646"/>
+                  <path d="M56,158 l20,-22 l14,16 l10,-11 l24,25" fill="none" stroke="#3A4A5E"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="140" y="100" width="150" height="12" rx="6" fill="#3A4A5E"/>
+                  <rect x="140" y="122" width="110" height="10" rx="5" fill="#2A3646"/>
+                  <rect x="140" y="146" width="86" height="9" rx="4.5" fill="#22303C"/>
+                </g>
+
+                <!-- üç yorum satırı: avatarlar YÜZSÜZ nötr daire -->
+                <g class="sm-yorum">
+                  <g>
+                    <circle cx="62" cy="220" r="14" fill="#151F2B" stroke="#3A4A5E" stroke-width="1.3"/>
+                    <rect x="86" y="206" width="140" height="11" rx="5.5" fill="#3A4A5E"/>
+                    <rect x="86" y="224" width="96" height="9" rx="4.5" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <circle cx="62" cy="268" r="14" fill="#151F2B" stroke="#3A4A5E" stroke-width="1.3"/>
+                    <rect x="86" y="254" width="124" height="11" rx="5.5" fill="#3A4A5E"/>
+                    <rect x="86" y="272" width="76" height="9" rx="4.5" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <circle cx="62" cy="316" r="14" fill="#151F2B" stroke="#3A4A5E" stroke-width="1.3"/>
+                    <rect x="86" y="302" width="132" height="11" rx="5.5" fill="#3A4A5E"/>
+                    <rect x="86" y="320" width="88" height="9" rx="4.5" fill="#2A3646"/>
+                  </g>
+                </g>
+
+                <g class="sm-yanit">
+                  <path d="M282,222 h-28 M262,214 l-10,8 l10,8" fill="none" stroke="#00E5FF"
+                        stroke-opacity=".85" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <text x="292" y="227" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#8FF6FF">yanıt</text>
+                </g>
+
+                <text class="sm-alt2" x="34" y="364" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="13" letter-spacing=".4" fill="#7A8794">doğrudan mesaj takibi</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="sm-ok sm-ok2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 03 — REKLAM VE ONAY ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">03</span>
+            <span class="akis-ad">Reklam ve onay</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="smB3 smA3"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="smB3">Reklam ve onay: hedefleme, onay ve yayın aşamalarının dikey akışı — temsilî görsel</title>
+              <desc id="smA3">Üç aşama alt alta ve aralarında oklar. Hedefleme kutusunda üç katman
+                satırı: takipçi kitlesi, özel kitleler, geniş kitleler; üç bant da aynı uzunlukta,
+                bir kitle büyüklüğü göstermezler. Onay kutusunda bir onay işareti, yanında "müşteri
+                onayı" ve "marka dili kontrolü". Yayın kutusunda yükselen bir ok ve "erişimi
+                genişletilir" notu. Hiçbir yerde sayı, oran, bütçe veya süre yazılmadı.</desc>
+              <defs>
+                <linearGradient id="smSahne3" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="smIsik3" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="smGolge3" filterUnits="userSpaceOnUse" x="-40" y="-40" width="460" height="480">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#smSahne3)"/>
+              <rect width="380" height="400" fill="url(#smIsik3)"/>
+
+              <g class="sm-kart sm-k3">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#smGolge3)"/>
+
+                <text class="sm-ust3" x="34" y="44" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="14" letter-spacing=".5" fill="#9FD6E0">Reklam</text>
+
+                <!-- AŞAMA 1 — hedefleme: üç katman, ÜÇ BANT DA AYNI UZUNLUKTA.
+                     Farklı uzunluk "şu kitle daha büyük" demek olurdu; sayfada
+                     böyle bir ölçü yok, katmanlama var. -->
+                <rect x="34" y="56" width="312" height="126" rx="12" fill="#101A22"
+                      stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                <text x="54" y="84" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing=".6" fill="#8FF6FF">Hedefleme</text>
+                <g class="sm-katman">
+                  <g>
+                    <text x="54" y="110" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">takipçi kitlesi</text>
+                    <rect x="196" y="100" width="130" height="10" rx="5" fill="#1B242E"/>
+                    <rect class="sm-dolgu sm-d1" x="196" y="100" width="130" height="10" rx="5"
+                          fill="#00E5FF" fill-opacity=".55"/>
+                  </g>
+                  <g>
+                    <text x="54" y="140" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">özel kitleler</text>
+                    <rect x="196" y="130" width="130" height="10" rx="5" fill="#1B242E"/>
+                    <rect class="sm-dolgu sm-d2" x="196" y="130" width="130" height="10" rx="5"
+                          fill="#00E5FF" fill-opacity=".4"/>
+                  </g>
+                  <g>
+                    <text x="54" y="170" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">geniş kitleler</text>
+                    <rect x="196" y="160" width="130" height="10" rx="5" fill="#1B242E"/>
+                    <rect class="sm-dolgu sm-d3" x="196" y="160" width="130" height="10" rx="5"
+                          fill="#00E5FF" fill-opacity=".28"/>
+                  </g>
+                </g>
+
+                <path class="sm-ok-asama sm-a1" d="M178,190 l12,12 l12,-12" fill="none" stroke="#00E5FF"
+                      stroke-opacity=".7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- AŞAMA 2 — onay -->
+                <rect x="34" y="210" width="312" height="80" rx="12" fill="#101A22"
+                      stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                <g class="sm-tik">
+                  <circle cx="66" cy="250" r="15" fill="#00E5FF" fill-opacity=".14"
+                          stroke="#00E5FF" stroke-width="1.8"/>
+                  <path d="M59,250 l5,5 l9,-10" fill="none" stroke="#00E5FF" stroke-width="2.1"
+                        stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <text x="96" y="246" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing=".6" fill="#8FF6FF">Onay</text>
+                <text x="96" y="268" font-family="Inter Tight, system-ui, sans-serif"
+                      font-size="13" fill="#A8B8C4">müşteri onayı</text>
+                <text x="332" y="268" text-anchor="end" font-family="Inter Tight, system-ui, sans-serif"
+                      font-size="13" fill="#7A8794">marka dili kontrolü</text>
+
+                <path class="sm-ok-asama sm-a2" d="M178,298 l12,12 l12,-12" fill="none" stroke="#00E5FF"
+                      stroke-opacity=".7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- AŞAMA 3 — yayın: yükselen ok, üzerinde ölçü yok -->
+                <rect x="34" y="318" width="312" height="58" rx="12" fill="#101A22"
+                      stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                <path class="sm-yol" d="M56,362 l14,-14 l10,10 l20,-24 M84,334 h14 M98,334 v14"
+                      fill="none" stroke="#00E5FF" stroke-opacity=".8" stroke-width="2.2"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="112" y="348" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing=".6" fill="#8FF6FF">Yayın</text>
+                <text x="112" y="368" font-family="Inter Tight, system-ui, sans-serif"
+                      font-size="13" fill="#A8B8C4">erişimi genişletilir</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <figcaption><b>Temsilî görsel.</b> Sayfanın anlattığı yolu çiziyor: içerik takviminin
+          gönderi türlerini dengelemesi, yorum ve mesaj tarafındaki etkileşim, ardından hedefleme
+          → onay → yayın akışı. Kutular örnek arayüz çizimidir, gerçek bir hesaptan alınmadı;
+          gönderi ve yorum başlıkları ad uydurmamak için çubukla temsil edildi, avatarlar yüzsüz
+          nötr dairedir. Takvimdeki üç tür bilerek eşit sayıda, hedefleme bantları bilerek aynı
+          uzunlukta: kıyas değil, "bu tür de planda var" demek. Takipçi sayısı, etkileşim oranı,
+          erişim, bütçe ve süre gibi bir ölçü bu sayfada yayımlanmadığı için görselde de yok.</figcaption>
+      </figure>
+
       <div class="dtay-fiyat rv d1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
         <p><strong>Güncel fiyat ve süre bandı</strong> için Meta & Google Ads sayfasının <a href="../../../hizmetler/dijital-pazarlama/#fiyat">fiyatlandırma bölümüne</a> göz atın — kapsamınıza göre bandı iki dakikada netleştirebilirsiniz.</p>

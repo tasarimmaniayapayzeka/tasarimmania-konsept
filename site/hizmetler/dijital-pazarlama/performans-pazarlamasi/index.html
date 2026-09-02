@@ -268,6 +268,144 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
 
+/* --- akış durakları (alt sayfa standardı) ---
+   Desen teknik-seo alt sayfasından birebir alındı; yalnızca canlanma öneki
+   değişti (orada "ts-", burada "pf-") ki iki sayfa ileride birleşirse
+   kurallar çakışmasın.
+
+   ÖLÇÜLEN KUSUR 1 — mobilde okunmuyordu: tek parça geniş grafik 390px
+   ekranda ~296px'e sığınca içindeki yazı 2-3px'e düşüyordu. Doğrusu grafiği
+   kutulara bölüp alt alta açmak: her durak kendi 380x400 kutusunda.
+   Mobilde kutu iç genişliği ~281px / viewBox 380 = 0.74 ölçek, bu yüzden
+   SVG içindeki EN KÜÇÜK yazı 13 seçildi → ekranda en az 9.6px.
+
+   ÖLÇÜLEN KUSUR 2 — ad çakışması: tm.css'te (satır 161-171) GLOBAL bir kayan
+   yazı bileşeni var; onun "span{display:inline-flex}" ve
+   "span::before{content:...}" kuralları figure içine konan HER <span>'i ele
+   geçiriyor. Bu yüzden ad .akis; o ad bu sayfada hiç geçmiyor. Yine de
+   .akis-no / .akis-ad stilleri AÇIK yazıldı: <span> stili mirasa bırakılmıyor. */
+.akis{border:1px solid var(--hair);border-radius:var(--r-lg);
+  background:var(--panel);padding:18px;margin:26px 0 0}
+.akis-izgara{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:12px;align-items:stretch}
+.akis-kutu{border:1px solid var(--hair);border-radius:var(--r-md);
+  background:rgba(255,255,255,.02);padding:14px;display:flex;
+  flex-direction:column;gap:10px}
+.akis-no{display:inline-block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;color:var(--acc);opacity:.9}
+.akis-ad{display:block;font-size:13.5px;font-weight:600;color:var(--fg);
+  letter-spacing:-.01em;margin-top:-6px}
+/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
+.akis-kutu svg{width:100%;height:auto;display:block;border-radius:10px}
+.akis-ok{display:grid;place-items:center;color:var(--acc);opacity:.6}
+.akis-ok svg{width:22px;height:22px}
+.akis figcaption{margin-top:14px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.akis figcaption b{color:var(--fg-dim);font-weight:600}
+@media(max-width:1100px){
+  .akis-izgara{grid-template-columns:1fr;gap:10px}
+  .akis-ok svg{transform:rotate(90deg)}
+  .akis{padding:14px}
+  .akis-kutu{width:100%;max-width:520px;margin-inline:auto}
+}
+
+/* --- durak canlanması ---
+   YENİ JS YOK: figure zaten .rv sınıfında; site/js/tm.js görününce .in ekliyor.
+   prefers-reduced-motion: tm.css'teki global kural animation-duration'ı
+   0.001ms'e indiriyor, "forwards" sayesinde her öğe anında son hâline oturuyor.
+   BAŞLANGIÇ DURUMU VERİLEN HER ÖĞENİN .in KARŞILIĞI VAR (aşağıda birebir).
+   Çizelge — her kutu KENDİ içinde canlanır, kutular soldan sağa (mobilde
+   yukarıdan aşağı) sırayla girer:
+     KUTU 1 · 0.25s : kart 0.25 · üst etiket 0.34 · üç panel 0.40–0.56 ·
+                      sütunlar 0.52–0.72 · çizgi 0.60 · alan 0.72 · noktalar 0.80 ·
+                      halka dilimleri 0.68–0.80 · alt not 0.88
+     ok 1 · 0.80s
+     KUTU 2 · 0.90s : kart 0.90 · üç panel ucu 0.98–1.10 · inen yollar 1.14–1.22 ·
+                      geniş kart 1.26 · üst bar 1.32 · sütun kılavuzları 1.36 ·
+                      tablo satırları 1.42–1.66
+     ok 2 · 1.40s
+     KUTU 3 · 1.50s : kart 1.50 · üst etiket 1.58 · gövde 1.64 · kiriş çizilir 1.70 ·
+                      mil 1.86 · kefeler 1.92/2.00 · kefe değerleri 2.10/2.18 ·
+                      alt not 2.28 */
+.akis svg .pf-kart{opacity:0;transform:translateY(16px);transform-box:fill-box}
+.akis svg .pf-ust1,
+.akis svg .pf-alan,
+.akis svg .pf-noktalar,
+.akis svg .pf-not1,
+.akis svg .pf-genis,
+.akis svg .pf-ust2,
+.akis svg .pf-kilavuz,
+.akis svg .pf-ust3,
+.akis svg .pf-govde,
+.akis svg .pf-not3{opacity:0}
+.akis svg .pf-paneller > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.akis svg .pf-sutun > rect{clip-path:inset(100% 0 0 0)}
+.akis svg .pf-cizgi{stroke-dasharray:130;stroke-dashoffset:130}
+.akis svg .pf-halka > circle{opacity:0}
+.akis svg .pf-stub > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.akis svg .pf-yol{stroke-dasharray:140;stroke-dashoffset:140}
+.akis svg .pf-satir > g{opacity:0;transform:translateX(12px);transform-box:fill-box}
+.akis svg .pf-kiris{stroke-dasharray:268;stroke-dashoffset:268}
+.akis svg .pf-mil{opacity:0;transform:scale(.5);transform-box:fill-box;
+  transform-origin:center}
+.akis svg .pf-kefeler > g{opacity:0;transform:translateY(12px);transform-box:fill-box}
+.akis svg .pf-deger{opacity:0;transform:scale(.5);transform-box:fill-box;
+  transform-origin:center}
+/* oklar HTML'de: .akis-ok kutusu opaklığı taşıyor, ok çizimi 0'dan girer */
+.akis .pf-ok{opacity:0}
+
+.akis.in svg .pf-k1{animation:pfKart .6s var(--ease) .25s forwards}
+.akis.in svg .pf-ust1{animation:pfBelir .45s var(--ease) .34s forwards}
+.akis.in svg .pf-paneller > g:nth-child(1){animation:pfSatir .45s var(--ease) .40s forwards}
+.akis.in svg .pf-paneller > g:nth-child(2){animation:pfSatir .45s var(--ease) .48s forwards}
+.akis.in svg .pf-paneller > g:nth-child(3){animation:pfSatir .45s var(--ease) .56s forwards}
+.akis.in svg .pf-sutun > rect:nth-child(1){animation:pfBuyu .55s var(--ease) .52s forwards}
+.akis.in svg .pf-sutun > rect:nth-child(2){animation:pfBuyu .55s var(--ease) .57s forwards}
+.akis.in svg .pf-sutun > rect:nth-child(3){animation:pfBuyu .55s var(--ease) .62s forwards}
+.akis.in svg .pf-sutun > rect:nth-child(4){animation:pfBuyu .55s var(--ease) .67s forwards}
+.akis.in svg .pf-sutun > rect:nth-child(5){animation:pfBuyu .55s var(--ease) .72s forwards}
+.akis.in svg .pf-cizgi{animation:pfCiz .75s var(--ease) .60s forwards}
+.akis.in svg .pf-alan{animation:pfBelir .5s var(--ease) .72s forwards}
+.akis.in svg .pf-noktalar{animation:pfBelir .4s var(--ease) .80s forwards}
+.akis.in svg .pf-halka > circle:nth-child(1){animation:pfBelir .45s var(--ease) .68s forwards}
+.akis.in svg .pf-halka > circle:nth-child(2){animation:pfBelir .45s var(--ease) .74s forwards}
+.akis.in svg .pf-halka > circle:nth-child(3){animation:pfBelir .45s var(--ease) .80s forwards}
+.akis.in svg .pf-not1{animation:pfBelir .45s var(--ease) .88s forwards}
+.akis.in .pf-ok1{animation:pfOkBelir .55s var(--ease) .80s forwards}
+.akis.in svg .pf-k2{animation:pfKart .6s var(--ease) .90s forwards}
+.akis.in svg .pf-stub > g:nth-child(1){animation:pfSatir .45s var(--ease) .98s forwards}
+.akis.in svg .pf-stub > g:nth-child(2){animation:pfSatir .45s var(--ease) 1.04s forwards}
+.akis.in svg .pf-stub > g:nth-child(3){animation:pfSatir .45s var(--ease) 1.10s forwards}
+.akis.in svg .pf-y1{animation:pfCiz .6s var(--ease) 1.14s forwards}
+.akis.in svg .pf-y2{animation:pfCiz .6s var(--ease) 1.18s forwards}
+.akis.in svg .pf-y3{animation:pfCiz .6s var(--ease) 1.22s forwards}
+.akis.in svg .pf-genis{animation:pfBelir .5s var(--ease) 1.26s forwards}
+.akis.in svg .pf-ust2{animation:pfBelir .45s var(--ease) 1.32s forwards}
+.akis.in svg .pf-kilavuz{animation:pfBelir .45s var(--ease) 1.36s forwards}
+.akis.in svg .pf-satir > g:nth-child(1){animation:pfSag .42s var(--ease) 1.42s forwards}
+.akis.in svg .pf-satir > g:nth-child(2){animation:pfSag .42s var(--ease) 1.50s forwards}
+.akis.in svg .pf-satir > g:nth-child(3){animation:pfSag .42s var(--ease) 1.58s forwards}
+.akis.in svg .pf-satir > g:nth-child(4){animation:pfSag .42s var(--ease) 1.66s forwards}
+.akis.in .pf-ok2{animation:pfOkBelir .55s var(--ease) 1.40s forwards}
+.akis.in svg .pf-k3{animation:pfKart .6s var(--ease) 1.50s forwards}
+.akis.in svg .pf-ust3{animation:pfBelir .45s var(--ease) 1.58s forwards}
+.akis.in svg .pf-govde{animation:pfBelir .5s var(--ease) 1.64s forwards}
+.akis.in svg .pf-kiris{animation:pfCiz .7s var(--ease) 1.70s forwards}
+.akis.in svg .pf-mil{animation:pfTik .5s var(--ease) 1.86s forwards}
+.akis.in svg .pf-kefeler > g:nth-child(1){animation:pfSatir .5s var(--ease) 1.92s forwards}
+.akis.in svg .pf-kefeler > g:nth-child(2){animation:pfSatir .5s var(--ease) 2.00s forwards}
+.akis.in svg .pf-v1{animation:pfTik .5s var(--ease) 2.10s forwards}
+.akis.in svg .pf-v2{animation:pfTik .5s var(--ease) 2.18s forwards}
+.akis.in svg .pf-not3{animation:pfBelir .45s var(--ease) 2.28s forwards}
+
+@keyframes pfKart{to{opacity:1;transform:translateY(0)}}
+@keyframes pfSatir{to{opacity:1;transform:translateY(0)}}
+@keyframes pfSag{to{opacity:1;transform:translateX(0)}}
+@keyframes pfBelir{to{opacity:1}}
+@keyframes pfCiz{to{stroke-dashoffset:0}}
+@keyframes pfBuyu{to{clip-path:inset(0 0 0 0)}}
+@keyframes pfTik{to{opacity:1;transform:scale(1)}}
+@keyframes pfOkBelir{0%{opacity:0}45%{opacity:1;filter:brightness(1.7)}to{opacity:1;filter:brightness(1)}}
+
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
 .sss details[open],.akor details[open]{border-color:var(--hair-strong)}
@@ -372,6 +510,16 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   .nav-links,.nav-tel{display:none}
   .burger{display:block}
   .ftr-ust{grid-template-columns:1fr}
+}
+
+/* DAR-EKRAN-DOLGU */
+/* 375px (iPhone SE) olculdu: en kucuk yazi 8.49-8.82px, 9px esiginin altinda.
+   SVG'leri yeniden cizmek yerine dolguyu kisip SVG'ye alan aciliyor:
+   375 - 48(wrap) - 20(akis) - 20(kutu) - 4(kenarlik) = 283px → olcek 0.745
+   13 * 0.745 = 9.68px. Olcum sonrasi dogrulandi. */
+@media(max-width:400px){
+  .akis{padding:10px}
+  .akis-kutu{padding:10px;gap:8px}
 }
 </style>
 <script type="application/ld+json">
@@ -537,6 +685,397 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>
+
+      <!-- Akış durakları — bu sayfanın KENDİ anlattığı yolu çizer:
+           kanal bazlı raporlar → konsolide rapor → edinme maliyeti ile yaşam
+           boyu değerin dengesi. Etiketlerin tamamı sayfada geçen ifadeler:
+           "kanal bazlı raporlar", "farklı bir başarı hikâyesi anlatır",
+           "tek bir konsolide rapor", "denge", "Edinme maliyeti",
+           "Yaşam boyu değer", "Düşük edinme maliyeti tek başına başarı
+           göstergesi değildir".
+
+           BİLEREK RAKAM YOK: bu sayfanın tezi "tek bir sayıya bakmak
+           yanıltıcıdır". Buraya CAC/LTV/ROAS değeri, tutar ya da oran yazmak
+           sayfayı yalanlardı; bu yüzden kanal adları çubukla, tablo ve kefe
+           değerleri "—" ile temsil edildi. Birinci duraktaki üç grafik
+           birbirinden FARKLI biçimde (sütun / çizgi / halka) çünkü sayfa
+           "her platform kendi arayüzünde farklı bir başarı hikâyesi anlatır"
+           diyor; hiçbiri bir ölçüm değeri göstermiyor. Üçüncü duraktaki terazi
+           bilerek DENGEDE: sayfa birinin üstünlüğünü değil dengeyi anlatıyor.
+           Marka/ürün/platform logosu çizilmedi.
+
+           NEDEN ÜÇ AYRI SVG: tek parça geniş grafik 390px ekranda ~296px'e
+           sığınca yazısı okunmaz hâle geliyordu. Her durak kendi 380x400
+           kutusunda; 860px altında kutular alt alta açılır, aradaki oklar 90°
+           döner. En küçük yazı 13: mobilde kutu içi ~281px / viewBox 380 =
+           0.74 ölçek, yani ekranda en az 9.6px. Inline SVG: ek istek yok, her
+           ölçekte net, viewBox sayesinde oran sabit (CLS yok). -->
+      <figure class="akis rv d2">
+        <div class="akis-izgara">
+
+          <!-- ===== DURAK 01 — KANAL BAZLI RAPORLAR ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">01</span>
+            <span class="akis-ad">Kanal bazlı raporlar</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="pfB1 pfA1"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="pfB1">Kanal bazlı raporlar: yan yana üç panel, üçünde üç farklı biçimde grafik — temsilî görsel</title>
+              <desc id="pfA1">Düzgün dizilmiş üç küçük panel. Her panelin üstünde başlıksız bir
+                bar var; içlerinde birbirinden farklı biçimde birer grafik duruyor: birincide
+                sütunlar, ikincide çizgi, üçüncüde halka. Üçünün altında tek satır not:
+                "farklı bir başarı hikâyesi anlatır". Hiçbir grafikte rakam yok. Canlanmada
+                paneller sırayla girer, grafikler kendi içinde dolar.</desc>
+              <defs>
+                <linearGradient id="pfSahne1" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="pfIsik1" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="pfGolge1" filterUnits="userSpaceOnUse" x="-40" y="-40" width="460" height="480">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#pfSahne1)"/>
+              <rect width="380" height="400" fill="url(#pfIsik1)"/>
+
+              <g class="pf-kart pf-k1">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#pfGolge1)"/>
+
+                <text class="pf-ust1" x="34" y="52" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="14" letter-spacing=".5" fill="#9FD6E0">kanal bazlı raporlar</text>
+
+                <!-- Üç panel: aynı hizada, aynı boyda, üst üste değil. Her birinin
+                     üst barı BAŞLIKSIZ (kanal adı uydurulmadı), grafik biçimi farklı. -->
+                <g class="pf-paneller">
+                  <g>
+                    <rect x="34" y="76" width="96" height="224" rx="11" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                    <line x1="34" y1="102" x2="130" y2="102" stroke="#00E5FF"
+                          stroke-opacity=".20" stroke-width="1.2"/>
+                    <circle cx="46" cy="89" r="3.2" fill="#00E5FF" fill-opacity=".75"/>
+                    <rect x="56" y="85.5" width="34" height="7" rx="3.5" fill="#2A3646"/>
+                    <line x1="44" y1="272" x2="120" y2="272" stroke="#26333F" stroke-width="1.2"/>
+                    <g class="pf-sutun">
+                      <rect x="45" y="220" width="10" height="52" rx="3" fill="#00E5FF" fill-opacity=".55"/>
+                      <rect x="61" y="196" width="10" height="76" rx="3" fill="#00E5FF" fill-opacity=".55"/>
+                      <rect x="77" y="232" width="10" height="40" rx="3" fill="#00E5FF" fill-opacity=".55"/>
+                      <rect x="93" y="184" width="10" height="88" rx="3" fill="#00E5FF" fill-opacity=".55"/>
+                      <rect x="109" y="208" width="10" height="64" rx="3" fill="#00E5FF" fill-opacity=".55"/>
+                    </g>
+                  </g>
+                  <g>
+                    <rect x="142" y="76" width="96" height="224" rx="11" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                    <line x1="142" y1="102" x2="238" y2="102" stroke="#00E5FF"
+                          stroke-opacity=".20" stroke-width="1.2"/>
+                    <circle cx="154" cy="89" r="3.2" fill="#00E5FF" fill-opacity=".75"/>
+                    <rect x="164" y="85.5" width="34" height="7" rx="3.5" fill="#2A3646"/>
+                    <line x1="152" y1="272" x2="228" y2="272" stroke="#26333F" stroke-width="1.2"/>
+                    <path class="pf-alan" d="M152,260 L167,236 L182,246 L197,206 L212,220 L228,188 L228,272 L152,272 Z"
+                          fill="#00E5FF" fill-opacity=".12"/>
+                    <polyline class="pf-cizgi" points="152,260 167,236 182,246 197,206 212,220 228,188"
+                              fill="none" stroke="#00E5FF" stroke-opacity=".85" stroke-width="2.2"
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                    <g class="pf-noktalar">
+                      <circle cx="197" cy="206" r="3.4" fill="#00E5FF"/>
+                      <circle cx="228" cy="188" r="3.4" fill="#00E5FF"/>
+                    </g>
+                  </g>
+                  <g>
+                    <rect x="250" y="76" width="96" height="224" rx="11" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                    <line x1="250" y1="102" x2="346" y2="102" stroke="#00E5FF"
+                          stroke-opacity=".20" stroke-width="1.2"/>
+                    <circle cx="262" cy="89" r="3.2" fill="#00E5FF" fill-opacity=".75"/>
+                    <rect x="272" y="85.5" width="34" height="7" rx="3.5" fill="#2A3646"/>
+                    <circle cx="298" cy="228" r="32" fill="none" stroke="#1B242E" stroke-width="12"/>
+                    <g class="pf-halka" transform="rotate(-90 298 228)">
+                      <circle cx="298" cy="228" r="32" fill="none" stroke="#00E5FF" stroke-opacity=".80"
+                              stroke-width="12" stroke-dasharray="88 201.1" stroke-dashoffset="0"/>
+                      <circle cx="298" cy="228" r="32" fill="none" stroke="#00E5FF" stroke-opacity=".48"
+                              stroke-width="12" stroke-dasharray="56 201.1" stroke-dashoffset="-94"/>
+                      <circle cx="298" cy="228" r="32" fill="none" stroke="#00E5FF" stroke-opacity=".26"
+                              stroke-width="12" stroke-dasharray="44 201.1" stroke-dashoffset="-156"/>
+                    </g>
+                  </g>
+                </g>
+
+                <g class="pf-not1">
+                  <line x1="34" y1="324" x2="346" y2="324" stroke="#1B242E" stroke-width="1.2"/>
+                  <text x="34" y="352" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#A8B8C4">farklı bir başarı hikâyesi anlatır</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="pf-ok pf-ok1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 02 — TEK RAPOR ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">02</span>
+            <span class="akis-ad">Tek rapor</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="pfB2 pfA2"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="pfB2">Tek rapor: üç panelden inen üç çizginin tek bir geniş kartta birleşmesi — temsilî görsel</title>
+              <desc id="pfA2">Üstte önceki duraktan gelen üç panelin küçültülmüş ucu. Her birinden
+                aşağı inen bir çizgi ortada birleşip tek bir geniş karta bağlanıyor. Kartın üst
+                barında "konsolide rapor" etiketi, altında dört satırlık tek bir tablo iskeleti var:
+                her satırda kanal adını temsil eden bir çubuk ve üç değer sütunu. Değerler bilerek
+                "—"; hiçbir sayı yazılmadı. Canlanmada çizgiler yukarıdan aşağı çizilir, satırlar
+                sırayla girer.</desc>
+              <defs>
+                <linearGradient id="pfSahne2" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="pfIsik2" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="pfGolge2" filterUnits="userSpaceOnUse" x="-40" y="-40" width="460" height="480">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#pfSahne2)"/>
+              <rect width="380" height="400" fill="url(#pfIsik2)"/>
+
+              <g class="pf-kart pf-k2">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#pfGolge2)"/>
+
+                <!-- önceki duraktaki üç panelin ucu: aynı kolonlar, aynı grafik biçimleri -->
+                <g class="pf-stub">
+                  <g>
+                    <rect x="34" y="40" width="96" height="36" rx="9" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".32" stroke-width="1.2"/>
+                    <rect x="46" y="58" width="6" height="10" rx="2" fill="#00E5FF" fill-opacity=".6"/>
+                    <rect x="56" y="52" width="6" height="16" rx="2" fill="#00E5FF" fill-opacity=".6"/>
+                    <rect x="66" y="60" width="6" height="8" rx="2" fill="#00E5FF" fill-opacity=".6"/>
+                    <rect x="76" y="48" width="6" height="20" rx="2" fill="#00E5FF" fill-opacity=".6"/>
+                    <rect x="94" y="55" width="24" height="6" rx="3" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="142" y="40" width="96" height="36" rx="9" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".32" stroke-width="1.2"/>
+                    <polyline points="154,66 164,56 174,61 186,48" fill="none" stroke="#00E5FF"
+                              stroke-opacity=".75" stroke-width="1.9" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                    <rect x="202" y="55" width="24" height="6" rx="3" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="250" y="40" width="96" height="36" rx="9" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".32" stroke-width="1.2"/>
+                    <circle cx="270" cy="58" r="9" fill="none" stroke="#1B242E" stroke-width="5"/>
+                    <circle cx="270" cy="58" r="9" fill="none" stroke="#00E5FF" stroke-opacity=".7"
+                            stroke-width="5" stroke-dasharray="34 56.6" transform="rotate(-90 270 58)"/>
+                    <rect x="310" y="55" width="24" height="6" rx="3" fill="#2A3646"/>
+                  </g>
+                </g>
+
+                <!-- üç ayrı rapor tek bir yerde birleşiyor -->
+                <path class="pf-yol pf-y1" d="M82,78 C82,96 190,90 190,110" fill="none"
+                      stroke="#00E5FF" stroke-opacity=".7" stroke-width="1.8" stroke-linecap="round"/>
+                <path class="pf-yol pf-y2" d="M190,78 V110" fill="none"
+                      stroke="#00E5FF" stroke-opacity=".7" stroke-width="1.8" stroke-linecap="round"/>
+                <path class="pf-yol pf-y3" d="M298,78 C298,96 190,90 190,110" fill="none"
+                      stroke="#00E5FF" stroke-opacity=".7" stroke-width="1.8" stroke-linecap="round"/>
+
+                <rect class="pf-genis" x="34" y="118" width="312" height="242" rx="12"
+                      fill="#0C1218" stroke="#00E5FF" stroke-opacity=".35" stroke-width="1.3"/>
+
+                <g class="pf-ust2">
+                  <circle cx="52" cy="134" r="4" fill="#00E5FF"/>
+                  <text x="64" y="139" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="13" letter-spacing=".4" fill="#8FF6FF">konsolide rapor</text>
+                  <!-- sütun başlıkları da ad uydurmamak için çubukla temsil edildi -->
+                  <rect x="210" y="131" width="16" height="6" rx="3" fill="#2A3646"/>
+                  <rect x="254" y="131" width="16" height="6" rx="3" fill="#2A3646"/>
+                  <rect x="300" y="131" width="16" height="6" rx="3" fill="#2A3646"/>
+                  <line x1="34" y1="150" x2="346" y2="150" stroke="#00E5FF"
+                        stroke-opacity=".22" stroke-width="1.2"/>
+                </g>
+
+                <g class="pf-kilavuz">
+                  <line x1="196" y1="156" x2="196" y2="350" stroke="#1B242E" stroke-width="1"/>
+                  <line x1="240" y1="156" x2="240" y2="350" stroke="#1B242E" stroke-width="1"/>
+                  <line x1="284" y1="156" x2="284" y2="350" stroke="#1B242E" stroke-width="1"/>
+                </g>
+
+                <!-- dört satır: kanal adları uydurulmadı, çubukla temsil edildi.
+                     Üç değer sütununun tamamı "—": bu sayfada rakam yayımlanmıyor. -->
+                <g class="pf-satir">
+                  <g>
+                    <rect x="48" y="158" width="284" height="42" rx="10" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2"/>
+                    <rect x="62" y="172" width="14" height="14" rx="4" fill="#151F2B" stroke="#3A4A5E"/>
+                    <rect x="84" y="173.5" width="76" height="11" rx="5.5" fill="#3A4A5E"/>
+                    <text x="218" y="184" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="15" fill="#A8B8C4">—</text>
+                    <text x="262" y="184" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="15" fill="#A8B8C4">—</text>
+                    <text x="308" y="184" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="15" fill="#A8B8C4">—</text>
+                  </g>
+                  <g>
+                    <rect x="48" y="206" width="284" height="42" rx="10" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2"/>
+                    <rect x="62" y="220" width="14" height="14" rx="4" fill="#151F2B" stroke="#3A4A5E"/>
+                    <rect x="84" y="221.5" width="62" height="11" rx="5.5" fill="#3A4A5E"/>
+                    <text x="218" y="232" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="15" fill="#A8B8C4">—</text>
+                    <text x="262" y="232" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="15" fill="#A8B8C4">—</text>
+                    <text x="308" y="232" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="15" fill="#A8B8C4">—</text>
+                  </g>
+                  <g>
+                    <rect x="48" y="254" width="284" height="42" rx="10" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2"/>
+                    <rect x="62" y="268" width="14" height="14" rx="4" fill="#151F2B" stroke="#3A4A5E"/>
+                    <rect x="84" y="269.5" width="84" height="11" rx="5.5" fill="#3A4A5E"/>
+                    <text x="218" y="280" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="15" fill="#A8B8C4">—</text>
+                    <text x="262" y="280" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="15" fill="#A8B8C4">—</text>
+                    <text x="308" y="280" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="15" fill="#A8B8C4">—</text>
+                  </g>
+                  <g>
+                    <rect x="48" y="302" width="284" height="42" rx="10" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2"/>
+                    <rect x="62" y="316" width="14" height="14" rx="4" fill="#151F2B" stroke="#3A4A5E"/>
+                    <rect x="84" y="317.5" width="68" height="11" rx="5.5" fill="#3A4A5E"/>
+                    <text x="218" y="328" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="15" fill="#A8B8C4">—</text>
+                    <text x="262" y="328" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="15" fill="#A8B8C4">—</text>
+                    <text x="308" y="328" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="15" fill="#A8B8C4">—</text>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="pf-ok pf-ok2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 03 — MALİYET ↔ DEĞER ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">03</span>
+            <span class="akis-ad">Maliyet ↔ değer</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="pfB3 pfA3"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="pfB3">Edinme maliyeti ile yaşam boyu değerin dengesi: dengede duran bir terazi — temsilî görsel</title>
+              <desc id="pfA3">Bir terazi. Kirişi yere paralel, yani tam dengede; hiçbir taraf
+                aşağı yatmıyor. Sol kefenin etiketi "Edinme maliyeti", sağ kefeninki "Yaşam boyu
+                değer". İki kefedeki değerler de bilerek "—"; bir tutar ya da oran yazılmadı.
+                Altta iki satır not: "Düşük edinme maliyeti tek başına başarı göstergesi
+                değildir". Canlanmada kiriş soldan sağa çizilir, kefeler arkasından girer.</desc>
+              <defs>
+                <linearGradient id="pfSahne3" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="pfIsik3" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="pfGolge3" filterUnits="userSpaceOnUse" x="-40" y="-40" width="460" height="480">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#pfSahne3)"/>
+              <rect width="380" height="400" fill="url(#pfIsik3)"/>
+
+              <g class="pf-kart pf-k3">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#pfGolge3)"/>
+
+                <text class="pf-ust3" x="34" y="52" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="14" letter-spacing=".5" fill="#9FD6E0">denge</text>
+
+                <!-- gövde: mil üçgeni, kolon, taban -->
+                <g class="pf-govde">
+                  <path d="M190,112 L170,152 L210,152 Z" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"
+                        stroke-linejoin="round"/>
+                  <rect x="183" y="152" width="14" height="118" rx="4" fill="#101A22" stroke="#26333F"/>
+                  <rect x="140" y="270" width="100" height="14" rx="7" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".35" stroke-width="1.3"/>
+                </g>
+
+                <!-- KİRİŞ BİLEREK YATAY: sayfa dengeyi anlatıyor, bir tarafın
+                     üstünlüğünü değil. İki kefe de aynı yükseklikte. -->
+                <line class="pf-kiris" x1="56" y1="116" x2="324" y2="116" stroke="#00E5FF"
+                      stroke-opacity=".85" stroke-width="4" stroke-linecap="round"/>
+                <circle class="pf-mil" cx="190" cy="116" r="5.5" fill="#0B0D12"
+                        stroke="#00E5FF" stroke-width="2.2"/>
+
+                <g class="pf-kefeler">
+                  <g>
+                    <line x1="100" y1="118" x2="100" y2="158" stroke="#00E5FF"
+                          stroke-opacity=".5" stroke-width="1.6"/>
+                    <path d="M42,158 H158 L142,196 H58 Z" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"
+                          stroke-linejoin="round"/>
+                    <text class="pf-deger pf-v1" x="100" y="187" text-anchor="middle"
+                          font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="20" fill="#8FF6FF">—</text>
+                    <rect x="38" y="206" width="124" height="25" rx="8" fill="#0C1218" stroke="#26333F"/>
+                    <text x="100" y="223" text-anchor="middle"
+                          font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">Edinme maliyeti</text>
+                  </g>
+                  <g>
+                    <line x1="280" y1="118" x2="280" y2="158" stroke="#00E5FF"
+                          stroke-opacity=".5" stroke-width="1.6"/>
+                    <path d="M222,158 H338 L322,196 H238 Z" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"
+                          stroke-linejoin="round"/>
+                    <text class="pf-deger pf-v2" x="280" y="187" text-anchor="middle"
+                          font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="20" fill="#8FF6FF">—</text>
+                    <rect x="218" y="206" width="124" height="25" rx="8" fill="#0C1218" stroke="#26333F"/>
+                    <text x="280" y="223" text-anchor="middle"
+                          font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">Yaşam boyu değer</text>
+                  </g>
+                </g>
+
+                <g class="pf-not3">
+                  <line x1="34" y1="302" x2="346" y2="302" stroke="#1B242E" stroke-width="1.2"/>
+                  <text x="34" y="330" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#A8B8C4">Düşük edinme maliyeti tek başına</text>
+                  <text x="34" y="352" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#A8B8C4">başarı göstergesi değildir</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <figcaption><b>Temsilî görsel.</b> Sayfanın anlattığı yolu çiziyor: her kanalın kendi
+          arayüzünde ayrı okunan raporları, bunların tek bir konsolide raporda birleşmesi ve
+          edinme maliyeti ile yaşam boyu değerin dengesi. Kutular örnek arayüz çizimidir, gerçek
+          bir hesaptan alınmadı; kanal adları ad uydurmamak için çubukla temsil edildi. Tablodaki
+          ve terazi kefelerindeki değerler bilerek "—": bu sayfanın kendi tezi tek bir sayıya
+          bakmanın yanıltıcı olduğu, bu yüzden buraya maliyet, değer ya da oran yazılmadı. Terazi
+          de bilerek dengede duruyor — sayfa bir tarafın üstünlüğünü değil dengeyi anlatıyor.</figcaption>
+      </figure>
+
       <div class="dtay-fiyat rv d1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
         <p><strong>Güncel fiyat ve süre bandı</strong> için Meta & Google Ads sayfasının <a href="../../../hizmetler/dijital-pazarlama/#fiyat">fiyatlandırma bölümüne</a> göz atın — kapsamınıza göre bandı iki dakikada netleştirebilirsiniz.</p>

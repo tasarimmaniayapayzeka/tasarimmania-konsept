@@ -268,6 +268,121 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
 
+/* --- akış durakları (alt sayfa standardı) ---
+   Desen teknik SEO alt sayfasından birebir alındı; yalnızca canlanma öneki
+   değişti (orada "ts-", burada "ma-") ki iki sayfa ileride birleşirse
+   kurallar çakışmasın.
+
+   ÖLÇÜLEN KUSUR 1 — mobilde okunmuyordu: tek parça geniş grafik 390px
+   ekranda ~296px'e sığınca içindeki yazı 2-3px'e düşüyordu. Doğrusu grafiği
+   kutulara bölüp alt alta açmak: her durak kendi 380x400 kutusunda.
+   Mobilde kutu iç genişliği ~281px / viewBox 380 = 0.74 ölçek, bu yüzden
+   SVG içindeki EN KÜÇÜK yazı 13 seçildi → ekranda en az 9.6px.
+
+   ÖLÇÜLEN KUSUR 2 — ad çakışması: tm.css'te (satır 161-171) GLOBAL bir kayan
+   yazı bileşeni var; onun "span{display:inline-flex}" ve
+   "span::before{content:...}" kuralları figure içine konan HER <span>'i ele
+   geçiriyor. Bu yüzden ad .akis; o ad bu sayfada hiç geçmiyor. Yine de
+   .akis-no / .akis-ad stilleri AÇIK yazıldı: <span> stili mirasa bırakılmıyor. */
+.akis{border:1px solid var(--hair);border-radius:var(--r-lg);
+  background:var(--panel);padding:18px;margin:26px 0 0}
+.akis-izgara{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:12px;align-items:stretch}
+.akis-kutu{border:1px solid var(--hair);border-radius:var(--r-md);
+  background:rgba(255,255,255,.02);padding:14px;display:flex;
+  flex-direction:column;gap:10px}
+.akis-no{display:inline-block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;color:var(--acc);opacity:.9}
+.akis-ad{display:block;font-size:13.5px;font-weight:600;color:var(--fg);
+  letter-spacing:-.01em;margin-top:-6px}
+/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
+.akis-kutu svg{width:100%;height:auto;display:block;border-radius:10px}
+.akis-ok{display:grid;place-items:center;color:var(--acc);opacity:.6}
+.akis-ok svg{width:22px;height:22px}
+.akis figcaption{margin-top:14px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.akis figcaption b{color:var(--fg-dim);font-weight:600}
+@media(max-width:1100px){
+  .akis-izgara{grid-template-columns:1fr;gap:10px}
+  .akis-ok svg{transform:rotate(90deg)}
+  .akis{padding:14px}
+  .akis-kutu{width:100%;max-width:520px;margin-inline:auto}
+}
+
+/* --- durak canlanması ---
+   YENİ JS YOK: figure zaten .rv sınıfında; site/js/tm.js görününce .in ekliyor.
+   prefers-reduced-motion: tm.css'teki global kural animation-duration'ı
+   0.001ms'e indiriyor, "forwards" sayesinde her öğe anında son hâline oturuyor.
+   BAŞLANGIÇ DURUMU VERİLEN HER ÖĞENİN .in KARŞILIĞI VAR (aşağıda birebir).
+   Çizelge — her kutu KENDİ içinde canlanır, kutular soldan sağa (mobilde
+   yukarıdan aşağı) sırayla girer:
+     KUTU 1 · 0.25s : kart 0.25 · başlıklar 0.32 · hesap kutusu 0.38 ·
+                      bağlantı yolu 0.50 · kitle katmanları 0.74–0.90 ·
+                      huni hedefleri 0.98–1.14
+     ok 1 · 0.80s
+     KUTU 2 · 0.90s : kart 0.90 · üst etiket 0.98 ·
+                      dört format kartı 1.06–1.30 · alt not 1.38
+     ok 2 · 1.40s
+     KUTU 3 · 1.50s : kart 1.50 · üst etiket 1.56 · akış kutuları 1.62–1.78 ·
+                      dönüş oku çizilir 1.86 · nötr noktalar 1.96–2.08 ·
+                      döngü etiketi 2.12 · alt not 2.20 */
+.akis svg .ma-kart{opacity:0;transform:translateY(16px);transform-box:fill-box}
+.akis svg .ma-hesap,
+.akis svg .ma-ust1,
+.akis svg .ma-ust2,
+.akis svg .ma-alt2,
+.akis svg .ma-ust3,
+.akis svg .ma-alt3,
+.akis svg .ma-etiket{opacity:0}
+.akis svg .ma-yol{stroke-dasharray:44;stroke-dashoffset:44}
+.akis svg .ma-dongu{stroke-dasharray:300;stroke-dashoffset:300}
+.akis svg .ma-bantlar > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.akis svg .ma-huni > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.akis svg .ma-kartlar > g{opacity:0;transform:translateY(12px);transform-box:fill-box}
+.akis svg .ma-kutular > g{opacity:0;transform:translateX(-12px);transform-box:fill-box}
+.akis svg .ma-nokta{opacity:0;transform:scale(.5);transform-box:fill-box;
+  transform-origin:center}
+/* oklar HTML'de: .akis-ok kutusu opaklığı taşıyor, ok çizimi 0'dan girer */
+.akis .ma-ok{opacity:0}
+
+.akis.in svg .ma-k1{animation:maKart .6s var(--ease) .25s forwards}
+.akis.in svg .ma-ust1{animation:maBelir .45s var(--ease) .32s forwards}
+.akis.in svg .ma-hesap{animation:maBelir .5s var(--ease) .38s forwards}
+.akis.in svg .ma-yol{animation:maCiz .7s var(--ease) .50s forwards}
+.akis.in svg .ma-bantlar > g:nth-child(1){animation:maSatir .45s var(--ease) .74s forwards}
+.akis.in svg .ma-bantlar > g:nth-child(2){animation:maSatir .45s var(--ease) .82s forwards}
+.akis.in svg .ma-bantlar > g:nth-child(3){animation:maSatir .45s var(--ease) .90s forwards}
+.akis.in svg .ma-huni > g:nth-child(1){animation:maSatir .45s var(--ease) .98s forwards}
+.akis.in svg .ma-huni > g:nth-child(2){animation:maSatir .45s var(--ease) 1.06s forwards}
+.akis.in svg .ma-huni > g:nth-child(3){animation:maSatir .45s var(--ease) 1.14s forwards}
+.akis.in .ma-ok1{animation:maOkBelir .55s var(--ease) .80s forwards}
+.akis.in svg .ma-k2{animation:maKart .6s var(--ease) .90s forwards}
+.akis.in svg .ma-ust2{animation:maBelir .45s var(--ease) .98s forwards}
+.akis.in svg .ma-kartlar > g:nth-child(1){animation:maSatir .42s var(--ease) 1.06s forwards}
+.akis.in svg .ma-kartlar > g:nth-child(2){animation:maSatir .42s var(--ease) 1.14s forwards}
+.akis.in svg .ma-kartlar > g:nth-child(3){animation:maSatir .42s var(--ease) 1.22s forwards}
+.akis.in svg .ma-kartlar > g:nth-child(4){animation:maSatir .42s var(--ease) 1.30s forwards}
+.akis.in svg .ma-alt2{animation:maBelir .45s var(--ease) 1.38s forwards}
+.akis.in .ma-ok2{animation:maOkBelir .55s var(--ease) 1.40s forwards}
+.akis.in svg .ma-k3{animation:maKart .6s var(--ease) 1.50s forwards}
+.akis.in svg .ma-ust3{animation:maBelir .45s var(--ease) 1.56s forwards}
+.akis.in svg .ma-kutular > g:nth-child(1){animation:maSol .42s var(--ease) 1.62s forwards}
+.akis.in svg .ma-kutular > g:nth-child(2){animation:maSol .42s var(--ease) 1.70s forwards}
+.akis.in svg .ma-kutular > g:nth-child(3){animation:maSol .42s var(--ease) 1.78s forwards}
+.akis.in svg .ma-dongu{animation:maCiz .8s var(--ease) 1.86s forwards}
+.akis.in svg .ma-n1{animation:maTik .5s var(--ease) 1.96s forwards}
+.akis.in svg .ma-n2{animation:maTik .5s var(--ease) 2.02s forwards}
+.akis.in svg .ma-n3{animation:maTik .5s var(--ease) 2.08s forwards}
+.akis.in svg .ma-etiket{animation:maBelir .45s var(--ease) 2.12s forwards}
+.akis.in svg .ma-alt3{animation:maBelir .45s var(--ease) 2.20s forwards}
+
+@keyframes maKart{to{opacity:1;transform:translateY(0)}}
+@keyframes maSatir{to{opacity:1;transform:translateY(0)}}
+@keyframes maSol{to{opacity:1;transform:translateX(0)}}
+@keyframes maBelir{to{opacity:1}}
+@keyframes maCiz{to{stroke-dashoffset:0}}
+@keyframes maTik{to{opacity:1;transform:scale(1)}}
+@keyframes maOkBelir{0%{opacity:0}45%{opacity:1;filter:brightness(1.7)}to{opacity:1;filter:brightness(1)}}
+
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
 .sss details[open],.akor details[open]{border-color:var(--hair-strong)}
@@ -372,6 +487,16 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   .nav-links,.nav-tel{display:none}
   .burger{display:block}
   .ftr-ust{grid-template-columns:1fr}
+}
+
+/* DAR-EKRAN-DOLGU */
+/* 375px (iPhone SE) olculdu: en kucuk yazi 8.49-8.82px, 9px esiginin altinda.
+   SVG'leri yeniden cizmek yerine dolguyu kisip SVG'ye alan aciliyor:
+   375 - 48(wrap) - 20(akis) - 20(kutu) - 4(kenarlik) = 283px → olcek 0.745
+   13 * 0.745 = 9.68px. Olcum sonrasi dogrulandi. */
+@media(max-width:400px){
+  .akis{padding:10px}
+  .akis-kutu{padding:10px;gap:8px}
 }
 </style>
 <script type="application/ld+json">
@@ -537,6 +662,373 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>
+
+      <!-- Akış durakları — bu sayfanın KENDİ anlattığı yolu çizer:
+           hesap ve kitle → format seçimi → retargeting. Etiketlerin tamamı
+           sayfada geçen kavramlar: reklam hesabı, yönetici erişimi, hedef kitle
+           üç katmanda, mevcut müşteri listeleri, özel kitle, lookalike kitle,
+           piksel, farkındalık/değerlendirme/dönüşüm, statik görsel, koleksiyon,
+           kısa video, Reels, "ürünün veya hizmetin doğasına göre", Conversions
+           API, site ziyaretçileri, "ilgi seviyesine uygun" mesaj, yeniden
+           hedefleme.
+
+           BİLEREK RAKAM YOK: bu sayfada fiyat, bütçe, erişim, gösterim veya
+           kitle büyüklüğü rakamı yayımlanmıyor; grafikte de hiçbir sayı, oran
+           veya para birimi yazılmadı. İkinci duraktaki dört format eşit
+           çizildi — sayfa "ürünün veya hizmetin doğasına göre" dediği için
+           hiçbiri öne çıkarılmadı: aynı kenarlık, aynı dolgu, seçili durum yok.
+           Marka/ürün/platform logosu ya da harf işareti çizilmedi; kutular
+           örnek arayüz çizimidir.
+
+           NEDEN ÜÇ AYRI SVG: tek parça geniş grafik 390px ekranda ~296px'e
+           sığınca yazısı okunmaz hâle geliyordu (teknik SEO sayfasında
+           ölçüldü). Her durak kendi 380x400 kutusunda; 860px altında kutular
+           alt alta açılır, aradaki oklar 90° döner. En küçük yazı 13: mobilde
+           kutu içi ~281px / viewBox 380 = 0.74 ölçek, yani ekranda en az
+           9.6px. Inline SVG: ek istek yok, her ölçekte net, viewBox sayesinde
+           oran sabit olduğu için düzen kaymaz (CLS yok). -->
+      <figure class="akis rv d2">
+        <div class="akis-izgara">
+
+          <!-- ===== DURAK 01 — HESAP VE KİTLE ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">01</span>
+            <span class="akis-ad">Hesap ve kitle</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="maB1 maA1"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="maB1">Hesap ve kitle: reklam hesabından üç katmanlı hedef kitleye — temsilî görsel</title>
+              <desc id="maA1">Solda reklam hesabını temsil eden bir kutu; içinde iki satır ve
+                "yönetici erişimi" yazan bir etiket. Ondan sağa uzanan kısa bir ok, iç içe geçmiş
+                üç yatay banda bağlanıyor: en dışta lookalike kitle, ortada özel kitle, en içte
+                mevcut müşteri. Katmanlar içe doğru koyulaşıyor. Altta kampanya hedeflerini
+                gösteren üç etiket: farkındalık, değerlendirme, dönüşüm. Canlanmada önce hesap
+                kutusu, sonra bağlantı, ardından katmanlar dıştan içe girer.</desc>
+              <defs>
+                <linearGradient id="maSahne1" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="maIsik1" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="maGolge1" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#maSahne1)"/>
+              <rect width="380" height="400" fill="url(#maIsik1)"/>
+
+              <g class="ma-kart ma-k1">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#maGolge1)"/>
+
+                <!-- üst etiketler: sayfada "Hesap Yönetimi", "Hedef kitle üç katmanda
+                     kurgulanır" ve "farkındalık, değerlendirme ve dönüşüm hedefleri" geçiyor -->
+                <g class="ma-ust1">
+                  <text x="30" y="78" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="13" letter-spacing=".4" fill="#7A8794">hesap</text>
+                  <text x="136" y="78" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="13" letter-spacing=".4" fill="#9FD6E0">hedef kitle üç katmanda</text>
+                  <text x="30" y="300" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="13" letter-spacing=".4" fill="#7A8794">kampanya hedefleri</text>
+                </g>
+
+                <!-- reklam hesabı kutusu: örnek arayüz çizimi, gerçek bir panel değil -->
+                <g class="ma-hesap">
+                  <rect x="26" y="96" width="92" height="176" rx="12" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
+                  <rect x="38" y="110" width="68" height="22" rx="6" fill="#151F2B" stroke="#26333F"/>
+                  <circle cx="49" cy="121" r="4" fill="#00E5FF"/>
+                  <rect x="58" y="117" width="40" height="8" rx="4" fill="#3A4A5E"/>
+                  <rect x="38" y="138" width="68" height="22" rx="6" fill="#151F2B" stroke="#26333F"/>
+                  <circle cx="49" cy="149" r="4" fill="#38506A"/>
+                  <rect x="58" y="145" width="30" height="8" rx="4" fill="#2A3646"/>
+                  <text x="38" y="186" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13.5" fill="#D5E4EC">Reklam</text>
+                  <text x="38" y="204" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13.5" fill="#D5E4EC">hesabı</text>
+                  <rect x="38" y="216" width="68" height="44" rx="8" fill="#0C1218"
+                        stroke="#00E5FF" stroke-opacity=".35"/>
+                  <text x="46" y="234" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#9FD6E0">yönetici</text>
+                  <text x="46" y="250" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#9FD6E0">erişimi</text>
+                </g>
+
+                <!-- hesaptan kitleye bağlantı; canlanmada soldan sağa çizilir -->
+                <path class="ma-yol" d="M118,184 H130 m-6,-6 l6,6 -6,6" fill="none"
+                      stroke="#00E5FF" stroke-opacity=".7" stroke-width="1.6"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- üç katman: dıştan içe daralır, aksan tonu içe doğru açılır -->
+                <g class="ma-bantlar">
+                  <g>
+                    <rect x="136" y="96" width="214" height="176" rx="12" fill="#00E5FF"
+                          fill-opacity=".05" stroke="#00E5FF" stroke-opacity=".26" stroke-width="1.2"/>
+                    <text x="148" y="118" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13.5" fill="#A8B8C4">Lookalike kitle</text>
+                    <text x="338" y="118" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="13" fill="#7A8794">benzeyen</text>
+                  </g>
+                  <g>
+                    <rect x="148" y="130" width="190" height="108" rx="10" fill="#00E5FF"
+                          fill-opacity=".09" stroke="#00E5FF" stroke-opacity=".40" stroke-width="1.2"/>
+                    <text x="160" y="152" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13.5" fill="#D5E4EC">Özel kitle</text>
+                    <text x="326" y="152" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="13" fill="#9FD6E0">piksel</text>
+                  </g>
+                  <g>
+                    <rect x="160" y="164" width="166" height="40" rx="9" fill="#00E5FF"
+                          fill-opacity=".16" stroke="#00E5FF" stroke-opacity=".60" stroke-width="1.2"/>
+                    <text x="172" y="189" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13.5" fill="#E8F3F8">Mevcut müşteri</text>
+                    <text x="314" y="189" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="13" fill="#8FF6FF">liste</text>
+                  </g>
+                </g>
+
+                <!-- huni: sayfada "farkındalık, değerlendirme ve dönüşüm hedefleri ayrı
+                     kampanyalarda yönetilir" — üçü de eşit çizildi -->
+                <g class="ma-huni">
+                  <g>
+                    <rect x="30" y="314" width="95" height="38" rx="10" fill="#121820" stroke="#242F3C"/>
+                    <rect x="38" y="327" width="3" height="12" rx="1.5" fill="#4A5C6E"/>
+                    <text x="48" y="338" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">farkındalık</text>
+                  </g>
+                  <g>
+                    <rect x="133" y="314" width="110" height="38" rx="10" fill="#121820" stroke="#242F3C"/>
+                    <rect x="141" y="327" width="3" height="12" rx="1.5" fill="#4A5C6E"/>
+                    <text x="151" y="338" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">değerlendirme</text>
+                  </g>
+                  <g>
+                    <rect x="251" y="314" width="82" height="38" rx="10" fill="#121820" stroke="#242F3C"/>
+                    <rect x="259" y="327" width="3" height="12" rx="1.5" fill="#4A5C6E"/>
+                    <text x="269" y="338" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">dönüşüm</text>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="ma-ok ma-ok1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 02 — FORMAT SEÇİMİ ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">02</span>
+            <span class="akis-ad">Format seçimi</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="maB2 maA2"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="maB2">Format seçimi: dört reklam formatı eşit ağırlıkta — temsilî görsel</title>
+              <desc id="maA2">Dörtlü ızgarada dört format kartı: statik görsel bir kare yer tutucuyla,
+                koleksiyon yan yana üç küçük kart ve bir okla, kısa video oynat üçgenli yatay bir
+                çerçeveyle, Reels dikey bir çerçeveyle gösteriliyor. Dördü de aynı kenarlık ve aynı
+                dolguyla çizildi; hiçbiri seçili ya da öne çıkarılmış değil. Altta tek satır:
+                ürünün veya hizmetin doğasına göre.</desc>
+              <defs>
+                <linearGradient id="maSahne2" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="maIsik2" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="maGolge2" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#maSahne2)"/>
+              <rect width="380" height="400" fill="url(#maIsik2)"/>
+
+              <g class="ma-kart ma-k2">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#maGolge2)"/>
+
+                <text class="ma-ust2" x="30" y="58" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="13" letter-spacing=".4" fill="#9FD6E0">reklam formatı karşılaştırması</text>
+
+                <!-- DÖRT KART EŞİT: aynı rx, aynı fill, aynı stroke, aynı yazı rengi -->
+                <g class="ma-kartlar">
+                  <g>
+                    <rect x="30" y="76" width="148" height="118" rx="11" fill="#101A22"
+                          stroke="#26333F" stroke-width="1.2"/>
+                    <text x="44" y="102" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13.5" fill="#D5E4EC">Statik görsel</text>
+                    <rect x="44" y="116" width="52" height="52" rx="8" fill="#151F2B" stroke="#2A3646"/>
+                    <circle cx="58" cy="132" r="4.5" fill="#3A4A5E"/>
+                    <path d="M49,164 L62,144 L72,157 L79,149 L91,164 Z" fill="#2A3646"/>
+                    <rect x="106" y="132" width="52" height="9" rx="4.5" fill="#3A4A5E"/>
+                    <rect x="106" y="148" width="36" height="9" rx="4.5" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="192" y="76" width="148" height="118" rx="11" fill="#101A22"
+                          stroke="#26333F" stroke-width="1.2"/>
+                    <text x="206" y="102" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13.5" fill="#D5E4EC">Koleksiyon</text>
+                    <rect x="206" y="118" width="26" height="48" rx="6" fill="#151F2B" stroke="#2A3646"/>
+                    <rect x="211" y="152" width="16" height="6" rx="3" fill="#3A4A5E"/>
+                    <rect x="238" y="118" width="26" height="48" rx="6" fill="#151F2B" stroke="#2A3646"/>
+                    <rect x="243" y="152" width="16" height="6" rx="3" fill="#3A4A5E"/>
+                    <rect x="270" y="118" width="26" height="48" rx="6" fill="#151F2B" stroke="#2A3646"/>
+                    <rect x="275" y="152" width="16" height="6" rx="3" fill="#3A4A5E"/>
+                    <path d="M306,134 l8,8 -8,8" fill="none" stroke="#4A5C6E" stroke-width="1.7"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  <g>
+                    <rect x="30" y="206" width="148" height="118" rx="11" fill="#101A22"
+                          stroke="#26333F" stroke-width="1.2"/>
+                    <text x="44" y="232" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13.5" fill="#D5E4EC">Kısa video</text>
+                    <rect x="44" y="244" width="92" height="56" rx="8" fill="#151F2B" stroke="#2A3646"/>
+                    <path d="M82,262 L100,272 L82,282 Z" fill="#3A4A5E"/>
+                    <rect x="52" y="290" width="76" height="4" rx="2" fill="#242F3C"/>
+                  </g>
+                  <g>
+                    <rect x="192" y="206" width="148" height="118" rx="11" fill="#101A22"
+                          stroke="#26333F" stroke-width="1.2"/>
+                    <text x="206" y="232" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13.5" fill="#D5E4EC">Reels</text>
+                    <rect x="244" y="242" width="44" height="66" rx="8" fill="#151F2B" stroke="#2A3646"/>
+                    <path d="M261,268 L275,275 L261,282 Z" fill="#3A4A5E"/>
+                  </g>
+                </g>
+
+                <g class="ma-alt2">
+                  <line x1="30" y1="340" x2="350" y2="340" stroke="#242F3C"/>
+                  <text x="30" y="364" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#A8B8C4">Ürünün veya hizmetin doğasına göre</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="ma-ok ma-ok2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 03 — RETARGETING ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">03</span>
+            <span class="akis-ad">Retargeting</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="maB3 maA3"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="maB3">Retargeting: site ziyaretçisinden özel kitleye, oradan reklama dönen döngü — temsilî görsel</title>
+              <desc id="maA3">Soldan sağa üç kutu: site ziyaretçisi, özel kitle ve reklam. Ziyaretçi
+                kutusunda kişi yerine üç nötr nokta var. Kutuların üstünde reklamdan ziyaretçiye geri
+                dönen kavisli bir ok döngüyü anlatıyor. Üstte piksel ve Conversions API etiketi,
+                altta "ilgi seviyesine uygun mesaj" notu. Canlanmada kutular soldan sağa girer,
+                sonra dönüş oku çizilir.</desc>
+              <defs>
+                <linearGradient id="maSahne3" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="maIsik3" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="maGolge3" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#maSahne3)"/>
+              <rect width="380" height="400" fill="url(#maIsik3)"/>
+
+              <g class="ma-kart ma-k3">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#maGolge3)"/>
+
+                <text class="ma-ust3" x="30" y="58" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="13" letter-spacing=".4" fill="#9FD6E0">piksel ve Conversions API</text>
+
+                <!-- döngü oku: reklamdan ziyaretçiye geri döner -->
+                <path class="ma-dongu" d="M303,156 C303,122 296,114 262,114 H118 C84,114 77,122 77,156 m-6,-12 l6,12 6,-12"
+                      fill="none" stroke="#00E5FF" stroke-opacity=".6" stroke-width="1.6"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+                <text class="ma-etiket" x="190" y="102" text-anchor="middle"
+                      font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="13" letter-spacing=".4" fill="#7A8794">yeniden hedeflenir</text>
+
+                <g class="ma-kutular">
+                  <g>
+                    <rect x="30" y="160" width="94" height="128" rx="11" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".32" stroke-width="1.3"/>
+                    <rect x="42" y="176" width="70" height="36" rx="7" fill="#151F2B" stroke="#26333F"/>
+                    <line x1="42" y1="188" x2="112" y2="188" stroke="#26333F"/>
+                    <circle cx="50" cy="182" r="2.5" fill="#38506A"/>
+                    <circle cx="58" cy="182" r="2.5" fill="#38506A"/>
+                    <rect x="50" y="194" width="44" height="8" rx="4" fill="#3A4A5E"/>
+                    <!-- kişi silueti yerine üç nötr nokta -->
+                    <circle class="ma-nokta ma-n1" cx="56" cy="232" r="6" fill="#3A4A5E"/>
+                    <circle class="ma-nokta ma-n2" cx="77" cy="232" r="6" fill="#3A4A5E"/>
+                    <circle class="ma-nokta ma-n3" cx="98" cy="232" r="6" fill="#3A4A5E"/>
+                    <text x="42" y="258" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13.5" fill="#D5E4EC">Site</text>
+                    <text x="42" y="275" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13.5" fill="#D5E4EC">ziyaretçisi</text>
+                  </g>
+                  <g>
+                    <path d="M129,214 l8,10 -8,10" fill="none" stroke="#00E5FF" stroke-opacity=".55"
+                          stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="143" y="160" width="94" height="128" rx="11" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".32" stroke-width="1.3"/>
+                    <!-- ayrı gruplara bölünmüş kitle: üç satır -->
+                    <rect x="155" y="178" width="70" height="18" rx="5" fill="#151F2B" stroke="#26333F"/>
+                    <circle cx="165" cy="187" r="3.5" fill="#38506A"/>
+                    <rect x="175" y="183" width="38" height="8" rx="4" fill="#2A3646"/>
+                    <rect x="155" y="200" width="70" height="18" rx="5" fill="#151F2B" stroke="#26333F"/>
+                    <circle cx="165" cy="209" r="3.5" fill="#38506A"/>
+                    <rect x="175" y="205" width="38" height="8" rx="4" fill="#2A3646"/>
+                    <rect x="155" y="222" width="70" height="18" rx="5" fill="#151F2B" stroke="#26333F"/>
+                    <circle cx="165" cy="231" r="3.5" fill="#38506A"/>
+                    <rect x="175" y="227" width="38" height="8" rx="4" fill="#2A3646"/>
+                    <text x="155" y="266" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13.5" fill="#D5E4EC">Özel kitle</text>
+                  </g>
+                  <g>
+                    <path d="M242,214 l8,10 -8,10" fill="none" stroke="#00E5FF" stroke-opacity=".55"
+                          stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="256" y="160" width="94" height="128" rx="11" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".32" stroke-width="1.3"/>
+                    <rect x="268" y="176" width="70" height="44" rx="7" fill="#151F2B" stroke="#26333F"/>
+                    <circle cx="281" cy="190" r="4" fill="#3A4A5E"/>
+                    <path d="M274,214 L288,196 L298,208 L306,200 L318,214 Z" fill="#2A3646"/>
+                    <rect x="268" y="228" width="52" height="8" rx="4" fill="#3A4A5E"/>
+                    <rect x="268" y="242" width="36" height="8" rx="4" fill="#2A3646"/>
+                    <text x="268" y="272" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13.5" fill="#D5E4EC">Reklam</text>
+                  </g>
+                </g>
+
+                <g class="ma-alt3">
+                  <line x1="30" y1="322" x2="350" y2="322" stroke="#242F3C"/>
+                  <text x="30" y="346" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#A8B8C4">ilgi seviyesine uygun mesaj</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+        </div>
+        <figcaption><b>Temsilî görsel.</b> Sayfanın anlattığı yolu çiziyor: reklam hesabının
+          kurulması ve hedef kitlenin üç katmanda kurgulanması, formatın ürünün veya hizmetin
+          doğasına göre seçilmesi, ardından retargeting döngüsü. Kutular örnek arayüz çizimidir,
+          gerçek bir hesaptan alınmadı; marka ya da platform işareti kullanılmadı. Dört format
+          bilerek eşit çizildi — sayfa hiçbirini diğerine üstün saymıyor. Kitle büyüklüğü, erişim,
+          bütçe gibi bir ölçü göstermedikleri için bantların ve kutuların üzerinde rakam yok.</figcaption>
+      </figure>
       <div class="dtay-fiyat rv d1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
         <p><strong>Güncel fiyat ve süre bandı</strong> için Meta & Google Ads sayfasının <a href="../../../hizmetler/dijital-pazarlama/#fiyat">fiyatlandırma bölümüne</a> göz atın — kapsamınıza göre bandı iki dakikada netleştirebilirsiniz.</p>
