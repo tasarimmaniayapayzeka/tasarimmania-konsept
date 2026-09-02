@@ -158,6 +158,77 @@
 }
 @media(max-width:880px){.dtay{grid-template-columns:1fr}}
 
+/* --- izleme şeridi: tam genişlik YATAY infografik ------------------------
+   Hub sayfada grafik fiyat kutusunun yanına DİKEY giriyor; burada fiyat
+   kutusu yok ve .dtay metin bloğu yalnızca ~242–317px yüksekliğinde, o
+   yüzden dikey oran solda büyük boşluk bırakırdı. Alt sayfa standardı:
+   viewBox 1200×430, tam genişlik şerit.
+   NOT: tm.css'te aynı adla bir "kayan şerit" bandı var; oradan miras kalan
+   kenar maskesi grafiğin sol/sağ %8'ini soldururdu — burada sıfırlanıyor. */
+.serit{-webkit-mask-image:none;mask-image:none;
+  border:1px solid var(--hair);border-radius:var(--r-lg);
+  background:var(--panel);padding:18px;margin:26px 0 0}
+/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
+.serit svg{width:100%;height:auto;display:block;border-radius:12px}
+.serit figcaption{margin-top:13px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.serit figcaption b{color:var(--fg-dim);font-weight:600}
+@media(max-width:760px){.serit{padding:12px}}
+
+/* --- izleme şeridi canlanması ---
+   YENİ JS YOK: .serit zaten .rv sınıfında; site/js/tm.js'teki görünürlük
+   gözlemcisi görününce .in ekliyor, animasyonlar ona bağlı. Tek sefer oynar.
+   prefers-reduced-motion: tm.css'teki global kural animation-duration'ı
+   0.001ms'e indiriyor; "forwards" sayesinde her öğe anında son hâline
+   oturuyor — ayrı kural gerekmiyor.
+   Sınıf/keyframe öneki "bd-": hub sayfası "w-", SEO sayfası "s-" kullanıyor;
+   sayfalar ileride birleştirilse bile çakışmasın diye ayrı tutuldu.
+   Soldan sağa okunan süre çizelgesi: üst yazı 0.25s · çubuklar 0.30→0.85s
+   (her çubuğun kendi --bdg gecikmesi) · eksen dolumu 0.85s · alt bağlantılar
+   1.15–1.25s · ok ucu 1.55s · üç durum kartı 1.40–1.60s · alt satır 1.90s ·
+   iki uzun çubuğun vurgusu 2.20s ve 2.40s · durum noktalarının yeşile
+   dönmesi 2.35–2.55s → ~2.5s'te okuma tamamlanıyor. */
+.serit svg .bd-cb,
+.serit svg .bd-hale,
+.serit svg .bd-tepe,
+.serit svg .bd-kart,
+.serit svg .bd-halka{transform-box:fill-box}
+.serit svg .bd-cb{transform:scaleY(0);transform-origin:bottom center}
+.serit svg .bd-hale{opacity:0}
+.serit svg .bd-tepe{opacity:0;transform:scale(.4);transform-origin:center}
+.serit svg .bd-yol{stroke-dasharray:1060;stroke-dashoffset:1060}
+.serit svg .bd-bag{stroke-dasharray:40;stroke-dashoffset:40}
+.serit svg .bd-ok,
+.serit svg .bd-yazi{opacity:0}
+.serit svg .bd-kart{opacity:0;transform:translateY(14px)}
+.serit svg .bd-alt{clip-path:inset(0 100% 0 0)}
+.serit svg .bd-nokta{fill:#4A5468}
+.serit svg .bd-halka{opacity:0;transform:scale(.6);transform-origin:center}
+
+.serit.in svg .bd-yazi{animation:bd-belir .5s var(--ease) var(--bdg,.25s) forwards}
+.serit.in svg .bd-cb{animation:bd-cubuk .45s var(--ease) var(--bdg,.3s) forwards}
+.serit.in svg .bd-vur{animation:bd-cubuk .45s var(--ease) var(--bdg,.3s) forwards,
+  bd-alev .8s var(--ease) var(--bdv,2.2s) forwards}
+.serit.in svg .bd-hale{animation:bd-hale .8s var(--ease) var(--bdv,2.2s) forwards}
+.serit.in svg .bd-tepe{animation:bd-pat .5s cubic-bezier(.34,1.56,.64,1) var(--bdv,2.2s) forwards}
+.serit.in svg .bd-yol{animation:bd-ciz .75s var(--ease) .85s forwards}
+.serit.in svg .bd-bag{animation:bd-ciz .45s var(--ease) var(--bdg,1.15s) forwards}
+.serit.in svg .bd-ok{animation:bd-belir .4s var(--ease) 1.55s forwards}
+.serit.in svg .bd-kart{animation:bd-kart .55s var(--ease) var(--bdg,1.4s) forwards}
+.serit.in svg .bd-alt{animation:bd-serit .6s var(--ease) 1.9s forwards}
+.serit.in svg .bd-nokta{animation:bd-yesil .5s var(--ease) var(--bdy,2.35s) forwards}
+.serit.in svg .bd-halka{animation:bd-halka .9s var(--ease) var(--bdy,2.35s) forwards}
+
+@keyframes bd-belir{to{opacity:1}}
+@keyframes bd-cubuk{to{transform:scaleY(1)}}
+@keyframes bd-alev{45%{fill:#9DF4FF}to{fill:#00E5FF}}
+@keyframes bd-hale{to{opacity:1}}
+@keyframes bd-pat{to{opacity:1;transform:scale(1)}}
+@keyframes bd-ciz{to{stroke-dashoffset:0}}
+@keyframes bd-kart{to{opacity:1;transform:translateY(0)}}
+@keyframes bd-serit{to{clip-path:inset(0 0 0 0)}}
+@keyframes bd-yesil{to{fill:#28C840}}
+@keyframes bd-halka{30%{opacity:.75}to{opacity:0;transform:scale(2.6)}}
+
 /* --- İLGİLİ: akan bağlantı haritası --- */
 .hrt{display:grid;grid-template-columns:200px 96px 1fr;align-items:center}
 .hrt-ben{border:1px solid rgba(var(--acc-rgb),.5);border-radius:14px;padding:20px 16px;
@@ -537,6 +608,180 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>
+
+      <!-- İzleme şeridi — bu sayfanın KENDİ iddiasını çizer: bakım tek seferlik
+           bir iş değil, sürekli akan bir izleme + üç katmanlı durum + tek rutin.
+           Çizilen her etiket sayfada geçen bir kavram: "düzenli aralıklarla
+           kontrol", "müdahale süreci", "yedekleme", "güncelleme", "kesinti
+           izleme", "sunucudan bağımsız depolama", "önce bir test kopyası",
+           "tek bir bakım rutini".
+           BİLEREK RAKAM YOK: bu sayfada fiyat, yüzde, süre veya çalışma süresi
+           oranı yazmıyor; kartlara sayı koymak "bizim ölçümümüz" izlenimi
+           verirdi. Durum yalnız nokta ve etiketle anlatılıyor.
+           Inline SVG: ek istek yok, her ölçekte net; viewBox sayesinde oran
+           sabit olduğu için düzen kaymaz (CLS yok). -->
+      <figure class="serit rv d2">
+        <svg viewBox="0 0 1200 430" role="img" aria-labelledby="bdBaslik bdAciklama"
+             xmlns="http://www.w3.org/2000/svg">
+          <title id="bdBaslik">Sürekli izleme şeridi: kontrol akışı, üç bakım katmanı ve tek rutin — temsilî görsel</title>
+          <desc id="bdAciklama">Yatay bir zaman ekseni üzerinde yirmiden fazla küçük dikey çubuk
+            duruyor; çoğu kısa ve sakin, ikisi belirgin biçimde uzun ve aksan renkli — bunlar
+            müdahale anını temsil ediyor. Eksen soldan sağa aksan renkli bir çizgiyle doluyor.
+            Altında yan yana üç durum kartı var: Yedekleme, Güncelleme ve Kesinti izleme; her
+            kartta bir ikon, bir etiket, bir alt açıklama ve sağ üstte durum noktası bulunuyor.
+            Kartlarda bilerek sayı yok. En altta tek bir satır: tek bakım rutini, kesinti tespit
+            edildiğinde müdahale süreci başlar.</desc>
+
+          <defs>
+            <linearGradient id="bdSahne" x1="0" y1="0" x2="0.35" y2="1">
+              <stop offset="0" stop-color="#141C26"/>
+              <stop offset="1" stop-color="#0A0E14"/>
+            </linearGradient>
+            <radialGradient id="bdIsik" cx="0.2" cy="0.1" r="0.85">
+              <stop offset="0" stop-color="#00E5FF" stop-opacity=".14"/>
+              <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <rect width="1200" height="430" fill="url(#bdSahne)"/>
+          <rect width="1200" height="430" fill="url(#bdIsik)"/>
+
+          <!-- ===== ÜST — zaman ekseni ve kontrol çubukları ===== -->
+          <g class="bd-yazi" style="--bdg:.25s">
+            <text x="70" y="42" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="11" letter-spacing="1.7" fill="#00E5FF">SÜREKLİ İZLEME</text>
+            <text x="70" y="64" font-family="Inter Tight, system-ui, sans-serif"
+                  font-size="12.6" fill="#727D93">site erişimi düzenli aralıklarla kontrol edilir</text>
+            <rect x="930" y="34" width="8" height="11" rx="4" fill="#48546B"/>
+            <text x="946" y="43" font-family="Inter Tight, system-ui, sans-serif"
+                  font-size="11.5" fill="#727D93">düzenli kontrol</text>
+            <rect x="1052" y="34" width="8" height="11" rx="4" fill="#00E5FF"/>
+            <text x="1068" y="43" font-family="Inter Tight, system-ui, sans-serif"
+                  font-size="11.5" fill="#A7B0C2">müdahale</text>
+          </g>
+
+          <!-- müdahale anlarının halesi (vurgu anında beliriyor) -->
+          <rect class="bd-hale" style="--bdv:2.20s" x="425" y="54" width="21" height="96" rx="10"
+                fill="#00E5FF" fill-opacity=".21"/>
+          <rect class="bd-hale" style="--bdv:2.40s" x="801" y="66" width="21" height="84" rx="10"
+                fill="#00E5FF" fill-opacity=".21"/>
+
+          <!-- kontrol çubukları: soldan sağa sırayla yükselir -->
+          <g>
+            <rect class="bd-cb" style="--bdg:.300s" x="102"  y="136" width="9" height="14" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.326s" x="149"  y="139" width="9" height="11" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.352s" x="196"  y="133" width="9" height="17" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.378s" x="243"  y="137" width="9" height="13" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.404s" x="290"  y="131" width="9" height="19" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.430s" x="337"  y="138" width="9" height="12" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.456s" x="384"  y="134" width="9" height="16" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb bd-vur" style="--bdg:.482s;--bdv:2.20s" x="431" y="66" width="9" height="84" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.508s" x="478"  y="135" width="9" height="15" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.534s" x="525"  y="137" width="9" height="13" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.560s" x="572"  y="132" width="9" height="18" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.586s" x="619"  y="139" width="9" height="11" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.612s" x="666"  y="134" width="9" height="16" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.638s" x="713"  y="136" width="9" height="14" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.664s" x="760"  y="138" width="9" height="12" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb bd-vur" style="--bdg:.690s;--bdv:2.40s" x="807" y="78" width="9" height="72" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.716s" x="854"  y="137" width="9" height="13" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.742s" x="901"  y="133" width="9" height="17" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.768s" x="948"  y="139" width="9" height="11" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.794s" x="995"  y="135" width="9" height="15" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.820s" x="1042" y="138" width="9" height="12" rx="4.5" fill="#48546B"/>
+            <rect class="bd-cb" style="--bdg:.846s" x="1089" y="134" width="9" height="16" rx="4.5" fill="#48546B"/>
+          </g>
+          <circle class="bd-tepe" style="--bdv:2.20s" cx="435.5" cy="52" r="4" fill="#00E5FF"/>
+          <circle class="bd-tepe" style="--bdv:2.40s" cx="811.5" cy="64" r="4" fill="#00E5FF"/>
+
+          <!-- eksen + soldan sağa dolum -->
+          <line x1="70" y1="150" x2="1130" y2="150" stroke="#333C4D" stroke-width="1.6"/>
+          <line class="bd-yol" x1="70" y1="150" x2="1130" y2="150" stroke="#00E5FF" stroke-width="2.2"
+                stroke-linecap="round"/>
+          <path class="bd-ok" d="M1122,143.5 l8,6.5 -8,6.5" fill="none" stroke="#00E5FF"
+                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <text class="bd-ok" x="1130" y="176" text-anchor="end"
+                font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.6"
+                letter-spacing="1.3" fill="#727D93">ZAMAN</text>
+
+          <!-- eksenden kartlara inen bağlantılar -->
+          <line class="bd-bag" style="--bdg:1.15s" x1="240" y1="158" x2="240" y2="197" stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
+          <line class="bd-bag" style="--bdg:1.20s" x1="600" y1="158" x2="600" y2="197" stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
+          <line class="bd-bag" style="--bdg:1.25s" x1="960" y1="158" x2="960" y2="197" stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
+
+          <!-- ===== ORTA — üç durum kartı (kartlarda bilerek sayı yok) ===== -->
+          <g class="bd-kart" style="--bdg:1.40s">
+            <rect x="70" y="200" width="340" height="140" rx="14" fill="#101720" stroke="#2A3342" stroke-width="1.2"/>
+            <g transform="translate(100,226)" fill="none" stroke="#00E5FF" stroke-width="1.7"
+               stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="13" cy="5.5" rx="12" ry="4.6"/>
+              <path d="M1,5.5 v7.5 c0,2.5 5.4,4.6 12,4.6 s12,-2.1 12,-4.6 V5.5"/>
+              <path d="M1,13 v7.5 c0,2.5 5.4,4.6 12,4.6 s12,-2.1 12,-4.6 V13"/>
+            </g>
+            <text x="364" y="236" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="9.4" letter-spacing="1.3" fill="#727D93">DURUM</text>
+            <circle class="bd-halka" style="--bdy:2.35s" cx="380" cy="232" r="7" fill="none" stroke="#28C840" stroke-width="1.6"/>
+            <circle class="bd-nokta" style="--bdy:2.35s" cx="380" cy="232" r="5.5"/>
+            <text x="100" y="298" font-family="Inter Tight, system-ui, sans-serif" font-size="18"
+                  font-weight="600" fill="#E7EAF0">Yedekleme</text>
+            <text x="100" y="322" font-family="Inter Tight, system-ui, sans-serif" font-size="12.6"
+                  fill="#727D93">sunucudan bağımsız depolama</text>
+          </g>
+
+          <g class="bd-kart" style="--bdg:1.50s">
+            <rect x="430" y="200" width="340" height="140" rx="14" fill="#101720" stroke="#2A3342" stroke-width="1.2"/>
+            <g transform="translate(460,226)" fill="none" stroke="#00E5FF" stroke-width="1.7"
+               stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3,13 a10,10 0 0 1 17,-7"/>
+              <path d="M20,1.5 v4.8 h-4.8"/>
+              <path d="M23,13 a10,10 0 0 1 -17,7"/>
+              <path d="M6,24.5 v-4.8 h4.8"/>
+            </g>
+            <text x="724" y="236" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="9.4" letter-spacing="1.3" fill="#727D93">DURUM</text>
+            <circle class="bd-halka" style="--bdy:2.45s" cx="740" cy="232" r="7" fill="none" stroke="#28C840" stroke-width="1.6"/>
+            <circle class="bd-nokta" style="--bdy:2.45s" cx="740" cy="232" r="5.5"/>
+            <text x="460" y="298" font-family="Inter Tight, system-ui, sans-serif" font-size="18"
+                  font-weight="600" fill="#E7EAF0">Güncelleme</text>
+            <text x="460" y="322" font-family="Inter Tight, system-ui, sans-serif" font-size="12.6"
+                  fill="#727D93">önce test kopyasında denenir</text>
+          </g>
+
+          <g class="bd-kart" style="--bdg:1.60s">
+            <rect x="790" y="200" width="340" height="140" rx="14" fill="#101720" stroke="#2A3342" stroke-width="1.2"/>
+            <g transform="translate(820,226)" fill="none" stroke="#00E5FF" stroke-width="1.7"
+               stroke-linecap="round" stroke-linejoin="round">
+              <path d="M0,14 h6 l3.5,-10 l4.5,19 l3.5,-9 h8.5"/>
+            </g>
+            <text x="1084" y="236" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="9.4" letter-spacing="1.3" fill="#727D93">DURUM</text>
+            <circle class="bd-halka" style="--bdy:2.55s" cx="1100" cy="232" r="7" fill="none" stroke="#28C840" stroke-width="1.6"/>
+            <circle class="bd-nokta" style="--bdy:2.55s" cx="1100" cy="232" r="5.5"/>
+            <text x="820" y="298" font-family="Inter Tight, system-ui, sans-serif" font-size="18"
+                  font-weight="600" fill="#E7EAF0">Kesinti izleme</text>
+            <text x="820" y="322" font-family="Inter Tight, system-ui, sans-serif" font-size="12.6"
+                  fill="#727D93">dışarıdan erişim kontrolü</text>
+          </g>
+
+          <!-- ===== ALT — tek satır ===== -->
+          <g class="bd-alt">
+            <rect x="70" y="360" width="1060" height="46" rx="12" fill="#0E141C"
+                  stroke="#00E5FF" stroke-opacity=".34" stroke-width="1.2"/>
+            <circle cx="94" cy="383" r="4" fill="#00E5FF"/>
+            <text x="110" y="387" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="11" letter-spacing="1.4" fill="#00E5FF">TEK BAKIM RUTİNİ</text>
+            <line x1="258" y1="371" x2="258" y2="395" stroke="#2A3342" stroke-width="1.2"/>
+            <text x="280" y="388" font-family="Inter Tight, system-ui, sans-serif" font-size="14"
+                  fill="#A7B0C2">kesinti tespit edildiğinde müdahale süreci başlar</text>
+          </g>
+        </svg>
+        <figcaption><b>Temsilî görsel.</b> Üstteki eksen düzenli erişim kontrolünü, iki uzun aksan
+          çubuğu ise müdahale anını gösteriyor; ortadaki üç kart yedekleme, güncelleme ve kesinti
+          izleme katmanlarının durumunu, alttaki satır bu üç katmanın tek bir bakım rutini olarak
+          yürütüldüğünü anlatıyor. Çubuk sayısı, aralıklar ve durum göstergeleri temsilîdir —
+          gerçek bir siteden alınmış ölçüm değildir; bu yüzden kartlarda bilerek rakam yok.</figcaption>
+      </figure>
+
       <div class="dtay-fiyat rv d1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
         <p><strong>Güncel fiyat ve süre bandı</strong> için Web Tasarım & Yazılım sayfasının <a href="../../../hizmetler/web-tasarim-yazilim/#fiyat">fiyatlandırma bölümüne</a> göz atın — kapsamınıza göre bandı iki dakikada netleştirebilirsiniz.</p>

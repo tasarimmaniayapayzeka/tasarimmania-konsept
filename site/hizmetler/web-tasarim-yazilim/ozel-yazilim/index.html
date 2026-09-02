@@ -268,6 +268,81 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
 
+/* --- İÇERİĞE ÖZEL YATAY İNFOGRAFİK ŞERİDİ (alt sayfa standardı: 1200×430) ---
+   Hub sayfalarda grafik fiyat kutusunun YANINA dikey giriyor; alt sayfada
+   fiyat kutusu yok ve .dtay metin bloğu dar olduğu için grafik tam genişlik
+   yatay şerit oluyor — yanına dikey koymak solda ölü boşluk bırakırdı.
+   viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok).
+   NOT: tm.css'te aynı adla bir "kayan şerit" bandı var (kenar maskesi +
+   border-block). Burada bilerek sıfırlanıyor; sınıf adı alt sayfa standardı. */
+.serit{border:1px solid var(--hair);border-radius:var(--r-lg);
+  background:var(--panel);padding:18px;margin:26px 0 0;
+  -webkit-mask-image:none;mask-image:none}
+.serit svg{width:100%;height:auto;display:block;border-radius:12px}
+.serit figcaption{margin-top:13px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.serit figcaption b{color:var(--fg-dim);font-weight:600}
+@media(max-width:760px){.serit{padding:12px}}
+
+/* --- akış şeması canlanması ---
+   YENİ JS YOK: figure zaten .rv sınıfında; sitenin görünürlük gözlemcisi
+   (site/js/tm.js) görününce .in ekliyor, animasyonlar ona bağlı. Tek sefer.
+   prefers-reduced-motion: tm.css'teki global kural animation-duration'ı
+   0.001ms'e indiriyor, "forwards" sayesinde her öğe anında son hâline
+   oturuyor — burada ayrı kural gerekmiyor.
+   Sınıf/keyframe öneki "oy-"/"oy": sayfalar ileride birleşse bile hub
+   sayfasının "w-"/"w" ve SEO sayfasının "s-"/"s" setleriyle çakışmaz.
+   Süre çizelgesi (soldan sağa okunur): mevcut sistem 0.25s · giriş bağlantısı
+   0.60s · KURAL 0.90s · ok 1.20s · ONAY 1.40s · red dalı 1.62–1.80s ·
+   ok 1.70s · VERİTABANI 1.90s · panel 1.98s · durum noktası 2.20s ·
+   vurgu 2.20s · panel satırları 2.26–2.46s · alt etiket 2.50s → ~2.9s. */
+.serit svg .oy-mevcut{opacity:0;transform:translateX(-18px);transform-box:fill-box}
+.serit svg .oy-adim{opacity:0;transform:translateY(-14px);transform-box:fill-box}
+.serit svg .oy-red{opacity:0;transform:translateX(-12px);transform-box:fill-box}
+.serit svg .oy-pnl{opacity:0;transform:translateX(20px);transform-box:fill-box}
+.serit svg .oy-cizgi{stroke-dasharray:260;stroke-dashoffset:260}
+.serit svg .oy-ucu,
+.serit svg .oy-nokta,
+.serit svg .oy-alt{opacity:0}
+.serit svg .oy-dolgu{clip-path:inset(0 100% 0 0)}
+.serit svg .oy-halka{opacity:0;transform:scale(.45);transform-box:fill-box;
+  transform-origin:center}
+.serit svg .oy-tik{opacity:.34;transform-box:fill-box}
+
+.serit.in svg .oy-mevcut{animation:oyGel .55s var(--ease) .25s forwards}
+.serit.in svg .oy-giris{animation:oyCiz .5s var(--ease) .60s forwards}
+.serit.in svg .oy-giris-ucu{animation:oyBelir .3s var(--ease) 1.05s forwards}
+.serit.in svg .oy-a1{animation:oyIn .5s var(--ease) .90s forwards}
+.serit.in svg .oy-ok1{animation:oyCiz .32s var(--ease) 1.20s forwards}
+.serit.in svg .oy-ok1-ucu{animation:oyBelir .25s var(--ease) 1.42s forwards}
+.serit.in svg .oy-a2{animation:oyIn .5s var(--ease) 1.40s forwards}
+.serit.in svg .oy-dal{animation:oyCiz .4s var(--ease) 1.62s forwards}
+.serit.in svg .oy-dal-ucu{animation:oyBelir .25s var(--ease) 1.94s forwards}
+.serit.in svg .oy-red{animation:oySonuk .5s var(--ease) 1.80s forwards}
+.serit.in svg .oy-ok2{animation:oyCiz .32s var(--ease) 1.70s forwards}
+.serit.in svg .oy-ok2-ucu{animation:oyBelir .25s var(--ease) 1.92s forwards}
+.serit.in svg .oy-a3{animation:oyIn .5s var(--ease) 1.90s forwards}
+.serit.in svg .oy-pnl{animation:oySag .55s var(--ease) 1.98s forwards}
+.serit.in svg .oy-nokta{animation:oyBelir .3s var(--ease) 2.20s forwards}
+.serit.in svg .oy-halka{animation:oyHalka .9s var(--ease) 2.30s forwards}
+.serit.in svg .oy-s1{animation:oyDolum .5s var(--ease) 2.26s forwards}
+.serit.in svg .oy-s2{animation:oyDolum .5s var(--ease) 2.36s forwards}
+.serit.in svg .oy-s3{animation:oyDolum .5s var(--ease) 2.46s forwards}
+.serit.in svg .oy-tik{animation:oyVurgu .75s var(--ease) 2.20s forwards}
+.serit.in svg .oy-tik.t2{animation-delay:2.28s}
+.serit.in svg .oy-tik.t3{animation-delay:2.36s}
+.serit.in svg .oy-alt{animation:oyBelir .45s var(--ease) 2.50s forwards}
+
+@keyframes oyGel{to{opacity:.62;transform:translateX(0)}}
+@keyframes oyIn{to{opacity:1;transform:translateY(0)}}
+@keyframes oySag{to{opacity:1;transform:translateX(0)}}
+@keyframes oySonuk{to{opacity:.42;transform:translateX(0)}}
+@keyframes oyCiz{to{stroke-dashoffset:0}}
+@keyframes oyBelir{to{opacity:1}}
+@keyframes oyDolum{to{clip-path:inset(0 0 0 0)}}
+@keyframes oyHalka{35%{opacity:.8}to{opacity:0;transform:scale(2.4)}}
+@keyframes oyVurgu{45%{opacity:1;filter:drop-shadow(0 0 6px rgba(0,229,255,.9))}
+  to{opacity:.88;filter:none}}
+
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
 .sss details[open],.akor details[open]{border-color:var(--hair-strong)}
@@ -537,6 +612,158 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>
+
+      <!-- İÇERİĞE ÖZEL YATAY İNFOGRAFİK — "hazır pakete sığmayan iş akışı"
+           Etiketlerin tamamı bu sayfada geçen kavramlardan seçildi:
+           mevcut sistem / ERP / CRM / muhasebe (SSS 04), iş kurallarınız (hero),
+           onay akışı (SSS 01), veritabanı (Derinlemesine 01 + hero),
+           tek kaynak (Ayrıntılar 03), panel (bayi paneli, Ayrıntılar 01).
+           "Onay alınmadı" dalı, sayfadaki "onayınız alınmadan geliştirmeye
+           başlanmaz" ifadesinin şema karşılığıdır — sönük bırakıldı.
+           BİLEREK RAKAM YOK: bu sayfada süre, yüzde, modül sayısı ya da fiyat
+           yazmıyor (fiyat bandı hub sayfada). Grafik de hiçbir sayı çizmiyor;
+           panel satırları yazısız çubuk olarak duruyor.
+           Inline SVG: ek istek yok, her ölçekte net, viewBox oranı sabit. -->
+      <figure class="serit rv d2">
+        <svg viewBox="0 0 1200 430" role="img" aria-labelledby="oyBaslik oyAciklama"
+             xmlns="http://www.w3.org/2000/svg">
+          <title id="oyBaslik">Hazır pakete sığmayan iş akışının şeması: mevcut sistemden
+            kurala, onaya ve veritabanına, oradan panele — temsilî görsel</title>
+          <desc id="oyAciklama">Soldan sağa okunan bir akış şeması. Solda kesik çizgili,
+            sönük bir "Mevcut sistem" kutusu; içinde ERP, CRM ve muhasebe satırları var.
+            Ortada üç aşamalı dikey akış: Kural, Onay ve Veritabanı kutuları aralarında
+            oklarla bağlı. Onay aşamasından sağa doğru ayrılan dalın ucunda sönük bırakılmış
+            "Onay alınmadı" kutusu duruyor. Sağda bir panel penceresi var; üst köşesinde küçük
+            bir durum noktası, gövdesinde yazısız üç satırlık çubuk tablo bulunuyor. Altta
+            tek satır etiket: "Her akış size özel yazılır". Şemada hiçbir sayı, süre ya da
+            oran yazmıyor.</desc>
+
+          <defs>
+            <linearGradient id="oySahne" x1="0" y1="0" x2="0.45" y2="1">
+              <stop offset="0" stop-color="#141C26"/>
+              <stop offset="1" stop-color="#0A0E14"/>
+            </linearGradient>
+            <radialGradient id="oyIsik" cx="0.62" cy="0.18" r="0.72">
+              <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+              <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <rect width="1200" height="430" fill="url(#oySahne)"/>
+          <rect width="1200" height="430" fill="url(#oyIsik)"/>
+
+          <!-- ===== SOL — mevcut sistem (sönük, kesik çizgili) ===== -->
+          <g class="oy-mevcut">
+            <rect x="44" y="124" width="200" height="124" rx="13" fill="#0E141C"
+                  stroke="#5A6A7D" stroke-opacity=".6" stroke-width="1.3" stroke-dasharray="6 5"/>
+            <text x="64" y="152" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="10.5" letter-spacing="1.5" fill="#8A97A8">MEVCUT SİSTEM</text>
+            <line x1="64" y1="164" x2="224" y2="164" stroke="#FFFFFF" stroke-opacity=".1" stroke-width="1"/>
+            <g font-family="JetBrains Mono, ui-monospace, monospace" font-size="11" fill="#7C8899">
+              <circle cx="70" cy="186" r="3" fill="#7C8899"/><text x="84" y="190">ERP</text>
+              <circle cx="70" cy="208" r="3" fill="#7C8899"/><text x="84" y="212">CRM</text>
+              <circle cx="70" cy="230" r="3" fill="#7C8899"/><text x="84" y="234">muhasebe</text>
+            </g>
+          </g>
+
+          <!-- giriş bağlantısı: mevcut sistem → kural -->
+          <path class="oy-cizgi oy-giris" d="M244 186 H270 V84 H284" fill="none"
+                stroke="#00E5FF" stroke-opacity=".55" stroke-width="1.6" stroke-linecap="round"/>
+          <path class="oy-ucu oy-giris-ucu" d="M284 78.5 L294 84 L284 89.5 Z" fill="#00E5FF" fill-opacity=".75"/>
+
+          <!-- ===== ORTA — üç aşamalı dikey akış ===== -->
+          <g class="oy-adim oy-a1">
+            <rect x="296" y="48" width="268" height="72" rx="13" fill="#101A22"
+                  stroke="#00E5FF" stroke-opacity=".5" stroke-width="1.4"/>
+            <rect class="oy-tik" x="314" y="70" width="4" height="28" rx="2" fill="#00E5FF"/>
+            <text x="334" y="82" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="14" letter-spacing="1.8" fill="#8FF6FF">KURAL</text>
+            <text x="334" y="101" font-family="Inter Tight, system-ui, sans-serif"
+                  font-size="11.5" fill="#7C8899">iş kurallarınız</text>
+          </g>
+
+          <path class="oy-cizgi oy-ok1" d="M430 120 V140" fill="none"
+                stroke="#00E5FF" stroke-opacity=".55" stroke-width="1.6" stroke-linecap="round"/>
+          <path class="oy-ucu oy-ok1-ucu" d="M424 141 L430 150 L436 141 Z" fill="#00E5FF" fill-opacity=".75"/>
+
+          <g class="oy-adim oy-a2">
+            <rect x="296" y="150" width="268" height="72" rx="13" fill="#101A22"
+                  stroke="#00E5FF" stroke-opacity=".5" stroke-width="1.4"/>
+            <rect class="oy-tik t2" x="314" y="172" width="4" height="28" rx="2" fill="#00E5FF"/>
+            <text x="334" y="184" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="14" letter-spacing="1.8" fill="#8FF6FF">ONAY</text>
+            <text x="334" y="203" font-family="Inter Tight, system-ui, sans-serif"
+                  font-size="11.5" fill="#7C8899">onay akışı</text>
+          </g>
+
+          <path class="oy-cizgi oy-ok2" d="M430 222 V242" fill="none"
+                stroke="#00E5FF" stroke-opacity=".55" stroke-width="1.6" stroke-linecap="round"/>
+          <path class="oy-ucu oy-ok2-ucu" d="M424 243 L430 252 L436 243 Z" fill="#00E5FF" fill-opacity=".75"/>
+
+          <g class="oy-adim oy-a3">
+            <rect x="296" y="252" width="268" height="72" rx="13" fill="#101A22"
+                  stroke="#00E5FF" stroke-opacity=".5" stroke-width="1.4"/>
+            <rect class="oy-tik t3" x="314" y="274" width="4" height="28" rx="2" fill="#00E5FF"/>
+            <text x="334" y="286" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="14" letter-spacing="1.8" fill="#8FF6FF">VERİTABANI</text>
+            <text x="334" y="305" font-family="Inter Tight, system-ui, sans-serif"
+                  font-size="11.5" fill="#7C8899">tek kaynak</text>
+          </g>
+
+          <!-- onaydan ayrılan sönük dal -->
+          <path class="oy-cizgi oy-dal" d="M564 186 H646" fill="none"
+                stroke="#5A6A7D" stroke-opacity=".7" stroke-width="1.4" stroke-linecap="round"/>
+          <path class="oy-ucu oy-dal-ucu" d="M646 180 L656 186 L646 192 Z" fill="#5A6A7D"/>
+
+          <g class="oy-red">
+            <rect x="656" y="158" width="162" height="56" rx="12" fill="#10151C"
+                  stroke="#5A6A7D" stroke-opacity=".55" stroke-width="1.2" stroke-dasharray="5 5"/>
+            <path d="M674 182 L682 190 M682 182 L674 190" fill="none" stroke="#8A97A8"
+                  stroke-width="1.5" stroke-linecap="round"/>
+            <text x="694" y="191" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="10.5" letter-spacing="1.4" fill="#8A97A8">ONAY ALINMADI</text>
+          </g>
+
+          <!-- ===== SAĞ — panel penceresi (satırlar yazısız çubuk) ===== -->
+          <g class="oy-pnl">
+            <rect x="852" y="44" width="304" height="280" rx="15" fill="#0E141C"
+                  stroke="#00E5FF" stroke-opacity=".42" stroke-width="1.3"/>
+            <line x1="852" y1="86" x2="1156" y2="86" stroke="#00E5FF" stroke-opacity=".26" stroke-width="1"/>
+            <text x="874" y="71" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="11" letter-spacing="1.8" fill="#8FF6FF">PANEL</text>
+            <circle class="oy-halka" cx="1132" cy="65" r="6" fill="none"
+                    stroke="#00E5FF" stroke-width="1.4"/>
+            <circle class="oy-nokta" cx="1132" cy="65" r="4.5" fill="#00E5FF"/>
+
+            <line x1="876" y1="165" x2="1132" y2="165" stroke="#FFFFFF" stroke-opacity=".07" stroke-width="1"/>
+            <line x1="876" y1="245" x2="1132" y2="245" stroke="#FFFFFF" stroke-opacity=".07" stroke-width="1"/>
+
+            <rect x="876" y="119" width="104" height="14" rx="7" fill="#1E2A36"/>
+            <rect class="oy-dolgu oy-s1" x="1000" y="119" width="132" height="14" rx="7"
+                  fill="#00E5FF" fill-opacity=".5"/>
+            <rect x="876" y="198" width="104" height="14" rx="7" fill="#1E2A36"/>
+            <rect class="oy-dolgu oy-s2" x="1000" y="198" width="132" height="14" rx="7"
+                  fill="#00E5FF" fill-opacity=".5"/>
+            <rect x="876" y="277" width="104" height="14" rx="7" fill="#1E2A36"/>
+            <rect class="oy-dolgu oy-s3" x="1000" y="277" width="132" height="14" rx="7"
+                  fill="#00E5FF" fill-opacity=".5"/>
+          </g>
+
+          <!-- ===== ALT — tek satır etiket ===== -->
+          <g class="oy-alt">
+            <line x1="44" y1="358" x2="1156" y2="358" stroke="#FFFFFF" stroke-opacity=".07" stroke-width="1"/>
+            <circle cx="50" cy="387" r="3.5" fill="#00E5FF"/>
+            <text x="66" y="392" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="12" letter-spacing="1.6" fill="#8A97A8">Her akış size özel yazılır</text>
+          </g>
+        </svg>
+        <figcaption><b>Temsilî görsel.</b> Hazır pakete sığmayan bir iş akışının şeması:
+          mevcut sistemden gelen istek önce kurala, sonra onaya, oradan veritabanına düşüyor;
+          onaydan ayrılan sönük dal onay alınmayan ucu, sağdaki pencere de bayi panelini temsil
+          ediyor. Kutular, dallar ve panel satırları örnektir; gerçek bir projeden alınmadı —
+          şemada bilerek süre, oran ya da adet yazmıyor.</figcaption>
+      </figure>
+
       <div class="dtay-fiyat rv d1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
         <p><strong>Güncel fiyat ve süre bandı</strong> için Web Tasarım & Yazılım sayfasının <a href="../../../hizmetler/web-tasarim-yazilim/#fiyat">fiyatlandırma bölümüne</a> göz atın — kapsamınıza göre bandı iki dakikada netleştirebilirsiniz.</p>

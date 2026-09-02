@@ -268,6 +268,117 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
 
+/* --- YATAY İNFOGRAFİK ŞERİDİ (alt sayfa standardı: viewBox 1200×430) ---
+   Hub sayfada grafik fiyat kutusunun YANINA dikey giriyor. Burada fiyat kutusu
+   yok ve .dtay metin bloğu dar; dikey grafik sağa konsaydı solda ~285px ölü
+   boşluk kalırdı. Bu yüzden alt sayfalarda grafik tam genişlik yatay şerit.
+   DİKKAT — İSİM ÇAKIŞMASI: tm.css'te .serit adında GLOBAL bir "kayan şerit"
+   (marquee) sınıfı var. Oradan miras kalan mask-image kenarları soldurur,
+   overflow:hidden ise gölgeyi/altyazıyı kırpar. İkisi burada bilerek sıfırlandı;
+   diğer özellikler zaten bu bloktaki değerlerle eziliyor (stil bloğu tm.css'ten
+   sonra geliyor). */
+.serit{border:1px solid var(--hair);border-radius:var(--r-lg);
+  background:var(--panel);padding:18px;margin:26px 0 0;
+  overflow:visible;-webkit-mask-image:none;mask-image:none}
+/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
+.serit svg{width:100%;height:auto;display:block;border-radius:12px}
+.serit figcaption{margin-top:13px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.serit figcaption b{color:var(--fg-dim);font-weight:600}
+@media(max-width:760px){.serit{padding:12px}}
+
+/* --- şerit canlanması ---
+   YENİ JS YOK: figure zaten .rv sınıfında; site/js/tm.js'teki görünürlük
+   gözlemcisi görününce .in ekliyor, animasyonlar ona bağlı. Tek sefer oynar.
+   prefers-reduced-motion: tm.css'teki global kural animation-duration'ı
+   0.001ms'e indiriyor; "forwards" sayesinde her öğe anında son hâline oturur.
+   Sınıf/keyframe öneki "ks-"/"ks": hub sayfası "w-"/"w", SEO sayfası "s-"/"s"
+   kullanıyor; sayfalar ileride birleşirse çakışmasın diye ayrı tutuldu.
+   Soldan sağa okunuş: 0.25s site haritası · 0.90s bağlantı oku · 1.35s yönetim
+   paneli · 1.88s entegrasyon rozetleri · 2.20s vurgu (Yayınla basılır, halka
+   açılır, rozetler sırayla aydınlanır) → ~2.5s. */
+.serit svg .ks-alan1,
+.serit svg .ks-alan2,
+.serit svg .ks-alan3{opacity:0;transform-box:fill-box}
+.serit svg .ks-alan1{transform:translateX(-18px)}
+.serit svg .ks-alan2{transform:translateY(14px)}
+.serit svg .ks-alan3{transform:translateX(18px)}
+.serit svg .ks-kok{opacity:0;transform:translateY(-14px);transform-box:fill-box}
+.serit svg .ks-dal,
+.serit svg .ks-yhat,
+.serit svg .ks-bag1,
+.serit svg .ks-bag2{stroke-dasharray:var(--u);stroke-dashoffset:var(--u)}
+.serit svg .ks-cocuk > g,
+.serit svg .ks-yaprak > g,
+.serit svg .ks-kutu > g,
+.serit svg .ks-rozet > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.serit svg .ks-not,
+.serit svg .ks-imlec,
+.serit svg .ks-parla{opacity:0}
+.serit svg .ks-ok1,
+.serit svg .ks-ok2 > path{opacity:0}
+.serit svg .ks-pencere{opacity:0;transform:scale(.94);transform-box:fill-box;
+  transform-origin:center}
+.serit svg .ks-menu rect{transform:scaleX(.04);transform-box:fill-box;
+  transform-origin:left center}
+.serit svg .ks-yaz rect{clip-path:inset(0 100% 0 0)}
+.serit svg .ks-bas{transform-box:fill-box;transform-origin:center}
+.serit svg .ks-halka{opacity:0;transform:scale(.92);transform-box:fill-box;
+  transform-origin:center}
+.serit svg .ks-isik > rect{opacity:0}
+
+.serit.in svg .ks-alan1{animation:ksGel .55s var(--ease) .25s forwards}
+.serit.in svg .ks-kok{animation:ksDus .5s var(--ease) .32s forwards}
+.serit.in svg .ks-dal{animation:ksCiz .5s var(--ease) .46s forwards}
+.serit.in svg .ks-cocuk > g:nth-child(1){animation:ksKart .42s var(--ease) .58s forwards}
+.serit.in svg .ks-cocuk > g:nth-child(2){animation:ksKart .42s var(--ease) .66s forwards}
+.serit.in svg .ks-cocuk > g:nth-child(3){animation:ksKart .42s var(--ease) .74s forwards}
+.serit.in svg .ks-yhat{animation:ksCiz .45s var(--ease) .80s forwards}
+.serit.in svg .ks-yaprak > g:nth-child(1){animation:ksKart .4s var(--ease) .86s forwards}
+.serit.in svg .ks-yaprak > g:nth-child(2){animation:ksKart .4s var(--ease) .93s forwards}
+.serit.in svg .ks-yaprak > g:nth-child(3){animation:ksKart .4s var(--ease) 1.00s forwards}
+.serit.in svg .ks-not1{animation:ksBelir .45s var(--ease) 1.08s forwards}
+.serit.in svg .ks-bag1{animation:ksCiz .45s var(--ease) .90s forwards}
+.serit.in svg .ks-ok1{animation:ksBelir .3s var(--ease) 1.18s forwards}
+.serit.in svg .ks-alan2{animation:ksGel .55s var(--ease) 1.35s forwards}
+.serit.in svg .ks-pencere{animation:ksAc .5s var(--ease) 1.42s forwards}
+.serit.in svg .ks-imlec{animation:ksBelir .3s var(--ease) 1.56s forwards}
+.serit.in svg .ks-menu rect:nth-of-type(1){animation:ksCubuk .35s var(--ease) 1.56s forwards}
+.serit.in svg .ks-menu rect:nth-of-type(2){animation:ksCubuk .35s var(--ease) 1.62s forwards}
+.serit.in svg .ks-menu rect:nth-of-type(3){animation:ksCubuk .35s var(--ease) 1.68s forwards}
+.serit.in svg .ks-menu rect:nth-of-type(4){animation:ksCubuk .35s var(--ease) 1.74s forwards}
+.serit.in svg .ks-kutu > g:nth-child(1){animation:ksKart .4s var(--ease) 1.64s forwards}
+.serit.in svg .ks-kutu > g:nth-child(2){animation:ksKart .4s var(--ease) 1.72s forwards}
+.serit.in svg .ks-yaz rect:nth-of-type(1){animation:ksSil .5s var(--ease) 1.78s forwards}
+.serit.in svg .ks-yaz rect:nth-of-type(2){animation:ksSil .5s var(--ease) 1.86s forwards}
+.serit.in svg .ks-not2{animation:ksBelir .45s var(--ease) 1.94s forwards}
+.serit.in svg .ks-bag2{animation:ksCiz .55s var(--ease) 1.78s forwards}
+.serit.in svg .ks-ok2 > path:nth-child(1){animation:ksBelir .3s var(--ease) 2.02s forwards}
+.serit.in svg .ks-ok2 > path:nth-child(2){animation:ksBelir .3s var(--ease) 2.08s forwards}
+.serit.in svg .ks-ok2 > path:nth-child(3){animation:ksBelir .3s var(--ease) 2.14s forwards}
+.serit.in svg .ks-alan3{animation:ksGel .55s var(--ease) 1.88s forwards}
+.serit.in svg .ks-rozet > g:nth-child(1){animation:ksKart .4s var(--ease) 1.96s forwards}
+.serit.in svg .ks-rozet > g:nth-child(2){animation:ksKart .4s var(--ease) 2.04s forwards}
+.serit.in svg .ks-rozet > g:nth-child(3){animation:ksKart .4s var(--ease) 2.12s forwards}
+.serit.in svg .ks-not3{animation:ksBelir .45s var(--ease) 2.18s forwards}
+.serit.in svg .ks-bas{animation:ksBas .4s var(--ease) 2.20s}
+.serit.in svg .ks-halka{animation:ksHalka .8s var(--ease) 2.22s forwards}
+.serit.in svg .ks-parla{animation:ksYanip .6s var(--ease) 2.22s forwards}
+.serit.in svg .ks-isik > rect:nth-child(1){animation:ksYanip .55s var(--ease) 2.24s forwards}
+.serit.in svg .ks-isik > rect:nth-child(2){animation:ksYanip .55s var(--ease) 2.32s forwards}
+.serit.in svg .ks-isik > rect:nth-child(3){animation:ksYanip .55s var(--ease) 2.40s forwards}
+
+@keyframes ksGel{to{opacity:1;transform:translate(0,0)}}
+@keyframes ksDus{to{opacity:1;transform:translateY(0)}}
+@keyframes ksKart{to{opacity:1;transform:translateY(0)}}
+@keyframes ksCiz{to{stroke-dashoffset:0}}
+@keyframes ksBelir{to{opacity:1}}
+@keyframes ksAc{to{opacity:1;transform:scale(1)}}
+@keyframes ksCubuk{to{transform:scaleX(1)}}
+@keyframes ksSil{to{clip-path:inset(0 0 0 0)}}
+@keyframes ksBas{40%{transform:scale(.94)}to{transform:scale(1)}}
+@keyframes ksHalka{30%{opacity:.9}to{opacity:0;transform:scale(1.22)}}
+@keyframes ksYanip{35%{opacity:.5}to{opacity:0}}
+
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
 .sss details[open],.akor details[open]{border-color:var(--hair-strong)}
@@ -537,6 +648,271 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>
+
+      <!-- Yatay kurulum şeridi — bu sayfanın KENDİ anlattığı sırayı çizer:
+           önce site haritası (kart 01), sonra rol bazlı yönetim paneli, en sonda
+           mevcut sistem entegrasyonları (kart 02). Yeni iddia eklemez; çizilen
+           her etiket sayfada geçiyor: "site haritası", "mega menü", "breadcrumb",
+           "iç link", "iniş sayfası", "rol bazlı yetki", "kurumsal kimlik",
+           "ERP", "CRM", "bayi bulucu", "şema işaretlemesi", "XML site haritası".
+           Rozetler ERP/CRM/Bayi bulucu: bu sayfada geçen üç sistem bunlar —
+           kargo/ödeme e-ticaret sayfasının konusu, buraya uydurulmadı.
+           GRAFİKTE BİLEREK HİÇ RAKAM YOK: sayfa sayısı projeye özel belirleniyor
+           (bkz. SSS 01) ve fiyat bu sayfada verilmiyor; bir sayı çizmek
+           "bizim standardımız bu" izlenimi verirdi.
+           Inline SVG: ek istek yok, her ölçekte net, viewBox sayesinde oran
+           sabit olduğu için düzen kaymaz. -->
+      <figure class="serit rv d2">
+        <svg viewBox="0 0 1200 430" role="img" aria-labelledby="ksBaslik ksAciklama"
+             xmlns="http://www.w3.org/2000/svg">
+          <title id="ksBaslik">Site haritasından yönetim paneline, oradan sistem entegrasyonlarına
+            uzanan kurulum sırası — temsilî görsel</title>
+          <desc id="ksAciklama">Soldan sağa üç durak. Solda site haritası ağacı: tepede "Ana sayfa"
+            kutusu, altında Hizmetler, Kurumsal ve Blog dalları, Hizmetler dalının altında üç
+            "iniş sayfası" yaprağı; altta breadcrumb, iç link ve mega menü notu. Ortada yönetim
+            paneli penceresi: sol kenarda dört menü çubuğu, sağda iki içerik alanı kutusu ve
+            aksan dolgulu "Yayınla" düğmesi; altta rol bazlı yetki ve kurumsal kimlik notu.
+            Sağda üç entegrasyon rozeti alt alta: ERP, CRM ve Bayi bulucu; her biri ikon kutusu
+            ve "mevcut sistem" alt etiketiyle. Duraklar ince aksan renkli oklarla birbirine
+            bağlı; bağlantılar panelden rozetlere doğru dallanıyor.</desc>
+
+          <defs>
+            <linearGradient id="ksSahne" x1="0" y1="0" x2="0.35" y2="1">
+              <stop offset="0" stop-color="#141C26"/>
+              <stop offset="1" stop-color="#0A0E14"/>
+            </linearGradient>
+            <radialGradient id="ksIsik" cx="0.3" cy="0.16" r="0.8">
+              <stop offset="0" stop-color="#00E5FF" stop-opacity=".13"/>
+              <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="ksGolge" x="-25%" y="-25%" width="150%" height="150%">
+              <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#04070B" flood-opacity=".55"/>
+            </filter>
+            <clipPath id="ksKirp"><rect x="434" y="90" width="328" height="250" rx="12"/></clipPath>
+          </defs>
+
+          <rect width="1200" height="430" fill="url(#ksSahne)"/>
+          <rect width="1200" height="430" fill="url(#ksIsik)"/>
+
+          <!-- ===== DURAK 1 — SİTE HARİTASI ===== -->
+          <g class="ks-alan1">
+            <rect x="24" y="34" width="344" height="362" rx="16" fill="#0E141C"
+                  stroke="#00E5FF" stroke-opacity=".28" stroke-width="1.2"/>
+            <text x="42" y="60" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="10.5" letter-spacing="1.4" fill="#00E5FF">SİTE HARİTASI</text>
+            <line x1="24" y1="74" x2="368" y2="74" stroke="#00E5FF" stroke-opacity=".22" stroke-width="1"/>
+
+            <!-- kök: ana sayfa -->
+            <g class="ks-kok">
+              <rect x="130" y="92" width="132" height="34" rx="9" fill="#101A22"
+                    stroke="#00E5FF" stroke-opacity=".7" stroke-width="1.5"/>
+              <text x="196" y="114" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                    font-size="12" fill="#8FF6FF">Ana sayfa</text>
+            </g>
+
+            <!-- dallanma -->
+            <path class="ks-dal" style="--u:300" fill="none" stroke="#00E5FF" stroke-opacity=".55"
+                  stroke-width="1.3"
+                  d="M196,126 V148 M94,148 H298 M94,148 V170 M196,148 V170 M298,148 V170"/>
+
+            <g class="ks-cocuk">
+              <g>
+                <rect x="49" y="170" width="90" height="30" rx="8" fill="#0E1820"
+                      stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.2"/>
+                <text x="94" y="190" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="10.5" fill="#9FD6E0">Hizmetler</text>
+              </g>
+              <g>
+                <rect x="151" y="170" width="90" height="30" rx="8" fill="#0E1820"
+                      stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.2"/>
+                <text x="196" y="190" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="10.5" fill="#9FD6E0">Kurumsal</text>
+              </g>
+              <g>
+                <rect x="253" y="170" width="90" height="30" rx="8" fill="#0E1820"
+                      stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.2"/>
+                <text x="298" y="190" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="10.5" fill="#9FD6E0">Blog</text>
+              </g>
+            </g>
+
+            <!-- Hizmetler dalının altındaki yapraklar -->
+            <path class="ks-yhat" style="--u:156" fill="none" stroke="#00E5FF" stroke-opacity=".4"
+                  stroke-width="1.2"
+                  d="M94,200 V300 M94,224 H110 M94,262 H110 M94,300 H110"/>
+            <g class="ks-yaprak">
+              <g>
+                <rect x="110" y="211" width="194" height="26" rx="7" fill="#0B1218"
+                      stroke="#00E5FF" stroke-opacity=".3" stroke-width="1"/>
+                <text x="126" y="228" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="10" fill="#7C99A4">iniş sayfası</text>
+                <rect x="246" y="220" width="44" height="8" rx="4" fill="#1B2A33"/>
+              </g>
+              <g>
+                <rect x="110" y="249" width="194" height="26" rx="7" fill="#0B1218"
+                      stroke="#00E5FF" stroke-opacity=".3" stroke-width="1"/>
+                <text x="126" y="266" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="10" fill="#7C99A4">iniş sayfası</text>
+                <rect x="246" y="258" width="44" height="8" rx="4" fill="#1B2A33"/>
+              </g>
+              <g>
+                <rect x="110" y="287" width="194" height="26" rx="7" fill="#0B1218"
+                      stroke="#00E5FF" stroke-opacity=".3" stroke-width="1"/>
+                <text x="126" y="304" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="10" fill="#7C99A4">iniş sayfası</text>
+                <rect x="246" y="296" width="44" height="8" rx="4" fill="#1B2A33"/>
+              </g>
+            </g>
+            <text class="ks-not ks-not1" x="42" y="360" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="10" fill="#6E8894">breadcrumb · iç link · mega menü</text>
+          </g>
+
+          <!-- durak 1 → durak 2 -->
+          <path class="ks-bag1" style="--u:36" fill="none" stroke="#00E5FF" stroke-opacity=".8"
+                stroke-width="1.6" d="M372,208 H404"/>
+          <path class="ks-ok1" d="M401,202.5 L412,208 L401,213.5 Z" fill="#00E5FF"/>
+
+          <!-- ===== DURAK 2 — YÖNETİM PANELİ ===== -->
+          <g class="ks-alan2">
+            <rect x="416" y="34" width="364" height="362" rx="16" fill="#0E141C"
+                  stroke="#00E5FF" stroke-opacity=".28" stroke-width="1.2"/>
+            <text x="434" y="60" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="10.5" letter-spacing="1.4" fill="#00E5FF">YÖNETİM PANELİ</text>
+            <line x1="416" y1="74" x2="780" y2="74" stroke="#00E5FF" stroke-opacity=".22" stroke-width="1"/>
+
+            <g class="ks-pencere">
+              <rect x="434" y="90" width="328" height="250" rx="12" fill="#FFFFFF" filter="url(#ksGolge)"/>
+              <g clip-path="url(#ksKirp)">
+                <circle cx="458" cy="111" r="4.5" fill="#FF5F57"/>
+                <circle cx="474" cy="111" r="4.5" fill="#FEBC2E"/>
+                <circle cx="490" cy="111" r="4.5" fill="#28C840"/>
+                <rect x="508" y="101" width="146" height="20" rx="10" fill="#F1F3F4"/>
+                <text x="520" y="115" font-family="Inter Tight, system-ui, sans-serif"
+                      font-size="10.5" fill="#5F6368">yönetim paneli</text>
+                <line x1="434" y1="132" x2="762" y2="132" stroke="#E8EAED" stroke-width="1"/>
+
+                <!-- sol kenar: dört menü çubuğu -->
+                <rect x="434" y="132" width="86" height="208" fill="#F5F6F7"/>
+                <line x1="520" y1="132" x2="520" y2="340" stroke="#E8EAED" stroke-width="1"/>
+                <g class="ks-menu">
+                  <rect x="450" y="152" width="56" height="9" rx="4.5" fill="#6B7684"/>
+                  <rect x="450" y="178" width="44" height="9" rx="4.5" fill="#C3C7CD"/>
+                  <rect x="450" y="204" width="52" height="9" rx="4.5" fill="#C3C7CD"/>
+                  <rect x="450" y="230" width="38" height="9" rx="4.5" fill="#C3C7CD"/>
+                </g>
+                <rect class="ks-imlec" x="434" y="148" width="3" height="17" fill="#00E5FF"/>
+
+                <!-- iki alan kutusu -->
+                <g class="ks-kutu">
+                  <g>
+                    <rect x="540" y="152" width="56" height="7" rx="3.5" fill="#C3C7CD"/>
+                    <rect x="540" y="166" width="202" height="38" rx="8" fill="#F5F6F7" stroke="#E3E6EA"/>
+                  </g>
+                  <g>
+                    <rect x="540" y="216" width="74" height="7" rx="3.5" fill="#C3C7CD"/>
+                    <rect x="540" y="230" width="202" height="38" rx="8" fill="#F5F6F7" stroke="#E3E6EA"/>
+                  </g>
+                </g>
+                <g class="ks-yaz">
+                  <rect x="552" y="180" width="114" height="9" rx="4.5" fill="#D5D8DD"/>
+                  <rect x="552" y="244" width="84" height="9" rx="4.5" fill="#D5D8DD"/>
+                </g>
+
+                <!-- Yayınla düğmesi: sitenin kendi buton dili (derin aksan zemin,
+                     parlak aksan kenarlık, beyaz yazı) -->
+                <g class="ks-bas">
+                  <rect x="634" y="284" width="108" height="36" rx="10" fill="#05737F"
+                        stroke="#00E5FF" stroke-width="2"/>
+                  <text x="688" y="307" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="12.5" letter-spacing=".4" fill="#FFFFFF">Yayınla</text>
+                </g>
+                <rect class="ks-parla" x="634" y="284" width="108" height="36" rx="10" fill="#8FF6FF"/>
+                <rect class="ks-halka" x="634" y="284" width="108" height="36" rx="10" fill="none"
+                      stroke="#00E5FF" stroke-width="2"/>
+              </g>
+            </g>
+            <text class="ks-not ks-not2" x="434" y="360" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="10" fill="#6E8894">rol bazlı yetki · kurumsal kimlik</text>
+          </g>
+
+          <!-- durak 2 → durak 3: panelden rozetlere dallanan bağlantı -->
+          <path class="ks-bag2" style="--u:244" fill="none" stroke="#00E5FF" stroke-opacity=".8"
+                stroke-width="1.5"
+                d="M780,212 H800 M800,130 V294 M800,130 H818 M800,212 H818 M800,294 H818"/>
+          <g class="ks-ok2" fill="#00E5FF">
+            <path d="M815,124.5 L826,130 L815,135.5 Z"/>
+            <path d="M815,206.5 L826,212 L815,217.5 Z"/>
+            <path d="M815,288.5 L826,294 L815,299.5 Z"/>
+          </g>
+
+          <!-- ===== DURAK 3 — ENTEGRASYON ===== -->
+          <g class="ks-alan3">
+            <rect x="828" y="34" width="348" height="362" rx="16" fill="#0E141C"
+                  stroke="#00E5FF" stroke-opacity=".28" stroke-width="1.2"/>
+            <text x="846" y="60" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="10.5" letter-spacing="1.4" fill="#00E5FF">ENTEGRASYON</text>
+            <line x1="828" y1="74" x2="1176" y2="74" stroke="#00E5FF" stroke-opacity=".22" stroke-width="1"/>
+
+            <g class="ks-rozet">
+              <!-- ERP -->
+              <g>
+                <rect x="850" y="98" width="304" height="64" rx="13" fill="#101A22"
+                      stroke="#00E5FF" stroke-opacity=".5" stroke-width="1.4"/>
+                <rect x="870" y="112" width="36" height="36" rx="10" fill="#0B1218"
+                      stroke="#00E5FF" stroke-opacity=".45" stroke-width="1"/>
+                <rect x="878" y="120" width="20" height="4" rx="2" fill="#00E5FF" opacity=".9"/>
+                <rect x="878" y="128" width="20" height="4" rx="2" fill="#00E5FF" opacity=".62"/>
+                <rect x="878" y="136" width="20" height="4" rx="2" fill="#00E5FF" opacity=".38"/>
+                <text x="922" y="127" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="14" letter-spacing=".6" fill="#8FF6FF">ERP</text>
+                <text x="922" y="146" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="9.6" fill="#6E8894">mevcut sistem</text>
+              </g>
+              <!-- CRM -->
+              <g>
+                <rect x="850" y="180" width="304" height="64" rx="13" fill="#101A22"
+                      stroke="#00E5FF" stroke-opacity=".5" stroke-width="1.4"/>
+                <rect x="870" y="194" width="36" height="36" rx="10" fill="#0B1218"
+                      stroke="#00E5FF" stroke-opacity=".45" stroke-width="1"/>
+                <circle cx="888" cy="206" r="5.4" fill="none" stroke="#00E5FF" stroke-width="1.6"/>
+                <path d="M878,222 a10,8.5 0 0 1 20,0" fill="none" stroke="#00E5FF" stroke-width="1.6"/>
+                <text x="922" y="209" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="14" letter-spacing=".6" fill="#8FF6FF">CRM</text>
+                <text x="922" y="228" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="9.6" fill="#6E8894">mevcut sistem</text>
+              </g>
+              <!-- Bayi bulucu -->
+              <g>
+                <rect x="850" y="262" width="304" height="64" rx="13" fill="#101A22"
+                      stroke="#00E5FF" stroke-opacity=".5" stroke-width="1.4"/>
+                <rect x="870" y="276" width="36" height="36" rx="10" fill="#0B1218"
+                      stroke="#00E5FF" stroke-opacity=".45" stroke-width="1"/>
+                <path d="M888,306 C888,306 879,297 879,290 a9,9 0 1 1 18,0 C897,297 888,306 888,306 Z"
+                      fill="none" stroke="#00E5FF" stroke-width="1.6"/>
+                <circle cx="888" cy="290" r="2.8" fill="#00E5FF"/>
+                <text x="922" y="291" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="14" letter-spacing=".6" fill="#8FF6FF">Bayi bulucu</text>
+                <text x="922" y="310" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="9.6" fill="#6E8894">mevcut sistem</text>
+              </g>
+            </g>
+            <!-- rozetler sırayla aydınlanır -->
+            <g class="ks-isik" fill="none" stroke="#00E5FF" stroke-width="2">
+              <rect x="850" y="98" width="304" height="64" rx="13"/>
+              <rect x="850" y="180" width="304" height="64" rx="13"/>
+              <rect x="850" y="262" width="304" height="64" rx="13"/>
+            </g>
+            <text class="ks-not ks-not3" x="846" y="360" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="10" fill="#6E8894">şema işaretlemesi · XML site haritası</text>
+          </g>
+        </svg>
+        <figcaption><b>Temsilî görsel.</b> Soldan sağa üç durak: önce site haritası çıkarılır,
+          sonra rol bazlı yönetim paneli kurulur, en sonda mevcut sistemler bağlanır — yukarıdaki
+          iki bölümde anlatılan sıra. Ağaçtaki sayfa adları, panel ekranı ve rozetler temsilîdir;
+          gerçek bir projeden alınmadı. Grafikte bilerek hiçbir sayfa sayısı, süre ya da fiyat
+          yok: kapsam her projede ayrı belirleniyor.</figcaption>
+      </figure>
+
       <div class="dtay-fiyat rv d1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
         <p><strong>Güncel fiyat ve süre bandı</strong> için Web Tasarım & Yazılım sayfasının <a href="../../../hizmetler/web-tasarim-yazilim/#fiyat">fiyatlandırma bölümüne</a> göz atın — kapsamınıza göre bandı iki dakikada netleştirebilirsiniz.</p>
