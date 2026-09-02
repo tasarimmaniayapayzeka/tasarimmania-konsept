@@ -125,9 +125,20 @@ dosyalar.forEach((f) => {
     else if (norm !== u) gelenLink[norm] = (gelenLink[norm] || 0) + 1;
   });
 
-  /* görseller */
-  [...h.matchAll(/<img[^>]+src="([^"]+)"/g)].forEach((m) => {
-    const src = m[1];
+  /* görseller — src VE srcset.
+     DERS: ilk sürüm yalnız src'ye bakıyordu ve hakkimizda sayfasındaki
+     srcset'in 640w adayını kaçırdı: bir seviye fazla "../" taşıyordu, yani
+     küçük ekranlarda kapak görseli hiç yüklenmiyordu. src doğru olduğu için
+     denetim "temiz" diyordu. srcset adayları da tek tek çözülüyor. */
+  const gorselAdaylari = [];
+  [...h.matchAll(/<img[^>]+src="([^"]+)"/g)].forEach((m) => gorselAdaylari.push(m[1]));
+  [...h.matchAll(/srcset="([^"]+)"/g)].forEach((m) => {
+    m[1].split(',').forEach((parca) => {
+      const yol = parca.trim().split(/\s+/)[0];
+      if (yol) gorselAdaylari.push(yol);
+    });
+  });
+  gorselAdaylari.forEach((src) => {
     if (/^(https?:|data:)/i.test(src)) return;
     const dosya = path.resolve(path.dirname(f), src);
     if (!fs.existsSync(dosya)) rapor.gorselEksik.push(u + ' → ' + src);
