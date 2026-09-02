@@ -6,7 +6,7 @@
 <!-- KONSEPT-NOINDEX -->
 <meta name="robots" content="noindex,nofollow">
 <title>Mobil Uygulama Geliştirme Ajansı — iOS, Android, React Native | TasarımMania</title>
-<meta name="description" content="iOS ve Android için native, ya da React Native ile çapraz platform mobil uygulama geliştirme. 2026 bandı 120.000–260.000 ₺, teslim 8–16 hafta. Kaynak kod ve mağaza hesapları sizde kalır.">
+<meta name="description" content="Önce şunu soruyoruz: gerçekten uygulama gerekiyor mu? iOS, Android ve React Native ile geliştirme, teslim 8–16 hafta. Kaynak kod ve mağaza hesapları sizde.">
 <link rel="canonical" href="https://www.tasarimmania.com/hizmetler/mobil-uygulama/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="tr_TR">
@@ -224,12 +224,20 @@ a.alt-k:hover .alt-git{gap:12px}
 .fyt{border:1px solid var(--hair);border-radius:var(--r-lg);padding:clamp(26px,3.4vw,38px);
   background:var(--panel);max-width:840px}
 .fyt-band{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
-.fyt-band b{font-family:var(--mono);font-size:clamp(28px,4.4vw,42px);color:var(--acc);letter-spacing:-.03em}
+.fyt-band b{font-family:var(--mono);font-size:clamp(24px,3.6vw,34px);color:var(--acc);letter-spacing:-.02em;line-height:1.25}
 .fyt-band span{font-family:var(--mono);font-size:13px;color:var(--muted)}
 .fyt > p{font-size:14.4px;color:var(--muted);line-height:1.7;margin-bottom:22px}
 .fyt-ne{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-bottom:22px}
 .fyt-ne li{font-size:13.6px;color:var(--fg-dim);display:flex;gap:9px;align-items:flex-start;line-height:1.55}
 .fyt-ne li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:7px}
+/* fiyat kutusunun dibindeki "sonraki adım" bloğu — SEO sayfasıyla aynı.
+   Bu sayfada iki sütunlu .fyt-satir düzeni yok; margin-top:auto zararsız. */
+.fyt-adim{margin-top:auto;padding-top:26px;border-top:1px solid var(--hair)}
+.fyt-adim > p{font-size:13.8px;color:var(--muted);line-height:1.65;margin:0 0 16px;max-width:52ch}
+.fyt-adim > p a{color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.45)}
+.fyt-adim > p a:hover{text-decoration-color:var(--acc)}
+.fyt-btn{display:flex;gap:10px;flex-wrap:wrap}
 
 /* --- düzyazı bölümleri --- */
 .yazi{max-width:780px}
@@ -473,8 +481,8 @@ a.alt-k:hover .alt-git{gap:12px}
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Mobil uygulama fiyatı nasıl hesaplanıyor, 2026 bandı ne kadar?",
-      "acceptedAnswer": { "@type": "Answer", "text": "2026 bandı 120.000–260.000 ₺ arasında değişir; fiyatı platform sayısı (tek mi çift mi), ekran sayısı, backend ihtiyacı ve üçüncü taraf entegrasyonlar belirler, sabit tek fiyat yoktur. Teklif sihirbazında kapsamı birlikte çıkarıp bandı ve tahmini süreyi ekranda görürsünüz." }
+      "name": "Mobil uygulama fiyatı nasıl hesaplanıyor, 2026'da neye göre değişiyor?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Fiyatı platform sayısı (tek mi çift mi), ekran sayısı, backend ihtiyacı ve üçüncü taraf entegrasyonlar belirler; sabit tek fiyat yoktur, liste fiyatı da vermiyoruz. Teklif sihirbazında kapsamı birlikte çıkarıp bandı ve tahmini süreyi ekranda görürsünüz." }
     },
     {
       "@type": "Question",
@@ -557,7 +565,7 @@ a.alt-k:hover .alt-git{gap:12px}
           <span class="mod-no">Modül 02</span>
           <h1 data-kin>Mobil uygulama ajansı — iOS, Android ve React Native ile uygulamanıza gerçekten ihtiyacınız var mı?</h1>
           <p class="h1-alt">iOS &amp; ANDROID · REACT NATIVE · UI/UX · ASO</p>
-          <p class="lead">TasarımMania, mobil uygulama ajansı olarak 14 yıllık 8 kişilik ekibiyle iOS ve Android için native ve React Native ile çapraz platform mobil uygulama geliştiriyor; 2026 bandı 120.000–260.000 ₺, teslim 8–16 hafta, kaynak kod ve mağaza hesapları size ait kalıyor.</p>
+          <p class="lead">TasarımMania, mobil uygulama ajansı olarak 14 yıllık 8 kişilik ekibiyle iOS ve Android için native ve React Native ile çapraz platform mobil uygulama geliştiriyor; teslim 8–16 hafta, kaynak kod ve mağaza hesapları size ait kalıyor.</p>
         </div>
         <div class="hero3d" data-h3>
           <div class="h3-sekme" role="tablist" aria-label="Katmanlar">
@@ -611,7 +619,7 @@ a.alt-k:hover .alt-git{gap:12px}
 
       <div class="kny">
         <div><b>8–16<i> hafta</i></b><span>Kapsama göre<br>tipik teslim süresi</span></div>
-        <div><b>120–260<i> bin ₺</i></b><span>2026 yılı<br>bütçe bandı</span></div>
+        <div><b>Kapsama göre</b><span>Bütçe bandı<br>teklifte netleşir</span></div>
         <div><b>14 yıl</b><span>Web ve yazılımda<br>saha deneyimi</span></div>
         <div><b>Sizde</b><span>Kaynak kod ve<br>mağaza hesapları</span></div>
       </div>
@@ -711,15 +719,15 @@ a.alt-k:hover .alt-git{gap:12px}
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>Bütçe</span>
-        <h2 data-kin>Mobil uygulama fiyatları 2026: 120.000–260.000 ₺ bandını neyin belirlediği</h2>
+        <h2 data-kin>Mobil uygulama fiyatları 2026: bandı ne belirliyor?</h2>
       </div>
 
       <div class="fyt rv d1">
         <div class="fyt-band">
-          <b>120 – 260 bin ₺</b>
+          <b>Fiyat kapsama göre belirlenir</b>
           <span>MOBİL UYGULAMA · 8 – 16 HAFTA</span>
         </div>
-        <p>Bu band <strong>2026 yılı için</strong> geçerlidir. KDV teklifte belirtilir; React Native ile tek kod tabanı genelde native'den daha ekonomik çıkar. Bandı belirleyen beş şey:</p>
+        <p>Tek bir liste fiyatımız yok; bandı her projede <strong>kapsam</strong> belirliyor. KDV teklifte belirtilir; React Native ile tek kod tabanı genelde native'den daha ekonomik çıkar. Bandı belirleyen beş şey:</p>
         <ul class="fyt-ne">
           <li>Platform sayısı: tek platform mu, hem iOS hem Android mi</li>
           <li>Native mi React Native mi seçildiği</li>
@@ -727,6 +735,21 @@ a.alt-k:hover .alt-git{gap:12px}
           <li>Backend, API ve üçüncü taraf entegrasyon ihtiyacı</li>
           <li>Tasarımın hazır olup olmadığı (Figma dosyası var mı)</li>
         </ul>
+
+        <!-- SONRAKİ ADIM — SEO sayfasındaki blokla birebir aynı yapı.
+             Yeni iddia eklemiyor: dürüstlük cümlesi zaten #durustluk
+             bölümünde yazıyor, butonlar sayfada zaten kullanılan hedefler.
+             #durustluk bu sayfada fiyat bölümünün ÜSTÜNDE, o yüzden "yukarıda". -->
+        <div class="fyt-adim">
+          <p>Bazen doğru cevap uygulama bile olmuyor —
+            <a href="#durustluk">nedenini yukarıda anlattık</a>.
+            Konuşmaya kapsam çıkararak başlıyoruz.</p>
+          <div class="fyt-btn">
+            <a class="btn btn-p" href="../../teklif/#mobil">Kapsam çıkaralım
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Mobil%20Uygulama%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%0AUygulama%20fikrim%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -827,8 +850,8 @@ a.alt-k:hover .alt-git{gap:12px}
       <div class="iki">
         <div class="sss rv d1">
         <details>
-        <summary>Mobil uygulama fiyatı nasıl hesaplanıyor, 2026 bandı ne kadar?</summary>
-        <p>2026 bandı 120.000–260.000 ₺ arasında değişir; fiyatı platform sayısı (tek mi çift mi), ekran sayısı, backend ihtiyacı ve üçüncü taraf entegrasyonlar belirler, sabit tek fiyat yoktur.</p>
+        <summary>Mobil uygulama fiyatı nasıl hesaplanıyor, 2026'da neye göre değişiyor?</summary>
+        <p>Fiyatı platform sayısı (tek mi çift mi), ekran sayısı, backend ihtiyacı ve üçüncü taraf entegrasyonlar belirler; sabit tek fiyat yoktur, liste fiyatı da vermiyoruz.</p>
         <p>Teklif sihirbazında kapsamı birlikte çıkarıp bandı ve tahmini süreyi <a href="#fiyat">ekranda görürsünüz</a>; sabit paket satmıyoruz.</p>
         </details>
         <details>

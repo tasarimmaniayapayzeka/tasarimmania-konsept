@@ -6,7 +6,7 @@
 <!-- KONSEPT-NOINDEX -->
 <meta name="robots" content="noindex,nofollow">
 <title>Web Tasarım ve Yazılım — Kurumsal Site, E-Ticaret, Özel Yazılım | TasarımMania</title>
-<meta name="description" content="Şablon değil, sıfırdan yazılmış sistem. Kurumsal site, e-ticaret, özel yazılım ve AI entegrasyonu. 15–30 iş günü, 45–90 bin ₺ bandı. Kaynak dosyalar ve hesaplar sizde kalır.">
+<meta name="description" content="Şablon değil, sıfırdan yazılmış sistem: kurumsal site, e-ticaret, özel yazılım, AI entegrasyonu. Teslim 15–30 iş günü; kaynak dosyalar ve hesaplar sizde kalır.">
 <link rel="canonical" href="https://www.tasarimmania.com/hizmetler/web-tasarim-yazilim/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="tr_TR">
@@ -279,13 +279,25 @@ a.alt-k:hover .alt-git{gap:12px}
 .fyt{border:1px solid var(--hair);border-radius:var(--r-lg);padding:clamp(26px,3.4vw,38px);
   background:var(--panel);max-width:840px}
 .fyt-band{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
-.fyt-band b{font-family:var(--mono);font-size:clamp(28px,4.4vw,42px);color:var(--acc);letter-spacing:-.03em}
+/* Bant artık kısa bir rakam değil cümle taşıyor; ölçek ve satır yüksekliği
+   SEO sayfasındaki bantla aynı değerlere çekildi. Ölçüldü: 1440–760px'te tek
+   satır (34px'te 42px yükseklik), 390px'te iki satıra sarıyor, taşma yok. */
+.fyt-band b{font-family:var(--mono);font-size:clamp(24px,3.6vw,34px);color:var(--acc);
+  letter-spacing:-.02em;line-height:1.25}
 .fyt-band span{font-family:var(--mono);font-size:13px;color:var(--muted)}
 .fyt > p{font-size:14.4px;color:var(--muted);line-height:1.7;margin-bottom:22px}
 .fyt-ne{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-bottom:22px}
 .fyt-ne li{font-size:13.6px;color:var(--fg-dim);display:flex;gap:9px;align-items:flex-start;line-height:1.55}
 .fyt-ne li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:7px}
 .fyt-not{font-size:12.8px;color:var(--muted);line-height:1.6;padding-top:18px;border-top:1px solid var(--hair)}
+/* sonraki adım bloğu — SEO sayfasıyla aynı. Bu sayfada iki sütunlu .fyt-satir
+   düzeni YOK; o yüzden .fyt'ye flex/height kuralı eklenmedi, margin-top:auto zararsız. */
+.fyt-adim{margin-top:auto;padding-top:26px;border-top:1px solid var(--hair)}
+.fyt-adim > p{font-size:13.8px;color:var(--muted);line-height:1.65;margin:0 0 16px;max-width:52ch}
+.fyt-adim > p a{color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.45)}
+.fyt-adim > p a:hover{text-decoration-color:var(--acc)}
+.fyt-btn{display:flex;gap:10px;flex-wrap:wrap}
 
 /* --- düzyazı bölümleri (SEO içeriği) ---
    WordPress'e giydirilirken bu bloklar editöre olduğu gibi geçsin diye
@@ -744,7 +756,7 @@ a.alt-k:hover .alt-git{gap:12px}
           <span class="mod-no">Modül 01</span>
           <h1 data-kin>Kurumsal web tasarım ve yazılım —<br>şablon değil, sıfırdan yazılmış sistem</h1>
           <p class="h1-alt">KURUMSAL SİTE · E-TİCARET · ÖZEL YAZILIM · AI ENTEGRASYONU</p>
-          <p class="lead">Hazır tema kurmuyoruz; ön yüzü projeye özel yazıyoruz. Kurumsal site, e-ticaret, özel yazılım, AI entegrasyonu ve bakım tek ekipten yürür. Teslim 15–30 iş günü, 2026 bandı 45.000–90.000 ₺; hesaplar ve kaynak dosyalar sizde.</p>
+          <p class="lead">Hazır tema kurmuyoruz; ön yüzü projeye özel yazıyoruz. Kurumsal site, e-ticaret, özel yazılım, AI entegrasyonu ve bakım tek ekipten yürür. Teslim 15–30 iş günü; hesaplar ve kaynak dosyalar sizde.</p>
         </div>
 
         <!-- ETKİLEŞİMLİ 3D INFOGRAFİK: aynı sayfanın üç katmanı -->
@@ -830,7 +842,7 @@ a.alt-k:hover .alt-git{gap:12px}
 
       <div class="kny">
         <div><b>15–30<i> iş günü</i></b><span>Kurumsal site için<br>tipik teslim süresi</span></div>
-        <div><b>45–90<i> bin ₺</i></b><span>Kapsama göre<br>bütçe bandı</span></div>
+        <div><b>Kapsama göre</b><span>Bütçe bandı<br>teklifte netleşir</span></div>
         <div><b>14 yıl</b><span>Web ve yazılımda<br>saha deneyimi</span></div>
         <div><b>Sizde</b><span>Kaynak dosyalar,<br>hesaplar ve alan adı</span></div>
       </div>
@@ -940,15 +952,15 @@ a.alt-k:hover .alt-git{gap:12px}
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>Bütçe</span>
-        <h2 data-kin>Kurumsal web sitesi fiyatları 2026: 45.000–90.000 ₺ bandını neyin belirlediği</h2>
+        <h2 data-kin>Kurumsal web sitesi fiyatları 2026: bütçe bandını neyin belirlediği</h2>
       </div>
 
       <div class="fyt rv d1">
         <div class="fyt-band">
-          <b>45 – 90 bin ₺</b>
+          <b>Fiyat kapsama göre belirlenir</b>
           <span>KURUMSAL SİTE · 15 – 30 İŞ GÜNÜ</span>
         </div>
-        <p>Bu band <strong>2026 yılı için</strong> geçerlidir; tek dilli, sınırlı şablonlu kurumsal siteyi kapsar.
+        <p>Çıkardığımız band, <strong>tek dilli ve sınırlı şablonlu</strong> bir kurumsal siteyi esas alır.
           KDV teklifte belirtilir; e-ticaret ve özel yazılım ayrı fiyatlanır. Bandı belirleyen beş şey:</p>
         <ul class="fyt-ne">
           <li>Sayfa sayısı ve kaç dilde yayınlanacağı</li>
@@ -957,7 +969,23 @@ a.alt-k:hover .alt-git{gap:12px}
           <li>İçerik ve görsellerin hazır olup olmadığı</li>
           <li>Özel geliştirme gerektiren akışlar (panel, rezervasyon, üyelik)</li>
         </ul>
-        
+
+        <!-- Fiyat kutusunun en yüksek niyetli anında SONRAKİ ADIM yoktu.
+             Yeni iddia eklemiyor: cümle sayfanın kendi "şablon sayısına bakın"
+             argümanından türüyor, butonlar sayfada zaten kullanılan hedefler.
+             Dürüstlük çapası #karar: "bizimle çalışmayın" paragrafı orada ve
+             fiyat kutusunun aşağısında; sayfa #takvim gibi details çapalarına
+             zaten aynı biçimde link veriyor. -->
+        <div class="fyt-adim">
+          <p>Kapsamı görmeden rakam söylemiyoruz; şablon sayısı ve entegrasyonlar netleşmeden
+            verilen sayı ya sizi ya bizi yanıltır — <a href="#karar">nedenini aşağıda anlattık</a>.
+            Konuşmaya kapsam çıkararak başlıyoruz.</p>
+          <div class="fyt-btn">
+            <a class="btn btn-p" href="../../teklif/#web">Kapsam çıkaralım
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Web%20Tasar%C4%B1m%20%26%20Yaz%C4%B1l%C4%B1m%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%0AMevcut%20sitem%3A%20%0A%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+          </div>
+        </div>
       </div>
     </div>
   </section><section class="sec" id="dahil" style="padding-top:0">
@@ -1148,7 +1176,7 @@ a.alt-k:hover .alt-git{gap:12px}
         </tbody>
         </table></div>
         
-        <p><strong>Bütçeniz 45 binin belirgin altındaysa bizimle çalışmayın.</strong> O bütçede iyi seçilmiş bir hazır tema ve doğru yazılmış beş sayfa, kötü yapılmış bir “özel tasarım”dan iyidir.</p>
+        <p><strong>Bütçeniz özel tasarımı taşımıyorsa bizimle çalışmayın.</strong> O bütçede iyi seçilmiş bir hazır tema ve doğru yazılmış beş sayfa, kötü yapılmış bir “özel tasarım”dan iyidir.</p>
         
         
         <h2 id="sektor">Sektöre göre değişen şey tasarım değil</h2>
