@@ -268,88 +268,109 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
 
-/* --- yatay akış şeridi (alt sayfa standardı) ---
+/* --- akış durakları (alt sayfa standardı) ---
    Hub sayfada infografik fiyat kutusunun YANINA dikey giriyor; alt sayfada
-   fiyat kutusu yok ve .dtay metni dar, o yüzden burada tam genişlik yatay şerit.
-   DİKKAT: tm.css'te "kayan şerit" bileşeni de .serit adını kullanıyor; oradan
-   miras kalan kenar maskesini burada geri alıyoruz. */
-.serit{border:1px solid var(--hair);border-radius:var(--r-lg);
-  background:var(--panel);padding:18px;margin:26px 0 0;
-  -webkit-mask-image:none;mask-image:none}
+   fiyat kutusu yok ve .dtay metni dar, o yüzden burada tam genişlik üç durak.
+
+   ÖLÇÜLEN KUSUR 1 — mobilde okunmuyordu: tek parça 1200x430 grafik 390px
+   ekranda 296px'e sığınca içindeki 9.5px yazı 2.4px'e düşüyordu. Yatay
+   kaydırma okunurluğu düzeltiyordu ama doğrusu kutulara bölüp alt alta açmak.
+
+   ÖLÇÜLEN KUSUR 2 — ad çakışması: tm.css'te (satır 161-171) GLOBAL bir kayan
+   yazı bileşeni bu bloğun eski adını kullanıyor; onun "span{display:inline-flex}"
+   ve "span::before{content:...}" kuralları figure içine konan HER <span>'i ele
+   geçiriyordu (ipucu span'i 1440px'te display:none olması gerekirken
+   inline-flex alıyordu). Bu yüzden ad .akis; eski ad bu sayfada hiç geçmiyor.
+   Yine de .akis-no / .akis-ad stilleri AÇIK yazıldı: <span> stili mirasa
+   bırakılmıyor. */
+.akis{border:1px solid var(--hair);border-radius:var(--r-lg);
+  background:var(--panel);padding:18px;margin:26px 0 0}
+.akis-izgara{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:12px;align-items:stretch}
+.akis-kutu{border:1px solid var(--hair);border-radius:var(--r-md);
+  background:rgba(255,255,255,.02);padding:14px;display:flex;
+  flex-direction:column;gap:10px}
+.akis-no{display:inline-block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;color:var(--acc);opacity:.9}
+.akis-ad{display:block;font-size:13.5px;font-weight:600;color:var(--fg);
+  letter-spacing:-.01em;margin-top:-6px}
 /* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
-.serit svg{width:100%;height:auto;display:block;border-radius:12px}
-.serit-kaydir{overflow-x:auto;overflow-y:hidden;border-radius:12px;
-  overscroll-behavior-x:contain}
-.serit figcaption{margin-top:13px;font-size:12.4px;line-height:1.55;color:var(--muted)}
-.serit figcaption b{color:var(--fg-dim);font-weight:600}
-@media(max-width:760px){
-  .serit{padding:12px}
-  /* 1200×430 yatay şerit 300px'e sığınca etiketler ~3px'e düşüyordu.
-     Oran (viewBox) sabit kalsın diye küçültmek yerine şeridi kendi içinde
-     yana kaydırılabilir yaptık; altyazı kaymaz, hep görünür. */
-  .serit-kaydir svg{min-width:900px}
+.akis-kutu svg{width:100%;height:auto;display:block;border-radius:10px}
+.akis-ok{display:grid;place-items:center;color:var(--acc);opacity:.6}
+.akis-ok svg{width:22px;height:22px}
+.akis figcaption{margin-top:14px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.akis figcaption b{color:var(--fg-dim);font-weight:600}
+@media(max-width:860px){
+  .akis-izgara{grid-template-columns:1fr;gap:10px}
+  .akis-ok svg{transform:rotate(90deg)}
+  .akis{padding:14px}
 }
 
-/* --- şerit canlanması ---
+/* --- durak canlanması ---
    YENİ JS YOK: figure zaten .rv sınıfında; site/js/tm.js görününce .in ekliyor.
    prefers-reduced-motion: tm.css'teki global kural animation-duration'ı
    0.001ms'e indiriyor, "forwards" sayesinde her öğe anında son hâline oturuyor.
-   Sınıf/keyframe öneki "et-"/"et": hub sayfası "w-"/"w", SEO "s-"/"s" kullanıyor;
-   sayfalar ileride birleşirse çakışmasın diye ayrı tutuldu.
-   Çizelge (soldan sağa okunur): kart1 0.25s · görsel 0.36s · çubuklar 0.46–0.54s ·
-   "Sepete ekle" 0.62s · ok1 0.90s · kart2 1.40s · sepet satırları 1.48–1.56s ·
-   ayraç 1.62s · toplam 1.66s · ok2 1.70s · "Ödemeye geç" 1.74s · kart3 1.90s ·
-   ödeme satırları 1.98–2.10s · imleç 2.02s · basış + halka 2.20s ·
-   ok parlamaları 2.24/2.38s · kilit aksana döner 2.34s → ~2.5s. */
-.serit svg .et-kart{opacity:0;transform:translateY(16px);transform-box:fill-box}
-.serit svg .et-gorsel,
-.serit svg .et-ayrac,
-.serit svg .et-toplam,
-.serit svg .et-hayalet,
-.serit svg .et-hale{opacity:0}
-.serit svg .et-satir > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
-.serit svg .et-odeme > g{opacity:0;transform:translateX(12px);transform-box:fill-box}
-.serit svg .et-cubuk rect{clip-path:inset(0 100% 0 0)}
-.serit svg .et-ok{stroke-dasharray:60;stroke-dashoffset:60;opacity:0}
-.serit svg .et-parla{opacity:0}
-.serit svg .et-imlec{opacity:0;transform-box:fill-box}
-.serit svg .et-bas{opacity:0;transform-box:fill-box;transform-origin:center}
-.serit svg .et-halka{opacity:0;transform:scale(.55);transform-box:fill-box;
+   BAŞLANGIÇ DURUMU VERİLEN HER ÖĞENİN .in KARŞILIĞI VAR (aşağıda birebir).
+   Sınıf/keyframe öneki "et-"/"et": hub sayfası "w-"/"w", SEO "s-"/"s"
+   kullanıyor; sayfalar ileride birleşirse çakışmasın diye ayrı tutuldu.
+   Çizelge — her kutu KENDİ içinde canlanır, kutular soldan sağa (mobilde
+   yukarıdan aşağı) sırayla girer:
+     KUTU 1 · 0.25s : kart 0.25 · görsel 0.38 · çubuklar 0.48–0.56 ·
+                      "Sepete ekle" 0.64 · imleç 0.98 · basış + halka 1.05
+     ok 1 · 0.80s
+     KUTU 2 · 0.90s : kart 0.90 · sepet satırları 0.98–1.06 · ayraç 1.14 ·
+                      toplam 1.18 · "Ödemeye geç" 1.26
+     ok 2 · 1.40s
+     KUTU 3 · 1.50s : kart 1.50 · ödeme satırları 1.58–1.70 · ayraç 1.76 ·
+                      kilit aksana döner 1.82 · SSL 1.88 → ~2.1s */
+.akis svg .et-kart{opacity:0;transform:translateY(16px);transform-box:fill-box}
+.akis svg .et-gorsel,
+.akis svg .et-ayrac,
+.akis svg .et-toplam,
+.akis svg .et-hayalet,
+.akis svg .et-hale{opacity:0}
+.akis svg .et-satir > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.akis svg .et-odeme > g{opacity:0;transform:translateX(12px);transform-box:fill-box}
+.akis svg .et-cubuk rect{clip-path:inset(0 100% 0 0)}
+.akis svg .et-imlec{opacity:0;transform-box:fill-box}
+.akis svg .et-bas{opacity:0;transform-box:fill-box;transform-origin:center}
+.akis svg .et-halka{opacity:0;transform:scale(.55);transform-box:fill-box;
   transform-origin:center}
-.serit svg .et-kilit{color:#6E8794}
+.akis svg .et-kilit{color:#6E8794}
+/* oklar artık HTML: .akis-ok kutusu opaklığı taşıyor, ok çizimi 0'dan girer */
+.akis .et-ok{opacity:0}
 
-.serit.in svg .et-k1{animation:etKart .6s var(--ease) .25s forwards}
-.serit.in svg .et-gorsel{animation:etBelir .5s var(--ease) .36s forwards}
-.serit.in svg .et-cubuk rect:nth-of-type(1){animation:etCiz .5s var(--ease) .46s forwards}
-.serit.in svg .et-cubuk rect:nth-of-type(2){animation:etCiz .5s var(--ease) .54s forwards}
-.serit.in svg .et-bas{animation:etBelir .45s var(--ease) .62s forwards,
-  etBas .4s var(--ease) 2.20s}
-.serit.in svg .et-ok1{animation:etOk .55s var(--ease) .90s forwards}
-.serit.in svg .et-k2{animation:etKart .6s var(--ease) 1.40s forwards}
-.serit.in svg .et-satir > g:nth-child(1){animation:etSatir .45s var(--ease) 1.48s forwards}
-.serit.in svg .et-satir > g:nth-child(2){animation:etSatir .45s var(--ease) 1.56s forwards}
-.serit.in svg .et-ayrac{animation:etBelir .4s var(--ease) 1.62s forwards}
-.serit.in svg .et-toplam{animation:etBelir .45s var(--ease) 1.66s forwards}
-.serit.in svg .et-ok2{animation:etOk .55s var(--ease) 1.70s forwards}
-.serit.in svg .et-hayalet{animation:etBelir .45s var(--ease) 1.74s forwards}
-.serit.in svg .et-k3{animation:etKart .6s var(--ease) 1.90s forwards}
-.serit.in svg .et-odeme > g:nth-child(1){animation:etSag .42s var(--ease) 1.98s forwards}
-.serit.in svg .et-odeme > g:nth-child(2){animation:etSag .42s var(--ease) 2.04s forwards}
-.serit.in svg .et-odeme > g:nth-child(3){animation:etSag .42s var(--ease) 2.10s forwards}
-.serit.in svg .et-imlec{animation:etImlec .45s var(--ease) 2.02s forwards}
-.serit.in svg .et-halka{animation:etHalka .8s var(--ease) 2.20s forwards}
-.serit.in svg .et-p1{animation:etParla .7s var(--ease) 2.24s forwards}
-.serit.in svg .et-p2{animation:etParla .7s var(--ease) 2.38s forwards}
-.serit.in svg .et-hale{animation:etBelir .6s var(--ease) 2.34s forwards}
-.serit.in svg .et-kilit{animation:etKilit .6s var(--ease) 2.34s forwards}
+.akis.in svg .et-k1{animation:etKart .6s var(--ease) .25s forwards}
+.akis.in svg .et-gorsel{animation:etBelir .5s var(--ease) .38s forwards}
+.akis.in svg .et-cubuk rect:nth-of-type(1){animation:etCiz .5s var(--ease) .48s forwards}
+.akis.in svg .et-cubuk rect:nth-of-type(2){animation:etCiz .5s var(--ease) .56s forwards}
+.akis.in svg .et-bas{animation:etBelir .45s var(--ease) .64s forwards,
+  etBas .4s var(--ease) 1.05s}
+.akis.in svg .et-imlec{animation:etImlec .45s var(--ease) .98s forwards}
+.akis.in svg .et-halka{animation:etHalka .8s var(--ease) 1.05s forwards}
+.akis.in .et-ok1{animation:etOkBelir .55s var(--ease) .80s forwards}
+.akis.in svg .et-k2{animation:etKart .6s var(--ease) .90s forwards}
+.akis.in svg .et-satir > g:nth-child(1){animation:etSatir .45s var(--ease) .98s forwards}
+.akis.in svg .et-satir > g:nth-child(2){animation:etSatir .45s var(--ease) 1.06s forwards}
+.akis.in svg .et-a2{animation:etBelir .4s var(--ease) 1.14s forwards}
+.akis.in svg .et-toplam{animation:etBelir .45s var(--ease) 1.18s forwards}
+.akis.in svg .et-h2{animation:etBelir .45s var(--ease) 1.26s forwards}
+.akis.in .et-ok2{animation:etOkBelir .55s var(--ease) 1.40s forwards}
+.akis.in svg .et-k3{animation:etKart .6s var(--ease) 1.50s forwards}
+.akis.in svg .et-odeme > g:nth-child(1){animation:etSag .42s var(--ease) 1.58s forwards}
+.akis.in svg .et-odeme > g:nth-child(2){animation:etSag .42s var(--ease) 1.64s forwards}
+.akis.in svg .et-odeme > g:nth-child(3){animation:etSag .42s var(--ease) 1.70s forwards}
+.akis.in svg .et-a3{animation:etBelir .4s var(--ease) 1.76s forwards}
+.akis.in svg .et-hale{animation:etBelir .6s var(--ease) 1.82s forwards}
+.akis.in svg .et-kilit{animation:etKilit .6s var(--ease) 1.82s forwards}
+.akis.in svg .et-h3{animation:etBelir .45s var(--ease) 1.88s forwards}
 
 @keyframes etKart{to{opacity:1;transform:translateY(0)}}
 @keyframes etSatir{to{opacity:1;transform:translateY(0)}}
 @keyframes etSag{to{opacity:1;transform:translateX(0)}}
 @keyframes etCiz{to{clip-path:inset(0 0 0 0)}}
 @keyframes etBelir{to{opacity:1}}
-@keyframes etOk{to{opacity:1;stroke-dashoffset:0}}
-@keyframes etParla{35%{opacity:1}to{opacity:.28}}
+@keyframes etOkBelir{0%{opacity:0}45%{opacity:1;filter:brightness(1.7)}to{opacity:1;filter:brightness(1)}}
 @keyframes etImlec{from{opacity:0;transform:translate(11px,11px)}to{opacity:1;transform:translate(0,0)}}
 @keyframes etBas{40%{transform:scale(.94)}to{transform:scale(1)}}
 @keyframes etHalka{35%{opacity:.9}to{opacity:0;transform:scale(2.2)}}
@@ -645,202 +666,249 @@ Sepette terk edilen alışverişler için sistem, ayrılan kullanıcıya sepetin
         </article>
       </div>
 
-      <!-- Yatay akış şeridi — bu sayfanın KENDİ anlattığı yolu çizer:
+      <!-- Akış durakları — bu sayfanın KENDİ anlattığı yolu çizer:
            ürün kartı → sepet → ödeme. Etiketlerin tamamı sayfada geçen
            kavramlar: sepet, ödeme, 3D Secure, SSL, kargo/teslim akışı.
            BİLEREK RAKAM YOK: fiyat rakamları bu sayfadan kaldırıldı, bu yüzden
            sepet toplamı tutar yerine "—" ile çiziliyor; yüzde/süre/adet iddiası
            da yok. Marka veya ödeme kuruluşu logosu çizilmedi.
+
+           NEDEN ÜÇ AYRI SVG: tek parça 1200x430 grafik 390px ekranda 296px'e
+           sığınca yazısı 2.4px'e düşüyordu (ölçüldü). Her durak artık kendi
+           380x400 kutusunda; 860px altında kutular alt alta açılır, aradaki
+           oklar 90° döner. Yazıların en küçüğü 12pt seçildi: mobilde kutu içi
+           ~300px / viewBox 380 = 0.79 ölçek, yani ekranda en az 9.5px.
            Inline SVG: ek istek yok, her ölçekte net, viewBox sayesinde oran
-           sabit olduğu için düzen kaymaz. -->
-      <figure class="serit rv d2">
-        <div class="serit-kaydir">
-        <svg viewBox="0 0 1200 430" role="img" aria-labelledby="etBaslik etAciklama"
-             xmlns="http://www.w3.org/2000/svg">
-          <title id="etBaslik">Sipariş akışı: ürün, sepet ve ödeme adımları — temsilî görsel</title>
-          <desc id="etAciklama">Soldan sağa üç kart. Birinci kart "Ürün": bir görsel yer tutucu,
-            iki metin çubuğu ve aksan renkli "Sepete ekle" düğmesi. İkinci kart "Sepet": küçük
-            görsel ve iki çubuktan oluşan iki satır, altında ince bir ayraç, tutar yerine kısa
-            çizgi konmuş bir toplam satırı ve "Ödemeye geç" düğmesi. Üçüncü kart "Ödeme": sanal
-            pos, taksit ve birden fazla banka satırları, altında kilit simgesi ile "3D Secure" ve
-            "SSL" etiketleri. Kartlar arasında sağa bakan ok işaretleri var; canlanmada "Sepete
-            ekle" basılır, oklar sırayla aydınlanır ve kilit simgesi aksan renge döner.</desc>
+           sabit olduğu için düzen kaymaz (CLS yok). -->
+      <figure class="akis rv d2">
+        <div class="akis-izgara">
 
-          <defs>
-            <linearGradient id="etSahne" x1="0" y1="0" x2="0.35" y2="1">
-              <stop offset="0" stop-color="#141C26"/>
-              <stop offset="1" stop-color="#0A0E14"/>
-            </linearGradient>
-            <radialGradient id="etIsik" cx="0.18" cy="0.08" r="0.85">
-              <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
-              <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
-            </radialGradient>
-            <filter id="etGolge" x="-25%" y="-25%" width="150%" height="150%">
-              <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
-            </filter>
-          </defs>
+          <!-- ===== DURAK 01 — ÜRÜN ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">01</span>
+            <span class="akis-ad">Ürün</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="etB1 etA1"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="etB1">Ürün kartı: görsel, iki metin çubuğu ve "Sepete ekle" düğmesi — temsilî görsel</title>
+              <desc id="etA1">Bir ürün kartı çizimi: üstte görsel yer tutucu, altında iki metin
+                çubuğu, en altta aksan renkli "Sepete ekle" düğmesi. Canlanmada düğme basılır,
+                üzerinde imleç belirir ve çevresinde bir halka açılır.</desc>
+              <defs>
+                <linearGradient id="etSahne1" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="etIsik1" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="etGolge1" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
 
-          <!-- sahne -->
-          <rect width="1200" height="430" fill="url(#etSahne)"/>
-          <rect width="1200" height="430" fill="url(#etIsik)"/>
-          <text x="28" y="32" font-family="JetBrains Mono, ui-monospace, monospace"
-                font-size="10.5" letter-spacing="1.7" fill="#00E5FF" fill-opacity=".8">SİPARİŞ AKIŞI</text>
-          <text x="1172" y="32" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
-                font-size="10.5" letter-spacing="1.1" fill="#6E8794">temsilî arayüz</text>
+              <rect width="380" height="400" fill="url(#etSahne1)"/>
+              <rect width="380" height="400" fill="url(#etIsik1)"/>
 
-          <!-- ===== KART 1 — ÜRÜN ===== -->
-          <g class="et-kart et-k1">
-            <rect x="28" y="52" width="338" height="344" rx="14" fill="#0E141C"
-                  stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#etGolge)"/>
-            <text x="48" y="78" font-family="JetBrains Mono, ui-monospace, monospace"
-                  font-size="10" letter-spacing="1.7" fill="#00E5FF">ÜRÜN</text>
-            <line x1="28" y1="92" x2="366" y2="92" stroke="#00E5FF" stroke-opacity=".22" stroke-width="1"/>
+              <g class="et-kart et-k1">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#etGolge1)"/>
 
-            <!-- görsel yer tutucu -->
-            <g class="et-gorsel">
-              <rect x="48" y="106" width="298" height="132" rx="10" fill="#151F2B" stroke="#26333F"/>
-              <circle cx="96" cy="144" r="13" fill="#38506A"/>
-              <path d="M62,232 L128,168 L172,208 L214,170 L332,232 Z" fill="#2A394B"/>
-            </g>
+                <!-- görsel yer tutucu -->
+                <g class="et-gorsel">
+                  <rect x="34" y="38" width="312" height="148" rx="10" fill="#151F2B" stroke="#26333F"/>
+                  <circle cx="84" cy="80" r="15" fill="#38506A"/>
+                  <path d="M48,180 L118,112 L164,152 L208,114 L332,180 Z" fill="#2A394B"/>
+                </g>
 
-            <!-- iki metin çubuğu (yazı değil, çubuk) -->
-            <g class="et-cubuk">
-              <rect x="48" y="256" width="208" height="13" rx="6.5" fill="#3A4A5E"/>
-              <rect x="48" y="280" width="148" height="11" rx="5.5" fill="#2A3646"/>
-            </g>
+                <!-- iki metin çubuğu (yazı değil, çubuk) -->
+                <g class="et-cubuk">
+                  <rect x="34" y="208" width="228" height="15" rx="7.5" fill="#3A4A5E"/>
+                  <rect x="34" y="236" width="162" height="13" rx="6.5" fill="#2A3646"/>
+                </g>
 
-            <!-- basılan öğe: "Sepete ekle" -->
-            <g class="et-bas">
-              <rect x="48" y="318" width="172" height="42" rx="11" fill="#00E5FF"/>
-              <path d="M63,331 h4.4 l3.4,13.4 h11.4 l2.8,-9.2 h-15.2" fill="none" stroke="#06323A"
-                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="72.5" cy="349" r="1.8" fill="#06323A"/>
-              <circle cx="80" cy="349" r="1.8" fill="#06323A"/>
-              <text x="96" y="345" font-family="Inter Tight, system-ui, sans-serif"
-                    font-size="14.5" font-weight="700" fill="#06323A">Sepete ekle</text>
-            </g>
-          </g>
-
-          <!-- ===== KART 2 — SEPET ===== -->
-          <g class="et-kart et-k2">
-            <rect x="430" y="52" width="338" height="344" rx="14" fill="#0E141C"
-                  stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#etGolge)"/>
-            <text x="450" y="78" font-family="JetBrains Mono, ui-monospace, monospace"
-                  font-size="10" letter-spacing="1.7" fill="#00E5FF">SEPET</text>
-            <line x1="430" y1="92" x2="768" y2="92" stroke="#00E5FF" stroke-opacity=".22" stroke-width="1"/>
-
-            <!-- iki satırlık liste: küçük görsel + iki çubuk -->
-            <g class="et-satir">
-              <g>
-                <rect x="450" y="110" width="58" height="58" rx="9" fill="#151F2B" stroke="#26333F"/>
-                <circle cx="468" cy="130" r="6.5" fill="#38506A"/>
-                <path d="M456,162 L474,140 L488,154 L497,146 L504,162 Z" fill="#2A394B"/>
-                <rect x="524" y="120" width="168" height="12" rx="6" fill="#3A4A5E"/>
-                <rect x="524" y="142" width="116" height="10" rx="5" fill="#2A3646"/>
+                <!-- basılan öğe: "Sepete ekle" -->
+                <g class="et-bas">
+                  <rect x="34" y="286" width="210" height="50" rx="12" fill="#00E5FF"/>
+                  <path d="M52,300 h5 l3.9,15.4 h13.1 l3.2,-10.6 h-17.5" fill="none" stroke="#06323A"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="63" cy="321" r="2.1" fill="#06323A"/>
+                  <circle cx="71.6" cy="321" r="2.1" fill="#06323A"/>
+                  <text x="90" y="317" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="16" font-weight="700" fill="#06323A">Sepete ekle</text>
+                </g>
               </g>
-              <g>
-                <rect x="450" y="186" width="58" height="58" rx="9" fill="#151F2B" stroke="#26333F"/>
-                <circle cx="468" cy="206" r="6.5" fill="#38506A"/>
-                <path d="M456,238 L474,216 L488,230 L497,222 L504,238 Z" fill="#2A394B"/>
-                <rect x="524" y="196" width="142" height="12" rx="6" fill="#3A4A5E"/>
-                <rect x="524" y="218" width="94" height="10" rx="5" fill="#2A3646"/>
+
+              <!-- vurgu: dokunuş -->
+              <circle class="et-halka" cx="202" cy="311" r="30" fill="none"
+                      stroke="#00E5FF" stroke-width="2.4"/>
+              <path class="et-imlec" d="M196,300 L196,317 L200.6,312.7 L203.4,318.6 L206.4,317.1 L203.8,311.4 L209.6,310.9 Z"
+                    fill="#FFFFFF" stroke="#0B0D12" stroke-width="1.2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="et-ok et-ok1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 02 — SEPET ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">02</span>
+            <span class="akis-ad">Sepet</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="etB2 etA2"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="etB2">Sepet kartı: iki satır, ayraç, toplam ve "Ödemeye geç" düğmesi — temsilî görsel</title>
+              <desc id="etA2">Sepet çizimi: küçük görsel ve iki çubuktan oluşan iki satır, altında
+                ince bir ayraç, tutar yerine kısa çizgi konmuş bir toplam satırı ve çerçeveli
+                "Ödemeye geç" düğmesi.</desc>
+              <defs>
+                <linearGradient id="etSahne2" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="etIsik2" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="etGolge2" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#etSahne2)"/>
+              <rect width="380" height="400" fill="url(#etIsik2)"/>
+
+              <g class="et-kart et-k2">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#etGolge2)"/>
+
+                <!-- iki satırlık liste: küçük görsel + iki çubuk -->
+                <g class="et-satir">
+                  <g>
+                    <rect x="34" y="44" width="66" height="66" rx="10" fill="#151F2B" stroke="#26333F"/>
+                    <circle cx="54" cy="66" r="7.5" fill="#38506A"/>
+                    <path d="M40,104 L60,80 L76,96 L86,87 L94,104 Z" fill="#2A394B"/>
+                    <rect x="116" y="56" width="186" height="14" rx="7" fill="#3A4A5E"/>
+                    <rect x="116" y="80" width="130" height="12" rx="6" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="34" y="136" width="66" height="66" rx="10" fill="#151F2B" stroke="#26333F"/>
+                    <circle cx="54" cy="158" r="7.5" fill="#38506A"/>
+                    <path d="M40,196 L60,172 L76,188 L86,179 L94,196 Z" fill="#2A394B"/>
+                    <rect x="116" y="148" width="158" height="14" rx="7" fill="#3A4A5E"/>
+                    <rect x="116" y="172" width="106" height="12" rx="6" fill="#2A3646"/>
+                  </g>
+                </g>
+
+                <line class="et-ayrac et-a2" x1="34" y1="232" x2="346" y2="232"
+                      stroke="#00E5FF" stroke-opacity=".28" stroke-width="1"/>
+
+                <!-- toplam satırı: TUTAR YOK — sayfada fiyat rakamı geçmiyor -->
+                <g class="et-toplam">
+                  <text x="34" y="273" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="14.5" letter-spacing=".6" fill="#9FD6E0">Toplam</text>
+                  <text x="346" y="276" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="26" fill="#8FF6FF">—</text>
+                </g>
+
+                <g class="et-hayalet et-h2">
+                  <rect x="34" y="302" width="200" height="48" rx="12" fill="none"
+                        stroke="#00E5FF" stroke-opacity=".5" stroke-width="1.6"/>
+                  <text x="134" y="332" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="15" font-weight="600" fill="#8FF6FF">Ödemeye geç</text>
+                </g>
               </g>
-            </g>
+            </svg>
+          </div>
 
-            <line class="et-ayrac" x1="450" y1="274" x2="748" y2="274"
-                  stroke="#00E5FF" stroke-opacity=".28" stroke-width="1"/>
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="et-ok et-ok2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
 
-            <!-- toplam satırı: TUTAR YOK — sayfada fiyat rakamı geçmiyor -->
-            <g class="et-toplam">
-              <text x="450" y="304" font-family="JetBrains Mono, ui-monospace, monospace"
-                    font-size="13" letter-spacing=".6" fill="#9FD6E0">Toplam</text>
-              <text x="748" y="306" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
-                    font-size="22" fill="#8FF6FF">—</text>
-            </g>
+          <!-- ===== DURAK 03 — ÖDEME ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">03</span>
+            <span class="akis-ad">Ödeme</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="etB3 etA3"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="etB3">Ödeme kartı: sanal pos, taksit, birden fazla banka satırları ile 3D Secure ve SSL — temsilî görsel</title>
+              <desc id="etA3">Ödeme çizimi: sanal pos, taksit ve birden fazla banka satırları,
+                altında ince bir ayraç, kilit simgesi ile "3D Secure" etiketi ve sağda "SSL"
+                rozeti. Canlanmada kilit simgesi aksan renge döner.</desc>
+              <defs>
+                <linearGradient id="etSahne3" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="etIsik3" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="etGolge3" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
 
-            <g class="et-hayalet">
-              <rect x="450" y="330" width="176" height="42" rx="11" fill="none"
-                    stroke="#00E5FF" stroke-opacity=".5" stroke-width="1.6"/>
-              <text x="538" y="356" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
-                    font-size="13.5" font-weight="600" fill="#8FF6FF">Ödemeye geç</text>
-            </g>
-          </g>
+              <rect width="380" height="400" fill="url(#etSahne3)"/>
+              <rect width="380" height="400" fill="url(#etIsik3)"/>
 
-          <!-- ===== KART 3 — ÖDEME ===== -->
-          <g class="et-kart et-k3">
-            <rect x="832" y="52" width="338" height="344" rx="14" fill="#0E141C"
-                  stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#etGolge)"/>
-            <text x="852" y="78" font-family="JetBrains Mono, ui-monospace, monospace"
-                  font-size="10" letter-spacing="1.7" fill="#00E5FF">ÖDEME</text>
-            <line x1="832" y1="92" x2="1170" y2="92" stroke="#00E5FF" stroke-opacity=".22" stroke-width="1"/>
+              <g class="et-kart et-k3">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#etGolge3)"/>
 
-            <!-- Üç satır da sayfanın KENDİ anlattığı kurulum kalemleri: "sanal pos",
-                 "taksit" ve "birden fazla banka aynı sitede tanımlanabilir".
-                 Ödeme yöntemi menüsü DEĞİL — mağazanın hangi yöntemleri sunacağı
-                 sayfada yazmıyor, o yüzden yöntem adı uydurulmadı.
-                 Marka/kart kuruluşu logosu YOK. -->
-            <g class="et-odeme" font-family="Inter Tight, system-ui, sans-serif" font-size="13.5">
-              <g>
-                <rect x="852" y="106" width="298" height="46" rx="10" fill="#101A22"
-                      stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
-                <circle cx="876" cy="129" r="8" fill="none" stroke="#00E5FF" stroke-width="1.6"/>
-                <circle cx="876" cy="129" r="3.8" fill="#00E5FF"/>
-                <text x="900" y="134" fill="#D5E4EC">Sanal pos</text>
+                <!-- Üç satır da sayfanın KENDİ anlattığı kurulum kalemleri: "sanal pos",
+                     "taksit" ve "birden fazla banka aynı sitede tanımlanabilir".
+                     Ödeme yöntemi menüsü DEĞİL — mağazanın hangi yöntemleri sunacağı
+                     sayfada yazmıyor, o yüzden yöntem adı uydurulmadı.
+                     Marka/kart kuruluşu logosu YOK. -->
+                <g class="et-odeme">
+                  <g>
+                    <rect x="34" y="44" width="312" height="54" rx="11" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
+                    <circle cx="60" cy="71" r="9" fill="none" stroke="#00E5FF" stroke-width="1.7"/>
+                    <circle cx="60" cy="71" r="4.2" fill="#00E5FF"/>
+                    <text x="86" y="77" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="15" fill="#D5E4EC">Sanal pos</text>
+                  </g>
+                  <g>
+                    <rect x="34" y="112" width="312" height="54" rx="11" fill="#101A22" stroke="#26333F"/>
+                    <circle cx="60" cy="139" r="9" fill="none" stroke="#4A5C6E" stroke-width="1.7"/>
+                    <text x="86" y="145" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="15" fill="#A8B8C4">Taksit</text>
+                  </g>
+                  <g>
+                    <rect x="34" y="180" width="312" height="54" rx="11" fill="#101A22" stroke="#26333F"/>
+                    <circle cx="60" cy="207" r="9" fill="none" stroke="#4A5C6E" stroke-width="1.7"/>
+                    <text x="86" y="213" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="15" fill="#A8B8C4">Birden fazla banka</text>
+                  </g>
+                </g>
+
+                <line class="et-ayrac et-a3" x1="34" y1="258" x2="346" y2="258"
+                      stroke="#00E5FF" stroke-opacity=".26" stroke-width="1"/>
+
+                <!-- kilit + 3D Secure: vurguda aksan renge döner -->
+                <circle class="et-hale" cx="52" cy="304" r="26" fill="#00E5FF" fill-opacity=".13"/>
+                <g class="et-kilit">
+                  <rect x="41" y="295" width="22" height="18" rx="4" fill="none"
+                        stroke="currentColor" stroke-width="2"/>
+                  <path d="M45.5,295 v-6 a6,6 0 0 1 12,0 v6" fill="none"
+                        stroke="currentColor" stroke-width="2"/>
+                  <circle cx="52" cy="304" r="2.1" fill="currentColor"/>
+                  <text x="88" y="310" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="15" letter-spacing=".6" fill="currentColor">3D Secure</text>
+                </g>
+                <g class="et-hayalet et-h3">
+                  <rect x="268" y="290" width="78" height="32" rx="9" fill="none"
+                        stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
+                  <text x="307" y="312" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="14" letter-spacing="1.1" fill="#8FF6FF">SSL</text>
+                </g>
               </g>
-              <g>
-                <rect x="852" y="164" width="298" height="46" rx="10" fill="#101A22" stroke="#26333F"/>
-                <circle cx="876" cy="187" r="8" fill="none" stroke="#4A5C6E" stroke-width="1.6"/>
-                <text x="900" y="192" fill="#A8B8C4">Taksit</text>
-              </g>
-              <g>
-                <rect x="852" y="222" width="298" height="46" rx="10" fill="#101A22" stroke="#26333F"/>
-                <circle cx="876" cy="245" r="8" fill="none" stroke="#4A5C6E" stroke-width="1.6"/>
-                <text x="900" y="250" fill="#A8B8C4">Birden fazla banka</text>
-              </g>
-            </g>
-
-            <line class="et-ayrac" x1="852" y1="290" x2="1150" y2="290"
-                  stroke="#00E5FF" stroke-opacity=".26" stroke-width="1"/>
-
-            <!-- kilit + 3D Secure: vurguda aksan renge döner -->
-            <circle class="et-hale" cx="868" cy="328" r="23" fill="#00E5FF" fill-opacity=".13"/>
-            <g class="et-kilit">
-              <rect x="858" y="320" width="20" height="16" rx="3.5" fill="none"
-                    stroke="currentColor" stroke-width="2"/>
-              <path d="M862.5,320 v-5.5 a5.5,5.5 0 0 1 11,0 v5.5" fill="none"
-                    stroke="currentColor" stroke-width="2"/>
-              <circle cx="868" cy="328" r="1.9" fill="currentColor"/>
-              <text x="892" y="333" font-family="JetBrains Mono, ui-monospace, monospace"
-                    font-size="14" letter-spacing=".6" fill="currentColor">3D Secure</text>
-            </g>
-            <g class="et-hayalet">
-              <rect x="1082" y="314" width="68" height="28" rx="8" fill="none"
-                    stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
-              <text x="1116" y="333" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                    font-size="12" letter-spacing="1.1" fill="#8FF6FF">SSL</text>
-            </g>
-          </g>
-
-          <!-- ===== KARTLAR ARASI OKLAR ===== -->
-          <path class="et-ok et-ok1" d="M378,224 H414 M406,217 L414,224 L406,231" fill="none"
-                stroke="#00E5FF" stroke-opacity=".6" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round"/>
-          <path class="et-parla et-p1" d="M378,224 H414 M406,217 L414,224 L406,231" fill="none"
-                stroke="#9BF7FF" stroke-width="3.2"
-                stroke-linecap="round" stroke-linejoin="round"/>
-          <path class="et-ok et-ok2" d="M780,224 H816 M808,217 L816,224 L808,231" fill="none"
-                stroke="#00E5FF" stroke-opacity=".6" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round"/>
-          <path class="et-parla et-p2" d="M780,224 H816 M808,217 L816,224 L808,231" fill="none"
-                stroke="#9BF7FF" stroke-width="3.2"
-                stroke-linecap="round" stroke-linejoin="round"/>
-
-          <!-- ===== VURGU: dokunuş ===== -->
-          <circle class="et-halka" cx="182" cy="334" r="26" fill="none"
-                  stroke="#00E5FF" stroke-width="2.4"/>
-          <path class="et-imlec" d="M178,326 L178,343 L182.6,338.7 L185.4,344.6 L188.4,343.1 L185.8,337.4 L191.6,336.9 Z"
-                fill="#FFFFFF" stroke="#0B0D12" stroke-width="1.2" stroke-linejoin="round"/>
-        </svg>
+            </svg>
+          </div>
         </div>
         <figcaption><b>Temsilî görsel.</b> Sayfanın anlattığı yolu çiziyor: ürün kartından
           sepete, sepetten ödeme adımına. Kutular ve görseller örnek arayüz çizimidir, gerçek

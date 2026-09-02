@@ -268,78 +268,142 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
 
-/* --- YATAY İNFOGRAFİK ŞERİDİ (.serit) ---
-   Hub sayfada aynı grafik fiyat kutusunun YANINA dikey giriyor; burada fiyat
-   kutusu yok ve .dtay metin bloğu dar olduğu için grafik tam genişlik YATAY
-   şerit olarak duruyor (dikey koysaydık solda geniş boşluk kalırdı).
-   DİKKAT — ad çakışması: tm.css'te ".serit" adında bir kayan yazı bandı var
-   (overflow:hidden + kenarları solduran mask-image + border-block + bg-2).
-   Sınıf adı standart olduğu için değiştirmiyoruz; onun bize bulaşan
-   özelliklerini burada bilerek sıfırlıyoruz, yoksa infografiğin sol/sağ %8'i
-   maskeyle soluk çıkıyordu. */
-.serit{border:1px solid var(--hair);border-radius:var(--r-lg);
-  background:var(--panel);padding:18px;margin:26px 0 0;
-  overflow:visible;-webkit-mask-image:none;mask-image:none}
-/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
-.serit svg{width:100%;height:auto;display:block;border-radius:12px}
-.serit figcaption{margin-top:13px;font-size:12.4px;line-height:1.55;color:var(--muted)}
-.serit figcaption b{color:var(--fg-dim);font-weight:600}
-@media(max-width:760px){.serit{padding:12px}}
+/* --- AKIŞ İNFOGRAFİĞİ (.akis) — ÜÇ DURAK, ÜÇ AYRI KUTU ---
+   Hub sayfada aynı anlatı fiyat kutusunun YANINA dikey giriyor; burada fiyat
+   kutusu yok ve .dtay metin bloğu dar olduğu için akış tam genişlik duruyor.
 
-/* --- şerit canlanması ---
+   NEDEN TEK PARÇA DEĞİL (ölçüm): 1200x430 tek SVG, 390px ekranda 296px'e
+   sığınca içindeki 9.5px yazı 2.4px'e düşüyordu — okunmuyordu. Artık üç ayrı
+   SVG var ve 1100px altında alt alta açılıyorlar.
+
+   OKUNURLUK — TARAYICIDA ÖLÇÜLDÜ, VARSAYILMADI (headless Chrome, 360-1920px
+   arası tarama). Ekranda görünen punto = SVG puntosu * (SVG genişliği / 380).
+   Hedef: hiçbir kırılımda 9.5px'in altına düşmemek.
+
+     ekran   sütun   SVG px   15 punto ekranda
+      360      1      248        9.8   (en dar uç)
+      375      1      263       10.4
+      390      1      278       11.0
+      768      1      611*      24.1   (*max-width sınırı)
+     1100      1      611*      24.1
+     1101      3      273       10.8   (üç sütun tam burada başlıyor)
+     1240+     3      319       12.6
+
+   "İç genişlik ~300px, ölçek 0.79" tahmini fazla iyimserdi: 390px'te gerçek
+   ölçek 0.731. O yüzden taban 12 değil 15 punto. 15'İN ALTINA İNİLMEZ —
+   12 punto 390px'te 8.8px, 360px'te 7.8px ederdi; 14 punto bile 360px'te
+   9.1px'te kalıp eşiğin altına düşüyordu.
+
+   NEDEN YENİ SINIF ADI: bu blok eskiden tm.css'teki GLOBAL kayan-yazı bandı
+   bileşeniyle aynı adı taşıyordu. O bileşen kendi içinde
+   "<ad> span{display:inline-flex}" + "<ad> span::before{content:...}" kuralları
+   tanımlıyor; figure'ün içine konan her <span> bu kuralları yiyordu (ölçüldü:
+   ipucu span'i 1440px'te display:none olması gerekirken inline-flex alıyordu).
+   Bu yüzden ad tamamen bırakılıp ".akis" ailesine geçildi — tm.css'te böyle bir
+   önek yok, çakışma bitti. Yine de .akis-no/.akis-ad birer <span> olduğu için
+   display'leri aşağıda AÇIKÇA veriliyor: bir daha miras kazasına açık kalmasın,
+   stil bu dosyada görünür olsun. */
+.akis{border:1px solid var(--hair);border-radius:var(--r-lg);
+  background:var(--panel);padding:18px;margin:26px 0 0}
+.akis-izgara{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:12px;align-items:stretch}
+.akis-kutu{border:1px solid var(--hair);border-radius:var(--r-md);
+  background:rgba(255,255,255,.02);padding:14px;display:flex;
+  flex-direction:column;gap:10px}
+.akis-no{display:inline-block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;color:var(--acc);opacity:.9}
+.akis-ad{display:block;font-size:13.5px;font-weight:600;color:var(--fg);
+  letter-spacing:-.01em;margin-top:-6px}
+/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
+.akis-kutu svg{width:100%;height:auto;display:block;border-radius:10px}
+.akis-ok{display:grid;place-items:center;color:var(--acc);opacity:.6}
+.akis-ok svg{width:22px;height:22px}
+.akis figcaption{margin-top:14px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.akis figcaption b{color:var(--fg-dim);font-weight:600}
+/* KIRILIM 1100px — TAHMİN DEĞİL, TARAMAYLA BULUNDU.
+   Üç sütun ancak sütun başına düşen SVG >= 258px olduğunda 9.5px eşiğini
+   tutuyor; ölçümde bu 1100px'ten sonra oluyor. Kırılım bunun ALTINA konursa
+   sayfa tam orada bozulur: tek sütun 860px'te 741px'lik SVG verirken üç sütun
+   861px'te 195px'e düşüyor (15 punto → 7.7px, mobilden bile kötü).
+   KIRILIMI DÜŞÜRME; SVG'ye yazı eklersen taramayı tekrarla. */
+@media(max-width:1100px){
+  .akis-izgara{grid-template-columns:1fr;gap:10px;justify-items:center}
+  .akis-ok svg{transform:rotate(90deg)}
+  /* Tek sütunda kutu sayfa kadar genişlemesin: sınır olmadan 1100px'lik
+     ekranda tek grafik 1000px'e çıkıyordu. 650px kutu → 620px SVG,
+     ölçek 1.63 → 24.5px. Sınır SVG'ye değil KUTUYA konuyor: SVG'ye
+     konsaydı 01/02/03 etiketi solda kalıp grafik ortalanır, ikisi
+     birbirinden kopardı. Kutu daralınca etiket de grafikle geliyor. */
+  .akis-kutu{width:100%;max-width:650px}
+}
+@media(max-width:860px){
+  .akis{padding:14px}
+}
+
+/* --- akış canlanması ---
    YENİ JS YOK: figure zaten .rv sınıfında; site/js/tm.js görününce .in ekliyor.
    Tek sefer oynar. prefers-reduced-motion: tm.css'teki global kural
    animation-duration'ı .001ms'e indiriyor, "forwards" sayesinde her öğe anında
    son hâline oturuyor — ayrı kural gerekmiyor.
    Sınıf/keyframe öneki "ai-"/"ai": hub sayfa "w-"/"w", SEO "s-"/"s" kullanıyor;
    sayfalar ileride birleşirse çakışmasın diye ayrı tutuldu.
-   Süre çizelgesi (soldan sağa okunur): pencere .25s (1. durak) · ilk soru .42s ·
-   ilk yanıt .60s · ikinci soru .78s · bağlantı hattı .90s + akan nokta .95s ·
-   ok 1.30s · bilgi tabanı paneli 1.40s (2. durak) · dosya satırları 1.52–1.68s ·
-   satır parlaması 1.72s · dönüş hattı 1.82s · cevap balonu 1.90s (3. durak) ·
-   hale vurgusu 2.20s · yazıyor göstergesi 2.30s → ~2.6s. */
-.serit svg .ai-pencere,
-.serit svg .ai-panel,
-.serit svg .ai-soru1,
-.serit svg .ai-cevap1,
-.serit svg .ai-soru2,
-.serit svg .ai-satir > g,
-.serit svg .ai-ok,
-.serit svg .ai-yaziyor,
-.serit svg .ai-parla,
-.serit svg .ai-akan,
-.serit svg .ai-hale{opacity:0;transform-box:fill-box}
-.serit svg .ai-pencere{transform:translateY(-14px)}
-.serit svg .ai-panel{transform:translateX(20px)}
-.serit svg .ai-soru1,
-.serit svg .ai-cevap1,
-.serit svg .ai-soru2{transform:translateY(10px)}
-.serit svg .ai-satir > g{transform:translateX(12px)}
-.serit svg .ai-hale{transform-origin:center}
-.serit svg .ai-cevap2{clip-path:inset(100% 0 0 0);transform-box:fill-box}
-.serit svg .ai-hat,
-.serit svg .ai-donus{stroke-dasharray:200;stroke-dashoffset:200}
-.serit svg .ai-nokta{opacity:.3}
+   Sıra kutu kutu okunur — soldan sağa, mobilde yukarıdan aşağı:
+   1. kutu .25s'te başlar: pencere .25s · ilk soru .40s · ilk yanıt .54s ·
+     ikinci soru .68s · bağlantı hatları .78–.86s + akan nokta .84s · ok 1.06s
+   2. kutu .90s'te başlar: bilgi tabanı paneli .90s · dosya satırları 1.02–1.18s ·
+     eşleşen satırın parlaması 1.24s
+   3. kutu 1.50s'te başlar: pencere 1.50s · dönüş hattı 1.62s · cevap balonu
+     1.78s · hale vurgusu 2.02s · yazıyor göstergesi 2.16s → ~2.7s.
+   AŞAĞIDA BAŞLANGIÇ DURUMU VERİLEN HER ÖĞENİN .in KARŞILIĞI VAR. */
+.akis svg .ai-pencere,
+.akis svg .ai-cerceve,
+.akis svg .ai-panel,
+.akis svg .ai-soru1,
+.akis svg .ai-cevap1,
+.akis svg .ai-soru2,
+.akis svg .ai-satir > g,
+.akis svg .ai-ok,
+.akis svg .ai-yaziyor,
+.akis svg .ai-parla,
+.akis svg .ai-akan,
+.akis svg .ai-hale{opacity:0;transform-box:fill-box}
+.akis svg .ai-pencere,
+.akis svg .ai-cerceve{transform:translateY(-14px)}
+.akis svg .ai-panel{transform:translateX(20px)}
+.akis svg .ai-soru1,
+.akis svg .ai-cevap1,
+.akis svg .ai-soru2{transform:translateY(10px)}
+.akis svg .ai-satir > g{transform:translateX(12px)}
+.akis svg .ai-hale{transform-origin:center}
+.akis svg .ai-cevap2{clip-path:inset(100% 0 0 0);transform-box:fill-box}
+/* dasharray'ler yol uzunluklarından büyük seçildi: hat ~280, dönüş ~330 */
+.akis svg .ai-hat{stroke-dasharray:340;stroke-dashoffset:340}
+.akis svg .ai-donus{stroke-dasharray:420;stroke-dashoffset:420}
+.akis svg .ai-nokta{opacity:.3}
 
-.serit.in svg .ai-pencere{animation:aiGel .6s var(--ease) .25s forwards}
-.serit.in svg .ai-soru1{animation:aiBalon .5s var(--ease) .42s forwards}
-.serit.in svg .ai-cevap1{animation:aiBalon .5s var(--ease) .60s forwards}
-.serit.in svg .ai-soru2{animation:aiBalon .5s var(--ease) .78s forwards}
-.serit.in svg .ai-hat.g1{animation:aiHat .62s var(--ease) .90s forwards}
-.serit.in svg .ai-hat.g2{animation:aiHat .62s var(--ease) .96s forwards}
-.serit.in svg .ai-hat.g3{animation:aiHat .62s var(--ease) 1.02s forwards}
-.serit.in svg .ai-akan{animation:aiAkan 1s var(--ease) .95s forwards}
-.serit.in svg .ai-ok{animation:aiBelir .35s var(--ease) 1.30s forwards}
-.serit.in svg .ai-panel{animation:aiGel .6s var(--ease) 1.40s forwards}
-.serit.in svg .ai-satir > g:nth-child(1){animation:aiSatir .45s var(--ease) 1.52s forwards}
-.serit.in svg .ai-satir > g:nth-child(2){animation:aiSatir .45s var(--ease) 1.60s forwards}
-.serit.in svg .ai-satir > g:nth-child(3){animation:aiSatir .45s var(--ease) 1.68s forwards}
-.serit.in svg .ai-parla{animation:aiParla 1.1s var(--ease) 1.72s forwards}
-.serit.in svg .ai-donus{animation:aiHat .6s var(--ease) 1.82s forwards}
-.serit.in svg .ai-cevap2{animation:aiAcil .58s var(--ease) 1.90s forwards}
-.serit.in svg .ai-hale{animation:aiHale .85s var(--ease) 2.20s forwards}
-.serit.in svg .ai-yaziyor{animation:aiBelir .4s var(--ease) 2.30s forwards}
-.serit.in svg .ai-nokta{animation:aiNokta .45s steps(1,end) 2.45s 3}
+/* 1. kutu — sohbet penceresi */
+.akis.in svg .ai-pencere{animation:aiGel .6s var(--ease) .25s forwards}
+.akis.in svg .ai-soru1{animation:aiBalon .5s var(--ease) .40s forwards}
+.akis.in svg .ai-cevap1{animation:aiBalon .5s var(--ease) .54s forwards}
+.akis.in svg .ai-soru2{animation:aiBalon .5s var(--ease) .68s forwards}
+.akis.in svg .ai-hat.g1{animation:aiHat .62s var(--ease) .78s forwards}
+.akis.in svg .ai-hat.g2{animation:aiHat .62s var(--ease) .82s forwards}
+.akis.in svg .ai-hat.g3{animation:aiHat .62s var(--ease) .86s forwards}
+.akis.in svg .ai-akan{animation:aiAkan 1s var(--ease) .84s forwards}
+.akis.in svg .ai-ok{animation:aiBelir .35s var(--ease) 1.06s forwards}
+/* 2. kutu — bilgi tabanı */
+.akis.in svg .ai-panel{animation:aiGel .6s var(--ease) .90s forwards}
+.akis.in svg .ai-satir > g:nth-child(1){animation:aiSatir .45s var(--ease) 1.02s forwards}
+.akis.in svg .ai-satir > g:nth-child(2){animation:aiSatir .45s var(--ease) 1.10s forwards}
+.akis.in svg .ai-satir > g:nth-child(3){animation:aiSatir .45s var(--ease) 1.18s forwards}
+.akis.in svg .ai-parla{animation:aiParla 1.1s var(--ease) 1.24s forwards}
+/* 3. kutu — kaynaktan dönen cevap */
+.akis.in svg .ai-cerceve{animation:aiGel .6s var(--ease) 1.50s forwards}
+.akis.in svg .ai-donus{animation:aiHat .6s var(--ease) 1.62s forwards}
+.akis.in svg .ai-cevap2{animation:aiAcil .58s var(--ease) 1.78s forwards}
+.akis.in svg .ai-hale{animation:aiHale .85s var(--ease) 2.02s forwards}
+.akis.in svg .ai-yaziyor{animation:aiBelir .4s var(--ease) 2.16s forwards}
+.akis.in svg .ai-nokta{animation:aiNokta .45s steps(1,end) 2.30s 3}
 
 @keyframes aiGel{to{opacity:1;transform:translate(0,0)}}
 @keyframes aiBalon{to{opacity:1;transform:translateY(0)}}
@@ -347,7 +411,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 @keyframes aiBelir{to{opacity:1}}
 @keyframes aiHat{to{stroke-dashoffset:0}}
 @keyframes aiAkan{0%{opacity:0;transform:translateX(0)}18%{opacity:1}80%{opacity:1}
-  100%{opacity:0;transform:translateX(88px)}}
+  100%{opacity:0;transform:translateX(262px)}}
 @keyframes aiParla{0%{opacity:0}32%{opacity:1}68%{opacity:1}100%{opacity:.5}}
 @keyframes aiAcil{to{clip-path:inset(0 0 0 0)}}
 @keyframes aiHale{35%{opacity:.9}to{opacity:0;transform:scale(1.05)}}
@@ -458,6 +522,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   .burger{display:block}
   .ftr-ust{grid-template-columns:1fr}
 }
+
 </style>
 <script type="application/ld+json">
 {
@@ -623,184 +688,270 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
         </article>
       </div>
 
-      <!-- Yatay infografik şeridi — bu sayfanın KENDİ iddiasını çizer:
-           chatbot genel bir sohbet motoru değil, soruyu "sitenizin kendi
-           içeriğinden" oluşan bir bilgi tabanında arayıp yanıtı yalnızca
-           oradan kuran bir katmandır (bkz. 01/02 kartları ve SSS 2).
+      <!-- Akış infografiği — bu sayfanın KENDİ iddiasını çizer: chatbot genel
+           bir sohbet motoru değil, soruyu "sitenizin kendi içeriğinden" oluşan
+           bir bilgi tabanında arayıp yanıtı yalnızca oradan kuran bir katmandır
+           (bkz. 01/02 kartları ve SSS 2).
+           ÜÇ AYRI SVG: anlatının üç durağı üç kutuya bölündü, çünkü tek parça
+           1200px'lik şerit dar ekranda okunmuyordu (yazı 2.4px'e düşüyordu).
+           1100px altında kutular alt alta açılır, aradaki oklar aşağı döner
+           (kırılım tarayıcı taramasıyla bulundu; gerekçe stil bloğunda).
+           Her durak SVG'sinde en küçük yazı 15 punto — 390px'te ~11px eder.
            Balonların İÇİNE YAZI YAZILMADI: metin çubuğu kullanıldı, böylece
            olmayan bir müşteri diyaloğunu alıntılamış olmuyoruz.
            GRAFİKTE BİLEREK HİÇ RAKAM YOK — bu sayfada yüzde, süre, adet ya da
            fiyat verisi geçmiyor; grafik sayfada olmayan bir sayıyı üretemez.
            Inline SVG: ek istek yok, her ölçekte net, viewBox sayesinde oran
            sabit olduğu için düzen kaymaz (CLS yok). -->
-      <figure class="serit rv d2">
-        <svg viewBox="0 0 1200 430" role="img" aria-labelledby="aiSeritBaslik aiSeritAciklama"
-             xmlns="http://www.w3.org/2000/svg">
-          <title id="aiSeritBaslik">Sohbet penceresi ile sitenizin kendi içeriğinden oluşan bilgi tabanı arasındaki akış — temsilî görsel</title>
-          <desc id="aiSeritAciklama">Solda açık renkli bir sohbet penceresi çizimi: sağ hizalı iki
-            ziyaretçi balonu ve sol hizalı, aksan kenarlıklı iki asistan balonu. Balonların içinde
-            yazı yerine metin çubukları var; en altta üç noktalı yazıyor göstergesi duruyor. Sağda
-            "Sitenizin kendi içeriği" etiketli bir bilgi tabanı paneli: üç satırın her birinde
-            küçük bir dosya ikonu ve içerik çubukları, altında "kaynak dışına çıkmaz" notu. İki
-            taraf ince bağlantı çizgileriyle birbirine bağlı; soru sorulduğunda çizgiler sağa akar,
-            bilgi tabanında bir satır parlar ve ardından cevap balonu aşağıdan yukarı açılır.</desc>
+      <figure class="akis rv d2">
+        <div class="akis-izgara">
 
-          <defs>
-            <linearGradient id="aiSahne" x1="0" y1="0" x2="0.45" y2="1">
-              <stop offset="0" stop-color="#141C26"/>
-              <stop offset="1" stop-color="#0A0E14"/>
-            </linearGradient>
-            <radialGradient id="aiIsik" cx="0.22" cy="0.18" r="0.8">
-              <stop offset="0" stop-color="#00E5FF" stop-opacity=".16"/>
-              <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
-            </radialGradient>
-            <filter id="aiGolge" x="-25%" y="-25%" width="150%" height="150%">
-              <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#04070B" flood-opacity=".55"/>
-            </filter>
-          </defs>
+          <!-- ===== DURAK 01 — SOHBET PENCERESİ ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">01</span><span class="akis-ad">Sohbet penceresi</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="aiAkis1Bas aiAkis1Ack"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="aiAkis1Bas">Sitenize gömülü sohbet penceresi: ziyaretçinin sorusu geliyor — temsilî görsel</title>
+              <desc id="aiAkis1Ack">Açık renkli bir sohbet penceresi çizimi: sağ hizalı ziyaretçi
+                balonları ve sol hizalı, aksan kenarlıklı bir asistan balonu. Balonların içinde yazı
+                yerine metin çubukları var. Pencerenin altında üç ince bağlantı çizgisi sağa doğru
+                uzanıyor; soru sorulduğunda çizgiler boyunca bir nokta sağa akıyor.</desc>
 
-          <!-- sahne -->
-          <rect width="1200" height="430" fill="url(#aiSahne)"/>
-          <rect width="1200" height="430" fill="url(#aiIsik)"/>
+              <defs>
+                <linearGradient id="aiSahne1" x1="0" y1="0" x2="0.45" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="aiIsik1" cx="0.22" cy="0.18" r="0.8">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".16"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="aiGolge1" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
 
-          <!-- ===== SOL — SOHBET PENCERESİ ===== -->
-          <g class="ai-pencere">
-            <rect x="36" y="40" width="620" height="352" rx="16" fill="#FFFFFF" filter="url(#aiGolge)"/>
-            <circle cx="60" cy="62" r="4.5" fill="#FF5F57"/>
-            <circle cx="76" cy="62" r="4.5" fill="#FEBC2E"/>
-            <circle cx="92" cy="62" r="4.5" fill="#28C840"/>
-            <rect x="112" y="51" width="180" height="22" rx="11" fill="#F1F3F4"/>
-            <text x="124" y="66" font-family="Inter Tight, system-ui, sans-serif"
-                  font-size="11" fill="#5F6368">markaniz.com</text>
-            <text x="632" y="66" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
-                  font-size="9.5" letter-spacing="1.3" fill="#9AA0A6">SOHBET</text>
-            <line x1="36" y1="88" x2="656" y2="88" stroke="#E8EAED" stroke-width="1"/>
-            <g font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6"
-               letter-spacing="1.2" fill="#9AA0A6">
-              <text x="60" y="102">ASİSTAN</text>
-              <text x="632" y="102" text-anchor="end">ZİYARETÇİ</text>
-            </g>
-          </g>
+              <rect width="380" height="400" fill="url(#aiSahne1)"/>
+              <rect width="380" height="400" fill="url(#aiIsik1)"/>
 
-          <!-- ziyaretçi balonu 1 — sağ hizalı, açık gri, İÇİNDE YAZI YOK -->
-          <g class="ai-soru1">
-            <rect x="390" y="108" width="242" height="36" rx="12" fill="#EDEFF2" stroke="#E1E4E9"/>
-            <rect x="406" y="118" width="190" height="7" rx="3.5" fill="#C3C7CD"/>
-            <rect x="406" y="130" width="126" height="7" rx="3.5" fill="#D5D8DD"/>
-          </g>
-
-          <!-- asistan balonu 1 — sol hizalı, aksan kenarlıklı -->
-          <g class="ai-cevap1">
-            <rect x="60" y="154" width="272" height="48" rx="12" fill="#EDFDFF"
-                  stroke="#00E5FF" stroke-width="1.8"/>
-            <rect x="78" y="166" width="236" height="7" rx="3.5" fill="#4FBFD4"/>
-            <rect x="78" y="178" width="202" height="7" rx="3.5" fill="#7ED4E4"/>
-            <rect x="78" y="190" width="142" height="7" rx="3.5" fill="#A9E4EF"/>
-          </g>
-
-          <!-- ziyaretçi balonu 2 = akışı başlatan soru -->
-          <g class="ai-soru2">
-            <rect x="360" y="212" width="272" height="36" rx="12" fill="#EDEFF2" stroke="#E1E4E9"/>
-            <rect x="376" y="222" width="236" height="7" rx="3.5" fill="#C3C7CD"/>
-            <rect x="376" y="234" width="168" height="7" rx="3.5" fill="#D5D8DD"/>
-          </g>
-
-          <!-- asistan balonu 2 = kaynaktan dönen cevap; aşağıdan yukarı açılır -->
-          <g class="ai-cevap2">
-            <rect x="60" y="258" width="344" height="66" rx="12" fill="#EDFDFF"
-                  stroke="#00E5FF" stroke-width="1.8"/>
-            <rect x="78" y="270" width="308" height="7" rx="3.5" fill="#4FBFD4"/>
-            <rect x="78" y="282" width="284" height="7" rx="3.5" fill="#7ED4E4"/>
-            <rect x="78" y="294" width="252" height="7" rx="3.5" fill="#7ED4E4"/>
-            <rect x="78" y="306" width="170" height="7" rx="3.5" fill="#A9E4EF"/>
-          </g>
-          <!-- vurgu halesi: cevap oturunca bir kez genişleyip söner -->
-          <rect class="ai-hale" x="56" y="254" width="352" height="74" rx="15"
-                fill="none" stroke="#00E5FF" stroke-width="2"/>
-
-          <!-- yazılıyor göstergesi: üç nokta -->
-          <g class="ai-yaziyor">
-            <rect x="60" y="334" width="74" height="34" rx="12" fill="#EDFDFF"
-                  stroke="#00E5FF" stroke-width="1.4" stroke-opacity=".7"/>
-            <circle class="ai-nokta" cx="80" cy="351" r="4.5" fill="#00A9C0"/>
-            <circle class="ai-nokta" cx="96" cy="351" r="4.5" fill="#00A9C0"/>
-            <circle class="ai-nokta" cx="112" cy="351" r="4.5" fill="#00A9C0"/>
-          </g>
-
-          <!-- ===== ORTA — İNCE BAĞLANTI ÇİZGİLERİ ===== -->
-          <g fill="none" stroke="#00E5FF" stroke-width="1.4" stroke-opacity=".55" stroke-linecap="round">
-            <path class="ai-hat g1" d="M656,230 C700,230 712,180 752,180"/>
-            <path class="ai-hat g2" d="M656,230 C700,230 712,236 752,236"/>
-            <path class="ai-hat g3" d="M656,230 C700,230 712,292 752,292"/>
-            <path class="ai-donus" stroke-opacity=".32" d="M752,304 C712,304 700,292 656,292"/>
-            <path class="ai-ok" stroke-width="1.6" stroke-opacity=".9" d="M743,230 L752,236 L743,242"/>
-          </g>
-          <circle class="ai-akan" cx="660" cy="231" r="3.5" fill="#00E5FF"/>
-
-          <!-- ===== SAĞ — BİLGİ TABANI PANELİ ===== -->
-          <g class="ai-panel">
-            <text x="752" y="94" font-family="JetBrains Mono, ui-monospace, monospace"
-                  font-size="9.5" letter-spacing="1.3" fill="#00E5FF">SİTENİZİN KENDİ İÇERİĞİ</text>
-            <rect x="752" y="104" width="412" height="248" rx="14" fill="#0E141C"
-                  stroke="#00E5FF" stroke-opacity=".42" stroke-width="1.2"/>
-            <text x="1150" y="128" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
-                  font-size="9.5" letter-spacing="1.3" fill="#00E5FF">BİLGİ TABANI</text>
-            <line x1="766" y1="142" x2="1150" y2="142" stroke="#00E5FF" stroke-opacity=".26" stroke-width="1"/>
-
-            <!-- üç satır: küçük dosya ikonu + içerik çubukları -->
-            <g class="ai-satir">
-              <g>
-                <rect x="766" y="158" width="384" height="44" rx="10" fill="#101A22"
-                      stroke="#00E5FF" stroke-opacity=".18" stroke-width="1"/>
-                <rect x="778" y="167" width="20" height="26" rx="3.5" fill="#0B1219"
-                      stroke="#00E5FF" stroke-opacity=".55" stroke-width="1.3"/>
-                <g stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.2" stroke-linecap="round">
-                  <line x1="783" y1="176" x2="791" y2="176"/>
-                  <line x1="783" y1="181" x2="793" y2="181"/>
-                  <line x1="783" y1="186" x2="788" y2="186"/>
-                </g>
-                <rect x="812" y="171" width="240" height="8" rx="4" fill="#00E5FF" fill-opacity=".38"/>
-                <rect x="812" y="185" width="152" height="6" rx="3" fill="#00E5FF" fill-opacity=".16"/>
+              <g class="ai-pencere">
+                <rect x="14" y="16" width="352" height="290" rx="16" fill="#FFFFFF" filter="url(#aiGolge1)"/>
+                <circle cx="38" cy="40" r="5" fill="#FF5F57"/>
+                <circle cx="55" cy="40" r="5" fill="#FEBC2E"/>
+                <circle cx="72" cy="40" r="5" fill="#28C840"/>
+                <rect x="90" y="27" width="164" height="26" rx="13" fill="#F1F3F4"/>
+                <text x="102" y="45" font-family="Inter Tight, system-ui, sans-serif"
+                      font-size="15" fill="#5F6368">markaniz.com</text>
+                <text x="352" y="45" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing="1.1" fill="#9AA0A6">SOHBET</text>
+                <line x1="14" y1="66" x2="366" y2="66" stroke="#E8EAED" stroke-width="1"/>
+                <text x="30" y="88" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing="1.1" fill="#9AA0A6">ASİSTAN</text>
+                <text x="350" y="88" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing="1.1" fill="#9AA0A6">ZİYARETÇİ</text>
               </g>
-              <g>
-                <rect x="766" y="214" width="384" height="44" rx="10" fill="#101A22"
-                      stroke="#00E5FF" stroke-opacity=".18" stroke-width="1"/>
-                <rect x="778" y="223" width="20" height="26" rx="3.5" fill="#0B1219"
-                      stroke="#00E5FF" stroke-opacity=".55" stroke-width="1.3"/>
-                <g stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.2" stroke-linecap="round">
-                  <line x1="783" y1="232" x2="791" y2="232"/>
-                  <line x1="783" y1="237" x2="793" y2="237"/>
-                  <line x1="783" y1="242" x2="788" y2="242"/>
-                </g>
-                <rect x="812" y="227" width="282" height="8" rx="4" fill="#00E5FF" fill-opacity=".38"/>
-                <rect x="812" y="241" width="124" height="6" rx="3" fill="#00E5FF" fill-opacity=".16"/>
-                <!-- eşleşen satır: soru geldiğinde bu satır parlar -->
-                <rect class="ai-parla" x="766" y="214" width="384" height="44" rx="10"
-                      fill="#00E5FF" fill-opacity=".10" stroke="#00E5FF" stroke-opacity=".85"
-                      stroke-width="1.6"/>
-              </g>
-              <g>
-                <rect x="766" y="270" width="384" height="44" rx="10" fill="#101A22"
-                      stroke="#00E5FF" stroke-opacity=".18" stroke-width="1"/>
-                <rect x="778" y="279" width="20" height="26" rx="3.5" fill="#0B1219"
-                      stroke="#00E5FF" stroke-opacity=".55" stroke-width="1.3"/>
-                <g stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.2" stroke-linecap="round">
-                  <line x1="783" y1="288" x2="791" y2="288"/>
-                  <line x1="783" y1="293" x2="793" y2="293"/>
-                  <line x1="783" y1="298" x2="788" y2="298"/>
-                </g>
-                <rect x="812" y="283" width="212" height="8" rx="4" fill="#00E5FF" fill-opacity=".38"/>
-                <rect x="812" y="297" width="170" height="6" rx="3" fill="#00E5FF" fill-opacity=".16"/>
-              </g>
-            </g>
 
-            <text x="766" y="336" font-family="JetBrains Mono, ui-monospace, monospace"
-                  font-size="10.5" fill="#7C99A4">kaynak dışına çıkmaz</text>
-          </g>
-        </svg>
-        <figcaption><b>Temsilî görsel.</b> Sitenize gömülen sohbet penceresi soruyu alıyor, sağdaki
-          bilgi tabanında — yani sitenizin kendi içeriğinde — eşleşen satırı buluyor ve cevabı
-          yalnızca oradan kuruyor. Balonların içine bilerek yazı yazılmadı: metin çubukları
+              <!-- ziyaretçi balonu 1 — sağ hizalı, açık gri, İÇİNDE YAZI YOK -->
+              <g class="ai-soru1">
+                <rect x="150" y="102" width="200" height="44" rx="12" fill="#EDEFF2" stroke="#E1E4E9"/>
+                <rect x="166" y="114" width="158" height="8" rx="4" fill="#C3C7CD"/>
+                <rect x="166" y="128" width="104" height="8" rx="4" fill="#D5D8DD"/>
+              </g>
+
+              <!-- asistan balonu 1 — sol hizalı, aksan kenarlıklı -->
+              <g class="ai-cevap1">
+                <rect x="30" y="158" width="236" height="62" rx="12" fill="#EDFDFF"
+                      stroke="#00E5FF" stroke-width="1.8"/>
+                <rect x="46" y="170" width="202" height="8" rx="4" fill="#4FBFD4"/>
+                <rect x="46" y="185" width="174" height="8" rx="4" fill="#7ED4E4"/>
+                <rect x="46" y="200" width="120" height="8" rx="4" fill="#A9E4EF"/>
+              </g>
+
+              <!-- ziyaretçi balonu 2 = akışı başlatan soru -->
+              <g class="ai-soru2">
+                <rect x="126" y="232" width="224" height="44" rx="12" fill="#EDEFF2" stroke="#E1E4E9"/>
+                <rect x="142" y="244" width="192" height="8" rx="4" fill="#C3C7CD"/>
+                <rect x="142" y="258" width="134" height="8" rx="4" fill="#D5D8DD"/>
+              </g>
+
+              <!-- soru bilgi tabanına gidiyor: ince bağlantı hatları -->
+              <g fill="none" stroke="#00E5FF" stroke-width="1.6" stroke-opacity=".55" stroke-linecap="round">
+                <path class="ai-hat g1" d="M28,352 C104,352 140,326 298,326"/>
+                <path class="ai-hat g2" d="M28,352 C104,352 140,352 298,352"/>
+                <path class="ai-hat g3" d="M28,352 C104,352 140,378 298,378"/>
+                <path class="ai-ok" stroke-width="1.9" stroke-opacity=".9" d="M288,345 L299,352 L288,359"/>
+              </g>
+              <circle class="ai-akan" cx="30" cy="352" r="4.5" fill="#00E5FF"/>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 02 — BİLGİ TABANI ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">02</span><span class="akis-ad">Bilgi tabanı</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="aiAkis2Bas aiAkis2Ack"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="aiAkis2Bas">Sitenizin kendi içeriğinden oluşan bilgi tabanında eşleşen satır bulunuyor — temsilî görsel</title>
+              <desc id="aiAkis2Ack">"Sitenizin kendi içeriği" etiketli bir bilgi tabanı paneli: üç
+                satırın her birinde küçük bir dosya ikonu ve içerik çubukları var. Soru geldiğinde
+                ortadaki satır aksan rengiyle parlıyor; panelin altında "kaynak dışına çıkmaz" notu
+                duruyor.</desc>
+
+              <defs>
+                <linearGradient id="aiSahne2" x1="0" y1="0" x2="0.45" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="aiIsik2" cx="0.22" cy="0.18" r="0.8">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".16"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#aiSahne2)"/>
+              <rect width="380" height="400" fill="url(#aiIsik2)"/>
+
+              <g class="ai-panel">
+                <text x="16" y="30" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing="0.6" fill="#00E5FF">SİTENİZİN KENDİ İÇERİĞİ</text>
+                <rect x="14" y="42" width="352" height="338" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".42" stroke-width="1.2"/>
+                <text x="350" y="72" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing="1" fill="#00E5FF">BİLGİ TABANI</text>
+                <line x1="30" y1="88" x2="350" y2="88" stroke="#00E5FF" stroke-opacity=".26" stroke-width="1"/>
+
+                <!-- üç satır: küçük dosya ikonu + içerik çubukları -->
+                <g class="ai-satir">
+                  <g>
+                    <rect x="30" y="104" width="320" height="62" rx="10" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".18" stroke-width="1"/>
+                    <rect x="44" y="120" width="24" height="32" rx="4" fill="#0B1219"
+                          stroke="#00E5FF" stroke-opacity=".55" stroke-width="1.3"/>
+                    <g stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.3" stroke-linecap="round">
+                      <line x1="50" y1="130" x2="62" y2="130"/>
+                      <line x1="50" y1="137" x2="64" y2="137"/>
+                      <line x1="50" y1="144" x2="58" y2="144"/>
+                    </g>
+                    <rect x="84" y="122" width="204" height="10" rx="5" fill="#00E5FF" fill-opacity=".38"/>
+                    <rect x="84" y="142" width="128" height="8" rx="4" fill="#00E5FF" fill-opacity=".16"/>
+                  </g>
+                  <g>
+                    <rect x="30" y="180" width="320" height="62" rx="10" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".18" stroke-width="1"/>
+                    <rect x="44" y="196" width="24" height="32" rx="4" fill="#0B1219"
+                          stroke="#00E5FF" stroke-opacity=".55" stroke-width="1.3"/>
+                    <g stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.3" stroke-linecap="round">
+                      <line x1="50" y1="206" x2="62" y2="206"/>
+                      <line x1="50" y1="213" x2="64" y2="213"/>
+                      <line x1="50" y1="220" x2="58" y2="220"/>
+                    </g>
+                    <rect x="84" y="198" width="242" height="10" rx="5" fill="#00E5FF" fill-opacity=".38"/>
+                    <rect x="84" y="218" width="106" height="8" rx="4" fill="#00E5FF" fill-opacity=".16"/>
+                    <!-- eşleşen satır: soru geldiğinde bu satır parlar -->
+                    <rect class="ai-parla" x="30" y="180" width="320" height="62" rx="10"
+                          fill="#00E5FF" fill-opacity=".10" stroke="#00E5FF" stroke-opacity=".85"
+                          stroke-width="1.8"/>
+                  </g>
+                  <g>
+                    <rect x="30" y="256" width="320" height="62" rx="10" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".18" stroke-width="1"/>
+                    <rect x="44" y="272" width="24" height="32" rx="4" fill="#0B1219"
+                          stroke="#00E5FF" stroke-opacity=".55" stroke-width="1.3"/>
+                    <g stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.3" stroke-linecap="round">
+                      <line x1="50" y1="282" x2="62" y2="282"/>
+                      <line x1="50" y1="289" x2="64" y2="289"/>
+                      <line x1="50" y1="296" x2="58" y2="296"/>
+                    </g>
+                    <rect x="84" y="274" width="180" height="10" rx="5" fill="#00E5FF" fill-opacity=".38"/>
+                    <rect x="84" y="294" width="144" height="8" rx="4" fill="#00E5FF" fill-opacity=".16"/>
+                  </g>
+                </g>
+
+                <text x="30" y="352" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" fill="#7C99A4">kaynak dışına çıkmaz</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 03 — KAYNAKTAN DÖNEN CEVAP ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">03</span><span class="akis-ad">Kaynaktan dönen cevap</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="aiAkis3Bas aiAkis3Ack"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="aiAkis3Bas">Cevap yalnızca bilgi tabanından kurulup sohbet penceresine dönüyor — temsilî görsel</title>
+              <desc id="aiAkis3Ack">Bilgi tabanından sohbet penceresine dönen ince bir bağlantı
+                çizgisi; altında sol hizalı, aksan kenarlıklı asistan cevap balonu aşağıdan yukarı
+                açılıyor ve çevresinde bir kez vurgu halesi genişleyip sönüyor. Balonun içinde yazı
+                yerine metin çubukları var; en altta üç noktalı yazıyor göstergesi duruyor.</desc>
+
+              <defs>
+                <linearGradient id="aiSahne3" x1="0" y1="0" x2="0.45" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="aiIsik3" cx="0.22" cy="0.18" r="0.8">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".16"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="aiGolge3" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#aiSahne3)"/>
+              <rect width="380" height="400" fill="url(#aiIsik3)"/>
+
+              <!-- bilgi tabanından dönen hat -->
+              <path class="ai-donus" fill="none" stroke="#00E5FF" stroke-width="1.6"
+                    stroke-opacity=".45" stroke-linecap="round"
+                    d="M18,26 C130,26 200,26 268,26 C316,26 336,38 336,60"/>
+
+              <g class="ai-cerceve">
+                <rect x="14" y="64" width="352" height="316" rx="16" fill="#FFFFFF" filter="url(#aiGolge3)"/>
+                <text x="30" y="92" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing="1.1" fill="#9AA0A6">ASİSTAN</text>
+                <text x="350" y="92" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing="1.1" fill="#9AA0A6">SOHBET</text>
+                <line x1="14" y1="110" x2="366" y2="110" stroke="#E8EAED" stroke-width="1"/>
+              </g>
+
+              <!-- asistan balonu 2 = kaynaktan dönen cevap; aşağıdan yukarı açılır -->
+              <g class="ai-cevap2">
+                <rect x="30" y="140" width="308" height="118" rx="12" fill="#EDFDFF"
+                      stroke="#00E5FF" stroke-width="1.8"/>
+                <rect x="48" y="158" width="268" height="9" rx="4.5" fill="#4FBFD4"/>
+                <rect x="48" y="180" width="244" height="9" rx="4.5" fill="#7ED4E4"/>
+                <rect x="48" y="202" width="214" height="9" rx="4.5" fill="#7ED4E4"/>
+                <rect x="48" y="224" width="148" height="9" rx="4.5" fill="#A9E4EF"/>
+              </g>
+              <!-- vurgu halesi: cevap oturunca bir kez genişleyip söner -->
+              <rect class="ai-hale" x="26" y="136" width="316" height="126" rx="15"
+                    fill="none" stroke="#00E5FF" stroke-width="2"/>
+
+              <!-- yazılıyor göstergesi: üç nokta -->
+              <g class="ai-yaziyor">
+                <rect x="30" y="292" width="104" height="50" rx="14" fill="#EDFDFF"
+                      stroke="#00E5FF" stroke-width="1.4" stroke-opacity=".7"/>
+                <circle class="ai-nokta" cx="58" cy="317" r="7" fill="#00A9C0"/>
+                <circle class="ai-nokta" cx="82" cy="317" r="7" fill="#00A9C0"/>
+                <circle class="ai-nokta" cx="106" cy="317" r="7" fill="#00A9C0"/>
+              </g>
+            </svg>
+          </div>
+
+        </div>
+        <figcaption><b>Temsilî görsel.</b> Sitenize gömülen sohbet penceresi soruyu alıyor, ikinci
+          kutudaki bilgi tabanında — yani sitenizin kendi içeriğinde — eşleşen satırı buluyor ve
+          cevabı yalnızca oradan kuruyor. Balonların içine bilerek yazı yazılmadı: metin çubukları
           kullanıldı, çünkü burada gerçek bir müşteri konuşması yok. Pencere, alan adı ve dosya
           satırları örnektir. Grafikte bilerek hiçbir rakam yok.</figcaption>
       </figure>

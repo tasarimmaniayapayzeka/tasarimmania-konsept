@@ -444,6 +444,18 @@ a.alt-k:hover .alt-git{gap:12px}
   .burger{display:block}
   .ftr-ust{grid-template-columns:1fr}
 }
+
+/* GRAFIK-MOBIL-ONARIM */
+/* Dar ekranda grafik küçülünce yazısı okunmaz oluyordu (ölçüm: 390px'te
+   4.4-5.1px). Sitenin tablo deseni: kapsayıcı yatay kayar,
+   SVG okunur asgari genişliğini korur. */
+.serp-kaydir{display:none;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--acc);margin:0 0 10px;opacity:.85}
+@media(max-width:1000px){
+  .serp{overflow:auto hidden;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+  .serp svg{min-width:620px}
+  .serp-kaydir{display:block}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -736,6 +748,7 @@ a.alt-k:hover .alt-git{gap:12px}
            Inline SVG: ek istek yok, her ölçekte net, viewBox sayesinde oran
            sabit olduğu için düzen kaymaz (SEO sayfasıyla aynı 620x700 oranı). -->
       <figure class="serp rv d2">
+        <span class="serp-kaydir" aria-hidden="true">Yatay kaydırın →</span>
         <svg viewBox="0 0 620 700" role="img" aria-labelledby="vkzBaslik vkzAciklama"
              xmlns="http://www.w3.org/2000/svg">
           <title id="vkzBaslik">Kurgu zaman çizgisi — temsilî görsel</title>
