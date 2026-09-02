@@ -133,13 +133,24 @@ const article = graf.find((x) => x['@type'] === 'Article');
 const org = graf.find((x) => x['@type'] === 'Organization');
 
 /* --- 4b. Ters dizilim varyantları ---
-   Odağın iki kelimesi arasına ek/kelime giren VEYA sırası değişen kullanımlar.
-   Tam geçişin kendisi (bitişik "e-ticaret yazılımı") hariç tutulur. */
+   ESKİ SÜRÜM YANLIŞ ÖLÇÜYORDU: regex "k0 ... k1", yani DÜZ sırada araya kelime
+   girmesini arıyordu. Ters dizilim ise sıranın DEĞİŞMESİ demek. Üstelik
+   kelime[1]'e sabitlenmişti; "teknik SEO denetimi" gibi 3 kelimelik odakta son
+   kelimeyi hiç görmüyordu. Bir de cümle sınırı tanımadığı için
+   "teknik sorunlardır. Teknik SEO" gibi iki ayrı cümleyi tek bulgu sayıyordu.
+
+   DOĞRUSU: SON kelime ÖNCE, İLK kelime SONRA gelecek; ikisi AYNI cümlede,
+   aralarında en çok 4 kelime olacak. Türkçe ek almayı karşılamak için
+   kelimeler köke indirgenir (son 2 harf atılır, en az 3 harf kalır). */
 const kelime = ODAK.split(' ');
-const k0 = kelime[0], k1 = kelime[1].replace(/ı$/, '');
-const tersRe = new RegExp(k0 + '\\w*\\s+(?:\\S+\\s+){0,2}' + k1 + '\\w*', 'gi');
-const tamRe = new RegExp('^' + k0 + '\\s+' + k1, 'i');
-const tersBulgular = (tumGorunur.match(tersRe) || []).filter((s) => !tamRe.test(s));
+const kok = (t) => t.slice(0, Math.max(3, t.length - 2))
+  .toLowerCase().replace(/i̇/g, 'i').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const kIlk = kok(kelime[0]);
+const kSon = kok(kelime[kelime.length - 1]);
+const tersRe = new RegExp(kSon + '\\S*\\s+(?:\\S+\\s+){0,4}' + kIlk + '\\S*', 'gi');
+const tersBulgular = tumGorunur
+  .split(/(?<=[.?!:])\s+/)                       /* cümle sınırını aşma */
+  .flatMap((c) => c.match(tersRe) || []);
 
 /* --- Eş anlamlı çiftler --- */
 const ES = [['e-ticaret yazılımı', 'online mağaza altyapısı'], ['SaaS', 'abonelikli sistem'],
