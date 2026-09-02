@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>rm</title></head><body><pre id="s">…</pre>
+<script>
+(async function(){
+  var out=[];
+  for(var u of ['/site/hizmetler/seo/teknik-seo/','/site/hizmetler/seo/']){
+    var f=document.createElement('iframe');
+    f.style.cssText='width:1440px;height:1100px;position:absolute;left:-99999px;border:0';
+    document.body.appendChild(f);
+    f.src=u; await new Promise(function(r){setTimeout(r,1200)});
+    var d=f.contentDocument,w=f.contentWindow;
+    var fig=d.querySelector('figure.akis,figure.serp');
+    if(fig){
+      fig.scrollIntoView(); w.dispatchEvent(new Event('scroll'));
+      await new Promise(function(r){setTimeout(r,400)});
+      fig.classList.add('in');
+      // 300ms sonra hala gorunmez kalan var mi
+      await new Promise(function(r){setTimeout(r,300)});
+      var gizli=[].slice.call(fig.querySelectorAll('svg *')).filter(function(e){
+        if(!e.getBBox) return false;
+        var c=(e.getAttribute('class')||'');
+        if(/parla|isik|hale|halka|akan/i.test(c)) return false;
+        return parseFloat(w.getComputedStyle(e).opacity)<0.05;
+      }).length;
+      out.push({u:u, reduceAktif:w.matchMedia('(prefers-reduced-motion: reduce)').matches,
+        gizli300ms:gizli});
+    }
+    document.body.removeChild(f);
+  }
+  document.getElementById('s').textContent='BITTI '+JSON.stringify(out);
+})();
+</script></body></html>

@@ -182,9 +182,18 @@ ul{margin:0;padding:0;list-style:none}
   .serit-ray{animation:none}
 }
 
+/* SÜREYİ SIFIRLAMAK YETMİYOR — GECİKME DE SIFIRLANMALI.
+   Ölçüm (teknik-seo, reduce açık): süre .001ms'ken bile 300ms'de 21 öğe,
+   1500ms'de 3 öğe hâlâ opacity 0'daydı; sahne ancak 4000ms'de tamamlanıyordu.
+   Sebep: akış grafiklerinde canlanma sırası animation-delay ile kuruluyor
+   (en geç öğe 2.18s) ve delay bu bloktan etkilenmiyordu. Yani hareketi
+   kapatan kullanıcı, hareketi görmemek yerine boş kutulara bakıyordu.
+   -1ms negatif gecikme animasyonu bitmiş noktasından başlatır: öğe anında
+   son hâline oturur. */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
-    transition-duration:.001ms!important;scroll-behavior:auto!important}
+    animation-delay:-1ms!important;transition-duration:.001ms!important;
+    transition-delay:0s!important;scroll-behavior:auto!important}
   .rv{opacity:1;transform:none}
 }
 
