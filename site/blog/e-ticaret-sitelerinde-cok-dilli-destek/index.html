@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- KONSEPT-NOINDEX -->
+<meta name="robots" content="noindex,nofollow">
+<title>Çok Dilli E-Ticaret: Dönüşüme Etkisi Nasıl Ölçülür?</title>
+<meta name="description" content="Çok dilli e-ticaret kararının dönüşüm oranı, sepet terk ve iade metriklerine etkisini ölçülebilir bir çerçeveyle anlatıyoruz. KOBİ'ler için pratik yol.">
+<link rel="canonical" href="https://www.tasarimmania.com/blog/e-ticaret-sitelerinde-cok-dilli-destek/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="Çok Dilli E-Ticaret: Dönüşüme Etkisi Nasıl Ölçülür?">
+<meta property="og:description" content="Çok dilli e-ticaret kararının dönüşüm oranı, sepet terk ve iade metriklerine etkisini ölçülebilir bir çerçeveyle anlatıyoruz. KOBİ'ler için pratik yol.">
+<meta property="og:url" content="https://www.tasarimmania.com/blog/e-ticaret-sitelerinde-cok-dilli-destek/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/e-ticaret-sitelerinde-cok-dilli-destek/gorsel/e-ticaret-sitelerinde-cok-dilli-destek-kapak-1440.jpg">
+<meta property="og:image:width" content="1440">
+<meta property="og:image:height" content="810">
+<meta property="og:image:alt" content="Koyu zeminde birleşen saydam paneller ve camgöbeği veri hunisiyle çok dilli e-ticaret ölçümünü anlatan soyut görsel">
+<meta property="article:published_time" content="2026-10-13">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/e-ticaret-sitelerinde-cok-dilli-destek/gorsel/e-ticaret-sitelerinde-cok-dilli-destek-kapak-1440.jpg">
+<link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/tm.css">
+<style>
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  max-height:calc(100dvh - 74px);overflow-y:auto;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(28px,4vw,52px)) 0 clamp(22px,3vw,34px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.14),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.wa{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:90;width:54px;height:54px;
+  border-radius:50%;background:#25D366;display:grid;place-items:center;
+  box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s;padding-block:7px}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+@media(max-width:960px){.ftr-ust{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.nav-links,.nav-tel{display:none}.burger{display:block}.ftr-ust{grid-template-columns:1fr}}
+/* --- blog yazısı: okuma düzeni --- */
+.yz-ust{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.yz-kat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acc);border:1px solid rgba(var(--acc-rgb),.4);border-radius:99px;padding:6px 13px}
+.yz-meta{font-family:var(--mono);font-size:11.4px;color:var(--muted)}
+.phd h1{font-size:clamp(28px,4.4vw,46px);letter-spacing:-.035em;line-height:1.16;margin-bottom:16px;max-width:22ch}
+.phd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18px);max-width:62ch;line-height:1.78}
+.yz-govde{max-width:760px}
+.yz-govde h2{font-size:clamp(21px,2.9vw,28px);letter-spacing:-.03em;line-height:1.25;margin:44px 0 0}
+.yz-govde h3{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;line-height:1.35;margin:30px 0 10px}
+.yz-govde h4{font-size:15.6px;letter-spacing:-.01em;margin:22px 0 8px;color:var(--fg-dim)}
+.yz-govde p{font-size:15.6px;color:var(--fg-dim);line-height:1.85;margin:0 0 16px}
+.yz-govde ul,.yz-govde ol{margin:0 0 18px;padding-left:0;list-style:none;display:grid;gap:10px}
+.yz-govde li{font-size:15.2px;color:var(--fg-dim);line-height:1.72;display:flex;gap:11px;align-items:flex-start}
+.yz-govde li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:10px}
+.yz-govde ol{counter-reset:s}
+.yz-govde ol li{counter-increment:s}
+.yz-govde ol li::before{content:counter(s);width:auto;height:auto;border-radius:0;background:none;
+  color:var(--acc);font-family:var(--mono);font-size:12px;margin-top:2px;min-width:16px}
+.yz-govde strong{color:var(--fg);font-weight:600}
+/* WCAG 2.5.8 - satir ici baglanti dokunma hedefi >=24px.
+   DIKKAT: padding'i AYRI bir .yz-govde p a kuralina koyma; .yz-govde a:not(.btn)
+   ozgullugu (0,2,1) onu (0,1,2) ezer ve 2px'te kalir. Degeri bu kuralin ICINDE tut. */
+.yz-govde a:not(.btn){color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.4);transition:text-decoration-color .25s;padding-block:4px}
+.yz-govde a:not(.btn):hover{text-decoration-color:var(--acc)}
+/* doğrudan cevap kutusu (snippet hedefi) */
+.yz-cevap{border-left:2px solid var(--acc);background:rgba(var(--acc-rgb),.05);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:16px 20px;margin:16px 0 22px}
+.yz-cevap p{margin:0;color:var(--fg);font-size:15.4px;line-height:1.75}
+/* karşılaştırma tablosu */
+.yz-tablo{margin:26px 0;border:1px solid var(--hair);border-radius:var(--r-md);overflow-x:auto}
+.yz-tablo table{width:100%;border-collapse:collapse;min-width:520px}
+.yz-tablo th{font-family:var(--mono);font-size:10.4px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--acc);text-align:left;padding:14px 16px;border-bottom:1px solid var(--hair);
+  background:rgba(var(--acc-rgb),.05);font-weight:500;white-space:nowrap}
+.yz-tablo td{font-size:13.8px;color:var(--fg-dim);padding:14px 16px;border-bottom:1px solid var(--hair);
+  line-height:1.6;vertical-align:top}
+.yz-tablo tr:last-child td{border-bottom:0}
+.yz-tablo td:first-child{color:var(--fg);font-weight:600}
+.yz-tablo-not{font-family:var(--mono);font-size:10.4px;color:var(--muted);margin:-16px 0 26px;
+  letter-spacing:.04em}
+/* SSS */
+.yz-sss{display:grid;gap:11px;max-width:760px}
+.yz-sss details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
+.yz-sss details[open]{border-color:var(--hair-strong)}
+.yz-sss summary{cursor:pointer;list-style:none;padding:17px 21px;font-size:15.2px;font-weight:600;
+  display:flex;align-items:center;gap:14px;line-height:1.4}
+.yz-sss summary::-webkit-details-marker{display:none}
+.yz-sss summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.yz-sss details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.yz-sss summary:hover{color:var(--acc)}
+.yz-sss p{padding:0 21px 19px;margin:0;font-size:14.4px;color:var(--muted);line-height:1.75}
+/* hizmet köprüsü */
+.yz-kopru{border:1px solid rgba(var(--acc-rgb),.32);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(var(--acc-rgb),.07),transparent);
+  padding:clamp(22px,3vw,32px);margin:36px 0;max-width:760px}
+.yz-kopru b{display:block;font-size:clamp(17px,2.2vw,21px);letter-spacing:-.02em;margin-bottom:9px}
+.yz-kopru p{font-size:14.6px;color:var(--fg-dim);line-height:1.72;margin:0 0 18px}
+.yz-kopru .btn{margin-right:10px}
+/* okuma ilerlemesi */
+.yz-cizgi{position:fixed;top:0;left:0;height:2px;background:var(--acc);z-index:101;width:0;
+  transition:width .1s linear}
+@media(max-width:760px){.yz-govde h2{margin-top:34px}}
+@media(prefers-reduced-motion:reduce){.yz-cizgi{display:none}}
+/* --- 1.2 eklentileri --- */
+.yz-kapak{margin:0 0 clamp(26px,4vw,44px)}
+.yz-kapak img,.yz-gorsel img{width:100%;height:auto;display:block;border-radius:14px;
+  border:1px solid var(--hair);background:#0d1017}
+.yz-kapak figcaption,.yz-gorsel figcaption{margin-top:11px;font-size:13.2px;line-height:1.55;
+  color:var(--muted);max-width:760px}
+.yz-gorsel{margin:clamp(26px,4vw,38px) 0}
+.yz-ai{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--fg-dim);opacity:.72;white-space:nowrap}
+.yz-govde ol{margin:16px 0 20px;padding-left:22px;display:grid;gap:10px}
+.yz-govde ol li{padding-left:4px}
+.yz-govde ol li::marker{color:var(--acc);font-family:var(--mono);font-weight:600}
+.yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
+  background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
+.yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.tasarimmania.com/blog/e-ticaret-sitelerinde-cok-dilli-destek/#article",
+      "headline": "Çok Dilli E-Ticaret Dönüşüm Oranınızı Nasıl Değiştirir?",
+      "description": "Çok dilli e-ticaret kararının dönüşüm oranı, sepet terk ve iade metriklerine etkisini ölçülebilir bir çerçeveyle anlatıyoruz. KOBİ'ler için pratik yol.",
+      "datePublished": "2026-10-13",
+      "dateModified": "2026-10-13",
+      "inLanguage": "tr-TR",
+      "mainEntityOfPage": "https://www.tasarimmania.com/blog/e-ticaret-sitelerinde-cok-dilli-destek/",
+      "author": { "@type": "Organization", "name": "TasarımMania", "url": "https://www.tasarimmania.com/" },
+      "publisher": { "@id": "https://www.tasarimmania.com/#kurulus" },
+      "articleSection": "E-Ticaret",
+      "wordCount": 1096,
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/e-ticaret-sitelerinde-cok-dilli-destek/gorsel/e-ticaret-sitelerinde-cok-dilli-destek-kapak-1440.jpg",
+        "width": 1440, "height": 810,
+        "caption": "Koyu zeminde birleşen saydam paneller ve camgöbeği veri hunisiyle çok dilli e-ticaret ölçümünü anlatan soyut görsel"
+      },
+      "about": [{"@type":"Thing","name":"Çok dilli e-ticaret","description":"Çok dilli e-ticaret, bir çevrim içi mağazanın ürün, sepet ve ödeme içeriklerini birden fazla dilde sunmasıdır."},{"@type":"Thing","name":"Dönüşüm oranı","description":"Dönüşüm oranı, bir segmentteki oturumların satın almaya dönme yüzdesidir."}],
+      "mentions": [{"@type":"Thing","name":"Dönüşüm oranı"},{"@type":"Thing","name":"Sepet terk oranı"},{"@type":"Thing","name":"İade oranı"},{"@type":"Thing","name":"Dil kırılımı"},{"@type":"Thing","name":"Temel dönem ölçümü"},{"@type":"Thing","name":"Ödeme hunisi"},{"@type":"Thing","name":"Yerelleştirme"}],
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".ozet", ".yz-cevap"] }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.tasarimmania.com/#kurulus",
+      "name": "TasarımMania",
+      "url": "https://www.tasarimmania.com/",
+      "telephone": "+905547916545",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/logo/marka-yatay-optik.png",
+        "width": 435, "height": 163
+      },
+      "address": { "@type": "PostalAddress", "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+        "addressLocality": "Bakırköy", "addressRegion": "İstanbul", "addressCountry": "TR" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.tasarimmania.com/blog/e-ticaret-sitelerinde-cok-dilli-destek/#sss",
+      "mainEntity": [
+    { "@type": "Question", "name": "Çok dilli e-ticaret dönüşüm oranını gerçekten yükseltir mi?", "acceptedAnswer": { "@type": "Answer", "text": "Etki mağazadan mağazaya değişir, bu yüzden genel bir oran vaat etmiyoruz. Doğru kurgu, dil kırılımlı huniyi izlemek ve temel dönemle karşılaştırmaktır. Ölçüm kurulduğunda katkı ya görünür ya da görünmez; ikisi de değerli bilgidir." } },
+    { "@type": "Question", "name": "Kaç dille başlamak mantıklı olur?", "acceptedAnswer": { "@type": "Answer", "text": "Trafiğinizde ağırlığı olan tek bir dille başlayın, sonucu ölçün, sonra ikinciye geçin." } },
+    { "@type": "Question", "name": "Ölçüm için hangi araçlar yeterli?", "acceptedAnswer": { "@type": "Answer", "text": "Standart bir analitik kurulumu, olay tabanlı sepet ve ödeme takibi ile sipariş yönetim raporları çoğu KOBİ için yeterlidir. Pahalı bir yığın gerekmez; eksik olan genelde araç değil, dil parametresidir." } },
+    { "@type": "Question", "name": "Sonuçları ne kadar sürede görürüz?", "acceptedAnswer": { "@type": "Answer", "text": "Dört haftalık temel dönem, yayın sonrası dört haftalık ısınma ve onu izleyen iki hafta, ilk sağlıklı karşılaştırmayı verir." } },
+    { "@type": "Question", "name": "Makine çevirisi tek başına yeterli olur mu?", "acceptedAnswer": { "@type": "Answer", "text": "Kategori metinleri ve blog içeriği için başlangıç noktası olabilir. Ödeme, kargo, garanti ve iade metinlerinde ise insan kontrolü şart. Bu sayfalar satın alma kararının tam ortasında durur; küçük bir anlam kayması doğrudan sepet terkine dönüşür." } },
+    { "@type": "Question", "name": "Önce hangi sayfaları çevirmeliyiz?", "acceptedAnswer": { "@type": "Answer", "text": "Sıralamayı gelir katkısına göre kurarız: en çok satan ürün sayfaları, sepet ve ödeme adımları, kargo ile iade koşulları. Kurumsal sayfalar listenin sonunda kalabilir." } },
+    { "@type": "Question", "name": "Dil desteği iade oranını düşürür mü?", "acceptedAnswer": { "@type": "Answer", "text": "İade nedenlerinin bir bölümü ürünün kendisiyle değil, ürünün yanlış anlaşılmasıyla ilgilidir. Beden tablosu, malzeme içeriği, voltaj bilgisi ve kullanım talimatı kullanıcının dilinde net yazıldığında beklenti doğru kurulur. Beklenti doğruysa kutu açıldığında sürpriz çıkmaz ve iade talebi azalır. Etkinin boyutunu görmek için iade nedenlerini dil bazında etiketlemek ve en az iki çeyrek boyunca izlemek gerekir. Bu etiketleme, çeviri bütçesini hangi kategoriye ayıracağınızı da söyler." } },
+    { "@type": "Question", "name": "Küçük bir mağaza için bu yatırım karşılığını verir mi?", "acceptedAnswer": { "@type": "Answer", "text": "Karar, dil başına katkı tablosuna bakılarak verilir. Tek bir dilde artan sipariş sayısı çeviri ve operasyon yükünü karşılıyorsa devam edersiniz. Karşılamıyorsa o dili kapatmak yerine önce içeriğini onarır, ölçümü tekrarlarsınız." } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.tasarimmania.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.tasarimmania.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Çok Dilli E-Ticaret Dönüşüm Oranınızı Nasıl Değiştirir?", "item": "https://www.tasarimmania.com/blog/e-ticaret-sitelerinde-cok-dilli-destek/" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body data-dal="web">
+
+<i class="yz-cizgi" data-ilerleme aria-hidden="true"></i>
+<a class="skip" href="#ana">İçeriğe geç</a>
+
+<nav class="nav" data-nav aria-label="Ana menü">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../../" aria-label="TasarımMania ana sayfa">
+      <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async">
+    </a>
+    <div class="nav-links">
+      <a href="../../hizmetler/">Hizmetler</a>
+      <a href="../../#isler">İşler</a>
+      <a href="../../hakkimizda/">Ajans</a>
+      <a href="../../blog/" aria-current="page">Blog</a>
+      <a href="../../teklif/">Teklif Al</a>
+      <a href="../../iletisim/">İletişim</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../../hizmetler/">Hizmetler</a><a href="../../#isler">İşler</a><a href="../../hakkimizda/">Ajans</a>
+  <a href="../../blog/">Blog</a><a href="../../teklif/">Teklif Al</a><a href="../../iletisim/">İletişim</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<!-- AYIRT EDİCİ EKSEN: ÖLÇÜM — Çok dilli desteğin dönüşüm oranı, sepet ve iade metriklerine ölçülebilir etkisi; çiftin diğer yarısı (uluslararasi-seo) hreflang/URL kurulum ROTA'sına ayrıldı, teknik kuruluma burada girilmez.
+     Huni türü: TOFU · Küme: Çok Dilli SEO · Kardeşler (enjeksiyon turunda): uluslararasi-seo-nasil-yapilir, e-ticaret-yazilimi, e-ticaret-web-tasarimi -->
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Konum">
+        <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
+        <a href="../../blog/">Blog</a><span aria-hidden="true">/</span>
+        <span>undefined</span>
+      </nav>
+      <div class="yz-ust">
+        <span class="yz-kat">E-Ticaret</span>
+        <span class="yz-meta">13 Ekim 2026 · 7 dakikalık okuma</span>
+      </div>
+      <h1>Çok Dilli E-Ticaret Dönüşüm Oranınızı Nasıl Değiştirir?</h1>
+      <p class="ozet">Türkiye'de e-ticaret hacmi büyüdükçe rekabet de sertleşiyor. Mağazanıza gelen trafiğin bir bölümü artık Türkçe dışında bir dil tercih eden kullanıcılardan oluşuyor. Peki bu ziyaretçiler gerçekten satın alıyor mu, yoksa sepette mi kalıyor? Bu yazıda çok dilli e-ticaret kararının dönüşüm oranına, sepet terk oranına ve iade metriklerine yansımasını ölçülebilir bir çerçeveyle ele alıyoruz. Teknik kurulum başka bir yazının konusu; odağımız rakamın kendisi.</p>
+    </div>
+  </header>
+
+  <figure class="yz-kapak">
+    <div class="wrap">
+      <img src="./gorsel/e-ticaret-sitelerinde-cok-dilli-destek-kapak-1440.webp"
+           srcset="./gorsel/e-ticaret-sitelerinde-cok-dilli-destek-kapak-640.webp 640w, ./gorsel/e-ticaret-sitelerinde-cok-dilli-destek-kapak-960.webp 960w, ./gorsel/e-ticaret-sitelerinde-cok-dilli-destek-kapak-1440.webp 1440w, ./gorsel/e-ticaret-sitelerinde-cok-dilli-destek-kapak-1920.webp 1920w"
+           sizes="(max-width: 1200px) 100vw, 1160px"
+           alt="Koyu zeminde birleşen saydam paneller ve camgöbeği veri hunisiyle çok dilli e-ticaret ölçümünü anlatan soyut görsel"
+           width="1920" height="1080" fetchpriority="high" decoding="async">
+      <figcaption>Farklı dillerden gelen trafik, ancak ortak bir ölçüm hunisinde buluştuğunda karara dönüşür. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
+    </div>
+  </figure>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <article class="yz-govde">
+      <h2>Çok Dilli E-Ticaret Dönüşümü Nasıl Etkiler?</h2>
+      <div class="yz-cevap"><p>Çok dilli e-ticaret, ziyaretçi ürünü kendi dilinde okuduğunda dönüşüm oranını yukarı taşıyabilir; yönü ve büyüklüğü ancak dil kırılımlı raporla görülür. Dil seçeneğinin karar anındaki tereddüde etkisini de aynı raporda ararız. Etkiyi tahminle değil ölçümle konuşuruz. Rakam yoksa iddia da yoktur; ölçüm bittiğinde tablo netleşir.</p></div>
+      <p>Ziyaretçi bir ürün sayfasına düştüğünde tek soruya cevap arar: burası bana göre mi? Anadilinde yazılmış başlık o soruyu saniyeler içinde kapatır; yabancı dildeki açıklama okuma yükü üretip kullanıcıyı geri tuşuna yaklaştırır.</p><p>Türkiye'de dijitalleşen işletme sayısı artıyor; <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">Ticaret Bakanlığı'nın ETBİS raporu</a> bu genişlemeyi ortaya koyuyor. Rekabet büyüdükçe fark yaratan detaylar küçülüyor; çok dilli e-ticaret kararı da bunlardan biri.</p>
+      <h3>Dil, güven sinyalinin ilk katmanıdır</h3>
+      <p>Güven sinyali, kullanıcının risk algısını düşüren her görsel ve metinsel unsurdur. Yarım çevrilmiş ödeme adımı, kart bilgisi girilmeden önce şüphe üretir. Kargo, garanti ve iade metinlerinin dili sepetteki son tereddüdü belirler.</p>
+      <h3>Ölçüm yoksa etki iddiası da yok</h3>
+      <p>E-ticarette çok dilli desteğin katkısını görmenin tek yolu, aynı segmentte öncesi ile sonrası verisini karşılaştırmaktır. Trafik kaynağını, cihaz kırılımını ve kampanya takvimini sabit tutarız; artışın kaynağını böylece söyleriz.</p>
+      <h2>Hangi Metrikler Dil Desteğinin Etkisini Gösterir?</h2>
+      <div class="yz-cevap"><p>Dört metrik etkiyi açık biçimde gösterir: dil kırılımlı dönüşüm oranı, sepet terk oranı, ödeme adımı tamamlama oranı ve iade oranı. Bu dördü aynı panoda durduğunda tablo netleşir. Tek bir metrik kararı taşıyacak kadar güçlü değildir; dördünü birlikte okumak gerekir. Hepsini aynı zaman aralığında izleriz.</p></div>
+      <p>Ölçümü kurarken ilk işimiz segment tanımıdır: tarayıcı dili, arayüz dili ve ülke bilgisi ayrı alanlarda durur. Türkçe arayüzde gezinip İngilizce ödeme sayfasına düşen kullanıcıyı ayrı görmek isteriz.</p><p>Dil kırılımlı panoda ölçüm, tek bir toplam sayıdan ibaret olamaz. Panoyu dört haftalık pencerelerle okuruz; kısa pencereler kampanya gürültüsünü metriğe taşır. <a href="../../hizmetler/seo/e-ticaret-seo/">E-ticaret SEO</a> tarafındaki oturum verisiyle bu panoyu aynı tabloda birleştiririz.</p>
+      <h3>Dil kırılımında dönüşüm oranı</h3>
+      <p>Dönüşüm oranı, bir segmentteki oturumların satın almaya dönme yüzdesidir. Arayüz dili bazında ayrıştırdığınızda ortalamanın gizlediği farklar çıkar. Çok dilli e-ticaret sitelerinde genel oran sabit dururken tek dilin oranı erir.</p>
+      <h3>Sepet terk oranı ve ödeme adımı tamamlama</h3>
+      <p>Sepete ürün ekleyip alışverişi yarıda bırakan kullanıcı oranı, dil sorunlarının en hızlı yankılandığı yerdir. Ödeme adımı tamamlama oranını ayrı sütunda tutarız; kargo, vergi veya taksit metni çevrilmemişse kayıp burada büyür.</p>
+      <h4>Dil bazlı sepet terk raporu nasıl kurulur?</h4>
+      <p>Sepet olayına arayüz dili parametresini ekler, ödeme adımlarını huni biçiminde tanımlarız. Rapor, hangi adımda hangi dilin kaybettiğini tek bakışta verir.</p>
+      <h2>Sepet Terk ve İade Oranı Dil Desteğiyle Nasıl Bağlantılı?</h2>
+      <div class="yz-cevap"><p>İade taleplerinin bir bölümü üründen değil, yanlış anlaşılan üründen doğar; payını ancak iade nedenlerini dil bazında etiketleyince görürsünüz. Ölçü tablosu, malzeme bilgisi veya kullanım koşulu kullanıcının dilinde değilse beklenti baştan yanlış kurulur. Sepet terk ile iade, aynı iletişim boşluğunun iki ayrı çıktısıdır. İkisini bu nedenle yan yana izleriz.</p></div>
+      <p>Müşteri kutuyu açtığında beklentisiyle gerçeğin örtüşmesini bekler; beklentiyi sayfadaki metin kurar. Yüzeysel çeviri, hayal kırıklığını ve geri dönen kargo maliyetini birlikte getirir. Çok dilli e-ticaret kurulumlarında iade, çoğu zaman lojistik değil iletişim sorunudur.</p><p>Sepette vazgeçen kullanıcı ile iade formunu dolduran kullanıcı çoğu zaman aynı boşluktan çıkar: karşılığı olmayan bir cümle. İki metriği bu yüzden tek panoda, aynı dil etiketiyle izleriz.</p>
+      <h3>İade nedenleri çoğu zaman anlatım hatasıdır</h3>
+      <p>İade formundaki serbest metin alanı değerli bir veri kaynağıdır. Nedenleri dil bazında etiketlediğimizde hangi kategoride hangi açıklamanın eksik kaldığını görürüz.</p>
+      <h3>Teknik bilgi ile ürün açıklaması uyumu</h3>
+      <p>Beden tablosu, voltaj bilgisi ve garanti süresi makine çevirisine en az uyan alanlardır. Bu alanları insan eliyle uyarlamak, iade oranındaki dalgalanmayı kısa sürede yatıştırır.</p>
+      <h2>Ölçüm Kurulumunu Adım Adım Nasıl Yaparsınız?</h2>
+      <div class="yz-cevap"><p>Kurulum beş adımda tamamlanır: segment tanımı, olay etiketleme, temel dönem ölçümü, dil yayını ve karşılaştırma. Her adımın çıktısı bir sonrakinin girdisidir. Temel dönem verisi olmadan sonraki tabloyu yorumlamak mümkün değildir. Sırayı bu yüzden hiç bozmayız; şablon oturduğunda her yeni dili aynı akışla ölçeriz.</p></div>
+      <p>Çok dilli e-ticaret ölçümünü kurarken sıra önemlidir; akış mağaza büyüklüğünden bağımsız işler.</p><ol><li>Arayüz dili, tarayıcı dili ve ülke bilgisini analitikte ayrı boyut olarak tanımlayın.</li><li>Sepete ekleme, ödemeye başlama ve sipariş tamamlama olaylarına dil parametresini iliştirin.</li><li>Yeni dili yayına almadan önce en az dört haftalık temel dönem verisi toplayın.</li><li>Yayın sonrasındaki ilk dört haftayı ısınma kabul edin, o pencerede yorum yapmayın.</li><li>Beşinci haftadan itibaren temel dönemle karşılaştırın, farkı dil bazında raporlayın.</li></ol><p>Altyapı tarafında eksik varsa <a href="../../hizmetler/web-tasarim-yazilim/e-ticaret/">e-ticaret geliştirme</a> ekibimizle olay katmanını birlikte kurarız.</p>
+      <h3>Dört haftalık temel dönem neden şart?</h3>
+      <p>Temel dönem, değişiklikten önceki normali tanımlayan ölçüm penceresidir. O pencere olmadan sonraki artışı mevsimselliğe mi dile mi bağlayacağınızı bilemezsiniz.</p>
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
+      <h2>Ölçüm Sonuçlarını Karar Tablosuna Çevirmek</h2>
+      <div class="yz-cevap"><p>Ham rapor tek başına karar üretmez; her dil için katkı, maliyet ve öncelik sütunlarını yan yana koymak gerekir. Dil başına net katkıyı gördüğünüzde bütçe tartışması kısalır. Zayıf performans veren dili kapatmak yerine önce içeriğini onarırız. Sonuçta bütçe, sezgiye değil satır satır veriye dayanır.</p></div>
+      <p>Karar tablosu, her dilin getirdiği ciroyu ve o dile ayrılan çeviri ile operasyon yükünü aynı satırda gösterir. Sütunları az tutmak tartışmayı hızlandırır. Çok dilli e-ticaret yatırımını dil başına ayrı değerlendiririz, toplam rakama bakmayız.</p><p>Bakanlığın <a href="https://ticaret.gov.tr/duyurular/turkiyede-e-ticaretin-gorunumu-raporu-yayinlandi-06-05-2025" target="_blank" rel="noopener">e-ticaret görünümü duyurusu</a>, pazarın yıllık büyüme yönü için düzenli bir referans sunuyor.</p>
+      <h3>Dil başına katkı ve öncelik sırası</h3>
+      <p>Öncelik sırası, kaynağı en yüksek getiriye yönlendiren basit bir sıralamadır. E-ticaret sitenizde çok dilli deneyimi kurarken her dile eşit bütçe ayırmayız; talebi yüksek ama içeriği zayıf dilleri listenin başına alırız.</p>
+      <h2>Çok Dilli E-Ticaret Altyapınızı Birlikte Planlayalım</h2>
+      <div class="yz-cevap"><p>Doğru sıra şudur: önce ölçüm, sonra dil, en sonda genişleme. Mağazanızın mevcut verisini inceleyip hangi dilin gerçekten kazandıracağını birlikte görebiliriz. Toplantı sonunda elinizde tahmin değil tablo olur. İlk tablo çoğu zaman tek görüşmede ortaya çıkar. Kararı sizin adınıza değil, sizinle beraber veririz.</p></div>
+      <p>Çok dilli bir e-ticaret mağazasını ölçüm katmanı olmadan yönetemezsiniz. Ekibimiz panoyu kurar, dil kırılımlı huniyi tanımlar ve içerik önceliklerini çıkarır. <a href="../../hizmetler/seo/cok-dilli-seo/">Çok dilli SEO</a> hizmetimiz bu akışı kapsar. Nereden başlayacağınızdan emin değilseniz <a href="../../teklif/">teklif formunu</a> doldurun; ilk tabloyu beraber çıkaralım.</p>
+      <h3>Başlangıç için ne gerekiyor?</h3>
+      <p>Analitik erişimi, mevcut dil listesi ve son üç ayın sipariş dökümü yeterlidir. İlk görüşmede kapsamı netleştirir, ölçüm takvimini beraber belirleriz.</p>
+      <figure class="yz-gorsel">
+        <img src="./gorsel/e-ticaret-sitelerinde-cok-dilli-destek-govde-960.webp"
+             srcset="./gorsel/e-ticaret-sitelerinde-cok-dilli-destek-govde-640.webp 640w, ./gorsel/e-ticaret-sitelerinde-cok-dilli-destek-govde-960.webp 960w, ./gorsel/e-ticaret-sitelerinde-cok-dilli-destek-govde-1440.webp 1440w, ./gorsel/e-ticaret-sitelerinde-cok-dilli-destek-govde-1920.webp 1920w"
+             sizes="(max-width: 760px) 100vw, 760px"
+             alt="Beş yükseltisi farklı ölçüm çubuğundan biri camgöbeği ışıkla vurgulanmış soyut karar tablosu görseli" width="1920" height="1080" loading="lazy" decoding="async">
+        <figcaption>Dil başına katkı görünür hale geldiğinde bütçe tartışması sezgiden çıkıp veriye dayanır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
+      </figure>
+      <h2>Tek Dilli ve Çok Dilli Kurulumda Ölçüm Karşılaştırması</h2>
+      <div class="yz-tablo">
+        <table>
+          <thead><tr><th>Ölçüm alanı</th><th>Tek dilli mağazada görülen tablo</th><th>Çok dilli kurulumda izlenen metrik</th><th>Ölçüm yöntemi</th></tr></thead>
+          <tbody>
+            <tr><td>Dönüşüm oranı</td><td>Tek bir genel ortalama</td><td>Arayüz dili bazında ayrı oran</td><td>Analitikte dil boyutu kırılımı</td></tr>
+            <tr><td>Sepet terk</td><td>Toplam terk yüzdesi</td><td>Dil bazında adım adım terk noktası</td><td>Ödeme hunisi olay takibi</td></tr>
+            <tr><td>Ödeme adımı tamamlama</td><td>Tek huni tamamlama yüzdesi</td><td>Dil bazında adım tamamlama</td><td>Ödeme adımı olay eşleme</td></tr>
+            <tr><td>İade oranı</td><td>Kategori bazlı takip</td><td>Dil ve kategori kesişimi</td><td>İade formundaki neden etiketleri</td></tr>
+            <tr><td>Müşteri sorusu</td><td>Genel destek hacmi</td><td>Dil başına soru yoğunluğu</td><td>Destek kaydında dil etiketi</td></tr>
+            <tr><td>İçerik önceliği</td><td>Sezgisel karar</td><td>Katkıya göre sıralanmış dil listesi</td><td>Karar tablosu ve dört haftalık pencere</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+        <div class="yz-kopru">
+          <b>Çok Dilli E-Ticaret Altyapınızı Birlikte Planlayalım</b>
+          <p>Kapsamınıza uygun yol haritasını birlikte çıkaralım; adımları ve zamanlamayı netleştirelim.</p>
+          <a class="btn btn-p" href="../../teklif/#web">Kapsam çıkaralım
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="../../hizmetler/seo/cok-dilli-seo/">Hizmet sayfasını gör</a>
+        </div>
+        <p>Dil kararı bir tercih meselesi değil, ölçülebilir bir yatırım kalemidir. Dönüşüm oranı, sepet terk ve iade metrikleri doğru kurulduğunda hangi dilin kazandırdığı birkaç haftada görünür olur. Tahminle ilerleyen mağazalar bütçeyi yanlış yere harcar. Veriyle ilerleyenler ise her yeni dili daha ucuza açar.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Sık sorulanlar</span>
+        <h2 data-kin>Sık sorulan sorular: çok dilli e-ticaret</h2>
+      </div>
+      <div class="yz-sss rv d1">
+        <details>
+          <summary>Çok dilli e-ticaret dönüşüm oranını gerçekten yükseltir mi?</summary>
+          <p>Etki mağazadan mağazaya değişir, bu yüzden genel bir oran vaat etmiyoruz. Doğru kurgu, dil kırılımlı huniyi izlemek ve temel dönemle karşılaştırmaktır. Ölçüm kurulduğunda katkı ya görünür ya da görünmez; ikisi de değerli bilgidir.</p>
+        </details>
+        <details>
+          <summary>Kaç dille başlamak mantıklı olur?</summary>
+          <p>Trafiğinizde ağırlığı olan tek bir dille başlayın, sonucu ölçün, sonra ikinciye geçin.</p>
+        </details>
+        <details>
+          <summary>Ölçüm için hangi araçlar yeterli?</summary>
+          <p>Standart bir analitik kurulumu, olay tabanlı sepet ve ödeme takibi ile sipariş yönetim raporları çoğu KOBİ için yeterlidir. Pahalı bir yığın gerekmez; eksik olan genelde araç değil, dil parametresidir.</p>
+        </details>
+        <details>
+          <summary>Sonuçları ne kadar sürede görürüz?</summary>
+          <p>Dört haftalık temel dönem, yayın sonrası dört haftalık ısınma ve onu izleyen iki hafta, ilk sağlıklı karşılaştırmayı verir.</p>
+        </details>
+        <details>
+          <summary>Makine çevirisi tek başına yeterli olur mu?</summary>
+          <p>Kategori metinleri ve blog içeriği için başlangıç noktası olabilir. Ödeme, kargo, garanti ve iade metinlerinde ise insan kontrolü şart. Bu sayfalar satın alma kararının tam ortasında durur; küçük bir anlam kayması doğrudan sepet terkine dönüşür.</p>
+        </details>
+        <details>
+          <summary>Önce hangi sayfaları çevirmeliyiz?</summary>
+          <p>Sıralamayı gelir katkısına göre kurarız: en çok satan ürün sayfaları, sepet ve ödeme adımları, kargo ile iade koşulları. Kurumsal sayfalar listenin sonunda kalabilir.</p>
+        </details>
+        <details>
+          <summary>Dil desteği iade oranını düşürür mü?</summary>
+          <p>İade nedenlerinin bir bölümü ürünün kendisiyle değil, ürünün yanlış anlaşılmasıyla ilgilidir. Beden tablosu, malzeme içeriği, voltaj bilgisi ve kullanım talimatı kullanıcının dilinde net yazıldığında beklenti doğru kurulur. Beklenti doğruysa kutu açıldığında sürpriz çıkmaz ve iade talebi azalır. Etkinin boyutunu görmek için iade nedenlerini dil bazında etiketlemek ve en az iki çeyrek boyunca izlemek gerekir. Bu etiketleme, çeviri bütçesini hangi kategoriye ayıracağınızı da söyler.</p>
+        </details>
+        <details>
+          <summary>Küçük bir mağaza için bu yatırım karşılığını verir mi?</summary>
+          <p>Karar, dil başına katkı tablosuna bakılarak verilir. Tek bir dilde artan sipariş sayısı çeviri ve operasyon yükünü karşılıyorsa devam edersiniz. Karşılamıyorsa o dili kapatmak yerine önce içeriğini onarır, ölçümü tekrarlarsınız.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>Web, mobil, reklam, video ve SEO’yu tek çatı altında birleştiren
+          İstanbul merkezli 360 derece dijital ajans.</p>
+      </div>
+      <div>
+        <h5>Modüller</h5>
+        <ul>
+          <li><a href="../../hizmetler/">Tüm hizmetler</a></li>
+          <li><a href="../../hizmetler/web-tasarim-yazilim/">Web &amp; Yazılım</a></li>
+          <li><a href="../../hizmetler/mobil-uygulama/">Mobil Uygulama</a></li>
+          <li><a href="../../hizmetler/dijital-pazarlama/">Dijital Pazarlama</a></li>
+          <li><a href="../../hizmetler/video-produksiyon/">Video Prodüksiyon</a></li>
+          <li><a href="../../hizmetler/seo/">SEO Hizmetleri</a></li>
+          <li><a href="../../hizmetler/grafik-tasarim/">Grafik Tasarım</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>İletişim</h5>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../../iletisim/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../../iletisim/#ofis">Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</span>
+      <span class="mono">BEŞ MODÜL · TEK PANEL</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+<script>
+"use strict";
+(function(){
+  var c = document.querySelector('[data-ilerleme]');
+  if (!c || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  function ciz(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    c.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', ciz, { passive: true });
+  ciz();
+})();
+</script>

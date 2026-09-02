@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- KONSEPT-NOINDEX -->
+<meta name="robots" content="noindex,nofollow">
+<title>Sosyal Medya Raporlama: İzlenmesi Gereken Metrikler</title>
+<meta name="description" content="Sosyal medya raporlama için erişim, etkileşim ve dönüşüm metriklerini nasıl seçeceğinizi, rapor tablosunu nasıl okuyacağınızı KOBİ diliyle anlatıyoruz.">
+<link rel="canonical" href="https://www.tasarimmania.com/blog/sosyal-medya-raporlama/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="Sosyal Medya Raporlama: İzlenmesi Gereken Metrikler">
+<meta property="og:description" content="Sosyal medya raporlama için erişim, etkileşim ve dönüşüm metriklerini nasıl seçeceğinizi, rapor tablosunu nasıl okuyacağınızı KOBİ diliyle anlatıyoruz.">
+<meta property="og:url" content="https://www.tasarimmania.com/blog/sosyal-medya-raporlama/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/sosyal-medya-raporlama/gorsel/sosyal-medya-raporlama-kapak-1440.jpg">
+<meta property="og:image:width" content="1440">
+<meta property="og:image:height" content="810">
+<meta property="og:image:alt" content="Sosyal medya raporlama katmanları: erişim, etkileşim ve dönüşüm ölçütlerinin üst üste okunmasını anlatan soyut görsel">
+<meta property="article:published_time" content="2026-10-19">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/sosyal-medya-raporlama/gorsel/sosyal-medya-raporlama-kapak-1440.jpg">
+<link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/tm.css">
+<style>
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  max-height:calc(100dvh - 74px);overflow-y:auto;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(28px,4vw,52px)) 0 clamp(22px,3vw,34px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.14),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.wa{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:90;width:54px;height:54px;
+  border-radius:50%;background:#25D366;display:grid;place-items:center;
+  box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s;padding-block:7px}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+@media(max-width:960px){.ftr-ust{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.nav-links,.nav-tel{display:none}.burger{display:block}.ftr-ust{grid-template-columns:1fr}}
+/* --- blog yazısı: okuma düzeni --- */
+.yz-ust{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.yz-kat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acc);border:1px solid rgba(var(--acc-rgb),.4);border-radius:99px;padding:6px 13px}
+.yz-meta{font-family:var(--mono);font-size:11.4px;color:var(--muted)}
+.phd h1{font-size:clamp(28px,4.4vw,46px);letter-spacing:-.035em;line-height:1.16;margin-bottom:16px;max-width:22ch}
+.phd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18px);max-width:62ch;line-height:1.78}
+.yz-govde{max-width:760px}
+.yz-govde h2{font-size:clamp(21px,2.9vw,28px);letter-spacing:-.03em;line-height:1.25;margin:44px 0 0}
+.yz-govde h3{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;line-height:1.35;margin:30px 0 10px}
+.yz-govde h4{font-size:15.6px;letter-spacing:-.01em;margin:22px 0 8px;color:var(--fg-dim)}
+.yz-govde p{font-size:15.6px;color:var(--fg-dim);line-height:1.85;margin:0 0 16px}
+.yz-govde ul,.yz-govde ol{margin:0 0 18px;padding-left:0;list-style:none;display:grid;gap:10px}
+.yz-govde li{font-size:15.2px;color:var(--fg-dim);line-height:1.72;display:flex;gap:11px;align-items:flex-start}
+.yz-govde li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:10px}
+.yz-govde ol{counter-reset:s}
+.yz-govde ol li{counter-increment:s}
+.yz-govde ol li::before{content:counter(s);width:auto;height:auto;border-radius:0;background:none;
+  color:var(--acc);font-family:var(--mono);font-size:12px;margin-top:2px;min-width:16px}
+.yz-govde strong{color:var(--fg);font-weight:600}
+/* WCAG 2.5.8 - satir ici baglanti dokunma hedefi >=24px.
+   DIKKAT: padding'i AYRI bir .yz-govde p a kuralina koyma; .yz-govde a:not(.btn)
+   ozgullugu (0,2,1) onu (0,1,2) ezer ve 2px'te kalir. Degeri bu kuralin ICINDE tut. */
+.yz-govde a:not(.btn){color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.4);transition:text-decoration-color .25s;padding-block:4px}
+.yz-govde a:not(.btn):hover{text-decoration-color:var(--acc)}
+/* doğrudan cevap kutusu (snippet hedefi) */
+.yz-cevap{border-left:2px solid var(--acc);background:rgba(var(--acc-rgb),.05);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:16px 20px;margin:16px 0 22px}
+.yz-cevap p{margin:0;color:var(--fg);font-size:15.4px;line-height:1.75}
+/* karşılaştırma tablosu */
+.yz-tablo{margin:26px 0;border:1px solid var(--hair);border-radius:var(--r-md);overflow-x:auto}
+.yz-tablo table{width:100%;border-collapse:collapse;min-width:520px}
+.yz-tablo th{font-family:var(--mono);font-size:10.4px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--acc);text-align:left;padding:14px 16px;border-bottom:1px solid var(--hair);
+  background:rgba(var(--acc-rgb),.05);font-weight:500;white-space:nowrap}
+.yz-tablo td{font-size:13.8px;color:var(--fg-dim);padding:14px 16px;border-bottom:1px solid var(--hair);
+  line-height:1.6;vertical-align:top}
+.yz-tablo tr:last-child td{border-bottom:0}
+.yz-tablo td:first-child{color:var(--fg);font-weight:600}
+.yz-tablo-not{font-family:var(--mono);font-size:10.4px;color:var(--muted);margin:-16px 0 26px;
+  letter-spacing:.04em}
+/* SSS */
+.yz-sss{display:grid;gap:11px;max-width:760px}
+.yz-sss details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
+.yz-sss details[open]{border-color:var(--hair-strong)}
+.yz-sss summary{cursor:pointer;list-style:none;padding:17px 21px;font-size:15.2px;font-weight:600;
+  display:flex;align-items:center;gap:14px;line-height:1.4}
+.yz-sss summary::-webkit-details-marker{display:none}
+.yz-sss summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.yz-sss details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.yz-sss summary:hover{color:var(--acc)}
+.yz-sss p{padding:0 21px 19px;margin:0;font-size:14.4px;color:var(--muted);line-height:1.75}
+/* hizmet köprüsü */
+.yz-kopru{border:1px solid rgba(var(--acc-rgb),.32);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(var(--acc-rgb),.07),transparent);
+  padding:clamp(22px,3vw,32px);margin:36px 0;max-width:760px}
+.yz-kopru b{display:block;font-size:clamp(17px,2.2vw,21px);letter-spacing:-.02em;margin-bottom:9px}
+.yz-kopru p{font-size:14.6px;color:var(--fg-dim);line-height:1.72;margin:0 0 18px}
+.yz-kopru .btn{margin-right:10px}
+/* okuma ilerlemesi */
+.yz-cizgi{position:fixed;top:0;left:0;height:2px;background:var(--acc);z-index:101;width:0;
+  transition:width .1s linear}
+@media(max-width:760px){.yz-govde h2{margin-top:34px}}
+@media(prefers-reduced-motion:reduce){.yz-cizgi{display:none}}
+/* --- 1.2 eklentileri --- */
+.yz-kapak{margin:0 0 clamp(26px,4vw,44px)}
+.yz-kapak img,.yz-gorsel img{width:100%;height:auto;display:block;border-radius:14px;
+  border:1px solid var(--hair);background:#0d1017}
+.yz-kapak figcaption,.yz-gorsel figcaption{margin-top:11px;font-size:13.2px;line-height:1.55;
+  color:var(--muted);max-width:760px}
+.yz-gorsel{margin:clamp(26px,4vw,38px) 0}
+.yz-ai{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--fg-dim);opacity:.72;white-space:nowrap}
+.yz-govde ol{margin:16px 0 20px;padding-left:22px;display:grid;gap:10px}
+.yz-govde ol li{padding-left:4px}
+.yz-govde ol li::marker{color:var(--acc);font-family:var(--mono);font-weight:600}
+.yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
+  background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
+.yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.tasarimmania.com/blog/sosyal-medya-raporlama/#article",
+      "headline": "Sosyal Medya Raporlama: Hangi Metrikleri İzlemeli?",
+      "description": "Sosyal medya raporlama için erişim, etkileşim ve dönüşüm metriklerini nasıl seçeceğinizi, rapor tablosunu nasıl okuyacağınızı KOBİ diliyle anlatıyoruz.",
+      "datePublished": "2026-10-19",
+      "dateModified": "2026-10-19",
+      "inLanguage": "tr-TR",
+      "mainEntityOfPage": "https://www.tasarimmania.com/blog/sosyal-medya-raporlama/",
+      "author": { "@type": "Organization", "name": "TasarımMania", "url": "https://www.tasarimmania.com/" },
+      "publisher": { "@id": "https://www.tasarimmania.com/#kurulus" },
+      "articleSection": "Sosyal Medya",
+      "wordCount": 1176,
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/sosyal-medya-raporlama/gorsel/sosyal-medya-raporlama-kapak-1440.jpg",
+        "width": 1440, "height": 810,
+        "caption": "Sosyal medya raporlama katmanları: erişim, etkileşim ve dönüşüm ölçütlerinin üst üste okunmasını anlatan soyut görsel"
+      },
+      "about": [{"@type":"Thing","name":"Sosyal Medya Raporlama","description":"Sosyal medya raporlama, kanal verisini erişim, etkileşim ve dönüşüm katmanlarında ölçüp iş kararına çeviren düzenli ölçüm pratiğidir."},{"@type":"Thing","name":"Etkileşim Oranı","description":"Etkileşim oranı, bir içeriğe gelen anlamlı tepkilerin ulaşılan tekil kişi sayısına bölünmesiyle elde edilen performans göstergesidir."}],
+      "mentions": [{"@type":"Thing","name":"Erişim"},{"@type":"Thing","name":"Gösterim"},{"@type":"Thing","name":"Frekans"},{"@type":"Thing","name":"Etkileşim oranı"},{"@type":"Thing","name":"Mikro dönüşüm"},{"@type":"Thing","name":"UTM etiketleme"},{"@type":"Thing","name":"Atıf modeli"}],
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".ozet", ".yz-cevap"] }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.tasarimmania.com/#kurulus",
+      "name": "TasarımMania",
+      "url": "https://www.tasarimmania.com/",
+      "telephone": "+905547916545",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/logo/marka-yatay-optik.png",
+        "width": 435, "height": 163
+      },
+      "address": { "@type": "PostalAddress", "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+        "addressLocality": "Bakırköy", "addressRegion": "İstanbul", "addressCountry": "TR" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.tasarimmania.com/blog/sosyal-medya-raporlama/#sss",
+      "mainEntity": [
+    { "@type": "Question", "name": "Rapor ne sıklıkla hazırlanmalı?", "acceptedAnswer": { "@type": "Answer", "text": "Haftalık kısa bakış, aylık ayrıntılı okuma yeterlidir. Günlük takip çoğu KOBİ için gürültü üretir." } },
+    { "@type": "Question", "name": "Etkileşim oranını neye bölmeliyiz?", "acceptedAnswer": { "@type": "Answer", "text": "Takipçi sayısına değil, erişime bölün. Takipçi tabanı zamanla şişer ve oranı yapay biçimde düşürür. Erişime bölünen oran, içeriğin gerçekten kaç kişiyi harekete geçirdiğini gösterir. Kampanya dönemlerinde iki oranı da yan yana tutmak faydalı olur." } },
+    { "@type": "Question", "name": "Takipçi sayısı rapora girmeli mi?", "acceptedAnswer": { "@type": "Answer", "text": "Girmeli, fakat başrolde değil. Net takipçi değişimini tek satır olarak izleyin. Karar verirken erişim ve dönüşüm sütunlarına bakın; takipçi sayısı yalnızca uzun vadeli bir trend göstergesidir." } },
+    { "@type": "Question", "name": "Erişim ile gösterim arasındaki fark nedir?", "acceptedAnswer": { "@type": "Answer", "text": "Erişim, içeriği gören tekil kişi sayısıdır. Gösterim ise aynı kişiye yapılan tekrarlı teşhirleri de sayar. İkisinin oranı frekansı verir." } },
+    { "@type": "Question", "name": "Mikro dönüşüm neyi ifade eder?", "acceptedAnswer": { "@type": "Answer", "text": "Mikro dönüşüm, satıştan önce gelen niyet sinyalidir. Katalog indirme, fiyat sayfası görüntüleme ve mesaj başlatma bu gruba girer. Satış döngüsü uzun sektörlerde raporu ayakta tutan sütun budur." } },
+    { "@type": "Question", "name": "Küçük bir işletme ölçüme hangi araçlarla başlamalı?", "acceptedAnswer": { "@type": "Answer", "text": "Başlangıç için platformların kendi analiz ekranları, bir web analitiği hesabı ve basit bir tablo dosyası yeterlidir. Önce UTM etiket düzenini kurun; kaynak, ortam ve kampanya alanlarını her bağlantıda aynı kuralla doldurun. Ardından haftalık olarak erişim, etkileşim oranı ve mikro dönüşüm sayılarını tek sayfaya taşıyın. Üç ay sonra elinizde kendi taban çizginiz oluşur. Pahalı bir panel yatırımına ancak bu taban çizgisi netleştikten sonra geçmenizi öneriyoruz, çünkü araç eksikliği değil tanım eksikliği raporları bozar." } },
+    { "@type": "Question", "name": "Rapor kaç sayfa olmalı?", "acceptedAnswer": { "@type": "Answer", "text": "Karar sayfası tek olmalı. Ayrıntı ekleri arkada dursun." } },
+    { "@type": "Question", "name": "Organik ve ücretli veriyi tek raporda birleştirmek doğru mu?", "acceptedAnswer": { "@type": "Answer", "text": "Doğru, hatta gerekli. İki tarafı ayrı raporlarda tutmak aynı kitleyi iki kez saymanıza yol açar. Birleşik tabloda organik ve ücretli satırları ayrı tutun, toplam satırını en altta gösterin." } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.tasarimmania.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.tasarimmania.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Sosyal Medya Raporlama: Hangi Metrikleri İzlemeli?", "item": "https://www.tasarimmania.com/blog/sosyal-medya-raporlama/" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body data-dal="pazarlama">
+
+<i class="yz-cizgi" data-ilerleme aria-hidden="true"></i>
+<a class="skip" href="#ana">İçeriğe geç</a>
+
+<nav class="nav" data-nav aria-label="Ana menü">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../../" aria-label="TasarımMania ana sayfa">
+      <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async">
+    </a>
+    <div class="nav-links">
+      <a href="../../hizmetler/">Hizmetler</a>
+      <a href="../../#isler">İşler</a>
+      <a href="../../hakkimizda/">Ajans</a>
+      <a href="../../blog/" aria-current="page">Blog</a>
+      <a href="../../teklif/">Teklif Al</a>
+      <a href="../../iletisim/">İletişim</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../../hizmetler/">Hizmetler</a><a href="../../#isler">İşler</a><a href="../../hakkimizda/">Ajans</a>
+  <a href="../../blog/">Blog</a><a href="../../teklif/">Teklif Al</a><a href="../../iletisim/">İletişim</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<!-- AYIRT EDİCİ EKSEN: ÖLÇÜM — Erişim, etkileşim ve dönüşüm metrik seti ile rapor okuma; strateji rotası ve reklam araç kıyası kardeş yazılara bırakılır.
+     Huni türü: TOFU · Küme: Dijital Pazarlama Performansı · Kardeşler (enjeksiyon turunda): e-posta-pazarlama, google-ads-ve-ppc, reklam-metni-yazma -->
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Konum">
+        <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
+        <a href="../../blog/">Blog</a><span aria-hidden="true">/</span>
+        <span>undefined</span>
+      </nav>
+      <div class="yz-ust">
+        <span class="yz-kat">Sosyal Medya</span>
+        <span class="yz-meta">19 Ekim 2026 · 7 dakikalık okuma</span>
+      </div>
+      <h1>Sosyal Medya Raporlama: Hangi Metrikleri İzlemeli?</h1>
+      <p class="ozet">Aylık sunumda beğeni sayısı büyük görünür, ciro tablosunda karşılığı çıkmaz. Bu boşluk, çoğu zaman yanlış metrik seçiminden doğar. Sosyal medya raporlama, kanal verisini iş kararına çeviren ölçüm disiplinidir. Doğru kurulduğunda hangi içeriğin para getirdiğini, hangisinin yalnızca gürültü ürettiğini gösterir. Yazının devamında erişim, etkileşim ve dönüşüm katmanlarını ayrı ayrı ele alıyoruz. Amacımız net: KOBİ karar vericisi raporu on dakikada okusun, aksiyon çıkarsın.</p>
+    </div>
+  </header>
+
+  <figure class="yz-kapak">
+    <div class="wrap">
+      <img src="./gorsel/sosyal-medya-raporlama-kapak-1440.webp"
+           srcset="./gorsel/sosyal-medya-raporlama-kapak-640.webp 640w, ./gorsel/sosyal-medya-raporlama-kapak-960.webp 960w, ./gorsel/sosyal-medya-raporlama-kapak-1440.webp 1440w, ./gorsel/sosyal-medya-raporlama-kapak-1920.webp 1920w"
+           sizes="(max-width: 1200px) 100vw, 1160px"
+           alt="Sosyal medya raporlama katmanları: erişim, etkileşim ve dönüşüm ölçütlerinin üst üste okunmasını anlatan soyut görsel"
+           width="1920" height="1080" fetchpriority="high" decoding="async">
+      <figcaption>Üç katmanlı ölçüm mantığı: erişim, etkileşim ve dönüşüm aynı sayfada okunur. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
+    </div>
+  </figure>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <article class="yz-govde">
+      <h2>Sosyal Medya Raporlama Neden Metrik Seçimiyle Başlar?</h2>
+      <div class="yz-cevap"><p>Sosyal medya raporlama, ölçülecek metrikleri iş hedefine bağlayarak başlar; hedefe bağlanmayan sayı rapora girmez. Bilinirlik hedefi erişimi, talep hedefi dönüşümü öne çıkarır. Metrik setini önce seçiyoruz, paneli sonra kuruyoruz. Bu sıra bozulduğunda rapor, araçların varsayılan ekranlarının kopyasına döner. Hedef cümlesini tek satırda yazmak seti daraltmanın en hızlı yoludur.</p></div>
+      <p>Ölçüm setini daraltmak, ekran kurmaktan önce gelir. Üç soruyla ilerliyoruz: Kime ulaştık? Ulaşan kişi ne yaptı? Yaptığı şey satışa dokundu mu? Her soru bir katmana denk gelir; katmanların her birinin kendi göstergesi vardır. Katman sırasını bozmuyoruz; erişimi görmeden etkileşimi, etkileşimi görmeden dönüşümü yorumlamıyoruz.</p><p>E-ticaret yapan işletme sayısı artıyor. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">Ticaret Bakanlığı ETBİS raporu</a> bu artışı rakamlarla ortaya koyuyor. Her yeni satış kanalı rapora yeni bir sütun ekler; bu yüzden sosyal medya raporlama setini panel kurmadan önce daraltıyoruz. <a href="../../hizmetler/dijital-pazarlama/performans-pazarlamasi/">Performans pazarlaması</a> tarafında kurduğumuz ölçüm mantığını organik kanallara da taşıyoruz.</p><p>Rapor sahibi belirsizse ölçüm de sahipsiz kalır. Her katmana tek bir sorumlu atıyoruz. Erişim tarafında içerik editörü, dönüşüm tarafında satış sorumlusu veriyi imzalar. Sütun sahibi, o sütunun hangi panelden geldiğini rapor altına tek satırla yazar. Sahiplik netleştiğinde toplantı süresi kısalır.</p>
+      <h3>Metrik ile gösterge arasındaki fark nedir?</h3>
+      Metrik, tek başına sayılan ham değerdir. Gösterge ise metriği bir tabana oranlayan yorumlanabilir orandır. Görüntülenme bir metriktir; görüntülenme başına tıklama oranı göstergedir. Ham sayıların yanına daima bir ölçüt oranı koyuyoruz. Oransız tablo, büyüme mi gerileme mi yaşandığını göstermez. Oran hesaplarken paydayı da yazıyoruz; paydası gizli kalan yüzde güven vermez.
+      <h2>Erişim Metrikleri Ne Anlatır, Ne Anlatmaz?</h2>
+      <div class="yz-cevap"><p>Erişim metrikleri, içeriğin kaç farklı kişiye ulaştığını söyler; o kişilerin ne hissettiğini söylemez. Ulaşılan tekil kişi sayısı erişim, aynı kişiye tekrarlanan teşhirlerin toplamı gösterimdir. İkisini ayırmayan rapor kitleyi olduğundan geniş gösterir. Frekans değerini tabloya eklemek bu yanılgıyı kapatır. Sosyal medya raporlamada ilk düzeltme çoğunlukla buradadır.</p></div>
+      <p>Erişim tablosunu üç adımda okuyoruz.</p><ol><li>Tekil erişim ile gösterimi ayrı sütunlarda görün; frekans değeri kendi taban çizginizin üzerine çıkıyorsa kitle daralmıştır.</li><li>Erişimin ne kadarının takipçi dışından geldiğine bakın; bu pay kendi üç aylık ortalamanızın altına inerse keşfedilme zayıflamıştır.</li><li>Haftalık erişim eğrisini yayın sayısıyla eşleştirin; yayın artarken erişim sabit kalıyorsa format yorulmuştur.</li></ol><p>Eşikler evrensel doğru değildir. Sektör, kitle büyüklüğü ve içerik türü değiştikçe bantlar kayar. Kendi tarihsel ortalamanızı çıkarmadan dışarıdan eşik ödünç almayın. Raporlamaya sosyal medya panelindeki her sayıyı taşımıyoruz; <a href="../../hizmetler/dijital-pazarlama/sosyal-medya-yonetimi/">sosyal medya yönetimi</a> ekibimiz ilk ay yalnızca taban çizgisini kurar. Taban çizgisi, kendi geçmiş performansınızdan çıkardığınız karşılaştırma referansıdır. Bu referansı panelin son doksan günlük erişim özetinden çıkarıyoruz; tekil erişim, gösterim ve frekans sütunlarını aynı ekrandan alıyoruz. Sektör ortalaması bu referansın yerini tutmaz. İki işletmenin kitle yapısı aynı olmadığı sürece ortalama yanıltır.</p>
+      <h3>Erişim düşünce hemen içerik mi değiştirmeli?</h3>
+      Erişim düşüşü tek başına kriz sinyali değildir. Yayın sıklığı azaldıysa gerileme beklenen sonuçtur. Kritik gösterge, yayın başına düşen ulaşılan tekil kişi sayısının yönüdür. Bu oran üç ölçüm döneminde üst üste geriliyorsa format değişikliği gündeme gelir. Tek haftalık dalgalanmaya bakarak rota değiştirmiyoruz. Format yorgunluğunu erken görmek, yeni kanal açmaktan ucuza gelir.
+      <h2>Etkileşim Kalitesini Hangi Ölçütlerle Değerlendirmeli?</h2>
+      <div class="yz-cevap"><p>Etkileşim kalitesi, erişime oranlanan anlamlı tepkilerin ortaya koyduğu bir niteliktir; toplam beğeni sayısı bunu anlatmaz. Kaydetme, paylaşma ve yorum, beğeniden ağır sinyallerdir. Bu üçü niyet taşır, beğeni ise refleks olabilir. Ölçütü oran biçiminde kurduğunuzda küçük hesaplar da büyükler kadar okunabilir. Üç sinyali de panelin içerik etkileşim ekranından ayrı ayrı alıyoruz.</p></div>
+      <p>Etkileşim oranını erişime bölerek hesaplıyoruz. Takipçiye bölen yöntem, takipçisi şişmiş hesaplarda yanıltır. Kaydetme oranı ürün içeriklerinde, paylaşma oranı bilgi içeriklerinde öne çıkar. Yorum sayısını ise tek başına değil, yanıt süresiyle birlikte okuyoruz.</p><p>Format kırılımı da aynı tabloda durur. Video, karusel ve tek görsel satırlarını ayrı tutuyoruz. Ortalama tek satır, güçlü formatın etkisini zayıf formatın içinde eritir. Her formatı kendi geçmişiyle kıyaslıyoruz; video satırını karusel satırıyla yarıştırmıyoruz.</p><p>Kitlenin dijital alışkanlıklarını tahminle değil kamu verisiyle kontrol ediyoruz. <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TÜİK</a>, hanehalkı bilişim teknolojileri kullanım araştırmasını düzenli olarak yayımlar; internet ve sosyal ağ kullanımına dair sayıları kurumun kendi sayfasından doğrulayabilirsiniz. Ücretli tarafta <a href="../../hizmetler/dijital-pazarlama/meta-ads/">Meta Ads</a> panelinden gelen erişimi, organik erişimle aynı sosyal medya raporlama tablosunda ama ayrı satırda gösteriyoruz.</p>
+      <h3>Yorum sayısı mı, yorum tonu mu?</h3>
+      Yorum sayısı hacmi, yorum tonu ise niyeti gösterir. Elli olumlu yorumla elli şikâyet aynı hücrede toplanamaz. Ton etiketlemesini basit tutuyoruz: olumlu, nötr, sorun bildiren. Rapora eklenen bu tek sütun, müşteri hizmetleri ekibinin haftalık gündemini de belirler.
+      <h4>Negatif yorum da bir ölçüttür</h4>
+      Şikâyet oranı, toplam yorum içinde sorun bildiren yorumların payıdır. Bu pay yükselirken satış sabit kalıyorsa, mesele üründe değil beklenti yönetimindedir. Tabloya tek satır eklemek yeterli olur. Yanıt süresini de aynı satırda tutuyoruz.
+      <h2>Dönüşüm Tarafında İzlenecek Sayılar</h2>
+      <div class="yz-cevap"><p>Dönüşüm katmanı, sosyal kanallardan gelen trafiğin iş sonucuna dönüşme oranını izler. Form, arama, sepet ve satış olaylarını ayrı ayrı etiketliyoruz. Kanal kırılımı olmadan bu sayılar anlam taşımaz. UTM etiketleri ile olay tanımları raporun omurgasını kurar. Etiketleme disiplini yoksa kazanım sütunu boş kalır.</p></div>
+      <p>Dönüşüm sütununu üç etiket üzerine kuruyoruz: kaynak, ortam ve kampanya. Aynı içerik farklı kanallarda paylaşıldığında etiketler ayrışmalıdır. Ayrışmayan etiket, tüm trafiği tek torbaya atar ve tabloyu okunamaz hale getirir. Etiketli trafik sütununu web analitiği hesabından, satış sütununu ise sipariş panelinden alıyoruz.</p><p>Mikro dönüşümleri de rapora alıyoruz. Fiyat sayfası görüntüleme, katalog indirme ve WhatsApp tıklaması, satıştan önce gelen sinyallerdir. Uzun satış döngüsünde rapor ancak bu ara adımlarla anlam kazanır. Bütçe ve gönderim zamanlaması ayrı başlıklardır.</p><p>Kaynak adlarını sabitlemek şart. Kanalı bir ay "instagram", ertesi ay "ig" yazan ekip verisini böler. Etiket sözlüğünü tek dosyada tutuyoruz; her yeni kampanyada oradan kopyalıyoruz. Sözlükte her kanalı tek yazımla sabitliyoruz; sosyal medya raporlama böylece tutarlı kalır.</p>
+      <h3>Atıf modeli neden fark yaratır?</h3>
+      Atıf modeli, bir kazanımı hangi temas noktasına yazacağınızı belirleyen kuraldır. Son tıklama modeli sosyal kanalları olduğundan küçük gösterir. Görüntülemeli atıf ise abartma riski taşır. İki modeli yan yana raporluyoruz; aradaki fark kanalın gerçek katkı bandını verir. Model tercihini rapor başına yazmak, aylar arasındaki kıyası güvenli hale getirir.
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
+      <h2>Sosyal Medya Raporlamanızı Bize Emanet Edin</h2>
+      <div class="yz-cevap"><p>Ölçüm altyapınızı devraldığımızda ilk işimiz mevcut panelleri ve etiketleri denetlemek oluyor. Eksikleri tamamlıyor, metrik setini hedeflerinize göre sadeleştiriyoruz. Sonraki adımda sosyal medya raporlamanızı tek sayfalık aylık şablona indiriyoruz. Ekibiniz raporu on dakikada okuyup karar çıkarabilir hale geliyor. Şeffaflık için ham veri dosyasını da her ay paylaşıyoruz.</p></div>
+      <p>Çalışma düzenimiz sade. İlk hafta mevcut panelleri ve etiketleri denetliyoruz. İkinci hafta ölçüt setini hedeflerinizle eşleştiriyoruz. Üçüncü hafta tek sayfalık şablonu devreye alıyoruz. Dördüncü hafta ekibinize rapor okuma eğitimi veriyoruz.</p><p>Sosyal medya raporlama tablosuyla satış verisini aynı sayfada birleştiriyoruz. Rapor dilini de sadeleştiriyoruz: teknik kısaltma yerine iş sonucu yazıyoruz. Böylece pazarlama toplantısı, ekran turu olmaktan çıkıp karar toplantısına dönüşür. Ölçüm altyapınızı birlikte kurmak isterseniz <a href="../../teklif/">teklif formumuzu</a> doldurmanız yeterli. İlk görüşmede mevcut raporunuzu açıp eksik sütunları çıkarıyoruz.</p>
+      <h3>Devir sürecinde neler istiyoruz?</h3>
+      Panel erişimleri, geçmiş altı ayın ham verisi ve satış tarafındaki hedef tanımları yeterli. Erişim yoksa kendi hesaplarımızdan geçici bir taban çizgisi kurarız. Kurulum bittiğinde tüm panellerin sahipliği sizde kalır.
+      <figure class="yz-gorsel">
+        <img src="./gorsel/sosyal-medya-raporlama-govde-960.webp"
+             srcset="./gorsel/sosyal-medya-raporlama-govde-640.webp 640w, ./gorsel/sosyal-medya-raporlama-govde-960.webp 960w, ./gorsel/sosyal-medya-raporlama-govde-1440.webp 1440w, ./gorsel/sosyal-medya-raporlama-govde-1920.webp 1920w"
+             sizes="(max-width: 760px) 100vw, 760px"
+             alt="Dağınık panel verisinin tek bir karar göstergesine indirgenmesini anlatan soyut raporlama görseli" width="1920" height="1080" loading="lazy" decoding="async">
+        <figcaption>İyi bir rapor sayıyı çoğaltmaz; karar için gereken tek göstergeye indirger. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
+      </figure>
+      <h2>Rapor Katmanlarına Göre Ölçüt Seti ve Okuma Sıklığı</h2>
+      <div class="yz-tablo">
+        <table>
+          <thead><tr><th>Katman</th><th>Öne Çıkan Ölçüt</th><th>Cevapladığı Soru</th><th>Önerilen Sıklık</th></tr></thead>
+          <tbody>
+            <tr><td>Erişim</td><td>Tekil erişim, frekans, takipçi dışı pay</td><td>Kaç kişiye ulaştık?</td><td>Haftalık</td></tr>
+            <tr><td>Etkileşim</td><td>Erişime oranlı etkileşim, kaydetme, paylaşma</td><td>Ulaşan kişi ilgilendi mi?</td><td>Haftalık</td></tr>
+            <tr><td>Dönüşüm</td><td>Etiketli trafik, mikro dönüşüm, satış</td><td>Sonuç satışa dokundu mu?</td><td>Aylık</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+        <div class="yz-kopru">
+          <b>Sosyal Medya Raporlamanızı Bize Emanet Edin</b>
+          <p>Kapsamınıza uygun yol haritasını birlikte çıkaralım; adımları ve zamanlamayı netleştirelim.</p>
+          <a class="btn btn-p" href="../../teklif/#web">Kapsam çıkaralım
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="../../hizmetler/dijital-pazarlama/performans-pazarlamasi/">Hizmet sayfasını gör</a>
+        </div>
+        <p>Raporun amacı geçmişi anlatmak değil, gelecek ayın kararını kolaylaştırmaktır. Erişim kitleyi, etkileşim ilgiyi, dönüşüm ise iş sonucunu gösterir. Üç katmanı aynı sayfada okuyan ekip, bütçesini nereye kaydıracağını tartışmadan bilir. Raporlama disiplini sosyal medya ekibinde yerleştiğinde içerik üretimi de hızlanır; neyin işe yaradığı tartışmalı olmaktan çıkar. Ölçüm alışkanlığı oturduğunda içerik takvimi de sadeleşir. Kanal performans raporunuzu birlikte sadeleştirelim.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Sık sorulanlar</span>
+        <h2 data-kin>Sık sorulan sorular: sosyal medya raporlama</h2>
+      </div>
+      <div class="yz-sss rv d1">
+        <details>
+          <summary>Rapor ne sıklıkla hazırlanmalı?</summary>
+          <p>Haftalık kısa bakış, aylık ayrıntılı okuma yeterlidir. Günlük takip çoğu KOBİ için gürültü üretir.</p>
+        </details>
+        <details>
+          <summary>Etkileşim oranını neye bölmeliyiz?</summary>
+          <p>Takipçi sayısına değil, erişime bölün. Takipçi tabanı zamanla şişer ve oranı yapay biçimde düşürür. Erişime bölünen oran, içeriğin gerçekten kaç kişiyi harekete geçirdiğini gösterir. Kampanya dönemlerinde iki oranı da yan yana tutmak faydalı olur.</p>
+        </details>
+        <details>
+          <summary>Takipçi sayısı rapora girmeli mi?</summary>
+          <p>Girmeli, fakat başrolde değil. Net takipçi değişimini tek satır olarak izleyin. Karar verirken erişim ve dönüşüm sütunlarına bakın; takipçi sayısı yalnızca uzun vadeli bir trend göstergesidir.</p>
+        </details>
+        <details>
+          <summary>Erişim ile gösterim arasındaki fark nedir?</summary>
+          <p>Erişim, içeriği gören tekil kişi sayısıdır. Gösterim ise aynı kişiye yapılan tekrarlı teşhirleri de sayar. İkisinin oranı frekansı verir.</p>
+        </details>
+        <details>
+          <summary>Mikro dönüşüm neyi ifade eder?</summary>
+          <p>Mikro dönüşüm, satıştan önce gelen niyet sinyalidir. Katalog indirme, fiyat sayfası görüntüleme ve mesaj başlatma bu gruba girer. Satış döngüsü uzun sektörlerde raporu ayakta tutan sütun budur.</p>
+        </details>
+        <details>
+          <summary>Küçük bir işletme ölçüme hangi araçlarla başlamalı?</summary>
+          <p>Başlangıç için platformların kendi analiz ekranları, bir web analitiği hesabı ve basit bir tablo dosyası yeterlidir. Önce UTM etiket düzenini kurun; kaynak, ortam ve kampanya alanlarını her bağlantıda aynı kuralla doldurun. Ardından haftalık olarak erişim, etkileşim oranı ve mikro dönüşüm sayılarını tek sayfaya taşıyın. Üç ay sonra elinizde kendi taban çizginiz oluşur. Pahalı bir panel yatırımına ancak bu taban çizgisi netleştikten sonra geçmenizi öneriyoruz, çünkü araç eksikliği değil tanım eksikliği raporları bozar.</p>
+        </details>
+        <details>
+          <summary>Rapor kaç sayfa olmalı?</summary>
+          <p>Karar sayfası tek olmalı. Ayrıntı ekleri arkada dursun.</p>
+        </details>
+        <details>
+          <summary>Organik ve ücretli veriyi tek raporda birleştirmek doğru mu?</summary>
+          <p>Doğru, hatta gerekli. İki tarafı ayrı raporlarda tutmak aynı kitleyi iki kez saymanıza yol açar. Birleşik tabloda organik ve ücretli satırları ayrı tutun, toplam satırını en altta gösterin.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>Web, mobil, reklam, video ve SEO’yu tek çatı altında birleştiren
+          İstanbul merkezli 360 derece dijital ajans.</p>
+      </div>
+      <div>
+        <h5>Modüller</h5>
+        <ul>
+          <li><a href="../../hizmetler/">Tüm hizmetler</a></li>
+          <li><a href="../../hizmetler/web-tasarim-yazilim/">Web &amp; Yazılım</a></li>
+          <li><a href="../../hizmetler/mobil-uygulama/">Mobil Uygulama</a></li>
+          <li><a href="../../hizmetler/dijital-pazarlama/">Dijital Pazarlama</a></li>
+          <li><a href="../../hizmetler/video-produksiyon/">Video Prodüksiyon</a></li>
+          <li><a href="../../hizmetler/seo/">SEO Hizmetleri</a></li>
+          <li><a href="../../hizmetler/grafik-tasarim/">Grafik Tasarım</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>İletişim</h5>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../../iletisim/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../../iletisim/#ofis">Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</span>
+      <span class="mono">BEŞ MODÜL · TEK PANEL</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+<script>
+"use strict";
+(function(){
+  var c = document.querySelector('[data-ilerleme]');
+  if (!c || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  function ciz(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    c.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', ciz, { passive: true });
+  ciz();
+})();
+</script>
