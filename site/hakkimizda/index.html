@@ -247,10 +247,46 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.tasarimmania.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Ajans", "item": "https://www.tasarimmania.com/hakkimizda/" }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.tasarimmania.com/#kurulus",
+      "name": "TasarımMania",
+      "url": "https://www.tasarimmania.com/",
+      "telephone": "+905547916545",
+      "sameAs": [
+        "https://www.instagram.com/tasarimmaniaa/",
+        "https://www.facebook.com/tasarimmania/"
+      ],
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/logo/marka-yatay-optik.png",
+        "width": 435, "height": 163
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+        "addressLocality": "Bakırköy",
+        "addressRegion": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "areaServed": { "@type": "Country", "name": "Türkiye" },
+      "description": "Web, mobil, reklam, video ve SEO'yu tek çatı altında birleştiren İstanbul merkezli 360 derece dijital ajans."
+    },
+    {
+      "@type": "AboutPage",
+      "url": "https://www.tasarimmania.com/hakkimizda/",
+      "name": "Ajans — TasarımMania",
+      "inLanguage": "tr-TR",
+      "mainEntity": { "@id": "https://www.tasarimmania.com/#kurulus" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.tasarimmania.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Ajans", "item": "https://www.tasarimmania.com/hakkimizda/" }
+      ]
+    }
   ]
 }
 </script>
