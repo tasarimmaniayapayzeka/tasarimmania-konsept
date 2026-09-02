@@ -23,7 +23,14 @@ const dosyalar = tara(SITE, []);
 const url = (f) => '/' + path.relative(SITE, path.dirname(f)).split(path.sep).filter(Boolean).join('/') + (path.dirname(f) === SITE ? '' : '/');
 const SAYFALAR = new Set(dosyalar.map(url));
 
-const rapor = { kirikLink: [], oksuz: [], metaEksik: [], semaBozuk: [], gorselEksik: [], menuFark: [] };
+const rapor = { kirikLink: [], oksuz: [], metaEksik: [], semaBozuk: [], gorselEksik: [], menuFark: [],
+  sablonKalintisi: [], semaSayiYanlis: [] };
+
+/* DERS: ilk sürüm yalnız link/meta/şema bakıyordu ve 26 blog yazısının ekmek
+   kırıntısında duran "<span>undefined</span>" ibaresini GÖRMEDİ — kullanıcıya
+   görünen bir hataydı. Şablon üretiminden kalan bu tür kalıntılar artık
+   ekranda basılan metinde aranıyor. */
+const KALINTI = /\b(undefined|null|NaN|\[object Object\]|\{\{[a-z_]+\}\}|%%[A-Z_]+%%)\b/;
 
 /* ---------- link çözümleme ---------- */
 function coz(sayfaUrl, href) {
@@ -69,6 +76,34 @@ dosyalar.forEach((f) => {
   [...h.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].forEach((m) => {
     try { JSON.parse(m[1]); } catch (e) { rapor.semaBozuk.push(u); }
   });
+
+  /* şablon kalıntısı — yalnız EKRANDA basılan metinde ara.
+     <script>/<style> içindeki meşru JS (`x === undefined`) yanlış alarm vermesin. */
+  const gorunur = h
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+  const kal = gorunur.match(KALINTI);
+  if (kal) rapor.sablonKalintisi.push(u + ' → ekranda "' + kal[0] + '"');
+
+  /* Article.wordCount gerçeği yansıtıyor mu?
+     DERS: 27 yazının HEPSİNDE bu sayı yanlıştı (50-100 kelime eksik) —
+     arama motoruna gerçekle uyuşmayan yapısal veri bildiriliyordu.
+     Burada kaba bir kontrol yapılır; kesin ölçüm plan/seo-denetim.js'te. */
+  const wc = (h.match(/"wordCount":\s*(\d+)/) || [])[1];
+  if (wc) {
+    const govdeM = h.match(/<article class="yz-govde"[^>]*>([\s\S]*?)<\/article>/);
+    if (govdeM) {
+      const kelimeSayisi = govdeM[1]
+        .replace(/<[^>]+>/g, ' ').replace(/&[a-z]+;/g, ' ')
+        .split(/\s+/).filter((w) => /[\wçğıöşüÇĞİÖŞÜ]/.test(w)).length;
+      const sapma = Math.abs(kelimeSayisi - +wc);
+      /* %8 tolerans: köprü kartı / SSS sayım farkları normal, 50+ sapma değil */
+      if (sapma > kelimeSayisi * 0.08) {
+        rapor.semaSayiYanlis.push(u + ' → wordCount ' + wc + ', ölçülen ~' + kelimeSayisi + ' (fark ' + sapma + ')');
+      }
+    }
+  }
 
   /* nav imzası (üst menü linkleri) */
   /* KÖR NOKTA DERSİ: ana sayfa <nav class="nav-links">, diğerleri <div ...>
@@ -135,6 +170,8 @@ bolum('Meta eksiği', rapor.metaEksik);
 bolum('Bozuk şema', rapor.semaBozuk);
 bolum('Eksik görsel', rapor.gorselEksik);
 bolum('Menüsü farklı sayfa', rapor.menuFark, 20);
+bolum('Şablon kalıntısı (ekranda)', rapor.sablonKalintisi, 20);
+bolum('Şema sayısı gerçekle uyuşmuyor', rapor.semaSayiYanlis, 20);
 
 console.log('');
 console.log('--- MENÜ ÇEŞİTLERİ ---');
