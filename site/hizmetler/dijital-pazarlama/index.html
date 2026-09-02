@@ -217,6 +217,80 @@ a.alt-k:hover .alt-git{gap:12px}
 .fyt-adim > p a:hover{text-decoration-color:var(--acc)}
 .fyt-btn{display:flex;gap:10px;flex-wrap:wrap}
 
+/* --- fiyat kutusu + reklam paneli infografiği yan yana --- */
+.fyt-satir{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);
+  gap:20px;align-items:start}
+/* Kutu grafikle aynı yüksekliğe gerilir; içerik yukarı toplanıp
+   "sonraki adım" bloğu dibe yaslanır — böylece gerilme boşluk üretmez. */
+.fyt-satir .fyt{max-width:none;height:100%;display:flex;flex-direction:column}
+.fyt-satir .fyt-ne{margin-bottom:0}
+@media(max-width:1000px){.fyt-adim{margin-top:26px}}
+.serp{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);
+  padding:18px 18px 16px;height:100%;display:flex;flex-direction:column}
+/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
+.serp svg{width:100%;height:auto;display:block;border-radius:12px}
+.serp figcaption{margin-top:13px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.serp figcaption b{color:var(--fg-dim);font-weight:600}
+@media(max-width:1000px){
+  .fyt-satir{grid-template-columns:1fr}
+  .serp{max-width:560px;margin-inline:auto}
+}
+
+/* --- reklam paneli infografiği canlanması ---
+   YENİ JS YOK: .serp zaten .rv sınıfında; sitenin mevcut görünürlük gözlemcisi
+   (site/js/tm.js) görününce .in ekliyor, animasyonlar ona bağlı. Tek sefer oynar.
+   prefers-reduced-motion: tm.css'teki global kural animation-duration'ı 0.001ms'e
+   indiriyor ve forwards sayesinde her öğe anında son hâline oturuyor — ayrı
+   bir kural yazmaya gerek yok.
+   Sınıf öneki p- · keyframe öneki p (SEO sayfasındaki s-/s ile çakışmasın).
+   Süre çizelgesi: başlık 0.3s · sekmeler 0.55s · grafik başlığı 0.95s ·
+   kartlar 1.2s · kılavuz çizgileri 1.4s · sütunlar 1.7s · kanal etiketleri 1.78s ·
+   halka+parlama 2.2s · alt şerit 2.35s · rozet 2.5s → toplam ~3s. */
+.serp svg .p-bas{opacity:0}
+.serp svg .p-sekme > g{opacity:0}
+.serp svg .p-baslik{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.serp svg .p-kart > g{opacity:0;transform:translateY(12px);transform-box:fill-box}
+.serp svg .p-izgara line{stroke-dasharray:560;stroke-dashoffset:560}
+.serp svg .p-sutun rect{opacity:0;transform:scaleY(0);
+  transform-box:fill-box;transform-origin:50% 100%}
+.serp svg .p-etiket text{opacity:0}
+.serp svg .p-isik{opacity:0}
+.serp svg .p-halka{stroke-dasharray:480;stroke-dashoffset:480}
+.serp svg .p-alt{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.serp svg .p-rozet{opacity:0;transform:translateX(22px);transform-box:fill-box}
+
+.serp.in svg .p-bas{animation:pBelir .5s var(--ease) .30s forwards}
+.serp.in svg .p-sekme > g:nth-child(1){animation:pBelir .45s var(--ease) .55s forwards}
+.serp.in svg .p-sekme > g:nth-child(2){animation:pBelir .45s var(--ease) .64s forwards}
+.serp.in svg .p-sekme > g:nth-child(3){animation:pBelir .45s var(--ease) .73s forwards}
+.serp.in svg .p-baslik{animation:pKay .5s var(--ease) .95s forwards}
+.serp.in svg .p-kart > g:nth-child(1){animation:pKay .5s var(--ease) 1.20s forwards}
+.serp.in svg .p-kart > g:nth-child(2){animation:pKay .5s var(--ease) 1.32s forwards}
+.serp.in svg .p-izgara line:nth-child(1){animation:pCiz .7s var(--ease) 1.40s forwards}
+.serp.in svg .p-izgara line:nth-child(2){animation:pCiz .7s var(--ease) 1.46s forwards}
+.serp.in svg .p-izgara line:nth-child(3){animation:pCiz .7s var(--ease) 1.52s forwards}
+.serp.in svg .p-izgara line:nth-child(4){animation:pCiz .7s var(--ease) 1.58s forwards}
+.serp.in svg .p-izgara line:nth-child(5){animation:pCiz .7s var(--ease) 1.64s forwards}
+.serp.in svg .p-sutun rect:nth-child(1){animation:pYuksel .6s cubic-bezier(.22,1,.36,1) 1.70s forwards}
+.serp.in svg .p-sutun rect:nth-child(2){animation:pYuksel .6s cubic-bezier(.22,1,.36,1) 1.82s forwards}
+.serp.in svg .p-sutun rect:nth-child(3){animation:pYuksel .6s cubic-bezier(.22,1,.36,1) 1.94s forwards}
+.serp.in svg .p-sutun rect:nth-child(4){animation:pYuksel .6s cubic-bezier(.22,1,.36,1) 2.06s forwards}
+.serp.in svg .p-etiket text:nth-child(1){animation:pBelir .4s var(--ease) 1.78s forwards}
+.serp.in svg .p-etiket text:nth-child(2){animation:pBelir .4s var(--ease) 1.90s forwards}
+.serp.in svg .p-etiket text:nth-child(3){animation:pBelir .4s var(--ease) 2.02s forwards}
+.serp.in svg .p-etiket text:nth-child(4){animation:pBelir .4s var(--ease) 2.14s forwards}
+.serp.in svg .p-isik{animation:pIsik .8s var(--ease) 2.20s forwards}
+.serp.in svg .p-halka{animation:pCiz .85s var(--ease) 2.20s forwards}
+.serp.in svg .p-alt{animation:pKay .5s var(--ease) 2.35s forwards}
+.serp.in svg .p-rozet{animation:pRozet .5s var(--ease) 2.50s forwards}
+
+@keyframes pBelir{to{opacity:1}}
+@keyframes pKay{to{opacity:1;transform:translateY(0)}}
+@keyframes pCiz{to{stroke-dashoffset:0}}
+@keyframes pYuksel{to{opacity:1;transform:scaleY(1)}}
+@keyframes pIsik{to{opacity:.18}}
+@keyframes pRozet{to{opacity:1;transform:translateX(0)}}
+
 .gbs{display:flex;align-items:center;gap:clamp(16px,2.4vw,30px);margin:0 0 20px}
 .gbs img{width:clamp(84px,11vw,132px);height:auto;aspect-ratio:1;flex:none;border-radius:var(--r-md);
   border:1px solid var(--hair);background:var(--bg-2)}
@@ -655,6 +729,7 @@ a.alt-k:hover .alt-git{gap:12px}
         <h2 data-kin>Dijital pazarlama fiyatları 2026: kurulum ve aylık yönetim bandı</h2>
       </div>
 
+      <div class="fyt-satir">
       <div class="fyt rv d1">
         <div class="fyt-band">
           <b>Kurulum 2-3 hafta · Sonrası aylık yönetim</b>
@@ -680,6 +755,156 @@ a.alt-k:hover .alt-git{gap:12px}
             <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Dijital%20Pazarlama%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%0AHedefim%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
           </div>
         </div>
+      </div>
+
+      <!-- Reklam paneli infografiği — İZLENEN ŞEYİ gösterir, SONUÇ VAADİ DEĞİL.
+           Bu ayrım bilinçli: aşağıdaki #durustluk bölümü kesin sonuç garantisi
+           verilemeyeceğini söylüyor. Bu yüzden panelde tek bir rakam yok:
+           "Harcama" ve "Dönüşüm" kartlarının değeri "—", sütunlarda yalnızca
+           göreceli yükseklik var, y ekseninde etiket yok.
+           X ekseni bilerek ZAMAN DEĞİL kanal: dört sütun, sayfanın kendi
+           "4 kanal · tek ekipte yönetim" künyesindeki kanallardır. Zaman ekseni
+           olsaydı yükselen sütunlar "şu kadar haftada şu kadar arttı" diye
+           okunurdu; o bir sonuç iddiası olurdu ve sayfa tam tersini söylüyor
+           ("net sayı taahhüt etmeyiz"). Aynı nedenle sütunlar birbirine yakın
+           tutuldu ve en yüksek olan sona konmadı — hiçbir artış hikâyesi
+           çıkmasın diye. Anlatılan tek şey şu: takip edilen ölçü harcama değil,
+           dönüşümdür — bu da sayfanın kendi cümlesi ("amacımız tıklama değil,
+           ölçülebilir satış").
+           Inline SVG: ek istek yok, her ölçekte net, viewBox sayesinde
+           oran sabit olduğu için düzen kaymaz. -->
+      <figure class="serp rv d2">
+        <svg viewBox="0 0 620 700" role="img" aria-labelledby="pnlBaslik pnlAciklama"
+             xmlns="http://www.w3.org/2000/svg">
+          <title id="pnlBaslik">Reklam paneli — temsilî görsel</title>
+          <desc id="pnlAciklama">Bir reklam yönetim paneli çizimi: üstte başlık çubuğu
+            ve yazısız sekmeler, ortada dört kanalın yan yana durduğu sütun grafiği,
+            sağ üstte "Harcama" ve "Dönüşüm" kartları. Kartların değerleri boş
+            bırakılmış, "—" olarak gösteriliyor; grafikte hiçbir sayı yok, sütunlar
+            yalnızca göreceli yükseklik ve birbirine yakın. "Dönüşüm" kartı vurgu
+            halkasıyla çerçevelenmiş.</desc>
+
+          <defs>
+            <linearGradient id="pSut" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FFCB6B"/>
+              <stop offset="1" stop-color="#E8930A"/>
+            </linearGradient>
+          </defs>
+
+          <!-- panel kartı -->
+          <rect x="8" y="8" width="604" height="684" rx="14" fill="#FFFFFF"/>
+
+          <!-- ÜST: panel başlık çubuğu -->
+          <g class="p-bas">
+            <rect x="8" y="8" width="604" height="58" rx="14" fill="#F5F6F8"/>
+            <rect x="8" y="42" width="604" height="24" fill="#F5F6F8"/>
+            <rect x="30" y="27" width="20" height="20" rx="6" fill="#FFB020"/>
+            <rect x="60" y="30" width="146" height="14" rx="7" fill="#C9CDD4"/>
+            <rect x="496" y="27" width="86" height="20" rx="10" fill="#E4E6EA"/>
+            <line x1="8" y1="66" x2="612" y2="66" stroke="#E8EAED" stroke-width="1"/>
+            <line x1="30" y1="118" x2="590" y2="118" stroke="#E8EAED" stroke-width="1"/>
+          </g>
+
+          <!-- ÜST: üç sekme çubuğu (yazısız) -->
+          <g class="p-sekme">
+            <g>
+              <rect x="30" y="88" width="88" height="13" rx="6.5" fill="#FFB020"/>
+              <rect x="30" y="110" width="88" height="3" rx="1.5" fill="#FFB020"/>
+            </g>
+            <g><rect x="134" y="88" width="70" height="13" rx="6.5" fill="#DFE2E7"/></g>
+            <g><rect x="220" y="88" width="80" height="13" rx="6.5" fill="#DFE2E7"/></g>
+          </g>
+
+          <!-- grafik başlığı + yazısız filtre çipleri -->
+          <g class="p-baslik">
+            <text x="32" y="156" font-family="Inter Tight, system-ui, sans-serif"
+                  font-size="15" font-weight="600" fill="#202124">Kanal kırılımı</text>
+            <rect x="32" y="176" width="78" height="26" rx="13" fill="none" stroke="#E4E6EA"/>
+            <rect x="44" y="185" width="54" height="8" rx="4" fill="#DFE2E7"/>
+            <rect x="118" y="176" width="64" height="26" rx="13" fill="none" stroke="#E4E6EA"/>
+            <rect x="130" y="185" width="40" height="8" rx="4" fill="#DFE2E7"/>
+          </g>
+
+          <!-- SAĞ ÜST: iki küçük kart — değerler bilerek boş ("—") -->
+          <g class="p-kart" font-family="Inter Tight, system-ui, sans-serif">
+            <g>
+              <rect x="306" y="132" width="134" height="94" rx="12"
+                    fill="#FBFCFD" stroke="#E4E6EA"/>
+              <text x="322" y="156" font-size="12.5" fill="#5F6368">Harcama</text>
+              <text x="322" y="192" font-family="JetBrains Mono, ui-monospace, monospace"
+                    font-size="26" fill="#202124">—</text>
+              <text x="322" y="214" font-family="JetBrains Mono, ui-monospace, monospace"
+                    font-size="9.2" fill="#9AA0A6">panelden okunur</text>
+            </g>
+            <g>
+              <rect x="452" y="132" width="134" height="94" rx="12"
+                    fill="#FBFCFD" stroke="#E4E6EA"/>
+              <text x="468" y="156" font-size="12.5" fill="#5F6368">Dönüşüm</text>
+              <text x="468" y="192" font-family="JetBrains Mono, ui-monospace, monospace"
+                    font-size="26" fill="#202124">—</text>
+              <text x="468" y="214" font-family="JetBrains Mono, ui-monospace, monospace"
+                    font-size="9.2" fill="#9AA0A6">panelden okunur</text>
+            </g>
+          </g>
+
+          <!-- ANA VURGU: dönüşüm kartı halkaya alınır -->
+          <rect class="p-isik" x="442" y="122" width="154" height="114" rx="19" fill="none"
+                stroke="#FFB020" stroke-width="7" opacity=".18"/>
+          <rect class="p-halka" x="447" y="127" width="144" height="104" rx="15" fill="none"
+                stroke="#FFB020" stroke-width="2.5"/>
+
+          <!-- son rozet -->
+          <g class="p-rozet">
+            <rect x="436" y="244" width="155" height="30" rx="15" fill="#0B0D12"
+                  stroke="#FFB020" stroke-width="1.5"/>
+            <text x="513" y="264" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="11.5" fill="#FFB020" text-anchor="middle">ODAK · DÖNÜŞÜM</text>
+          </g>
+
+          <!-- ORTA: yalnızca yatay kılavuz çizgileri — y ekseninde etiket YOK -->
+          <g class="p-izgara" stroke="#EDEFF2" stroke-width="1">
+            <line x1="44" y1="290" x2="588" y2="290"/>
+            <line x1="44" y1="353" x2="588" y2="353"/>
+            <line x1="44" y1="416" x2="588" y2="416"/>
+            <line x1="44" y1="479" x2="588" y2="479"/>
+            <line x1="44" y1="542" x2="588" y2="542" stroke="#C9CDD4" stroke-width="1.6"/>
+          </g>
+
+          <!-- ORTA: dört kanalın sütunları — göreceli yükseklik, rakam yok.
+               Yükseklikler bilerek birbirine yakın (126-168) ve en yükseği
+               ortada; ne artan bir seri ne de "şu kanal şu kadar katı" okuması
+               çıkmasın diye. -->
+          <g class="p-sutun" fill="url(#pSut)">
+            <rect x="90"  y="334" width="78" height="208" rx="6"/>
+            <rect x="214" y="369" width="78" height="173" rx="6"/>
+            <rect x="338" y="312" width="78" height="230" rx="6"/>
+            <rect x="462" y="353" width="78" height="189" rx="6"/>
+          </g>
+
+          <!-- X ekseni: kanal etiketleri (sayfanın kendi künyesi: 4 kanal) -->
+          <g class="p-etiket" font-family="Inter Tight, system-ui, sans-serif"
+             font-size="12.5" fill="#5F6368" text-anchor="middle">
+            <text x="129" y="566">Google Ads</text>
+            <text x="253" y="566">Meta Ads</text>
+            <text x="377" y="566">Performans</text>
+            <text x="501" y="566">Sosyal</text>
+          </g>
+
+          <!-- ALT: tek satır — fiyat kutusunun kendi cümlesi -->
+          <g class="p-alt">
+            <rect x="30" y="604" width="560" height="44" rx="12"
+                  fill="#FFF8EC" stroke="#F3DCB0"/>
+            <circle cx="52" cy="626" r="5" fill="#FFB020"/>
+            <text x="68" y="631" font-family="Inter Tight, system-ui, sans-serif"
+                  font-size="13.2" fill="#3C4043">Reklam bütçesi ayrı kalemdir; yönetim ücretine dahil değildir</text>
+          </g>
+        </svg>
+        <figcaption><b>Temsilî görsel.</b> Bir reklam panelinin nasıl okunduğunu anlatır;
+          panel değerleri bilerek boş bırakılmıştır, sütunlar yalnızca göreceli
+          yüksekliktir ve hiçbir dönem, artış ya da kanal karşılaştırması anlatmaz.
+          Buradaki hiçbir şey gerçek veri ya da sonuç vaadi değildir — kesin sonuç
+          garantisi verilemeyeceğini aşağıda anlattık.</figcaption>
+      </figure>
       </div>
     </div>
   </section>

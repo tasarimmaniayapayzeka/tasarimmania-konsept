@@ -214,6 +214,69 @@ a.alt-k:hover .alt-git{gap:12px}
 .fyt-adim > p a:hover{text-decoration-color:var(--acc)}
 .fyt-btn{display:flex;gap:10px;flex-wrap:wrap}
 
+/* --- fiyat kutusu + kurgu zaman çizgisi infografiği yan yana --- */
+.fyt-satir{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);
+  gap:20px;align-items:start}
+/* Kutu grafikle aynı yüksekliğe gerilir; içerik yukarı toplanıp
+   "sonraki adım" bloğu dibe yaslanır — böylece gerilme boşluk üretmez. */
+.fyt-satir .fyt{max-width:none;height:100%;display:flex;flex-direction:column}
+.fyt-satir .fyt-ne{margin-bottom:0}
+.serp{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);
+  padding:18px 18px 16px;height:100%;display:flex;flex-direction:column}
+/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
+.serp svg{width:100%;height:auto;display:block;border-radius:12px}
+.serp figcaption{margin-top:13px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.serp figcaption b{color:var(--fg-dim);font-weight:600}
+@media(max-width:1000px){
+  .fyt-satir{grid-template-columns:1fr}
+  .fyt-adim{margin-top:26px}
+  .serp{max-width:560px;margin-inline:auto}
+}
+
+/* --- kurgu zaman çizgisi infografiği canlanması ---
+   YENİ JS YOK: .serp zaten .rv sınıfında; sitenin mevcut görünürlük gözlemcisi
+   (site/js/tm.js) görününce .in ekliyor, animasyonlar ona bağlı. Tek sefer oynar.
+   prefers-reduced-motion: tm.css'teki global kural animation-duration'ı 0.001ms'e
+   indiriyor, forwards sayesinde her öğe anında son hâline oturuyor — ayrı kural yok.
+   Sınıf öneki "v-", keyframe öneki "v": SEO sayfasındaki "s-"/"s" ailesiyle
+   birleştirilseler bile çakışmasın diye ayrı tutuldu.
+   Süre çizelgesi: çerçeve 0,30s · kanallar 1,20s · dalga+oynatma çubuğu 1,40s ·
+   klipler 1,50-2,31s · ışık 2,20s · oynat üçgeni 2,42s · aşamalar 2,40-2,54s ·
+   rozet 2,60s → toplam ≈3s. */
+.serp svg .v-cerceve{opacity:0;transform:scale(.965);transform-box:fill-box;transform-origin:center}
+.serp svg .v-kanal{opacity:0}
+.serp svg .v-dalga{stroke-dasharray:1400;stroke-dashoffset:1400}
+.serp svg .v-imlec{opacity:0;transform-box:fill-box}
+.serp svg .v-klip > g{opacity:0}
+.serp svg .v-isik{opacity:0}
+.serp svg .v-oynat{opacity:0;transform:scale(.55);transform-box:fill-box;transform-origin:center}
+.serp svg .v-asama > g{opacity:0;transform:translateY(12px);transform-box:fill-box}
+.serp svg .v-rozet{opacity:0;transform:translateY(14px);transform-box:fill-box}
+
+.serp.in svg .v-cerceve{animation:vPat .6s var(--ease) .3s forwards}
+.serp.in svg .v-kanal{animation:vBelir .5s var(--ease) 1.2s forwards}
+.serp.in svg .v-dalga{animation:vCiz 1s var(--ease) 1.4s forwards}
+.serp.in svg .v-imlec{animation:vSur 1.05s var(--ease) 1.4s forwards,
+                                vBelir .25s linear 1.4s forwards}
+.serp.in svg .v-klip > g:nth-child(1){animation:vBelir .4s var(--ease) 1.50s forwards}
+.serp.in svg .v-klip > g:nth-child(2){animation:vBelir .4s var(--ease) 1.69s forwards}
+.serp.in svg .v-klip > g:nth-child(3){animation:vBelir .4s var(--ease) 1.90s forwards}
+.serp.in svg .v-klip > g:nth-child(4){animation:vBelir .4s var(--ease) 2.12s forwards}
+.serp.in svg .v-klip > g:nth-child(5){animation:vBelir .4s var(--ease) 2.31s forwards}
+.serp.in svg .v-isik{animation:vIsik .8s var(--ease) 2.2s forwards}
+.serp.in svg .v-asama > g:nth-child(1){animation:vYuksel .4s var(--ease) 2.40s forwards}
+.serp.in svg .v-asama > g:nth-child(2){animation:vYuksel .4s var(--ease) 2.47s forwards}
+.serp.in svg .v-asama > g:nth-child(3){animation:vYuksel .4s var(--ease) 2.54s forwards}
+.serp.in svg .v-oynat{animation:vPat .55s cubic-bezier(.34,1.56,.64,1) 2.42s forwards}
+.serp.in svg .v-rozet{animation:vYuksel .45s var(--ease) 2.6s forwards}
+
+@keyframes vBelir{to{opacity:1}}
+@keyframes vCiz{to{stroke-dashoffset:0}}
+@keyframes vSur{to{transform:translateX(438px)}}
+@keyframes vPat{to{opacity:1;transform:scale(1)}}
+@keyframes vIsik{to{opacity:.18}}
+@keyframes vYuksel{to{opacity:1;transform:translateY(0)}}
+
 .gbs{display:flex;align-items:center;gap:clamp(16px,2.4vw,30px);margin:0 0 20px}
 .gbs img{width:clamp(84px,11vw,132px);height:auto;aspect-ratio:1;flex:none;border-radius:var(--r-md);
   border:1px solid var(--hair);background:var(--bg-2)}
@@ -633,6 +696,7 @@ a.alt-k:hover .alt-git{gap:12px}
         <h2 data-kin>Video prodüksiyon fiyatları 2026: bandı neyin belirlediği</h2>
       </div>
 
+      <div class="fyt-satir">
       <div class="fyt rv d1">
         <div class="fyt-band">
           <b>Fiyat kapsama göre belirlenir</b>
@@ -661,6 +725,214 @@ a.alt-k:hover .alt-git{gap:12px}
             <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Video%20Prod%C3%BCksiyon%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%0AProje%20fikrim%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
           </div>
         </div>
+      </div>
+
+      <!-- Kurgu zaman çizgisi infografiği — SÜRECİ gösterir, çıktı vaadi DEĞİL.
+           Ekranda yalnızca sayfada geçen iki veri var: 16:9 formatı (kapsam
+           bölümündeki format çipleri) ve "3 – 6 hafta" teslim aralığı (fiyat
+           bandı ve paragrafı). Klip genişlikleri, ses dalgası ve kanal düzeni
+           tamamen temsilîdir; zaman çizgisine bilerek saniye/dakika damgası
+           konmadı, çünkü sayfada böyle bir veri yok.
+           Inline SVG: ek istek yok, her ölçekte net, viewBox sayesinde oran
+           sabit olduğu için düzen kaymaz (SEO sayfasıyla aynı 620x700 oranı). -->
+      <figure class="serp rv d2">
+        <svg viewBox="0 0 620 700" role="img" aria-labelledby="vkzBaslik vkzAciklama"
+             xmlns="http://www.w3.org/2000/svg">
+          <title id="vkzBaslik">Kurgu zaman çizgisi — temsilî görsel</title>
+          <desc id="vkzAciklama">Bir video kurgu penceresi çizimi: üstte 16:9 önizleme
+            çerçevesi ve ortasında oynat üçgeni, altında görüntü ve ses kanallarından
+            oluşan bir zaman çizgisi ile üzerinden soldan sağa geçen oynatma çubuğu,
+            en altta Senaryo, Çekim ve Kurgu aşama etiketleri yer alır; üçüncü aşama
+            vurgulanmıştır.</desc>
+
+          <defs>
+            <linearGradient id="vkzSahne" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#141926"/>
+              <stop offset="1" stop-color="#070910"/>
+            </linearGradient>
+            <filter id="vkzYumusak" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity=".45"/>
+            </filter>
+          </defs>
+
+          <!-- kurgu penceresi gövdesi -->
+          <rect x="8" y="8" width="604" height="684" rx="14" fill="#0E1016"/>
+          <circle cx="34" cy="32" r="5" fill="#FF5F57"/>
+          <circle cx="52" cy="32" r="5" fill="#FEBC2E"/>
+          <circle cx="70" cy="32" r="5" fill="#28C840"/>
+          <rect x="92" y="20" width="380" height="24" rx="12" fill="#171B24"/>
+          <text x="108" y="36" font-family="Inter Tight, system-ui, sans-serif"
+                font-size="12" fill="#8A93A6">kurgu penceresi · zaman çizgisi</text>
+          <line x1="8" y1="56" x2="612" y2="56" stroke="#20242C" stroke-width="1"/>
+
+          <!-- önizlemenin çevresindeki parlama -->
+          <rect class="v-isik" x="46" y="68" width="528" height="304" rx="18" fill="none"
+                stroke="#FF2D9B" stroke-width="7" opacity=".18"/>
+
+          <!-- ÜST: 16:9 önizleme çerçevesi -->
+          <g class="v-cerceve">
+            <rect x="54" y="76" width="512" height="288" rx="12" fill="url(#vkzSahne)"
+                  stroke="#232A38" stroke-width="1.4"/>
+            <g stroke="#2C3444" stroke-width="2" fill="none" stroke-linecap="round">
+              <path d="M76,104 v-14 h14"/>
+              <path d="M544,104 v-14 h-14"/>
+              <path d="M76,336 v14 h14"/>
+              <path d="M544,336 v14 h-14"/>
+            </g>
+            <circle cx="310" cy="220" r="44" fill="#11141C" stroke="#2A3140" stroke-width="2"/>
+            <path d="M298,202 L298,238 L331,220 Z" fill="#394153"/>
+            <rect x="70" y="308" width="54" height="24" rx="7" fill="#141A24"/>
+            <text x="97" y="324" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="11.5" fill="#8A93A6" text-anchor="middle">16:9</text>
+          </g>
+
+          <!-- ORTA: iki kanal şeridi -->
+          <g class="v-kanal">
+            <!-- 10px/0,6 aralık bilinçli: etiket 126'da bitiyor, oynatma
+                 çubuğunun başlangıç tutamağı 131'de başlıyor — çakışmıyor. -->
+            <text x="40" y="390" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="10" letter-spacing="0.6" fill="#727D93">ZAMAN ÇİZGİSİ</text>
+            <line x1="132" y1="400" x2="580" y2="400" stroke="#242B38" stroke-width="1"/>
+            <g stroke="#2A3140" stroke-width="1">
+              <line x1="132" y1="400" x2="132" y2="406"/>
+              <line x1="160" y1="400" x2="160" y2="405"/>
+              <line x1="188" y1="400" x2="188" y2="405"/>
+              <line x1="216" y1="400" x2="216" y2="405"/>
+              <line x1="244" y1="400" x2="244" y2="406"/>
+              <line x1="272" y1="400" x2="272" y2="405"/>
+              <line x1="300" y1="400" x2="300" y2="405"/>
+              <line x1="328" y1="400" x2="328" y2="405"/>
+              <line x1="356" y1="400" x2="356" y2="406"/>
+              <line x1="384" y1="400" x2="384" y2="405"/>
+              <line x1="412" y1="400" x2="412" y2="405"/>
+              <line x1="440" y1="400" x2="440" y2="405"/>
+              <line x1="468" y1="400" x2="468" y2="406"/>
+              <line x1="496" y1="400" x2="496" y2="405"/>
+              <line x1="524" y1="400" x2="524" y2="405"/>
+              <line x1="552" y1="400" x2="552" y2="405"/>
+              <line x1="580" y1="400" x2="580" y2="406"/>
+            </g>
+
+            <text x="40" y="440" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="10.5" letter-spacing="1" fill="#A7B0C2">GÖRÜNTÜ</text>
+            <rect x="132" y="412" width="448" height="48" rx="9" fill="#151A23"/>
+            <g fill="#20252F">
+              <rect x="137" y="418" width="92" height="36" rx="6"/>
+              <rect x="235" y="418" width="58" height="36" rx="6"/>
+              <rect x="299" y="418" width="112" height="36" rx="6"/>
+              <rect x="417" y="418" width="70" height="36" rx="6"/>
+              <rect x="493" y="418" width="82" height="36" rx="6"/>
+            </g>
+            <g fill="#2C3444">
+              <rect x="145" y="440" width="76" height="4" rx="2"/>
+              <rect x="243" y="440" width="42" height="4" rx="2"/>
+              <rect x="307" y="440" width="96" height="4" rx="2"/>
+              <rect x="425" y="440" width="54" height="4" rx="2"/>
+              <rect x="501" y="440" width="66" height="4" rx="2"/>
+            </g>
+
+            <text x="40" y="498" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="10.5" letter-spacing="1" fill="#A7B0C2">SES</text>
+            <rect x="132" y="474" width="448" height="40" rx="9" fill="#151A23"/>
+            <line x1="137" y1="494" x2="575" y2="494" stroke="#252C39" stroke-width="1"/>
+
+            <line x1="40" y1="538" x2="580" y2="538" stroke="#1D2330" stroke-width="1"/>
+          </g>
+
+          <!-- ses kanalı: ince dalga formu (soldan sağa çizilir) -->
+          <polyline class="v-dalga" fill="none" stroke="#8A93A6" stroke-width="1.6"
+                    stroke-linejoin="round" stroke-linecap="round"
+                    points="137,495.6 145,491.7 153,488.8 161,496.9 169,492.3 177,488.8 185,497.0
+                            193,484.5 201,502.0 209,486.9 217,501.7 225,484.2 233,490.0 241,499.5
+                            249,489.2 257,498.1 265,494.0 273,498.2 281,494.2 289,494.0 297,494.1
+                            305,487.9 313,487.7 321,493.6 329,500.4 337,489.3 345,488.9 353,495.1
+                            361,498.1 369,493.1 377,487.0 385,488.5 393,490.3 401,504.9 409,486.9
+                            417,489.3 425,496.8 433,497.2 441,505.6 449,492.8 457,502.9 465,489.2
+                            473,495.2 481,498.9 489,489.5 497,491.6 505,496.9 513,492.7 521,494.5
+                            529,488.3 537,490.4 545,499.2 553,490.4 561,497.5 569,496.1 575,494.0"/>
+
+          <!-- oynatma çubuğunun geçtiği klipler aksan kenarlık alır -->
+          <g class="v-klip">
+            <g>
+              <rect x="137" y="418" width="92" height="36" rx="6" fill="#FF2D9B" fill-opacity=".14"
+                    stroke="#FF2D9B" stroke-width="1.6"/>
+              <rect x="145" y="440" width="76" height="4" rx="2" fill="#FF2D9B" fill-opacity=".6"/>
+            </g>
+            <g>
+              <rect x="235" y="418" width="58" height="36" rx="6" fill="#FF2D9B" fill-opacity=".14"
+                    stroke="#FF2D9B" stroke-width="1.6"/>
+              <rect x="243" y="440" width="42" height="4" rx="2" fill="#FF2D9B" fill-opacity=".6"/>
+            </g>
+            <g>
+              <rect x="299" y="418" width="112" height="36" rx="6" fill="#FF2D9B" fill-opacity=".14"
+                    stroke="#FF2D9B" stroke-width="1.6"/>
+              <rect x="307" y="440" width="96" height="4" rx="2" fill="#FF2D9B" fill-opacity=".6"/>
+            </g>
+            <g>
+              <rect x="417" y="418" width="70" height="36" rx="6" fill="#FF2D9B" fill-opacity=".14"
+                    stroke="#FF2D9B" stroke-width="1.6"/>
+              <rect x="425" y="440" width="54" height="4" rx="2" fill="#FF2D9B" fill-opacity=".6"/>
+            </g>
+            <g>
+              <rect x="493" y="418" width="82" height="36" rx="6" fill="#FF2D9B" fill-opacity=".14"
+                    stroke="#FF2D9B" stroke-width="1.6"/>
+              <rect x="501" y="440" width="66" height="4" rx="2" fill="#FF2D9B" fill-opacity=".6"/>
+            </g>
+          </g>
+
+          <!-- oynatma çubuğu: uçtan uca ilerler -->
+          <g class="v-imlec">
+            <path d="M131,386 h12 v12 l-6,7 l-6,-7 z" fill="#FF2D9B"/>
+            <line x1="137" y1="398" x2="137" y2="522" stroke="#FF2D9B" stroke-width="2"/>
+          </g>
+
+          <!-- önizlemedeki oynat üçgeni sonda aksana döner -->
+          <g class="v-oynat" filter="url(#vkzYumusak)">
+            <circle cx="310" cy="220" r="44" fill="#180410" stroke="#FF2D9B" stroke-width="2.5"/>
+            <path d="M298,202 L298,238 L331,220 Z" fill="#FF2D9B"/>
+          </g>
+
+          <!-- ALT: üç aşama etiketi, üçüncüsü aktif -->
+          <g class="v-asama" font-family="Inter Tight, system-ui, sans-serif">
+            <g>
+              <rect x="40" y="558" width="169" height="52" rx="13" fill="#141821"
+                    stroke="#242B38" stroke-width="1.2"/>
+              <circle cx="66" cy="584" r="10" fill="#1E2532"/>
+              <path d="M61.5,584 l3.2,3.4 l6.2,-6.8" fill="none" stroke="#A7B0C2"
+                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="86" y="589" font-size="13.5" fill="#A7B0C2">Senaryo</text>
+            </g>
+            <g>
+              <rect x="225" y="558" width="169" height="52" rx="13" fill="#141821"
+                    stroke="#242B38" stroke-width="1.2"/>
+              <circle cx="251" cy="584" r="10" fill="#1E2532"/>
+              <path d="M246.5,584 l3.2,3.4 l6.2,-6.8" fill="none" stroke="#A7B0C2"
+                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="271" y="589" font-size="13.5" fill="#A7B0C2">Çekim</text>
+            </g>
+            <g>
+              <rect x="410" y="558" width="170" height="52" rx="13" fill="#FF2D9B"
+                    fill-opacity=".10" stroke="#FF2D9B" stroke-width="1.6"/>
+              <circle cx="436" cy="584" r="10" fill="#FF2D9B"/>
+              <path d="M433,579.5 L433,588.5 L441.5,584 Z" fill="#0E1016"/>
+              <text x="456" y="589" font-size="13.5" font-weight="600" fill="#FF2D9B">Kurgu</text>
+            </g>
+          </g>
+
+          <!-- teslim rozeti: sayfadaki fiyat bandıyla aynı aralık -->
+          <g class="v-rozet">
+            <rect x="200" y="634" width="220" height="34" rx="17" fill="#0B0D12"
+                  stroke="#FF2D9B" stroke-width="1.5"/>
+            <text x="310" y="656" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="12.5" fill="#FF2D9B" text-anchor="middle">TESLİM · 3 – 6 HAFTA</text>
+          </g>
+        </svg>
+        <figcaption><b>Temsilî görsel.</b> Bir kurgu penceresini anlatır; klip düzeni,
+          ses dalgası ve kanal yerleşimi gerçek bir projeden alınmamıştır. Ekrandaki
+          tek gerçek bilgi sayfada da yazan 16:9 formatı ile 3 – 6 haftalık tipik
+          teslim aralığıdır — başka hiçbir süre, sayı ya da performans iddiası
+          içermez.</figcaption>
+      </figure>
       </div>
     </div>
   </section>
