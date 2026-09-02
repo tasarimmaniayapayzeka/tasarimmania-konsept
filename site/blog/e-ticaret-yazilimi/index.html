@@ -148,7 +148,23 @@
 .yz-cizgi{position:fixed;top:0;left:0;height:2px;background:var(--acc);z-index:101;width:0;
   transition:width .1s linear}
 @media(max-width:760px){.yz-govde h2{margin-top:34px}}
-@media(prefers-reduced-motion:reduce){.yz-cizgi{display:none}}</style>
+@media(prefers-reduced-motion:reduce){.yz-cizgi{display:none}}
+.yz-ilgili{margin:clamp(30px,4vw,44px) 0 0;padding-top:clamp(24px,3vw,32px);
+  border-top:1px solid var(--hair)}
+.yz-ilgili h2{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;margin:0 0 4px}
+.yz-ilgili .not{font-size:13.4px;color:var(--muted);margin:0 0 18px}
+.yz-ilgili ul{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  list-style:none;padding:0;margin:0}
+.yz-ilgili li{margin:0}
+.yz-ilgili a{display:flex;flex-direction:column;gap:5px;height:100%;
+  border:1px solid var(--hair);border-radius:var(--r-md);padding:14px 16px;
+  text-decoration:none;transition:border-color .25s,transform .25s;background:rgba(255,255,255,.012)}
+.yz-ilgili a:hover{border-color:rgba(var(--k,0,229,255),.5);transform:translateY(-2px)}
+.yz-ilgili .kat{font-family:var(--mono);font-size:9.4px;letter-spacing:.14em;
+  text-transform:uppercase;color:rgb(var(--k,0,229,255))}
+.yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
+@media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -373,6 +389,20 @@
         </div>
         <p>Karar üç kelimeye iniyor: katalog, entegrasyon, sahiplik. Bu başlıklara cevabınızı yazın; doğru e-ticaret yazılımı kendini gösterir. Nereden başlayacağınızı bilmiyorsanız <a href="../../teklif/">teklif sihirbazımızdan</a> geçin. Birkaç soruda ürün sayınızı ve entegrasyon listenizi çıkarıyoruz, size uygun e-ticaret yazılımı seçeneğini gerekçesiyle sunuyoruz.</p>
       </article>
+    </div>
+  </section>
+
+  <section class="sec ilgili-bolum" style="padding-top:0">
+    <div class="wrap">
+      <nav class="yz-ilgili rv" aria-labelledby="ilgili-baslik">
+        <h2 id="ilgili-baslik">İlgili rehberler</h2>
+        <p class="not">E-Ticaret Deneyimi kümesinden, bu yazıyı tamamlayan diğer başlıklar.</p>
+        <ul>
+          <li><a href="../odeme-guvenligi/" style="--k:0,229,255"><span class="kat">E-Ticaret</span><span class="bas">E-Ticaret Ödeme Entegrasyonu Adım Adım Nasıl Kurulur?</span></a></li>
+          <li><a href="../kullanici-deneyimi/" style="--k:0,229,255"><span class="kat">E-Ticaret</span><span class="bas">E-Ticaret Kullanıcı Deneyimi: Sepete Giden Yol Nasıl Kısalır?</span></a></li>
+          <li><a href="../ui-tasarim-ilkeleri/" style="--k:0,229,255"><span class="kat">Web Tasarım</span><span class="bas">Arayüz Tasarımı Hangi İlkelere Dayanır?</span></a></li>
+        </ul>
+      </nav>
     </div>
   </section>
 

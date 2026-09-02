@@ -97,12 +97,19 @@ const sssCevaplar = [...sssBolge.matchAll(/<\/summary>([\s\S]*?)<\/details>/gi)]
   .map((m) => kelimeler(metin(m[1])).length);
 
 /* --- 4c. İç linkler --- */
-const linkler = [...govdeHtml.matchAll(/<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi)]
+/* İç link sayımı gövde + "İlgili rehberler" bloğunu kapsar.
+   Blok <article>'ın DIŞINDA ayrı bir <section>'da duruyor; yalnız govdeHtml'e
+   bakan sayım yatay kardeş linklerini 0 gösteriyordu (ölçüm kapsamı hatası). */
+const ilgiliM = ham.match(/<nav class="yz-ilgili[\s\S]*?<\/nav>/);
+const linkBolgesi = govdeHtml + (ilgiliM ? ilgiliM[0] : '');
+const linkler = [...linkBolgesi.matchAll(/<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi)]
   .map((m) => ({ href: m[1], metin: metin(m[2]) }))
   .filter((l) => !/^(https?:|tel:|mailto:|#)/.test(l.href) || l.href.includes('tasarimmania'));
 const tumSayfaLink = [...ham.matchAll(/<a[^>]+href="(\.\.[^"]*)"/gi)].map((m) => m[1]);
 const hizmetLink = linkler.filter((l) => /hizmetler/.test(l.href));
-const blogLink = linkler.filter((l) => /blog\//.test(l.href));
+/* Kardeş (yatay) link: aynı blog dizinindeki başka yazı → "../<slug>/".
+   "blog/" deseni aramak YANLIŞ; kardeş yolunda o parça bulunmaz. */
+const blogLink = linkler.filter((l) => /^\.\.\/[a-z0-9-]+\/$/.test(l.href) || /\/blog\//.test(l.href));
 const donusumLink = linkler.filter((l) => /teklif|iletisim/.test(l.href));
 
 /* --- 11. Görseller --- */

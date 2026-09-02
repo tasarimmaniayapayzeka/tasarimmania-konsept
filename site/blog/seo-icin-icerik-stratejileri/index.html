@@ -150,7 +150,23 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+.yz-ilgili{margin:clamp(30px,4vw,44px) 0 0;padding-top:clamp(24px,3vw,32px);
+  border-top:1px solid var(--hair)}
+.yz-ilgili h2{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;margin:0 0 4px}
+.yz-ilgili .not{font-size:13.4px;color:var(--muted);margin:0 0 18px}
+.yz-ilgili ul{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  list-style:none;padding:0;margin:0}
+.yz-ilgili li{margin:0}
+.yz-ilgili a{display:flex;flex-direction:column;gap:5px;height:100%;
+  border:1px solid var(--hair);border-radius:var(--r-md);padding:14px 16px;
+  text-decoration:none;transition:border-color .25s,transform .25s;background:rgba(255,255,255,.012)}
+.yz-ilgili a:hover{border-color:rgba(var(--k,0,229,255),.5);transform:translateY(-2px)}
+.yz-ilgili .kat{font-family:var(--mono);font-size:9.4px;letter-spacing:.14em;
+  text-transform:uppercase;color:rgb(var(--k,0,229,255))}
+.yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
+@media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -339,6 +355,20 @@
         </div>
         <p>Zamanlama, içerik üretiminin görünmeyen kaldıracıdır. Aynı bütçe ve aynı ekiple çalışan iki markadan takvimi olanı, sahada gördüğümüz kadarıyla zamanla öne geçiyor. Kurumsal bir SEO içerik stratejisinde önce ritmi, sonra hacmi konuşuyoruz. Yayın planınızı gözden geçirmek ya da sıfırdan kurmak için bize yazabilirsiniz. İlk adım, önümüzdeki üç ayın satırlarını birlikte doldurmak olacak. Takvim hazır olduğunda üretim tartışması yerini ölçüm tartışmasına bırakır.</p>
       </article>
+    </div>
+  </section>
+
+  <section class="sec ilgili-bolum" style="padding-top:0">
+    <div class="wrap">
+      <nav class="yz-ilgili rv" aria-labelledby="ilgili-baslik">
+        <h2 id="ilgili-baslik">İlgili rehberler</h2>
+        <p class="not">İçerik Stratejisi kümesinden, bu yazıyı tamamlayan diğer başlıklar.</p>
+        <ul>
+          <li><a href="../anahtar-kelime-arastirmasi/" style="--k:255,176,32"><span class="kat">Dijital Pazarlama</span><span class="bas">Anahtar Kelime Araştırması Neden İçeriğin Pusulasıdır?</span></a></li>
+          <li><a href="../e-ticaret-seo/" style="--k:166,255,0"><span class="kat">Seo</span><span class="bas">E-Ticaret SEO Ürün ve Kategori Sayfalarını Nasıl Sıralatır?</span></a></li>
+          <li><a href="../sosyal-medya-stratejileri/" style="--k:255,176,32"><span class="kat">Sosyal Medya</span><span class="bas">Sosyal Medya Stratejisi Nedir? Platform Seçimi Neye Göre Yapılır?</span></a></li>
+        </ul>
+      </nav>
     </div>
   </section>
 

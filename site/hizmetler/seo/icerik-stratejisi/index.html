@@ -373,6 +373,22 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   .burger{display:block}
   .ftr-ust{grid-template-columns:1fr}
 }
+
+.yz-ilgili{margin:clamp(30px,4vw,44px) 0 0;padding-top:clamp(24px,3vw,32px);
+  border-top:1px solid var(--hair)}
+.yz-ilgili h2{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;margin:0 0 4px}
+.yz-ilgili .not{font-size:13.4px;color:var(--muted);margin:0 0 18px}
+.yz-ilgili ul{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  list-style:none;padding:0;margin:0}
+.yz-ilgili li{margin:0}
+.yz-ilgili a{display:flex;flex-direction:column;gap:5px;height:100%;
+  border:1px solid var(--hair);border-radius:var(--r-md);padding:14px 16px;
+  text-decoration:none;transition:border-color .25s,transform .25s;background:rgba(255,255,255,.012)}
+.yz-ilgili a:hover{border-color:rgba(var(--k,0,229,255),.5);transform:translateY(-2px)}
+.yz-ilgili .kat{font-family:var(--mono);font-size:9.4px;letter-spacing:.14em;
+  text-transform:uppercase;color:rgb(var(--k,0,229,255))}
+.yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
+@media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">
 {
@@ -639,6 +655,19 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
             <span>Ürün ve kategori sayfası içerik optimizasyonu.</span></a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <nav class="yz-ilgili rv" aria-labelledby="hub-ilgili">
+        <h2 id="hub-ilgili">İçerik Stratejisi rehber yazıları</h2>
+        <p class="not">Bu hizmetin arkasındaki yöntemi anlatan blog içerikleri.</p>
+        <ul>
+          <li><a href="../../../blog/seo-icin-icerik-stratejileri/" style="--k:166,255,0"><span class="kat">Seo</span><span class="bas">SEO İçerik Stratejisinde İçerik Takvimi Neden Belirleyicidir?</span></a></li>
+          <li><a href="../../../blog/anahtar-kelime-arastirmasi/" style="--k:255,176,32"><span class="kat">Dijital Pazarlama</span><span class="bas">Anahtar Kelime Araştırması Neden İçeriğin Pusulasıdır?</span></a></li>
+        </ul>
+      </nav>
     </div>
   </section>
 
