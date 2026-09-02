@@ -243,6 +243,36 @@
   .org-et::before{width:4px;height:4px;margin-right:5px}
   .org-bas{font-size:9.2px;letter-spacing:.1em}
 }
+/* --- Referans logoları (eski siteden taşındı, koyu tema için tek renk beyaz) --- */
+.ref-izgara{list-style:none;padding:0;margin:0;display:grid;gap:12px;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.ref-izgara li{margin:0}
+.ref-izgara img{width:100%;height:74px;object-fit:contain;display:block;
+  padding:18px 20px;border:1px solid var(--hair);border-radius:var(--r-md);
+  background:rgba(255,255,255,.014);opacity:.62;
+  transition:opacity .3s var(--ease),border-color .3s,transform .3s var(--ease)}
+.ref-izgara li:hover img{opacity:1;border-color:rgba(var(--acc-rgb),.4);transform:translateY(-2px)}
+@media(max-width:520px){.ref-izgara{grid-template-columns:repeat(2,1fr)}
+  .ref-izgara img{height:60px;padding:14px 16px}}
+@media(prefers-reduced-motion:reduce){.ref-izgara li:hover img{transform:none}}
+
+/* --- Tanıtım videosu: tıklanana kadar YouTube'a bağlanmayan cephe --- */
+.yt-cephe{position:relative;display:block;width:100%;max-width:860px;margin:0 auto;
+  border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--hair);
+  cursor:pointer;aspect-ratio:16/9;background:#0d1017}
+.yt-cephe img{width:100%;height:100%;object-fit:cover;display:block;
+  filter:brightness(.72) saturate(.85);transition:filter .35s var(--ease),transform .5s var(--ease)}
+.yt-cephe:hover img,.yt-cephe:focus-visible img{filter:brightness(.85) saturate(1);transform:scale(1.02)}
+.yt-cephe:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.yt-play{position:absolute;inset:0;margin:auto;width:70px;height:70px;border-radius:50%;
+  display:grid;place-items:center;background:rgba(var(--acc-rgb),.92);color:#04141A;
+  box-shadow:0 12px 40px -8px rgba(var(--acc-rgb),.65);transition:transform .3s var(--ease)}
+.yt-cephe:hover .yt-play{transform:scale(1.08)}
+.yt-play svg{width:32px;height:32px;margin-left:3px}
+.yt-cephe iframe{width:100%;height:100%;border:0;display:block}
+.yt-not{text-align:center;font-size:12.8px;color:var(--muted);margin:12px 0 0}
+@media(max-width:520px){.yt-play{width:56px;height:56px}.yt-play svg{width:26px;height:26px}}
+@media(prefers-reduced-motion:reduce){.yt-cephe:hover img{transform:none}}
 </style>
 <script type="application/ld+json">
 {
@@ -584,6 +614,57 @@
     </div>
   </div>
 
+  <section class="sec" id="referanslar" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Birlikte çalıştıklarımız</span>
+        <h2 data-kin>Markalar bizi bir kez deneyip kalıyor</h2>
+        <p>Otelden kliniğe, spa'dan inşaata farklı sektörlerden markalarla çalıştık.
+          Aşağıdaki logolar hâlâ birlikte yürüdüğümüz ya da işini teslim ettiğimiz markalara ait.</p>
+      </div>
+      <ul class="ref-izgara rv d1">
+        <li><img src="../../assets/referans/grand-onur-hotel-ref.png" alt="Grand Onur Hotel" width="400" height="140" loading="lazy" decoding="async"></li>
+        <li><img src="../../assets/referans/loss-hotel-ref-1.png" alt="Loss Hotel" width="400" height="140" loading="lazy" decoding="async"></li>
+        <li><img src="../../assets/referans/palace-suit-ref.png" alt="Palace Suit Hotel" width="400" height="140" loading="lazy" decoding="async"></li>
+        <li><img src="../../assets/referans/sks-ref.png" alt="SKS İnşaat" width="400" height="140" loading="lazy" decoding="async"></li>
+        <li><img src="../../assets/referans/oba-dis.png" alt="Oba Diş Ağız ve Diş Sağlığı Polikliniği" width="400" height="140" loading="lazy" decoding="async"></li>
+        <li><img src="../../assets/referans/laguna-med.png" alt="Laguna Med" width="400" height="140" loading="lazy" decoding="async"></li>
+        <li><img src="../../assets/referans/dr-serkan-yildiz-ref.png" alt="Dr. Serkan Yıldız" width="400" height="140" loading="lazy" decoding="async"></li>
+        <li><img src="../../assets/referans/premium-spa-ref.png" alt="Premium Spa" width="400" height="140" loading="lazy" decoding="async"></li>
+        <li><img src="../../assets/referans/mor-spa-ref.png" alt="Mor Spa &amp; Wellness" width="400" height="140" loading="lazy" decoding="async"></li>
+        <li><img src="../../assets/referans/fix-spa-ref.png" alt="Fix Spa" width="400" height="140" loading="lazy" decoding="async"></li>
+        <li><img src="../../assets/referans/moiz-kozmetik-ref.png" alt="Moi Kozmetik" width="400" height="140" loading="lazy" decoding="async"></li>
+        <li><img src="../../assets/referans/moi-ref-1.png" alt="Moi Eyebrow" width="400" height="140" loading="lazy" decoding="async"></li>
+        <li><img src="../../assets/referans/moi-ref-2.png" alt="Moi Eyelash" width="400" height="140" loading="lazy" decoding="async"></li>
+        <li><img src="../../assets/referans/sevinc-kurs-ref.png" alt="Sevinç Kurs Merkezi" width="400" height="140" loading="lazy" decoding="async"></li>
+        <li><img src="../../assets/referans/fina-ders-ref.png" alt="Fina Ders" width="400" height="140" loading="lazy" decoding="async"></li>
+        <li><img src="../../assets/referans/erkan-bey-ref.png" alt="Erkan Bey Zeytinleri" width="400" height="140" loading="lazy" decoding="async"></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="tanitim" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Tanıtım filmi</span>
+        <h2 data-kin>Ajansı bir buçuk dakikada tanıyın</h2>
+        <p>Ekibi, stüdyoyu ve çalışma biçimimizi anlatan kısa tanıtım videomuz.</p>
+      </div>
+      <div class="yt-cephe rv d1" data-yt="PQxfYDP72OU"
+           role="button" tabindex="0" aria-label="Tanıtım videosunu oynat">
+        <img src="../../assets/ajans/tanitim-kapak-960.webp"
+             srcset="../../../assets/ajans/tanitim-kapak-640.webp 640w, ../../assets/ajans/tanitim-kapak-960.webp 960w, ../../assets/ajans/tanitim-kapak-1280.webp 1280w"
+             sizes="(max-width: 900px) 100vw, 860px"
+             alt="TasarımMania tanıtım filmi kapak karesi" width="1280" height="720"
+             loading="lazy" decoding="async">
+        <span class="yt-play" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+      </div>
+      <p class="yt-not">Oynat'a basana kadar YouTube'a bağlanılmaz; çerez düşmez.</p>
+    </div>
+  </section>
+
   <section class="sec">
     <div class="wrap">
       <div class="band rv">
@@ -648,6 +729,33 @@
 <script>
 "use strict";
 document.getElementById('yil').textContent = new Date().getFullYear();
+
+/* Tanıtım videosu: YouTube ancak KULLANICI oynat'a basınca yüklenir.
+   Sayfa açılışında hiçbir üçüncü taraf isteği gitmez; kapak karesi de yerelde. */
+(function tanitim(){
+  var cephe = document.querySelector('[data-yt]');
+  if (!cephe) return;
+  function ac(){
+    var id = cephe.dataset.yt;
+    if (!id || cephe.dataset.acildi) return;
+    cephe.dataset.acildi = '1';
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
+    f.title = 'TasarımMania tanıtım filmi';
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture';
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    f.allowFullscreen = true;
+    cephe.innerHTML = '';
+    cephe.appendChild(f);
+    cephe.style.cursor = 'default';
+    cephe.removeAttribute('role');
+    cephe.removeAttribute('tabindex');
+  }
+  cephe.addEventListener('click', ac);
+  cephe.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ac(); }
+  });
+})();
 
 /* Deneyim çubukları: bölüm görününce dolsun */
 (function deneyim(){
