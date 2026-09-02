@@ -42,6 +42,27 @@ function metin(html) {
     .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&[a-z]+;/g, ' ')
     .replace(/\s+/g, ' ').trim();
 }
+
+/* metin() her etiketi TEK BOŞLUĞA çevirir; blok sınırı kaybolur ve iki ayrı
+   öğe tek cümle gibi yapışır. Somut zarar: SSS başlığı
+   "<h2>Sık sorulan sorular: teknik seo denetimi</h2>" ile hemen ardındaki
+   "<summary>Teknik SEO denetimi ne kadar sürer?</summary>" birleşince ortaya
+   "…teknik seo denetimi Teknik SEO denetimi…" çıkıyor ve ters dizilim
+   dedektörü SAHTE bulgu üretiyordu.
+   Bu sürüm blok kapanışlarını ¶ ile işaretler; cümleye bölerken ¶ de
+   sınır sayılır. Yalnız 4b ölçümünde kullanılır — kelime sayımı gibi diğer
+   ölçümler metin() ile aynı kalsın diye ayrı tutuldu. */
+const BLOK = 'p|h[1-6]|li|td|th|summary|blockquote|div|section|article|figcaption|cite|ol|ul|details|dt|dd|nav|main|footer|header|tr|table|aside';
+function metinBloklu(html) {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(new RegExp('</(?:' + BLOK + ')>', 'gi'), ' ¶ ')
+    .replace(/<br\s*\/?>/gi, ' ¶ ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&[a-z]+;/g, ' ')
+    .replace(/\s+/g, ' ').trim();
+}
 const kelimeler = (t) => t.split(/\s+/).filter((w) => /[\wçğıöşüÇĞİÖŞÜ]/.test(w));
 
 const govdeMetin = metin(govdeHtml);
@@ -55,8 +76,11 @@ const proseKelime = govdeKelime - kopruKelime;
 /* --- 4. Odak yoğunluğu (Yoast tüm görünür metni sayar) --- */
 const odakRe = new RegExp(ODAK.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ı$/, '') + '\\w*', 'gi');
 const govdeGecis = (govdeMetin.match(odakRe) || []).length;
-const tumGorunur = metin(ham.slice(ham.indexOf('<main') > -1 ? ham.indexOf('<main') : 0,
-  ham.indexOf('<footer') > -1 ? ham.indexOf('<footer') : ham.length));
+const govdeAraligi = ham.slice(ham.indexOf('<main') > -1 ? ham.indexOf('<main') : 0,
+  ham.indexOf('<footer') > -1 ? ham.indexOf('<footer') : ham.length);
+const tumGorunur = metin(govdeAraligi);
+/* 4b ölçümü blok sınırlarını görmek zorunda — bkz. metinBloklu() notu */
+const tumGorunurBloklu = metinBloklu(govdeAraligi);
 const tumKelime = kelimeler(tumGorunur).length;
 const tumGecis = (tumGorunur.match(odakRe) || []).length;
 const odakKelimeSayisi = ODAK.split(' ').length;
@@ -139,17 +163,24 @@ const org = graf.find((x) => x['@type'] === 'Organization');
    kelimeyi hiç görmüyordu. Bir de cümle sınırı tanımadığı için
    "teknik sorunlardır. Teknik SEO" gibi iki ayrı cümleyi tek bulgu sayıyordu.
 
-   DOĞRUSU: SON kelime ÖNCE, İLK kelime SONRA gelecek; ikisi AYNI cümlede,
-   aralarında en çok 4 kelime olacak. Türkçe ek almayı karşılamak için
-   kelimeler köke indirgenir (son 2 harf atılır, en az 3 harf kalır). */
+   NOKTALAMA SINIRI DA YETMİYORDU: metin() her etiketi tek boşluğa çevirdiği
+   için SSS başlığı "…sorular: teknik seo denetimi" ile ardındaki ilk soru
+   "Teknik SEO denetimi ne kadar sürer?" tek cümle gibi yapışıyor ve SAHTE
+   bulgu üretiyordu. Artık metinBloklu() ile blok kapanışları ¶ işaretlenip
+   cümle sınırı sayılıyor.
+
+   DOĞRUSU: SON kelime ÖNCE, İLK kelime SONRA gelecek; ikisi AYNI cümlede VE
+   AYNI blokta, aralarında en çok 4 kelime olacak. Türkçe ek almayı
+   karşılamak için kelimeler köke indirgenir (son 2 harf atılır, en az 3
+   harf kalır). */
 const kelime = ODAK.split(' ');
 const kok = (t) => t.slice(0, Math.max(3, t.length - 2))
   .toLowerCase().replace(/i̇/g, 'i').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const kIlk = kok(kelime[0]);
 const kSon = kok(kelime[kelime.length - 1]);
 const tersRe = new RegExp(kSon + '\\S*\\s+(?:\\S+\\s+){0,4}' + kIlk + '\\S*', 'gi');
-const tersBulgular = tumGorunur
-  .split(/(?<=[.?!:])\s+/)                       /* cümle sınırını aşma */
+const tersBulgular = tumGorunurBloklu
+  .split(/(?<=[.?!:])\s+|\s*¶\s*/)               /* cümle VE blok sınırını aşma */
   .flatMap((c) => c.match(tersRe) || []);
 
 /* --- Eş anlamlı çiftler --- */
