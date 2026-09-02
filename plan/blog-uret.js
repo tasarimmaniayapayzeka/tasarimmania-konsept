@@ -277,6 +277,8 @@ function yaziUret(cfg) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- KONSEPT-NOINDEX -->
+<meta name="robots" content="noindex,nofollow">
 <title>${y.metaBaslik}</title>
 <meta name="description" content="${y.metaAciklama}">
 <link rel="canonical" href="https://www.tasarimmania.com/blog/${cfg.slug}/">

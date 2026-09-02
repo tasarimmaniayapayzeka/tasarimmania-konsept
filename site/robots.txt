@@ -1,4 +1,7 @@
+# KONSEPT SİTESİ — arama motorlarına KAPALI
+# Sebep: canonical etiketleri www.tasarimmania.com'u gösteriyor, o adres ise
+# 301 ile başka sayfaya gidiyor. İndekslenirse Google çelişen sinyal alır ve
+# gerçek domainin sıralamasına zarar verebilir.
+# GERÇEK DOMAINE TAŞIRKEN: node plan/noindex-uygula.js --ac
 User-agent: *
-Allow: /
-
-Sitemap: https://www.tasarimmania.com/sitemap.xml
+Disallow: /
