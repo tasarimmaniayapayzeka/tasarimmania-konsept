@@ -154,9 +154,11 @@ const YAZI_CSS = `
 .yz-govde ol li::before{content:counter(s);width:auto;height:auto;border-radius:0;background:none;
   color:var(--acc);font-family:var(--mono);font-size:12px;margin-top:2px;min-width:16px}
 .yz-govde strong{color:var(--fg);font-weight:600}
-.yz-govde p a{padding-block:4px}
+/* WCAG 2.5.8 - satir ici baglanti dokunma hedefi >=24px.
+   DIKKAT: padding'i AYRI bir .yz-govde p a kuralina koyma; .yz-govde a:not(.btn)
+   ozgullugu (0,2,1) onu (0,1,2) ezer ve 2px'te kalir. Degeri bu kuralin ICINDE tut. */
 .yz-govde a:not(.btn){color:var(--acc);text-decoration:underline;text-underline-offset:3px;
-  text-decoration-color:rgba(var(--acc-rgb),.4);transition:text-decoration-color .25s;padding-block:2px}
+  text-decoration-color:rgba(var(--acc-rgb),.4);transition:text-decoration-color .25s;padding-block:4px}
 .yz-govde a:not(.btn):hover{text-decoration-color:var(--acc)}
 /* doğrudan cevap kutusu (snippet hedefi) */
 .yz-cevap{border-left:2px solid var(--acc);background:rgba(var(--acc-rgb),.05);

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- KONSEPT-NOINDEX -->
+<meta name="robots" content="noindex,nofollow">
+<title>Google Ads Reklam Yönetimi mi, Organik Büyüme mi?</title>
+<meta name="description" content="Google Ads reklam yönetimi ile organik büyümenin maliyetini kıyasladık: tıklama maliyeti, aylık bütçe planı ve kanal başına gider yapısı tek bir tabloda.">
+<link rel="canonical" href="https://www.tasarimmania.com/blog/google-ads-ve-ppc/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="Google Ads Reklam Yönetimi mi, Organik Büyüme mi?">
+<meta property="og:description" content="Google Ads reklam yönetimi ile organik büyümenin maliyetini kıyasladık: tıklama maliyeti, aylık bütçe planı ve kanal başına gider yapısı tek bir tabloda.">
+<meta property="og:url" content="https://www.tasarimmania.com/blog/google-ads-ve-ppc/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/google-ads-ve-ppc/gorsel/google-ads-ve-ppc-kapak-1440.jpg">
+<meta property="og:image:width" content="1440">
+<meta property="og:image:height" content="810">
+<meta property="og:image:alt" content="Google Ads reklam yönetimi ile organik büyümenin maliyet yapısını anlatan soyut 3B görsel">
+<meta property="article:published_time" content="2026-09-23">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/google-ads-ve-ppc/gorsel/google-ads-ve-ppc-kapak-1440.jpg">
+<link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/tm.css">
+<style>
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  max-height:calc(100dvh - 74px);overflow-y:auto;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(28px,4vw,52px)) 0 clamp(22px,3vw,34px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.14),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.wa{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:90;width:54px;height:54px;
+  border-radius:50%;background:#25D366;display:grid;place-items:center;
+  box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s;padding-block:7px}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+@media(max-width:960px){.ftr-ust{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.nav-links,.nav-tel{display:none}.burger{display:block}.ftr-ust{grid-template-columns:1fr}}
+/* --- blog yazısı: okuma düzeni --- */
+.yz-ust{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.yz-kat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acc);border:1px solid rgba(var(--acc-rgb),.4);border-radius:99px;padding:6px 13px}
+.yz-meta{font-family:var(--mono);font-size:11.4px;color:var(--muted)}
+.phd h1{font-size:clamp(28px,4.4vw,46px);letter-spacing:-.035em;line-height:1.16;margin-bottom:16px;max-width:22ch}
+.phd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18px);max-width:62ch;line-height:1.78}
+.yz-govde{max-width:760px}
+.yz-govde h2{font-size:clamp(21px,2.9vw,28px);letter-spacing:-.03em;line-height:1.25;margin:44px 0 0}
+.yz-govde h3{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;line-height:1.35;margin:30px 0 10px}
+.yz-govde h4{font-size:15.6px;letter-spacing:-.01em;margin:22px 0 8px;color:var(--fg-dim)}
+.yz-govde p{font-size:15.6px;color:var(--fg-dim);line-height:1.85;margin:0 0 16px}
+.yz-govde ul,.yz-govde ol{margin:0 0 18px;padding-left:0;list-style:none;display:grid;gap:10px}
+.yz-govde li{font-size:15.2px;color:var(--fg-dim);line-height:1.72;display:flex;gap:11px;align-items:flex-start}
+.yz-govde li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:10px}
+.yz-govde ol{counter-reset:s}
+.yz-govde ol li{counter-increment:s}
+.yz-govde ol li::before{content:counter(s);width:auto;height:auto;border-radius:0;background:none;
+  color:var(--acc);font-family:var(--mono);font-size:12px;margin-top:2px;min-width:16px}
+.yz-govde strong{color:var(--fg);font-weight:600}
+/* WCAG 2.5.8 - satir ici baglanti dokunma hedefi >=24px.
+   DIKKAT: padding'i AYRI bir .yz-govde p a kuralina koyma; .yz-govde a:not(.btn)
+   ozgullugu (0,2,1) onu (0,1,2) ezer ve 2px'te kalir. Degeri bu kuralin ICINDE tut. */
+.yz-govde a:not(.btn){color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.4);transition:text-decoration-color .25s;padding-block:4px}
+.yz-govde a:not(.btn):hover{text-decoration-color:var(--acc)}
+/* doğrudan cevap kutusu (snippet hedefi) */
+.yz-cevap{border-left:2px solid var(--acc);background:rgba(var(--acc-rgb),.05);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:16px 20px;margin:16px 0 22px}
+.yz-cevap p{margin:0;color:var(--fg);font-size:15.4px;line-height:1.75}
+/* karşılaştırma tablosu */
+.yz-tablo{margin:26px 0;border:1px solid var(--hair);border-radius:var(--r-md);overflow-x:auto}
+.yz-tablo table{width:100%;border-collapse:collapse;min-width:520px}
+.yz-tablo th{font-family:var(--mono);font-size:10.4px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--acc);text-align:left;padding:14px 16px;border-bottom:1px solid var(--hair);
+  background:rgba(var(--acc-rgb),.05);font-weight:500;white-space:nowrap}
+.yz-tablo td{font-size:13.8px;color:var(--fg-dim);padding:14px 16px;border-bottom:1px solid var(--hair);
+  line-height:1.6;vertical-align:top}
+.yz-tablo tr:last-child td{border-bottom:0}
+.yz-tablo td:first-child{color:var(--fg);font-weight:600}
+.yz-tablo-not{font-family:var(--mono);font-size:10.4px;color:var(--muted);margin:-16px 0 26px;
+  letter-spacing:.04em}
+/* SSS */
+.yz-sss{display:grid;gap:11px;max-width:760px}
+.yz-sss details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
+.yz-sss details[open]{border-color:var(--hair-strong)}
+.yz-sss summary{cursor:pointer;list-style:none;padding:17px 21px;font-size:15.2px;font-weight:600;
+  display:flex;align-items:center;gap:14px;line-height:1.4}
+.yz-sss summary::-webkit-details-marker{display:none}
+.yz-sss summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.yz-sss details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.yz-sss summary:hover{color:var(--acc)}
+.yz-sss p{padding:0 21px 19px;margin:0;font-size:14.4px;color:var(--muted);line-height:1.75}
+/* hizmet köprüsü */
+.yz-kopru{border:1px solid rgba(var(--acc-rgb),.32);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(var(--acc-rgb),.07),transparent);
+  padding:clamp(22px,3vw,32px);margin:36px 0;max-width:760px}
+.yz-kopru b{display:block;font-size:clamp(17px,2.2vw,21px);letter-spacing:-.02em;margin-bottom:9px}
+.yz-kopru p{font-size:14.6px;color:var(--fg-dim);line-height:1.72;margin:0 0 18px}
+.yz-kopru .btn{margin-right:10px}
+/* okuma ilerlemesi */
+.yz-cizgi{position:fixed;top:0;left:0;height:2px;background:var(--acc);z-index:101;width:0;
+  transition:width .1s linear}
+@media(max-width:760px){.yz-govde h2{margin-top:34px}}
+@media(prefers-reduced-motion:reduce){.yz-cizgi{display:none}}
+/* --- 1.2 eklentileri --- */
+.yz-kapak{margin:0 0 clamp(26px,4vw,44px)}
+.yz-kapak img,.yz-gorsel img{width:100%;height:auto;display:block;border-radius:14px;
+  border:1px solid var(--hair);background:#0d1017}
+.yz-kapak figcaption,.yz-gorsel figcaption{margin-top:11px;font-size:13.2px;line-height:1.55;
+  color:var(--muted);max-width:760px}
+.yz-gorsel{margin:clamp(26px,4vw,38px) 0}
+.yz-ai{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--fg-dim);opacity:.72;white-space:nowrap}
+.yz-govde ol{margin:16px 0 20px;padding-left:22px;display:grid;gap:10px}
+.yz-govde ol li{padding-left:4px}
+.yz-govde ol li::marker{color:var(--acc);font-family:var(--mono);font-weight:600}
+.yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
+  background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
+.yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.tasarimmania.com/blog/google-ads-ve-ppc/#article",
+      "headline": "Google Ads Reklam Yönetimi mi, Organik Büyüme mi? Maliyet Kıyası",
+      "description": "Google Ads reklam yönetimi ile organik büyümenin maliyetini kıyasladık: tıklama maliyeti, aylık bütçe planı ve kanal başına gider yapısı tek bir tabloda.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23",
+      "inLanguage": "tr-TR",
+      "mainEntityOfPage": "https://www.tasarimmania.com/blog/google-ads-ve-ppc/",
+      "author": { "@type": "Organization", "name": "TasarımMania", "url": "https://www.tasarimmania.com/" },
+      "publisher": { "@id": "https://www.tasarimmania.com/#kurulus" },
+      "articleSection": "Dijital Pazarlama",
+      "wordCount": 1100,
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/google-ads-ve-ppc/gorsel/google-ads-ve-ppc-kapak-1440.jpg",
+        "width": 1440, "height": 810,
+        "caption": "Google Ads reklam yönetimi ile organik büyümenin maliyet yapısını anlatan soyut 3B görsel"
+      },
+      "about": [{"@type":"Thing","name":"Google Ads reklam yönetimi","description":"Google Ads reklam yönetimi, arama ağı kampanyalarının bütçe, teklif ve hedefleme ayarlarını sürekli izleyerek maliyeti kontrol altında tutan çalışmadır."},{"@type":"Thing","name":"Tıklama başına maliyet","description":"Tıklama başına maliyet, bir kullanıcının reklama her tıklayışında reklamverenin ödediği değişken tutardır."}],
+      "mentions": [{"@type":"Thing","name":"Google Ads"},{"@type":"Thing","name":"tıklama başına maliyet"},{"@type":"Thing","name":"kalite puanı"},{"@type":"Thing","name":"müşteri edinme maliyeti"},{"@type":"Thing","name":"organik arama trafiği"},{"@type":"Thing","name":"dijital reklam bütçesi"},{"@type":"Thing","name":"dönüşüm oranı"}],
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".ozet", ".yz-cevap"] }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.tasarimmania.com/#kurulus",
+      "name": "TasarımMania",
+      "url": "https://www.tasarimmania.com/",
+      "telephone": "+905547916545",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/logo/marka-yatay-optik.png",
+        "width": 435, "height": 163
+      },
+      "address": { "@type": "PostalAddress", "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+        "addressLocality": "Bakırköy", "addressRegion": "İstanbul", "addressCountry": "TR" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.tasarimmania.com/blog/google-ads-ve-ppc/#sss",
+      "mainEntity": [
+    { "@type": "Question", "name": "Google Ads için asgari aylık bütçe ne olmalı?", "acceptedAnswer": { "@type": "Answer", "text": "Tek bir asgari rakam yoktur; eşik sektörünüzün tıklama maliyetine ve dönüşüm oranınıza bağlıdır. Hesabı şöyle kurarız: hedeflediğiniz aylık müşteri sayısını dönüşüm oranınıza böler, çıkan tık ihtiyacını sektörünüzün ortalama tık maliyetiyle çarparız. Sonuç, öğrenme dönemi için ayrılan payla birlikte gerçekçi bir taban verir. Bu tabanın altında kalan bütçeler genellikle veri üretmeden tükenir, çünkü kampanya optimizasyon için gereken sinyali toplayamaz. Bütçeyi düşük tutmak zorundaysanız kelime sayısını ve coğrafi alanı daraltmak, aynı parayı daha derin biçimde kullanmanın en sağlam yoludur." } },
+    { "@type": "Question", "name": "Tıklama maliyeti neden gün içinde değişiyor?", "acceptedAnswer": { "@type": "Answer", "text": "Açık artırma her arama için yeniden çalışır. Rakiplerin günlük bütçesi bittiğinde rekabet azalır, maliyet düşer. Sabah ve akşam saatlerinde talep yoğunlaştığında ise teklifler yükselir. Bu yüzden saat bazlı raporu haftalık olarak inceler, verimsiz saat dilimlerinde teklif ayarını aşağı çekeriz." } },
+    { "@type": "Question", "name": "Organik kanal reklamdan gerçekten daha mı ucuz?", "acceptedAnswer": { "@type": "Answer", "text": "Uzun vadede genellikle daha düşük birim maliyetle çalışır, kısa vadede değil. İlk aylarda içerik ve teknik iş için ödenen emek, henüz trafik üretmeyen bir yatırımdır. Trafik geldikten sonra aynı sayfa ek ödeme olmadan ziyaretçi taşımayı sürdürür ve birim maliyet düşer." } },
+    { "@type": "Question", "name": "Reklamı durdurursak trafik ne olur?", "acceptedAnswer": { "@type": "Answer", "text": "Gösterim doğrudan bütçeye bağlı olduğu için reklam trafiği aynı gün kesilir. Buradaki kritik ayrım, kesilen trafiğin tamamının kaybolmamasıdır: markanızı adıyla arayan kullanıcıların bir bölümü sonuç sayfasında organik listelemenize yönelir. Bu yüzden reklamı durdurmadan önce marka aramalarındaki organik sıranızı kontrol eder, yeniden pazarlama listelerinizin de büyümeyi bırakacağını hesaba katarız." } },
+    { "@type": "Question", "name": "Kanal başına edinme maliyetini nasıl hesaplarız?", "acceptedAnswer": { "@type": "Answer", "text": "Hesabı iki kanal için ayrı ayrı ve aynı dönem üzerinden kurarız. Reklamda formül basittir: dönem harcamasını o dönemde gelen müşteri sayısına böleriz. Organikte önce içerik, tasarım ve teknik işlere ayrılan saatleri toplar, saat maliyetiyle çarpar, üzerine araç aboneliklerini ve ajans yönetim ücretini ekleriz. Çıkan tutarı organik kanaldan gelen müşteri sayısına böleriz. Organik yatırımın karşılığı gecikmeli geldiği için harcamayla sonucu aynı aya sıkıştırmayız; üretim dönemini takip eden aylara yayarak okuruz." } },
+    { "@type": "Question", "name": "Küçük bütçeyle reklam vermek mantıklı mı?", "acceptedAnswer": { "@type": "Answer", "text": "Odak dar tutulduğunda mantıklıdır. Tek bir hizmet, tek şehir ve dar kelime listesiyle küçük bütçe de ölçülebilir sonuç üretir. Bütçeyi geniş bir kelime kümesine yayarsanız hiçbir alanda yeterli veri toplayamazsınız." } },
+    { "@type": "Question", "name": "İki kanalı aynı anda yürütmek bütçeyi böler mi?", "acceptedAnswer": { "@type": "Answer", "text": "Böler, ancak riski de dağıtır. Reklam kısa vadeli talebi karşılarken içerik çalışması gelecek dönemin maliyetini düşürür. Marjı dar işletmelerde reklamı yalnızca en kârlı kelimelerde tutup kalan payı içeriğe aktarmayı öneririz." } },
+    { "@type": "Question", "name": "Ajans yönetim ücreti maliyetin neresinde durur?", "acceptedAnswer": { "@type": "Answer", "text": "Yönetim ücreti, reklam harcamasından ayrı bir hizmet kalemidir. Edinme maliyetini hesaplarken bu kalemi de toplama eklemek gerekir." } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.tasarimmania.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.tasarimmania.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Google Ads Reklam Yönetimi mi, Organik Büyüme mi? Maliyet Kıyası", "item": "https://www.tasarimmania.com/blog/google-ads-ve-ppc/" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body data-dal="pazarlama">
+
+<i class="yz-cizgi" data-ilerleme aria-hidden="true"></i>
+<a class="skip" href="#ana">İçeriğe geç</a>
+
+<nav class="nav" data-nav aria-label="Ana menü">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../../" aria-label="TasarımMania ana sayfa">
+      <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async">
+    </a>
+    <div class="nav-links">
+      <a href="../../hizmetler/">Hizmetler</a>
+      <a href="../../#isler">İşler</a>
+      <a href="../../hakkimizda/">Ajans</a>
+      <a href="../../blog/" aria-current="page">Blog</a>
+      <a href="../../teklif/">Teklif Al</a>
+      <a href="../../iletisim/">İletişim</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../../hizmetler/">Hizmetler</a><a href="../../#isler">İşler</a><a href="../../hakkimizda/">Ajans</a>
+  <a href="../../blog/">Blog</a><a href="../../teklif/">Teklif Al</a><a href="../../iletisim/">İletişim</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<!-- AYIRT EDİCİ EKSEN: MALIYET — Tıklama maliyeti, bütçe planı ve kanal başına maliyet kıyası; metin yazım tekniği reklam-metni-yazma yazısına bırakılır.
+     Huni türü: MOFU · Küme: Dijital Pazarlama Performansı · Kardeşler (enjeksiyon turunda): reklam-metni-yazma, sosyal-medya-stratejileri, sosyal-medya-raporlama -->
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Konum">
+        <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
+        <a href="../../blog/">Blog</a><span aria-hidden="true">/</span>
+        <span>undefined</span>
+      </nav>
+      <div class="yz-ust">
+        <span class="yz-kat">Dijital Pazarlama</span>
+        <span class="yz-meta">23 Eylül 2026 · 7 dakikalık okuma</span>
+      </div>
+      <h1>Google Ads Reklam Yönetimi mi, Organik Büyüme mi? Maliyet Kıyası</h1>
+      <p class="ozet">Bütçe toplantılarında en sık duyduğumuz soru şu: para reklama mı gitsin, içeriğe mi? İki kanalın da bir fiyat etiketi var; biri faturada, diğeri takvimde görünür. Google Ads reklam yönetimi ilk günden trafik getirir, organik büyüme ise birikimle ilerler. Bu yazıda tıklama maliyetini, aylık bütçe planını ve kanal başına gider yapısını yan yana koyuyoruz. Amacımız tek bir doğru dayatmak değil; hangi bütçe aralığında hangi kanalın daha ucuza geldiğini göstermek.</p>
+    </div>
+  </header>
+
+  <figure class="yz-kapak">
+    <div class="wrap">
+      <img src="./gorsel/google-ads-ve-ppc-kapak-1440.webp"
+           srcset="./gorsel/google-ads-ve-ppc-kapak-640.webp 640w, ./gorsel/google-ads-ve-ppc-kapak-960.webp 960w, ./gorsel/google-ads-ve-ppc-kapak-1440.webp 1440w, ./gorsel/google-ads-ve-ppc-kapak-1920.webp 1920w"
+           sizes="(max-width: 1200px) 100vw, 1160px"
+           alt="Google Ads reklam yönetimi ile organik büyümenin maliyet yapısını anlatan soyut 3B görsel"
+           width="1920" height="1080" fetchpriority="high" decoding="async">
+      <figcaption>Reklam bütçesi hızla akar, organik yatırım yavaş ama kalıcı biçimde birikir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
+    </div>
+  </figure>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <article class="yz-govde">
+      <h2>Google Ads Bütçesi Nasıl Planlanır?</h2>
+      <div class="yz-cevap"><p>Bütçe planını, aylık üst sınırı günlük tavana bölerek ve test dönemini ayrı bir kalem sayarak kurarız. Google Ads reklam yönetimini harcama değil, ölçülebilir bir satın alma süreci olarak ele alırız. Dönüşüm başına ödeyebileceğimiz tavanı önce belirler, kelime listesini bu tavana göre daraltırız.</p></div>
+      <p>Tıklama maliyeti, bir kullanıcının reklamınıza her tıklayışında ödediğiniz değişken tutardır. Bu tutar sabit kalmaz; gün içinde bile oynar. Google Ads reklam yönetiminde bütçeyi tek rakam olarak değil, tavan ile taban arasında bir aralık olarak kurgularız.</p><p>Dijital kanala geçen işletme sayısı artıyor. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">Ticaret Bakanlığı ETBİS raporuna</a> göre e-ticaret yapan işletme sayısı 634.611'e ulaştı. Bu işletmelerin bir bölümü aynı aramalarda teklif veriyor; rekabet arttıkça bütçe disiplini önem kazanıyor.</p><p>Yeni bir hesapta <a href="../../hizmetler/dijital-pazarlama/google-ads/">Google Ads yönetimi</a> için şu sırayı izleriz:</p><ol><li>Bir dönüşüm için ödeyebileceğiniz üst sınırı yazarız.</li><li>Bu sınırı tahmini tıklama maliyetine böleriz.</li><li>Çıkan tık sayısını aylık satış hedefiyle çarparız.</li><li>İlk 30 günü öğrenme dönemi sayar, sonucu ayrı raporlarız.</li></ol>
+      <h3>Günlük tavan ile aylık taahhüt arasındaki fark</h3>
+      Günlük tavan, sistemin bir gün için hedeflediği ortalama tutardır; panel yoğun günlerde bu tutarın üzerine çıkar, ay sonunda ortalamayı tutturur. Aylık taahhüt ise sizin finansal planınızdır. Nakit akışını bu dalgalanmaya göre kurgulamak sürprizi önler.
+      <h3>Test bütçesi için makul alt eşik</h3>
+      Çok küçük bir test bütçesi veri üretmez. Algoritma öğrenmek için yeterli tık ve dönüşüm ister. Kampanyayı dört haftadan kısa sürede kapatan işletme, ödediği öğrenme bedelini çöpe atar.
+      <h2>Tıklama Maliyetini Ne Belirler?</h2>
+      <div class="yz-cevap"><p>Üç etken tıklama maliyetini belirler: rakiplerin teklifi, hesabınızın kalite puanı ve aranan terimin ticari niyeti. Aynı sektördeki iki işletme, aynı kelimeye çok farklı bedel öder. Kalite puanı yükseldikçe aynı sırayı daha düşük teklifle koruruz; bu da gideri aşağı çeker. Rakam tutmazsa hedef kelimeyi değiştiririz.</p></div>
+      <p>Kalite puanı, reklamınızın ve açılış sayfanızın arama niyetine ne kadar uyduğunu ölçer. Puan düştüğünde aynı konum için daha fazla ödersiniz. Metin yazımının kendi tekniği ayrı bir konudur; burada yalnızca maliyete etkisine bakıyoruz.</p><p>Ticari niyeti yüksek kelimelerde rekabet serttir. Fiyat, sipariş veya randevu içeren aramalar pahalıdır, çünkü herkes aynı kişiye ulaşmak ister. Google Ads reklam yönetimi içinde kârlılığı koruyan yol, bu pahalı kelimeleri kapatmak değil, dönüşüm oranını yükseltmektir.</p>
+      <h3>Sektör rekabeti maliyeti nasıl yükseltir?</h3>
+      Sigorta, hukuk ve özel sağlık gibi alanlarda müşteri değeri yüksektir; yüksek değer yüksek teklifi getirir. Mobilya veya hediyelik eşyada aynı bütçe çok daha fazla tık satın alır. Sektör ortalamasını bilmeden bütçe belirlemek, hedefi karanlıkta aramaya benzer.
+      <h4>Eşleme türü bütçeyi sessizce eritir</h4>
+      Geniş eşleme, alakasız aramalara da reklam gösterir. Tıklar birikir, dönüşüm gelmez. Tam ve öbek eşlemeyle başlar, negatif kelime listesini her hafta genişletiriz.
+      <h2>Organik Büyümenin Maliyeti Gerçekten Sıfır mı?</h2>
+      <div class="yz-cevap"><p>Hayır, organik büyümenin de bir maliyeti vardır; fatura yerine emek ve zaman olarak çıkar. İçerik üretimi, teknik altyapı ve bekleme süresi birer gider kalemidir. Arama sonuçlarında yükselmek aylar alır. Google Ads reklam yönetimi bu bekleme süresini satın alır, organik çalışma ise onu birikime çevirir.</p></div>
+      <p>Organik büyüme, arama motorlarından ücretsiz tık kazanmak için içeriğe ve teknik iyileştirmeye yapılan yatırımdır. Karşılığı gecikmeli gelir. <a href="../../hizmetler/seo/icerik-stratejisi/">İçerik stratejisi</a> kapsamında ürettiğimiz her sayfa, yayında kaldığı sürece çalışmayı sürdürür.</p><p>Dijital alışkanlıklar bu kalemi besliyor. Hane halkının internet kullanımına dair resmi ölçümleri <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TÜİK</a> yayımlıyor; bu kaynağı kendi arama verinizle birlikte okuruz. Arama hacmi büyüdüğü ölçüde organik görünürlük, uzun vadede birim maliyeti aşağı çeken kalemde durur.</p>
+      <h3>Zaman, bilançoda görünmeyen gider kalemi</h3>
+      Bir içerik ekibinin üç aylık emeği bütçede satır olarak görünmez. Yine de maaş, prova ve revizyon zamanı gerçek paradır. Organik çalışmanın maliyetini hesaplarken bu emeği saat başına çevirir, Google Ads reklam yönetimi faturasıyla aynı tabloya koyarız.
+      <h3>İçerik üretiminin saatlik maliyeti nasıl çıkarılır?</h3>
+      Bir sayfanın araştırma, yazım, görsel ve yayına alma sürelerini ayrı ayrı yazarız. Her adımı üstlenen kişinin saat maliyetiyle çarpar, çıkan tutarları toplarız. Revizyon payını eklediğimizde sayfa başına gerçek üretim bedeli ortaya çıkar. Aylık organik gider, bu bedelin sayfa sayısıyla katıdır.
+      <h2>Google Ads Reklam Yönetimi ile Organik Kanalın Gider Yapısı</h2>
+      <div class="yz-cevap"><p>Reklam değişken maliyetlidir; organik kanal ağırlıklı olarak sabit maliyetle çalışır. Bütçeyi kestiğinizde reklam trafiği aynı gün düşer; yayındaki içerik ise ziyaretçi getirmeyi sürdürür. Bu fark, iki kanalın risk profilini ayırır. Nakit sıkıştığında hangi kalemi kısacağınızı önceden bilmek işinizi rahatlatır. Karar, sektörünüzün nakit döngüsüne bağlıdır.</p></div>
+      <p>Edinme maliyeti, bir müşteriyi kazanmak için harcadığınız toplam tutarın kazanılan müşteri sayısına bölümüdür. Reklamda bu hesap kolaydır; harcama panelde durur. Organik kanalda içerik, tasarım ve teknik iş saatlerini toplamanız gerekir.</p><p>İki kanalı aynı ölçüye getirmeden karşılaştırmak yanıltır. <a href="../../hizmetler/dijital-pazarlama/performans-pazarlamasi/">Performans pazarlaması</a> çalışmasında kurduğumuz ölçüm düzeni, her kanalın kendi edinme maliyetini ayrı gösterir. Aynı dönem ve aynı dönüşüm tanımı olmadan çıkan sonuç güvenilir olmaz.</p>
+      <h3>Değişken maliyet ile sabit maliyet ayrımı</h3>
+      Değişken maliyet, hacimle birlikte büyüyen kalemdir; her yeni tık faturaya eklenir. Sabit maliyet ise hacimden bağımsızdır. Bir rehberi bin kişi de okusa on bin kişi de okusa üretim bedeli aynı kalır.
+      <h3>Ajans yönetim ücreti hangi kalemde durur?</h3>
+      Yönetim ücreti hacimle birlikte artmadığı için sabit kalemde durur. Reklam harcamanız yükselse de bu satır aynı kalır. Bu yüzden ücreti tık başına dağıtmaz, aylık toplam gidere ekleriz. Küçük bütçelerde bu kalem oransal olarak ağır basar.
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
+      <h2>Hangi Bütçe Aralığında Hangi Kanal Öne Geçer?</h2>
+      <div class="yz-cevap"><p>Küçük ve acil bütçelerde reklam, uzun soluklu planlarda organik kanal öne geçer. Nakit döngüsü kısa olan işletme hızlı geri dönüş ister; reklam bunu sağlar. Yılı planlayan marka ise birim maliyeti düşürmek için içeriğe yatırır. Çoğu KOBİ için doğru cevap, ikisinin dengeli bileşimidir. Denge oranını sektöre göre kurarız.</p></div>
+      <p>Karar verirken önce nakit dayanağını ölçeriz; kampanya kaç hafta ayakta kalabilir? Ardından ürün marjının tık maliyetini kaldırıp kaldırmadığına bakarız. Son olarak arama hacminin düzenli olup olmadığını kontrol ederiz. Üçü de olumluysa reklam kanalını açarız; biri bile zayıfsa önce içerik ve teknik altyapıyı güçlendiririz.</p><p>Hangi kanala ne kadar ayıracağınızı rakamla görmek istiyorsanız, mevcut harcamanızı ve hedef dönüşüm sayınızı bize iletin. <a href="../../teklif/">Teklif formundan</a> birkaç dakikada başlar, Google Ads reklam yönetimi ile organik planın maliyetini yan yana çıkarırız.</p>
+      <h3>Bütçeyi bölüştürürken ağırlığı ne belirler?</h3>
+      Ağırlığı belirleyen ilk şey satışın aciliyetidir. Aciliyet yüksekse payı reklama veririz. Ürün marjı darsa organik tarafı büyütür, reklamı yalnızca en kârlı kelimelerde tutarız. Rekabet sertleştikçe aynı sonuç daha yüksek bütçe ister; o zaman kelime listesini daraltırız.
+      <figure class="yz-gorsel">
+        <img src="./gorsel/google-ads-ve-ppc-govde-960.webp"
+             srcset="./gorsel/google-ads-ve-ppc-govde-640.webp 640w, ./gorsel/google-ads-ve-ppc-govde-960.webp 960w, ./gorsel/google-ads-ve-ppc-govde-1440.webp 1440w, ./gorsel/google-ads-ve-ppc-govde-1920.webp 1920w"
+             sizes="(max-width: 760px) 100vw, 760px"
+             alt="Reklam harcaması ile organik içerik yatırımını tartan soyut terazi görseli" width="1920" height="1080" loading="lazy" decoding="async">
+        <figcaption>Kanal kararı, iki kanalın giderini aynı ölçüye getirdiğinizde netleşir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
+      </figure>
+      <h2>Google Ads ve Organik Kanal Maliyet Karşılaştırma Tablosu</h2>
+      <div class="yz-tablo">
+        <table>
+          <thead><tr><th>Maliyet kalemi</th><th>Google Ads</th><th>Organik kanal</th><th>Karar notu</th></tr></thead>
+          <tbody>
+            <tr><td>Başlangıç gideri</td><td>Günlük bütçe ilk günden işler</td><td>Hazırlık ve üretim emeği</td><td>Nakit darsa organik tarafla başla</td></tr>
+            <tr><td>Maliyet tipi</td><td>Değişken, tık başına artar</td><td>Ağırlıklı sabit</td><td>Hacim büyüyecekse sabit kalem avantajlı</td></tr>
+            <tr><td>İlk sonuç süresi</td><td>Aynı hafta ölçülür</td><td>Aylara yayılır</td><td>Aciliyet reklamı öne çıkarır</td></tr>
+            <tr><td>Durdurma etkisi</td><td>Trafik aynı gün düşer</td><td>Sayfalar getirmeyi sürdürür</td><td>Sezonluk işte reklam esnektir</td></tr>
+            <tr><td>Birim maliyet eğilimi</td><td>Rekabetle yükselir</td><td>Zamanla iner</td><td>Uzun vadede organik lehine</td></tr>
+            <tr><td>Ölçüm kolaylığı</td><td>Panelde net harcama</td><td>Emek saati toplanır</td><td>Ortak ölçü olmadan kıyas yanıltır</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+        <div class="yz-kopru">
+          <b>Google Ads ve Organik Kanal Maliyet Karşılaştırma Tablosu</b>
+          <p>Kapsamınıza uygun yol haritasını birlikte çıkaralım; adımları ve zamanlamayı netleştirelim.</p>
+          <a class="btn btn-p" href="../../teklif/#web">Kapsam çıkaralım
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="../../hizmetler/dijital-pazarlama/google-ads/">Hizmet sayfasını gör</a>
+        </div>
+        <p>Maliyet tartışması, kanalların birbirini elemesiyle değil, rollerin netleşmesiyle biter. Reklam bugünün talebini yakalar, organik çalışma yarının giderini düşürür. İkisini tek tabloda ölçtüğünüzde bütçe kararı tahmin olmaktan çıkar. Rakamlarınızı paylaşın, hangi kanalın sizin için daha ucuza geldiğini birlikte hesaplayalım.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Sık sorulanlar</span>
+        <h2 data-kin>Sık sorulan sorular: Google Ads reklam yönetimi</h2>
+      </div>
+      <div class="yz-sss rv d1">
+        <details>
+          <summary>Google Ads için asgari aylık bütçe ne olmalı?</summary>
+          <p>Tek bir asgari rakam yoktur; eşik sektörünüzün tıklama maliyetine ve dönüşüm oranınıza bağlıdır. Hesabı şöyle kurarız: hedeflediğiniz aylık müşteri sayısını dönüşüm oranınıza böler, çıkan tık ihtiyacını sektörünüzün ortalama tık maliyetiyle çarparız. Sonuç, öğrenme dönemi için ayrılan payla birlikte gerçekçi bir taban verir. Bu tabanın altında kalan bütçeler genellikle veri üretmeden tükenir, çünkü kampanya optimizasyon için gereken sinyali toplayamaz. Bütçeyi düşük tutmak zorundaysanız kelime sayısını ve coğrafi alanı daraltmak, aynı parayı daha derin biçimde kullanmanın en sağlam yoludur.</p>
+        </details>
+        <details>
+          <summary>Tıklama maliyeti neden gün içinde değişiyor?</summary>
+          <p>Açık artırma her arama için yeniden çalışır. Rakiplerin günlük bütçesi bittiğinde rekabet azalır, maliyet düşer. Sabah ve akşam saatlerinde talep yoğunlaştığında ise teklifler yükselir. Bu yüzden saat bazlı raporu haftalık olarak inceler, verimsiz saat dilimlerinde teklif ayarını aşağı çekeriz.</p>
+        </details>
+        <details>
+          <summary>Organik kanal reklamdan gerçekten daha mı ucuz?</summary>
+          <p>Uzun vadede genellikle daha düşük birim maliyetle çalışır, kısa vadede değil. İlk aylarda içerik ve teknik iş için ödenen emek, henüz trafik üretmeyen bir yatırımdır. Trafik geldikten sonra aynı sayfa ek ödeme olmadan ziyaretçi taşımayı sürdürür ve birim maliyet düşer.</p>
+        </details>
+        <details>
+          <summary>Reklamı durdurursak trafik ne olur?</summary>
+          <p>Gösterim doğrudan bütçeye bağlı olduğu için reklam trafiği aynı gün kesilir. Buradaki kritik ayrım, kesilen trafiğin tamamının kaybolmamasıdır: markanızı adıyla arayan kullanıcıların bir bölümü sonuç sayfasında organik listelemenize yönelir. Bu yüzden reklamı durdurmadan önce marka aramalarındaki organik sıranızı kontrol eder, yeniden pazarlama listelerinizin de büyümeyi bırakacağını hesaba katarız.</p>
+        </details>
+        <details>
+          <summary>Kanal başına edinme maliyetini nasıl hesaplarız?</summary>
+          <p>Hesabı iki kanal için ayrı ayrı ve aynı dönem üzerinden kurarız. Reklamda formül basittir: dönem harcamasını o dönemde gelen müşteri sayısına böleriz. Organikte önce içerik, tasarım ve teknik işlere ayrılan saatleri toplar, saat maliyetiyle çarpar, üzerine araç aboneliklerini ve ajans yönetim ücretini ekleriz. Çıkan tutarı organik kanaldan gelen müşteri sayısına böleriz. Organik yatırımın karşılığı gecikmeli geldiği için harcamayla sonucu aynı aya sıkıştırmayız; üretim dönemini takip eden aylara yayarak okuruz.</p>
+        </details>
+        <details>
+          <summary>Küçük bütçeyle reklam vermek mantıklı mı?</summary>
+          <p>Odak dar tutulduğunda mantıklıdır. Tek bir hizmet, tek şehir ve dar kelime listesiyle küçük bütçe de ölçülebilir sonuç üretir. Bütçeyi geniş bir kelime kümesine yayarsanız hiçbir alanda yeterli veri toplayamazsınız.</p>
+        </details>
+        <details>
+          <summary>İki kanalı aynı anda yürütmek bütçeyi böler mi?</summary>
+          <p>Böler, ancak riski de dağıtır. Reklam kısa vadeli talebi karşılarken içerik çalışması gelecek dönemin maliyetini düşürür. Marjı dar işletmelerde reklamı yalnızca en kârlı kelimelerde tutup kalan payı içeriğe aktarmayı öneririz.</p>
+        </details>
+        <details>
+          <summary>Ajans yönetim ücreti maliyetin neresinde durur?</summary>
+          <p>Yönetim ücreti, reklam harcamasından ayrı bir hizmet kalemidir. Edinme maliyetini hesaplarken bu kalemi de toplama eklemek gerekir.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>Web, mobil, reklam, video ve SEO’yu tek çatı altında birleştiren
+          İstanbul merkezli 360 derece dijital ajans.</p>
+      </div>
+      <div>
+        <h5>Modüller</h5>
+        <ul>
+          <li><a href="../../hizmetler/">Tüm hizmetler</a></li>
+          <li><a href="../../hizmetler/web-tasarim-yazilim/">Web &amp; Yazılım</a></li>
+          <li><a href="../../hizmetler/mobil-uygulama/">Mobil Uygulama</a></li>
+          <li><a href="../../hizmetler/dijital-pazarlama/">Dijital Pazarlama</a></li>
+          <li><a href="../../hizmetler/video-produksiyon/">Video Prodüksiyon</a></li>
+          <li><a href="../../hizmetler/seo/">SEO Hizmetleri</a></li>
+          <li><a href="../../hizmetler/grafik-tasarim/">Grafik Tasarım</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>İletişim</h5>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../../iletisim/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../../iletisim/#ofis">Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</span>
+      <span class="mono">BEŞ MODÜL · TEK PANEL</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+<script>
+"use strict";
+(function(){
+  var c = document.querySelector('[data-ilerleme]');
+  if (!c || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  function ciz(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    c.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', ciz, { passive: true });
+  ciz();
+})();
+</script>
