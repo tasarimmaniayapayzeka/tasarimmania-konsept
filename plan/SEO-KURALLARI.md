@@ -230,6 +230,11 @@ Snippet tetikleyicisi budur. H2 metni, hedeflenen sorguyu kullanıcının yazdı
 ### 51. `[Y]` Cevap başlığın hemen altında durur
 Araya görsel, CTA, reklam veya alıntı kutusu girmez. Tablo snippet'i için `<th>` başlık satırı zorunlu, **`colspan`/`rowspan` yasak** — birleşik hücreli tabloyu Google çekmez.
 
+> **Konsept sitesi istisnası (2 Eyl 2026):** TasarımMania konsepti şu an `Disallow: /` ile
+> tamamen kapalı — canonical'lar gerçek domaini gösterdiği ve o adres 301 ile başka sayfaya
+> gittiği için. Bu Madde 52'nin ihlali değil, **gerçek domaine taşınana kadar geçerli bilinçli
+> bir karar.** Taşıma anında `node plan/noindex-uygula.js --ac` ile açılır ve Madde 52 yürürlüğe girer.
+
 ### 52. `[Y]` AI crawler'ları engelleme — açıkça doğrula
 `GPTBot` · `Google-Extended` · `PerplexityBot` · `ClaudeBot` · `CCBot` robots.txt'de **bloklanmaz**. Varsayılan izinlidir ama her projede tek tek doğrulanır. Engelliyse üretken motorlarda **hiç görünmezsin**.
 
@@ -378,8 +383,9 @@ ChatGPT'nin arama hattı **Bing dizinine** dayanır; Gemini Google dizinine. Sea
 
 | Kontrol | Durum |
 |---|---|
-| `robots.txt` — AI crawler engeli yok | ✅ |
-| `sitemap.xml` — blog dahil 36 URL | ✅ |
+| `robots.txt` | ⛔ **Bilerek `Disallow: /`** — konsept aramaya kapalı (aşağıya bak) |
+| 45/45 sayfada `noindex,nofollow` | ⛔ Bilerek. Geri alma: `node plan/noindex-uygula.js --ac` |
+| `sitemap.xml` — blog dahil 44 URL | ✅ |
 | `llms.txt` — 36 bağlantı | ✅ Yayında |
 | İlk yazı: 30/31 eşik + Madde 71–72 | ✅ 1200 kelime, %2,33, dış atıf 2, alıntı 1 |
 | GEO şema (Madde 45) | ✅ `sameAs` hariç hepsi — gerçek sosyal hesap bekliyor |
