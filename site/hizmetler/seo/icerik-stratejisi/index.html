@@ -268,6 +268,123 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
 
+/* --- akış durakları (alt sayfa standardı) ---
+   Web dalındaki alt sayfalarla aynı bileşen; burada SEO dalının aksanı
+   (--acc = lime) kullanılıyor, o yüzden SVG içi renkler #A6FF00 ailesinden.
+
+   ÖLÇÜLEN KUSUR 1 — mobilde okunmuyordu: tek parça geniş grafik 390px ekranda
+   ~296px'e sığınca içindeki küçük yazı okunmaz hâle geliyordu. Doğrusu grafiği
+   kutulara bölüp alt alta açmak; her durak kendi 380x400 kutusunda.
+
+   ÖLÇÜLEN KUSUR 2 — ad çakışması: tm.css'te (satır 161-171) GLOBAL bir kayan
+   yazı bileşeni bu bloğun eski adını kullanıyor; onun "span{display:inline-flex}"
+   ve "span::before{content:...}" kuralları figure içine konan HER <span>'i ele
+   geçiriyordu. Bu yüzden ad .akis; eski ad bu sayfada hiç geçmiyor. Yine de
+   .akis-no / .akis-ad stilleri AÇIK yazıldı: <span> stili mirasa bırakılmıyor.
+   NOT: bu sayfada ayrıca ".hrt-akis" sınıfı var; farklı bir sınıf adı olduğu
+   için ".akis" seçicisi ona DEĞMEZ (sınıf seçicisi tam simge eşleşmesidir). */
+.akis{border:1px solid var(--hair);border-radius:var(--r-lg);
+  background:var(--panel);padding:18px;margin:26px 0 0}
+.akis-izgara{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:12px;align-items:stretch}
+.akis-kutu{border:1px solid var(--hair);border-radius:var(--r-md);
+  background:rgba(255,255,255,.02);padding:14px;display:flex;
+  flex-direction:column;gap:10px}
+.akis-no{display:inline-block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;color:var(--acc);opacity:.9}
+.akis-ad{display:block;font-size:13.5px;font-weight:600;color:var(--fg);
+  letter-spacing:-.01em;margin-top:-6px}
+/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
+.akis-kutu svg{width:100%;height:auto;display:block;border-radius:10px}
+.akis-ok{display:grid;place-items:center;color:var(--acc);opacity:.6}
+.akis-ok svg{width:22px;height:22px}
+.akis figcaption{margin-top:14px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.akis figcaption b{color:var(--fg-dim);font-weight:600}
+@media(max-width:860px){
+  .akis-izgara{grid-template-columns:1fr;gap:10px}
+  .akis-ok svg{transform:rotate(90deg)}
+  .akis{padding:14px}
+}
+
+/* --- durak canlanması ---
+   YENİ JS YOK: figure zaten .rv sınıfında; site/js/tm.js görününce .in ekliyor.
+   prefers-reduced-motion: tm.css'teki global kural animation-duration'ı
+   0.001ms'e indiriyor, "forwards" sayesinde her öğe anında son hâline oturuyor.
+   BAŞLANGIÇ DURUMU VERİLEN HER ÖĞENİN .in KARŞILIĞI VAR (aşağıda birebir).
+   Sınıf/keyframe öneki "is-"/"is": e-ticaret sayfası "et-", hub "w-" kullanıyor;
+   sayfalar ileride birleşirse çakışmasın diye ayrı tutuldu.
+   Çizelge — her kutu KENDİ içinde canlanır, kutular soldan sağa (mobilde
+   yukarıdan aşağı) sırayla girer:
+     KUTU 1 · 0.25s : kart 0.25 · arama alanı 0.38 · başlık çubukları 0.46–0.56 ·
+                      ayraç 0.56 · tablo satırları 0.60–0.84
+     ok 1 · 0.80s
+     KUTU 2 · 0.90s : kart 0.90 · daireler 0.98 · lejant 1.04–1.09 ·
+                      kesişim 1.12 · boşluk noktaları 1.18–1.28 ·
+                      "Boşluk" 1.32 · alt satır 1.36
+     ok 2 · 1.40s
+     KUTU 3 · 1.50s : kart 1.50 · takvim başlığı 1.58 · satırlar 1.64–1.88 ·
+                      sıradaki kutucuğun aksan çerçevesi + halesi 1.96 → ~2.1s */
+.akis svg .is-kart{opacity:0;transform:translateY(16px);transform-box:fill-box}
+.akis svg .is-arama,
+.akis svg .is-ayrac,
+.akis svg .is-daire,
+.akis svg .is-kesisim,
+.akis svg .is-bosluk,
+.akis svg .is-alt,
+.akis svg .is-hale,
+.akis svg .is-takvimbas{opacity:0}
+.akis svg .is-satir > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.akis svg .is-lejant > g{opacity:0;transform:translateX(-10px);transform-box:fill-box}
+.akis svg .is-hafta > g{opacity:0;transform:translateX(12px);transform-box:fill-box}
+.akis svg .is-baslik rect{clip-path:inset(0 100% 0 0)}
+.akis svg .is-nokta circle{opacity:0;transform:scale(.4);transform-box:fill-box;
+  transform-origin:center}
+.akis svg .is-cerceve{opacity:0;transform:scale(.94);transform-box:fill-box;
+  transform-origin:center}
+/* oklar HTML: .akis-ok kutusu opaklığı taşıyor, ok çizimi 0'dan girer */
+.akis .is-ok{opacity:0}
+
+.akis.in svg .is-k1{animation:isKart .6s var(--ease) .25s forwards}
+.akis.in svg .is-arama{animation:isBelir .5s var(--ease) .38s forwards}
+.akis.in svg .is-baslik rect:nth-of-type(1){animation:isCiz .5s var(--ease) .46s forwards}
+.akis.in svg .is-baslik rect:nth-of-type(2){animation:isCiz .5s var(--ease) .51s forwards}
+.akis.in svg .is-baslik rect:nth-of-type(3){animation:isCiz .5s var(--ease) .56s forwards}
+.akis.in svg .is-a1{animation:isBelir .4s var(--ease) .56s forwards}
+.akis.in svg .is-satir > g:nth-child(1){animation:isSatir .45s var(--ease) .60s forwards}
+.akis.in svg .is-satir > g:nth-child(2){animation:isSatir .45s var(--ease) .68s forwards}
+.akis.in svg .is-satir > g:nth-child(3){animation:isSatir .45s var(--ease) .76s forwards}
+.akis.in svg .is-satir > g:nth-child(4){animation:isSatir .45s var(--ease) .84s forwards}
+.akis.in .is-ok1{animation:isOkBelir .55s var(--ease) .80s forwards}
+.akis.in svg .is-k2{animation:isKart .6s var(--ease) .90s forwards}
+.akis.in svg .is-daire{animation:isBelir .5s var(--ease) .98s forwards}
+.akis.in svg .is-lejant > g:nth-child(1){animation:isSol .42s var(--ease) 1.04s forwards}
+.akis.in svg .is-lejant > g:nth-child(2){animation:isSol .42s var(--ease) 1.09s forwards}
+.akis.in svg .is-kesisim{animation:isBelir .55s var(--ease) 1.12s forwards}
+.akis.in svg .is-nokta circle:nth-of-type(1){animation:isNokta .45s var(--ease) 1.18s forwards}
+.akis.in svg .is-nokta circle:nth-of-type(2){animation:isNokta .45s var(--ease) 1.23s forwards}
+.akis.in svg .is-nokta circle:nth-of-type(3){animation:isNokta .45s var(--ease) 1.28s forwards}
+.akis.in svg .is-bosluk{animation:isBelir .45s var(--ease) 1.32s forwards}
+.akis.in svg .is-alt{animation:isBelir .45s var(--ease) 1.36s forwards}
+.akis.in .is-ok2{animation:isOkBelir .55s var(--ease) 1.40s forwards}
+.akis.in svg .is-k3{animation:isKart .6s var(--ease) 1.50s forwards}
+.akis.in svg .is-takvimbas{animation:isBelir .45s var(--ease) 1.58s forwards}
+.akis.in svg .is-hafta > g:nth-child(1){animation:isSag .42s var(--ease) 1.64s forwards}
+.akis.in svg .is-hafta > g:nth-child(2){animation:isSag .42s var(--ease) 1.72s forwards}
+.akis.in svg .is-hafta > g:nth-child(3){animation:isSag .42s var(--ease) 1.80s forwards}
+.akis.in svg .is-hafta > g:nth-child(4){animation:isSag .42s var(--ease) 1.88s forwards}
+.akis.in svg .is-hale{animation:isBelir .6s var(--ease) 1.96s forwards}
+.akis.in svg .is-cerceve{animation:isCerceve .5s var(--ease) 1.96s forwards}
+
+@keyframes isKart{to{opacity:1;transform:translateY(0)}}
+@keyframes isSatir{to{opacity:1;transform:translateY(0)}}
+@keyframes isSag{to{opacity:1;transform:translateX(0)}}
+@keyframes isSol{to{opacity:1;transform:translateX(0)}}
+@keyframes isCiz{to{clip-path:inset(0 0 0 0)}}
+@keyframes isBelir{to{opacity:1}}
+@keyframes isNokta{to{opacity:1;transform:scale(1)}}
+@keyframes isCerceve{to{opacity:1;transform:scale(1)}}
+@keyframes isOkBelir{0%{opacity:0}45%{opacity:1;filter:brightness(1.7)}to{opacity:1;filter:brightness(1)}}
+
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
 .sss details[open],.akor details[open]{border-color:var(--hair-strong)}
@@ -389,6 +506,16 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* DAR-EKRAN-DOLGU */
+/* 375px (iPhone SE) olculdu: en kucuk yazi 8.49-8.82px, 9px esiginin altinda.
+   SVG'leri yeniden cizmek yerine dolguyu kisip SVG'ye alan aciliyor:
+   375 - 48(wrap) - 20(akis) - 20(kutu) - 4(kenarlik) = 283px → olcek 0.745
+   13 * 0.745 = 9.68px. Olcum sonrasi dogrulandi. */
+@media(max-width:400px){
+  .akis{padding:10px}
+  .akis-kutu{padding:10px;gap:8px}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -553,6 +680,315 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>
+
+      <!-- Akış durakları — bu sayfanın KENDİ anlattığı yolu çizer:
+           anahtar kelime / arama niyeti → rakip boşluğu → içerik takvimi.
+           Etiketlerin tamamı sayfada geçen kavramlar: "anahtar kelime
+           araştırması", niyet türleri "bilgi amaçlı / karşılaştırmalı /
+           işlem odaklı", "mevcut sayfalar", "rakip sayfalar", "boşluk",
+           "yanıtlanmamış sorular", "içerik fırsatı", "içerik takvimi",
+           "cluster", "pillar sayfa".
+           BİLEREK RAKAM YOK: fiyat rakamları bu sayfadan kaldırıldı; arama
+           hacmi, sıralama, süre veya yüzde iddiası da çizilmedi — takvimde
+           hafta/ay numarası yazılmadı, satırlar yalnız kenar imiyle ayrıldı.
+           Marka, araç veya platform logosu çizilmedi.
+
+           NEDEN ÜÇ AYRI SVG: tek parça geniş grafik dar ekranda küçülünce
+           yazısı okunmaz oluyor. Her durak kendi 380x400 kutusunda; 860px
+           altında kutular alt alta açılır, aradaki oklar 90° döner.
+
+           ÖLÇÜLEN ÖLÇEK ZİNCİRİ (390px viewport): 390 − .wrap 2x24 = 342;
+           − .akis 2x(1 kenarlık + 14 dolgu) = 312; − .akis-kutu 2x(1+14) = 282.
+           282 / viewBox 380 = 0.742 ölçek. Bu yüzden yazıların en küçüğü 14:
+           14 x 0.742 = ekranda 10.4px. (13 seçilseydi 9.7px olurdu.)
+           Metin genişlikleri Segoe UI ile ölçüldü — Inter Tight daha dar
+           olduğu için bu ölçüm üst sınır: en dar pay "Karşılaştırmalı"da
+           31px, hiçbir yazı kutusundan taşmıyor.
+           Inline SVG: ek istek yok, her ölçekte net, viewBox sayesinde oran
+           sabit olduğu için düzen kaymaz (CLS yok). -->
+      <figure class="akis rv d2">
+        <div class="akis-izgara">
+
+          <!-- ===== DURAK 01 — ANAHTAR KELİME ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">01</span>
+            <span class="akis-ad">Anahtar kelime</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="isB1 isA1"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="isB1">Anahtar kelime tablosu: arama alanı, sütun başlığı çubukları ve niyet türüne göre sınıflanan satırlar — temsilî görsel</title>
+              <desc id="isA1">Üç sütunlu bir tablo iskeleti. Üstte küçük bir arama ikonu ve
+                "Anahtar kelime araştırması" yazan bir alan; altında sütun başlıkları yerine
+                kısa çubuklar; satırlarda kelime çubukları ve karşılarında bilgi amaçlı,
+                karşılaştırmalı, işlem odaklı niyet etiketleri. Canlanmada satırlar sırayla dolar.</desc>
+              <defs>
+                <linearGradient id="isSahne1" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="isIsik1" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#A6FF00" stop-opacity=".13"/>
+                  <stop offset="1" stop-color="#A6FF00" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="isGolge1" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#isSahne1)"/>
+              <rect width="380" height="400" fill="url(#isIsik1)"/>
+
+              <g class="is-kart is-k1">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#A6FF00" stroke-opacity=".30" stroke-width="1.2" filter="url(#isGolge1)"/>
+
+                <!-- arama alanı: solda arama ikonu -->
+                <g class="is-arama">
+                  <rect x="34" y="40" width="312" height="50" rx="12" fill="#101A22"
+                        stroke="#A6FF00" stroke-opacity=".42" stroke-width="1.4"/>
+                  <circle cx="59" cy="64" r="9" fill="none" stroke="#A6FF00" stroke-width="1.8"/>
+                  <path d="M65.6,70.6 L72.5,77.5" fill="none" stroke="#A6FF00" stroke-width="2" stroke-linecap="round"/>
+                  <text x="86" y="71" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="15" fill="#D7DEE4">Anahtar kelime araştırması</text>
+                </g>
+
+                <!-- sütun başlıkları: yazı değil, çubuk -->
+                <g class="is-baslik">
+                  <rect x="46" y="110" width="60" height="9" rx="4.5" fill="#3A4A5E"/>
+                  <rect x="166" y="110" width="30" height="9" rx="4.5" fill="#2F3D4D"/>
+                  <rect x="218" y="110" width="48" height="9" rx="4.5" fill="#2F3D4D"/>
+                </g>
+                <line class="is-ayrac is-a1" x1="34" y1="130" x2="346" y2="130"
+                      stroke="#A6FF00" stroke-opacity=".26" stroke-width="1"/>
+
+                <!-- satırlar: kelime çubuğu + küçük çubuk + niyet etiketi.
+                     Niyet adları sayfada geçen üç tür; dördüncü satır henüz
+                     sınıflanmadığı için etiket yerine çubuk taşır. -->
+                <g class="is-satir">
+                  <g>
+                    <rect x="34" y="146" width="312" height="44" rx="10" fill="#101A22" stroke="#26333F"/>
+                    <rect x="46" y="162" width="104" height="12" rx="6" fill="#3A4A5E"/>
+                    <rect x="166" y="163" width="34" height="10" rx="5" fill="#2A3646"/>
+                    <text x="218" y="173" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="14" fill="#A8B4BE">Bilgi amaçlı</text>
+                  </g>
+                  <g>
+                    <rect x="34" y="202" width="312" height="44" rx="10" fill="#101A22" stroke="#26333F"/>
+                    <rect x="46" y="218" width="86" height="12" rx="6" fill="#3A4A5E"/>
+                    <rect x="166" y="219" width="26" height="10" rx="5" fill="#2A3646"/>
+                    <text x="218" y="229" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="14" fill="#A8B4BE">Karşılaştırmalı</text>
+                  </g>
+                  <g>
+                    <rect x="34" y="258" width="312" height="44" rx="10" fill="#101A22" stroke="#26333F"/>
+                    <rect x="46" y="274" width="96" height="12" rx="6" fill="#3A4A5E"/>
+                    <rect x="166" y="275" width="30" height="10" rx="5" fill="#2A3646"/>
+                    <text x="218" y="285" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="14" fill="#A8B4BE">İşlem odaklı</text>
+                  </g>
+                  <g>
+                    <rect x="34" y="314" width="312" height="44" rx="10" fill="#101A22" stroke="#26333F"/>
+                    <rect x="46" y="330" width="72" height="12" rx="6" fill="#32404F"/>
+                    <rect x="166" y="331" width="22" height="10" rx="5" fill="#25303E"/>
+                    <rect x="218" y="331" width="76" height="10" rx="5" fill="#25303E"/>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="is-ok is-ok1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 02 — BOŞLUK ANALİZİ ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">02</span>
+            <span class="akis-ad">Boşluk analizi</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="isB2 isA2"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="isB2">Mevcut sayfalar ile rakip sayfaların kesişimi ve rakip tarafında kalan boşluk — temsilî görsel</title>
+              <desc id="isA2">Birbirini kesen iki daire: solda mevcut sayfalar, sağda rakip
+                sayfalar. Canlanmada kesişim aksan renkle beliriyor; kesişimin dışında, rakip
+                tarafında kalan bölgede üç küçük nokta ve "Boşluk" etiketi çıkıyor. Altta tek
+                satır: yanıtlanmamış sorular içerik fırsatına dönüşür.</desc>
+              <defs>
+                <linearGradient id="isSahne2" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="isIsik2" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#A6FF00" stop-opacity=".13"/>
+                  <stop offset="1" stop-color="#A6FF00" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="isGolge2" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#isSahne2)"/>
+              <rect width="380" height="400" fill="url(#isIsik2)"/>
+
+              <g class="is-kart is-k2">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#A6FF00" stroke-opacity=".30" stroke-width="1.2" filter="url(#isGolge2)"/>
+
+                <!-- lejant -->
+                <g class="is-lejant">
+                  <g>
+                    <circle cx="46" cy="58" r="8" fill="#A6FF00" fill-opacity=".14"
+                            stroke="#A6FF00" stroke-opacity=".7" stroke-width="1.4"/>
+                    <text x="62" y="63" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="14" fill="#D7DEE4">Mevcut sayfalar</text>
+                  </g>
+                  <g>
+                    <circle cx="206" cy="58" r="8" fill="#5C7A8A" fill-opacity=".18"
+                            stroke="#6E8794" stroke-width="1.4"/>
+                    <text x="222" y="63" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="14" fill="#A8B4BE">Rakip sayfalar</text>
+                  </g>
+                </g>
+
+                <!-- iki daire -->
+                <g class="is-daire">
+                  <circle cx="142" cy="212" r="92" fill="#A6FF00" fill-opacity=".05"
+                          stroke="#A6FF00" stroke-opacity=".55" stroke-width="1.6"/>
+                  <circle cx="238" cy="212" r="92" fill="none" stroke="#6E8794" stroke-width="1.6"/>
+                </g>
+
+                <!-- kesişim mercek biçimi: canlanmada belirir -->
+                <path class="is-kesisim" d="M190,133.5 A92,92 0 0 1 190,290.5 A92,92 0 0 1 190,133.5 Z"
+                      fill="#A6FF00" fill-opacity=".18"/>
+
+                <!-- kesişim DIŞINDA, rakip tarafında kalan üç nokta = boşluk -->
+                <g class="is-nokta">
+                  <circle cx="262" cy="201" r="5.5" fill="#A6FF00"/>
+                  <circle cx="290" cy="213" r="5.5" fill="#A6FF00"/>
+                  <circle cx="270" cy="232" r="5.5" fill="#A6FF00"/>
+                </g>
+                <text class="is-bosluk" x="268" y="264" text-anchor="middle"
+                      font-family="Inter Tight, system-ui, sans-serif"
+                      font-size="14" font-weight="600" fill="#C9F08A">Boşluk</text>
+
+                <!-- altta tek satır etiket -->
+                <text class="is-alt" x="190" y="342" text-anchor="middle"
+                      font-family="Inter Tight, system-ui, sans-serif"
+                      font-size="14.5" fill="#D7DEE4">Yanıtlanmamış sorular → içerik fırsatı</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="is-ok is-ok2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 03 — İÇERİK TAKVİMİ ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">03</span>
+            <span class="akis-ad">İçerik takvimi</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="isB3 isA3"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="isB3">İçerik takvimi ızgarası: satırlara yerleşen içerik kutucukları, sıradaki kutucukta aksan çerçeve — temsilî görsel</title>
+              <desc id="isA3">Takvim ızgarası: dört satır, her satırda iki veya üç küçük içerik
+                kutucuğu. Kutucukların bir kısmı çubuk, bir kısmı cluster, pillar sayfa, niyet ve
+                boşluk etiketi taşır. Canlanmada satırlar sırayla girer ve sıradaki kutucuk aksan
+                renkli çerçeve alır.</desc>
+              <defs>
+                <linearGradient id="isSahne3" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="isIsik3" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#A6FF00" stop-opacity=".13"/>
+                  <stop offset="1" stop-color="#A6FF00" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="isGolge3" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#isSahne3)"/>
+              <rect width="380" height="400" fill="url(#isIsik3)"/>
+
+              <g class="is-kart is-k3">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#A6FF00" stroke-opacity=".30" stroke-width="1.2" filter="url(#isGolge3)"/>
+
+                <g class="is-takvimbas">
+                  <rect x="34" y="44" width="26" height="24" rx="5" fill="none"
+                        stroke="#A6FF00" stroke-opacity=".65" stroke-width="1.6"/>
+                  <path d="M34,53 H60" fill="none" stroke="#A6FF00" stroke-opacity=".65" stroke-width="1.6"/>
+                  <path d="M41,44 V39 M53,44 V39" fill="none" stroke="#A6FF00" stroke-opacity=".65"
+                        stroke-width="1.6" stroke-linecap="round"/>
+                  <text x="70" y="63" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="15" fill="#D7DEE4">İçerik takvimi</text>
+                </g>
+
+                <!-- Izgara satırları: numara/tarih YAZILMADI (sayfada takvim
+                     sıklığına dair bir rakam geçmiyor), satırlar yalnız soldaki
+                     kenar imiyle ayrılıyor. Kutucuk etiketleri sayfanın kendi
+                     kuralından: bir başlık, hangi cluster'a bağlanacağı ve hangi
+                     pillar sayfayı destekleyeceği netleşmeden takvime girmez. -->
+                <g class="is-hafta">
+                  <g>
+                    <rect x="34" y="92" width="312" height="58" rx="10" fill="#0F1720" stroke="#212D3A"/>
+                    <rect x="44" y="110" width="5" height="22" rx="2.5" fill="#A6FF00" fill-opacity=".55"/>
+                    <rect x="60" y="105" width="132" height="32" rx="8" fill="#16202A" stroke="#2A3646"/>
+                    <rect x="74" y="117" width="88" height="9" rx="4.5" fill="#3A4A5E"/>
+                    <rect x="204" y="105" width="132" height="32" rx="8" fill="#16202A" stroke="#2A3646"/>
+                    <text x="218" y="126" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="14" fill="#A8B4BE">pillar sayfa</text>
+                  </g>
+                  <g>
+                    <rect x="34" y="162" width="312" height="58" rx="10" fill="#0F1720" stroke="#212D3A"/>
+                    <rect x="44" y="180" width="5" height="22" rx="2.5" fill="#A6FF00" fill-opacity=".55"/>
+                    <rect x="60" y="175" width="84" height="32" rx="8" fill="#16202A" stroke="#2A3646"/>
+                    <rect x="72" y="187" width="58" height="9" rx="4.5" fill="#3A4A5E"/>
+                    <rect x="156" y="175" width="84" height="32" rx="8" fill="#16202A" stroke="#2A3646"/>
+                    <text x="168" y="196" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="14" fill="#A8B4BE">niyet</text>
+                    <rect x="252" y="175" width="84" height="32" rx="8" fill="#16202A" stroke="#2A3646"/>
+                    <rect x="264" y="187" width="52" height="9" rx="4.5" fill="#3A4A5E"/>
+                  </g>
+                  <g>
+                    <rect x="34" y="232" width="312" height="58" rx="10" fill="#0F1720" stroke="#212D3A"/>
+                    <rect x="44" y="250" width="5" height="22" rx="2.5" fill="#A6FF00" fill-opacity=".55"/>
+                    <rect class="is-hale" x="52" y="237" width="188" height="48" rx="13"
+                          fill="#A6FF00" fill-opacity=".10"/>
+                    <g class="is-cerceve">
+                      <rect x="60" y="245" width="172" height="32" rx="8" fill="#16202A"
+                            stroke="#A6FF00" stroke-opacity=".85" stroke-width="1.8"/>
+                      <text x="74" y="266" font-family="Inter Tight, system-ui, sans-serif"
+                            font-size="14" fill="#C9F08A">cluster · pillar</text>
+                    </g>
+                    <rect x="244" y="245" width="92" height="32" rx="8" fill="#16202A" stroke="#2A3646"/>
+                    <rect x="256" y="257" width="64" height="9" rx="4.5" fill="#3A4A5E"/>
+                  </g>
+                  <g>
+                    <rect x="34" y="302" width="312" height="58" rx="10" fill="#0F1720" stroke="#212D3A"/>
+                    <rect x="44" y="320" width="5" height="22" rx="2.5" fill="#A6FF00" fill-opacity=".55"/>
+                    <rect x="60" y="315" width="84" height="32" rx="8" fill="#16202A" stroke="#2A3646"/>
+                    <text x="72" y="336" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="14" fill="#A8B4BE">boşluk</text>
+                    <rect x="156" y="315" width="84" height="32" rx="8" fill="#16202A" stroke="#2A3646"/>
+                    <rect x="168" y="327" width="58" height="9" rx="4.5" fill="#3A4A5E"/>
+                    <rect x="252" y="315" width="84" height="32" rx="8" fill="#16202A" stroke="#2A3646"/>
+                    <rect x="264" y="327" width="48" height="9" rx="4.5" fill="#3A4A5E"/>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <figcaption><b>Temsilî görsel.</b> Sayfanın anlattığı yolu çiziyor: anahtar kelimeleri
+          arama niyetine göre sınıflamak, rakip sayfalarla karşılaştırıp boşluğu görmek ve
+          başlıkları içerik takvimine oturtmak. Tablo, daireler ve takvim kutucukları örnek
+          çizimdir; gerçek bir araştırma dosyasından alınmadı. Etiketler yukarıda anlatılan
+          kavramlardır (bilgi amaçlı / karşılaştırmalı / işlem odaklı niyet, mevcut ve rakip
+          sayfalar, boşluk, cluster, pillar sayfa). <b>Rakam yok:</b> arama hacmi, sıralama,
+          süre ve fiyat bilerek çizilmedi; takvim satırlarına tarih veya sıklık yazılmadı.</figcaption>
+      </figure>
       <div class="dtay-fiyat rv d1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
         <p><strong>Güncel fiyat ve süre bandı</strong> için SEO Hizmetleri sayfasının <a href="../../../hizmetler/seo/#fiyat">fiyatlandırma bölümüne</a> göz atın — kapsamınıza göre bandı iki dakikada netleştirebilirsiniz.</p>

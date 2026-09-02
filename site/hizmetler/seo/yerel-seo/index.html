@@ -268,6 +268,141 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
 
+/* --- akış durakları (alt sayfa standardı) ---
+   Desen birebir hizmetler/web-tasarim-yazilim/e-ticaret/ sayfasından alındı;
+   yalnız canlanma öneki bu sayfaya özel ("ys-").
+
+   ÖLÇÜLEN KUSUR 1 — mobilde okunmuyordu: tek parça geniş grafik 390px ekranda
+   ~296px'e sığınca içindeki yazı 2-3px'e düşüyordu. Yatay kaydırma okunurluğu
+   düzeltiyordu ama doğrusu kutulara bölüp alt alta açmak.
+
+   ÖLÇÜLEN KUSUR 2 — ad çakışması: tm.css'te (satır 161-171) GLOBAL bir kayan
+   yazı bileşeni bu bloğun eski adını kullanıyor; onun "span{display:inline-flex}"
+   ve "span::before{content:...}" kuralları figure içine konan HER <span>'i ele
+   geçiriyordu. Bu yüzden ad .akis; eski ad bu sayfada hiç geçmiyor.
+   Yine de .akis-no / .akis-ad stilleri AÇIK yazıldı: <span> stili mirasa
+   bırakılmıyor. */
+.akis{border:1px solid var(--hair);border-radius:var(--r-lg);
+  background:var(--panel);padding:18px;margin:26px 0 0}
+.akis-izgara{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:12px;align-items:stretch}
+.akis-kutu{border:1px solid var(--hair);border-radius:var(--r-md);
+  background:rgba(255,255,255,.02);padding:14px;display:flex;
+  flex-direction:column;gap:10px}
+.akis-no{display:inline-block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;color:var(--acc);opacity:.9}
+.akis-ad{display:block;font-size:13.5px;font-weight:600;color:var(--fg);
+  letter-spacing:-.01em;margin-top:-6px}
+/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
+.akis-kutu svg{width:100%;height:auto;display:block;border-radius:10px}
+.akis-ok{display:grid;place-items:center;color:var(--acc);opacity:.6}
+.akis-ok svg{width:22px;height:22px}
+.akis figcaption{margin-top:14px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.akis figcaption b{color:var(--fg-dim);font-weight:600}
+@media(max-width:860px){
+  .akis-izgara{grid-template-columns:1fr;gap:10px}
+  .akis-ok svg{transform:rotate(90deg)}
+  .akis{padding:14px}
+}
+
+/* --- durak canlanması ---
+   YENİ JS YOK: figure zaten .rv sınıfında; site/js/tm.js görününce .in ekliyor.
+   prefers-reduced-motion: tm.css'teki global kural animation-duration'ı
+   0.001ms'e indiriyor, "forwards" sayesinde her öğe anında son hâline oturuyor.
+   BAŞLANGIÇ DURUMU VERİLEN HER ÖĞENİN .in KARŞILIĞI VAR (aşağıda birebir).
+   Sınıf/keyframe öneki "ys-"/"ys": e-ticaret sayfası "et-", hub "w-" kullanıyor;
+   sayfalar ileride birleşirse çakışmasın diye ayrı tutuldu.
+
+   DİKKAT — CSS transform, SVG transform="" ÖZNİTELİĞİNİ EZER. Bu yüzden CSS ile
+   ölçeklenen tek öğede (.ys-aksan) transform özniteliği YOK, iğne mutlak
+   koordinatla çizildi; transform="translate()" kullanan ikonlar ise yalnız
+   opaklık canlanan İÇ gruplarda duruyor, çakışma olmuyor.
+
+   Çizelge — her kutu KENDİ içinde canlanır, kutular soldan sağa (mobilde
+   yukarıdan aşağı) sırayla girer:
+     KUTU 1 · 0.25s : kart 0.25 · kapak 0.36 · ad/kategori çubuğu 0.44–0.50 ·
+                      ayraç 0.52 · bilgi satırları 0.56–0.74 ·
+                      doluluk kareleri 0.80–0.98
+     ok 1 · 0.80s
+     KUTU 2 · 0.90s : kart 0.90 · arama çubuğu 0.98 · yazılan çubuk 1.04 ·
+                      rozet 1.10 · sorgu satırları 1.14–1.26 · ayraç 1.32 ·
+                      alt etiket 1.36
+     ok 2 · 1.40s
+     KUTU 3 · 1.50s : kart 1.50 · harita 1.58 · ızgara 1.62 · iğneler 1.66–1.72 ·
+                      aksan iğne büyür + hale 1.80 · minik kart 1.88 ·
+                      çubukları 1.94–1.98 · ayraç 2.02 · etiket 2.06 ·
+                      sinyal çipleri 2.10–2.22 → ~2.4s */
+.akis svg .ys-kart{opacity:0;transform:translateY(16px);transform-box:fill-box}
+.akis svg .ys-kapak,
+.akis svg .ys-arama,
+.akis svg .ys-rozet,
+.akis svg .ys-ayrac,
+.akis svg .ys-etiket,
+.akis svg .ys-harita,
+.akis svg .ys-izgara,
+.akis svg .ys-igne,
+.akis svg .ys-hale,
+.akis svg .ys-minik{opacity:0}
+.akis svg .ys-satir > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.akis svg .ys-sorgu > g{opacity:0;transform:translateX(12px);transform-box:fill-box}
+.akis svg .ys-cip > g{opacity:0;transform:translateY(9px);transform-box:fill-box}
+.akis svg .ys-kare > g{opacity:0;transform:scale(.6);transform-box:fill-box;
+  transform-origin:center}
+.akis svg .ys-cubuk rect{clip-path:inset(0 100% 0 0)}
+.akis svg .ys-aksan{opacity:0;transform:scale(.45);transform-box:fill-box;
+  transform-origin:center}
+/* oklar HTML tarafında: .akis-ok kutusu opaklığı taşıyor, ok çizimi 0'dan girer */
+.akis .ys-ok{opacity:0}
+
+.akis.in svg .ys-k1{animation:ysKart .6s var(--ease) .25s forwards}
+.akis.in svg .ys-kapak{animation:ysBelir .5s var(--ease) .36s forwards}
+.akis.in svg .ys-c1 rect:nth-of-type(1){animation:ysCiz .5s var(--ease) .44s forwards}
+.akis.in svg .ys-c1 rect:nth-of-type(2){animation:ysCiz .5s var(--ease) .50s forwards}
+.akis.in svg .ys-a1{animation:ysBelir .4s var(--ease) .52s forwards}
+.akis.in svg .ys-satir > g:nth-child(1){animation:ysSatir .45s var(--ease) .56s forwards}
+.akis.in svg .ys-satir > g:nth-child(2){animation:ysSatir .45s var(--ease) .62s forwards}
+.akis.in svg .ys-satir > g:nth-child(3){animation:ysSatir .45s var(--ease) .68s forwards}
+.akis.in svg .ys-satir > g:nth-child(4){animation:ysSatir .45s var(--ease) .74s forwards}
+.akis.in svg .ys-kare > g:nth-child(1){animation:ysKare .45s var(--ease) .80s forwards}
+.akis.in svg .ys-kare > g:nth-child(2){animation:ysKare .45s var(--ease) .86s forwards}
+.akis.in svg .ys-kare > g:nth-child(3){animation:ysKare .45s var(--ease) .92s forwards}
+.akis.in svg .ys-kare > g:nth-child(4){animation:ysKare .45s var(--ease) .98s forwards}
+.akis.in .ys-ok1{animation:ysOkBelir .55s var(--ease) .80s forwards}
+.akis.in svg .ys-k2{animation:ysKart .6s var(--ease) .90s forwards}
+.akis.in svg .ys-arama{animation:ysBelir .45s var(--ease) .98s forwards}
+.akis.in svg .ys-c2 rect:nth-of-type(1){animation:ysCiz .5s var(--ease) 1.04s forwards}
+.akis.in svg .ys-rozet{animation:ysBelir .45s var(--ease) 1.10s forwards}
+.akis.in svg .ys-sorgu > g:nth-child(1){animation:ysSag .42s var(--ease) 1.14s forwards}
+.akis.in svg .ys-sorgu > g:nth-child(2){animation:ysSag .42s var(--ease) 1.20s forwards}
+.akis.in svg .ys-sorgu > g:nth-child(3){animation:ysSag .42s var(--ease) 1.26s forwards}
+.akis.in svg .ys-a2{animation:ysBelir .4s var(--ease) 1.32s forwards}
+.akis.in svg .ys-e2{animation:ysBelir .45s var(--ease) 1.36s forwards}
+.akis.in .ys-ok2{animation:ysOkBelir .55s var(--ease) 1.40s forwards}
+.akis.in svg .ys-k3{animation:ysKart .6s var(--ease) 1.50s forwards}
+.akis.in svg .ys-harita{animation:ysBelir .5s var(--ease) 1.58s forwards}
+.akis.in svg .ys-izgara{animation:ysBelir .5s var(--ease) 1.62s forwards}
+.akis.in svg .ys-i1{animation:ysBelir .45s var(--ease) 1.66s forwards}
+.akis.in svg .ys-i2{animation:ysBelir .45s var(--ease) 1.72s forwards}
+.akis.in svg .ys-hale{animation:ysBelir .6s var(--ease) 1.80s forwards}
+.akis.in svg .ys-aksan{animation:ysAksan .7s var(--ease) 1.80s forwards}
+.akis.in svg .ys-minik{animation:ysBelir .45s var(--ease) 1.88s forwards}
+.akis.in svg .ys-c3 rect:nth-of-type(1){animation:ysCiz .5s var(--ease) 1.94s forwards}
+.akis.in svg .ys-c3 rect:nth-of-type(2){animation:ysCiz .5s var(--ease) 1.98s forwards}
+.akis.in svg .ys-a3{animation:ysBelir .4s var(--ease) 2.02s forwards}
+.akis.in svg .ys-e3{animation:ysBelir .45s var(--ease) 2.06s forwards}
+.akis.in svg .ys-cip > g:nth-child(1){animation:ysSatir .45s var(--ease) 2.10s forwards}
+.akis.in svg .ys-cip > g:nth-child(2){animation:ysSatir .45s var(--ease) 2.16s forwards}
+.akis.in svg .ys-cip > g:nth-child(3){animation:ysSatir .45s var(--ease) 2.22s forwards}
+
+@keyframes ysKart{to{opacity:1;transform:translateY(0)}}
+@keyframes ysSatir{to{opacity:1;transform:translateY(0)}}
+@keyframes ysSag{to{opacity:1;transform:translateX(0)}}
+@keyframes ysCiz{to{clip-path:inset(0 0 0 0)}}
+@keyframes ysBelir{to{opacity:1}}
+@keyframes ysKare{60%{transform:scale(1.12)}to{opacity:1;transform:scale(1)}}
+@keyframes ysAksan{55%{transform:scale(1.16)}to{opacity:1;transform:scale(1)}}
+@keyframes ysOkBelir{0%{opacity:0}45%{opacity:1;filter:brightness(1.7)}to{opacity:1;filter:brightness(1)}}
+
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
 .sss details[open],.akor details[open]{border-color:var(--hair-strong)}
@@ -372,6 +507,16 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   .nav-links,.nav-tel{display:none}
   .burger{display:block}
   .ftr-ust{grid-template-columns:1fr}
+}
+
+/* DAR-EKRAN-DOLGU */
+/* 375px (iPhone SE) olculdu: en kucuk yazi 8.49-8.82px, 9px esiginin altinda.
+   SVG'leri yeniden cizmek yerine dolguyu kisip SVG'ye alan aciliyor:
+   375 - 48(wrap) - 20(akis) - 20(kutu) - 4(kenarlik) = 283px → olcek 0.745
+   13 * 0.745 = 9.68px. Olcum sonrasi dogrulandi. */
+@media(max-width:400px){
+  .akis{padding:10px}
+  .akis-kutu{padding:10px;gap:8px}
 }
 </style>
 <script type="application/ld+json">
@@ -535,6 +680,358 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <p>Semt bazlı çalışma, tek bir şehir sayfası yerine her hizmet bölgesi için ayrı bir içerik mantığı kurmayı gerektirir; farklı semtlerdeki aramalar farklı niyet ve rakip profiline sahiptir, bu yüzden aynı şablon metnin çoğaltılması kullanıcıyı da algoritmayı da tatmin etmez. Her semt sayfası o bölgeye özgü referans ve hizmet detayına yer almalıdır. Harita paketi sıralaması ilgi, mesafe ve tanınırlık olmak üzere ayrı sinyal gruplarından beslenir; tanınırlık büyük ölçüde yorum hacmi, dizin kayıtları ve dış bağlantılarla şekillenir. Semt sayfaları ile Google İşletme Profili arasındaki iç bağlantı örgüsü kullanıcıyı doğru şubeye yönlendirirken arama motoruna da coğrafi ilişkiyi netleştirir.</p>
         </article>
       </div>
+
+      <!-- Akış durakları — bu sayfanın KENDİ anlattığı yolu çizer:
+           Google İşletme Profili → semt bazlı aramalar → harita paketi.
+           Etiketlerin tamamı sayfada geçen kavramlar: kategori, adres, telefon,
+           çalışma bilgisi, alanların doldurulması, semt bazlı arama, arama
+           niyeti, harita sıralaması ve "ilgi / mesafe / tanınırlık" sinyalleri.
+
+           BİLEREK ÇİZİLMEYENLER: yıldız, puan, yorum sayısı ve sıralama
+           numarası. Sayfa "garantili sıralama" vaat etmiyor, tersine sıralamanın
+           üç sinyal grubuna göre değiştiğini söylüyor; puan/yorum grafiği de
+           sayfanın vermediği bir söz olurdu. Fiyat rakamı, yüzde ve süre de yok.
+           Marka veya platform logosu çizilmedi.
+
+           NEDEN ÜÇ AYRI SVG: tek parça geniş grafik 390px ekranda ~296px'e
+           sığınca yazısı 2-3px'e düşüyordu (ölçüldü). Her durak artık kendi
+           380x400 kutusunda; 860px altında kutular alt alta açılır, aradaki
+           oklar 90° döner. Yazıların en küçüğü 13pt: mobilde kutu içi ~281px /
+           viewBox 380 = 0.74 ölçek, yani ekranda en az 9.6px.
+           Inline SVG: ek istek yok, her ölçekte net, viewBox sayesinde oran
+           sabit olduğu için düzen kaymaz (CLS yok). -->
+      <figure class="akis rv d2">
+        <div class="akis-izgara">
+
+          <!-- ===== DURAK 01 — İŞLETME PROFİLİ ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">01</span>
+            <span class="akis-ad">İşletme profili</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="ysB1 ysA1"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="ysB1">İşletme profili kartı: kapak şeridi, ad ve kategori çubuğu, adres, telefon, çalışma bilgisi ve kategori satırları — temsilî görsel</title>
+              <desc id="ysA1">Bir işletme profili çizimi: üstte kapak şeridi, altında işletme adı
+                ve kategori çubuğu, sağda alan doluluğunu gösteren dört küçük kare (üçü dolu, biri
+                boş), en altta ikonlu dört bilgi satırı. Canlanmada doluluk kareleri sırayla dolar.</desc>
+              <defs>
+                <linearGradient id="ysSahne1" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="ysIsik1" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#A6FF00" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#A6FF00" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="ysGolge1" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#ysSahne1)"/>
+              <rect width="380" height="400" fill="url(#ysIsik1)"/>
+
+              <g class="ys-kart ys-k1">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#A6FF00" stroke-opacity=".30" stroke-width="1.2" filter="url(#ysGolge1)"/>
+
+                <!-- kapak şeridi (fotoğraf yer tutucu, gerçek görsel değil) -->
+                <g class="ys-kapak">
+                  <rect x="34" y="36" width="312" height="60" rx="10" fill="#151F2B" stroke="#26333F"/>
+                  <circle cx="74" cy="60" r="11" fill="#38506A"/>
+                  <path d="M46,92 L104,58 L140,80 L176,56 L268,92 Z" fill="#2A394B"/>
+                </g>
+
+                <!-- ad çubuğu + kategori çubuğu (yazı değil, çubuk) -->
+                <g class="ys-cubuk ys-c1">
+                  <rect x="34" y="112" width="184" height="16" rx="8" fill="#3A4A5E"/>
+                  <rect x="34" y="140" width="122" height="13" rx="6.5" fill="#2A3646"/>
+                </g>
+
+                <!-- sağda doluluk göstergesi: dört kare, üçü dolu biri boş.
+                     Sayfadaki "alanlarının doldurulması" fikri — puan DEĞİL. -->
+                <g class="ys-kare">
+                  <g><rect x="248" y="110" width="20" height="20" rx="5" fill="#A6FF00" fill-opacity=".85"/></g>
+                  <g><rect x="274" y="110" width="20" height="20" rx="5" fill="#A6FF00" fill-opacity=".85"/></g>
+                  <g><rect x="300" y="110" width="20" height="20" rx="5" fill="#A6FF00" fill-opacity=".85"/></g>
+                  <g><rect x="326" y="110" width="20" height="20" rx="5" fill="none"
+                           stroke="#A6FF00" stroke-opacity=".45" stroke-width="1.6"/></g>
+                </g>
+
+                <line class="ys-ayrac ys-a1" x1="34" y1="172" x2="346" y2="172"
+                      stroke="#A6FF00" stroke-opacity=".28" stroke-width="1"/>
+
+                <!-- dört bilgi satırı: ikon + etiket + çubuk -->
+                <g class="ys-satir">
+                  <g>
+                    <g transform="translate(51,178)" fill="none" stroke="#A6FF00" stroke-opacity=".62"
+                       stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12,2 a7,7 0 0 1 7,7 c0,5.2 -7,13 -7,13 s-7,-7.8 -7,-13 a7,7 0 0 1 7,-7 z"/>
+                      <circle cx="12" cy="9" r="2.4"/>
+                    </g>
+                    <text x="86" y="195" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="14" fill="#C9D8E2">Adres</text>
+                    <rect x="210" y="184" width="136" height="12" rx="6" fill="#2F3D4E"/>
+                  </g>
+                  <g>
+                    <g transform="translate(51,222)" fill="none" stroke="#A6FF00" stroke-opacity=".62"
+                       stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6.4,3 h3.6 l1.8,4.4 -2.2,1.6 a11.4,11.4 0 0 0 5.4,5.4 l1.6,-2.2 4.4,1.8 v3.6
+                               a1.9,1.9 0 0 1 -2,1.9 C11.5,18.8 5.2,12.5 4.5,5 A1.9,1.9 0 0 1 6.4,3 z"/>
+                    </g>
+                    <text x="86" y="239" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="14" fill="#C9D8E2">Telefon</text>
+                    <rect x="210" y="228" width="112" height="12" rx="6" fill="#2F3D4E"/>
+                  </g>
+                  <g>
+                    <g transform="translate(51,266)" fill="none" stroke="#A6FF00" stroke-opacity=".62"
+                       stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="8.6"/>
+                      <path d="M12,7 V12.4 L15.6,14.6"/>
+                    </g>
+                    <text x="86" y="283" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="14" fill="#C9D8E2">Çalışma bilgisi</text>
+                    <rect x="210" y="272" width="124" height="12" rx="6" fill="#2F3D4E"/>
+                  </g>
+                  <g>
+                    <g transform="translate(51,310)" fill="none" stroke="#A6FF00" stroke-opacity=".62"
+                       stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3.6,3.6 h8.2 L20.4,12.2 12.2,20.4 3.6,11.8 z"/>
+                      <circle cx="8.4" cy="8.4" r="1.9"/>
+                    </g>
+                    <text x="86" y="327" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="14" fill="#C9D8E2">Kategori</text>
+                    <rect x="210" y="316" width="92" height="12" rx="6" fill="#2F3D4E"/>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="ys-ok ys-ok1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 02 — SEMT ARAMALARI ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">02</span>
+            <span class="akis-ad">Semt aramaları</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="ysB2 ysA2"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="ysB2">Arama çubuğu, "semt bazlı" rozeti ve konum ikonlu üç arama satırı — temsilî görsel</title>
+              <desc id="ysA2">Semt araması çizimi: üstte bir arama çubuğu ve içine yazılan sorguyu
+                temsil eden çubuk, sağda "semt bazlı" rozeti, altında her biri konum ikonu ve bir
+                çubuktan oluşan üç arama satırı, en altta "Arama niyeti semte göre değişir" notu.
+                Canlanmada satırlar sırayla belirir.</desc>
+              <defs>
+                <linearGradient id="ysSahne2" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="ysIsik2" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#A6FF00" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#A6FF00" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="ysGolge2" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#ysSahne2)"/>
+              <rect width="380" height="400" fill="url(#ysIsik2)"/>
+
+              <g class="ys-kart ys-k2">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#A6FF00" stroke-opacity=".30" stroke-width="1.2" filter="url(#ysGolge2)"/>
+
+                <!-- arama çubuğu -->
+                <g class="ys-arama">
+                  <rect x="34" y="40" width="312" height="54" rx="13" fill="#101A22"
+                        stroke="#A6FF00" stroke-opacity=".45" stroke-width="1.4"/>
+                  <g fill="none" stroke="#A6FF00" stroke-opacity=".8" stroke-width="1.9" stroke-linecap="round">
+                    <circle cx="62" cy="63" r="8.4"/>
+                    <path d="M68.4,69.4 L76,77"/>
+                  </g>
+                </g>
+                <!-- yazılan sorgu: çubuk (metin uydurulmadı) -->
+                <g class="ys-cubuk ys-c2">
+                  <rect x="92" y="60" width="176" height="14" rx="7" fill="#3A4A5E"/>
+                </g>
+
+                <!-- rozet: sayfanın kendi ifadesi. "Yakınımda" yazmıyoruz —
+                     o kavram bu sayfada geçmiyor. -->
+                <g class="ys-rozet">
+                  <rect x="222" y="106" width="124" height="32" rx="9" fill="none"
+                        stroke="#A6FF00" stroke-opacity=".45" stroke-width="1.4"/>
+                  <text x="284" y="128" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="14" font-weight="600" fill="#C9F08A">semt bazlı</text>
+                </g>
+
+                <!-- üç arama satırı: konum ikonu + çubuk -->
+                <g class="ys-sorgu">
+                  <g>
+                    <rect x="34" y="150" width="312" height="52" rx="11" fill="#101A22"
+                          stroke="#A6FF00" stroke-opacity=".38" stroke-width="1.3"/>
+                    <g transform="translate(50,164)" fill="none" stroke="#A6FF00" stroke-opacity=".7"
+                       stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12,2 a7,7 0 0 1 7,7 c0,5.2 -7,13 -7,13 s-7,-7.8 -7,-13 a7,7 0 0 1 7,-7 z"/>
+                      <circle cx="12" cy="9" r="2.4"/>
+                    </g>
+                    <rect x="88" y="169" width="200" height="14" rx="7" fill="#3A4A5E"/>
+                  </g>
+                  <g>
+                    <rect x="34" y="212" width="312" height="52" rx="11" fill="#101A22" stroke="#26333F"/>
+                    <g transform="translate(50,226)" fill="none" stroke="#5C7185"
+                       stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12,2 a7,7 0 0 1 7,7 c0,5.2 -7,13 -7,13 s-7,-7.8 -7,-13 a7,7 0 0 1 7,-7 z"/>
+                      <circle cx="12" cy="9" r="2.4"/>
+                    </g>
+                    <rect x="88" y="231" width="162" height="14" rx="7" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="34" y="274" width="312" height="52" rx="11" fill="#101A22" stroke="#26333F"/>
+                    <g transform="translate(50,288)" fill="none" stroke="#5C7185"
+                       stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12,2 a7,7 0 0 1 7,7 c0,5.2 -7,13 -7,13 s-7,-7.8 -7,-13 a7,7 0 0 1 7,-7 z"/>
+                      <circle cx="12" cy="9" r="2.4"/>
+                    </g>
+                    <rect x="88" y="293" width="224" height="14" rx="7" fill="#2A3646"/>
+                  </g>
+                </g>
+
+                <line class="ys-ayrac ys-a2" x1="34" y1="344" x2="346" y2="344"
+                      stroke="#A6FF00" stroke-opacity=".26" stroke-width="1"/>
+                <text class="ys-etiket ys-e2" x="34" y="368" font-family="Inter Tight, system-ui, sans-serif"
+                      font-size="14" fill="#C9E09F">Arama niyeti semte göre değişir</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="ys-ok ys-ok2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 03 — HARİTA SIRALAMASI ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">03</span>
+            <span class="akis-ad">Harita sıralaması</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="ysB3 ysA3"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="ysB3">Izgaralı harita alanı, üç konum iğnesi ve ilgi, mesafe, tanınırlık sinyalleri — temsilî görsel</title>
+              <desc id="ysA3">Harita sıralaması çizimi: ızgara çizgili basitleştirilmiş bir harita
+                alanı, üzerinde üç konum iğnesi; biri aksan renkli ve daha büyük, yanındaki küçük
+                kartta ad çubuğu ve ikinci bir çubuk var. Altta "üç sinyal grubu" başlığıyla ilgi,
+                mesafe ve tanınırlık etiketleri. Canlanmada aksan iğne büyüyerek öne çıkar.</desc>
+              <defs>
+                <linearGradient id="ysSahne3" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="ysIsik3" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#A6FF00" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#A6FF00" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="ysGolge3" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+                <clipPath id="ysHarita3">
+                  <rect x="34" y="38" width="312" height="212" rx="12"/>
+                </clipPath>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#ysSahne3)"/>
+              <rect width="380" height="400" fill="url(#ysIsik3)"/>
+
+              <g class="ys-kart ys-k3">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#A6FF00" stroke-opacity=".30" stroke-width="1.2" filter="url(#ysGolge3)"/>
+
+                <!-- basitleştirilmiş harita alanı -->
+                <g class="ys-harita">
+                  <rect x="34" y="38" width="312" height="212" rx="12" fill="#0B131A" stroke="#26333F"/>
+                </g>
+                <g class="ys-izgara" clip-path="url(#ysHarita3)" fill="none"
+                   stroke="#A6FF00" stroke-opacity=".14" stroke-width="1">
+                  <path d="M86,38 V250 M138,38 V250 M190,38 V250 M242,38 V250 M294,38 V250"/>
+                  <path d="M34,90 H346 M34,142 H346 M34,194 H346"/>
+                  <path d="M34,222 C104,206 132,140 200,128 C258,118 296,88 346,80"
+                        stroke-opacity=".10" stroke-width="8"/>
+                </g>
+
+                <!-- iki konum iğnesi -->
+                <g class="ys-igne ys-i1" transform="translate(64,74)">
+                  <path d="M12,2 a7,7 0 0 1 7,7 c0,5.2 -7,13 -7,13 s-7,-7.8 -7,-13 a7,7 0 0 1 7,-7 z"
+                        fill="#16222D" stroke="#5C7185" stroke-width="1.8"/>
+                  <circle cx="12" cy="9" r="2.6" fill="#5C7185"/>
+                </g>
+                <g class="ys-igne ys-i2" transform="translate(276,60)">
+                  <path d="M12,2 a7,7 0 0 1 7,7 c0,5.2 -7,13 -7,13 s-7,-7.8 -7,-13 a7,7 0 0 1 7,-7 z"
+                        fill="#16222D" stroke="#5C7185" stroke-width="1.8"/>
+                  <circle cx="12" cy="9" r="2.6" fill="#5C7185"/>
+                </g>
+
+                <!-- aksan iğne: CSS ile ölçeklendiği için transform="" ÖZNİTELİĞİ YOK,
+                     mutlak koordinatla çizildi (CSS transform özniteliği ezerdi). -->
+                <circle class="ys-hale" cx="128" cy="164" r="30" fill="#A6FF00" fill-opacity=".13"/>
+                <g class="ys-aksan">
+                  <path d="M128,152 a12,12 0 0 1 12,12 c0,8.91 -12,22.29 -12,22.29
+                           s-12,-13.38 -12,-22.29 a12,12 0 0 1 12,-12 z"
+                        fill="#24310B" stroke="#A6FF00" stroke-width="2.2" stroke-linejoin="round"/>
+                  <circle cx="128" cy="164" r="4.6" fill="#A6FF00"/>
+                </g>
+
+                <!-- yanındaki kart: ad çubuğu + ikinci çubuk.
+                     YILDIZ/PUAN YOK — ikinci satır da çubukla temsil edildi. -->
+                <g class="ys-minik">
+                  <rect x="162" y="140" width="174" height="76" rx="11" fill="#101A22"
+                        stroke="#A6FF00" stroke-opacity=".45" stroke-width="1.4"/>
+                </g>
+                <g class="ys-cubuk ys-c3">
+                  <rect x="180" y="158" width="122" height="14" rx="7" fill="#3A4A5E"/>
+                  <rect x="180" y="184" width="86" height="11" rx="5.5" fill="#2A3646"/>
+                </g>
+
+                <line class="ys-ayrac ys-a3" x1="34" y1="272" x2="346" y2="272"
+                      stroke="#A6FF00" stroke-opacity=".26" stroke-width="1"/>
+                <text class="ys-etiket ys-e3" x="34" y="296"
+                      font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="13.5" letter-spacing="1.2" fill="#C9E09F">ÜÇ SİNYAL GRUBU</text>
+
+                <!-- sayfadaki üç sinyal grubu: ilgi, mesafe, tanınırlık -->
+                <g class="ys-cip">
+                  <g>
+                    <rect x="34" y="310" width="96" height="44" rx="11" fill="#101A22"
+                          stroke="#A6FF00" stroke-opacity=".32" stroke-width="1.3"/>
+                    <text x="82" y="338" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="15" fill="#D5E4EC">İlgi</text>
+                  </g>
+                  <g>
+                    <rect x="142" y="310" width="96" height="44" rx="11" fill="#101A22"
+                          stroke="#A6FF00" stroke-opacity=".32" stroke-width="1.3"/>
+                    <text x="190" y="338" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="15" fill="#D5E4EC">Mesafe</text>
+                  </g>
+                  <g>
+                    <rect x="250" y="310" width="96" height="44" rx="11" fill="#101A22"
+                          stroke="#A6FF00" stroke-opacity=".32" stroke-width="1.3"/>
+                    <text x="298" y="338" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="15" fill="#D5E4EC">Tanınırlık</text>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <figcaption><b>Temsilî görsel.</b> Sayfanın anlattığı yolu çiziyor: Google İşletme
+          Profilinden semt bazlı aramalara, oradan harita paketindeki görünürlüğe. Kutular örnek
+          arayüz çizimidir, gerçek bir işletmeden alınmadı; profildeki dört kare alanların
+          doldurulmasını temsil eder. Bilerek çizilmeyenler: yıldız, puan ve yorum sayısı —
+          bu sayfa böyle bir vaat vermiyor. Sıralama numarası da yok: harita sıralaması ilgi,
+          mesafe ve tanınırlık sinyallerine göre değişir, garanti edilmez. Fiyat rakamı da yok,
+          güncel bant için aşağıdaki fiyatlandırma bağlantısına bakın.</figcaption>
+      </figure>
+
       <div class="dtay-fiyat rv d1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
         <p><strong>Güncel fiyat ve süre bandı</strong> için SEO Hizmetleri sayfasının <a href="../../../hizmetler/seo/#fiyat">fiyatlandırma bölümüne</a> göz atın — kapsamınıza göre bandı iki dakikada netleştirebilirsiniz.</p>

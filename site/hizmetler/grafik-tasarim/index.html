@@ -268,6 +268,120 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
 
+/* --- akış durakları (alt sayfa standardı) ---
+   Bu sayfanın kendi anlattığı yol: logo → kimlik kılavuzu → şablonlar.
+   Üç ayrı 380x400 kutu; 860px altında alt alta açılır, aradaki oklar 90° döner.
+
+   ÖLÇÜ: mobilde kutu iç genişliği ~281px, viewBox 380 → ölçek 0.74.
+   Bu bloktaki en küçük yazı 13 seçildi, yani ekranda en az 9.6px. Tek parça
+   geniş grafik kullanılsaydı aynı yazı 2-3px'e düşerdi (e-ticaret sayfasında
+   ölçülmüştü), o yüzden kutulara bölündü.
+
+   AD ÇAKIŞMASI (bir kez yapılıp geri alınan hata): tm.css satır 161-171'deki
+   global kayan yazı bileşeni "span{display:inline-flex}" ve
+   "span::before{content:...}" kurallarıyla figure içindeki HER <span>'i ele
+   geçiriyor. Bu yüzden ad .akis; .akis-no / .akis-ad stilleri de AÇIK yazıldı,
+   <span> görünümü mirasa bırakılmıyor.
+
+   viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok). */
+.akis{border:1px solid var(--hair);border-radius:var(--r-lg);
+  background:var(--panel);padding:18px;margin:26px 0 0}
+.akis-izgara{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:12px;align-items:stretch}
+.akis-kutu{border:1px solid var(--hair);border-radius:var(--r-md);
+  background:rgba(255,255,255,.02);padding:14px;display:flex;
+  flex-direction:column;gap:10px}
+.akis-no{display:inline-block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;color:var(--acc);opacity:.9}
+.akis-ad{display:block;font-size:13.5px;font-weight:600;color:var(--fg);
+  letter-spacing:-.01em;margin-top:-6px}
+.akis-kutu svg{width:100%;height:auto;display:block;border-radius:10px}
+.akis-ok{display:grid;place-items:center;color:var(--acc);opacity:.6}
+.akis-ok svg{width:22px;height:22px}
+.akis figcaption{margin-top:14px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.akis figcaption b{color:var(--fg-dim);font-weight:600}
+@media(max-width:860px){
+  .akis-izgara{grid-template-columns:1fr;gap:10px}
+  .akis-ok svg{transform:rotate(90deg)}
+  .akis{padding:14px}
+}
+
+/* --- durak canlanması ---
+   YENİ JS YOK: figure zaten .rv sınıfında; site/js/tm.js görününce .in ekliyor.
+   prefers-reduced-motion: tm.css'teki global kural animation-duration'ı
+   0.001ms'e indiriyor, "forwards" sayesinde her öğe anında son hâline oturuyor.
+   BAŞLANGIÇ DURUMU VERİLEN HER ÖĞENİN .in KARŞILIĞI VAR (aşağıda birebir);
+   tek istisna .gt-isik: kasıtlı sönen aydınlanma parıltısı.
+   Önek "gt-": e-ticaret sayfası "et-", hub "w-", SEO "s-" kullanıyor.
+   Çizelge — her kutu KENDİ içinde canlanır, kutular soldan sağa (mobilde
+   yukarıdan aşağı) sırayla girer:
+     KUTU 1 · 0.25s : kart 0.25 · tuval 0.38 · logo işareti 0.46 ·
+                      koruma alanı ölçüsü 0.58 · varyantlar 0.62–0.74 ·
+                      teslim çipleri 0.78
+     ok 1 · 0.80s
+     KUTU 2 · 0.90s : kart 0.90 · palet daireleri 0.98–1.10 · ayraç 1.12 ·
+                      tipografi 1.14–1.24 · ayraç 1.28 · doğru/yanlış 1.30–1.36
+     ok 2 · 1.40s
+     KUTU 3 · 1.50s : kart 1.50 · kartvizit 1.58 · katalog 1.68 ·
+                      sosyal medya 1.78 · aydınlanma 1.62–1.82 → ~2.1s */
+.akis svg .gt-kart{opacity:0;transform:translateY(16px);transform-box:fill-box}
+.akis svg .gt-tuval,
+.akis svg .gt-olcu,
+.akis svg .gt-cip,
+.akis svg .gt-ayrac,
+.akis svg .gt-tip,
+.akis svg .gt-isik{opacity:0}
+.akis svg .gt-isaret{opacity:0;transform:scale(.82);transform-box:fill-box;
+  transform-origin:center}
+.akis svg .gt-varyant > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.akis svg .gt-palet > circle{opacity:0;transform:scale(.5);transform-box:fill-box;
+  transform-origin:center}
+.akis svg .gt-cubuk rect{clip-path:inset(0 100% 0 0)}
+.akis svg .gt-kural > g{opacity:0;transform:translateY(8px);transform-box:fill-box}
+.akis svg .gt-format > g{opacity:0;transform:translateX(12px);transform-box:fill-box}
+/* oklar HTML tarafında: .akis-ok kutusu opaklığı taşıyor, ok çizimi 0'dan girer */
+.akis .gt-ok{opacity:0}
+
+.akis.in svg .gt-k1{animation:gtKart .6s var(--ease) .25s forwards}
+.akis.in svg .gt-tuval{animation:gtBelir .5s var(--ease) .38s forwards}
+.akis.in svg .gt-isaret{animation:gtIsaret .55s var(--ease) .46s forwards}
+.akis.in svg .gt-olcu{animation:gtBelir .5s var(--ease) .58s forwards}
+.akis.in svg .gt-varyant > g:nth-child(1){animation:gtSatir .45s var(--ease) .62s forwards}
+.akis.in svg .gt-varyant > g:nth-child(2){animation:gtSatir .45s var(--ease) .68s forwards}
+.akis.in svg .gt-varyant > g:nth-child(3){animation:gtSatir .45s var(--ease) .74s forwards}
+.akis.in svg .gt-cip{animation:gtBelir .45s var(--ease) .78s forwards}
+.akis.in .gt-ok1{animation:gtOkBelir .55s var(--ease) .80s forwards}
+.akis.in svg .gt-k2{animation:gtKart .6s var(--ease) .90s forwards}
+.akis.in svg .gt-palet > circle:nth-of-type(1){animation:gtNokta .45s var(--ease) .98s forwards}
+.akis.in svg .gt-palet > circle:nth-of-type(2){animation:gtNokta .45s var(--ease) 1.02s forwards}
+.akis.in svg .gt-palet > circle:nth-of-type(3){animation:gtNokta .45s var(--ease) 1.06s forwards}
+.akis.in svg .gt-palet > circle:nth-of-type(4){animation:gtNokta .45s var(--ease) 1.10s forwards}
+.akis.in svg .gt-a2{animation:gtBelir .4s var(--ease) 1.12s forwards}
+.akis.in svg .gt-tip{animation:gtBelir .45s var(--ease) 1.14s forwards}
+.akis.in svg .gt-cubuk rect:nth-of-type(1){animation:gtCiz .5s var(--ease) 1.18s forwards}
+.akis.in svg .gt-cubuk rect:nth-of-type(2){animation:gtCiz .5s var(--ease) 1.24s forwards}
+.akis.in svg .gt-a2b{animation:gtBelir .4s var(--ease) 1.28s forwards}
+.akis.in svg .gt-kural > g:nth-child(1){animation:gtSatir .45s var(--ease) 1.30s forwards}
+.akis.in svg .gt-kural > g:nth-child(2){animation:gtSatir .45s var(--ease) 1.36s forwards}
+.akis.in .gt-ok2{animation:gtOkBelir .55s var(--ease) 1.40s forwards}
+.akis.in svg .gt-k3{animation:gtKart .6s var(--ease) 1.50s forwards}
+.akis.in svg .gt-format > g:nth-child(1){animation:gtSag .42s var(--ease) 1.58s forwards}
+.akis.in svg .gt-format > g:nth-child(2){animation:gtSag .42s var(--ease) 1.68s forwards}
+.akis.in svg .gt-format > g:nth-child(3){animation:gtSag .42s var(--ease) 1.78s forwards}
+.akis.in svg .gt-i1{animation:gtIsik .9s var(--ease) 1.62s forwards}
+.akis.in svg .gt-i2{animation:gtIsik .9s var(--ease) 1.72s forwards}
+.akis.in svg .gt-i3{animation:gtIsik .9s var(--ease) 1.82s forwards}
+
+@keyframes gtKart{to{opacity:1;transform:translateY(0)}}
+@keyframes gtSatir{to{opacity:1;transform:translateY(0)}}
+@keyframes gtSag{to{opacity:1;transform:translateX(0)}}
+@keyframes gtIsaret{to{opacity:1;transform:scale(1)}}
+@keyframes gtNokta{to{opacity:1;transform:scale(1)}}
+@keyframes gtCiz{to{clip-path:inset(0 0 0 0)}}
+@keyframes gtBelir{to{opacity:1}}
+@keyframes gtOkBelir{0%{opacity:0}45%{opacity:1;filter:brightness(1.7)}to{opacity:1;filter:brightness(1)}}
+@keyframes gtIsik{35%{opacity:.85}to{opacity:0}}
+
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
 .sss details[open],.akor details[open]{border-color:var(--hair-strong)}
@@ -389,6 +503,16 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* DAR-EKRAN-DOLGU */
+/* 375px (iPhone SE) olculdu: en kucuk yazi 8.49-8.82px, 9px esiginin altinda.
+   SVG'leri yeniden cizmek yerine dolguyu kisip SVG'ye alan aciliyor:
+   375 - 48(wrap) - 20(akis) - 20(kutu) - 4(kenarlik) = 283px → olcek 0.745
+   13 * 0.745 = 9.68px. Olcum sonrasi dogrulandi. */
+@media(max-width:400px){
+  .akis{padding:10px}
+  .akis-kutu{padding:10px;gap:8px}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -551,6 +675,327 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>
+
+      <!-- Akış durakları — bu sayfanın KENDİ anlattığı yolu çizer:
+           logo → kurumsal kimlik kılavuzu → şablonlar. Etiketlerin tamamı
+           sayfada geçen kavramlar: logo varyasyonları (yatay, dikey, simge),
+           koruma alanı, vektörel, baskı + dijital, renk paleti, tipografi,
+           kullanım kuralları / doğru-yanlış kullanım, kartvizit, katalog,
+           sosyal medya, CMYK, PDF, RGB.
+
+           BİLEREK RAKAM YOK: fiyat rakamları bu siteden kaldırıldı; yüzde,
+           süre veya adet iddiası da çizilmedi. Logo işareti soyut geometrik
+           bir formdur — TasarımMania logosu değildir; marka, yazılım veya
+           platform logosu da çizilmedi.
+
+           NEDEN ÜÇ AYRI SVG: tek parça geniş grafik dar ekranda küçülünce
+           yazısı okunmaz hâle geliyordu. Her durak kendi 380x400 kutusunda;
+           860px altında kutular alt alta açılır, oklar 90° döner. En küçük
+           yazı 13 seçildi: mobilde kutu içi ~281px / viewBox 380 = 0.74
+           ölçek, yani ekranda en az 9.6px. -->
+      <figure class="akis rv d2">
+        <div class="akis-izgara">
+
+          <!-- ===== DURAK 01 — LOGO ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">01</span>
+            <span class="akis-ad">Logo</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="gtB1 gtA1"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="gtB1">Logo tuvali: soyut geometrik işaret, koruma alanı ölçüsü ve yatay, dikey, simge varyantları — temsilî görsel</title>
+              <desc id="gtA1">Logo çizimi: üstte tuval üzerinde soyut geometrik bir işaret, çevresinde
+                kesikli koruma alanı çerçevesi ve ölçü çizgisi; altında yatay, dikey ve simge
+                varyantlarını gösteren üç küçük kutu, en altta vektörel ve baskı + dijital teslim
+                çipleri. İşaret temsilîdir, TasarımMania logosu değildir.</desc>
+              <defs>
+                <linearGradient id="gtSahne1" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="gtIsik1" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="gtGolge1" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#gtSahne1)"/>
+              <rect width="380" height="400" fill="url(#gtIsik1)"/>
+
+              <g class="gt-kart gt-k1">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#gtGolge1)"/>
+
+                <!-- tuval -->
+                <g class="gt-tuval">
+                  <rect x="34" y="40" width="312" height="164" rx="10" fill="#151F2B" stroke="#26333F"/>
+                  <line x1="34" y1="122" x2="346" y2="122" stroke="#26333F" stroke-opacity=".7"/>
+                  <line x1="158" y1="40" x2="158" y2="204" stroke="#26333F" stroke-opacity=".7"/>
+                </g>
+
+                <!-- soyut geometrik işaret: marka logosu DEĞİL, temsilî form -->
+                <g class="gt-isaret">
+                  <circle cx="150" cy="122" r="34" fill="none" stroke="#00E5FF" stroke-width="6"/>
+                  <path d="M172,96 L204,150 H140 Z" fill="#00E5FF" fill-opacity=".8"/>
+                </g>
+
+                <!-- koruma alanı ölçüsü -->
+                <g class="gt-olcu">
+                  <rect x="101" y="73" width="115" height="98" fill="none" stroke="#00E5FF"
+                        stroke-opacity=".45" stroke-width="1" stroke-dasharray="5 5"/>
+                  <line x1="101" y1="188" x2="216" y2="188" stroke="#00E5FF" stroke-opacity=".5"/>
+                  <line x1="101" y1="182" x2="101" y2="194" stroke="#00E5FF" stroke-opacity=".5"/>
+                  <line x1="216" y1="182" x2="216" y2="194" stroke="#00E5FF" stroke-opacity=".5"/>
+                  <text x="226" y="193" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="13" letter-spacing=".4" fill="#9FD6E0">Koruma alanı</text>
+                </g>
+
+                <!-- logo varyasyonları: sayfada geçen yatay / dikey / simge -->
+                <g class="gt-varyant">
+                  <g>
+                    <rect x="34" y="226" width="96" height="80" rx="10" fill="#101A22" stroke="#26333F"/>
+                    <circle cx="56" cy="258" r="9" fill="none" stroke="#00E5FF" stroke-width="3"/>
+                    <rect x="72" y="252" width="42" height="8" rx="4" fill="#3A4A5E"/>
+                    <rect x="72" y="265" width="30" height="6" rx="3" fill="#2A3646"/>
+                    <text x="82" y="326" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13.5" fill="#A8B8C4">Yatay</text>
+                  </g>
+                  <g>
+                    <rect x="142" y="226" width="96" height="80" rx="10" fill="#101A22" stroke="#26333F"/>
+                    <circle cx="190" cy="250" r="9" fill="none" stroke="#00E5FF" stroke-width="3"/>
+                    <rect x="166" y="266" width="48" height="8" rx="4" fill="#3A4A5E"/>
+                    <rect x="174" y="279" width="32" height="6" rx="3" fill="#2A3646"/>
+                    <text x="190" y="326" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13.5" fill="#A8B8C4">Dikey</text>
+                  </g>
+                  <g>
+                    <rect x="250" y="226" width="96" height="80" rx="10" fill="#101A22" stroke="#26333F"/>
+                    <circle cx="298" cy="266" r="14" fill="none" stroke="#00E5FF" stroke-width="4"/>
+                    <path d="M304,254 L316,276 H292 Z" fill="#00E5FF" fill-opacity=".75"/>
+                    <text x="298" y="326" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13.5" fill="#A8B8C4">Simge</text>
+                  </g>
+                </g>
+
+                <!-- teslim çipleri: sayfada geçen "vektörel kaynak dosyalar" ve
+                     "basılı-dijital her yüzey" -->
+                <g class="gt-cip">
+                  <rect x="34" y="340" width="104" height="32" rx="9" fill="none"
+                        stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
+                  <text x="86" y="361" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="13" letter-spacing=".4" fill="#8FF6FF">Vektörel</text>
+                  <rect x="150" y="340" width="146" height="32" rx="9" fill="none"
+                        stroke="#26333F" stroke-width="1.4"/>
+                  <text x="223" y="361" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="13" letter-spacing=".4" fill="#A8B8C4">Baskı + dijital</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="gt-ok gt-ok1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 02 — KİMLİK KILAVUZU ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">02</span>
+            <span class="akis-ad">Kimlik kılavuzu</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="gtB2 gtA2"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="gtB2">Açık kimlik kılavuzu sayfası: renk paleti, tipografi ve doğru-yanlış kullanım kuralları — temsilî görsel</title>
+              <desc id="gtA2">Kılavuz sayfası çizimi: üstte renk paleti olarak dört renk dairesi,
+                ortada büyük harf örneği ve iki metin çubuğuyla tipografi satırı, altta kullanım
+                kuralları için iki kutu — biri onay işaretli doğru kullanım, diğeri çapraz işaretli
+                yanlış kullanım. Renkler örnektir, marka paleti değildir.</desc>
+              <defs>
+                <linearGradient id="gtSahne2" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="gtIsik2" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="gtGolge2" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#gtSahne2)"/>
+              <rect width="380" height="400" fill="url(#gtIsik2)"/>
+
+              <g class="gt-kart gt-k2">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#gtGolge2)"/>
+
+                <text x="34" y="64" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="13.5" letter-spacing=".5" fill="#9FD6E0">Renk paleti</text>
+
+                <!-- dört renk dairesi: örnek swatch, sayı/kod iddiası yok -->
+                <g class="gt-palet">
+                  <circle cx="60" cy="110" r="23" fill="#00E5FF" stroke="#26333F"/>
+                  <circle cx="132" cy="110" r="23" fill="#1F7E96" stroke="#26333F"/>
+                  <circle cx="204" cy="110" r="23" fill="#38506A" stroke="#26333F"/>
+                  <circle cx="276" cy="110" r="23" fill="#E4EEF4" stroke="#26333F"/>
+                </g>
+
+                <line class="gt-ayrac gt-a2" x1="34" y1="152" x2="346" y2="152"
+                      stroke="#00E5FF" stroke-opacity=".26" stroke-width="1"/>
+
+                <text x="34" y="180" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="13.5" letter-spacing=".5" fill="#9FD6E0">Tipografi</text>
+
+                <!-- büyük harf örneği + küçük metin çubukları -->
+                <g class="gt-tip">
+                  <text x="34" y="232" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="44" font-weight="700" fill="#E4EEF4">Aa</text>
+                </g>
+                <g class="gt-cubuk">
+                  <rect x="112" y="196" width="196" height="14" rx="7" fill="#3A4A5E"/>
+                  <rect x="112" y="220" width="148" height="11" rx="5.5" fill="#2A3646"/>
+                </g>
+
+                <line class="gt-ayrac gt-a2b" x1="34" y1="256" x2="346" y2="256"
+                      stroke="#00E5FF" stroke-opacity=".26" stroke-width="1"/>
+
+                <text x="34" y="284" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="13.5" letter-spacing=".5" fill="#9FD6E0">Kullanım kuralları</text>
+
+                <!-- doğru / yanlış kullanım karşılaştırması -->
+                <g class="gt-kural">
+                  <g>
+                    <rect x="34" y="298" width="148" height="76" rx="11" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
+                    <circle cx="58" cy="336" r="13" fill="none" stroke="#00E5FF" stroke-width="1.6"/>
+                    <path d="M51,336 l5,5 l10,-11" fill="none" stroke="#00E5FF" stroke-width="2.2"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <text x="82" y="341" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13.5" fill="#8FF6FF">Doğru</text>
+                  </g>
+                  <g>
+                    <rect x="198" y="298" width="148" height="76" rx="11" fill="#101A22"
+                          stroke="#4A5C6E" stroke-width="1.2"/>
+                    <circle cx="222" cy="336" r="13" fill="none" stroke="#6B7A8A" stroke-width="1.6"/>
+                    <path d="M216,330 l12,12 M228,330 l-12,12" fill="none" stroke="#6B7A8A"
+                          stroke-width="2.2" stroke-linecap="round"/>
+                    <text x="246" y="341" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13.5" fill="#A8B8C4">Yanlış</text>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="gt-ok gt-ok2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 03 — ŞABLONLAR ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">03</span>
+            <span class="akis-ad">Şablonlar</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="gtB3 gtA3"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="gtB3">Üç format kartı: kartvizit CMYK, katalog PDF, sosyal medya RGB — temsilî görsel</title>
+              <desc id="gtA3">Şablon çizimi: üstte yatay kartvizit kartı ve CMYK etiketi, ortada
+                ikiye katlanmış his veren dikey katalog sayfası ve PDF etiketi, altta kare sosyal
+                medya kartı ve RGB etiketi. Canlanmada üç format kartı sırayla aydınlanır.</desc>
+              <defs>
+                <linearGradient id="gtSahne3" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="gtIsik3" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="gtGolge3" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#gtSahne3)"/>
+              <rect width="380" height="400" fill="url(#gtIsik3)"/>
+
+              <g class="gt-kart gt-k3">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#gtGolge3)"/>
+
+                <!-- Format etiketleri sayfanın KENDİ teknik ayrımından geliyor:
+                     baskıya giden kartvizit/katalog CMYK, katalog baskıya hazır PDF,
+                     sosyal medya şablonları RGB. Ölçü veya adet uydurulmadı. -->
+                <g class="gt-format">
+                  <g>
+                    <rect class="gt-isik gt-i1" x="28" y="46" width="162" height="98" rx="13"
+                          fill="none" stroke="#00E5FF" stroke-width="3"/>
+                    <rect x="34" y="52" width="150" height="86" rx="10" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
+                    <circle cx="56" cy="76" r="8" fill="none" stroke="#00E5FF" stroke-width="2.4"/>
+                    <rect x="50" y="98" width="84" height="9" rx="4.5" fill="#3A4A5E"/>
+                    <rect x="50" y="113" width="56" height="7" rx="3.5" fill="#2A3646"/>
+                    <text x="200" y="88" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="15" fill="#D5E4EC">Kartvizit</text>
+                    <rect x="200" y="100" width="72" height="28" rx="8" fill="none"
+                          stroke="#00E5FF" stroke-opacity=".4" stroke-width="1.2"/>
+                    <text x="236" y="119" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="13" letter-spacing=".8" fill="#8FF6FF">CMYK</text>
+                  </g>
+                  <g>
+                    <rect class="gt-isik gt-i2" x="28" y="152" width="112" height="136" rx="13"
+                          fill="none" stroke="#00E5FF" stroke-width="3"/>
+                    <rect x="34" y="158" width="100" height="124" rx="10" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
+                    <line x1="84" y1="166" x2="84" y2="274" stroke="#00E5FF" stroke-opacity=".35"
+                          stroke-width="1" stroke-dasharray="4 5"/>
+                    <rect x="44" y="174" width="30" height="7" rx="3.5" fill="#3A4A5E"/>
+                    <rect x="44" y="188" width="22" height="6" rx="3" fill="#2A3646"/>
+                    <rect x="94" y="174" width="30" height="7" rx="3.5" fill="#3A4A5E"/>
+                    <rect x="94" y="188" width="26" height="6" rx="3" fill="#2A3646"/>
+                    <rect x="44" y="204" width="30" height="24" rx="4" fill="#1B2734" stroke="#26333F"/>
+                    <rect x="94" y="204" width="30" height="24" rx="4" fill="#1B2734" stroke="#26333F"/>
+                    <rect x="44" y="240" width="30" height="6" rx="3" fill="#2A3646"/>
+                    <rect x="94" y="240" width="24" height="6" rx="3" fill="#2A3646"/>
+                    <text x="200" y="210" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="15" fill="#D5E4EC">Katalog</text>
+                    <rect x="200" y="222" width="64" height="28" rx="8" fill="none"
+                          stroke="#00E5FF" stroke-opacity=".4" stroke-width="1.2"/>
+                    <text x="232" y="241" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="13" letter-spacing=".8" fill="#8FF6FF">PDF</text>
+                  </g>
+                  <g>
+                    <rect class="gt-isik gt-i3" x="28" y="292" width="92" height="88" rx="13"
+                          fill="none" stroke="#00E5FF" stroke-width="3"/>
+                    <rect x="34" y="298" width="80" height="76" rx="10" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
+                    <circle cx="58" cy="322" r="9" fill="none" stroke="#00E5FF" stroke-width="2.2"/>
+                    <rect x="46" y="344" width="56" height="8" rx="4" fill="#3A4A5E"/>
+                    <rect x="46" y="358" width="36" height="6" rx="3" fill="#2A3646"/>
+                    <text x="200" y="328" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="15" fill="#D5E4EC">Sosyal medya</text>
+                    <rect x="200" y="340" width="64" height="28" rx="8" fill="none"
+                          stroke="#00E5FF" stroke-opacity=".4" stroke-width="1.2"/>
+                    <text x="232" y="359" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="13" letter-spacing=".8" fill="#8FF6FF">RGB</text>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <figcaption><b>Temsilî görsel.</b> Sayfanın anlattığı yolu çiziyor: logodan kurumsal
+          kimlik kılavuzuna, kılavuzdan şablonlara. Logo işareti soyut geometrik bir formdur,
+          TasarımMania logosu veya gerçek bir müşteri logosu değildir; palet daireleri de örnek
+          swatch'tır, marka renk kodları kılavuz dosyasında tanımlanır. Format etiketleri
+          yukarıda anlatılan teknik ayrımdır: baskıya giden kartvizit ve katalog CMYK,
+          sosyal medya şablonları RGB. Ölçü, adet veya fiyat rakamı bilerek çizilmedi —
+          güncel bant için aşağıdaki fiyatlandırma bağlantısına bakın.</figcaption>
+      </figure>
+
       <div class="dtay-fiyat rv d1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
         <p><strong>Güncel fiyat ve süre bandı</strong> için Web Tasarım & Yazılım sayfasının <a href="../../hizmetler/web-tasarim-yazilim/#fiyat">fiyatlandırma bölümüne</a> göz atın — kapsamınıza göre bandı iki dakikada netleştirebilirsiniz.</p>

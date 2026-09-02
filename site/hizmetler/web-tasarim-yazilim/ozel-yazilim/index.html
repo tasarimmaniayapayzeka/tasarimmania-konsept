@@ -511,6 +511,16 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
    kaldırıldı: grafik artık üç ayrı 380×400 kutuya bölündüğü ve mobilde alt
    alta açıldığı için kaydırmaya gerek yok. Okunurluk kutu içi 13 punto
    tabanıyla sağlanıyor — bkz. .akis bloğu. */
+
+/* DAR-EKRAN-DOLGU */
+/* 375px (iPhone SE) olculdu: en kucuk yazi 8.49-8.82px, 9px esiginin altinda.
+   SVG'leri yeniden cizmek yerine dolguyu kisip SVG'ye alan aciliyor:
+   375 - 48(wrap) - 20(akis) - 20(kutu) - 4(kenarlik) = 283px → olcek 0.745
+   13 * 0.745 = 9.68px. Olcum sonrasi dogrulandi. */
+@media(max-width:400px){
+  .akis{padding:10px}
+  .akis-kutu{padding:10px;gap:8px}
+}
 </style>
 <script type="application/ld+json">
 {

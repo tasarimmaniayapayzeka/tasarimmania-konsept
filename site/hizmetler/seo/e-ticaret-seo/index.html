@@ -268,6 +268,141 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
 
+/* --- akış durakları (alt sayfa standardı) ---
+   Bu sayfada .dtay bloğunun hemen ardına tam genişlik üç durak giriyor;
+   fiyat notu (.dtay-fiyat) altında kalıyor, ona dokunulmadı.
+
+   ÖLÇÜLEN KUSUR 1 — mobilde okunmuyordu: tek parça geniş grafik 390px
+   ekranda ~296px'e sığınca içindeki 9.5px yazı 2.4px'e düşüyordu. Yatay
+   kaydırma da okunurluğu düzeltiyordu ama doğrusu kutulara bölüp alt alta
+   açmak. Her durak artık kendi 380x400 kutusunda.
+
+   ÖLÇÜLEN KUSUR 2 — ad çakışması: tm.css'te (satır 161-171) GLOBAL bir kayan
+   yazı bileşeni bu bloğun eski adını kullanıyor; onun "span{display:inline-flex}"
+   ve "span::before{content:...}" kuralları figure içine konan HER <span>'i ele
+   geçiriyordu. Bu yüzden ad .akis; eski ad bu sayfada hiç geçmiyor.
+   Yine de .akis-no / .akis-ad stilleri AÇIK yazıldı: <span> stili mirasa
+   bırakılmıyor. */
+.akis{border:1px solid var(--hair);border-radius:var(--r-lg);
+  background:var(--panel);padding:18px;margin:26px 0 0}
+.akis-izgara{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:12px;align-items:stretch}
+.akis-kutu{border:1px solid var(--hair);border-radius:var(--r-md);
+  background:rgba(255,255,255,.02);padding:14px;display:flex;
+  flex-direction:column;gap:10px}
+.akis-no{display:inline-block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;color:var(--acc);opacity:.9}
+.akis-ad{display:block;font-size:13.5px;font-weight:600;color:var(--fg);
+  letter-spacing:-.01em;margin-top:-6px}
+/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
+.akis-kutu svg{width:100%;height:auto;display:block;border-radius:10px}
+.akis-ok{display:grid;place-items:center;color:var(--acc);opacity:.6}
+.akis-ok svg{width:22px;height:22px}
+.akis figcaption{margin-top:14px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.akis figcaption b{color:var(--fg-dim);font-weight:600}
+@media(max-width:860px){
+  .akis-izgara{grid-template-columns:1fr;gap:10px}
+  .akis-ok svg{transform:rotate(90deg)}
+  .akis{padding:14px}
+}
+
+/* --- durak canlanması ---
+   YENİ JS YOK: figure zaten .rv sınıfında; site/js/tm.js görününce .in ekliyor.
+   prefers-reduced-motion: tm.css'teki global kural (satır 185-189)
+   animation-duration'ı 0.001ms'e indiriyor, "forwards" sayesinde her öğe
+   anında son hâline oturuyor.
+   BAŞLANGIÇ DURUMU VERİLEN HER ÖĞENİN .in KARŞILIĞI VAR (aşağıda birebir).
+   Sınıf/keyframe öneki "es-"/"es": e-ticaret SEO sayfasına özel; hub "s-",
+   web alt sayfası "et-" kullanıyor, sayfalar birleşirse çakışmasın diye ayrı.
+   Çizelge — her kutu KENDİ içinde canlanır, kutular soldan sağa (mobilde
+   yukarıdan aşağı) sırayla girer:
+     KUTU 1 · 0.25s : kart 0.25 · başlık çubukları 0.36–0.41 ·
+                      altı ürün kartı sırayla 0.46–0.71 · "iç link akışı" 0.78
+     ok 1 · 0.80s
+     KUTU 2 · 0.90s : kart 0.90 · görsel kayarak 0.98 · başlık çubukları
+                      1.04–1.09 · üç özellik satırı 1.14–1.24 · düğme 1.28 ·
+                      açıklama çubukları 1.32–1.36 · ayraç 1.40 ·
+                      "Yapılandırılmış veri" 1.44
+     ok 2 · 1.40s
+     KUTU 3 · 1.50s : kart 1.50 · panel 1.58 · filtre satırları 1.62–1.74 ·
+                      varyant kareleri 1.66–1.86 · onay işaretleri 1.80/1.88 ·
+                      seçili varyant aydınlanır 1.96 · ayraç 2.00 ·
+                      "kanonik etiket" 2.06 → ~2.5s */
+.akis svg .es-kart{opacity:0;transform:translateY(16px);transform-box:fill-box}
+.akis svg .es-izgara > g{opacity:0;transform:translateY(12px);transform-box:fill-box}
+.akis svg .es-etiket,
+.akis svg .es-dugme,
+.akis svg .es-ayrac,
+.akis svg .es-hayalet,
+.akis svg .es-panel{opacity:0}
+.akis svg .es-gorsel{opacity:0;transform:translateX(-14px);transform-box:fill-box}
+.akis svg .es-satir > g{opacity:0;transform:translateX(12px);transform-box:fill-box}
+.akis svg .es-satir3 > g{opacity:0;transform:translateX(-10px);transform-box:fill-box}
+.akis svg .es-cubuk rect,
+.akis svg .es-cubuk2 rect,
+.akis svg .es-aciklama rect{clip-path:inset(0 100% 0 0)}
+.akis svg .es-kare > g{opacity:0;transform:scale(.72);transform-box:fill-box;
+  transform-origin:center}
+.akis svg .es-onay{opacity:0;transform:scale(.5);transform-box:fill-box;
+  transform-origin:center}
+.akis svg .es-secili{opacity:0;transform:scale(.62);transform-box:fill-box;
+  transform-origin:center}
+/* oklar HTML'de: .akis-ok kutusu opaklığı taşıyor, ok çizimi 0'dan girer */
+.akis .es-ok{opacity:0}
+
+.akis.in svg .es-k1{animation:esKart .6s var(--ease) .25s forwards}
+.akis.in svg .es-cubuk rect:nth-of-type(1){animation:esCiz .5s var(--ease) .36s forwards}
+.akis.in svg .es-cubuk rect:nth-of-type(2){animation:esCiz .5s var(--ease) .41s forwards}
+.akis.in svg .es-izgara > g:nth-child(1){animation:esKart .5s var(--ease) .46s forwards}
+.akis.in svg .es-izgara > g:nth-child(2){animation:esKart .5s var(--ease) .51s forwards}
+.akis.in svg .es-izgara > g:nth-child(3){animation:esKart .5s var(--ease) .56s forwards}
+.akis.in svg .es-izgara > g:nth-child(4){animation:esKart .5s var(--ease) .61s forwards}
+.akis.in svg .es-izgara > g:nth-child(5){animation:esKart .5s var(--ease) .66s forwards}
+.akis.in svg .es-izgara > g:nth-child(6){animation:esKart .5s var(--ease) .71s forwards}
+.akis.in svg .es-etiket{animation:esBelir .5s var(--ease) .78s forwards}
+.akis.in .es-ok1{animation:esOkBelir .55s var(--ease) .80s forwards}
+.akis.in svg .es-k2{animation:esKart .6s var(--ease) .90s forwards}
+.akis.in svg .es-gorsel{animation:esKay .55s var(--ease) .98s forwards}
+.akis.in svg .es-cubuk2 rect:nth-of-type(1){animation:esCiz .5s var(--ease) 1.04s forwards}
+.akis.in svg .es-cubuk2 rect:nth-of-type(2){animation:esCiz .5s var(--ease) 1.09s forwards}
+.akis.in svg .es-satir > g:nth-child(1){animation:esKay .42s var(--ease) 1.14s forwards}
+.akis.in svg .es-satir > g:nth-child(2){animation:esKay .42s var(--ease) 1.19s forwards}
+.akis.in svg .es-satir > g:nth-child(3){animation:esKay .42s var(--ease) 1.24s forwards}
+.akis.in svg .es-dugme{animation:esBelir .45s var(--ease) 1.28s forwards}
+.akis.in svg .es-aciklama rect:nth-of-type(1){animation:esCiz .5s var(--ease) 1.32s forwards}
+.akis.in svg .es-aciklama rect:nth-of-type(2){animation:esCiz .5s var(--ease) 1.36s forwards}
+.akis.in svg .es-a2{animation:esBelir .4s var(--ease) 1.40s forwards}
+.akis.in svg .es-h2{animation:esBelir .45s var(--ease) 1.44s forwards}
+.akis.in .es-ok2{animation:esOkBelir .55s var(--ease) 1.40s forwards}
+.akis.in svg .es-k3{animation:esKart .6s var(--ease) 1.50s forwards}
+.akis.in svg .es-panel{animation:esBelir .5s var(--ease) 1.58s forwards}
+.akis.in svg .es-satir3 > g:nth-child(1){animation:esKay .4s var(--ease) 1.62s forwards}
+.akis.in svg .es-satir3 > g:nth-child(2){animation:esKay .4s var(--ease) 1.66s forwards}
+.akis.in svg .es-satir3 > g:nth-child(3){animation:esKay .4s var(--ease) 1.70s forwards}
+.akis.in svg .es-satir3 > g:nth-child(4){animation:esKay .4s var(--ease) 1.74s forwards}
+.akis.in svg .es-kare > g:nth-child(1){animation:esOlcek .42s var(--ease) 1.66s forwards}
+.akis.in svg .es-kare > g:nth-child(2){animation:esOlcek .42s var(--ease) 1.70s forwards}
+.akis.in svg .es-kare > g:nth-child(3){animation:esOlcek .42s var(--ease) 1.74s forwards}
+.akis.in svg .es-kare > g:nth-child(4){animation:esOlcek .42s var(--ease) 1.78s forwards}
+.akis.in svg .es-kare > g:nth-child(5){animation:esOlcek .42s var(--ease) 1.82s forwards}
+.akis.in svg .es-kare > g:nth-child(6){animation:esOlcek .42s var(--ease) 1.86s forwards}
+.akis.in svg .es-o1{animation:esOnay .5s var(--ease) 1.80s forwards}
+.akis.in svg .es-o2{animation:esOnay .5s var(--ease) 1.88s forwards}
+.akis.in svg .es-secili{animation:esSecili .6s var(--ease) 1.96s forwards}
+.akis.in svg .es-a3{animation:esBelir .4s var(--ease) 2.00s forwards}
+.akis.in svg .es-h3{animation:esBelir .45s var(--ease) 2.06s forwards}
+
+@keyframes esKart{to{opacity:1;transform:translateY(0)}}
+@keyframes esKay{to{opacity:1;transform:translateX(0)}}
+@keyframes esCiz{to{clip-path:inset(0 0 0 0)}}
+@keyframes esBelir{to{opacity:1}}
+@keyframes esOlcek{to{opacity:1;transform:scale(1)}}
+@keyframes esOnay{0%{opacity:0;transform:scale(.5)}62%{opacity:1;transform:scale(1.18)}
+  to{opacity:1;transform:scale(1)}}
+@keyframes esSecili{0%{opacity:0;transform:scale(.62)}58%{opacity:1;transform:scale(1.1)}
+  to{opacity:1;transform:scale(1)}}
+@keyframes esOkBelir{0%{opacity:0}45%{opacity:1;filter:brightness(1.7)}to{opacity:1;filter:brightness(1)}}
+
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
 .sss details[open],.akor details[open]{border-color:var(--hair-strong)}
@@ -372,6 +507,16 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   .nav-links,.nav-tel{display:none}
   .burger{display:block}
   .ftr-ust{grid-template-columns:1fr}
+}
+
+/* DAR-EKRAN-DOLGU */
+/* 375px (iPhone SE) olculdu: en kucuk yazi 8.49-8.82px, 9px esiginin altinda.
+   SVG'leri yeniden cizmek yerine dolguyu kisip SVG'ye alan aciliyor:
+   375 - 48(wrap) - 20(akis) - 20(kutu) - 4(kenarlik) = 283px → olcek 0.745
+   13 * 0.745 = 9.68px. Olcum sonrasi dogrulandi. */
+@media(max-width:400px){
+  .akis{padding:10px}
+  .akis-kutu{padding:10px;gap:8px}
 }
 </style>
 <script type="application/ld+json">
@@ -537,6 +682,364 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>
+
+      <!-- Akış durakları — bu sayfanın KENDİ anlattığı sırayı çizer:
+           kategori sayfası → ürün sayfası → filtre/varyant kararı.
+           Etiketlerin tamamı sayfada geçen kavramlar: "iç link akışı",
+           "yapılandırılmış veri", "filtre", "varyant", "kanonik etiket".
+           BİLEREK RAKAM YOK: fiyat rakamları bu sayfadan kaldırıldı, yüzde,
+           süre veya adet iddiası da yok. Mağaza yazılımı (Shopify, ikas,
+           IdeaSoft, WooCommerce) logosu ÇİZİLMEDİ; ürün kartları ve görseller
+           yer tutucu çizimdir.
+
+           NEDEN ÜÇ AYRI SVG: tek parça geniş grafik 390px ekranda ~296px'e
+           sığınca yazısı 2.4px'e düşüyordu (ölçüldü). Her durak artık kendi
+           380x400 kutusunda; 860px altında kutular alt alta açılır, aradaki
+           oklar 90° döner. Yazıların en küçüğü 14.5 birim: mobilde kutu içi
+           ~281px / viewBox 380 = 0.74 ölçek, yani ekranda en az 10.7px.
+           Inline SVG: ek istek yok, her ölçekte net, viewBox sayesinde oran
+           sabit olduğu için düzen kaymaz (CLS yok). -->
+      <figure class="akis rv d2">
+        <div class="akis-izgara">
+
+          <!-- ===== DURAK 01 — KATEGORİ ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">01</span>
+            <span class="akis-ad">Kategori</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="esB1 esA1"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="esB1">Kategori sayfası iskeleti: başlık çubuğu ve altı ürün kartı — temsilî görsel</title>
+              <desc id="esA1">Kategori sayfası çizimi: üstte başlık çubuğu ve altında ince bir
+                alt çubuk, onların altında iki sütun üç satır hâlinde altı ürün kartı; her kartta
+                görsel yer tutucu ve iki metin çubuğu. En altta "iç link akışı" etiketi.
+                Canlanmada kartlar sırayla belirir.</desc>
+              <defs>
+                <linearGradient id="esSahne1" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="esIsik1" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="esGolge1" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#esSahne1)"/>
+              <rect width="380" height="400" fill="url(#esIsik1)"/>
+
+              <g class="es-kart es-k1">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#esGolge1)"/>
+
+                <!-- kategori başlığı: yazı değil, çubuk (yer tutucu) -->
+                <g class="es-cubuk">
+                  <rect x="34" y="42" width="176" height="17" rx="8.5" fill="#3A4A5E"/>
+                  <rect x="34" y="68" width="112" height="12" rx="6" fill="#2A3646"/>
+                </g>
+
+                <!-- 2 sütun x 3 satır ürün kartı ızgarası -->
+                <g class="es-izgara">
+                  <g>
+                    <rect x="34" y="100" width="148" height="66" rx="10" fill="#151F2B" stroke="#26333F"/>
+                    <rect x="45" y="111" width="44" height="44" rx="8" fill="#1B2836" stroke="#2C3A48"/>
+                    <circle cx="58" cy="125" r="5" fill="#38506A"/>
+                    <path d="M49,151 L61,136 L69,144 L75,138 L85,151 Z" fill="#2A394B"/>
+                    <rect x="98" y="118" width="70" height="11" rx="5.5" fill="#3A4A5E"/>
+                    <rect x="98" y="137" width="50" height="9" rx="4.5" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="198" y="100" width="148" height="66" rx="10" fill="#151F2B" stroke="#26333F"/>
+                    <rect x="209" y="111" width="44" height="44" rx="8" fill="#1B2836" stroke="#2C3A48"/>
+                    <circle cx="222" cy="125" r="5" fill="#38506A"/>
+                    <path d="M213,151 L225,136 L233,144 L239,138 L249,151 Z" fill="#2A394B"/>
+                    <rect x="262" y="118" width="70" height="11" rx="5.5" fill="#3A4A5E"/>
+                    <rect x="262" y="137" width="50" height="9" rx="4.5" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="34" y="180" width="148" height="66" rx="10" fill="#151F2B" stroke="#26333F"/>
+                    <rect x="45" y="191" width="44" height="44" rx="8" fill="#1B2836" stroke="#2C3A48"/>
+                    <circle cx="58" cy="205" r="5" fill="#38506A"/>
+                    <path d="M49,231 L61,216 L69,224 L75,218 L85,231 Z" fill="#2A394B"/>
+                    <rect x="98" y="198" width="70" height="11" rx="5.5" fill="#3A4A5E"/>
+                    <rect x="98" y="217" width="50" height="9" rx="4.5" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="198" y="180" width="148" height="66" rx="10" fill="#151F2B" stroke="#26333F"/>
+                    <rect x="209" y="191" width="44" height="44" rx="8" fill="#1B2836" stroke="#2C3A48"/>
+                    <circle cx="222" cy="205" r="5" fill="#38506A"/>
+                    <path d="M213,231 L225,216 L233,224 L239,218 L249,231 Z" fill="#2A394B"/>
+                    <rect x="262" y="198" width="70" height="11" rx="5.5" fill="#3A4A5E"/>
+                    <rect x="262" y="217" width="50" height="9" rx="4.5" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="34" y="260" width="148" height="66" rx="10" fill="#151F2B" stroke="#26333F"/>
+                    <rect x="45" y="271" width="44" height="44" rx="8" fill="#1B2836" stroke="#2C3A48"/>
+                    <circle cx="58" cy="285" r="5" fill="#38506A"/>
+                    <path d="M49,311 L61,296 L69,304 L75,298 L85,311 Z" fill="#2A394B"/>
+                    <rect x="98" y="278" width="70" height="11" rx="5.5" fill="#3A4A5E"/>
+                    <rect x="98" y="297" width="50" height="9" rx="4.5" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="198" y="260" width="148" height="66" rx="10" fill="#151F2B" stroke="#26333F"/>
+                    <rect x="209" y="271" width="44" height="44" rx="8" fill="#1B2836" stroke="#2C3A48"/>
+                    <circle cx="222" cy="285" r="5" fill="#38506A"/>
+                    <path d="M213,311 L225,296 L233,304 L239,298 L249,311 Z" fill="#2A394B"/>
+                    <rect x="262" y="278" width="70" height="11" rx="5.5" fill="#3A4A5E"/>
+                    <rect x="262" y="297" width="50" height="9" rx="4.5" fill="#2A3646"/>
+                  </g>
+                </g>
+
+                <!-- sayfada geçen kavram: kategori sayfası iç link akışının merkezinde -->
+                <g class="es-etiket">
+                  <line x1="34" y1="342" x2="346" y2="342" stroke="#00E5FF" stroke-opacity=".24" stroke-width="1"/>
+                  <circle cx="40" cy="365" r="4.2" fill="#00E5FF" fill-opacity=".85"/>
+                  <text x="56" y="370" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="14.5" letter-spacing=".5" fill="#9FD6E0">iç link akışı</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="es-ok es-ok1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 02 — ÜRÜN SAYFASI ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">02</span>
+            <span class="akis-ad">Ürün sayfası</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="esB2 esA2"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="esB2">Ürün sayfası düzeni: görsel, başlık, üç özellik satırı, düğme ve "Yapılandırılmış veri" etiketi — temsilî görsel</title>
+              <desc id="esA2">Tek ürün sayfası çizimi: solda büyük görsel yer tutucu, sağda başlık
+                çubuğu, üç özellik satırı ve aksan renkli bir düğme; altta iki açıklama çubuğu,
+                ince bir ayraç ve "Yapılandırılmış veri" etiketi. Canlanmada görsel soldan kayarak
+                gelir, satırlar sağdan girer.</desc>
+              <defs>
+                <linearGradient id="esSahne2" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="esIsik2" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="esGolge2" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#esSahne2)"/>
+              <rect width="380" height="400" fill="url(#esIsik2)"/>
+
+              <g class="es-kart es-k2">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#esGolge2)"/>
+
+                <!-- solda büyük görsel yer tutucu -->
+                <g class="es-gorsel">
+                  <rect x="34" y="44" width="132" height="150" rx="11" fill="#151F2B" stroke="#26333F"/>
+                  <circle cx="68" cy="84" r="13" fill="#38506A"/>
+                  <path d="M44,188 L82,140 L108,166 L124,148 L156,188 Z" fill="#2A394B"/>
+                </g>
+
+                <!-- sağda başlık çubuğu (yazı değil, yer tutucu) -->
+                <g class="es-cubuk2">
+                  <rect x="182" y="50" width="150" height="17" rx="8.5" fill="#3A4A5E"/>
+                  <rect x="182" y="77" width="104" height="12" rx="6" fill="#2A3646"/>
+                </g>
+
+                <!-- üç özellik satırı -->
+                <g class="es-satir">
+                  <g>
+                    <circle cx="190" cy="112" r="4.5" fill="#00E5FF" fill-opacity=".85"/>
+                    <rect x="203" y="106" width="131" height="12" rx="6" fill="#33465A"/>
+                  </g>
+                  <g>
+                    <circle cx="190" cy="139" r="4.5" fill="#4A5C6E"/>
+                    <rect x="203" y="133" width="115" height="12" rx="6" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <circle cx="190" cy="166" r="4.5" fill="#4A5C6E"/>
+                    <rect x="203" y="160" width="126" height="12" rx="6" fill="#2A3646"/>
+                  </g>
+                </g>
+
+                <!-- düğme: yer tutucu, üstünde yazı iddiası yok -->
+                <g class="es-dugme">
+                  <rect x="182" y="190" width="164" height="44" rx="11" fill="#00E5FF"/>
+                  <rect x="208" y="207" width="112" height="10" rx="5" fill="#06323A" fill-opacity=".6"/>
+                </g>
+
+                <!-- ürün açıklaması: metin değil, çubuk -->
+                <g class="es-aciklama">
+                  <rect x="34" y="250" width="312" height="13" rx="6.5" fill="#2A3646"/>
+                  <rect x="34" y="273" width="248" height="11" rx="5.5" fill="#232E3C"/>
+                </g>
+
+                <line class="es-ayrac es-a2" x1="34" y1="304" x2="346" y2="304"
+                      stroke="#00E5FF" stroke-opacity=".26" stroke-width="1"/>
+
+                <!-- sayfada geçen kavram: başlık, açıklama ve yapılandırılmış veri
+                     şablon düzeyinde standart hale getirilir -->
+                <g class="es-hayalet es-h2">
+                  <rect x="34" y="324" width="236" height="42" rx="11" fill="none"
+                        stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
+                  <text x="54" y="350" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="15" letter-spacing=".4" fill="#8FF6FF">Yapılandırılmış veri</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="es-ok es-ok2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 03 — FİLTRE / VARYANT ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">03</span>
+            <span class="akis-ad">Filtre / varyant</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="esB3 esA3"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="esB3">Filtre paneli, varyant seçici ve "kanonik etiket" satırı — temsilî görsel</title>
+              <desc id="esA3">Filtre ve varyant çizimi: solda "Filtre" başlıklı panelde dört onay
+                satırı, ikisi işaretli; sağda "Varyant" başlığı altında altı küçük kare, biri aksan
+                renkli çerçeveyle seçili; altta ince bir ayraç ve birleşme okuyla "kanonik etiket"
+                satırı. Canlanmada onay işaretleri tıklanır, seçili varyant aydınlanır.</desc>
+              <defs>
+                <linearGradient id="esSahne3" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="esIsik3" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="esGolge3" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#esSahne3)"/>
+              <rect width="380" height="400" fill="url(#esIsik3)"/>
+
+              <g class="es-kart es-k3">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#esGolge3)"/>
+
+                <!-- panel iskeleti + iki başlık: ikisi de sayfada geçen kavram
+                     ("filtre kombinasyonları", "varyant gruplama") -->
+                <g class="es-panel">
+                  <rect x="34" y="44" width="140" height="200" rx="11" fill="#101A22" stroke="#26333F"/>
+                  <text x="48" y="72" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="14.5" letter-spacing=".5" fill="#9FD6E0">Filtre</text>
+                  <text x="190" y="72" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="14.5" letter-spacing=".5" fill="#9FD6E0">Varyant</text>
+                </g>
+
+                <!-- dört onay satırı; filtre adı UYDURULMADI, çubuk yer tutucu -->
+                <g class="es-satir3">
+                  <g>
+                    <rect x="48" y="94" width="20" height="20" rx="5" fill="#06323A" fill-opacity=".55"
+                          stroke="#00E5FF" stroke-width="1.6"/>
+                    <rect x="78" y="98" width="78" height="12" rx="6" fill="#33465A"/>
+                  </g>
+                  <g>
+                    <rect x="48" y="128" width="20" height="20" rx="5" fill="#06323A" fill-opacity=".55"
+                          stroke="#00E5FF" stroke-width="1.6"/>
+                    <rect x="78" y="132" width="66" height="12" rx="6" fill="#33465A"/>
+                  </g>
+                  <g>
+                    <rect x="48" y="162" width="20" height="20" rx="5" fill="none"
+                          stroke="#4A5C6E" stroke-width="1.5"/>
+                    <rect x="78" y="166" width="74" height="12" rx="6" fill="#2A3646"/>
+                  </g>
+                  <g>
+                    <rect x="48" y="196" width="20" height="20" rx="5" fill="none"
+                          stroke="#4A5C6E" stroke-width="1.5"/>
+                    <rect x="78" y="200" width="58" height="12" rx="6" fill="#2A3646"/>
+                  </g>
+                </g>
+
+                <!-- işaretler: sırayla "tıklanır" -->
+                <path class="es-onay es-o1" d="M52.5,104 L57,108.5 L64,100" fill="none"
+                      stroke="#00E5FF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path class="es-onay es-o2" d="M52.5,138 L57,142.5 L64,134" fill="none"
+                      stroke="#00E5FF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- varyant seçici: altı kare -->
+                <g class="es-kare">
+                  <g>
+                    <rect x="190" y="92" width="40" height="40" rx="9" fill="#1B2836" stroke="#2C3A48"/>
+                    <circle cx="210" cy="112" r="6" fill="#2A394B"/>
+                  </g>
+                  <g>
+                    <rect x="248" y="92" width="40" height="40" rx="9" fill="#1B2836" stroke="#2C3A48"/>
+                    <circle cx="268" cy="112" r="6" fill="#38506A"/>
+                  </g>
+                  <g>
+                    <rect x="306" y="92" width="40" height="40" rx="9" fill="#1B2836" stroke="#2C3A48"/>
+                    <circle cx="326" cy="112" r="6" fill="#2A394B"/>
+                  </g>
+                  <g>
+                    <rect x="190" y="150" width="40" height="40" rx="9" fill="#1B2836" stroke="#2C3A48"/>
+                    <circle cx="210" cy="170" r="6" fill="#2A394B"/>
+                  </g>
+                  <g>
+                    <rect x="248" y="150" width="40" height="40" rx="9" fill="#1B2836" stroke="#2C3A48"/>
+                    <circle cx="268" cy="170" r="6" fill="#2A394B"/>
+                  </g>
+                  <g>
+                    <rect x="306" y="150" width="40" height="40" rx="9" fill="#1B2836" stroke="#2C3A48"/>
+                    <circle cx="326" cy="170" r="6" fill="#2A394B"/>
+                  </g>
+                </g>
+
+                <!-- seçili varyant: aksan çerçeve + hale, en sonda aydınlanır -->
+                <g class="es-secili">
+                  <rect x="242" y="86" width="52" height="52" rx="13" fill="#00E5FF" fill-opacity=".12"/>
+                  <rect x="248" y="92" width="40" height="40" rx="9" fill="none"
+                        stroke="#00E5FF" stroke-width="2.2"/>
+                </g>
+
+                <line class="es-ayrac es-a3" x1="34" y1="272" x2="346" y2="272"
+                      stroke="#00E5FF" stroke-opacity=".26" stroke-width="1"/>
+
+                <!-- sayfada geçen kavram: varyant sayfalarında kanonik etiketleme,
+                     tekrarı tek adreste toplayan birleşme -->
+                <g class="es-hayalet es-h3">
+                  <rect x="34" y="296" width="312" height="48" rx="12" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".4" stroke-width="1.4"/>
+                  <g fill="none" stroke="#00E5FF" stroke-opacity=".75" stroke-width="1.8"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M50,306 h8 q12,0 12,14"/>
+                    <path d="M50,334 h8 q12,0 12,-14"/>
+                    <path d="M50,320 h20"/>
+                    <path d="M70,320 h11"/>
+                    <path d="M76,315 L81,320 L76,325"/>
+                  </g>
+                  <text x="98" y="326" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="15" letter-spacing=".5" fill="#8FF6FF">kanonik etiket</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <figcaption><b>Temsilî görsel.</b> Sayfanın anlattığı sırayı çiziyor: kategori
+          sayfasından ürün sayfasına, oradan filtre ve varyant kararına. Kutular örnek arayüz
+          çizimidir, gerçek bir mağazadan alınmadı; kartlardaki görseller ve çubuklar yer
+          tutucudur, filtre ve varyant adları bilerek yazılmadı çünkü bunlar mağazanın kendi
+          kataloğuna göre belirlenir. Rakam da yok: bu sayfada fiyat, oran veya süre
+          yayımlamıyoruz — güncel bant için aşağıdaki fiyatlandırma bağlantısına bakın.
+          Mağaza yazılımı logosu çizilmedi.</figcaption>
+      </figure>
+
       <div class="dtay-fiyat rv d1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
         <p><strong>Güncel fiyat ve süre bandı</strong> için SEO Hizmetleri sayfasının <a href="../../../hizmetler/seo/#fiyat">fiyatlandırma bölümüne</a> göz atın — kapsamınıza göre bandı iki dakikada netleştirebilirsiniz.</p>
