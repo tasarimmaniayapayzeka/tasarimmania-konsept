@@ -200,6 +200,60 @@ a.alt-k:hover .alt-git{gap:12px}
 
 .fyt{border:1px solid var(--hair);border-radius:var(--r-lg);padding:clamp(26px,3.4vw,38px);
   background:var(--panel);max-width:840px}
+
+/* --- fiyat kutusu + SERP infografiği yan yana --- */
+.fyt-satir{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);
+  gap:20px;align-items:start}
+.fyt-satir .fyt{max-width:none;height:100%}
+.serp{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);
+  padding:18px 18px 16px;height:100%;display:flex;flex-direction:column}
+/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
+.serp svg{width:100%;height:auto;display:block;border-radius:12px}
+.serp figcaption{margin-top:13px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.serp figcaption b{color:var(--fg-dim);font-weight:600}
+@media(max-width:1000px){
+  .fyt-satir{grid-template-columns:1fr}
+  .serp{max-width:560px;margin-inline:auto}
+}
+
+/* --- SERP infografiği canlanması ---
+   YENİ JS YOK: .serp zaten .rv sınıfında; sitenin mevcut görünürlük gözlemcisi
+   (site/js/tm.js) görününce .in ekliyor, animasyonlar ona bağlı. Tek sefer oynar.
+   prefers-reduced-motion: tm.css'teki global kural animation-duration'ı 0.001ms'e
+   indiriyor ve forwards sayesinde her öğe anında son hâline oturuyor — ayrı
+   bir kural yazmaya gerek yok, ölçüldü.
+   Süre çizelgesi: yazma 0.25-1.15s · üst 1.15s · halka 1.35s · sonuç 1.5s ·
+   iskelet 1.7s · ışık 2.1s · kupa 2.25s · rozet 2.5s → toplam ~3s. */
+.serp svg .s-sorgu{clip-path:inset(0 100% 0 0)}
+.serp svg .s-imlec{opacity:0;transform:translateX(-172px)}
+.serp svg .s-ust,.serp svg .s-sonuc{opacity:0}
+.serp svg .s-halka{stroke-dasharray:1260;stroke-dashoffset:1260}
+.serp svg .s-isik{opacity:0}
+.serp svg .s-kupa{opacity:0;transform:scale(.4);transform-box:fill-box;transform-origin:center}
+.serp svg .s-rozet{opacity:0;transform:translateX(24px);transform-box:fill-box}
+.serp svg .s-iskelet > g{opacity:0}
+
+.serp.in svg .s-sorgu{animation:sYaz .9s var(--ease) .25s forwards}
+.serp.in svg .s-imlec{animation:sImlecKay .9s var(--ease) .25s forwards,
+                                sImlecYanip .34s steps(1,end) .25s 4}
+.serp.in svg .s-ust{animation:sBelir .5s var(--ease) 1.15s forwards}
+.serp.in svg .s-halka{animation:sCiz 1s var(--ease) 1.35s forwards}
+.serp.in svg .s-sonuc{animation:sBelir .55s var(--ease) 1.5s forwards}
+.serp.in svg .s-iskelet > g:nth-child(1){animation:sBelir .45s var(--ease) 1.70s forwards}
+.serp.in svg .s-iskelet > g:nth-child(2){animation:sBelir .45s var(--ease) 1.80s forwards}
+.serp.in svg .s-iskelet > g:nth-child(3){animation:sBelir .45s var(--ease) 1.90s forwards}
+.serp.in svg .s-isik{animation:sIsik .8s var(--ease) 2.1s forwards}
+.serp.in svg .s-kupa{animation:sPat .62s cubic-bezier(.34,1.56,.64,1) 2.25s forwards}
+.serp.in svg .s-rozet{animation:sKay .5s var(--ease) 2.5s forwards}
+
+@keyframes sYaz{to{clip-path:inset(0 0 0 0)}}
+@keyframes sImlecKay{from{opacity:1}to{opacity:0;transform:translateX(0)}}
+@keyframes sImlecYanip{0%,49%{opacity:1}50%,100%{opacity:.15}}
+@keyframes sBelir{to{opacity:1}}
+@keyframes sCiz{to{stroke-dashoffset:0}}
+@keyframes sIsik{to{opacity:.16}}
+@keyframes sPat{to{opacity:1;transform:scale(1)}}
+@keyframes sKay{to{opacity:1;transform:translateX(0)}}
 .fyt-band{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
 .fyt-band b{font-family:var(--mono);font-size:clamp(24px,3.6vw,34px);color:var(--acc);letter-spacing:-.02em;line-height:1.25}
 .fyt-band span{font-family:var(--mono);font-size:13px;color:var(--muted)}
@@ -657,6 +711,7 @@ a.alt-k:hover .alt-git{gap:12px}
         <h2 data-kin>SEO hizmeti fiyatları 2026: ilk ay denetim, sonrasında aylık bant</h2>
       </div>
 
+      <div class="fyt-satir">
       <div class="fyt rv d1">
         <div class="fyt-band">
           <b>İlk ay denetim · Sonra aylık 22-45 bin ₺</b>
@@ -670,6 +725,146 @@ a.alt-k:hover .alt-git{gap:12px}
           <li>Fiyat; site büyüklüğü, rekabet ve hedef pazar sayısına göre belirlenir</li>
           <li>Sonuçlar kademeli ve birikimli biçimde ortaya çıkar</li>
         </ul>
+      </div>
+
+      <!-- SERP infografiği — HEDEFİ gösterir, VAAT DEĞİL.
+           Bu ayrım bilinçli: iki bölüm aşağıdaki #durustluk bölümü
+           "garantili ilk sıra vaadine temkinli yaklaşın" diyor. Rozet
+           "1. SIRADA" yerine "HEDEF: 1. SIRA" okur ve altyazı sıralamanın
+           garanti edilemeyeceğini tekrar eder. Firma adı temsilîdir.
+           Inline SVG: ek istek yok, her ölçekte net, viewBox sayesinde
+           oran sabit olduğu için düzen kaymaz. -->
+      <figure class="serp rv d2">
+        <svg viewBox="0 0 620 700" role="img" aria-labelledby="serpBaslik serpAciklama"
+             xmlns="http://www.w3.org/2000/svg">
+          <title id="serpBaslik">Arama sonuçlarında birinci sıra — temsilî görsel</title>
+          <desc id="serpAciklama">Bir arama motoru sonuç sayfası çizimi: "kurumsal yazılım
+            çözümleri" aramasında temsilî X Firması sonucu ilk sırada vurgulanmış,
+            yanında kupa simgesi ve "hedef: 1. sıra" rozeti var.</desc>
+
+          <defs>
+            <linearGradient id="kupa" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FFD97A"/>
+              <stop offset="1" stop-color="#E08E0B"/>
+            </linearGradient>
+            <filter id="yumusak" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0B0D12" flood-opacity=".22"/>
+            </filter>
+          </defs>
+
+          <!-- tarayıcı kartı -->
+          <rect x="8" y="8" width="604" height="684" rx="14" fill="#FFFFFF"/>
+          <circle cx="34" cy="32" r="5" fill="#FF5F57"/>
+          <circle cx="52" cy="32" r="5" fill="#FEBC2E"/>
+          <circle cx="70" cy="32" r="5" fill="#28C840"/>
+          <rect x="92" y="20" width="380" height="24" rx="12" fill="#F1F3F4"/>
+          <text x="108" y="36" font-family="Inter Tight, system-ui, sans-serif"
+                font-size="12" fill="#5F6368">google.com/search?q=kurumsal+yazılım</text>
+          <line x1="8" y1="56" x2="612" y2="56" stroke="#E8EAED" stroke-width="1"/>
+
+          <!-- arama motoru kelime işareti -->
+          <g font-family="Inter Tight, system-ui, sans-serif" font-size="36" font-weight="600"
+             text-anchor="middle">
+            <text x="310" y="112">
+              <tspan fill="#4285F4">G</tspan><tspan fill="#EA4335">o</tspan><tspan fill="#FBBC05">o</tspan><tspan fill="#4285F4">g</tspan><tspan fill="#34A853">l</tspan><tspan fill="#EA4335">e</tspan>
+            </text>
+          </g>
+
+          <!-- arama kutusu -->
+          <rect x="90" y="134" width="440" height="42" rx="21" fill="#FFFFFF"
+                stroke="#DFE1E5" stroke-width="1.4"/>
+          <text class="s-sorgu" x="114" y="161" font-family="Inter Tight, system-ui, sans-serif"
+                font-size="15" fill="#202124">kurumsal yazılım çözümleri</text>
+          <rect class="s-imlec" x="286" y="146" width="1.6" height="18" fill="#202124"/>
+          <g stroke="#4285F4" stroke-width="2" fill="none">
+            <circle cx="498" cy="153" r="6.5"/>
+            <line x1="503" y1="158" x2="508" y2="163" stroke-linecap="round"/>
+          </g>
+
+          <!-- sekmeler + sonuç sayısı -->
+          <g class="s-ust">
+            <g font-family="Inter Tight, system-ui, sans-serif" font-size="12.5">
+              <text x="32" y="206" fill="#1A73E8" font-weight="600">Tümü</text>
+              <text x="86" y="206" fill="#5F6368">Görseller</text>
+              <text x="156" y="206" fill="#5F6368">Videolar</text>
+              <text x="222" y="206" fill="#5F6368">Haberler</text>
+              <text x="290" y="206" fill="#5F6368">Alışveriş</text>
+            </g>
+            <line x1="30" y1="216" x2="66" y2="216" stroke="#1A73E8" stroke-width="2.5"/>
+            <line x1="8" y1="216" x2="612" y2="216" stroke="#E8EAED" stroke-width="1"/>
+            <text x="32" y="240" font-family="Inter Tight, system-ui, sans-serif"
+                  font-size="11.5" fill="#70757A">Yaklaşık 2.350.000 sonuç bulundu (0,38 saniye)</text>
+          </g>
+
+          <!-- birinci sonuç: vurgulu -->
+          <rect class="s-isik" x="24" y="256" width="478" height="176" rx="16" fill="none"
+                stroke="#A6FF00" stroke-width="7" opacity=".16"/>
+          <rect class="s-halka" x="28" y="260" width="470" height="168" rx="12" fill="#FFFFFF"
+                stroke="#A6FF00" stroke-width="2.5"/>
+          <g class="s-sonuc">
+            <rect x="46" y="278" width="18" height="18" rx="5" fill="#4D7305"/>
+            <text x="70" y="292" font-family="Inter Tight, system-ui, sans-serif"
+                  font-size="12.5" fill="#202124">www.xfirmasi.com</text>
+            <text x="46" y="322" font-family="Inter Tight, system-ui, sans-serif"
+                  font-size="19" font-weight="500" fill="#1A0DAB">X Firması | Kurumsal Yazılım</text>
+            <text x="46" y="348" font-family="Inter Tight, system-ui, sans-serif"
+                  font-size="12.8" fill="#4D5156">İşletmelere özel yazılım çözümleri: daha verimli</text>
+            <text x="46" y="368" font-family="Inter Tight, system-ui, sans-serif"
+                  font-size="12.8" fill="#4D5156">süreçler, güçlü altyapı, sürdürülebilir başarı.</text>
+            <g font-family="Inter Tight, system-ui, sans-serif" font-size="12" fill="#1A0DAB">
+              <text x="46" y="404">Çözümlerimiz</text>
+              <text x="140" y="404">Referanslarımız</text>
+              <text x="252" y="404">Blog</text>
+              <text x="298" y="404">İletişim</text>
+            </g>
+          </g>
+
+          <!-- kupa -->
+          <g class="s-kupa" filter="url(#yumusak)">
+            <circle cx="522" cy="292" r="38" fill="#0B0D12" stroke="#A6FF00" stroke-width="2"/>
+            <g transform="translate(522,292)" fill="url(#kupa)">
+              <path d="M-13,-17 h26 v9 a13,13 0 0 1 -26,0 z"/>
+              <path d="M-13,-14 h-6 a7,7 0 0 0 7,7 z"/>
+              <path d="M13,-14 h6 a7,7 0 0 1 -7,7 z"/>
+              <rect x="-2.5" y="4" width="5" height="7"/>
+              <rect x="-9" y="11" width="18" height="4.5" rx="1.6"/>
+            </g>
+            <text x="522" y="290" font-family="Inter Tight, system-ui, sans-serif"
+                  font-size="11" font-weight="700" fill="#0B0D12" text-anchor="middle">1</text>
+          </g>
+
+          <!-- hedef rozeti -->
+          <g class="s-rozet">
+            <rect x="440" y="348" width="160" height="34" rx="17" fill="#0B0D12"
+                  stroke="#A6FF00" stroke-width="1.5"/>
+            <text x="520" y="370" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="12.5" fill="#A6FF00" text-anchor="middle">HEDEF · 1. SIRA</text>
+          </g>
+
+          <!-- sıradaki sonuçlar: iskelet -->
+          <g class="s-iskelet" fill="#E8EAED">
+            <g>
+              <rect x="46" y="462" width="150" height="9" rx="4.5"/>
+              <rect x="46" y="481" width="290" height="14" rx="6" fill="#DADCE0"/>
+              <rect x="46" y="505" width="430" height="8" rx="4"/>
+              <rect x="46" y="521" width="350" height="8" rx="4"/>
+            </g>
+            <g>
+              <rect x="46" y="558" width="150" height="9" rx="4.5"/>
+              <rect x="46" y="577" width="250" height="14" rx="6" fill="#DADCE0"/>
+              <rect x="46" y="601" width="430" height="8" rx="4"/>
+              <rect x="46" y="617" width="310" height="8" rx="4"/>
+            </g>
+            <g>
+              <rect x="46" y="654" width="150" height="9" rx="4.5"/>
+              <rect x="46" y="673" width="270" height="14" rx="6" fill="#DADCE0"/>
+            </g>
+          </g>
+        </svg>
+        <figcaption><b>Temsilî görsel.</b> Hedeflenen sonucu anlatır; firma adı ve rakamlar
+          gerçek değildir. Sıralama hiçbir ajans tarafından garanti edilemez — nedeni
+          aşağıda.</figcaption>
+      </figure>
       </div>
     </div>
   </section>
