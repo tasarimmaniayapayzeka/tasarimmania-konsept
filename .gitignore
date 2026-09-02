@@ -14,3 +14,9 @@ sosyal-icerik/
 # Ajanlarin biraktigi gecici dogrulama klasorleri
 .tmp_*/
 .scratch_*/
+
+# olcum harness'inin yanina yazdigi gecici sayfalar
+# (sayfaya betik enjekte edip file:// ile olculuyor; repoya girmemeli)
+_rm*.html
+_dz.html
+_tarama*.html
