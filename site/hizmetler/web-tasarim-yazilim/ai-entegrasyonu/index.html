@@ -327,14 +327,10 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
    861px'te 195px'e düşüyor (15 punto → 7.7px, mobilden bile kötü).
    KIRILIMI DÜŞÜRME; SVG'ye yazı eklersen taramayı tekrarla. */
 @media(max-width:1100px){
-  .akis-izgara{grid-template-columns:1fr;gap:10px;justify-items:center}
+  .akis-izgara{grid-template-columns:1fr;gap:10px}
   .akis-ok svg{transform:rotate(90deg)}
-  /* Tek sütunda kutu sayfa kadar genişlemesin: sınır olmadan 1100px'lik
-     ekranda tek grafik 1000px'e çıkıyordu. 650px kutu → 620px SVG,
-     ölçek 1.63 → 24.5px. Sınır SVG'ye değil KUTUYA konuyor: SVG'ye
-     konsaydı 01/02/03 etiketi solda kalıp grafik ortalanır, ikisi
-     birbirinden kopardı. Kutu daralınca etiket de grafikle geliyor. */
-  .akis-kutu{width:100%;max-width:650px}
+  .akis{padding:14px}
+  .akis-kutu{width:100%;max-width:520px;margin-inline:auto}
 }
 @media(max-width:860px){
   .akis{padding:14px}

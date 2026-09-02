@@ -268,6 +268,134 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
 
+/* --- akış durakları (alt sayfa standardı) ---
+   Desen teknik-seo alt sayfasından birebir alındı; yalnızca canlanma öneki
+   değişti (orada "ts-", burada "rn-") ki iki sayfa ileride birleşirse
+   kurallar çakışmasın.
+
+   ÖLÇÜLEN KUSUR 1 — mobilde okunmuyordu: tek parça geniş grafik 390px
+   ekranda ~296px'e sığınca içindeki yazı 2-3px'e düşüyordu. Doğrusu grafiği
+   kutulara bölüp alt alta açmak: her durak kendi 380x400 kutusunda.
+   375px'te ÖLÇÜLDÜ: wrap 375 → figure 322.09 → kutu 300.43 → svg 278.76px;
+   278.76 / viewBox 380 = 0.7336 ölçek. Bu yüzden SVG içindeki EN KÜÇÜK yazı 13
+   seçildi → ekranda 13 × 0.7336 = 9.54px, 9px eşiğinin üstünde.
+
+   ÖLÇÜLEN KUSUR 3 — renk: kaynak desende aksan #00E5FF olarak SVG'ye gömülüydü.
+   Bu sayfanın dalı mobil (body[data-dal="mobil"] → --acc:#7A22FF), yani desen
+   aynen kopyalansaydı mor sayfanın ortasında turkuaz bir kutu kalırdı. Çizim
+   öğeleri currentColor'a çevrildi, aşağıdaki .akis-kutu svg{color:var(--acc)}
+   ile dalın rengine bağlandı. YAZI AYRI TUTULDU: #0E141C zemin üzerinde
+   --acc #7A22FF kontrastı 3.09 ölçüyor — 13px yazı için AA eşiğinin (4.5)
+   altında. Aksan yazıları rengin açık tonuyla yazıldı: #C9AEFF → 9.71,
+   sakin başlıklar #AFA2D8 → 7.92.
+
+   ÖLÇÜLEN KUSUR 2 — ad çakışması: tm.css'te (satır 161-171) GLOBAL bir kayan
+   yazı bileşeni var; onun "span{display:inline-flex}" kuralı figure içine
+   konan HER <span>'i ele geçiriyor. Bu yüzden ad .akis; o ad bu sayfada hiç
+   geçmiyor. Yine de .akis-no / .akis-ad stilleri AÇIK yazıldı: <span> stili
+   mirasa bırakılmıyor. */
+.akis{border:1px solid var(--hair);border-radius:var(--r-lg);
+  background:var(--panel);padding:18px;margin:26px 0 0}
+.akis-izgara{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:12px;align-items:stretch}
+.akis-kutu{border:1px solid var(--hair);border-radius:var(--r-md);
+  background:rgba(255,255,255,.02);padding:14px;display:flex;
+  flex-direction:column;gap:10px}
+.akis-no{display:inline-block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;color:var(--acc);opacity:.9}
+.akis-ad{display:block;font-size:13.5px;font-weight:600;color:var(--fg);
+  letter-spacing:-.01em;margin-top:-6px}
+/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
+.akis-kutu svg{width:100%;height:auto;display:block;border-radius:10px;color:var(--acc)}
+.akis-ok{display:grid;place-items:center;color:var(--acc);opacity:.6}
+.akis-ok svg{width:22px;height:22px}
+.akis figcaption{margin-top:14px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.akis figcaption b{color:var(--fg-dim);font-weight:600}
+@media(max-width:1100px){
+  .akis-izgara{grid-template-columns:1fr;gap:10px}
+  .akis-ok svg{transform:rotate(90deg)}
+  .akis{padding:14px}
+  .akis-kutu{width:100%;max-width:520px;margin-inline:auto}
+}
+
+/* --- durak canlanması ---
+   YENİ JS YOK: figure zaten .rv sınıfında; site/js/tm.js görününce .in ekliyor.
+   prefers-reduced-motion: tm.css'teki global kural animation-duration'ı
+   0.001ms'e indiriyor, "forwards" sayesinde her öğe anında son hâline oturuyor.
+   BAŞLANGIÇ DURUMU VERİLEN HER ÖĞENİN .in KARŞILIĞI VAR (aşağıda birebir).
+   Çizelge — her kutu KENDİ içinde sırayla canlanır, kutular soldan sağa
+   (mobilde yukarıdan aşağı) girer:
+     KUTU 1 · 0.25s : kart 0.25 · kod penceresi 0.36 · 6 kod satırı 0.46–0.76 ·
+                      dallar çizilir 0.80 · telefonlar 1.00/1.08 · API bandı 1.18
+     ok 1 · 0.80s
+     KUTU 2 · 0.90s : kart 0.90 · ortak kod tabanı 1.00 · ANA GÖVDE çizilir 1.06 ·
+                      ayrım noktası 1.34 · YAN KOLLAR dallanır 1.50 ·
+                      modül kutuları 1.62/1.70 · "Ortak kod" 1.80
+     ok 2 · 1.40s
+     KUTU 3 · 1.50s : kart 1.50 · başlık 1.58 · iki karşılaştırma kartı 1.66/1.74 ·
+                      özellik satırları çiftler hâlinde 1.84–2.14 · alt bant 2.26 */
+.akis svg .rn-kart{opacity:0;transform:translateY(16px);transform-box:fill-box}
+.akis svg .rn-pencere,
+.akis svg .rn-bant,
+.akis svg .rn-ust2,
+.akis svg .rn-alt2,
+.akis svg .rn-ust3,
+.akis svg .rn-alt3{opacity:0}
+.akis svg .rn-yol{stroke-dasharray:280;stroke-dashoffset:280}
+.akis svg .rn-govde{stroke-dasharray:150;stroke-dashoffset:150}
+.akis svg .rn-kol{stroke-dasharray:44;stroke-dashoffset:44}
+.akis svg .rn-satirlar > g{opacity:0;transform:translateX(-10px);transform-box:fill-box}
+.akis svg .rn-tel{opacity:0;transform:translateY(12px);transform-box:fill-box}
+.akis svg .rn-elmas{opacity:0;transform:scale(.62);transform-box:fill-box;
+  transform-origin:center}
+.akis svg .rn-modul > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.akis svg .rn-kars > g{opacity:0;transform:translateY(12px);transform-box:fill-box}
+.akis svg .rn-satir3 > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+/* oklar HTML'de: .akis-ok kutusu opaklığı taşıyor, ok çizimi 0'dan girer */
+.akis .rn-ok{opacity:0}
+
+.akis.in svg .rn-k1{animation:rnKart .6s var(--ease) .25s forwards}
+.akis.in svg .rn-pencere{animation:rnBelir .5s var(--ease) .36s forwards}
+.akis.in svg .rn-satirlar > g:nth-child(1){animation:rnSag .42s var(--ease) .46s forwards}
+.akis.in svg .rn-satirlar > g:nth-child(2){animation:rnSag .42s var(--ease) .52s forwards}
+.akis.in svg .rn-satirlar > g:nth-child(3){animation:rnSag .42s var(--ease) .58s forwards}
+.akis.in svg .rn-satirlar > g:nth-child(4){animation:rnSag .42s var(--ease) .64s forwards}
+.akis.in svg .rn-satirlar > g:nth-child(5){animation:rnSag .42s var(--ease) .70s forwards}
+.akis.in svg .rn-satirlar > g:nth-child(6){animation:rnSag .42s var(--ease) .76s forwards}
+.akis.in svg .rn-yol{animation:rnCiz .8s var(--ease) .80s forwards}
+.akis.in svg .rn-tel1{animation:rnSatir .5s var(--ease) 1.00s forwards}
+.akis.in svg .rn-tel2{animation:rnSatir .5s var(--ease) 1.08s forwards}
+.akis.in svg .rn-bant{animation:rnBelir .5s var(--ease) 1.18s forwards}
+.akis.in .rn-ok1{animation:rnOkBelir .55s var(--ease) .80s forwards}
+.akis.in svg .rn-k2{animation:rnKart .6s var(--ease) .90s forwards}
+.akis.in svg .rn-ust2{animation:rnBelir .45s var(--ease) 1.00s forwards}
+.akis.in svg .rn-govde{animation:rnCiz .75s var(--ease) 1.06s forwards}
+.akis.in svg .rn-elmas{animation:rnTik .5s var(--ease) 1.34s forwards}
+.akis.in svg .rn-kol{animation:rnCiz .5s var(--ease) 1.50s forwards}
+.akis.in svg .rn-modul > g:nth-child(1){animation:rnSatir .45s var(--ease) 1.62s forwards}
+.akis.in svg .rn-modul > g:nth-child(2){animation:rnSatir .45s var(--ease) 1.70s forwards}
+.akis.in svg .rn-alt2{animation:rnBelir .45s var(--ease) 1.80s forwards}
+.akis.in .rn-ok2{animation:rnOkBelir .55s var(--ease) 1.40s forwards}
+.akis.in svg .rn-k3{animation:rnKart .6s var(--ease) 1.50s forwards}
+.akis.in svg .rn-ust3{animation:rnBelir .45s var(--ease) 1.58s forwards}
+.akis.in svg .rn-kars > g:nth-child(1){animation:rnSatir .5s var(--ease) 1.66s forwards}
+.akis.in svg .rn-kars > g:nth-child(2){animation:rnSatir .5s var(--ease) 1.74s forwards}
+.akis.in svg .rn-satir3 > g:nth-child(1){animation:rnSatir .42s var(--ease) 1.84s forwards}
+.akis.in svg .rn-satir3 > g:nth-child(2){animation:rnSatir .42s var(--ease) 1.90s forwards}
+.akis.in svg .rn-satir3 > g:nth-child(3){animation:rnSatir .42s var(--ease) 1.96s forwards}
+.akis.in svg .rn-satir3 > g:nth-child(4){animation:rnSatir .42s var(--ease) 2.02s forwards}
+.akis.in svg .rn-satir3 > g:nth-child(5){animation:rnSatir .42s var(--ease) 2.08s forwards}
+.akis.in svg .rn-satir3 > g:nth-child(6){animation:rnSatir .42s var(--ease) 2.14s forwards}
+.akis.in svg .rn-alt3{animation:rnBelir .45s var(--ease) 2.26s forwards}
+
+@keyframes rnKart{to{opacity:1;transform:translateY(0)}}
+@keyframes rnSatir{to{opacity:1;transform:translateY(0)}}
+@keyframes rnSag{to{opacity:1;transform:translateX(0)}}
+@keyframes rnBelir{to{opacity:1}}
+@keyframes rnCiz{to{stroke-dashoffset:0}}
+@keyframes rnTik{to{opacity:1;transform:scale(1)}}
+@keyframes rnOkBelir{0%{opacity:0}45%{opacity:1;filter:brightness(1.7)}to{opacity:1;filter:brightness(1)}}
+
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
 .sss details[open],.akor details[open]{border-color:var(--hair-strong)}
@@ -372,6 +500,17 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   .nav-links,.nav-tel{display:none}
   .burger{display:block}
   .ftr-ust{grid-template-columns:1fr}
+}
+
+/* DAR-EKRAN-DOLGU */
+/* 375px (iPhone SE) genişliğinde 18px/14px dolguyla SVG'ye kalan alan yazıyı
+   9px eşiğinin altına düşürüyordu. SVG'leri yeniden çizmek yerine dolgu
+   kısılıp SVG'ye alan açılıyor. Bu blok açıkken 375px'te ÖLÇÜLEN zincir:
+   wrap 375 → figure 322.09 → kutu 300.43 → svg 278.76px, ölçek 0.7336;
+   en küçük yazı 13 × 0.7336 = 9.54px. Tarayıcıda doğrulandı. */
+@media(max-width:400px){
+  .akis{padding:10px}
+  .akis-kutu{padding:10px;gap:8px}
 }
 </style>
 <script type="application/ld+json">
@@ -537,6 +676,458 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>
+
+      <!-- Akış durakları — bu sayfanın KENDİ anlattığı yolu çiziyor:
+           tek kod tabanı → platforma özgü nokta → neden React Native.
+           Etiketlerin tamamı sayfada geçen kavramlar: JavaScript / TypeScript,
+           tek kod tabanı, iOS, Android, Ortak API Katmanı, platforma özgü,
+           ayrım, ortak kod tabanı, native modül, geri kalan mantık ortak,
+           React Native, Flutter, Dart, npm ekosistemi, native bileşenler,
+           kendi render motoru, iki platforma yayın, aynı ekip, bileşen mantığı.
+
+           BİLEREK RAKAM YOK: bu sayfada fiyat, süre ya da yüzde yayımlanmıyor;
+           kod satırları çubukla temsil edildi, dosya/sayfa adı uydurulmadı.
+           Marka/ürün/platform LOGOSU çizilmedi — "Dart" ve
+           "JavaScript / TypeScript" yalnızca metin rozetidir.
+
+           FLUTTER SÖNÜK DEĞİL: sayfa Flutter'ı geçerli bir alternatif olarak
+           tarif ediyor, tercih gerekçesi ekip/bileşen paylaşımı. Bu yüzden sağ
+           karttaki üç satır da sayfanın Flutter için yazdığı olumlu/nötr
+           gerçekler; yazı renkleri sol kartla AYNI parlaklıkta, çapraz işaret
+           ya da gri perde yok. Tercih yalnızca sol karttaki aksan çerçeveyle
+           ve alttaki tek satırla anlatılıyor.
+
+           NEDEN ÜÇ AYRI SVG: tek parça geniş grafik 390px ekranda ~296px'e
+           sığınca yazısı okunmaz hâle geliyordu. Her durak kendi 380x400
+           kutusunda; 860px altında kutular alt alta açılır, aradaki oklar 90°
+           döner. En küçük yazı 13: 375px'te ölçülen svg genişliği 278.76px /
+           viewBox 380 = 0.7336 ölçek, yani ekranda en az 9.54px. Ayrıca üç
+           durağın 34 yazısının tamamı tarayıcıda getBBox ile ölçüldü: viewBox
+           dışına taşan yok, kart çerçevesi dışına çıkan yok, metin-metin
+           çakışması yok. Inline SVG: ek istek yok,
+           her ölçekte net, viewBox sayesinde düzen kaymaz (CLS yok). -->
+      <figure class="akis rv d2">
+        <div class="akis-izgara">
+
+          <!-- ===== DURAK 01 — TEK KOD TABANI ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">01</span>
+            <span class="akis-ad">Tek kod tabanı</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="rnB1 rnA1"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="rnB1">Tek kod tabanı: JavaScript / TypeScript kod penceresinden iOS ve Android'e ayrılan iki dal — temsilî görsel</title>
+              <desc id="rnA1">Üstte üst barında "JavaScript / TypeScript" yazan bir kod penceresi
+                ve içinde altı satır kod. Pencerenin altından çıkan gövde ortadan ikiye ayrılıyor;
+                her dalın ucunda bir telefon çerçevesi var, solunun altında "iOS", sağınkinin
+                altında "Android" yazıyor. En altta iki telefonun da dayandığı ortak bir bant:
+                "Ortak API katmanı". Canlanmada kod satırları sırayla girer, sonra dallar çizilir.</desc>
+              <defs>
+                <linearGradient id="rnSahne1" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="rnIsik1" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="currentColor" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="currentColor" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="rnGolge1" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#rnSahne1)"/>
+              <rect width="380" height="400" fill="url(#rnIsik1)"/>
+
+              <g class="rn-kart rn-k1">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="currentColor" stroke-opacity=".30" stroke-width="1.2" filter="url(#rnGolge1)"/>
+
+                <!-- kod penceresi: üst bar etiketi sayfada geçen dil çifti -->
+                <g class="rn-pencere">
+                  <rect x="54" y="38" width="272" height="138" rx="12" fill="#101A22"
+                        stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+                  <path d="M54,70 H326" fill="none" stroke="#26333F" stroke-width="1.2"/>
+                  <circle cx="70" cy="54" r="3.4" fill="currentColor"/>
+                  <circle cx="82" cy="54" r="3.4" fill="#38506A"/>
+                  <circle cx="94" cy="54" r="3.4" fill="#2A3646"/>
+                  <text x="108" y="59" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="13" fill="#C9AEFF">JavaScript / TypeScript</text>
+                </g>
+
+                <!-- altı kod satırı: dosya adı/kod uydurulmadı, çubukla temsil edildi -->
+                <g class="rn-satirlar">
+                  <g>
+                    <rect x="70" y="80" width="34" height="8" rx="4" fill="currentColor" fill-opacity=".55"/>
+                    <rect x="110" y="80" width="120" height="8" rx="4" fill="#3A4A5E"/>
+                  </g>
+                  <g>
+                    <rect x="84" y="96" width="26" height="8" rx="4" fill="currentColor" fill-opacity=".38"/>
+                    <rect x="116" y="96" width="96" height="8" rx="4" fill="#2A3646"/>
+                  </g>
+                  <g><rect x="84" y="112" width="104" height="8" rx="4" fill="#2A3646"/></g>
+                  <g>
+                    <rect x="70" y="128" width="44" height="8" rx="4" fill="currentColor" fill-opacity=".55"/>
+                    <rect x="120" y="128" width="132" height="8" rx="4" fill="#3A4A5E"/>
+                  </g>
+                  <g>
+                    <rect x="84" y="144" width="22" height="8" rx="4" fill="currentColor" fill-opacity=".38"/>
+                    <rect x="112" y="144" width="88" height="8" rx="4" fill="#2A3646"/>
+                  </g>
+                  <g><rect x="70" y="160" width="124" height="8" rx="4" fill="#3A4A5E"/></g>
+                </g>
+
+                <!-- tek gövde ortadan ikiye ayrılıyor; canlanmada soldan sağa çizilir -->
+                <path class="rn-yol" d="M190,176 V202 M96,202 H284 M96,202 V230 M284,202 V230"
+                      fill="none" stroke="currentColor" stroke-opacity=".75" stroke-width="2"
+                      stroke-linecap="round"/>
+
+                <g class="rn-tel rn-tel1">
+                  <rect x="63" y="230" width="66" height="86" rx="12" fill="#101A22"
+                        stroke="currentColor" stroke-opacity=".5" stroke-width="1.4"/>
+                  <rect x="85" y="237" width="22" height="4" rx="2" fill="#26333F"/>
+                  <rect x="71" y="248" width="50" height="54" rx="6" fill="#0C1218"
+                        stroke="#26333F" stroke-width="1"/>
+                  <rect x="78" y="256" width="36" height="5" rx="2.5" fill="currentColor" fill-opacity=".55"/>
+                  <rect x="78" y="268" width="26" height="5" rx="2.5" fill="#3A4A5E"/>
+                  <rect x="78" y="280" width="32" height="5" rx="2.5" fill="#2A3646"/>
+                  <rect x="86" y="306" width="20" height="3" rx="1.5" fill="#26333F"/>
+                  <text x="96" y="338" text-anchor="middle"
+                        font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="14" fill="#C9AEFF">iOS</text>
+                </g>
+
+                <g class="rn-tel rn-tel2">
+                  <rect x="251" y="230" width="66" height="86" rx="12" fill="#101A22"
+                        stroke="currentColor" stroke-opacity=".5" stroke-width="1.4"/>
+                  <rect x="273" y="237" width="22" height="4" rx="2" fill="#26333F"/>
+                  <rect x="259" y="248" width="50" height="54" rx="6" fill="#0C1218"
+                        stroke="#26333F" stroke-width="1"/>
+                  <rect x="266" y="256" width="36" height="5" rx="2.5" fill="currentColor" fill-opacity=".55"/>
+                  <rect x="266" y="268" width="26" height="5" rx="2.5" fill="#3A4A5E"/>
+                  <rect x="266" y="280" width="32" height="5" rx="2.5" fill="#2A3646"/>
+                  <rect x="274" y="306" width="20" height="3" rx="1.5" fill="#26333F"/>
+                  <text x="284" y="338" text-anchor="middle"
+                        font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="14" fill="#C9AEFF">Android</text>
+                </g>
+
+                <!-- iki telefonun da dayandığı ortak bant -->
+                <g class="rn-bant">
+                  <rect x="34" y="348" width="312" height="32" rx="10" fill="#101A22"
+                        stroke="currentColor" stroke-opacity=".45" stroke-width="1.3"/>
+                  <circle cx="56" cy="364" r="5.5" fill="none" stroke="currentColor"
+                          stroke-opacity=".8" stroke-width="1.6"/>
+                  <path d="M61.5,364 H72" fill="none" stroke="currentColor" stroke-opacity=".8"
+                        stroke-width="1.6" stroke-linecap="round"/>
+                  <circle cx="78" cy="364" r="3" fill="currentColor" fill-opacity=".75"/>
+                  <text x="196" y="369" text-anchor="middle"
+                        font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="13" fill="#AFA2D8">Ortak API katmanı</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="rn-ok rn-ok1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 02 — PLATFORMA ÖZGÜ NOKTA ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">02</span>
+            <span class="akis-ad">Platforma özgü nokta</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="rnB2 rnA2"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="rnB2">Platforma özgü nokta: ortak kod tabanından inen gövde üzerinde bir ayrım noktası ve iki yan kol — temsilî görsel</title>
+              <desc id="rnA2">Üstte "ortak kod tabanı" kutusu. Ondan aşağı inen ana gövde önce
+                çizilir; gövdenin üzerinde, içinde küçük bir çatal ikonu bulunan elmas biçimli bir
+                ayrım noktası var. Ayrımdan sola ve sağa çıkan iki kısa kolun ucunda "iOS modülü"
+                ve "Android modülü" kutuları duruyor, her ikisinin altında kesik çizgili
+                "gerektiğinde native" notu var. Ana gövde düz devam edip "Ortak kod" etiketine
+                iner, en altta "geri kalan mantık ortak" notu yer alır.</desc>
+              <defs>
+                <linearGradient id="rnSahne2" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="rnIsik2" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="currentColor" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="currentColor" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="rnGolge2" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#rnSahne2)"/>
+              <rect width="380" height="400" fill="url(#rnIsik2)"/>
+
+              <g class="rn-kart rn-k2">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="currentColor" stroke-opacity=".30" stroke-width="1.2" filter="url(#rnGolge2)"/>
+
+                <g class="rn-ust2">
+                  <rect x="104" y="32" width="172" height="44" rx="11" fill="#101A22"
+                        stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+                  <text x="190" y="60" text-anchor="middle"
+                        font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="13" fill="#C9AEFF">ortak kod tabanı</text>
+                </g>
+
+                <!-- ANA GÖVDE önce çizilir (yan kollar 0.44 sn sonra dallanır) -->
+                <path class="rn-govde" d="M190,76 V128 M190,204 V290" fill="none"
+                      stroke="currentColor" stroke-opacity=".75" stroke-width="2" stroke-linecap="round"/>
+
+                <!-- ayrım noktası: elmas + içinde çatal ikonu -->
+                <g class="rn-elmas">
+                  <path d="M190,128 L230,166 L190,204 L150,166 Z" fill="#101A22"
+                        stroke="currentColor" stroke-opacity=".6" stroke-width="1.6" stroke-linejoin="round"/>
+                  <path d="M190,177 L178,159 M190,177 L202,159" fill="none" stroke="currentColor"
+                        stroke-opacity=".85" stroke-width="1.9" stroke-linecap="round"/>
+                  <circle cx="190" cy="180" r="3.4" fill="currentColor"/>
+                  <circle cx="177" cy="155" r="3.4" fill="currentColor"/>
+                  <circle cx="203" cy="155" r="3.4" fill="currentColor"/>
+                </g>
+
+                <!-- iki kısa kol: ayrımdan sola ve sağa dallanır -->
+                <path class="rn-kol" d="M150,166 H132 M230,166 H248" fill="none"
+                      stroke="currentColor" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/>
+
+                <g class="rn-modul">
+                  <g>
+                    <rect x="22" y="128" width="110" height="80" rx="11" fill="#101A22"
+                          stroke="currentColor" stroke-opacity=".42" stroke-width="1.4"/>
+                    <rect x="65" y="140" width="24" height="24" rx="6" fill="#0C1218"
+                          stroke="currentColor" stroke-opacity=".55" stroke-width="1.4"/>
+                    <rect x="71" y="147" width="12" height="4" rx="2" fill="currentColor" fill-opacity=".75"/>
+                    <rect x="71" y="155" width="8" height="4" rx="2" fill="#3A4A5E"/>
+                    <text x="77" y="182" text-anchor="middle"
+                          font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#D5E4EC">iOS</text>
+                    <text x="77" y="199" text-anchor="middle"
+                          font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">modülü</text>
+                    <rect x="22" y="220" width="110" height="46" rx="10" fill="#0D131A"
+                          stroke="currentColor" stroke-opacity=".38" stroke-width="1.3" stroke-dasharray="5 5"/>
+                    <text x="77" y="240" text-anchor="middle"
+                          font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">gerektiğinde</text>
+                    <text x="77" y="257" text-anchor="middle"
+                          font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#C9AEFF">native</text>
+                  </g>
+                  <g>
+                    <rect x="248" y="128" width="110" height="80" rx="11" fill="#101A22"
+                          stroke="currentColor" stroke-opacity=".42" stroke-width="1.4"/>
+                    <rect x="291" y="140" width="24" height="24" rx="6" fill="#0C1218"
+                          stroke="currentColor" stroke-opacity=".55" stroke-width="1.4"/>
+                    <rect x="297" y="147" width="12" height="4" rx="2" fill="currentColor" fill-opacity=".75"/>
+                    <rect x="297" y="155" width="8" height="4" rx="2" fill="#3A4A5E"/>
+                    <text x="303" y="182" text-anchor="middle"
+                          font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#D5E4EC">Android</text>
+                    <text x="303" y="199" text-anchor="middle"
+                          font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">modülü</text>
+                    <rect x="248" y="220" width="110" height="46" rx="10" fill="#0D131A"
+                          stroke="currentColor" stroke-opacity=".38" stroke-width="1.3" stroke-dasharray="5 5"/>
+                    <text x="303" y="240" text-anchor="middle"
+                          font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">gerektiğinde</text>
+                    <text x="303" y="257" text-anchor="middle"
+                          font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#C9AEFF">native</text>
+                  </g>
+                </g>
+
+                <g class="rn-alt2">
+                  <rect x="130" y="290" width="120" height="32" rx="10" fill="#101A22"
+                        stroke="currentColor" stroke-opacity=".5" stroke-width="1.4"/>
+                  <text x="190" y="311" text-anchor="middle"
+                        font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="13" fill="#C9AEFF">Ortak kod</text>
+                  <text x="190" y="348" text-anchor="middle"
+                        font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#7A8794">geri kalan mantık ortak</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg class="rn-ok rn-ok2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 03 — NEDEN REACT NATIVE ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">03</span>
+            <span class="akis-ad">Neden React Native</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="rnB3 rnA3"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="rnB3">React Native ve Flutter kartlarının yan yana karşılaştırması — temsilî görsel</title>
+              <desc id="rnA3">Eşit ölçüde iki kart yan yana. Solda "React Native": dil rozetinde
+                "JavaScript / TypeScript", altında üç özellik satırı — tek kod tabanı, npm
+                ekosistemi, native bileşenler. Sağda "Flutter": dil rozetinde "Dart", altında üç
+                satır — tek kod tabanı, kendi render motoru, iki platforma yayın. Sol kart aksan
+                çerçeveli; sağ kart nötr çerçeveli ama yazıları sol kartla aynı parlaklıkta,
+                üzerinde olumsuz bir işaret yok. En altta tek satır: "web ile aynı ekip ve bileşen
+                mantığı".</desc>
+              <defs>
+                <linearGradient id="rnSahne3" x1="0" y1="0" x2="0.35" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="rnIsik3" cx="0.18" cy="0.08" r="0.85">
+                  <stop offset="0" stop-color="currentColor" stop-opacity=".15"/>
+                  <stop offset="1" stop-color="currentColor" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="rnGolge3" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                </filter>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#rnSahne3)"/>
+              <rect width="380" height="400" fill="url(#rnIsik3)"/>
+
+              <g class="rn-kart rn-k3">
+                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
+                      stroke="currentColor" stroke-opacity=".30" stroke-width="1.2" filter="url(#rnGolge3)"/>
+
+                <text class="rn-ust3" x="34" y="52"
+                      font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="14" fill="#AFA2D8">React Native mi, Flutter mı</text>
+
+                <!-- İki kart EŞİT ölçüde (158x250). Fark yalnızca çerçeve rengi:
+                     sol aksan (sayfanın tercihi), sağ nötr — sönük değil. -->
+                <g class="rn-kars">
+                  <g>
+                    <rect x="28" y="70" width="158" height="250" rx="12" fill="#101A22"
+                          stroke="currentColor" stroke-opacity=".55" stroke-width="1.6"/>
+                    <text x="42" y="100" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="16" font-weight="600" fill="#C9AEFF">React Native</text>
+                    <rect x="42" y="107" width="42" height="3" rx="1.5" fill="currentColor"/>
+                    <rect x="40" y="118" width="134" height="50" rx="9" fill="#0C1218"
+                          stroke="currentColor" stroke-opacity=".4" stroke-width="1.3"/>
+                    <text x="107" y="140" text-anchor="middle"
+                          font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="13" fill="#C9AEFF">JavaScript /</text>
+                    <text x="107" y="158" text-anchor="middle"
+                          font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="13" fill="#C9AEFF">TypeScript</text>
+                  </g>
+                  <g>
+                    <rect x="194" y="70" width="158" height="250" rx="12" fill="#101A22"
+                          stroke="#5A7186" stroke-width="1.6"/>
+                    <text x="208" y="100" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="16" font-weight="600" fill="#DCE7EF">Flutter</text>
+                    <rect x="208" y="107" width="42" height="3" rx="1.5" fill="#92A6B6"/>
+                    <rect x="206" y="118" width="134" height="50" rx="9" fill="#0C1218"
+                          stroke="#5A7186" stroke-width="1.3"/>
+                    <text x="273" y="150" text-anchor="middle"
+                          font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="17" fill="#DCE7EF">Dart</text>
+                  </g>
+                </g>
+
+                <!-- Satırlar çiftler hâlinde girer: her sıra iki kartta aynı anda okunur.
+                     Sağdaki üç madde de sayfanın Flutter için yazdığı gerçekler. -->
+                <g class="rn-satir3">
+                  <g>
+                    <rect x="40" y="178" width="134" height="42" rx="9" fill="#0C1218"
+                          stroke="currentColor" stroke-opacity=".3" stroke-width="1.2"/>
+                    <path d="M55,192 l-6,7 l6,7 M63,192 l6,7 l-6,7" fill="none" stroke="currentColor"
+                          stroke-opacity=".85" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <text x="76" y="196" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#D5E4EC">tek kod</text>
+                    <text x="76" y="213" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">tabanı</text>
+                  </g>
+                  <g>
+                    <rect x="206" y="178" width="134" height="42" rx="9" fill="#0C1218"
+                          stroke="#3D4E5E" stroke-width="1.2"/>
+                    <path d="M221,192 l-6,7 l6,7 M229,192 l6,7 l-6,7" fill="none" stroke="#92A6B6"
+                          stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <text x="242" y="196" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#D5E4EC">tek kod</text>
+                    <text x="242" y="213" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">tabanı</text>
+                  </g>
+                  <g>
+                    <rect x="40" y="222" width="134" height="42" rx="9" fill="#0C1218"
+                          stroke="currentColor" stroke-opacity=".3" stroke-width="1.2"/>
+                    <rect x="50" y="234" width="18" height="18" rx="4" fill="none" stroke="currentColor"
+                          stroke-opacity=".85" stroke-width="1.6"/>
+                    <path d="M50,243 H68 M59,234 V252" fill="none" stroke="currentColor"
+                          stroke-opacity=".55" stroke-width="1.4"/>
+                    <text x="76" y="240" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#D5E4EC">npm</text>
+                    <text x="76" y="257" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">ekosistemi</text>
+                  </g>
+                  <g>
+                    <rect x="206" y="222" width="134" height="42" rx="9" fill="#0C1218"
+                          stroke="#3D4E5E" stroke-width="1.2"/>
+                    <rect x="216" y="234" width="18" height="18" rx="4" fill="none"
+                          stroke="#92A6B6" stroke-width="1.6"/>
+                    <circle cx="225" cy="243" r="4" fill="none" stroke="#92A6B6" stroke-width="1.4"/>
+                    <text x="242" y="240" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#D5E4EC">kendi render</text>
+                    <text x="242" y="257" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">motoru</text>
+                  </g>
+                  <g>
+                    <rect x="40" y="266" width="134" height="42" rx="9" fill="#0C1218"
+                          stroke="currentColor" stroke-opacity=".3" stroke-width="1.2"/>
+                    <rect x="52" y="277" width="14" height="20" rx="3" fill="none" stroke="currentColor"
+                          stroke-opacity=".85" stroke-width="1.6"/>
+                    <path d="M55,282 H63" fill="none" stroke="currentColor" stroke-opacity=".55"
+                          stroke-width="1.5" stroke-linecap="round"/>
+                    <text x="76" y="284" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#D5E4EC">native</text>
+                    <text x="76" y="301" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">bileşenler</text>
+                  </g>
+                  <g>
+                    <rect x="206" y="266" width="134" height="42" rx="9" fill="#0C1218"
+                          stroke="#3D4E5E" stroke-width="1.2"/>
+                    <rect x="216" y="279" width="8" height="16" rx="2.5" fill="none"
+                          stroke="#92A6B6" stroke-width="1.5"/>
+                    <rect x="227" y="279" width="8" height="16" rx="2.5" fill="none"
+                          stroke="#92A6B6" stroke-width="1.5"/>
+                    <text x="242" y="284" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#D5E4EC">iki platforma</text>
+                    <text x="242" y="301" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">yayın</text>
+                  </g>
+                </g>
+
+                <g class="rn-alt3">
+                  <rect x="28" y="332" width="324" height="36" rx="10" fill="#101A22"
+                        stroke="currentColor" stroke-opacity=".45" stroke-width="1.3"/>
+                  <circle cx="48" cy="350" r="5.5" fill="none" stroke="currentColor"
+                          stroke-opacity=".8" stroke-width="1.6"/>
+                  <circle cx="58" cy="350" r="5.5" fill="none" stroke="currentColor"
+                          stroke-opacity=".8" stroke-width="1.6"/>
+                  <text x="196" y="355" text-anchor="middle"
+                        font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#AFA2D8">kod ve bilgi paylaşımı verimliliği</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <figcaption><b>Temsilî görsel.</b> Sayfanın anlattığı yolu çiziyor: tek
+          JavaScript/TypeScript kod tabanından iOS ve Android'e çıkış ve ortak API katmanı,
+          platforma özgü davranış gerektiren noktadaki ayrım ve yalnız orada devreye giren native
+          modül, son olarak React Native ile Flutter'ın yan yana durması. Kutular örnek arayüz
+          çizimidir, gerçek bir uygulamadan alınmadı; kod satırları ad uydurmamak için çubukla
+          temsil edildi. Üçüncü duraktaki iki kart eşit ölçüdedir ve Flutter maddeleri sayfanın
+          kendi ifadeleridir — kıyas bir puan ya da ölçüm değil, tercih gerekçesinin gösterimidir.
+          Marka veya platform logosu kullanılmadı, rozetler yalnızca metindir.</figcaption>
+      </figure>
+
       <div class="dtay-fiyat rv d1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
         <p><strong>Güncel fiyat ve süre bandı</strong> için Mobil Uygulama sayfasının <a href="../../../hizmetler/mobil-uygulama/#fiyat">fiyatlandırma bölümüne</a> göz atın — kapsamınıza göre bandı iki dakikada netleştirebilirsiniz.</p>
