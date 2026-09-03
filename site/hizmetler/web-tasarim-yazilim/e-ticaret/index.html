@@ -1002,8 +1002,8 @@ Sepette terk edilen alışverişler için sistem, ayrılan kullanıcıya sepetin
         </ol>
         <div class="akv-video">
           <span class="akv-rozet"><i></i>CANLI DÖNGÜ</span>
-          <video muted loop playsinline preload="metadata" poster="../../../../assets/modul-web/akis.jpg" aria-hidden="true">
-            <source src="../../../../assets/modul-web/akis.mp4" type="video/mp4">
+          <video data-dongu muted loop playsinline preload="metadata" poster="../../../../assets/modul-web/e-ticaret.jpg" aria-hidden="true">
+            <source src="../../../../assets/modul-web/e-ticaret.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -1171,20 +1171,6 @@ document.getElementById('yil').textContent = new Date().getFullYear();
   });
   ciz(0);
   if (!AZALT && window.matchMedia('(min-width: 881px)').matches) zaman = setInterval(function(){ if (!durdu) ciz((aktif+1) % sorular.length); }, 6000);
-})();
-</script>
-<script>
-"use strict";
-/* döngü videosu yalnız ekrandayken oynar */
-(function(){
-  var v = document.querySelector('.akv-video video');
-  if (!v) return;
-  if (!('IntersectionObserver' in window)) { v.play().catch(function(){}); return; }
-  new IntersectionObserver(function(girdiler){
-    girdiler.forEach(function(g){
-      if (g.isIntersecting) { v.play().catch(function(){}); } else { v.pause(); }
-    });
-  }, { threshold: .15 }).observe(v);
 })();
 </script>
 <script>

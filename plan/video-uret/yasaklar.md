@@ -55,7 +55,77 @@ rakamı yok. Roller çizilecekse gerçek bir şirket şeması gibi durmasın.
 
 ---
 
-## Kalan modüller (seo, mobil, pazarlama)
+## seo
 
-Sahne yazılmadan önce sayfanın kendi 01/02/03 metni okunup buraya eklenecek.
-`node plan/video-uret/adimlari-cikar.js` üç adımı `adimlar.json`'a çıkarır.
+Modül geneli: **arama motoru logosu ya da ona benzeyen işaret yok.** Sıralama,
+trafik, tarama bütçesi, puan (PageSpeed vb.) **rakamı yok** — gösterge çizilecekse
+üzerinde sayı olmasın.
+
+**cok-dilli-seo** — **BAYRAK ÇİZME.** Bayrak ülkeyi gösterir, dili değil; sayfa
+hreflang ve yerelleştirmeden söz ediyor, ülke bayrağı bunu yanlış temsil eder ve
+bilinen bir hatadır. Dil sürümleri nötr etiketli kutu/dal olarak çizilsin. Gerçek
+alan adı ya da URL yazma.
+
+**e-ticaret-seo** — Filtre kombinasyonları, kanonik ve yönlendirme çizilebilir.
+Gerçek mağaza/platform adı yok, ürün markası yok, sayfa sayısı ve tarama bütçesi
+rakamı yok.
+
+**icerik-stratejisi** — Pillar/cluster yapısı çizilebilir. Rakip adı yok, trafik ve
+sıralama rakamı yok, gerçek başlık metni yazma (soyut çubuk kalsın).
+
+**teknik-seo** — Sayfa Search Console'dan söz ediyor: **ürün logosu ya da arayüzüne
+benzeyen ekran çizme.** Öncelik sırası çizilebilir, hata sayısı yazılamaz.
+
+**yerel-seo** — Sayfa "Google İşletme Profili" diyor: **Google logosu, Maps
+konum işareti ya da onlara benzeyen simge YOK.** Yorum yıldızı çizilecekse
+**puan/adet rakamı yazma**; şube kayıtları nötr kart olarak dursun. Gerçek işletme
+adı, adres ya da telefon yazma.
+
+---
+
+## mobil
+
+Modül geneli: **mağaza logosu (App Store / Google Play) ve onlara benzeyen simge
+yok.** İndirme, sürüm, cihaz, test sayısı **rakamı yok**.
+
+**aso-uygulama-pazarlamasi** — Mağaza sayfası düzeni soyut çizilebilir (ikon yeri,
+ekran görüntüsü sırası). Mağaza markası yok, indirme sayısı yok, A/B testi
+sonucu **yüzdesi yok**.
+
+**ios-android** — Sayfa iki platformu da **eşit ve geçerli** anlatıyor. Biri üstün
+gösterilemez: aynı boyut, aynı kontur, aynı opaklık, aynı gecikme — ve **piksel
+ölçerek doğrula**, koda bakıp geçme. İki platform logosu/marka rengi yok; nötr
+"A / B" ya da adsız iki sütun kullan.
+
+**react-native** — React, TypeScript ya da herhangi bir çatı/dil logosu yok.
+Sayfa React Native'i geçerli bir yaklaşım olarak anlatıyor; **native'e göre
+zayıf ya da üstün gösterme**. Köprü katmanı soyut çizilebilir.
+
+**uygulama-ui-ux** — Telefon çerçevesi **jenerik** olsun; tanınabilir bir cihaz
+silueti (çentik, kamera adası vb.) çizme. Wireframe→bileşen→prototip akışı
+çizilebilir. Kullanıcı testi çizilecekse **insan yüzü yok**.
+
+---
+
+## pazarlama
+
+Modül geneli: **hiçbir reklam platformunun logosu, marka rengi ya da arayüz
+işareti yok.** Tıklama maliyeti, dönüşüm oranı, ROAS, bütçe, erişim — **hiçbir
+metrik rakamı yazılmayacak.** Gösterge paneli çizilecekse üzerinde sayı olmasın,
+yalnız çubuk/eğri olsun.
+
+**google-ads** — Sayfa arama ağı, görsel ağ ve yeniden pazarlamayı anlatıyor.
+Arama sonucu düzeni soyut çizilebilir; **arama motoru markası yok**. Anahtar
+kelime metni yazma, nötr çubuk kullan.
+
+**meta-ads** — Sayfa Piksel, Conversions API ve Commerce Manager'dan söz ediyor:
+bunlar **kavram olarak** çizilebilir ama **ürün adı yazma ve logo çizme**.
+Katalog ürünleri nötr kutu olsun, gerçek ürün/marka görüntüsü yok.
+
+**performans-pazarlamasi** — Kanal karşılaştırması çizilecekse **kanal adı ve
+logosu yok**, nötr etiket kullan. Edinme maliyeti ve yaşam boyu değer
+**rakamı yok** — yalnız yön (yükseliyor/düşüyor) gösterilebilir.
+
+**sosyal-medya-yonetimi** — Akış, hikaye, reels, keşfet yerleşimleri **soyut
+yerleşim kutuları** olarak çizilsin; platform logosu, tanınabilir arayüz öğesi
+(kalp, paylaş oku, konuşma balonu) ve marka rengi **YOK**. Onay akışı çizilebilir.
