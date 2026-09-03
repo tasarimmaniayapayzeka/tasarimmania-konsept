@@ -1038,8 +1038,8 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
         </ol>
         <div class="akv-video">
           <span class="akv-rozet"><i></i>CANLI DÖNGÜ</span>
-          <video muted loop playsinline preload="metadata" poster="../../../../assets/modul-seo/akis.jpg" aria-hidden="true">
-            <source src="../../../../assets/modul-seo/akis.mp4" type="video/mp4">
+          <video data-dongu muted loop playsinline preload="metadata" poster="../../../../assets/modul-seo/cok-dilli-seo.jpg" aria-hidden="true">
+            <source src="../../../../assets/modul-seo/cok-dilli-seo.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -1203,20 +1203,6 @@ document.getElementById('yil').textContent = new Date().getFullYear();
   });
   ciz(0);
   if (!AZALT && window.matchMedia('(min-width: 881px)').matches) zaman = setInterval(function(){ if (!durdu) ciz((aktif+1) % sorular.length); }, 6000);
-})();
-</script>
-<script>
-"use strict";
-/* döngü videosu yalnız ekrandayken oynar */
-(function(){
-  var v = document.querySelector('.akv-video video');
-  if (!v) return;
-  if (!('IntersectionObserver' in window)) { v.play().catch(function(){}); return; }
-  new IntersectionObserver(function(girdiler){
-    girdiler.forEach(function(g){
-      if (g.isIntersecting) { v.play().catch(function(){}); } else { v.pause(); }
-    });
-  }, { threshold: .15 }).observe(v);
 })();
 </script>
 <script>
