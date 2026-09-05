@@ -507,14 +507,16 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 }
 
 /* DAR-EKRAN-DOLGU */
-/* Dolgu kisilmadan 375px'te SVG ic genisligi ~250px'e dusuyor, en kucuk yazi
-   9px esiginin altina iniyordu. SVG'leri yeniden cizmek yerine dolguyu kisip
-   SVG'ye alan aciliyor. BU SAYFADA OLCULEN (Chrome, 375x812, fontlar yuklu):
-   SVG genisligi 278.8px / viewBox 380 = 0.734 olcek → 13 * 0.734 = 9.54px.
-   360px'te: 264px / 380 = 0.695 → 9.03px, esigin ustunde. */
+/* ÖLÇÜLDÜ (iframe ile gerçek dar viewport'ta; headless Chrome --window-size
+   ile 500px'in ALTINA İNMİYOR, ayrıca iframe kaydırma çubuğu 15px yiyor —
+   ikisi de giderilerek ölçüldü):
+       320px  7,68 → 9,03      360px  9,03 → 10,38      375px  9,54 → 10,88
+   9px eşiği yalnız 320px'te kalıyordu. Negatif margin figürü sayfa oluğunun
+   (wrap 24px) içine taşırıyor: YALNIZ bu figür kenara yaklaşıyor, sayfanın
+   geri kalanı oluğunu koruyor. SVG'ler yeniden çizilmedi. */
 @media(max-width:400px){
-  .akis{padding:10px}
-  .akis-kutu{padding:10px;gap:8px}
+  .akis{margin-inline:-14px;padding:8px}
+  .akis-kutu{padding:6px;gap:8px}
 }
 </style>
 <script type="application/ld+json">

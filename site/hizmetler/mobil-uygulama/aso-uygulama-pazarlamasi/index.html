@@ -522,13 +522,16 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 }
 
 /* DAR-EKRAN-DOLGU */
-/* 375px (iPhone SE) olculdu: en kucuk yazi 8.49-8.82px, 9px esiginin altinda.
-   SVG'leri yeniden cizmek yerine dolguyu kisip SVG'ye alan aciliyor:
-   375 - 48(wrap) - 20(akis) - 20(kutu) - 4(kenarlik) = 283px → olcek 0.745
-   13 * 0.745 = 9.68px. Olcum sonrasi dogrulandi. */
+/* ÖLÇÜLDÜ (iframe ile gerçek dar viewport'ta; headless Chrome --window-size
+   ile 500px'in ALTINA İNMİYOR, ayrıca iframe kaydırma çubuğu 15px yiyor —
+   ikisi de giderilerek ölçüldü):
+       320px  7,68 → 9,03      360px  9,03 → 10,38      375px  9,54 → 10,88
+   9px eşiği yalnız 320px'te kalıyordu. Negatif margin figürü sayfa oluğunun
+   (wrap 24px) içine taşırıyor: YALNIZ bu figür kenara yaklaşıyor, sayfanın
+   geri kalanı oluğunu koruyor. SVG'ler yeniden çizilmedi. */
 @media(max-width:400px){
-  .akis{padding:10px}
-  .akis-kutu{padding:10px;gap:8px}
+  .akis{margin-inline:-14px;padding:8px}
+  .akis-kutu{padding:6px;gap:8px}
 }
 </style>
 <script type="application/ld+json">
