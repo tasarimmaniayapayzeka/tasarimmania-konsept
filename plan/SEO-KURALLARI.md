@@ -1,11 +1,15 @@
 # SEO Kuralları — Birleşik Standart
 
-**Sürüm:** 1.2 · 1 Eylül 2026
-**Kapsam:** Blog ve içerik üretimi yapılan tüm projeler.
+**Sürüm:** 1.3 · 5 Eylül 2026
+**Kapsam:** Blog ve içerik üretimi yapılan tüm projeler. Sayısal eşiklerin çoğu
+yalnız BLOG YAZISI için bağlayıcıdır — bkz. 'Hangi kural hangi sayfa türü için'.
 **Kaynak:** "İhsan SEO Blog" standardı (29–30 Ağustos 2026) + 1 Eylül 2026 oturumundaki eklemeler.
 
-**1.1'de ne değişti:** Onay bekleyen 10 madde onaylandı · Snippet bölümü (48–57) · 300 karakter tavanı.
+**1.3'te ne değişti:** Kapsam tablosu eklendi — hangi maddenin blog yazısı, hangisinin
+hizmet/hub sayfası için bağlayıcı olduğu ölçümle sabitlendi. Kural EKLENMEDİ ya da
+DEĞİŞTİRİLMEDİ; yalnız zaten var olan ayrım yazıya geçirildi.
 **1.2'de ne değişti:** Saha araştırması sonrası BÖLÜM 13 eklendi (Madde 71–75): dış atıf, kaynaklı alıntı, havuz varlığı, Bing/IndexNow, video kararı. Kullanıcı 1 Eylül 2026'da onayladı.
+**1.1'de ne değişti:** Onay bekleyen 10 madde onaylandı · Snippet bölümü (48–57) · 300 karakter tavanı.
 
 ---
 
@@ -18,6 +22,44 @@
 | **`[Ö→✓]`** | Benim önerim, **1 Eylül'de onaylandı** |
 
 Hepsi yürürlükte. Sayısal eşikler **Bölüm 12**'de toplu; denetim komutu **Madde 68**'de.
+
+---
+
+## Hangi kural hangi sayfa türü için
+
+Bu belge tek bir standarttır, ama **iki farklı sayfa türüne** uygulanır ve
+sayısal eşiklerin çoğu yalnız **blog yazısı** için bağlayıcıdır. Ayrım şimdiye
+kadar okuyanın çıkarmasına bırakılmıştı; aşağıdaki tablo ölçümle sabitlendi
+(5 Eylül 2026, TasarımMania sitesi: 27 blog yazısı + 30 hizmet sayfası).
+
+**Kesin sınır:** Madde 16 kelime sayımını `<article class="yz-govde">` içinde
+tanımlar. Bu kapsayıcı blog yazılarının **27/27'sinde** var, hizmet sayfalarının
+**0/30'unda** yok. Yani Bölüm 12 eşikleri yapısal olarak blog'a bağlıdır.
+
+| Alan | Blog yazısı | Hizmet / hub sayfası |
+|---|---|---|
+| **Bölüm 12 sayısal eşikleri** (uzunluk, H2, SSS, yoğunluk, ters dizilim, edilgen…) | **Bağlayıcı** — `plan/seo-denetim.js` ölçer | **Bağlayıcı değil** — ölçüm hattı bu sayfaları taramaz |
+| Gövde uzunluğu | 1000–1200 (SSS hariç, Madde 15) | ~1100–1250 (ölçülen; kural değil) |
+| H2 | 5–7 (Madde 17) | 6–7 (ölçülen) |
+| SSS | 7–9 soru, **akordiyon** `<details>/<summary>` (Madde 20) | **6 soru, sekme** (`role="tablist"` + `.sd-soru`) |
+| SSS kaynağı | Madde 21 — ekran ve şema **aynı alandan** | Aynı kural geçerli; ölçüldü, kayma yok |
+| Şema | `Article + FAQPage + BreadcrumbList + Organization` (tek `@graph`) | `Service + FAQPage + BreadcrumbList` (ayrı bloklar) |
+| İç link | 7–9: 2 yukarı + 3 yatay + 2 dönüşüm (Madde 30) | **Ters yön** — hub yazılara link verir (Madde 33) |
+| Küme rolü | *spoke* | *hub (pillar)* |
+| Odak ifade | Bilgi amaçlı | **Ticari ifade hizmet sayfasının** (Madde 5 kanibalizasyon sözleşmesi) |
+| CSS akışkan döngü / animasyon | **Yasak** — crawler CSS çalıştırmaz, GEO değeri sıfır | **Serbest** — insan dönüşümü için değerli |
+
+**Neden SSS sayısı ve bileşeni farklı:** hizmet sayfası satış sayfasıdır; SSS
+orada itiraz karşılama görevi görür, bilgi derinleştirme değil. Sekme düzeni
+altı soruyu tek ekranda tutar, akordiyon ise yazının sonunda uzun kuyruk
+sorularını toplar. **İkisi de Google açısından geçerlidir** — FAQ içeriğinin
+tıklama ardında olması sorun değildir, koşul DOM'da bulunması ve etkileşimle
+açılmasıdır. Ölçüldü (30 hizmet sayfası): şemadaki soru ve cevapların DOM'da
+olmayanı **0**, tıklayınca boş kalan panel **0**.
+
+**Yeni bir hizmet sayfası yazarken:** Bölüm 12'yi tek tek uygulamaya çalışma.
+Bağlayıcı olanlar Madde 5 (kanibalizasyon), 21 (SSS tek kaynak), 29–33 (hub &
+spoke, ters yön link) ve Bölüm 13'teki dış atıf/alıntı maddeleridir.
 
 ---
 
