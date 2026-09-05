@@ -6,6 +6,13 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["--yes", "http-server", "site", "-p", "8020", "-c-1", "--silent"],
       "port": 8020
+    },
+    {
+      "name": "mania-asist",
+      "runtimeExecutable": "C:/xampp/php/php.exe",
+      "runtimeArgs": ["-S", "127.0.0.1:8025", "-t", "chatbot"],
+      "port": 8025,
+      "url": "http://127.0.0.1:8025"
     }
   ]
 }
