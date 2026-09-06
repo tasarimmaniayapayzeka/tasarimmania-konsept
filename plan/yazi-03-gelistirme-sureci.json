@@ -1,0 +1,156 @@
+{
+  "kategori": "Mobil",
+  "slug": "mobil-uygulama-gelistirme-sureci",
+  "tarih": "2026-10-29T10:20:00",
+  "kartOzet": "Keşiften mağaza yayınına kadar beş aşamayı, her birinin ne kadar sürdüğünü ve takvimi asıl neyin uzattığını sırayla açıyoruz.",
+  "eksen": "SÜRE",
+  "eksenAciklama": "Aşamaları ve takvimi anlatır. Maliyet kalemleri yazı 1'in, karar soruları yazı 2'nin, mimari seçimi yazı 4'ün işidir. Burada FİYAT verilmez, KARAR SORULARI tekrarlanmaz.",
+  "huni": "TOFU",
+  "kume": "mobil",
+  "kardesler": ["native-mi-cross-platform-mi", "react-native-mi-flutter-mi", "uygulama-magaza-optimizasyonu"],
+  "kisaBaslik": "Geliştirme Süreci",
+  "okumaDk": 7,
+  "kopruBaslik": "Takviminizi birlikte çıkaralım",
+  "kopruMetin": "Aşamaları, onay noktalarını ve kimin ne zaman karar vereceğini konuşalım; tahmini bir süre yerine tarihli bir plan çıkaralım.",
+  "teklifHash": "#mobil",
+  "hizmetSayfasi": "/hizmetler/mobil-uygulama/",
+  "sssBaslik": "Sık sorulan sorular: mobil uygulama geliştirme süreci",
+  "gorsel": {
+    "kapak": {
+      "slug": "mobil-uygulama-gelistirme-sureci-kapak",
+      "alt": "Birbirinin ucuna binerek basamaklanan uzun ışıklı bloklar; her blok farklı derinlikte duruyor",
+      "altyazi": "Aşamalar sırayla değil, uçlarından birbirine binerek ilerler."
+    },
+    "govde": {
+      "slug": "mobil-uygulama-gelistirme-sureci-govde",
+      "alt": "Kapalı bir ışık halkası ve çevresinde eşit aralıklı düğümler; halkanın bir yanı sönük, karşı yanı parlak",
+      "altyazi": "Her tur çalışan bir sürüm bırakır; ürün turlar biriktikçe belirginleşir."
+    }
+  },
+  "yazi": {
+    "h1": "Mobil Uygulama Geliştirme Süreci Kaç Aşamadan Oluşur?",
+    "metaBaslik": "Mobil Uygulama Geliştirme Süreci Kaç Aşamadan Oluşur? | TasarımMania",
+    "metaAciklama": "Mobil uygulama geliştirme süreci kaç aşamadan oluşur, her aşama ne kadar sürer? Keşiften mağaza yayınına beş aşamayı ve takvimi uzatan nedenleri açıyoruz.",
+    "esAnlamli": [
+      ["aşama", "adım"],
+      ["takvim", "zaman planı"],
+      ["mağaza incelemesi", "yayın denetimi"],
+      ["tur", "yineleme"],
+      ["onay", "karar"]
+    ],
+    "girisParagraf": "“Ne zaman biter?” sorusu genelde ilk görüşmede gelir. Yanıt verilebilir ama koşullu olur: takvim, aşama sayısına değil karar hızına bağlıdır. Bu yazıda beş aşamayı, her birinin tipik uzunluğunu ve zaman planını asıl neyin kaydırdığını anlatıyoruz. Fiyat konuşmuyoruz; burada yalnız süreyi ve sırayı ele alıyoruz.",
+    "bolumler": [
+      {
+        "h2": "Mobil Uygulama Geliştirme Süreci Kaç Aşamadan Oluşur?",
+        "dogrudanCevap": "Beş aşama vardır: keşif, tasarım, geliştirme, test ve mağaza yayını. Aşamalar sırayla değil, kısmen üst üste ilerler. Toplam takvimi belirleyen şey aşama sayısı değil, her aşamada verilen karar sayısıdır. Mobil uygulama geliştirme süreci kararsızlıkla uzar, kapsamla değil. Bekleyen tek bir onay, iki haftayı yiyebilir.",
+        "govde": "<p>Aşamaları bir çizgi gibi düşünmek yanıltır. Tasarım bitmeden geliştirme başlar, geliştirme sürerken test yürür. Bu binişme takvimi kısaltır ama tek şartla: kararlar zamanında çıkarsa.</p><p>Aşağıdaki sıra bizim yürüttüğümüz düzendir. Süreç boyunca geliştirme ekibi ve sizin tarafınız aynı panoyu görür.</p><ol><li><strong>Keşif</strong> — sorun, kullanıcı, ekran envanteri.</li><li><strong>Tasarım</strong> — akış, ekranlar ve durum çizimleri.</li><li><strong>Geliştirme</strong> — iki haftalık turlar hâlinde yapım.</li><li><strong>Test</strong> — turların içinde, ayrı bir blok değil.</li><li><strong>Mağaza yayını</strong> — inceleme ve düzeltme payı.</li></ol>",
+        "altBaslikar": [
+          {
+            "seviye": "h3",
+            "baslik": "Takvimi Asıl Ne Uzatır?",
+            "metin": "<p>Kod değil, bekleyen karar. Onay bekleyen bir ekran, iki haftalık turu tek başına boşa çıkarabilir. Bu yüzden ilk oturumda karar verecek kişiyi belirleriz. Yetkisi olmayan bir muhatap, geliştirme sürecinin en pahalı gecikme kaynağıdır.</p>"
+          }
+        ]
+      },
+      {
+        "h2": "Keşif ve Kapsam Aşaması Ne Kadar Sürer?",
+        "dogrudanCevap": "Bu aşama genelde bir ila iki hafta sürer. O sürede sorun tanımı, kullanıcı akışı ve ekran envanteri çıkar. Kısa görünen bu aşama, sonraki aşamaların hepsini kısaltır. Geliştirme süreci boyunca en çok bu belgeye geri döneriz. Atlanırsa tasarım aşaması rahatça iki katına çıkar.",
+        "govde": "<p>Keşif oturumunda ekran çizmeyiz. Bugün işin nasıl yürüdüğünü, nerede tıkandığını ve kimin hangi kararı verdiğini konuşuruz. Çıktı bir sayfadır: sorun, kullanıcı, kullanım sıklığı, olmazsa olmaz ekranlar ve dış servisler.</p><p>Bu sayfayı görüşmeye kendiniz getirdiyseniz aşama üç güne iner. Hangi soruların yanıtlanması gerektiğini <a href=\"../../blog/mobil-uygulama-yaptirma-sorulari/\">uygulama yaptırma soruları</a> yazısında tek tek saymıştık.</p><p>Keşfi kısaltmak isteyenler genelde onu tümüyle atlamayı dener. Sonuç hep aynı çıkar: tasarım aşaması, keşifte sorulmayan soruları sormakla geçer. Süreyi geliştirme tarafında kazanmaya çalışmak, en başta kaybetmek demektir.</p>",
+        "altBaslikar": [
+          {
+            "seviye": "h3",
+            "baslik": "Keşif Çıktısı Neye Benzer?",
+            "metin": "<p>Kalın bir şartname değil, tek sayfa. Uzun belgeler okunmadığı için karar hızını düşürür. Tek sayfa herkesin aklında kalır ve mobil uygulama geliştirme süreci boyunca ortak dil olur.</p>"
+          }
+        ]
+      },
+      {
+        "h2": "Tasarım Aşamasında Neler Üretilir?",
+        "dogrudanCevap": "Bu aşama üç çıktı verir: akış şeması, ekran tasarımları ve durum çizimleri. Üçüncüsü çoğu teklifte unutulur ama takvimi en çok o belirler. Boş liste, kopuk bağlantı ve zaman aşımı ekranları burada çizilmezse iş geliştirmeye kayar. Orada çözmek daha uzun sürer. Tasarımın işi ekranı güzelleştirmek değil, kararı önceden vermektir.",
+        "govde": "<p>Tipik uzunluk iki ila dört haftadır. Ekran sayısı arttıkça değil, durum sayısı arttıkça uzar. On ekranlı ama her ekranı dört hâlli bir ürün, yirmi ekranlı bir katalogdan uzun sürer.</p><p>Arayüz kararlarının hangi ilkelere dayandığını <a href=\"../../blog/ui-tasarim-ilkeleri/\">arayüz tasarımı ilkeleri</a> yazısında ele aldık. Tasarım bittiğinde geliştirme için çizilmemiş ekran kalmamalı.</p><p>Durum çizimlerini atlamak takvimi iki yerden birden vurur. Önce geliştirici tahmin yürütür, sonra siz o tahmini beğenmezsiniz. Sürecin ortasında geliştirme ekibinin ekran tasarlaması, hem yavaş hem tutarsız bir yol açar.</p>",
+        "altBaslikar": [
+          {
+            "seviye": "h4",
+            "baslik": "Onay Turları Kaç Kez Döner?",
+            "metin": "<p>İki tur normaldir, üçüncü tur uyarıdır. Üçten fazla dönüyorsa sorun tasarımda değil, keşifte eksik kalmış bir karardadır. O zaman bir adım geri gideriz.</p>"
+          }
+        ]
+      },
+      {
+        "h2": "Geliştirme ve Test Aşaması Nasıl İlerler?",
+        "dogrudanCevap": "İki hafta uzunluğunda turlar hâlinde ilerler. Her tur sonunda çalışan bir sürüm elinize geçer, yorumunuzu alırız. Test ayrı bir aşama değil, her turun içindedir. Geliştirme süreci bu ritimle yürüdüğünde sürprizler sona değil, ortaya yayılır. Sonda toplanan sürpriz her zaman daha pahalıdır.",
+        "govde": "<p>Her yineleme sonunda cihazınıza kurulabilen bir sürüm göndeririz. Ekranda görmek, belgede okumaktan farklıdır; yorumlarınız da o zaman keskinleşir. Tipik uzunluk kapsama göre altı ila on altı hafta arasında değişir.</p><p>Donanıma yakın çalışma gerekiyorsa takvim genişler. Kamera, sensör ve arka plan konumu gibi ihtiyaçları <a href=\"../../hizmetler/mobil-uygulama/ios-android/\">iOS ve Android tarafında</a> ayrı ayrı ele alırız.</p>",
+        "altBaslikar": [
+          {
+            "seviye": "h3",
+            "baslik": "Test Neden Ayrı Bir Blok Değil?",
+            "metin": "<p>Sona bırakılan test, hataları en pahalı anda toplar. Her turun içine yayıldığında hata çıktığı gün düzelir. Bu düzen mobil uygulama geliştirme süreci içinde en çok zaman kazandıran alışkanlıktır.</p>"
+          }
+        ]
+      },
+      {
+        "h2": "Mağaza Yayını Neden Tahmin Edilenden Uzun Sürer?",
+        "dogrudanCevap": "İnceleme teknik bir sınav değil, kural denetimidir. Apple ve Google; gizlilik metni, izin gerekçeleri ve hesap silme akışına ayrı ayrı bakar. İlk gönderimde ret almak olağandır. Bu yüzden geliştirme süreci takvimine yayın için bir hafta pay koyarız. Payı koymayan ekipler lansman tarihini iki kez erteler.",
+        "govde": "<p>Yayın denetimi çoğu zaman birkaç gün sürer, ama ret gelirse süre baştan işler. En sık ret nedenleri şaşırtıcı biçimde basittir: eksik gizlilik metni, gerekçesiz izin isteği, hesap silme yolunun bulunmaması.</p><p>Bunları geliştirme başlarken hazırlarsanız yayın günü sürprize dönüşmez. Mağaza sayfasının kendisi de ayrı bir iştir; başlık, görseller ve açıklama indirme oranını doğrudan etkiler.</p><p>İki mağazanın ritmi de aynı değildir. Biri aynı gün yanıt verirken diğeri birkaç gün bekletebilir; bu yüzden tek bir yayın tarihi yerine bir yayın haftası konuşuruz. Geliştirme süreci planında bu haftayı işaretlemek, lansman iletişimini de rahatlatır.</p>"
+      },
+      {
+        "h2": "Takviminizi Birlikte Çıkaralım",
+        "dogrudanCevap": "Takvim, kapsam netleştiği anda gerçekçi olur. Görüşmede aşamaları, onay noktalarını ve kimin ne zaman karar vereceğini birlikte yazıyoruz. Elinizde tahmini bir süre değil, tarihli bir plan kalıyor. Mobil uygulama geliştirme süreci böyle kurulduğunda gecikmenin kaynağı da baştan görünür. Gecikme çoğu zaman koddan değil, bekleyen onaydan gelir.",
+        "govde": "<p>Planı çıkarırken hangi kalemin bütçeyi hareket ettirdiğini de aynı masada konuşuruz; ikisini <a href=\"../../blog/mobil-uygulama-gelistirme-maliyeti/\">uygulama maliyeti</a> yazısında ayrı ayrı açtık. <a href=\"../../hizmetler/mobil-uygulama/\">Mobil uygulama hizmetimizi</a> incelemek isterseniz sayfa hep açık.</p><p>Planı çıkarırken üç tarihi işaretleriz. Keşif çıktısının onaylandığı gün, tasarımın kilitlendiği gün ve mağazaya ilk gönderim günü. Bu üç tarih tutarsa geri kalanı kendiliğinden tutar. Mobil uygulama geliştirme süreci içinde en çok kayan tarih ikincisidir. Tasarım kilidi geciktiğinde her şey birlikte kayar. Kilidi korumak için onay süresini iki iş gününe bağlarız. Kısa bir kural gibi görünür ama takvimi tek başına ayakta tutar.</p>"
+      }
+    ],
+    "karsilastirmaTablosu": {
+      "baslik": "Aşama başına tipik uzunluk ve takvimi uzatan neden",
+      "sutunlar": ["Aşama", "Tipik uzunluk", "Takvimi uzatan"],
+      "satirlar": [
+        ["Keşif ve kapsam", "1-2 hafta", "Karar verecek kişinin belirsizliği"],
+        ["Tasarım", "2-4 hafta", "Durum çizimlerinin atlanması"],
+        ["Geliştirme", "6-16 hafta", "Tur ortasında değişen kapsam"],
+        ["Test", "Turların içinde", "Sona bırakılması"],
+        ["Mağaza yayını", "3 gün - 2 hafta", "Gizlilik ve izin eksikleri"]
+      ]
+    },
+    "alinti": {
+      "metin": "Takvimi kod yazma hızı belirlemez. Bekleyen bir onay, en hızlı ekibi bile iki hafta durdurur.",
+      "kaynak": "TasarımMania proje notu"
+    },
+    "alintiKonum": 4,
+    "sss": [
+      {
+        "soru": "Mobil uygulama geliştirme süreci toplamda ne kadar sürer?",
+        "cevap": "Kapsama göre değişir ama bir aralık verilebilir. Dar kapsamlı, tek platformlu ve dış servisi az bir üründe üç ay makul bir hedeftir. Ödeme, kimlik doğrulama, harita ve canlı takip girdiğinde altı aya doğru genişler. Bu aralığı belirleyen şey ekran sayısı değil, ekran başına düşen durum ve dış bağlantı sayısıdır. Aralığı daraltmanın en hızlı yolu, keşif çıktısını görüşmeye hazır getirmektir."
+      },
+      {
+        "soru": "Aşamalar üst üste binebilir mi?",
+        "cevap": "Evet; tasarım bitmeden geliştirme başlar."
+      },
+      {
+        "soru": "Süreç içinde kapsam değişirse ne olur?",
+        "cevap": "Değişikliği tur sonuna alırız. Tur ortasında yön değiştirmek, o turda yapılan işin bir kısmını çöpe atar; sıradaki tura almak ise takvimi öngörülebilir tutar."
+      },
+      {
+        "soru": "Her turda ne teslim edilir?",
+        "cevap": "Cihazınıza kurulabilen çalışan bir sürüm, o turda tamamlanan işlerin listesi ve bilinen açık maddeler. Ekran görüntüsü değil, elle denenebilen bir uygulama."
+      },
+      {
+        "soru": "Mağaza reddi takvimi ne kadar geciktirir?",
+        "cevap": "Genelde birkaç gün, çünkü ret nedenleri çoğunlukla küçük eksiklerdir. Gizlilik metni ve izin gerekçeleri hazırsa ilk gönderimde geçme olasılığı belirgin biçimde artar."
+      },
+      {
+        "soru": "İki platformu aynı anda mı yayınlarız?",
+        "cevap": "Genelde evet, ama şart değil. Tek platformla çıkıp geri bildirim toplamak, ikinciyi daha az düzeltmeyle yayınlamanızı sağlar."
+      },
+      {
+        "soru": "Süreci hızlandırmak için ne yapabilirim?",
+        "cevap": "Karar verecek tek bir muhatap belirleyin ve onay süresini iki iş gününe bağlayın. Bu iki adım, ekleyeceğiniz herhangi bir geliştiriciden daha çok zaman kazandırır."
+      },
+      {
+        "soru": "Yayından sonra süreç biter mi?",
+        "cevap": "Bitmez, biçim değiştirir. Bakım turları ürün yayında kaldığı sürece devam eder."
+      }
+    ],
+    "kapanis": "Mobil uygulama geliştirme süreci beş aşamadan oluşur ama takvimi aşama sayısı belirlemez. Kararların ne kadar hızlı çıktığı, kod yazma hızından daha belirleyicidir; planı da bu gerçeğin üstüne kurmak gerekir.",
+    "about": ["Mobil uygulama geliştirme süreci", "Proje takvimi", "Yazılım geliştirme aşamaları"],
+    "mentions": ["App Store", "Google Play", "Sprint", "Kabul testi"]
+  }
+}

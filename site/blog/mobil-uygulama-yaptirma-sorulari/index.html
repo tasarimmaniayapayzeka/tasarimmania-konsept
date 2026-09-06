@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- KONSEPT-NOINDEX -->
+<meta name="robots" content="noindex,nofollow">
+<title>Mobil Uygulama Yaptırmadan Önce Hangi Sorular Sorulur? | TasarımMania</title>
+<meta name="description" content="Uygulama yaptırma kararını vermeden önce hangi soruları sormalısınız? Sorun tanımı, kullanım sıklığı, veri sahipliği ve kod devrini sırayla tek tek açıyoruz.">
+<link rel="canonical" href="https://www.tasarimmania.com/blog/mobil-uygulama-yaptirma-sorulari/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="Mobil Uygulama Yaptırmadan Önce Hangi Sorular Sorulur? | TasarımMania">
+<meta property="og:description" content="Uygulama yaptırma kararını vermeden önce hangi soruları sormalısınız? Sorun tanımı, kullanım sıklığı, veri sahipliği ve kod devrini sırayla tek tek açıyoruz.">
+<meta property="og:url" content="https://www.tasarimmania.com/blog/mobil-uygulama-yaptirma-sorulari/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/mobil-uygulama-yaptirma-sorulari/gorsel/mobil-uygulama-yaptirma-sorulari-kapak-1440.jpg">
+<meta property="og:image:width" content="1440">
+<meta property="og:image:height" content="810">
+<meta property="og:image:alt" content="Karanlık zeminde ışıklı bir yol ayrımı; iki koldan biri seyrek, diğeri sık düğümlerle örülü">
+<meta property="article:published_time" content="2026-10-27T10:20:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/mobil-uygulama-yaptirma-sorulari/gorsel/mobil-uygulama-yaptirma-sorulari-kapak-1440.jpg">
+<link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/tm.css">
+<style>
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  max-height:calc(100dvh - 74px);overflow-y:auto;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(28px,4vw,52px)) 0 clamp(22px,3vw,34px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.14),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.wa{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:90;width:54px;height:54px;
+  border-radius:50%;background:#25D366;display:grid;place-items:center;
+  box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s;padding-block:7px}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+@media(max-width:960px){.ftr-ust{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.nav-links,.nav-tel{display:none}.burger{display:block}.ftr-ust{grid-template-columns:1fr}}
+/* --- blog yazısı: okuma düzeni --- */
+.yz-ust{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.yz-kat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acc);border:1px solid rgba(var(--acc-rgb),.4);border-radius:99px;padding:6px 13px}
+.yz-meta{font-family:var(--mono);font-size:11.4px;color:var(--muted)}
+.phd h1{font-size:clamp(28px,4.4vw,46px);letter-spacing:-.035em;line-height:1.16;margin-bottom:16px;max-width:22ch}
+.phd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18px);max-width:62ch;line-height:1.78}
+.yz-govde{max-width:760px}
+.yz-govde h2{font-size:clamp(21px,2.9vw,28px);letter-spacing:-.03em;line-height:1.25;margin:44px 0 0}
+.yz-govde h3{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;line-height:1.35;margin:30px 0 10px}
+.yz-govde h4{font-size:15.6px;letter-spacing:-.01em;margin:22px 0 8px;color:var(--fg-dim)}
+.yz-govde p{font-size:15.6px;color:var(--fg-dim);line-height:1.85;margin:0 0 16px}
+.yz-govde ul,.yz-govde ol{margin:0 0 18px;padding-left:0;list-style:none;display:grid;gap:10px}
+.yz-govde li{font-size:15.2px;color:var(--fg-dim);line-height:1.72;display:flex;gap:11px;align-items:flex-start}
+.yz-govde li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:10px}
+.yz-govde ol{counter-reset:s}
+.yz-govde ol li{counter-increment:s}
+.yz-govde ol li::before{content:counter(s);width:auto;height:auto;border-radius:0;background:none;
+  color:var(--acc);font-family:var(--mono);font-size:12px;margin-top:2px;min-width:16px}
+.yz-govde strong{color:var(--fg);font-weight:600}
+/* WCAG 2.5.8 - satir ici baglanti dokunma hedefi >=24px.
+   DIKKAT: padding'i AYRI bir .yz-govde p a kuralina koyma; .yz-govde a:not(.btn)
+   ozgullugu (0,2,1) onu (0,1,2) ezer ve 2px'te kalir. Degeri bu kuralin ICINDE tut. */
+.yz-govde a:not(.btn){color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.4);transition:text-decoration-color .25s;padding-block:4px}
+.yz-govde a:not(.btn):hover{text-decoration-color:var(--acc)}
+/* doğrudan cevap kutusu (snippet hedefi) */
+.yz-cevap{border-left:2px solid var(--acc);background:rgba(var(--acc-rgb),.05);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:16px 20px;margin:16px 0 22px}
+.yz-cevap p{margin:0;color:var(--fg);font-size:15.4px;line-height:1.75}
+/* karşılaştırma tablosu */
+.yz-tablo{margin:26px 0;border:1px solid var(--hair);border-radius:var(--r-md);overflow-x:auto}
+.yz-tablo table{width:100%;border-collapse:collapse;min-width:520px}
+.yz-tablo th{font-family:var(--mono);font-size:10.4px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--acc);text-align:left;padding:14px 16px;border-bottom:1px solid var(--hair);
+  background:rgba(var(--acc-rgb),.05);font-weight:500;white-space:nowrap}
+.yz-tablo td{font-size:13.8px;color:var(--fg-dim);padding:14px 16px;border-bottom:1px solid var(--hair);
+  line-height:1.6;vertical-align:top}
+.yz-tablo tr:last-child td{border-bottom:0}
+.yz-tablo td:first-child{color:var(--fg);font-weight:600}
+.yz-tablo-not{font-family:var(--mono);font-size:10.4px;color:var(--muted);margin:-16px 0 26px;
+  letter-spacing:.04em}
+/* SSS */
+.yz-sss{display:grid;gap:11px;max-width:760px}
+.yz-sss details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
+.yz-sss details[open]{border-color:var(--hair-strong)}
+.yz-sss summary{cursor:pointer;list-style:none;padding:17px 21px;font-size:15.2px;font-weight:600;
+  display:flex;align-items:center;gap:14px;line-height:1.4}
+.yz-sss summary::-webkit-details-marker{display:none}
+.yz-sss summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.yz-sss details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.yz-sss summary:hover{color:var(--acc)}
+.yz-sss p{padding:0 21px 19px;margin:0;font-size:14.4px;color:var(--muted);line-height:1.75}
+/* hizmet köprüsü */
+.yz-kopru{border:1px solid rgba(var(--acc-rgb),.32);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(var(--acc-rgb),.07),transparent);
+  padding:clamp(22px,3vw,32px);margin:36px 0;max-width:760px}
+.yz-kopru b{display:block;font-size:clamp(17px,2.2vw,21px);letter-spacing:-.02em;margin-bottom:9px}
+.yz-kopru p{font-size:14.6px;color:var(--fg-dim);line-height:1.72;margin:0 0 18px}
+.yz-kopru .btn{margin-right:10px}
+/* okuma ilerlemesi */
+.yz-cizgi{position:fixed;top:0;left:0;height:2px;background:var(--acc);z-index:101;width:0;
+  transition:width .1s linear}
+@media(max-width:760px){.yz-govde h2{margin-top:34px}}
+@media(prefers-reduced-motion:reduce){.yz-cizgi{display:none}}
+/* --- 1.2 eklentileri --- */
+.yz-kapak{margin:0 0 clamp(26px,4vw,44px)}
+.yz-kapak img,.yz-gorsel img{width:100%;height:auto;display:block;border-radius:14px;
+  border:1px solid var(--hair);background:#0d1017}
+.yz-kapak figcaption,.yz-gorsel figcaption{margin-top:11px;font-size:13.2px;line-height:1.55;
+  color:var(--muted);max-width:760px}
+.yz-gorsel{margin:clamp(26px,4vw,38px) 0}
+.yz-ai{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--fg-dim);opacity:.72;white-space:nowrap}
+.yz-govde ol{margin:16px 0 20px;padding-left:22px;display:grid;gap:10px}
+.yz-govde ol li{padding-left:4px}
+.yz-govde ol li::marker{color:var(--acc);font-family:var(--mono);font-weight:600}
+.yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
+  background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
+.yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.tasarimmania.com/blog/mobil-uygulama-yaptirma-sorulari/#article",
+      "headline": "Mobil Uygulama Yaptırmadan Önce Hangi Sorular Sorulur?",
+      "description": "Uygulama yaptırma kararını vermeden önce hangi soruları sormalısınız? Sorun tanımı, kullanım sıklığı, veri sahipliği ve kod devrini sırayla tek tek açıyoruz.",
+      "datePublished": "2026-10-27T10:20:00",
+      "dateModified": "2026-10-27T10:20:00",
+      "inLanguage": "tr-TR",
+      "mainEntityOfPage": "https://www.tasarimmania.com/blog/mobil-uygulama-yaptirma-sorulari/",
+      "author": { "@type": "Organization", "name": "TasarımMania", "url": "https://www.tasarimmania.com/" },
+      "publisher": { "@id": "https://www.tasarimmania.com/#kurulus" },
+      "articleSection": "Mobil",
+      "wordCount": 994,
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/mobil-uygulama-yaptirma-sorulari/gorsel/mobil-uygulama-yaptirma-sorulari-kapak-1440.jpg",
+        "width": 1440, "height": 810,
+        "caption": "Karanlık zeminde ışıklı bir yol ayrımı; iki koldan biri seyrek, diğeri sık düğümlerle örülü"
+      },
+      "about": ["Mobil uygulama yaptırma","Proje kapsamı","Yazılım sözleşmesi"],
+      "mentions": [{"@type":"Thing","name":"Kaynak kod devri"},{"@type":"Thing","name":"App Store"},{"@type":"Thing","name":"Google Play"},{"@type":"Thing","name":"Gizlilik sözleşmesi"}],
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".ozet", ".yz-cevap"] }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.tasarimmania.com/#kurulus",
+      "name": "TasarımMania",
+      "url": "https://www.tasarimmania.com/",
+      "telephone": "+905547916545",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/logo/marka-yatay-optik.png",
+        "width": 435, "height": 163
+      },
+      "address": { "@type": "PostalAddress", "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+        "addressLocality": "Bakırköy", "addressRegion": "İstanbul", "addressCountry": "TR" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.tasarimmania.com/blog/mobil-uygulama-yaptirma-sorulari/#sss",
+      "mainEntity": [
+    { "@type": "Question", "name": "Uygulama yaptırma kararı için elimde hangi belge olmalı?", "acceptedAnswer": { "@type": "Answer", "text": "Tek sayfa yeter ama o sayfa dolu olmalı. İçinde şunlar bulunsun: çözülen sorunun tek cümlelik tanımı, kullanıcının kim olduğu, uygulamayı ne sıklıkla açacağı, olmazsa olmaz ekranların listesi ve dışarıyla konuşacağı servislerin adları. Bu sayfa elinizdeyse görüşme tahmin olmaktan çıkar, iki taraf da aynı işi konuşur. Sayfa yoksa ilk oturum zaten onu doldurmakla geçer; kaybedilen zaman değil, kazanılan netliktir." } },
+    { "@type": "Question", "name": "Fikrimi anlatırsam ajans çalar mı?", "acceptedAnswer": { "@type": "Answer", "text": "Gizlilik sözleşmesi isteyin; ciddi hiçbir ekip bundan rahatsız olmaz." } },
+    { "@type": "Question", "name": "Uygulamayı önce küçük yaptırıp sonra büyütebilir miyim?", "acceptedAnswer": { "@type": "Answer", "text": "Evet ve çoğu zaman doğrusu budur. İlk sürümü tek işe odaklayın, ölçün, sonra genişletin. Böylece yanlış özelliğe harcayacağınız bütçeyi baştan engellersiniz." } },
+    { "@type": "Question", "name": "Kaynak kodu almazsam ne kaybederim?", "acceptedAnswer": { "@type": "Answer", "text": "Ajans değiştirme özgürlüğünüzü kaybedersiniz. Ürün çalışmaya devam eder ama her değişiklik tek bir kapıdan geçer." } },
+    { "@type": "Question", "name": "Mağaza hesabını ajans açsa olmaz mı?", "acceptedAnswer": { "@type": "Answer", "text": "Olmaz. Hesap sizin adınıza açılmalı, ajans geliştirici olarak davet edilmeli. Yorumlar, indirme verisi ve uygulamanın kendisi o hesaba bağlıdır." } },
+    { "@type": "Question", "name": "Hangi sorular teklif alma aşamasına ertelenebilir?", "acceptedAnswer": { "@type": "Answer", "text": "Renk, yazı tipi ve ikincil ekranlar ertelenebilir. Sorun tanımı, kullanıcı, sıklık ve devir şartları ertelenemez." } },
+    { "@type": "Question", "name": "Ajans benden ekran tasarımı isterse ne yapmalıyım?", "acceptedAnswer": { "@type": "Answer", "text": "Vermeyin. Ekran tasarımı işin çıktısıdır, girdisi değil. Sizden beklenen şey sorunu, kullanıcıyı ve kısıtları anlatmaktır; gerisi ekibin işidir." } },
+    { "@type": "Question", "name": "Uygulama yaptırma süreci ne kadar sürer?", "acceptedAnswer": { "@type": "Answer", "text": "Kapsama bağlı. Süre sorusunun yanıtı aşamalar netleştikten sonra anlam kazanır." } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.tasarimmania.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.tasarimmania.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Mobil Uygulama Yaptırmadan Önce Hangi Sorular Sorulur?", "item": "https://www.tasarimmania.com/blog/mobil-uygulama-yaptirma-sorulari/" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body data-dal="mobil">
+
+<i class="yz-cizgi" data-ilerleme aria-hidden="true"></i>
+<a class="skip" href="#ana">İçeriğe geç</a>
+
+<nav class="nav" data-nav aria-label="Ana menü">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../../" aria-label="TasarımMania ana sayfa">
+      <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async">
+    </a>
+    <div class="nav-links">
+      <a href="../../hizmetler/">Hizmetler</a>
+      <a href="../../#isler">İşler</a>
+      <a href="../../hakkimizda/">Ajans</a>
+      <a href="../../blog/" aria-current="page">Blog</a>
+      <a href="../../teklif/">Teklif Al</a>
+      <a href="../../iletisim/">İletişim</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../../hizmetler/">Hizmetler</a><a href="../../#isler">İşler</a><a href="../../hakkimizda/">Ajans</a>
+  <a href="../../blog/">Blog</a><a href="../../teklif/">Teklif Al</a><a href="../../iletisim/">İletişim</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<!-- AYIRT EDİCİ EKSEN: KARAR — Yaptırma kararının kendisini sorgular. Maliyet kalemleri yazı 1'in, süreç aşamaları yazı 3'ün, mimari seçimi yazı 4'ün işidir. Burada FİYAT ve AŞAMA anlatılmaz.
+     Huni türü: TOFU · Küme: mobil · Kardeşler (enjeksiyon turunda): mobil-uygulama-gelistirme-sureci, native-mi-cross-platform-mi, react-native-mi-flutter-mi -->
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Konum">
+        <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
+        <a href="../../blog/">Blog</a><span aria-hidden="true">/</span>
+        <span>Yaptırma Soruları</span>
+      </nav>
+      <div class="yz-ust">
+        <span class="yz-kat">Mobil</span>
+        <span class="yz-meta">27 Ekim 2026 · 7 dakikalık okuma</span>
+      </div>
+      <h1>Mobil Uygulama Yaptırmadan Önce Hangi Sorular Sorulur?</h1>
+      <p class="ozet">Çoğu proje yanlış soruyla başlar: kaça yapılır? Oysa kapsam netleşmeden fiyat da netleşmez. Doğru sıra, ürünü tarif eden soruları önce yanıtlamaktan geçer. Bu yazıda bir mobil yazılım siparişi vermeden önce masaya koymanız gereken soruları sırayla açıyoruz. Sorular kısa; yanıtları projenizin yönünü belirliyor.</p>
+    </div>
+  </header>
+
+  <figure class="yz-kapak">
+    <div class="wrap">
+      <img src="./gorsel/mobil-uygulama-yaptirma-sorulari-kapak-1440.webp"
+           srcset="./gorsel/mobil-uygulama-yaptirma-sorulari-kapak-640.webp 640w, ./gorsel/mobil-uygulama-yaptirma-sorulari-kapak-960.webp 960w, ./gorsel/mobil-uygulama-yaptirma-sorulari-kapak-1440.webp 1440w, ./gorsel/mobil-uygulama-yaptirma-sorulari-kapak-1920.webp 1920w"
+           sizes="(max-width: 1200px) 100vw, 1160px"
+           alt="Karanlık zeminde ışıklı bir yol ayrımı; iki koldan biri seyrek, diğeri sık düğümlerle örülü"
+           width="1920" height="1080" fetchpriority="high" decoding="async">
+      <figcaption>Karar noktası ekran çizmeden önce gelir; sonrası hep bu ayrımın devamıdır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
+    </div>
+  </figure>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <article class="yz-govde">
+      <h2>Uygulama Yaptırma Kararından Önce Hangi Soru Gelir?</h2>
+      <div class="yz-cevap"><p>Tek soru her şeyin önünde gelir: hangi sorunu çözüyorsunuz? Yanıtı tek cümleye sığmıyorsa kapsam da sığmaz. Ekran listesi, teknoloji ve bütçe bu cümleden sonra gelir. Uygulama yaptırma sürecinde en pahalı hata, sorunu tanımlamadan ekran çizmeye başlamaktır. O ekranlar sonra çöpe gider.</p></div>
+      <p>Görüşmelerin çoğu bir ekran listesiyle açılır. Oysa liste bir çözümdür; çözümün hangi soruna ait olduğunu kimse söylemez. Biz ilk oturumda ekran konuşmayız. Şunu sorarız: bugün bu iş nasıl yürüyor ve nerede tıkanıyor?</p><p>Yanıt somutlaştığında kapsam kendiliğinden daralır. Yaptıracağınız uygulamanın çözdüğü sorun tek cümleye sığıyorsa, iş tanımı da bir sayfaya sığar.</p><p>Bu soruyu kimin yanıtladığı da önemlidir. Kararı işi sahada yapan kişi verirse ürün gerçeğe yakın çıkar. Yalnız yönetim masasında tarif edilen uygulamalar, çoğu zaman kimsenin açmadığı ekranlarla dolar. En az bir kullanıcıyı ilk oturuma çağırın.</p>
+      <h3>Sorunu Tek Cümleye İndirmenin Pratik Yolu</h3>
+      <p>Cümleyi şu kalıba oturtun: <em>“[kim], [hangi durumda], [neyi] yapamıyor.”</em> Kalıp dolmuyorsa sorun henüz tanımlı değildir. Uygulama yaptırma görüşmesine bu cümleyle gelen ekiplerin kapsamı, gelmeyenlere göre belirgin biçimde dar olur.</p>
+      <h2>Kullanıcınız Uygulamayı Ne Sıklıkla Açacak?</h2>
+      <div class="yz-cevap"><p>Sıklık, uygulamanın gerekip gerekmediğini belirleyen en keskin ölçüdür. Haftada birkaç kez açılan bir ürün uygulamayı hak eder. Yılda üç kez açılan bir işlem için mobil uyumlu sayfa yeter. Uygulama yaptırma kararını duygusal değil, bu davranış verisiyle verin. Elinizde veri yoksa önce onu toplayın.</p></div>
+      <p>Kullanım aralığı, ürünün ana ekranda kalıp kalmayacağını belirler. Kimse yılda iki kez açacağı bir simgeye yer ayırmaz. Mevcut sitenizin ziyaret sıklığı bu konuda iyi bir göstergedir; oradaki tekrar oranı size gerçek yanıtı verir.</p><p>Ölçüm yoksa tahmin edilir, tahmin de pahalıya patlar. Bir aylık basit bir kayıt bile kararı sağlamlaştırır. Kullanıcı davranışının arayüz kararlarıyla ilişkisini <a href="../../blog/kullanici-deneyimi/">kullanıcı deneyimi</a> yazısında ayrıca ele aldık.</p><p>Sıklığı ölçerken tek sayıya bakmayın. Aynı kullanıcının ne kadar aralıkla döndüğü, toplam ziyaretten daha çok şey söyler. Yüz kişinin bir kez geldiği bir ürünle on kişinin onar kez geldiği ürün, tabloda aynı görünür ama uygulama yaptırma gerekçesi bakımından taban tabana zıttır.</p>
+      <h3>Sıklık Düşükse Uygulama Fikri Ölür mü?</h3>
+      <p>Hayır, ama sırası değişir. Önce mobil uyumlu akışı kurun, sonra veriyi izleyin. Sıklık yükselirse uygulama yaptırma gerekçeniz artık tahmin değil ölçüm olur.</p>
+      <h2>Bu İşi Uygulama mı, Mobil Site mi Çözer?</h2>
+      <div class="yz-cevap"><p>Dört ölçüt kararı verir: kullanım sıklığı, bildirim ihtiyacı, çevrimdışı çalışma ve donanım erişimi. Bunlardan biri bile şartsa uygulama anlam kazanır. Hiçbiri yoksa mobil uyumlu bir site aynı işi daha ucuza görür. Uygulama yaptırma isteğini bu dört ölçütle sınayın, moda akımıyla değil.</p></div>
+      <p>Tarayıcı son yıllarda çok yol aldı. Kamera, konum ve çevrimdışı önbellek artık web tarafında da çalışıyor. Ama anlık uyarı göndermek, arka planda konum izlemek ve mağaza rafında görünmek hâlâ uygulamanın işidir.</p><p>Bu ayrımı erken yapmak bütçeyi korur. Maliyeti hangi kalemlerin hareket ettirdiğini <a href="../../blog/mobil-uygulama-gelistirme-maliyeti/">uygulama maliyeti</a> yazısında kalem kalem açtık.</p><p>Dört ölçütü tek tek sınayın, toplu bakmayın. Çoğu ekip “bildirim gönderelim” cümlesinde durur ve gerisini sormaz. Oysa e-posta ya da kısa mesaj aynı işi görüyorsa, tek başına bildirim ihtiyacı uygulama yaptırma gerekçesi sayılmaz.</p>
+      <h4>Tek Kod Tabanı Sorusu Ne Zaman Gelir?</h4>
+      <p>Uygulama kararı netleştikten sonra. Mimari seçimi ayrı bir tartışmadır; <a href="../../hizmetler/mobil-uygulama/react-native/">tek kod tabanı yaklaşımını</a> hizmet sayfasında anlattık. Karar sırasını bozmayın: önce gerekçe, sonra teknoloji.</p>
+      <h2>Veriler Kimde Duracak, Kod Kime Ait Olacak?</h2>
+      <div class="yz-cevap"><p>Sözleşmede iki satır arayın: kaynak kodun mülkiyeti ve verilerin nerede tutulacağı. Bu iki satır yoksa ürün sizin değildir. Mağaza hesapları da kendi adınıza açılmalı, ajansın hesabına değil. Uygulama yaptırma görüşmesinde bunları sormamak, ilerideki en pahalı sessizliktir. Devir şartını baştan yazıya dökün.</p></div>
+      <p>Bu başlık teknik değil hukuki görünür, oysa ikisi de aynı kapıya çıkar. Yazılımın kendisi kimin elindeyse, ürünün geleceği de onun elindedir. Ajans değiştirmek istediğinizde bu satırlar sizi kurtarır.</p><p>Üç şeyi kendi adınıza kurun: mağaza geliştirici hesapları, alan adı ve bulut hesabı. Geliştirici ekip bunlara davetli olarak katılsın, sahibi olarak değil.</p><p>Verinin nerede durduğu ayrı bir sorudur. Kişisel veri işliyorsanız sunucunun ülkesi, saklama süresi ve silme yordamı sözleşmede yazılı olmalı. Bu satırları sonradan eklemek, yayına çıkmış bir üründe hem pahalı hem yavaş ilerler.</p>
+      <h3>Devir Nasıl Sorunsuz Yapılır?</h3>
+      <p>Depo erişimi, ortam değişkenleri ve kurulum belgesi ilk günden paylaşılsın. Yaptırma kararı uygulamanın son gününü değil ilk gününü bağlar; devir bittiğinde değil başladığında konuşulur.</p>
+      <blockquote class="yz-alinti"><p>&#8220;Ekran listesi bir çözümdür. Hangi soruna ait olduğunu yazmadan sipariş verirseniz, çözümü satın alır sorunu evde bırakırsınız.&#8221;</p><cite>— TasarımMania kapsam görüşmesi notu</cite></blockquote>
+      <h2>Ajansa Hangi Beş Soruyu Sormalısınız?</h2>
+      <div class="yz-cevap"><p>Beş soru ajansın gerçek kapasitesini gösterir. Benzer bir ürünü mağazada yayınladınız mı? Hata hâllerini kim çiziyor? Bakım ve kod devri nasıl işliyor? Yanıtları yazılı isteyin. Uygulama yaptırma görüşmesi bir sınav değil, ortak çalışma provasıdır. Sorularınıza net yanıt gelmiyorsa, sorun sizde değildir.</p></div>
+      <p>Bir ekibin ne yapabileceğini portföyünden çok, sorularınıza verdiği yanıt gösterir. Aşağıdaki beşi sırayla sorun ve yanıtları not alın.</p><ol><li><strong>Yayın deneyimi</strong> — benzer bir ürünü hangi mağazalarda yayınladınız?</li><li><strong>Hata hâlleri</strong> — boş liste, kopuk bağlantı ve zaman aşımını kim çiziyor?</li><li><strong>Bakım</strong> — işletim sistemi sürümü çıktığında süreç nasıl işliyor?</li><li><strong>Devir</strong> — kaynak kod ve hesaplar bize nasıl geçiyor?</li><li><strong>İletişim</strong> — haftalık ilerlemeyi kim, hangi biçimde raporluyor?</li></ol><p>Yanıtlar sözlü kalırsa unutulur. Yazılı isteyin; teklif ekine girsin.</p>
+      <h3>Portföy Neden Tek Başına Yetmez?</h3>
+      <p>Vitrindeki iş bitmiş hâliyle görünür; nasıl bittiği görünmez. İki yıl önce yayınlanan bir uygulamanın bugün ayakta olup olmadığı daha çok şey anlatır. Mağazada arayın, son güncelleme tarihine bakın. Yorumlara da göz atın: kullanıcıların bildirdiği hataların yanıtlanıp yanıtlanmadığı, ekibin bakım alışkanlığını portföyden daha dürüst anlatır.</p>
+      <h2>Sorularınızı Birlikte Yanıtlayalım</h2>
+      <div class="yz-cevap"><p>Bu soruların çoğunu tek başınıza yanıtlamanız gerekmez. Görüşmede sorunu, kullanıcıyı ve kullanım sıklığını birlikte konuşuyoruz. Elinizde ekran listesi değil, karar gerekçesi kalıyor. Uygulama yaptırma kararını o gerekçeyle verirseniz sonradan dönüş yapmazsınız. Yanlış ürüne harcanan ilk üç ay hiçbir bütçeyle geri gelmiyor.</p></div>
+      <p>Kapsam oturumundan çıkarken elinizde bir sayfa olur: sorun, kullanıcı, sıklık, dört ölçüt ve devir şartları. <a href="../../hizmetler/mobil-uygulama/">Mobil uygulama hizmetimizi</a> incelemek isterseniz sayfa hep açık. Yaptırmadan önce uygulamanızın gerekçesini yazıya dökmek, sonraki her kararı kolaylaştırır.</p>
+      <figure class="yz-gorsel">
+        <img src="./gorsel/mobil-uygulama-yaptirma-sorulari-govde-960.webp"
+             srcset="./gorsel/mobil-uygulama-yaptirma-sorulari-govde-640.webp 640w, ./gorsel/mobil-uygulama-yaptirma-sorulari-govde-960.webp 960w, ./gorsel/mobil-uygulama-yaptirma-sorulari-govde-1440.webp 1440w, ./gorsel/mobil-uygulama-yaptirma-sorulari-govde-1920.webp 1920w"
+             sizes="(max-width: 760px) 100vw, 760px"
+             alt="İç içe geçmiş ışıklı halkalar; her halka bir öncekinden dar, en içteki en parlak nokta" width="1920" height="1080" loading="lazy" decoding="async">
+        <figcaption>Her soru kapsamı biraz daha daraltır; en içteki halka gerçek işin kendisidir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
+      </figure>
+      <h2>Uygulama mı, mobil site mi? Dört ölçüt</h2>
+      <div class="yz-tablo">
+        <table>
+          <thead><tr><th>Ölçüt</th><th>Uygulama gerekir</th><th>Mobil site yeter</th></tr></thead>
+          <tbody>
+            <tr><td>Kullanım sıklığı</td><td>Haftada birkaç kez</td><td>Yılda birkaç kez</td></tr>
+            <tr><td>Bildirim ihtiyacı</td><td>Anlık uyarı şart</td><td>E-posta yeterli</td></tr>
+            <tr><td>Çevrimdışı çalışma</td><td>Bağlantısız da çalışmalı</td><td>Her zaman çevrimiçi</td></tr>
+            <tr><td>Donanım erişimi</td><td>Kamera, sensör, arka plan konumu</td><td>Gerekmiyor</td></tr>
+            <tr><td>Mağaza görünürlüğü</td><td>Rafta bulunmak önemli</td><td>Arama motoru yeter</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+        <div class="yz-kopru">
+          <b>Sorularınızı birlikte yanıtlayalım</b>
+          <p>Çözmek istediğiniz sorunu, kullanıcınızı ve kullanım sıklığını konuşalım; uygulamanın gerekip gerekmediğini yazılı bir gerekçeyle birlikte çıkaralım.</p>
+          <a class="btn btn-p" href="../../teklif/#mobil">Kapsam çıkaralım
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="../../hizmetler/mobil-uygulama/">Hizmet sayfasını gör</a>
+        </div>
+        <p>Uygulama yaptırma kararı teknolojiyle değil soruyla başlar. Sorunu, kullanıcıyı, sıklığı ve devir şartlarını yazıya döktüğünüzde geriye kalan her karar kendiliğinden kolaylaşır.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Sık sorulanlar</span>
+        <h2 data-kin>Sık sorulan sorular: uygulama yaptırma kararı</h2>
+      </div>
+      <div class="yz-sss rv d1">
+        <details>
+          <summary>Uygulama yaptırma kararı için elimde hangi belge olmalı?</summary>
+          <p>Tek sayfa yeter ama o sayfa dolu olmalı. İçinde şunlar bulunsun: çözülen sorunun tek cümlelik tanımı, kullanıcının kim olduğu, uygulamayı ne sıklıkla açacağı, olmazsa olmaz ekranların listesi ve dışarıyla konuşacağı servislerin adları. Bu sayfa elinizdeyse görüşme tahmin olmaktan çıkar, iki taraf da aynı işi konuşur. Sayfa yoksa ilk oturum zaten onu doldurmakla geçer; kaybedilen zaman değil, kazanılan netliktir.</p>
+        </details>
+        <details>
+          <summary>Fikrimi anlatırsam ajans çalar mı?</summary>
+          <p>Gizlilik sözleşmesi isteyin; ciddi hiçbir ekip bundan rahatsız olmaz.</p>
+        </details>
+        <details>
+          <summary>Uygulamayı önce küçük yaptırıp sonra büyütebilir miyim?</summary>
+          <p>Evet ve çoğu zaman doğrusu budur. İlk sürümü tek işe odaklayın, ölçün, sonra genişletin. Böylece yanlış özelliğe harcayacağınız bütçeyi baştan engellersiniz.</p>
+        </details>
+        <details>
+          <summary>Kaynak kodu almazsam ne kaybederim?</summary>
+          <p>Ajans değiştirme özgürlüğünüzü kaybedersiniz. Ürün çalışmaya devam eder ama her değişiklik tek bir kapıdan geçer.</p>
+        </details>
+        <details>
+          <summary>Mağaza hesabını ajans açsa olmaz mı?</summary>
+          <p>Olmaz. Hesap sizin adınıza açılmalı, ajans geliştirici olarak davet edilmeli. Yorumlar, indirme verisi ve uygulamanın kendisi o hesaba bağlıdır.</p>
+        </details>
+        <details>
+          <summary>Hangi sorular teklif alma aşamasına ertelenebilir?</summary>
+          <p>Renk, yazı tipi ve ikincil ekranlar ertelenebilir. Sorun tanımı, kullanıcı, sıklık ve devir şartları ertelenemez.</p>
+        </details>
+        <details>
+          <summary>Ajans benden ekran tasarımı isterse ne yapmalıyım?</summary>
+          <p>Vermeyin. Ekran tasarımı işin çıktısıdır, girdisi değil. Sizden beklenen şey sorunu, kullanıcıyı ve kısıtları anlatmaktır; gerisi ekibin işidir.</p>
+        </details>
+        <details>
+          <summary>Uygulama yaptırma süreci ne kadar sürer?</summary>
+          <p>Kapsama bağlı. Süre sorusunun yanıtı aşamalar netleştikten sonra anlam kazanır.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>Web, mobil, reklam, video ve SEO’yu tek çatı altında birleştiren
+          İstanbul merkezli 360 derece dijital ajans.</p>
+      </div>
+      <div>
+        <h5>Modüller</h5>
+        <ul>
+          <li><a href="../../hizmetler/">Tüm hizmetler</a></li>
+          <li><a href="../../hizmetler/web-tasarim-yazilim/">Web &amp; Yazılım</a></li>
+          <li><a href="../../hizmetler/mobil-uygulama/">Mobil Uygulama</a></li>
+          <li><a href="../../hizmetler/dijital-pazarlama/">Dijital Pazarlama</a></li>
+          <li><a href="../../hizmetler/video-produksiyon/">Video Prodüksiyon</a></li>
+          <li><a href="../../hizmetler/seo/">SEO Hizmetleri</a></li>
+          <li><a href="../../hizmetler/grafik-tasarim/">Grafik Tasarım</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>İletişim</h5>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../../iletisim/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../../iletisim/#ofis">Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</span>
+      <span class="mono">BEŞ MODÜL · TEK PANEL</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+<script>
+"use strict";
+(function(){
+  var c = document.querySelector('[data-ilerleme]');
+  if (!c || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  function ciz(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    c.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', ciz, { passive: true });
+  ciz();
+})();
+</script>

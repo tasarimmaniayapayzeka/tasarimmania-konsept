@@ -1,0 +1,163 @@
+{
+  "kategori": "Mobil",
+  "slug": "mobil-uygulama-yaptirma-sorulari",
+  "tarih": "2026-10-27T10:20:00",
+  "kartOzet": "Uygulama yaptırmadan önce yanıtlanması gereken soruları sırayla açıyoruz: çözülen sorun, kullanım sıklığı, uygulama mı site mi kararı, veri sahipliği ve kod devri.",
+  "eksen": "KARAR",
+  "eksenAciklama": "Yaptırma kararının kendisini sorgular. Maliyet kalemleri yazı 1'in, süreç aşamaları yazı 3'ün, mimari seçimi yazı 4'ün işidir. Burada FİYAT ve AŞAMA anlatılmaz.",
+  "huni": "TOFU",
+  "kume": "mobil",
+  "kardesler": ["mobil-uygulama-gelistirme-sureci", "native-mi-cross-platform-mi", "react-native-mi-flutter-mi"],
+  "kisaBaslik": "Yaptırma Soruları",
+  "okumaDk": 7,
+  "kopruBaslik": "Sorularınızı birlikte yanıtlayalım",
+  "kopruMetin": "Çözmek istediğiniz sorunu, kullanıcınızı ve kullanım sıklığını konuşalım; uygulamanın gerekip gerekmediğini yazılı bir gerekçeyle birlikte çıkaralım.",
+  "teklifHash": "#mobil",
+  "hizmetSayfasi": "/hizmetler/mobil-uygulama/",
+  "sssBaslik": "Sık sorulan sorular: uygulama yaptırma kararı",
+  "gorsel": {
+    "kapak": {
+      "slug": "mobil-uygulama-yaptirma-sorulari-kapak",
+      "alt": "Karanlık zeminde ışıklı bir yol ayrımı; iki koldan biri seyrek, diğeri sık düğümlerle örülü",
+      "altyazi": "Karar noktası ekran çizmeden önce gelir; sonrası hep bu ayrımın devamıdır."
+    },
+    "govde": {
+      "slug": "mobil-uygulama-yaptirma-sorulari-govde",
+      "alt": "İç içe geçmiş ışıklı halkalar; her halka bir öncekinden dar, en içteki en parlak nokta",
+      "altyazi": "Her soru kapsamı biraz daha daraltır; en içteki halka gerçek işin kendisidir."
+    }
+  },
+  "yazi": {
+    "h1": "Mobil Uygulama Yaptırmadan Önce Hangi Sorular Sorulur?",
+    "metaBaslik": "Mobil Uygulama Yaptırmadan Önce Hangi Sorular Sorulur? | TasarımMania",
+    "metaAciklama": "Uygulama yaptırma kararını vermeden önce hangi soruları sormalısınız? Sorun tanımı, kullanım sıklığı, veri sahipliği ve kod devrini sırayla tek tek açıyoruz.",
+    "esAnlamli": [
+      ["mobil uygulama", "mobil yazılım"],
+      ["bildirim", "anlık uyarı"],
+      ["kapsam", "iş tanımı"],
+      ["ajans", "geliştirici ekip"],
+      ["kaynak kod", "yazılımın kendisi"]
+    ],
+    "girisParagraf": "Çoğu proje yanlış soruyla başlar: kaça yapılır? Oysa kapsam netleşmeden fiyat da netleşmez. Doğru sıra, ürünü tarif eden soruları önce yanıtlamaktan geçer. Bu yazıda bir mobil yazılım siparişi vermeden önce masaya koymanız gereken soruları sırayla açıyoruz. Sorular kısa; yanıtları projenizin yönünü belirliyor.",
+    "bolumler": [
+      {
+        "h2": "Uygulama Yaptırma Kararından Önce Hangi Soru Gelir?",
+        "dogrudanCevap": "Tek soru her şeyin önünde gelir: hangi sorunu çözüyorsunuz? Yanıtı tek cümleye sığmıyorsa kapsam da sığmaz. Ekran listesi, teknoloji ve bütçe bu cümleden sonra gelir. Uygulama yaptırma sürecinde en pahalı hata, sorunu tanımlamadan ekran çizmeye başlamaktır. O ekranlar sonra çöpe gider.",
+        "govde": "<p>Görüşmelerin çoğu bir ekran listesiyle açılır. Oysa liste bir çözümdür; çözümün hangi soruna ait olduğunu kimse söylemez. Biz ilk oturumda ekran konuşmayız. Şunu sorarız: bugün bu iş nasıl yürüyor ve nerede tıkanıyor?</p><p>Yanıt somutlaştığında kapsam kendiliğinden daralır. Yaptıracağınız uygulamanın çözdüğü sorun tek cümleye sığıyorsa, iş tanımı da bir sayfaya sığar.</p><p>Bu soruyu kimin yanıtladığı da önemlidir. Kararı işi sahada yapan kişi verirse ürün gerçeğe yakın çıkar. Yalnız yönetim masasında tarif edilen uygulamalar, çoğu zaman kimsenin açmadığı ekranlarla dolar. En az bir kullanıcıyı ilk oturuma çağırın.</p>",
+        "altBaslikar": [
+          {
+            "seviye": "h3",
+            "baslik": "Sorunu Tek Cümleye İndirmenin Pratik Yolu",
+            "metin": "<p>Cümleyi şu kalıba oturtun: <em>“[kim], [hangi durumda], [neyi] yapamıyor.”</em> Kalıp dolmuyorsa sorun henüz tanımlı değildir. Uygulama yaptırma görüşmesine bu cümleyle gelen ekiplerin kapsamı, gelmeyenlere göre belirgin biçimde dar olur.</p>"
+          }
+        ]
+      },
+      {
+        "h2": "Kullanıcınız Uygulamayı Ne Sıklıkla Açacak?",
+        "dogrudanCevap": "Sıklık, uygulamanın gerekip gerekmediğini belirleyen en keskin ölçüdür. Haftada birkaç kez açılan bir ürün uygulamayı hak eder. Yılda üç kez açılan bir işlem için mobil uyumlu sayfa yeter. Uygulama yaptırma kararını duygusal değil, bu davranış verisiyle verin. Elinizde veri yoksa önce onu toplayın.",
+        "govde": "<p>Kullanım aralığı, ürünün ana ekranda kalıp kalmayacağını belirler. Kimse yılda iki kez açacağı bir simgeye yer ayırmaz. Mevcut sitenizin ziyaret sıklığı bu konuda iyi bir göstergedir; oradaki tekrar oranı size gerçek yanıtı verir.</p><p>Ölçüm yoksa tahmin edilir, tahmin de pahalıya patlar. Bir aylık basit bir kayıt bile kararı sağlamlaştırır. Kullanıcı davranışının arayüz kararlarıyla ilişkisini <a href=\"../../blog/kullanici-deneyimi/\">kullanıcı deneyimi</a> yazısında ayrıca ele aldık.</p><p>Sıklığı ölçerken tek sayıya bakmayın. Aynı kullanıcının ne kadar aralıkla döndüğü, toplam ziyaretten daha çok şey söyler. Yüz kişinin bir kez geldiği bir ürünle on kişinin onar kez geldiği ürün, tabloda aynı görünür ama uygulama yaptırma gerekçesi bakımından taban tabana zıttır.</p>",
+        "altBaslikar": [
+          {
+            "seviye": "h3",
+            "baslik": "Sıklık Düşükse Uygulama Fikri Ölür mü?",
+            "metin": "<p>Hayır, ama sırası değişir. Önce mobil uyumlu akışı kurun, sonra veriyi izleyin. Sıklık yükselirse uygulama yaptırma gerekçeniz artık tahmin değil ölçüm olur.</p>"
+          }
+        ]
+      },
+      {
+        "h2": "Bu İşi Uygulama mı, Mobil Site mi Çözer?",
+        "dogrudanCevap": "Dört ölçüt kararı verir: kullanım sıklığı, bildirim ihtiyacı, çevrimdışı çalışma ve donanım erişimi. Bunlardan biri bile şartsa uygulama anlam kazanır. Hiçbiri yoksa mobil uyumlu bir site aynı işi daha ucuza görür. Uygulama yaptırma isteğini bu dört ölçütle sınayın, moda akımıyla değil.",
+        "govde": "<p>Tarayıcı son yıllarda çok yol aldı. Kamera, konum ve çevrimdışı önbellek artık web tarafında da çalışıyor. Ama anlık uyarı göndermek, arka planda konum izlemek ve mağaza rafında görünmek hâlâ uygulamanın işidir.</p><p>Bu ayrımı erken yapmak bütçeyi korur. Maliyeti hangi kalemlerin hareket ettirdiğini <a href=\"../../blog/mobil-uygulama-gelistirme-maliyeti/\">uygulama maliyeti</a> yazısında kalem kalem açtık.</p><p>Dört ölçütü tek tek sınayın, toplu bakmayın. Çoğu ekip “bildirim gönderelim” cümlesinde durur ve gerisini sormaz. Oysa e-posta ya da kısa mesaj aynı işi görüyorsa, tek başına bildirim ihtiyacı uygulama yaptırma gerekçesi sayılmaz.</p>",
+        "altBaslikar": [
+          {
+            "seviye": "h4",
+            "baslik": "Tek Kod Tabanı Sorusu Ne Zaman Gelir?",
+            "metin": "<p>Uygulama kararı netleştikten sonra. Mimari seçimi ayrı bir tartışmadır; <a href=\"../../hizmetler/mobil-uygulama/react-native/\">tek kod tabanı yaklaşımını</a> hizmet sayfasında anlattık. Karar sırasını bozmayın: önce gerekçe, sonra teknoloji.</p>"
+          }
+        ]
+      },
+      {
+        "h2": "Veriler Kimde Duracak, Kod Kime Ait Olacak?",
+        "dogrudanCevap": "Sözleşmede iki satır arayın: kaynak kodun mülkiyeti ve verilerin nerede tutulacağı. Bu iki satır yoksa ürün sizin değildir. Mağaza hesapları da kendi adınıza açılmalı, ajansın hesabına değil. Uygulama yaptırma görüşmesinde bunları sormamak, ilerideki en pahalı sessizliktir. Devir şartını baştan yazıya dökün.",
+        "govde": "<p>Bu başlık teknik değil hukuki görünür, oysa ikisi de aynı kapıya çıkar. Yazılımın kendisi kimin elindeyse, ürünün geleceği de onun elindedir. Ajans değiştirmek istediğinizde bu satırlar sizi kurtarır.</p><p>Üç şeyi kendi adınıza kurun: mağaza geliştirici hesapları, alan adı ve bulut hesabı. Geliştirici ekip bunlara davetli olarak katılsın, sahibi olarak değil.</p><p>Verinin nerede durduğu ayrı bir sorudur. Kişisel veri işliyorsanız sunucunun ülkesi, saklama süresi ve silme yordamı sözleşmede yazılı olmalı. Bu satırları sonradan eklemek, yayına çıkmış bir üründe hem pahalı hem yavaş ilerler.</p>",
+        "altBaslikar": [
+          {
+            "seviye": "h3",
+            "baslik": "Devir Nasıl Sorunsuz Yapılır?",
+            "metin": "<p>Depo erişimi, ortam değişkenleri ve kurulum belgesi ilk günden paylaşılsın. Yaptırma kararı uygulamanın son gününü değil ilk gününü bağlar; devir bittiğinde değil başladığında konuşulur.</p>"
+          }
+        ]
+      },
+      {
+        "h2": "Ajansa Hangi Beş Soruyu Sormalısınız?",
+        "dogrudanCevap": "Beş soru ajansın gerçek kapasitesini gösterir. Benzer bir ürünü mağazada yayınladınız mı? Hata hâllerini kim çiziyor? Bakım ve kod devri nasıl işliyor? Yanıtları yazılı isteyin. Uygulama yaptırma görüşmesi bir sınav değil, ortak çalışma provasıdır. Sorularınıza net yanıt gelmiyorsa, sorun sizde değildir.",
+        "govde": "<p>Bir ekibin ne yapabileceğini portföyünden çok, sorularınıza verdiği yanıt gösterir. Aşağıdaki beşi sırayla sorun ve yanıtları not alın.</p><ol><li><strong>Yayın deneyimi</strong> — benzer bir ürünü hangi mağazalarda yayınladınız?</li><li><strong>Hata hâlleri</strong> — boş liste, kopuk bağlantı ve zaman aşımını kim çiziyor?</li><li><strong>Bakım</strong> — işletim sistemi sürümü çıktığında süreç nasıl işliyor?</li><li><strong>Devir</strong> — kaynak kod ve hesaplar bize nasıl geçiyor?</li><li><strong>İletişim</strong> — haftalık ilerlemeyi kim, hangi biçimde raporluyor?</li></ol><p>Yanıtlar sözlü kalırsa unutulur. Yazılı isteyin; teklif ekine girsin.</p>",
+        "altBaslikar": [
+          {
+            "seviye": "h3",
+            "baslik": "Portföy Neden Tek Başına Yetmez?",
+            "metin": "<p>Vitrindeki iş bitmiş hâliyle görünür; nasıl bittiği görünmez. İki yıl önce yayınlanan bir uygulamanın bugün ayakta olup olmadığı daha çok şey anlatır. Mağazada arayın, son güncelleme tarihine bakın. Yorumlara da göz atın: kullanıcıların bildirdiği hataların yanıtlanıp yanıtlanmadığı, ekibin bakım alışkanlığını portföyden daha dürüst anlatır.</p>"
+          }
+        ]
+      },
+      {
+        "h2": "Sorularınızı Birlikte Yanıtlayalım",
+        "dogrudanCevap": "Bu soruların çoğunu tek başınıza yanıtlamanız gerekmez. Görüşmede sorunu, kullanıcıyı ve kullanım sıklığını birlikte konuşuyoruz. Elinizde ekran listesi değil, karar gerekçesi kalıyor. Uygulama yaptırma kararını o gerekçeyle verirseniz sonradan dönüş yapmazsınız. Yanlış ürüne harcanan ilk üç ay hiçbir bütçeyle geri gelmiyor.",
+        "govde": "<p>Kapsam oturumundan çıkarken elinizde bir sayfa olur: sorun, kullanıcı, sıklık, dört ölçüt ve devir şartları. <a href=\"../../hizmetler/mobil-uygulama/\">Mobil uygulama hizmetimizi</a> incelemek isterseniz sayfa hep açık. Yaptırmadan önce uygulamanızın gerekçesini yazıya dökmek, sonraki her kararı kolaylaştırır.</p>"
+      }
+    ],
+    "karsilastirmaTablosu": {
+      "baslik": "Uygulama mı, mobil site mi? Dört ölçüt",
+      "sutunlar": ["Ölçüt", "Uygulama gerekir", "Mobil site yeter"],
+      "satirlar": [
+        ["Kullanım sıklığı", "Haftada birkaç kez", "Yılda birkaç kez"],
+        ["Bildirim ihtiyacı", "Anlık uyarı şart", "E-posta yeterli"],
+        ["Çevrimdışı çalışma", "Bağlantısız da çalışmalı", "Her zaman çevrimiçi"],
+        ["Donanım erişimi", "Kamera, sensör, arka plan konumu", "Gerekmiyor"],
+        ["Mağaza görünürlüğü", "Rafta bulunmak önemli", "Arama motoru yeter"]
+      ]
+    },
+    "alinti": {
+      "metin": "Ekran listesi bir çözümdür. Hangi soruna ait olduğunu yazmadan sipariş verirseniz, çözümü satın alır sorunu evde bırakırsınız.",
+      "kaynak": "TasarımMania kapsam görüşmesi notu"
+    },
+    "alintiKonum": 3,
+    "sss": [
+      {
+        "soru": "Uygulama yaptırma kararı için elimde hangi belge olmalı?",
+        "cevap": "Tek sayfa yeter ama o sayfa dolu olmalı. İçinde şunlar bulunsun: çözülen sorunun tek cümlelik tanımı, kullanıcının kim olduğu, uygulamayı ne sıklıkla açacağı, olmazsa olmaz ekranların listesi ve dışarıyla konuşacağı servislerin adları. Bu sayfa elinizdeyse görüşme tahmin olmaktan çıkar, iki taraf da aynı işi konuşur. Sayfa yoksa ilk oturum zaten onu doldurmakla geçer; kaybedilen zaman değil, kazanılan netliktir."
+      },
+      {
+        "soru": "Fikrimi anlatırsam ajans çalar mı?",
+        "cevap": "Gizlilik sözleşmesi isteyin; ciddi hiçbir ekip bundan rahatsız olmaz."
+      },
+      {
+        "soru": "Uygulamayı önce küçük yaptırıp sonra büyütebilir miyim?",
+        "cevap": "Evet ve çoğu zaman doğrusu budur. İlk sürümü tek işe odaklayın, ölçün, sonra genişletin. Böylece yanlış özelliğe harcayacağınız bütçeyi baştan engellersiniz."
+      },
+      {
+        "soru": "Kaynak kodu almazsam ne kaybederim?",
+        "cevap": "Ajans değiştirme özgürlüğünüzü kaybedersiniz. Ürün çalışmaya devam eder ama her değişiklik tek bir kapıdan geçer."
+      },
+      {
+        "soru": "Mağaza hesabını ajans açsa olmaz mı?",
+        "cevap": "Olmaz. Hesap sizin adınıza açılmalı, ajans geliştirici olarak davet edilmeli. Yorumlar, indirme verisi ve uygulamanın kendisi o hesaba bağlıdır."
+      },
+      {
+        "soru": "Hangi sorular teklif alma aşamasına ertelenebilir?",
+        "cevap": "Renk, yazı tipi ve ikincil ekranlar ertelenebilir. Sorun tanımı, kullanıcı, sıklık ve devir şartları ertelenemez."
+      },
+      {
+        "soru": "Ajans benden ekran tasarımı isterse ne yapmalıyım?",
+        "cevap": "Vermeyin. Ekran tasarımı işin çıktısıdır, girdisi değil. Sizden beklenen şey sorunu, kullanıcıyı ve kısıtları anlatmaktır; gerisi ekibin işidir."
+      },
+      {
+        "soru": "Uygulama yaptırma süreci ne kadar sürer?",
+        "cevap": "Kapsama bağlı. Süre sorusunun yanıtı aşamalar netleştikten sonra anlam kazanır."
+      }
+    ],
+    "kapanis": "Uygulama yaptırma kararı teknolojiyle değil soruyla başlar. Sorunu, kullanıcıyı, sıklığı ve devir şartlarını yazıya döktüğünüzde geriye kalan her karar kendiliğinden kolaylaşır.",
+    "about": ["Mobil uygulama yaptırma", "Proje kapsamı", "Yazılım sözleşmesi"],
+    "mentions": ["Kaynak kod devri", "App Store", "Google Play", "Gizlilik sözleşmesi"]
+  }
+}
