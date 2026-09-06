@@ -1,16 +1,17 @@
 # İngilizce sürüm — devam notu
 
-**Son güncelleme:** 7 Eylül 2026 · **33 İngilizce sayfa canlı**, 100 sayfa toplam
+**Son güncelleme:** 7 Eylül 2026 · **34 İngilizce sayfa canlı**, 100 sayfa toplam
 
 Biten: `/en/` · `about` · `contact` · `services` · `blog` · `get-a-quote` ·
 `web-design` · `mobile-app-development` · `digital-marketing` · `seo` ·
 `video-production` · `graphic-design` · `corporate-website` ·
 `ecommerce-website` · `ai-services` · `custom-software-development` ·
-`website-maintenance` · `ios-android-app-development` · `react-native-development` · `app-ui-ux-design` · `app-store-optimization` · `google-ads` · `meta-ads` · `performance-marketing` · `social-media-management` · `commercial-video-production` · `product-video-production` · `short-form-video` · `ai-video-production` · `technical-seo` · `seo-content-strategy` · `local-seo` · `ecommerce-seo`
+`website-maintenance` · `ios-android-app-development` · `react-native-development` · `app-ui-ux-design` · `app-store-optimization` · `google-ads` · `meta-ads` · `performance-marketing` · `social-media-management` · `commercial-video-production` · `product-video-production` · `short-form-video` · `ai-video-production` · `technical-seo` · `seo-content-strategy` · `local-seo` · `ecommerce-seo` · `multilingual-seo`
 
-**Modül 01 (Web & Yazılım), Modül 02 (Mobil Uygulama), Modül 03
-(Meta & Google Ads) ve Modül 04 (Video Prodüksiyon) TAMAM.**
-Kalan tek modül: **05 SEO** — beş alt hizmet.
+**BEŞ MODÜLÜN 27 HİZMET SAYFASININ TAMAMI İNGİLİZCE.**
+Ana sayfa + 6 kurumsal sayfa da bitti → 34/34.
+Kalan: **42 blog yazısı** ve **`/kvkk/`** (çeviri değil, yeniden yazım).
+Ölçüm: `node plan/en-eksik-sayfa.js`
 
 Bu dosya bir sonraki oturum için. Hat kurulu ve çalışıyor; burada yazan
 kararlara uymak zorunlu — uyulmazsa site iki farklı İngilizce konuşur.
@@ -52,7 +53,7 @@ Windows yoluna çevirir.
 
 ## 2. Terim sözlüğü — ZORUNLU
 
-Bu kararlar 33 sayfada uygulandı. Değiştirmeyin.
+Bu kararlar 34 sayfada uygulandı. Değiştirmeyin.
 
 ### Marka vaadi
 | Türkçe | İngilizce | Neden |
@@ -169,15 +170,14 @@ HTML etiket adları · schema.org tür adları · **HTML/CSS/JS yorumları**
 
 ## 4. Kalan iş
 
-### Hizmet alt sayfaları — kalan 1 sayfa, ~1.550 kelime · yalnız Modül 05 (SEO)
-*(Modül 01, 02, 03 ve 04 alt hizmetlerinin tamamı bitti)*
+### Hizmet sayfaları — **BİTTİ (27/27)**
+Beş modülün de ana sayfası ve tüm alt hizmetleri İngilizce.
+Ölçüm: `node plan/en-eksik-sayfa.js` → *HİZMET sayfası eksik: 0*.
 
-
-
-
-`cok-dilli-seo` (170/1553)
-
-Öncelik: iç bağlantı sayısına göre — `en-ic-link.js` çalıştırıp listeye bakın.
+Kalan işi tür tür görmek için:
+```bash
+node plan/en-eksik-sayfa.js   # hizmet / kurumsal / blog kırılımıyla
+```
 
 ### Blog — 42 yazı
 Slug'lar **İngilizce odak kelimeden** türetilecek, Türkçe slug'ın çevirisi
