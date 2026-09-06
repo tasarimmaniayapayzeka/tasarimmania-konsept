@@ -47,12 +47,21 @@ const trSayfalar = tara(S).filter((f) => fs.statSync(f).size >= 2000)
    yazılmadı. Harita: plan/en-url-haritasi.json (sayfa-turu.js ile aynı kaynak). */
 const HARITA = JSON.parse(fs.readFileSync(path.join(__dirname, 'en-url-haritasi.json'), 'utf8'));
 const TR_EN = new Map([['/', '/en/']]);
-for (const grup of ['hizmetler', 'kurumsal'])
-  for (const [tr, o] of Object.entries(HARITA[grup] || {})) if (o && o.en) TR_EN.set(tr, o.en);
+/* ⚠ BÖLÜM ADI SABİTLENMESİN — blog bölümü eklenince buraya girmiyordu. */
+for (const [bolum, girdiler] of Object.entries(HARITA)) {
+  if (bolum.startsWith('_') || typeof girdiler !== 'object') continue;
+  for (const [tr, o] of Object.entries(girdiler)) {
+    if (tr.startsWith('_')) continue;
+    if (o && typeof o === 'object' && o.en) TR_EN.set(tr, o.en);
+  }
+}
 const EN_TR = new Map([...TR_EN].map(([a, b]) => [b, a]));
-/* blog yazıları haritada yok: aynı slug, /en/ önekiyle */
-const enKarsiligi = (trYol) => TR_EN.get(trYol) || (/^\/blog\//.test(trYol) ? '/en' + trYol : null);
-const trKarsiligi = (enYol) => EN_TR.get(enYol) || (/^\/en\/blog\//.test(enYol) ? enYol.replace(/^\/en/, '') : null);
+/* ⚠ "AYNI SLUG" VARSAYIMI KALDIRILDI. Blog slug'ları artık haritada ve
+ * Türkçenin çevirisi DEĞİL (odak kelimeden türetildi). Eski varsayım
+ * /en/blog/web-sitesine-chatbot-eklemek/ gibi HİÇ VAR OLMAYACAK adreslere
+ * hreflang yazardı — karşılıklılık ilkesinin tam tersi. */
+const enKarsiligi = (trYol) => TR_EN.get(trYol) || null;
+const trKarsiligi = (enYol) => EN_TR.get(enYol) || null;
 
 function hreflangBlogu(trYol) {
   const enYol = enKarsiligi(trYol);

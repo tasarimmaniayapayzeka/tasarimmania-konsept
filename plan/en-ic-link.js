@@ -21,10 +21,17 @@ const UYGULA = process.argv.includes('--uygula');
 const E = JSON.parse(fs.readFileSync(path.join(__dirname, 'en-url-haritasi.json'), 'utf8'));
 /* Türkçe adres → İngilizce adres */
 const TR_EN = new Map([['/', '/en/']]);
-for (const grup of ['hizmetler', 'kurumsal'])
-  for (const [tr, o] of Object.entries(E[grup] || {})) if (o && o.en) TR_EN.set(tr, o.en);
-/* blog yazıları: /blog/<slug>/ → /en/blog/<slug>/ (slug çeviri turunda belirlenir;
-   harita yoksa aynı slug varsayılır ve yalnız DİSKTE VARSA kullanılır) */
+/* ⚠ BÖLÜM ADI SABİTLENMESİN — blog bölümü eklenince buraya hiç girmiyordu.
+ * Blog slug'ları Türkçenin çevirisi DEĞİL (İngilizce odak kelimeden
+ * türetildi), o yüzden "/en" + Türkçe yol varsayımı yanlış adres üretirdi:
+ * /en/blog/web-sitesine-chatbot-eklemek/ diye bir sayfa hiç olmayacak. */
+for (const [bolum, girdiler] of Object.entries(E)) {
+  if (bolum.startsWith('_') || typeof girdiler !== 'object') continue;
+  for (const [tr, o] of Object.entries(girdiler)) {
+    if (tr.startsWith('_')) continue;
+    if (o && typeof o === 'object' && o.en) TR_EN.set(tr, o.en);
+  }
+}
 
 const varMi = (siteYolu) => fs.existsSync(path.join(S, siteYolu.replace(/^\//, ''), 'index.html'));
 

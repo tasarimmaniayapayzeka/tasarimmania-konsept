@@ -36,8 +36,18 @@ if (!HAM) { console.error('  kullanım: node plan/en-sayfa-uret.js <sayfa-yolu|a
 
 const HARITA = JSON.parse(fs.readFileSync(path.join(__dirname, 'en-url-haritasi.json'), 'utf8'));
 const TR_YOL = HEDEF === '' ? '/' : '/' + HEDEF.replace(/^\/|\/$/g, '') + '/';
-const EN_YOL = TR_YOL === '/' ? '/en/'
-  : (HARITA.hizmetler[TR_YOL] || HARITA.kurumsal[TR_YOL] || {}).en;
+/* ⚠ BÖLÜM ADI SABİTLENMESİN. Önce yalnız hizmetler+kurumsal'a bakılıyordu;
+ * blog bölümü eklenince 42 yazının hepsi "adres haritada yok" dedi.
+ * Artık tüm bölümler taranıyor — yeni bölüm eklenince burası bozulmaz. */
+function haritadaAra(yol) {
+  for (const [bolum, girdiler] of Object.entries(HARITA)) {
+    if (bolum.startsWith('_') || typeof girdiler !== 'object') continue;
+    const d = girdiler[yol];
+    if (d && typeof d === 'object' && d.en) return d.en;
+  }
+  return null;
+}
+const EN_YOL = TR_YOL === '/' ? '/en/' : haritadaAra(TR_YOL);
 if (!EN_YOL) { console.error(`  ✗ ${TR_YOL} için İngilizce adres haritada yok`); process.exit(2); }
 
 const trDosya = path.join(S, HEDEF, 'index.html');

@@ -7,7 +7,11 @@
  *   node plan/en-kayit-goster.js anasayfa             → hepsi
  */
 const fs = require('fs');
-const AD = process.argv[2];
+/* ⚠ Çıkarıcı dosya adında eğik çizgiyi alt çizgiye çeviriyor
+ * (en-metin-cikar.js: HEDEF.replace(/[\\/]/g, '_')). Blog yolları
+ * "blog/teknik-seo" biçiminde geldiği için burada da aynısı yapılmalı;
+ * yoksa "çıkarım dosyası yok" der. Ölçüldü: blog turunun ilk adımında. */
+const AD = (process.argv[2] || '').replace(/[\\/]/g, '_');
 const SUZ = process.argv[3] || '';
 if (!AD) { console.error('  kullanım: node plan/en-kayit-goster.js <ad> [tür|no-no]'); process.exit(2); }
 
