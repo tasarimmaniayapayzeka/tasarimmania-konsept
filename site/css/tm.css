@@ -4,6 +4,15 @@
    kendi alan adımızdan servis edilir; harici sunucudan hiçbir şey çekilmez.
    ========================================================================== */
 
+/* [hidden] SESSİZCE EZİLİYORDU — ölçülmüş hata.
+   Tarayıcı `[hidden]`e yalnız `display:none` verir; sınıfın kendi `display`i
+   (örn. `.bl-k{display:flex}`) bunu yener. Blog kategori süzgeci bu yüzden
+   ÇALIŞMIYORDU: JS `k.hidden = true` diyordu ama kart görünmeye devam ediyor,
+   her süzgeçte 28 kartın hepsi ekranda kalıyordu. Doğrulandı: sayfalarda
+   `hidden` taşıyıp görünmesi GEREKEN öge yok ve `style.display` ile gösterim
+   yapan kod yok — bu yüzden kural genel ve güvenli. */
+[hidden]{display:none!important}
+
 :root{
   /* zemin ve yüzeyler */
   --bg:#0B0D12; --bg-2:#0E1118; --bg-3:#12151D;

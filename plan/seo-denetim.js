@@ -1,5 +1,6 @@
 /* İhsan SEO Blog standardı — madde madde mekanik denetim.
-   Kullanım: node seo-denetim.js <index.html yolu> "<odak ifade>" */
+   Kullanım: node seo-denetim.js <index.html yolu> "<odak ifade>" [yazi-config.json]
+   3. argüman verilirse eş anlamlı çiftler o yazının kendi listesinden okunur. */
 const fs = require('fs');
 const DOSYA = process.argv[2];
 const ODAK = process.argv[3] || 'e-ticaret yazılımı';
@@ -100,7 +101,12 @@ const cevaplar = cevapMetin.map((c) => kelimeler(c).length);
 const cevapIlkKr = cevapMetin.map((c) => c.split(/(?<=[.!?])\s/)[0].length);
 
 /* --- 6. İnsansılık eşikleri --- */
-const cumleler = govdeMetin.split(/(?<=[.!?])\s+/).filter((c) => kelimeler(c).length > 2);
+/* CÜMLE SINIRI BLOK SINIRINI DA TANIMALI — 4b maddesinde öğrenilen ders burada da geçerli.
+   Yalnız [.!?] ile bölünce nokta içermeyen bloklar (tablo hücreleri, düğme yazıları,
+   başlıklar) tek dev "cümle" gibi yapışıyordu: karşılaştırma tablosu 69 kelimelik tek
+   cümle sayılıp uzun-cümle oranını şişiriyordu. Tablo satırı cümle değildir. */
+const cumleler = metinBloklu(govdeHtml).split(/(?<=[.!?])\s+|\s*¶\s*/)
+  .filter((c) => kelimeler(c).length > 2);
 const uzunCumle = cumleler.filter((c) => kelimeler(c).length >= 15).length;
 const ayrica = (govdeMetin.match(/\bAyrıca\b/g) || []).length;
 const ancak = (govdeMetin.match(/\bAncak\b/g) || []).length;
@@ -111,9 +117,38 @@ for (let i = 1; i < cumleler.length; i++) {
   if (a && b && a.toLowerCase() === b.toLowerCase()) ardisik.push(a);
 }
 
-/* edilgen çatı yaklaşık: -ıl/-il/-ul/-ül/-ın/-in fiil sonları + yardımcı kalıplar */
-const edilgenRe = /\b\w+(?:ıl|il|ul|ül|ın|in|un|ün)(?:ıyor|iyor|uyor|üyor|dı|di|du|dü|tı|ti|tu|tü|ır|ir|ur|ür|acak|ecek|malı|meli|mış|miş)\w*\b/gi;
-const edilgenCumle = cumleler.filter((c) => edilgenRe.test(c) && (edilgenRe.lastIndex = 0) === 0).length;
+/* edilgen çatı yaklaşık: -ıl/-il/-ul/-ül/-ın/-in fiil sonları + yardımcı kalıplar
+ *
+ * ⚠ ÖLÇÜLDÜ — ham desen üç ayrı YALANCI POZİTİF üretiyordu:
+ *   1) "-Abilir" yeterlilik eki: "sürebilir" → sür+e+B-İL+ir. Etken bir kip, edilgen değil.
+ *      Ama "konuşulabilir" GERÇEKTEN edilgen (konuş-UL-abilir) — eki körü körüne atmak
+ *      onu da kaçırırdı. Çözüm: eki "-ir"e indirgeyip gövdeyi yeniden sınamak.
+ *   2) İsimler: "bildirim" → b+il+di+rim. Türkçede tek harflik fiil gövdesi yok;
+ *      gövde en az 2 harf istenerek eleniyor.
+ *   3) Ettirgen "-t-": "yanıltır" → yan+ıl+tır. Edilgen "-ıl" gövdesi "l" ile bittiği
+ *      için ardından DAİMA "-dı" gelir, "-tı" gelmez; "-ılt-" ettirgendir, etkendir. */
+/* ⚠ `\w` Türkçe harf tanımıyor: "çözülür"de gövde "çöz" yerine yalnız "z" görünüyor.
+ *   Gövde sınıfı ASCII bırakılırsa 2-harf koşulu GERÇEK edilgenleri elerdi. */
+/*   4) Sözlüksel sınır (sezgisel yolla KAPATILAMAZ): "küçülür", "düşünürüz" eki değil
+ *      gövdesi öyle. Hiçbir ek çözümlemesi bunları edilgenden ayıramaz — ayırmak için
+ *      fiil sözlüğü gerekir. İstisna listesi bu yüzden kısa ve açık tutuluyor.
+ *   5) "değil" fiil bile değil, olumsuzluk edatı; "değildir" edilgen sayılamaz.
+ *
+ * ⚠ DENENDİ VE GERİ ALINDI — ünlüyle biten gövdedeki "-n-" edilgeni ("planlanıyor")
+ *   markere eklenmişti. Gerçek metinde ÖLÇÜLDÜ: 2 gerçek yakalamaya karşılık 6 yalancı
+ *   pozitif ("kullanıyoruz", "hızlanır", "konumlandırıyoruz" — hepsi etken, "-Vn" gövdenin
+ *   parçası). Net zarar. Bu edilgen türü BİLEREK ölçülmüyor; ölçüm dar ama dürüst.
+ *   İlk test kümem yalnız edilgen "-n-" örnekleri içerdiği için hatayı görmemişti. */
+const TH = 'a-zA-ZçğıöşüÇĞİÖŞÜ0-9_';
+const YETERLILIK = /([aeıioöuü])bil(ir|ecek|iyor|di|miş|mek|meli|se)/gi;
+const SOZLUKSEL = /(?:küçül|uzan|dayan|kazan|yaşan|düşün|değil|bulun|gerekir)[a-zçğıöşü]*/gi;
+const edilgenRe = new RegExp('(?<![' + TH + '])[' + TH + ']{2,}(?:ıl|il|ul|ül|ın|in|un|ün)(?!t)'
+  + '(?:ıyor|iyor|uyor|üyor|dı|di|du|dü|ır|ir|ur|ür|acak|ecek|malı|meli|mış|miş)[' + TH + ']*', 'gi');
+const edilgenVar = (c) => {
+  edilgenRe.lastIndex = 0;
+  return edilgenRe.test(c.replace(YETERLILIK, 'ir').replace(SOZLUKSEL, 'X'));
+};
+const edilgenCumle = cumleler.filter(edilgenVar).length;
 
 /* --- SSS --- */
 const sssSorular = [...sssBolge.matchAll(/<summary[^>]*>([\s\S]*?)<\/summary>/gi)].map((m) => metin(m[1]));
@@ -184,9 +219,19 @@ const tersBulgular = tumGorunurBloklu
   .flatMap((c) => c.match(tersRe) || []);
 
 /* --- Eş anlamlı çiftler --- */
-const ES = [['e-ticaret yazılımı', 'online mağaza altyapısı'], ['SaaS', 'abonelikli sistem'],
+/* ⚠ ÖNCEDEN e-ticaret yazısına GÖMÜLÜYDÜ — başka konudaki yazı bu maddeyi
+   asla geçemiyordu. Standart zaten "sektöre göre kendi listeni çıkar" diyor.
+   Artık 3. argümanla yazı yapılandırması verilebiliyor; verilmezse eski
+   liste yedek olarak kalıyor. */
+const ES_VARSAYILAN = [['e-ticaret yazılımı', 'online mağaza altyapısı'], ['SaaS', 'abonelikli sistem'],
   ['hazır paket', 'kurulum tabanlı altyapı'], ['ısmarlama', 'özel yazılım'],
   ['entegrasyon', 'bağlantı'], ['varyasyon', 'kombinasyon']];
+const ES_DOSYA = process.argv[4];
+let ES = ES_VARSAYILAN;
+if (ES_DOSYA && fs.existsSync(ES_DOSYA)) {
+  const c = JSON.parse(fs.readFileSync(ES_DOSYA, 'utf8'));
+  if (Array.isArray(c?.yazi?.esAnlamli) && c.yazi.esAnlamli.length) ES = c.yazi.esAnlamli;
+}
 const esBulunan = ES.filter(([a, b]) =>
   new RegExp(a, 'i').test(tumGorunur) && new RegExp(b, 'i').test(tumGorunur));
 

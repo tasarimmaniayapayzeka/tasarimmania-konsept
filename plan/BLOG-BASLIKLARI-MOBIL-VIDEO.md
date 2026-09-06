@@ -185,3 +185,67 @@ en geniş konu, en hızlı getiri. Sonra Küme A, en son Küme C.
 
 Ama iç link boşluğunu kapatmak öncelikse sıra farklı olur: **1, 4, 5, 6**
 (mobil modülünün dördü) önce yazılırsa o modül tek turda kapanır.
+
+---
+
+## 5. ÜRETİM DURUMU
+
+| # | Yazı | Durum |
+|---|---|---|
+| 1 | Mobil Uygulama Geliştirme Maliyeti | ✅ **TAMAM** — 18/18 eşik, 2 görsel, dizin+sitemap kayıtlı |
+| 2-15 | kalan 14 başlık | ⬜ sırada |
+
+**Yayın takvimi:** mevcut kartlar 1 Eylül → 23 Ekim 2026 arası 2 günde bir.
+Yeni yazılar oradan devam ediyor: yazı 1 = **25 Ekim 2026**, sonrakiler 27, 29, 31 Ekim…
+
+### Yazı üretim hattı (sırayla koşulacak)
+
+```
+node plan/blog-uret.js    plan/yazi-NN-*.json                    # HTML üret
+node plan/seo-denetim.js  site/blog/<slug>/index.html "<odak>" plan/yazi-NN-*.json
+node plan/blog-kaydet.js  plan/yazi-NN-*.json --uygula           # dizin kartı + sitemap
+```
+
+`blog-kaydet.js` **yeni** — yazı üretiliyor ama `/blog/` listesine ve sitemap'e
+girmiyordu, yani kimse ulaşamıyordu. Etkisiz tekrar korumalı (iki kez koşmak
+kart çoğaltmaz).
+
+### ⚠ Yoğunluk ölü bölgesi — yazmadan önce hesapla
+
+3 kelimelik odakta her geçiş yoğunluğu `%3/N·100` oynatır. %2.2-2.4 bandı dar
+olduğundan **bazı kelime sayılarında hiçbir tam sayı bandın içine düşmez.**
+Yazı 1'de bu yaşandı: 1099 kelimede 8 geçiş %1.75, 9 geçiş %2.46 — ikisi de dışarıda.
+
+| Gövde kelime | Gereken tam geçiş |
+|---|---|
+| 1000-1090 | 8 |
+| **1091-1124** | **hiçbiri — bu aralıktan kaçın** |
+| 1125-1227 | 9 |
+
+Gövde uzunluğunu bu tabloya göre seç; sonradan kelime eklemek/çıkarmak zorunda kalma.
+
+### Denetim aracında düzeltilen üç ölçüm hatası
+
+Bunlar yazının değil, **denetçinin** hatasıydı; yazı 2-15'te de etkili:
+
+1. **Edilgen dedektörü 24 vakanın 8'inde yanılıyordu.** "yapıldı"yı kaçırıyor
+   (Türkçe harften sonra `\b` tutmuyor), "sürebilir/bildirim/yanıltır"ı edilgen
+   sanıyordu. Düzeltildi → 0/24. Bekçisi: `node plan/edilgen-test.js`.
+2. **Cümle sınırı blok sınırını görmüyordu.** Noktasız bloklar (tablo hücreleri,
+   düğme yazıları) tek dev cümleye yapışıp "uzun cümle" oranını şişiriyordu —
+   karşılaştırma tablosu tek başına 69 kelimelik "cümle" sayılıyordu.
+3. **Eş anlamlı çift listesi e-ticaret yazısına gömülüydü;** başka konudaki yazı
+   bu maddeyi asla geçemiyordu. Artık 3. argümanla yazı yapılandırmasından okunuyor.
+
+**Bilerek ölçülmeyen:** ünlü gövdeli `-n-` edilgeni ("planlanıyor"). Eklendi,
+gerçek metinde ölçüldü, **geri alındı**: 2 gerçek yakalamaya karşı 6 yalancı
+pozitif ("kullanıyoruz", "hızlanır" — hepsi etken). `edilgen-test.js` bunu
+"hata" değil "BİLİNEN SINIR" olarak sayar; kayıt duruyor, sessizce silinmedi.
+
+### Yan bulgu — blog kategori süzgeci bozukmuş (düzeltildi)
+
+Yazı 1 için "Mobil" düğmesi eklerken çıktı: **süzgeç en baştan beri
+çalışmıyormuş.** `.bl-k{display:flex}`, `[hidden]`in `display:none`ını eziyordu;
+JS kartı gizliyor sanıyor, 28 kartın hepsi ekranda kalıyordu. `tm.css`'e
+`[hidden]{display:none!important}` eklendi. Doğrulandı: Tümü 28 · Mobil 1 ·
+Seo 7 · Web Tasarım 3. Ana sayfa/teklif/iletişim gerilemesi yok.
