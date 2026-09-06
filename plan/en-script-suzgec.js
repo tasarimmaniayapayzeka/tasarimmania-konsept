@@ -23,6 +23,7 @@ const KOD = [
   /^[<>{}[\]()\s;:,.'"+*=|&!?%$@^~`\\/-]+$/, /* yalnız simge */
   /^(true|false|null|undefined)$/,
   /^var\(--[\w-]+\)$/,                       /* CSS özel değişkeni */
+  /^[a-z-]+\(/,                              /* işlev/CSS çağrısı: rgba( calc( var( translate( */
 ];
 
 /* AÇIK MUAFİYET — kalıba uymayan ama kod olan dizgeler.
@@ -48,8 +49,14 @@ function insanMetni(ham) {
   if (KOD.some((r) => r.test(d))) return false;
   if (TR_HARF.test(d)) return true;
   if (TR_KELIME.test(d)) return true;
+  if (!/[a-zçğıöşü]{3}/.test(d)) return false;
   /* boşluklu, harfle başlayan, en az iki kelime → muhtemel cümle */
-  return /^[A-ZÇĞİÖŞÜa-zçğıöşü].*\s\S/.test(d) && /[a-zçğıöşü]{3}/.test(d);
+  if (/^[A-ZÇĞİÖŞÜa-zçğıöşü].*\s\S/.test(d)) return true;
+  /* ⚠ TEK KELİMELİK CÜMLE PARÇASI — ölçülmüş kaçak: WhatsApp mesaj
+     kurucusundaki 'Merhaba,' boşluksuz ve şapkasız olduğu için "kod" sayıldı
+     ve İngilizce sayfada Türkçe kalacaktı. Değişken adında bulunmayan
+     noktalama (virgül, iki nokta, soru/ünlem, sonda nokta) varsa insan metni. */
+  return /^[A-ZÇĞİÖŞÜa-zçğıöşü][^\s]*[,;:!?]$|^[A-ZÇĞİÖŞÜa-zçğıöşü][^\s]*\.$/.test(d);
 }
 
 /* Bir HTML metnindeki ld+json DIŞI script bloklarını verir. */
@@ -67,13 +74,41 @@ function scriptBloklari(h) {
    ⚠ Tırnağı bilmek ZORUNLU: İngilizce çeviri tek tırnaklı bir dizgenin içine
      yazılıyorsa "we've" kesme işareti dizgeyi erken kapatır ve blok sözdizimi
      hatası verir. Ölçüldü — ana sayfanın tüm widget'ları sessizce öldü. */
+/* ⚠ YORUMLAR HARİÇ — ölçülmüş gürültü: /iletisim/ betiğindeki bir açıklama
+   satırı ("yurt dışından bakan biri \"kapalı\"yı yanlış görürdü") çeviri
+   kaydı olarak çıktı. Yorum geliştiriciye aittir, ekranda görünmez; çevirmek
+   kodu yarı Türkçe yarı İngilizce bırakır. Düz regex yorumu ayırt edemediği
+   için kod küçük bir çözümleyiciyle taranıyor: dizge / yorum / düzenli ifade
+   durumları izleniyor, böylece "https://…" içindeki // de yorum sanılmıyor. */
 function gorunurDizgelerAyrintili(kod) {
   const o = [];
-  for (const m of kod.matchAll(/'((?:[^'\\\n]|\\.)*)'|"((?:[^"\\\n]|\\.)*)"/g)) {
-    const tekTirnak = m[1] !== undefined;
-    const ham = tekTirnak ? m[1] : m[2];
-    const metin = ham.trim();
-    if (insanMetni(metin)) o.push({ ham, tirnak: tekTirnak ? "'" : '"', metin });
+  const n = kod.length;
+  let i = 0, oncekiAnlamli = '';
+  while (i < n) {
+    const c = kod[i], c2 = kod[i + 1];
+    /* yorumlar */
+    if (c === '/' && c2 === '/') { while (i < n && kod[i] !== '\n') i++; continue; }
+    if (c === '/' && c2 === '*') { i += 2; while (i < n && !(kod[i] === '*' && kod[i + 1] === '/')) i++; i += 2; continue; }
+    /* düzenli ifade sabiti: yalnız bir işlecin ardından gelebilir */
+    if (c === '/' && /[(,=:[!&|?{};+\-*%~^]/.test(oncekiAnlamli)) {
+      i++;
+      while (i < n && kod[i] !== '/' && kod[i] !== '\n') { if (kod[i] === '\\') i++; if (kod[i] === '[') { while (i < n && kod[i] !== ']') { if (kod[i] === '\\') i++; i++; } } i++; }
+      i++; continue;
+    }
+    /* dizge sabitleri */
+    if (c === "'" || c === '"' || c === '`') {
+      const tirnak = c; const bas = ++i;
+      while (i < n && kod[i] !== tirnak) { if (kod[i] === '\\') i++; i++; }
+      const ham = kod.slice(bas, i);
+      i++;
+      if (tirnak !== '`') {                     /* şablon dizgesi çevrilmiyor: ${} taşıyabilir */
+        const metin = ham.trim();
+        if (insanMetni(metin)) o.push({ ham, tirnak, metin });
+      }
+      oncekiAnlamli = tirnak; continue;
+    }
+    if (!/\s/.test(c)) oncekiAnlamli = c;
+    i++;
   }
   return o;
 }

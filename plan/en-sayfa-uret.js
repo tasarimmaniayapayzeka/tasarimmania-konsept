@@ -52,9 +52,43 @@ for (const [p, ad] of [[cikarimDosya, 'çıkarım'], [ceviriDosya, 'çeviri']])
   if (!fs.existsSync(p)) { console.error(`  ✗ ${ad} dosyası yok: ${p}`); process.exit(2); }
 
 const CIKARIM = JSON.parse(fs.readFileSync(cikarimDosya, 'utf8'));
-const CEV = JSON.parse(fs.readFileSync(ceviriDosya, 'utf8')).ceviri;
+const CEVIRI_HAM = JSON.parse(fs.readFileSync(ceviriDosya, 'utf8'));
+const CEV = CEVIRI_HAM.ceviri;
 const C = { kayitlar: CIKARIM.kayitlar.map((k) => ({ ...k, en: CEV[String(k.no)] })) };
 let h = fs.readFileSync(trDosya, 'utf8');
+
+/* ═══ 0. NUMARA KİLİDİ ═══
+   ⚠ Çeviriler SIRA NUMARASIYLA eşleşiyor. Çıkarıcı geliştiğinde araya yeni
+   kayıt girebilir ve numaralar kayar — o zaman her çeviri YANLIŞ dizgeye
+   uygulanır ve bu SESSİZ bir bozulmadır (sayım tutmaya devam eder).
+   Ölçüldü: süzgece noktalama kuralı eklenince ana sayfada 'marka:' kaydı
+   430. sıraya girdi ve sonraki 12 kayıt birer kaydı.
+   Çözüm: çeviri dosyası her kaydın Türkçesinin ilk 48 karakterini de tutar.
+   Yazmak için: node plan/en-sayfa-uret.js <sayfa> --kaynak-yaz */
+const kaynakKisa = (s) => String(s).replace(/\s+/g, ' ').trim().slice(0, 48);
+if (process.argv.includes('--kaynak-yaz')) {
+  CEVIRI_HAM._kaynak = {};
+  for (const k of CIKARIM.kayitlar) CEVIRI_HAM._kaynak[String(k.no)] = kaynakKisa(k.metin);
+  fs.writeFileSync(ceviriDosya, JSON.stringify(CEVIRI_HAM, null, 2) + '\n', 'utf8');
+  console.log(`\n  ✓ _kaynak yazıldı — ${CIKARIM.kayitlar.length} kayıt · ${path.basename(ceviriDosya)}\n`);
+  process.exit(0);
+}
+if (CEVIRI_HAM._kaynak) {
+  const kayma = CIKARIM.kayitlar.filter((k) => {
+    const b = CEVIRI_HAM._kaynak[String(k.no)];
+    return b !== undefined && b !== kaynakKisa(k.metin);
+  });
+  if (kayma.length) {
+    console.error(`\n  ✗ ÜRETİM DURDU — NUMARA KAYMASI: ${kayma.length} kayıt çevirisinin yazıldığı metinle eşleşmiyor\n`);
+    kayma.slice(0, 8).forEach((k) => {
+      console.error(`     ${String(k.no).padStart(3)}. beklenen: "${CEVIRI_HAM._kaynak[String(k.no)]}"`);
+      console.error(`          şimdiki: "${kaynakKisa(k.metin)}"`);
+    });
+    if (kayma.length > 8) console.error(`     … ${kayma.length - 8} kayıt daha`);
+    console.error('\n     Çeviri dosyasındaki numaraları düzeltin, sonra --kaynak-yaz ile kilidi tazeleyin.\n');
+    process.exit(1);
+  }
+}
 
 /* ═══ 1. SAYIM KİLİDİ ═══ */
 const cevirisiz = C.kayitlar.filter((k) => !k.en || !String(k.en).trim());
@@ -290,7 +324,14 @@ if (bulunamayan.length) {
    Yalnız sayı vermek yetmez; hangi dizgenin çevrilmediğini göstermeli. */
 /* Çevrilmeyecekler: marka, kişi adları (müşteri ve kurucu), adres, ülke,
    alan adı ve kod dizgeleri. Bunlarda Türkçe karakter kalması DOĞRU. */
-const MUAF_TR = /TasarımMania|İhsan Ar|Murat Aydın|Selin Erdoğan|Emre Kılıç|Zeytinlik|Bakırköy|İstanbul|Türkiye|tasarimmania|kampanya\.config/;
+/* Sayfaya özel muafiyetler çeviri dosyasındaki "_muaf" dizisinden gelir —
+   yer/istasyon adı gibi çevrilmemesi DOĞRU olan özel adlar. Üreticiye gömmek
+   yerine sayfanın yanında durması, kararın gerekçesiyle birlikte kalmasını
+   sağlıyor (örn. /iletisim/ → "Özgürlük Meydanı" metro istasyonu). */
+const MUAF_LISTE = (CEVIRI_HAM._muaf || []).map((s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+const MUAF_TR = new RegExp('TasarımMania|İhsan Ar|Murat Aydın|Selin Erdoğan|Emre Kılıç|Zeytinlik'
+  + '|Bakırköy|İstanbul|Türkiye|tasarimmania|kampanya\\.config'
+  + (MUAF_LISTE.length ? '|' + MUAF_LISTE.join('|') : ''));
 const kalan = new Map();
 for (const m of h.matchAll(/>([^<>{}]*[çğıöşüÇĞİÖŞÜ][^<>{}]*)</g)) {
   const t = m[1].replace(/\s+/g, ' ').trim();

@@ -40,8 +40,22 @@ const yol = (f) => '/' + path.relative(S, f).split(path.sep).join('/').replace(/
 const trSayfalar = tara(S).filter((f) => fs.statSync(f).size >= 2000)
   .filter((f) => !yol(f).startsWith('/en/'));
 
+/* ⚠ İNGİLİZCE ADRES HARİTADAN OKUNUR — "/en" + Türkçe yol DEĞİL.
+   Ölçülmüş hata: adresler çevrilmiş slug kullanıyor (/iletisim/ → /en/contact/).
+   Naif kural yalnız ana sayfada doğru çıkıyordu (/ → /en/); iletişim sayfası
+   "karşılığı yok" sayılıp hreflang'sız kaldı ve İngilizce tarafa da hiç
+   yazılmadı. Harita: plan/en-url-haritasi.json (sayfa-turu.js ile aynı kaynak). */
+const HARITA = JSON.parse(fs.readFileSync(path.join(__dirname, 'en-url-haritasi.json'), 'utf8'));
+const TR_EN = new Map([['/', '/en/']]);
+for (const grup of ['hizmetler', 'kurumsal'])
+  for (const [tr, o] of Object.entries(HARITA[grup] || {})) if (o && o.en) TR_EN.set(tr, o.en);
+const EN_TR = new Map([...TR_EN].map(([a, b]) => [b, a]));
+/* blog yazıları haritada yok: aynı slug, /en/ önekiyle */
+const enKarsiligi = (trYol) => TR_EN.get(trYol) || (/^\/blog\//.test(trYol) ? '/en' + trYol : null);
+const trKarsiligi = (enYol) => EN_TR.get(enYol) || (/^\/en\/blog\//.test(enYol) ? enYol.replace(/^\/en/, '') : null);
+
 function hreflangBlogu(trYol) {
-  const enYol = trYol === '/' ? '/en/' : '/en' + trYol;
+  const enYol = enKarsiligi(trYol);
   return '<link rel="alternate" hreflang="tr" href="' + KANONIK + trYol + '">\n'
     + '<link rel="alternate" hreflang="en" href="' + KANONIK + enYol + '">\n'
     + '<link rel="alternate" hreflang="x-default" href="' + KANONIK + trYol + '">';
@@ -52,8 +66,8 @@ const eksikler = [];
 
 for (const f of trSayfalar) {
   const t = yol(f);
-  const enDosya = path.join(EN, t === '/' ? '' : t.replace(/^\//, ''), 'index.html');
-  const varMi = fs.existsSync(enDosya);
+  const enY = enKarsiligi(t);
+  const varMi = !!enY && fs.existsSync(path.join(S, enY.replace(/^\//, ''), 'index.html'));
   let h = fs.readFileSync(f, 'utf8');
   const once = h;
 
@@ -79,8 +93,11 @@ for (const f of trSayfalar) {
 let enYazilan = 0;
 for (const f of tara(EN).filter((x) => fs.statSync(x).size >= 2000)) {
   const enY = yol(f);                       /* /en/... */
-  const trY = enY === '/en/' ? '/' : enY.replace(/^\/en/, '');
-  if (!fs.existsSync(path.join(S, trY === '/' ? '' : trY.replace(/^\//, ''), 'index.html'))) continue;
+  const trY = trKarsiligi(enY);
+  if (!trY || !fs.existsSync(path.join(S, trY === '/' ? '' : trY.replace(/^\//, ''), 'index.html'))) {
+    eksikler.push(enY + ' — Türkçe karşılığı haritada/diskte yok');
+    continue;
+  }
   let h = fs.readFileSync(f, 'utf8');
   const once = h;
   h = h.replace(/\n?<link rel="alternate" hreflang="[^"]*"[^>]*>/g, '');

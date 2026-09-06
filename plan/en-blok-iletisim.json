@@ -1,0 +1,18 @@
+{
+  "_aciklama": "BLOK DEĞİŞİMİ — /iletisim/. Mesai durumu rozeti. Her blok sayfada TAM 1 kez geçmeli; üretici sayar, tutmazsa durur.",
+
+  "_neden": {
+    "gün adları eksik çıkıyordu": "GUN dizisindeki yedi günün yalnız üçü (Salı, Çarşamba, Perşembe) çeviri kaydı oldu; Pazar/Pazartesi/Cuma/Cumartesi şapkasız ve boşluksuz olduğu için süzgeçte 'kod' sayıldı. Yarısı çevrilmiş bir dizi rozeti bozardı — dizi bütün olarak değişiyor.",
+    "kelime sırası": "Türkçe 'BUGÜN 19:00’A KADAR' sonek ile kuruluyor; İngilizcede edat öne geçiyor: 'TODAY UNTIL 19:00'. Dizgeleri tek tek çevirmek anlamsız bir sıra üretirdi. Kapalıyken: 'OPENS TODAY AT 10:00' / 'OPENS TOMORROW AT 09:00' / 'OPENS MONDAY AT 09:00'.",
+    "toLocaleUpperCase('tr') → 'en'": "Türkçe yerelde büyütme i→İ üretir; İngilizce gün adlarında yanlış olur.",
+    "YARIN kaydı yok": "'YARIN' de boşluksuz olduğu için çıkarılmamıştı; blok içinde TOMORROW olarak karşılanıyor."
+  },
+
+  "bloklar": {
+    "  var GUN = ['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];": "  var GUN = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];",
+
+    "    yaziEl.innerHTML = '<b>Şu an açığız.</b> Arayabilirsiniz.';\r\n    saatEl.textContent = 'BUGÜN ' + ss(bugun[1]) + '’A KADAR';": "    yaziEl.innerHTML = '<b>We’re open.</b> Give us a call.';\r\n    saatEl.textContent = 'TODAY UNTIL ' + ss(bugun[1]);",
+
+    "    yaziEl.innerHTML = '<b>Şu an kapalıyız.</b> Mesaj bırakın, dönüş yapalım.';\r\n    saatEl.textContent = (kacGun === 0 ? 'BUGÜN ' : (kacGun === 1 ? 'YARIN ' : GUN[hedefGun].toLocaleUpperCase('tr') + ' '))\r\n      + ss(ac[0]) + '’DA AÇILIYOR';": "    yaziEl.innerHTML = '<b>We’re closed.</b> Leave a message and we’ll come back to you.';\r\n    saatEl.textContent = 'OPENS ' + (kacGun === 0 ? 'TODAY ' : (kacGun === 1 ? 'TOMORROW ' : GUN[hedefGun].toLocaleUpperCase('en') + ' '))\r\n      + 'AT ' + ss(ac[0]);"
+  }
+}
