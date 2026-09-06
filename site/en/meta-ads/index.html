@@ -762,7 +762,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 <rect class="cz-cizgi" style="--u:688;--d:0.00s" x="14" y="14" width="152" height="182" rx="10"/><rect class="cz-dolgu" style="--d:0.00s" x="14" y="14" width="152" height="182" rx="10"/><circle class="cz-cizgi" style="--u:62;--d:0.42s" cx="32" cy="34" r="8"/><line class="cz-cizgi" style="--u:72;--d:0.84s" x1="48" y1="34" x2="112" y2="34"/><rect class="cz-cizgi" style="--u:468;--d:1.26s" x="24" y="50" width="132" height="92" rx="6"/><rect class="cz-dolgu" style="--d:1.26s" x="24" y="50" width="132" height="92" rx="6"/><line class="cz-cizgi" style="--u:169;--d:1.68s" x1="24" y1="142" x2="156" y2="50"/><circle class="cz-cizgi" style="--u:56;--d:2.10s" cx="36" cy="166" r="7"/><circle class="cz-cizgi" style="--u:56;--d:2.52s" cx="62" cy="166" r="7"/><circle class="cz-cizgi" style="--u:56;--d:2.94s" cx="88" cy="166" r="7"/><circle class="cz-cizgi" style="--u:226;--d:3.36s" cx="248" cy="78" r="34"/><circle class="cz-cizgi" style="--u:226;--d:3.78s" cx="292" cy="78" r="34"/><text class="cz-etiket vurgu" style="--d:4.32s" x="230" y="136">audience overlap</text><rect class="cz-cizgi" style="--u:232;--d:4.20s" x="346" y="34" width="66" height="40" rx="8"/><rect class="cz-dolgu" style="--d:4.20s" x="346" y="34" width="66" height="40" rx="8"/><text class="cz-etiket" style="--d:4.74s" x="372" y="58">A</text><rect class="cz-cizgi" style="--u:232;--d:4.62s" x="346" y="90" width="66" height="40" rx="8"/><rect class="cz-dolgu" style="--d:4.62s" x="346" y="90" width="66" height="40" rx="8"/><text class="cz-etiket" style="--d:5.16s" x="372" y="114">B</text><text class="cz-etiket" style="--d:5.16s" x="346" y="156">variant test</text>
               </svg>
             </div>
-            <div class="ciz-alt"><div class="ciz-cip"><u>AUDIENCES</u><b data-sayac="3" data-birim=" katman">0 layers</b></div><div class="ciz-cip"><u>PLACEMENTS</u><b data-sayac="4" data-birim="">0</b></div><div class="ciz-cip"><u>TESTING</u><b>A/B ongoing</b></div></div>
+            <div class="ciz-alt"><div class="ciz-cip"><u>AUDIENCES</u><b data-sayac="3" data-birim=" layers">0 layers</b></div><div class="ciz-cip"><u>PLACEMENTS</u><b data-sayac="4" data-birim="">0</b></div><div class="ciz-cip"><u>TESTING</u><b>A/B ongoing</b></div></div>
           </div>
         </div>
       </div>
@@ -1331,7 +1331,7 @@ document.getElementById('yil').textContent = new Date().getFullYear();
   var cipler = document.querySelectorAll('.ciz-cip [data-sayac]');
   if (!cipler.length) return;
   function bicim(hedef, deger){
-    return (hedef % 1 === 0 ? Math.round(deger) : deger.toFixed(1).replace('.', ','));
+    return (hedef % 1 === 0 ? Math.round(deger) : deger.toFixed(1));
   }
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     cipler.forEach(function(b){ b.textContent = bicim(parseFloat(b.dataset.sayac), parseFloat(b.dataset.sayac)) + b.dataset.birim; });

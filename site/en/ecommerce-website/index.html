@@ -791,7 +791,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 <rect class="cz-cizgi" style="--u:340;--d:0.00s" x="14" y="14" width="86" height="74" rx="6"/><rect class="cz-dolgu" style="--d:0.00s" x="14" y="14" width="86" height="74" rx="6"/><rect class="cz-cizgi" style="--u:340;--d:0.42s" x="108" y="14" width="86" height="74" rx="6"/><rect class="cz-dolgu" style="--d:0.42s" x="108" y="14" width="86" height="74" rx="6"/><rect class="cz-cizgi" style="--u:340;--d:0.84s" x="202" y="14" width="86" height="74" rx="6"/><rect class="cz-dolgu" style="--d:0.84s" x="202" y="14" width="86" height="74" rx="6"/><line class="cz-cizgi" style="--u:74;--d:1.26s" x1="24" y1="66" x2="90" y2="66"/><line class="cz-cizgi" style="--u:74;--d:1.68s" x1="118" y1="66" x2="184" y2="66"/><line class="cz-cizgi" style="--u:74;--d:2.10s" x1="212" y1="66" x2="278" y2="66"/><rect class="cz-cizgi" style="--u:288;--d:2.52s" x="310" y="14" width="104" height="30" rx="15"/><rect class="cz-dolgu" style="--d:2.52s" x="310" y="14" width="104" height="30" rx="15"/><text class="cz-etiket vurgu" style="--d:3.06s" x="324" y="33">basket (3)</text><rect class="cz-cizgi" style="--u:632;--d:2.94s" x="14" y="118" width="270" height="36" rx="6"/><rect class="cz-dolgu" style="--d:2.94s" x="14" y="118" width="270" height="36" rx="6"/><text class="cz-etiket" style="--d:3.48s" x="28" y="140">payment — 3D Secure ✓</text><rect class="cz-cizgi" style="--u:200;--d:3.36s" x="300" y="118" width="54" height="36" rx="6"/><rect class="cz-dolgu" style="--d:3.36s" x="300" y="118" width="54" height="36" rx="6"/><line class="cz-cizgi" style="--u:46;--d:3.78s" x1="308" y1="132" x2="346" y2="132"/><path class="cz-cizgi" style="--u:356;--d:4.20s" d="M14,182 h340"/><line class="cz-cizgi" style="--u:22;--d:4.62s" x1="354" y1="182" x2="342" y2="175"/><line class="cz-cizgi" style="--u:22;--d:5.04s" x1="354" y1="182" x2="342" y2="189"/><text class="cz-etiket vurgu" style="--d:5.58s" x="364" y="186">shipping</text>
               </svg>
             </div>
-            <div class="ciz-alt"><div class="ciz-cip"><u>PRODUCTS</u><b data-sayac="500" data-birim="+">0+</b></div><div class="ciz-cip"><u>BANKS</u><b data-sayac="2" data-birim=" pos">0 gateways</b></div><div class="ciz-cip"><u>SHIPPING</u><b>automatic</b></div></div>
+            <div class="ciz-alt"><div class="ciz-cip"><u>PRODUCTS</u><b data-sayac="500" data-birim="+">0+</b></div><div class="ciz-cip"><u>BANKS</u><b data-sayac="2" data-birim=" gateways">0 gateways</b></div><div class="ciz-cip"><u>SHIPPING</u><b>automatic</b></div></div>
           </div>
         </div>
       </div>
@@ -1252,7 +1252,7 @@ document.getElementById('yil').textContent = new Date().getFullYear();
   var cipler = document.querySelectorAll('.ciz-cip [data-sayac]');
   if (!cipler.length) return;
   function bicim(hedef, deger){
-    return (hedef % 1 === 0 ? Math.round(deger) : deger.toFixed(1).replace('.', ','));
+    return (hedef % 1 === 0 ? Math.round(deger) : deger.toFixed(1));
   }
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     cipler.forEach(function(b){ b.textContent = bicim(parseFloat(b.dataset.sayac), parseFloat(b.dataset.sayac)) + b.dataset.birim; });

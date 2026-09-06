@@ -1000,7 +1000,7 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
         <div class="t-body">
           <div class="wgt w-chart" data-widget="chart">
             <div class="ch-top">
-              <span class="ch-val" id="roasVal">0,00</span>
+              <span class="ch-val" id="roasVal">0.00</span>
               <span class="ch-lab">ROAS</span>
               <span class="ch-up" id="roasUp">+0%</span>
             </div>
@@ -2139,7 +2139,7 @@ var Motion = (function(){
     area.setAttribute('d', path(pts, true));
     dot.setAttribute('cx', pts[N - 1][0] - 1.4);
     dot.setAttribute('cy', pts[N - 1][1]);
-    val.textContent = roas.toFixed(2).replace('.', ',');
+    val.textContent = roas.toFixed(2);
     if (up) up.textContent = '+' + Math.round(roas / 4.24 * 62) + '%';
   }
 

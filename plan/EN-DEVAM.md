@@ -28,6 +28,7 @@ node plan/en-sayfa-uret.js <sayfa>              # KURU KOŞU — hesap tutuyor m
 node plan/en-sayfa-uret.js <sayfa> --kaynak-yaz # numara kilidi
 node plan/en-sayfa-uret.js <sayfa> --uygula
 node plan/en-ic-link.js --uygula                # iç bağlantıları İngilizceye çevir
+node plan/en-birim.js --uygula                  # sayaç birimi + ondalık ayırıcı
 node plan/en-hreflang.js --uygula               # karşılıklı hreflang
 node plan/en-sitemap.js 2026-09-07 --uygula     # sitemap'e ekle
 node plan/geo-denetim-derin.js                  # 0 bulgu olmalı
@@ -145,6 +146,19 @@ HTML etiket adları · schema.org tür adları · **HTML/CSS/JS yorumları**
 6. **Soru biçimli H2 korunmalı.** Denetim hizmet sayfalarında soru biçimli H2 arıyor; Türkçe başlıktaki soru işaretini çeviride düşürmek P2 üretiyor (ölçüldü: /react-native/).
 7. **title ≤60, description ≤165 karakter.** Denetim yakalıyor ama üretimden
    önce bakın; aynı Türkçe metin birden çok kayıtta olabilir (çakışma kilidi).
+   `description` **≥120** olmalı — denetim kısa olanı da P3 yazıyor.
+8. **JS'in ürettiği metin kaynakta görünmez.** İki sızıntı ölçüldü, ikisi de
+   metin denetimlerinden geçmişti çünkü ekrana yalnız çalışma anında çıkıyor:
+   - `data-birim` özniteliği: sayaç `sayı + dataset.birim` yazıyor. `<b>` içindeki
+     yedek metin çevrilmişti ("0 layers") ama öznitelik Türkçe kalmıştı —
+     canlanma bitince çip "3 katman" oluyordu. **6 sayfa, 7 çip.**
+   - `bicim()` içindeki `.replace('.', ',')`: İngilizce sayfada "1.2s" yerine
+     "1,2s". **15 sayfa.** Ana sayfadaki ROAS göstergesi de aynı hattaydı.
+
+   `plan/en-birim.js` ikisini de kapatır ve hatta girdi. İngilizce birimi
+   **uydurmaz**, `<b>` yedek metninden türetir — çip ile sayaç aynı kelimeyi
+   söylesin diye. Statik ondalık virgülü de düzeltir; binlik ayırıcıya
+   dokunmaz (Türkçede binlik grubu hep 3 hane: `48.000` → `48,000` doğru).
 
 ---
 

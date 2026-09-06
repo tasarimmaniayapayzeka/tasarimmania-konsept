@@ -777,7 +777,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 <circle class="cz-cizgi" style="--u:352;--d:0.00s" cx="100" cy="90" r="54"/><circle class="cz-cizgi" style="--u:176;--d:0.42s" cx="128" cy="90" r="26"/><line class="cz-cizgi" style="--u:120;--d:0.84s" x1="44" y1="90" x2="156" y2="90"/><line class="cz-cizgi" style="--u:120;--d:1.26s" x1="100" y1="34" x2="100" y2="146"/><text class="cz-etiket vurgu" style="--d:1.80s" x="58" y="170">logo grid</text><rect class="cz-cizgi" style="--u:180;--d:1.68s" x="200" y="30" width="40" height="40" rx="8"/><rect class="cz-dolgu" style="--d:1.68s" x="200" y="30" width="40" height="40" rx="8"/><rect class="cz-cizgi" style="--u:180;--d:2.10s" x="248" y="30" width="40" height="40" rx="8"/><rect class="cz-dolgu" style="--d:2.10s" x="248" y="30" width="40" height="40" rx="8"/><rect class="cz-cizgi" style="--u:180;--d:2.52s" x="296" y="30" width="40" height="40" rx="8"/><rect class="cz-dolgu" style="--d:2.52s" x="296" y="30" width="40" height="40" rx="8"/><text class="cz-etiket" style="--d:3.06s" x="200" y="88">core palette</text><rect class="cz-cizgi" style="--u:488;--d:2.94s" x="200" y="110" width="152" height="82" rx="8"/><rect class="cz-dolgu" style="--d:2.94s" x="200" y="110" width="152" height="82" rx="8"/><circle class="cz-cizgi" style="--u:62;--d:3.36s" cx="222" cy="132" r="8"/><circle class="cz-dolgu" style="--d:3.36s" cx="222" cy="132" r="8"/><line class="cz-cizgi" style="--u:116;--d:3.78s" x1="214" y1="162" x2="322" y2="162"/><line class="cz-cizgi" style="--u:86;--d:4.20s" x1="214" y1="176" x2="292" y2="176"/><text class="cz-etiket" style="--d:4.74s" x="358" y="130">business card</text>
               </svg>
             </div>
-            <div class="ciz-alt"><div class="ciz-cip"><u>COLOUR</u><b data-sayac="3" data-birim=" ana">0 core</b></div><div class="ciz-cip"><u>VARIANTS</u><b data-sayac="2" data-birim="">0</b></div><div class="ciz-cip"><u>DELIVERY</u><b>print + digital</b></div></div>
+            <div class="ciz-alt"><div class="ciz-cip"><u>COLOUR</u><b data-sayac="3" data-birim=" core">0 core</b></div><div class="ciz-cip"><u>VARIANTS</u><b data-sayac="2" data-birim="">0</b></div><div class="ciz-cip"><u>DELIVERY</u><b>print + digital</b></div></div>
           </div>
         </div>
       </div>
@@ -1303,7 +1303,7 @@ document.getElementById('yil').textContent = new Date().getFullYear();
   var cipler = document.querySelectorAll('.ciz-cip [data-sayac]');
   if (!cipler.length) return;
   function bicim(hedef, deger){
-    return (hedef % 1 === 0 ? Math.round(deger) : deger.toFixed(1).replace('.', ','));
+    return (hedef % 1 === 0 ? Math.round(deger) : deger.toFixed(1));
   }
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     cipler.forEach(function(b){ b.textContent = bicim(parseFloat(b.dataset.sayac), parseFloat(b.dataset.sayac)) + b.dataset.birim; });
