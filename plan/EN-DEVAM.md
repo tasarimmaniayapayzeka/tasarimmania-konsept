@@ -1,12 +1,12 @@
 # İngilizce sürüm — devam notu
 
-**Son güncelleme:** 7 Eylül 2026 · **32 İngilizce sayfa canlı**, 100 sayfa toplam
+**Son güncelleme:** 7 Eylül 2026 · **33 İngilizce sayfa canlı**, 100 sayfa toplam
 
 Biten: `/en/` · `about` · `contact` · `services` · `blog` · `get-a-quote` ·
 `web-design` · `mobile-app-development` · `digital-marketing` · `seo` ·
 `video-production` · `graphic-design` · `corporate-website` ·
 `ecommerce-website` · `ai-services` · `custom-software-development` ·
-`website-maintenance` · `ios-android-app-development` · `react-native-development` · `app-ui-ux-design` · `app-store-optimization` · `google-ads` · `meta-ads` · `performance-marketing` · `social-media-management` · `commercial-video-production` · `product-video-production` · `short-form-video` · `ai-video-production` · `technical-seo` · `seo-content-strategy` · `local-seo`
+`website-maintenance` · `ios-android-app-development` · `react-native-development` · `app-ui-ux-design` · `app-store-optimization` · `google-ads` · `meta-ads` · `performance-marketing` · `social-media-management` · `commercial-video-production` · `product-video-production` · `short-form-video` · `ai-video-production` · `technical-seo` · `seo-content-strategy` · `local-seo` · `ecommerce-seo`
 
 **Modül 01 (Web & Yazılım), Modül 02 (Mobil Uygulama), Modül 03
 (Meta & Google Ads) ve Modül 04 (Video Prodüksiyon) TAMAM.**
@@ -52,7 +52,7 @@ Windows yoluna çevirir.
 
 ## 2. Terim sözlüğü — ZORUNLU
 
-Bu kararlar 32 sayfada uygulandı. Değiştirmeyin.
+Bu kararlar 33 sayfada uygulandı. Değiştirmeyin.
 
 ### Marka vaadi
 | Türkçe | İngilizce | Neden |
@@ -169,13 +169,13 @@ HTML etiket adları · schema.org tür adları · **HTML/CSS/JS yorumları**
 
 ## 4. Kalan iş
 
-### Hizmet alt sayfaları — kalan 2 sayfa, ~3.100 kelime · yalnız Modül 05 (SEO)
+### Hizmet alt sayfaları — kalan 1 sayfa, ~1.550 kelime · yalnız Modül 05 (SEO)
 *(Modül 01, 02, 03 ve 04 alt hizmetlerinin tamamı bitti)*
 
 
 
 
-`e-ticaret-seo` (153/1588) · `cok-dilli-seo` (170/1553)
+`cok-dilli-seo` (170/1553)
 
 Öncelik: iç bağlantı sayısına göre — `en-ic-link.js` çalıştırıp listeye bakın.
 
