@@ -86,8 +86,28 @@ const mod = (no, ad, deger, gecti, oncelik, not) => M.push({ no, ad, deger, gect
   mod(7, 'XML Sitemaps', `${n} URL · lastmod ${lm}/${n} · sitemap index YOK · image/video sitemap YOK`,
     n >= sayfalar.length * 0.9, 'P1', n < sayfalar.length ? `sitemap ${n}, sitede ${sayfalar.length} sayfa var` : '');
 }
-/* 8 */ mod(8, 'Hreflang', say((f) => /hreflang=/.test(oku(f))) + `/${T} sayfada hreflang`,
-  false, 'P2', 'Site tek dilli (tr). Rehber tr/en/de/fr + x-default istiyor; çok dilli plan yoksa bu madde uygulanamaz.');
+/* 8 */ {
+  /* ⚠ ESKİDEN "site tek dilli, madde uygulanamaz" DİYORDU. Kullanıcı 6 Eyl
+     2026'da İngilizce sürüm kararını verdi (/en/ alt dizini), madde artık
+     uygulanabilir. Kural, ilerlemeyi ÖLÇÜYOR: kaç TR sayfasının İngilizce
+     karşılığı üretilmiş ve kaçında karşılıklı hreflang var.
+     ⚠ Karşılığı olmayan sayfada hreflang OLMAMASI doğrudur — var olmayan
+       adrese etiket koymak Google'ın dil eşlemesinin tamamını iptal ettirir. */
+  const enKok = path.join(SITE, 'en');
+  const trSayfa = sayfalar.filter((f) => !url(f).startsWith('/en/'));
+  const enVar = (f) => {
+    const t = url(f);
+    return fs.existsSync(path.join(enKok, t === '/' ? '' : t.replace(/^\//, ''), 'index.html'));
+  };
+  const karsiligiOlan = trSayfa.filter(enVar).length;
+  const etiketli = trSayfa.filter((f) => /hreflang=/.test(oku(f))).length;
+  const yanlisEtiket = trSayfa.filter((f) => /hreflang=/.test(oku(f)) && !enVar(f)).length;
+  mod(8, 'Hreflang',
+    `İngilizce karşılığı olan ${karsiligiOlan}/${trSayfa.length} · hreflang etiketli ${etiketli} · karşılıksız etiket ${yanlisEtiket}`,
+    karsiligiOlan === trSayfa.length && etiketli === trSayfa.length && yanlisEtiket === 0, 'P2',
+    yanlisEtiket ? `${yanlisEtiket} sayfa var olmayan EN adresine işaret ediyor — kaldırılmalı`
+      : `İngilizce sürüm üretiliyor; ${trSayfa.length - karsiligiOlan} sayfa bekliyor. Etiketleri node plan/en-hreflang.js --uygula yazar.`);
+}
 /* 9 */ mod(9, 'Schema.org', [...tumTipler].sort().join(', ') || 'YOK', tumTipler.size >= 5, 'P1');
 /* 10 */ {
   const j = say((f) => /application\/ld\+json/.test(oku(f)));
