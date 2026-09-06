@@ -402,8 +402,16 @@ for (const [oz, re] of [['alt', /\salt="([^"]+)"/g], ['aria-label', /\saria-labe
     kalan.set(`[${oz}] ` + t, (kalan.get(`[${oz}] ` + t) || 0) + 1);
   }
 }
+/* ⚠ SAYIYI AYRIŞTIR — ham "kalan Türkçe karakter" sayısı yanıltıcıydı:
+   /web-tasarim/ 864 gösterdi ve hepsi HTML/CSS/JS YORUMLARINDAN geliyordu
+   ("katman infografiği", "sayfanın KENDİ iddiası"…). Yorumlar geliştiriciye
+   aittir, ekranda görünmez, bilinçli olarak Türkçe kalır. Yorumları ayırmadan
+   verilen sayı her sayfada elle araştırma gerektiriyordu. */
+const yorumsuz = h.replace(/<!--[\s\S]*?-->/g, '').replace(/\/\*[\s\S]*?\*\//g, '');
 const trHarf = (h.match(/[çğıöşüÇĞİÖŞÜ]/g) || []).length;
-console.log(`\n  kalan Türkçe karakter : ${trHarf} (marka/adres/kişi adı dahil)`);
+const trHarfYorumsuz = (yorumsuz.match(/[çğıöşüÇĞİÖŞÜ]/g) || []).length;
+console.log(`\n  kalan Türkçe karakter : ${trHarfYorumsuz} (marka/adres/kişi adı dahil)`
+  + `  ·  yorumlarda ayrıca ${trHarf - trHarfYorumsuz}`);
 console.log(`  çevrilmemiş dizge     : ${kalan.size}`);
 if (kalan.size) [...kalan.entries()].slice(0, 12)
   .forEach(([t, n]) => console.log(`     ✗ ${n}× "${t.slice(0, 70)}"`));
