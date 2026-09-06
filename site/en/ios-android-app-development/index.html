@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- KONSEPT-NOINDEX -->
 <meta name="robots" content="noindex,nofollow">
-<title>Android iOS Uygulama Geliştirme — Native | TasarımMania</title>
-<meta name="description" content="Android iOS uygulama geliştirme: Swift ve Kotlin ile native, platforma özgü tasarım ve donanım erişimi. Kamera, bildirim ve konum sistem seviyesinde çalışır.">
-<link rel="canonical" href="https://www.tasarimmania.com/ios-android-uygulama/">
+<title>Android and iOS App Development — Native | TasarımMania</title>
+<meta name="description" content="Android and iOS app development: native with Swift and Kotlin, platform-specific design and hardware access. Camera, notifications and location work at system level.">
+<link rel="canonical" href="https://www.tasarimmania.com/en/ios-android-app-development/">
 <link rel="alternate" hreflang="tr" href="https://www.tasarimmania.com/ios-android-uygulama/">
 <link rel="alternate" hreflang="en" href="https://www.tasarimmania.com/en/ios-android-app-development/">
 <link rel="alternate" hreflang="x-default" href="https://www.tasarimmania.com/ios-android-uygulama/">
@@ -16,25 +16,25 @@
 <meta name="theme-color" content="#0B0D12">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="tr_TR">
+<meta property="og:locale" content="en">
 <meta property="og:site_name" content="TasarımMania">
-<meta property="og:title" content="Android iOS Uygulama Geliştirme — Native | TasarımMania">
-<meta property="og:description" content="Android iOS uygulama geliştirme: Swift ve Kotlin ile native, platforma özgü tasarım ve donanım erişimi. Kamera, bildirim ve konum sistem seviyesinde çalışır.">
-<meta property="og:url" content="https://www.tasarimmania.com/ios-android-uygulama/">
+<meta property="og:title" content="Android and iOS App Development — Native | TasarımMania">
+<meta property="og:description" content="Android and iOS app development: native with Swift and Kotlin, platform-specific design and hardware access. Camera, notifications and location work at system level.">
+<meta property="og:url" content="https://www.tasarimmania.com/en/ios-android-app-development/">
 <meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="TasarımMania — web, mobil, reklam, video ve SEO hizmetleri kapak görseli">
+<meta property="og:image:alt" content="TasarımMania — cover image for web, mobile, advertising, video and SEO services">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
-<meta name="twitter:title" content="Android iOS Uygulama Geliştirme — Native | TasarımMania">
-<meta name="twitter:description" content="Android iOS uygulama geliştirme: Swift ve Kotlin ile native, platforma özgü tasarım ve donanım erişimi. Kamera, bildirim ve konum sistem seviyesinde çalışır.">
-<meta name="twitter:image:alt" content="TasarımMania — web, mobil, reklam, video ve SEO hizmetleri kapak görseli">
-<link rel="icon" type="image/png" href="../../assets/logo/marka-daire.png">
+<meta name="twitter:title" content="Android and iOS App Development — Native | TasarımMania">
+<meta name="twitter:description" content="Android and iOS app development: native with Swift and Kotlin, platform-specific design and hardware access. Camera, notifications and location work at system level.">
+<meta name="twitter:image:alt" content="TasarımMania — cover image for web, mobile, advertising, video and SEO services">
+<link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
-<link rel="stylesheet" href="../css/tm.css">
+<link rel="stylesheet" href="../../css/tm.css">
 <style>
 .nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
 .nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
@@ -263,7 +263,7 @@
   letter-spacing:-.015em;line-height:1.5;margin-bottom:9px}
 .dtay-k p{font-size:13.5px;color:var(--muted)}
 
-/* --- derinlemesine: "Daha fazla" ile açılan devam metni --- */
+/* --- derinlemesine: "More" ile açılan devam metni --- */
 p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.015em;
   line-height:1.5;margin:0}
 .dtay-devam{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
@@ -291,7 +291,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
    SVG içindeki EN KÜÇÜK yazı 13 seçildi → ekranda en az 9.7px.
 
    ÖLÇÜLEN KUSUR 2 — ad çakışması: tm.css'te (satır 161-171) GLOBAL bir kayan
-   yazı bileşeni var; onun "span{display:inline-flex}" ve
+   yazı bileşeni var; onun "span{display:inline-flex}" and
    "span::before{content:...}" kuralları figure içine konan HER <span>'i ele
    geçiriyor. Bu yüzden ad .akis; o ad bu sayfada başka yerde geçmiyor. Yine de
    .akis-no / .akis-ad stilleri AÇIK yazıldı: <span> stili mirasa bırakılmıyor.
@@ -324,7 +324,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   .akis-kutu{width:100%;max-width:520px;margin-inline:auto}
 }
 /* ÖLÇÜLEN BOŞLUK — desendeki 860px eşiği tek başına yetmiyor:
-   861px'te üç sütun hâlâ yan yana kalıyor ve kutu içi 192.7px'e düşüyor,
+   861px'te üç sütun hâlâ yan yana kalıyor and kutu içi 192.7px'e düşüyor,
    yani 13'lük yazı ekranda 6.59px oluyor. Ölçüm (aynı sayfa, aynı figür):
      861px  → kutu 192.7px · ölçek 0.507 · en küçük yazı 6.59px  ✗
      1100px → kutu 272.3px · ölçek 0.717 · en küçük yazı 9.32px  ✓
@@ -334,7 +334,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
    arası (tablet yatay, küçük dizüstü) artık tek sütun. Üstteki 860px bloğu
    desenle birebir kalsın diye olduğu gibi bırakıldı; bu blok onu kapsıyor.
 
-   max-width 520px: tek sütuna düşünce kutu tüm satırı kaplıyor ve 380 birimlik
+   max-width 520px: tek sütuna düşünce kutu tüm satırı kaplıyor and 380 birimlik
    çizim 1100px'te 954px'e şişiyordu (yazı 32.65px, üç durak ~3000px kaydırma).
    520px'te ölçek 1.37, en küçük yazı 17.8px — hem okunur hem makul boyda.
    375px'te SVG zaten 283px olduğu için telefonu etkilemiyor. */
@@ -575,10 +575,10 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   "@graph": [
     {
       "@type": "Service",
-      "name": "Android iOS Uygulama Geliştirme: Native Yazılımla Platforma Özel Deneyim",
+      "name": "Android and iOS App Development: A Platform-Specific Experience in Native Code",
       "serviceType": "android ios uygulama",
-      "url": "https://www.tasarimmania.com/ios-android-uygulama/",
-      "description": "Android iOS uygulama geliştirme: Swift ve Kotlin ile native, platforma özgü tasarım ve donanım erişimi. Kamera, bildirim ve konum sistem seviyesinde çalışır.",
+      "url": "https://www.tasarimmania.com/en/ios-android-app-development/",
+      "description": "Android and iOS app development: native with Swift and Kotlin, platform-specific design and hardware access. Camera, notifications and location work at system level.",
       "areaServed": {
         "@type": "Country",
         "name": "Türkiye"
@@ -600,25 +600,25 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           "addressCountry": "TR"
         }
       },
-      "@id": "https://www.tasarimmania.com/ios-android-uygulama/#hizmet",
+      "@id": "https://www.tasarimmania.com/en/ios-android-app-development/#hizmet",
       "subjectOf": [
         {
           "@type": "Article",
           "@id": "https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/#article",
           "url": "https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/",
-          "name": "Native mi Cross-Platform mı? Uygulama Mimarisi Seçimi"
+          "name": "Native or Cross-Platform? Choosing an App Architecture"
         },
         {
           "@type": "Article",
           "@id": "https://www.tasarimmania.com/blog/react-native-mi-flutter-mi/#article",
           "url": "https://www.tasarimmania.com/blog/react-native-mi-flutter-mi/",
-          "name": "React Native mi Flutter mı? Tek Kod Tabanı Karşılaştırması"
+          "name": "React Native or Flutter? Comparing the Single-Codebase Options"
         },
         {
           "@type": "Article",
           "@id": "https://www.tasarimmania.com/blog/mobil-uygulama-gelistirme-maliyeti/#article",
           "url": "https://www.tasarimmania.com/blog/mobil-uygulama-gelistirme-maliyeti/",
-          "name": "Mobil Uygulama Geliştirme Maliyeti Neye Göre Değişir?"
+          "name": "What Makes Mobile App Development Costs Vary?"
         }
       ]
     },
@@ -628,29 +628,29 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Ana sayfa",
+          "name": "Home",
           "item": "https://www.tasarimmania.com/"
         },
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Hizmetler",
+          "name": "Services",
           "item": "https://www.tasarimmania.com/hizmetler/"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Mobil Uygulama",
+          "name": "Mobile Apps",
           "item": "https://www.tasarimmania.com/mobil-uygulama/"
         },
         {
           "@type": "ListItem",
           "position": 4,
-          "name": "iOS ve Android (Native)",
-          "item": "https://www.tasarimmania.com/ios-android-uygulama/"
+          "name": "iOS and Android (Native)",
+          "item": "https://www.tasarimmania.com/en/ios-android-app-development/"
         }
       ],
-      "@id": "https://www.tasarimmania.com/ios-android-uygulama/#kirintili"
+      "@id": "https://www.tasarimmania.com/en/ios-android-app-development/#kirintili"
     },
     {
       "@type": "FAQPage",
@@ -658,54 +658,54 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "iOS ve Android için ayrı ayrı mı, yoksa aynı anda mı geliştirme yapılıyor?",
+          "name": "Are iOS and Android built separately, or at the same time?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "İki platform için ayrı kod tabanı hazırlanır; ancak tasarım, API entegrasyonu ve test süreçleri paralel yürütülerek iOS ve Android sürümleri birlikte ilerler."
+            "text": "A separate codebase is prepared for each platform; but the design, API integration and testing run in parallel, so the iOS and Android versions move forward together."
           }
         },
         {
           "@type": "Question",
-          "name": "Native uygulama hangi durumlarda React Native'den daha doğru bir seçim?",
+          "name": "When is a native app the better choice over React Native?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yoğun grafik işleme, karmaşık animasyon, kamera veya sensör tabanlı özellikler ve platforma özgü his beklenen projelerde native tercih edilir. Ortak arayüzle hızlı yayına çıkmak öncelikliyse React Native değerlendirilir."
+            "text": "Native is preferred on projects involving heavy graphics work, complex animation, camera or sensor-based features, and where a platform-specific feel is expected. Where getting to launch quickly with a shared interface is the priority, React Native is considered."
           }
         },
         {
           "@type": "Question",
-          "name": "Swift ve Kotlin dilleri neden platforma özgü seçiliyor?",
+          "name": "Why are Swift and Kotlin chosen platform by platform?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Swift, iOS'un üretici dili olarak sistem API'leriyle doğrudan uyumludur; Kotlin ise Android için aynı rolü üstlenir. Bu seçim, her iki işletim sisteminin güncellemelerine hızlı ve sorunsuz uyum sağlar."
+            "text": "Swift is iOS's own language and works directly with the system APIs; Kotlin plays the same role for Android. That choice means both operating systems' updates are picked up quickly and cleanly."
           }
         },
         {
           "@type": "Question",
-          "name": "Native uygulamada cihaz donanımına (kamera, sensör) erişim nasıl çalışıyor?",
+          "name": "How does a native app reach device hardware (camera, sensors)?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Uygulama, işletim sisteminin sunduğu donanım API'lerine ek bir katman olmadan bağlanır. Bu sayede kamera, konum, Bluetooth ve diğer sensör verileri gecikmesiz ve tam yetkiyle işlenir."
+            "text": "The app connects to the hardware APIs the operating system provides, with no extra layer in between. That means camera, location, Bluetooth and other sensor data are processed with no lag and with full permissions."
           }
         },
         {
           "@type": "Question",
-          "name": "İki platform için ayrı geliştirme, bakım maliyetini nasıl etkiliyor?",
+          "name": "How does building separately for two platforms affect maintenance costs?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "İki ayrı kod tabanı, güncelleme ve hata düzeltme sürecinin her platformda tekrarlanmasını gerektirir. Bu detay teklif aşamasında değerlendirilir; güncel maliyet kalemleri fiyatlandırma bölümünde yer alır."
+            "text": "Two separate codebases mean updates and bug fixes have to be repeated on each platform. That's assessed at the quote stage; the current cost items are in the pricing section."
           }
         },
         {
           "@type": "Question",
-          "name": "Sadece iOS ya da sadece Android için başlayıp sonra diğerini eklemek mümkün mü?",
+          "name": "Can we start with just iOS or just Android and add the other later?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Evet, tek platformla başlayıp pazar geri bildirimine göre ikinci platforma geçmek yaygın bir stratejidir. Mimari, ikinci platformun sonradan eklenmesine uygun şekilde planlanır."
+            "text": "Yes — starting with one platform and moving to the second on the strength of market feedback is a common strategy. The architecture is planned so the second platform can be added later."
           }
         }
       ],
-      "@id": "https://www.tasarimmania.com/ios-android-uygulama/#sss"
+      "@id": "https://www.tasarimmania.com/en/ios-android-app-development/#sss"
     },
     {
       "@type": "Organization",
@@ -713,14 +713,14 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
       "name": "TasarımMania",
       "url": "https://www.tasarimmania.com/",
       "knowsAbout": [
-        "Web tasarımı ve yazılım geliştirme",
-        "Mobil uygulama geliştirme",
-        "Dijital pazarlama ve performans reklamcılığı",
-        "Video prodüksiyon ve reklam filmi",
-        "Arama motoru optimizasyonu",
-        "Grafik tasarım ve kurumsal kimlik",
-        "E-ticaret sitesi kurulumu",
-        "Sosyal medya yönetimi"
+        "Web design and software development",
+        "Mobile app development",
+        "Digital marketing and performance advertising",
+        "Video production and commercial films",
+        "Search engine optimization",
+        "Graphic design and brand identity",
+        "E-commerce store setup",
+        "Social media management"
       ]
     },
     {
@@ -728,30 +728,30 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
       "@id": "https://www.tasarimmania.com/#site",
       "url": "https://www.tasarimmania.com/",
       "name": "TasarımMania",
-      "inLanguage": "tr-TR",
+      "inLanguage": "en",
       "publisher": {
         "@id": "https://www.tasarimmania.com/#kurulus"
       }
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.tasarimmania.com/ios-android-uygulama/#sayfa",
-      "url": "https://www.tasarimmania.com/ios-android-uygulama/",
-      "name": "Android iOS Uygulama Geliştirme — Native Swift & Kotlin | TasarımMania",
-      "description": "Android iOS uygulama geliştirme: Swift ve Kotlin ile native, platforma özgü tasarım ve donanım erişimi. Kamera, bildirim ve konum sistem seviyesinde çalışır.",
-      "inLanguage": "tr-TR",
+      "@id": "https://www.tasarimmania.com/en/ios-android-app-development/#sayfa",
+      "url": "https://www.tasarimmania.com/en/ios-android-app-development/",
+      "name": "Android and iOS App Development — Native Swift & Kotlin | TasarımMania",
+      "description": "Android and iOS app development: native with Swift and Kotlin, platform-specific design and hardware access. Camera, notifications and location work at system level.",
+      "inLanguage": "en",
       "isPartOf": {
         "@id": "https://www.tasarimmania.com/#site"
       },
       "breadcrumb": {
-        "@id": "https://www.tasarimmania.com/ios-android-uygulama/#kirintili"
+        "@id": "https://www.tasarimmania.com/en/ios-android-app-development/#kirintili"
       },
       "primaryImageOfPage": {
         "@type": "ImageObject",
         "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg"
       },
       "mainEntity": {
-        "@id": "https://www.tasarimmania.com/ios-android-uygulama/#hizmet"
+        "@id": "https://www.tasarimmania.com/en/ios-android-app-development/#hizmet"
       }
     }
   ]
@@ -762,29 +762,29 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 </head>
 <body data-dal="mobil">
 
-<a class="skip" href="#ana">İçeriğe geç</a>
+<a class="skip" href="#ana">Skip to content</a>
 
-<nav class="nav" data-nav aria-label="Ana menü">
+<nav class="nav" data-nav aria-label="Main menu">
   <div class="wrap nav-in">
-    <a class="nav-logo" href="../" aria-label="TasarımMania ana sayfa">
-      <img src="../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async" fetchpriority="high">
+    <a class="nav-logo" href="../" aria-label="TasarımMania home">
+      <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async" fetchpriority="high">
     </a>
     <div class="nav-links">
-      <a href="../hizmetler/" aria-current="page">Hizmetler</a>
-      <a href="../#isler">İşler</a>
-      <a href="../hakkimizda/">Ajans</a>
+      <a href="../services/" aria-current="page">Services</a>
+      <a href="../#isler">Work</a>
+      <a href="../about/">Agency</a>
       <a href="../blog/">Blog</a>
-      <a href="../#surec">Süreç</a>
-      <a href="../teklif/">Teklif Al</a>
-      <a href="../iletisim/">İletişim</a>
+      <a href="../#surec">Process</a>
+      <a href="../get-a-quote/">Get a Quote</a>
+      <a href="../contact/">Contact</a>
     </div>
     <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
-    <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="burger" data-burger aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="mobmenu" data-mobmenu aria-hidden="true">
-  <a href="../hizmetler/">Hizmetler</a><a href="../#isler">İşler</a><a href="../hakkimizda/">Ajans</a><a href="../blog/">Blog</a>
-  <a href="../#surec">Süreç</a><a href="../teklif/">Teklif Al</a><a href="../iletisim/">İletişim</a>
+  <a href="../services/">Services</a><a href="../#isler">Work</a><a href="../about/">Agency</a><a href="../blog/">Blog</a>
+  <a href="../#surec">Process</a><a href="../get-a-quote/">Get a Quote</a><a href="../contact/">Contact</a>
   <a href="tel:+905547916545">0554 791 65 45</a>
 </div>
 
@@ -792,32 +792,32 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 
   <header class="phd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
-        <a href="../">Ana sayfa</a><span aria-hidden="true">/</span>
-        <a href="../hizmetler/">Hizmetler</a><span aria-hidden="true">/</span>
-        <a href="../mobil-uygulama/">Mobil Uygulama</a><span aria-hidden="true">/</span>
-        <span>iOS ve Android (Native)</span>
+      <nav class="crumb" aria-label="Location">
+        <a href="../">Home</a><span aria-hidden="true">/</span>
+        <a href="../services/">Services</a><span aria-hidden="true">/</span>
+        <a href="../mobile-app-development/">Mobile Apps</a><span aria-hidden="true">/</span>
+        <span>iOS and Android (Native)</span>
       </nav>
       <div class="phd-iki">
         <div>
-<span class="mod-no">Modül 02 · Mobil Uygulama</span>
-      <h1 data-kin>Android iOS Uygulama Geliştirme: Native Yazılımla Platforma Özel Deneyim</h1>
-      <p class="lead">Swift ve Kotlin ile hazırlanan bir android ios uygulama, iOS ve Android'in kendi tasarım dilini ve donanım yeteneklerini tam performansla kullanır; bu sayfa Mobil Uygulama hizmetimizin native tarafına odaklanır.</p>
+<span class="mod-no">Module 02 · Mobile Apps</span>
+      <h1 data-kin>Android and iOS App Development: A Platform-Specific Experience in Native Code</h1>
+      <p class="lead">An Android and iOS app built with Swift and Kotlin uses each platform's own design language and hardware capability at full performance; this page focuses on the native side of our Mobile Apps service.</p>
       <div class="hero-cta">
-        <a class="btn btn-p" href="../teklif/#mobil">Kapsam ve fiyat aralığı çıkaralım
+        <a class="btn btn-p" href="../get-a-quote/#mobil">Let's map the scope and price range
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20iOS%20ve%20Android%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+        <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20iOS%20ve%20Android%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
       </div>
         </div>
         <div class="ciz-kutu" aria-hidden="true">
           <div class="ciz-cerceve">
-            <div class="ciz-bar"><i></i><i></i><i></i><span>iki platform çiziliyor</span><b>MAĞAZADA</b></div>
+            <div class="ciz-bar"><i></i><i></i><i></i><span>two platforms being drawn</span><b>IN THE STORE</b></div>
             <div class="ciz-svg">
               <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
 <rect class="cz-cizgi" style="--u:588;--d:0.00s" x="58" y="20" width="112" height="172" rx="18"/><rect class="cz-dolgu" style="--d:0.00s" x="58" y="20" width="112" height="172" rx="18"/><line class="cz-cizgi" style="--u:48;--d:0.42s" x1="94" y1="32" x2="134" y2="32"/><text class="cz-etiket vurgu" style="--d:0.96s" x="76" y="56">Swift</text><rect class="cz-cizgi" style="--u:252;--d:0.84s" x="72" y="68" width="84" height="32" rx="6"/><rect class="cz-dolgu" style="--d:0.84s" x="72" y="68" width="84" height="32" rx="6"/><line class="cz-cizgi" style="--u:92;--d:1.26s" x1="72" y1="118" x2="156" y2="118"/><line class="cz-cizgi" style="--u:40;--d:1.68s" x1="98" y1="180" x2="130" y2="180"/><rect class="cz-cizgi" style="--u:588;--d:2.10s" x="258" y="20" width="112" height="172" rx="18"/><rect class="cz-dolgu" style="--d:2.10s" x="258" y="20" width="112" height="172" rx="18"/><circle class="cz-cizgi" style="--u:31;--d:2.52s" cx="314" cy="31" r="3"/><circle class="cz-dolgu" style="--d:2.52s" cx="314" cy="31" r="3"/><text class="cz-etiket vurgu" style="--d:3.06s" x="274" y="56">Kotlin</text><rect class="cz-cizgi" style="--u:252;--d:2.94s" x="272" y="68" width="84" height="32" rx="6"/><rect class="cz-dolgu" style="--d:2.94s" x="272" y="68" width="84" height="32" rx="6"/><line class="cz-cizgi" style="--u:92;--d:3.36s" x1="272" y1="118" x2="356" y2="118"/><circle class="cz-cizgi" style="--u:31;--d:3.78s" cx="296" cy="180" r="3"/><circle class="cz-dolgu" style="--d:3.78s" cx="296" cy="180" r="3"/><circle class="cz-cizgi" style="--u:31;--d:4.20s" cx="314" cy="180" r="3"/><circle class="cz-dolgu" style="--d:4.20s" cx="314" cy="180" r="3"/><circle class="cz-cizgi" style="--u:31;--d:4.62s" cx="332" cy="180" r="3"/><circle class="cz-dolgu" style="--d:4.62s" cx="332" cy="180" r="3"/><text class="cz-etiket" style="--d:5.16s" x="190" y="108">native</text>
               </svg>
             </div>
-            <div class="ciz-alt"><div class="ciz-cip"><u>PLATFORM</u><b data-sayac="2" data-birim="">0</b></div><div class="ciz-cip"><u>DİL</u><b>Swift + Kotlin</b></div><div class="ciz-cip"><u>DONANIM</u><b>tam erişim</b></div></div>
+            <div class="ciz-alt"><div class="ciz-cip"><u>PLATFORMS</u><b data-sayac="2" data-birim="">0</b></div><div class="ciz-cip"><u>LANGUAGES</u><b>Swift + Kotlin</b></div><div class="ciz-cip"><u>HARDWARE</u><b>full access</b></div></div>
           </div>
         </div>
       </div>
@@ -826,21 +826,21 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 
   <section class="sec" id="detay" style="padding-top:0">
     <div class="wrap">
-      <span class="eyebrow dtay-eb rv"><i></i>Derinlemesine</span>
+      <span class="eyebrow dtay-eb rv"><i></i>In depth</span>
       <div class="dtay">
         <article class="dtay-k rv">
           <span class="dtay-no">01</span>
-          <h2>Platforma Özgü Tasarım Dili: Human Interface ve Material Design</h2>
-          <p class="dtay-vurgu">iOS tarafında Swift ile Human Interface Guidelines'a, Android tarafında Kotlin ile Material Design prensiplerine bağlı kalarak iki ayrı arayüz kodu yazıyoruz.</p>
-          <div class="dtay-devam"><div><p>Bu yaklaşım, React Native'deki tek kod tabanının aksine, geçiş animasyonundan buton davranışına kadar her bileşenin kullanıcının alıştığı platform diline birebir uymasını sağlar. Navigasyon çubuğu, jest tanıma ve klavye davranışı iOS ve Android'de farklı çalıştığından, native derleyici bu farkları taviz vermeden yansıtır. Kotlin ve Swift üretici firmaların kendi işletim sistemi için optimize ettiği diller olduğundan, arayüz doğrudan sistemle konuşur.</p></div></div>
-          <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <h2>Platform-Specific Design Languages: Human Interface and Material Design</h2>
+          <p class="dtay-vurgu">On the iOS side we write to the Human Interface Guidelines in Swift, and on the Android side to Material Design principles in Kotlin — two separate interface codebases.</p>
+          <div class="dtay-devam"><div><p>Unlike a single codebase in React Native, this approach makes every component, from transition animations to button behaviour, match exactly the platform language the user is used to. Because the navigation bar, gesture recognition and keyboard behaviour work differently on iOS and Android, the native compiler reflects those differences without compromise. Since Kotlin and Swift are the languages each manufacturer optimizes for its own operating system, the interface talks to the system directly.</p></div></div>
+          <button type="button" class="dtay-more" aria-expanded="false"><span>More</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
         <article class="dtay-k rv d1">
           <span class="dtay-no">02</span>
-          <h2>Native uygulama donanıma nasıl erişir: kamera, sensör, Bluetooth?</h2>
-          <p class="dtay-vurgu">Native geliştirme; kamera modülü, ivmeölçer, GPS, parmak izi okuyucu ve Bluetooth çevre birimleri gibi donanım katmanlarına işletim sisteminin kendi API'leri üzerinden erişir.</p>
-          <div class="dtay-devam"><div><p>Bu yol, kamera önizlemesinin gecikmesiz akmasını, sensör verisinin arka planda kesintisiz toplanmasını ve harici cihazlarla (akıllı saat, ölçüm cihazı, POS terminali) düşük gecikmeli eşleşmeyi mümkün kılar. Bildirim izinleri, konum takibi ve biyometrik doğrulama gibi işlemler de platformun güvenlik katmanına doğrudan bağlanır; bu da kullanıcı onayı akışını ve veri güvenliğini native tarafta daha öngörülebilir kılar. Görüntü işleme, ölçüm veya konum bazlı hizmet sunan uygulamalarda bu doğrudan bağlantı, performans farkının en çok hissedildiği noktadır. Platform davranışı belgelidir; <a class="kaynak" href="https://developer.apple.com/design/human-interface-guidelines/" target="_blank" rel="noopener">Apple’ın arayüz kılavuzu</a> ve <a class="kaynak" href="https://m3.material.io/" target="_blank" rel="noopener">Material Design</a> farklı kalıp tarif eder.</p></div></div>
-          <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <h2>How does a native app reach the hardware: camera, sensors, Bluetooth?</h2>
+          <p class="dtay-vurgu">Native development reaches hardware layers such as the camera module, the accelerometer, GPS, the fingerprint reader and Bluetooth peripherals through the operating system's own APIs.</p>
+          <div class="dtay-devam"><div><p>That route lets the camera preview run without lag, sensor data be gathered continuously in the background, and external devices (a smartwatch, a measuring instrument, a card terminal) pair with low latency. Notification permissions, location tracking and biometric verification also connect straight into the platform's security layer, which makes the user consent flow and data security more predictable on the native side. On apps doing image processing, measurement or location-based services, that direct connection is where the performance difference shows most. Platform behaviour is documented; <a class="kaynak" href="https://developer.apple.com/design/human-interface-guidelines/" target="_blank" rel="noopener">Apple's interface guidelines</a> and <a class="kaynak" href="https://m3.material.io/" target="_blank" rel="noopener">Material Design</a> describe different patterns.</p></div></div>
+          <button type="button" class="dtay-more" aria-expanded="false"><span>More</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>
 
@@ -850,25 +850,25 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
            Swift, Kotlin, Human Interface (Guidelines), Material Design, iOS,
            Android, "Donanıma Doğrudan Erişim", kamera, ivmeölçer, GPS, parmak
            izi, Bluetooth, "donanım API'lerine", "tam yetkiyle",
-           "İki ayrı kod tabanı", "ayrı kod tabanı" ve "birlikte ilerler".
+           "Two separate codebases", "ayrı kod tabanı" and "birlikte ilerler".
            Ölçüldü: 21 SVG etiketinin 20'si sayfada BİREBİR geçiyor. Tek
            istisna üçüncü duraktaki ortak bant yazısı "Ayrı kod tabanı,
            birlikte ilerler": bu, sayfanın iki ayrı cümlesinden ("ayrı kod
-           tabanı hazırlanır" + "iOS ve Android sürümleri birlikte ilerler")
+           tabanı hazırlanır" + "iOS and Android sürümleri birlikte ilerler")
            birleştirilmiş bir özet; iki parça da sayfada birebir var, uydurma
-           kavram değil. Durak adları (İki tasarım dili / Donanım katmanı /
-           İki kod tabanı) da aynı şekilde sayfanın kavramlarından kısaltıldı.
+           kavram değil. Durak adları (Two design languages / Hardware layer /
+           Two codebases) da aynı şekilde sayfanın kavramlarından kısaltıldı.
 
            BİLEREK RAKAM YOK: bu sayfada fiyat, süre ya da yüzde yayımlanmıyor;
            bakım maliyeti sorusu bile "teklif aşamasında değerlendirilir" diyor.
            Kod pencerelerine gerçek kod yazılmadı, satırlar çubukla temsil
-           edildi; dosya adı da uydurulmadı. MARKA/PLATFORM LOGOSU YOK: elma,
+           edildi; dosya adı da uydurulmadı. MARKA/PLATFORMS LOGOSU YOK: elma,
            robot ya da Bluetooth runası çizilmedi — platform adları yalnızca
            metin, Bluetooth satırının simgesi ise sayfadaki "eşleşme"yi anlatan
            iki bağlı halka.
 
-           İKİ PLATFORM EŞİT: birinci durakta iki çerçeve aynı ölçüde, aynı
-           kenarlıkta ve aynı ağırlıkta; üçüncü durakta iki pencere aynı
+           İKİ PLATFORMS EŞİT: birinci durakta iki çerçeve aynı ölçüde, aynı
+           kenarlıkta and aynı ağırlıkta; üçüncü durakta iki pencere aynı
            boyutta. Sayfa ikisini de eşit anlattığı için grafik de bir tarafı
            öne çıkarmıyor.
 
@@ -884,17 +884,11 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <!-- ===== DURAK 01 — İKİ TASARIM DİLİ ===== -->
           <div class="akis-kutu">
             <span class="akis-no">01</span>
-            <span class="akis-ad">İki tasarım dili</span>
+            <span class="akis-ad">Two design languages</span>
             <svg viewBox="0 0 380 400" role="img" aria-labelledby="naB1 naA1"
                  xmlns="http://www.w3.org/2000/svg">
-              <title id="naB1">İki tasarım dili: yan yana iki telefon çerçevesi, solda iOS, sağda Android arayüzü — temsilî görsel</title>
-              <desc id="naA1">İki eşit telefon çerçevesi. Soldaki iOS: üst barda ortalanmış bir
-                başlık çubuğu, altında simge ve iki yazı çubuğundan oluşan üç liste satırı, her
-                satırın sağında ok işareti, en altta beş sekmeli sekme çubuğu; çerçevenin altında
-                Swift ve Human Interface yazıyor. Sağdaki Android: üst barda sola hizalı başlık
-                çubuğu, altında iki yükseltilmiş kart, sağ altta yuvarlak eylem düğmesi;
-                çerçevenin altında Kotlin ve Material Design yazıyor. Canlanmada önce çerçeveler,
-                sonra iç öğeler sırayla girer.</desc>
+              <title id="naB1">Two design languages: two phone frames side by side, iOS on the left, Android on the right — illustrative graphic</title>
+              <desc id="naA1">Two equal phone frames. On the left, iOS: a centred title bar at the top, below it three list rows each made of an icon and two text bars with a chevron on the right, and a five-item tab bar at the bottom; under the frame it reads Swift and Human Interface. On the right, Android: a left-aligned title bar at the top, below it two raised cards, and a round action button at the bottom right; under the frame it reads Kotlin and Material Design. In the animation the frames come in first, then the inner elements in turn.</desc>
               <defs>
                 <linearGradient id="naSahne1" x1="0" y1="0" x2="0.35" y2="1">
                   <stop offset="0" stop-color="#171626"/>
@@ -919,7 +913,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                 <!-- sayfa H2'si: "Platforma Özgü Tasarım Dili" -->
                 <text class="na-ust1" x="190" y="44" text-anchor="middle"
                       font-family="Inter Tight, system-ui, sans-serif"
-                      font-size="14" fill="#C3A8FF">Platforma özgü tasarım dili</text>
+                      font-size="14" fill="#C3A8FF">Platform-specific design language</text>
 
                 <!-- SOL ÇERÇEVE — iOS: ortalanmış başlık, liste satırları, sekme çubuğu -->
                 <g class="na-tel1">
@@ -1055,19 +1049,14 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                  stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </div>
 
-          <!-- ===== DURAK 02 — DONANIM KATMANI ===== -->
+          <!-- ===== DURAK 02 — HARDWARE KATMANI ===== -->
           <div class="akis-kutu">
             <span class="akis-no">02</span>
-            <span class="akis-ad">Donanım katmanı</span>
+            <span class="akis-ad">Hardware layer</span>
             <svg viewBox="0 0 380 400" role="img" aria-labelledby="naB2 naA2"
                  xmlns="http://www.w3.org/2000/svg">
-              <title id="naB2">Donanım katmanı: beş donanım satırı, donanım API bandı ve sağdaki telefon — temsilî görsel</title>
-              <desc id="naA2">Solda alt alta beş donanım satırı: kamera, ivmeölçer, GPS, parmak izi
-                ve Bluetooth; her satırın başında bir simge kutusu var. Satırlardan çıkan ince
-                hatlar ortadaki dikey banda giriyor; bandın üzerinde "Donanım API" yazıyor.
-                Hatlar bandın ardından sağdaki telefonda tek noktada birleşiyor, telefon ekranında
-                bir sensör izi ve iki veri bandı görünüyor. Canlanmada satırlar sırayla aydınlanır,
-                hatlar soldan sağa telefona doğru çizilir.</desc>
+              <title id="naB2">Hardware layer: five hardware rows, a hardware API band and the phone on the right — illustrative graphic</title>
+              <desc id="naA2">On the left, five hardware rows one below the other: camera, accelerometer, GPS, fingerprint and Bluetooth, each starting with an icon box. Thin lines leaving those rows enter a vertical band in the middle labelled “Hardware API”. Past the band the lines converge at a single point on the phone to the right, whose screen shows a sensor trace and two data bands. In the animation the rows light up in turn and the lines are drawn from left to right towards the phone.</desc>
               <defs>
                 <linearGradient id="naSahne2" x1="0" y1="0" x2="0.35" y2="1">
                   <stop offset="0" stop-color="#171626"/>
@@ -1092,7 +1081,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                 <!-- sayfa H2'si: "Donanıma Doğrudan Erişim" -->
                 <text class="na-ust2" x="190" y="46" text-anchor="middle"
                       font-family="Inter Tight, system-ui, sans-serif"
-                      font-size="14" fill="#C3A8FF">Donanıma doğrudan erişim</text>
+                      font-size="14" fill="#C3A8FF">Direct access to the hardware</text>
 
                 <!-- her satırdan telefona giden hat; banda girip tek noktada birleşiyor -->
                 <path class="na-hat na-h1" d="M188,105 H240 C250,105 252,209 266,209" fill="none"
@@ -1114,7 +1103,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                   <g transform="translate(229,209) rotate(-90)">
                     <text x="0" y="4.6" text-anchor="middle"
                           font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="13" letter-spacing=".4" fill="#C3A8FF">Donanım API</text>
+                          font-size="13" letter-spacing=".4" fill="#C3A8FF">Hardware API</text>
                   </g>
                 </g>
 
@@ -1148,7 +1137,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                           stroke-width="1.4" stroke-linejoin="round"/>
                     <circle cx="52" cy="106" r="2.6" fill="none" stroke="#B892FF" stroke-width="1.3"/>
                     <text x="74" y="111" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="14" fill="#E2DCF2">Kamera</text>
+                          font-size="14" fill="#E2DCF2">Camera</text>
                   </g>
                   <g>
                     <rect x="30" y="136" width="158" height="42" rx="10" fill="#151422"
@@ -1158,7 +1147,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                     <path d="M45,157 l3.5,-6 l3.5,9 l3.5,-11 l3.5,7 l1,-2" fill="none"
                           stroke="#B892FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
                     <text x="74" y="163" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="14" fill="#E2DCF2">İvmeölçer</text>
+                          font-size="14" fill="#E2DCF2">Accelerometer</text>
                   </g>
                   <g>
                     <rect x="30" y="188" width="158" height="42" rx="10" fill="#151422"
@@ -1180,7 +1169,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                           fill="none" stroke="#B892FF" stroke-width="1.3" stroke-linecap="round"/>
                     <path d="M45,269 h14" fill="none" stroke="#B892FF" stroke-width="1.3" stroke-linecap="round"/>
                     <text x="74" y="267" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="14" fill="#E2DCF2">Parmak izi</text>
+                          font-size="14" fill="#E2DCF2">Fingerprint</text>
                   </g>
                   <g>
                     <rect x="30" y="292" width="158" height="42" rx="10" fill="#151422"
@@ -1196,10 +1185,10 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                   </g>
                 </g>
 
-                <!-- sayfa: "gecikmesiz ve tam yetkiyle işlenir" -->
+                <!-- sayfa: "gecikmesiz and tam yetkiyle işlenir" -->
                 <text class="na-alt2" x="305" y="330" text-anchor="middle"
                       font-family="JetBrains Mono, ui-monospace, monospace"
-                      font-size="13" letter-spacing=".4" fill="#C3A8FF">tam yetki</text>
+                      font-size="13" letter-spacing=".4" fill="#C3A8FF">full permissions</text>
               </g>
             </svg>
           </div>
@@ -1212,16 +1201,11 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <!-- ===== DURAK 03 — İKİ KOD TABANI ===== -->
           <div class="akis-kutu">
             <span class="akis-no">03</span>
-            <span class="akis-ad">İki kod tabanı</span>
+            <span class="akis-ad">Two codebases</span>
             <svg viewBox="0 0 380 400" role="img" aria-labelledby="naB3 naA3"
                  xmlns="http://www.w3.org/2000/svg">
-              <title id="naB3">İki kod tabanı: Swift ve Kotlin pencereleri, altlarında ortak bant — temsilî görsel</title>
-              <desc id="naA3">Yan yana iki kod penceresi. Üstlerinde iOS ve Android yazıyor;
-                pencerelerin üst barında dosya sekmeleri var, soldakinde Swift, sağdakinde Kotlin.
-                Her pencerede yedi kod satırı yalnızca çubukla temsil edilmiş, gerçek kod
-                yazılmadı. İki pencereden inen birer bağlantı, altta "Ayrı kod tabanı, birlikte
-                ilerler" yazan ortak banda giriyor. Canlanmada pencereler, sonra kod satırları
-                sırayla girer, en son ortak bant belirir.</desc>
+              <title id="naB3">Two codebases: Swift and Kotlin windows with a shared band beneath them — illustrative graphic</title>
+              <desc id="naA3">Two code windows side by side. Above them it reads iOS and Android; the windows' top bars carry file tabs, Swift on the left and Kotlin on the right. In each window seven lines of code are represented only by bars — no real code is written. A connector from each window runs down into a shared band reading “Separate codebases, moving forward together”. In the animation the windows come in, then the code lines in turn, and the shared band appears last.</desc>
               <defs>
                 <linearGradient id="naSahne3" x1="0" y1="0" x2="0.35" y2="1">
                   <stop offset="0" stop-color="#171626"/>
@@ -1247,7 +1231,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                 <g class="na-ust3">
                   <text x="190" y="44" text-anchor="middle"
                         font-family="Inter Tight, system-ui, sans-serif"
-                        font-size="14" fill="#C3A8FF">İki ayrı kod tabanı</text>
+                        font-size="14" fill="#C3A8FF">Two separate codebases</text>
                   <text x="105" y="70" text-anchor="middle"
                         font-family="JetBrains Mono, ui-monospace, monospace"
                         font-size="13" letter-spacing=".5" fill="#B892FF">iOS</text>
@@ -1330,40 +1314,33 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                 <path class="na-baglanti" d="M275,306 V326" fill="none" stroke="#8B44FF"
                       stroke-opacity=".6" stroke-width="1.6" stroke-linecap="round"/>
 
-                <!-- sayfa: "ayrı kod tabanı hazırlanır" + "iOS ve Android sürümleri birlikte ilerler" -->
+                <!-- sayfa: "ayrı kod tabanı hazırlanır" + "iOS and Android sürümleri birlikte ilerler" -->
                 <g class="na-band3">
                   <rect x="30" y="326" width="320" height="46" rx="12" fill="#8B44FF" fill-opacity=".12"
                         stroke="#8B44FF" stroke-opacity=".42" stroke-width="1.3"/>
                   <text x="190" y="355" text-anchor="middle"
                         font-family="Inter Tight, system-ui, sans-serif"
-                        font-size="14" fill="#C3A8FF">Ayrı kod tabanı, birlikte ilerler</text>
+                        font-size="14" fill="#C3A8FF">Separate codebases, moving forward together</text>
                 </g>
               </g>
             </svg>
           </div>
         </div>
-        <figcaption><b>Temsilî görsel.</b> Sayfanın anlattığı yolu çiziyor: aynı uygulamanın iOS ve
-          Android tarafında iki ayrı arayüz kodu olarak kurulması, donanım katmanlarına işletim
-          sisteminin kendi API'leri üzerinden bağlanması ve iki ayrı kod tabanının birlikte
-          ilerlemesi. Telefon çerçeveleri ve kod pencereleri örnek arayüz çizimidir, gerçek bir
-          uygulamadan alınmadı; kod satırları ad uydurmamak için yalnızca çubukla temsil edildi.
-          Marka, platform ya da ürün logosu çizilmedi — iOS, Android, Swift ve Kotlin yalnızca
-          metin olarak geçiyor. İki platform bilerek eşit ağırlıkta çizildi: sayfa birini
-          diğerinden üstün göstermiyor.</figcaption>
+        <figcaption><b>Illustrative graphic.</b> It draws the route the page describes: the same app set up as two separate interface codebases on the iOS and Android sides, connecting to the hardware layers through the operating system's own APIs, with the two codebases moving forward together. The phone frames and code windows are an example interface drawing, not taken from a real app; the code lines are represented only by bars so as not to invent names. No brand, platform or product logo is drawn — iOS, Android, Swift and Kotlin appear only as text. The two platforms are deliberately drawn with equal weight: the page doesn't present one as better than the other.</figcaption>
       </figure>
 
       <div class="dtay-fiyat rv d1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
-        <p><strong>Güncel fiyat ve süre bandı</strong> için Mobil Uygulama sayfasının <a href="../mobil-uygulama/#fiyat">fiyatlandırma bölümüne</a> göz atın — kapsamınıza göre bandı iki dakikada netleştirebilirsiniz.</p>
+        <p><strong>For the current price and timeline band</strong> , look at the <a href="../mobile-app-development/#fiyat">pricing section</a> on the Mobile Apps page — you can settle the band for your scope in two minutes.</p>
       </div>
     </div>
   </section>
 
   <div class="ara-cta rv"><i class="ac3-zemin" aria-hidden="true"></i><i class="ac3-s s1" aria-hidden="true"></i><i class="ac3-s s2" aria-hidden="true"></i>
     <div class="wrap ara-cta-in">
-      <p><b>Kapsamı birlikte çıkaralım</b><span>Beş adım, iki dakika. Ekranda süre ve fiyat aralığı çıkar.</span></p>
+      <p><b>Let's map the scope together</b><span>Five steps, two minutes. The timeline and price range appear on screen.</span></p>
       <div class="ara-cta-btn">
-        <a class="btn btn-p" href="../teklif/#mobil">Kapsam çıkaralım
+        <a class="btn btn-p" href="../get-a-quote/#mobil">Let's map the scope
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-g" href="tel:+905547916545">0554 791 65 45</a>
       </div>
@@ -1373,28 +1350,28 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   <section class="sec" id="sss" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow"><i></i>Sık sorulanlar</span>
-        <h2 data-kin>Sık sorulan sorular: native iOS ve Android uygulama geliştirme</h2>
+        <span class="eyebrow"><i></i>FAQs</span>
+        <h2 data-kin>Frequently asked questions: native iOS and Android app development</h2>
       </div>
       <div class="sd rv d1" data-sd>
-        <div class="sd-sol" role="tablist" aria-label="Sorular">
-        <button type="button" class="sd-soru acik" role="tab" aria-selected="true"><i>01</i><span>iOS ve Android için ayrı ayrı mı, yoksa aynı anda mı geliştirme yapılıyor?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>02</i><span>Native uygulama hangi durumlarda React Native'den daha doğru bir seçim?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>03</i><span>Swift ve Kotlin dilleri neden platforma özgü seçiliyor?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>04</i><span>Native uygulamada cihaz donanımına (kamera, sensör) erişim nasıl çalışıyor?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>05</i><span>İki platform için ayrı geliştirme, bakım maliyetini nasıl etkiliyor?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>06</i><span>Sadece iOS ya da sadece Android için başlayıp sonra diğerini eklemek mümkün mü?</span></button>
+        <div class="sd-sol" role="tablist" aria-label="Questions">
+        <button type="button" class="sd-soru acik" role="tab" aria-selected="true"><i>01</i><span>Are iOS and Android built separately, or at the same time?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>02</i><span>When is a native app the better choice over React Native?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>03</i><span>Why are Swift and Kotlin chosen platform by platform?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>04</i><span>How does a native app reach device hardware (camera, sensors)?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>05</i><span>How does building separately for two platforms affect maintenance costs?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>06</i><span>Can we start with just iOS or just Android and add the other later?</span></button>
         </div>
         <div class="sd-sag">
-        <div class="sd-cevap acik" role="tabpanel"><h3>iOS ve Android için ayrı ayrı mı, yoksa aynı anda mı geliştirme yapılıyor?</h3><p>İki platform için ayrı kod tabanı hazırlanır; ancak tasarım, API entegrasyonu ve test süreçleri paralel yürütülerek iOS ve Android sürümleri birlikte ilerler.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>Native uygulama hangi durumlarda React Native'den daha doğru bir seçim?</h3><p>Yoğun grafik işleme, karmaşık animasyon, kamera veya sensör tabanlı özellikler ve platforma özgü his beklenen projelerde native tercih edilir. Ortak arayüzle hızlı yayına çıkmak öncelikliyse React Native değerlendirilir.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>Swift ve Kotlin dilleri neden platforma özgü seçiliyor?</h3><p>Swift, iOS'un üretici dili olarak sistem API'leriyle doğrudan uyumludur; Kotlin ise Android için aynı rolü üstlenir. Bu seçim, her iki işletim sisteminin güncellemelerine hızlı ve sorunsuz uyum sağlar.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>Native uygulamada cihaz donanımına (kamera, sensör) erişim nasıl çalışıyor?</h3><p>Uygulama, işletim sisteminin sunduğu donanım API'lerine ek bir katman olmadan bağlanır. Bu sayede kamera, konum, Bluetooth ve diğer sensör verileri gecikmesiz ve tam yetkiyle işlenir.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>İki platform için ayrı geliştirme, bakım maliyetini nasıl etkiliyor?</h3><p>İki ayrı kod tabanı, güncelleme ve hata düzeltme sürecinin her platformda tekrarlanmasını gerektirir. Bu detay teklif aşamasında değerlendirilir; güncel maliyet kalemleri fiyatlandırma bölümünde yer alır.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>Sadece iOS ya da sadece Android için başlayıp sonra diğerini eklemek mümkün mü?</h3><p>Evet, tek platformla başlayıp pazar geri bildirimine göre ikinci platforma geçmek yaygın bir stratejidir. Mimari, ikinci platformun sonradan eklenmesine uygun şekilde planlanır.</p></div>
+        <div class="sd-cevap acik" role="tabpanel"><h3>Are iOS and Android built separately, or at the same time?</h3><p>A separate codebase is prepared for each platform; but the design, API integration and testing run in parallel, so the iOS and Android versions move forward together.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>When is a native app the better choice over React Native?</h3><p>Native is preferred on projects involving heavy graphics work, complex animation, camera or sensor-based features, and where a platform-specific feel is expected. Where getting to launch quickly with a shared interface is the priority, React Native is considered.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Why are Swift and Kotlin chosen platform by platform?</h3><p>Swift is iOS's own language and works directly with the system APIs; Kotlin plays the same role for Android. That choice means both operating systems' updates are picked up quickly and cleanly.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>How does a native app reach device hardware (camera, sensors)?</h3><p>The app connects to the hardware APIs the operating system provides, with no extra layer in between. That means camera, location, Bluetooth and other sensor data are processed with no lag and with full permissions.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>How does building separately for two platforms affect maintenance costs?</h3><p>Two separate codebases mean updates and bug fixes have to be repeated on each platform. That's assessed at the quote stage; the current cost items are in the pricing section.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Can we start with just iOS or just Android and add the other later?</h3><p>Yes — starting with one platform and moving to the second on the strength of market feedback is a common strategy. The architecture is planned so the second platform can be added later.</p></div>
           <div class="sd-alt">
             <div class="sd-cubuk" aria-hidden="true"><i data-sd-cubuk></i></div>
-            <a class="sd-wa" href="https://wa.me/905547916545?text=Merhaba%2C%20iOS%20ve%20Android%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Sorunuz farklı mı? WhatsApp'tan sorun →</a>
+            <a class="sd-wa" href="https://wa.me/905547916545?text=Merhaba%2C%20iOS%20ve%20Android%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Is your question different? Ask us on WhatsApp →</a>
           </div>
         </div>
       </div>
@@ -1404,43 +1381,43 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   <section class="sec" id="ayrintilar" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow"><i></i>Ayrıntılar</span>
-        <h2 data-kin>Karar vermeden önce bakmak isterseniz</h2>
+        <span class="eyebrow"><i></i>The detail</span>
+        <h2 data-kin>If you'd like to look before deciding</h2>
       </div>
       <div class="akv rv d1">
         <ol class="akv-liste">
           <li>
             <span class="akv-no">01</span>
-            <div><h3>Mağaza Onay ve Yayınlama Süreci</h3><p>App Store ve Google Play, her sürümü kendi inceleme kriterlerine göre değerlendirir; gizlilik bildirimleri, izin metinleri ve ikon standartları platforma göre farklılaşır. Native geliştirme sürecinde bu gereksinimler baştan uygulama mimarisine dahil edilir, böylece inceleme aşamasında geri çevrilme riski azalır.</p></div>
+            <div><h3>Store Approval and Release</h3><p>The App Store and Google Play each assess every release against their own review criteria; privacy declarations, permission wording and icon standards differ by platform. In native development those requirements go into the app architecture from the start, which lowers the risk of rejection at review.</p></div>
           </li>
           <li>
             <span class="akv-no">02</span>
-            <div><h3>Sürüm Yönetimi ve Cihaz Uyumluluğu</h3><p>Farklı ekran boyutları, işletim sistemi sürümleri ve donanım kapasiteleri için ayrı test matrisleri oluşturulur. Native derleyici, her cihaz sınıfında performansı ayrı ayrı optimize etmeye imkan tanır; bu da eski veya düşük donanımlı cihazlarda da stabil çalışmayı güvence altına alır.</p></div>
+            <div><h3>Version Management and Device Compatibility</h3><p>Separate test matrices are built for different screen sizes, operating system versions and hardware capabilities. The native compiler makes it possible to optimize performance separately for each class of device, which secures stable running on older or lower-powered handsets too.</p></div>
           </li>
           <li>
             <span class="akv-no">03</span>
-            <div><h3>Arka Plan Görevleri ve Bildirim Altyapısı</h3><p>Konum takibi, senkronizasyon veya ölçüm gibi arka planda çalışması gereken işlemler, işletim sisteminin enerji yönetimi kurallarına native seviyede uyarlanır. Anlık bildirim altyapısı da platforma özgü servislerle kurulur, böylece teslim oranı ve gecikme performansı yüksek tutulur.</p></div>
+            <div><h3>Background Tasks and Notification Infrastructure</h3><p>Work that has to run in the background — location tracking, synchronisation, measurement — is adapted at native level to the operating system's energy management rules. The push notification infrastructure is also built on platform-specific services, keeping delivery rates high and latency low.</p></div>
           </li>
         </ol>
         <div class="akv-video">
-          <span class="akv-rozet"><i></i>CANLI DÖNGÜ</span>
+          <span class="akv-rozet"><i></i>LIVE LOOP</span>
           <video data-dongu muted loop playsinline preload="metadata" poster="../../../../assets/modul-mobil/ios-android.jpg" aria-hidden="true">
-            <source src="../../assets/modul-mobil/ios-android.mp4" type="video/mp4">
+            <source src="../../../assets/modul-mobil/ios-android.mp4" type="video/mp4">
           </video>
         </div>
       </div>
     </div>
   </section>
 
-  <aside class="sec" id="ilgili" style="padding-top:0" aria-label="İlgili hizmetler">
+  <aside class="sec" id="ilgili" style="padding-top:0" aria-label="Related services">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow"><i></i>İlgili hizmetler</span>
-        <h2 data-kin>Bu konuyla bağlantılı sayfalar</h2>
+        <span class="eyebrow"><i></i>Related services</span>
+        <h2 data-kin>Pages connected to this one</h2>
       </div>
       <div class="hrt rv d1">
         <div class="hrt-sol">
-          <div class="hrt-ben"><i></i><div><b>BU SAYFA</b><span>şu an buradasınız</span></div></div>
+          <div class="hrt-ben"><i></i><div><b>THIS PAGE</b><span>you are here</span></div></div>
         </div>
         <svg class="hrt-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
           <path class="hrt-yol" d="M0,50 C42,50 55,15 100,15"/>
@@ -1451,12 +1428,12 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <path class="hrt-akis g3" d="M0,50 C42,50 55,85 100,85"/>
         </svg>
         <div class="hrt-sag">
-          <a class="yk" href="../react-native/"><b>React Native</b>
-            <span>Tek kod tabanından iki platforma yayın.</span></a>
-          <a class="yk" href="../uygulama-arayuz-tasarimi/"><b>Arayüz Tasarımı (UI/UX)</b>
-            <span>Native geliştirmeden önceki tasarım aşaması.</span></a>
-          <a class="yk" href="../aso/"><b>ASO ve Uygulama Pazarlaması</b>
-            <span>Yayınlanan uygulamanın mağazada bulunması.</span></a>
+          <a class="yk" href="../../react-native/"><b>React Native</b>
+            <span>Release to two platforms from one codebase.</span></a>
+          <a class="yk" href="../../uygulama-arayuz-tasarimi/"><b>Interface Design (UI/UX)</b>
+            <span>The design stage that comes before native development.</span></a>
+          <a class="yk" href="../../aso/"><b>ASO and App Marketing</b>
+            <span>Getting the released app found in the stores.</span></a>
         </div>
       </div>
     </div>
@@ -1465,30 +1442,30 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   <section class="sec" style="padding-top:0">
     <div class="wrap">
       <div class="band rv">
-        <h2>Native Projeniz İçin Görüşelim</h2>
-        <p>iOS ve Android'e özel, donanımın tüm gücünü kullanan bir uygulama planlıyorsanız ihtiyacınızı birlikte netleştirelim. Kapsam ve zaman çizelgesine bağlı maliyet detayları fiyatlandırma bölümünde yer alıyor.</p>
+        <h2>Let's Talk About Your Native Project</h2>
+        <p>If you're planning an app built for iOS and Android that uses the full power of the hardware, let's settle what you need together. The cost detail, which depends on scope and schedule, is in the pricing section.</p>
         <div class="band-cta">
-          <a class="btn btn-p" href="../teklif/#mobil">Kapsam çıkaralım
+          <a class="btn btn-p" href="../get-a-quote/#mobil">Let's map the scope
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20iOS%20ve%20Android%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+          <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20iOS%20ve%20Android%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
         </div>
       </div>
     </div>
   </section>
 
-  <aside class="sec" style="padding-top:0" aria-label="Konuyla ilgili yazılar">
+  <aside class="sec" style="padding-top:0" aria-label="Related reading">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow"><i></i>Konuyla ilgili yazılar</span>
-        <h2 data-kin>Bu konuda yazdıklarımız</h2>
+        <span class="eyebrow"><i></i>Related reading</span>
+        <h2 data-kin>What we'and written on this</h2>
       </div>
       <div class="hrt-sag" data-ic-link="blog">
-          <a class="yk" href="../blog/native-mi-cross-platform-mi/"><b>Native mi Cross-Platform mı? Uygulama Mimarisi Seçimi</b>
-            <span>Native uygulama mı, tek kod tabanı mı? Ekranı kimin çizdiği, donanıma erişim ve performans farkı</span></a>
-          <a class="yk" href="../blog/react-native-mi-flutter-mi/"><b>React Native mi Flutter mı? Tek Kod Tabanı Karşılaştırması</b>
-            <span>React Native mi Flutter mı? Ekip dili, arayüz görünümü, paket ekosistemi ve bakım yükü ölçütleriyle iki</span></a>
-          <a class="yk" href="../blog/mobil-uygulama-gelistirme-maliyeti/"><b>Mobil Uygulama Geliştirme Maliyeti Neye Göre Değişir?</b>
-            <span>Mobil uygulama geliştirme bütçesini hangi kalemler hareket ettirir? Ekran, platform, entegrasyon</span></a>
+          <a class="yk" href="../../blog/native-mi-cross-platform-mi/"><b>Native or Cross-Platform? Choosing an App Architecture</b>
+            <span>A native app or one codebase? Who draws the screen, hardware access and the performance difference</span></a>
+          <a class="yk" href="../../blog/react-native-mi-flutter-mi/"><b>React Native or Flutter? Comparing the Single-Codebase Options</b>
+            <span>React Native or Flutter? The two compared on team language, interface look, package ecosystem and maintenance load</span></a>
+          <a class="yk" href="../../blog/mobil-uygulama-gelistirme-maliyeti/"><b>What Makes Mobile App Development Costs Vary?</b>
+            <span>Which line items move a mobile app development budget? Screens, platforms, integrations</span></a>
       </div>
     </div>
   </aside>
@@ -1498,44 +1475,43 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   <div class="wrap">
     <div class="ftr-ust">
       <div>
-        <img src="../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
-        <p>Web, mobil, reklam, video ve SEO’yu tek çatı altında birleştiren
-          İstanbul merkezli 360 derece dijital ajans.</p>
+        <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>An Istanbul-based 360° digital agency bringing web, mobile, advertising, video and SEO together under one roof.</p>
       </div>
       <div>
-        <h3>Modüller</h3>
+        <h3>Modules</h3>
         <ul>
-          <li><a href="../hizmetler/">Tüm hizmetler</a></li>
-          <li><a href="../web-tasarim/">Web &amp; Yazılım</a></li>
-          <li><a href="../mobil-uygulama/">Mobil Uygulama</a></li>
-          <li><a href="../dijital-pazarlama/">Dijital Pazarlama</a></li>
-          <li><a href="../video-produksiyon/">Video Prodüksiyon</a></li>
-          <li><a href="../seo/">SEO Hizmetleri</a></li>
-          <li><a href="../grafik-tasarim/">Grafik Tasarım</a></li>
+          <li><a href="../services/">All services</a></li>
+          <li><a href="../web-design/">Web &amp; Software</a></li>
+          <li><a href="../mobile-app-development/">Mobile Apps</a></li>
+          <li><a href="../digital-marketing/">Digital Marketing</a></li>
+          <li><a href="../video-production/">Video Production</a></li>
+          <li><a href="../seo/">SEO Services</a></li>
+          <li><a href="../graphic-design/">Graphic Design</a></li>
         </ul>
       </div>
       <div>
-        <h3>İletişim</h3>
+        <h3>Contact</h3>
         <ul>
           <li><a href="tel:+905547916545">0554 791 65 45</a></li>
           <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
-          <li><a href="../iletisim/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
-          <li><a href="../iletisim/#ofis">Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</a></li>
+          <li><a href="../contact/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../contact/#ofis">Weekdays 09:00–19:00<br>Saturdays 10:00–16:00</a></li>
         </ul>
       </div>
     </div>
     <div class="ftr-alt">
-      <span>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</span>
-      <span class="mono">BEŞ MODÜL · TEK PANEL</span>
+      <span>© <span id="yil">2026</span> TasarımMania. All rights reserved.</span>
+      <span class="mono">FIVE MODULES · ONE PLACE</span>
     </div>
   </div>
 </footer>
 
-<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
 </a>
 
-<script src="../js/tm.js" defer></script>
+<script src="../../js/tm.js" defer></script>
 <script>
 "use strict";
 document.getElementById('yil').textContent = new Date().getFullYear();
@@ -1601,7 +1577,7 @@ document.getElementById('yil').textContent = new Date().getFullYear();
     btn.addEventListener('click', function(){
       var acikMi = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', acikMi ? 'false' : 'true');
-      btn.querySelector('span').textContent = acikMi ? 'Daha fazla' : 'Daha az';
+      btn.querySelector('span').textContent = acikMi ? 'More' : 'Less';
       var devam = btn.parentElement.querySelector('.dtay-devam');
       if (devam) devam.classList.toggle('acik', !acikMi);
     });
