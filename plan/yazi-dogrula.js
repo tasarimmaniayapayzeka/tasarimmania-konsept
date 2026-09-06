@@ -29,6 +29,7 @@ const ODAKLAR = {
   'reklam-filmi-fiyat-kalemleri': 'reklam filmi fiyat',
   'storyboard-nedir': 'storyboard hazırlama',
   'reklam-filmi-ajansi-secimi': 'reklam filmi ajansı',
+  'urun-videosu-studyo-mu-mekan-mi': 'ürün videosu çekimi',
 };
 
 const ESIK = [
