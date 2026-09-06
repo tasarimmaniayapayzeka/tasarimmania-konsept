@@ -7,7 +7,9 @@
   "eksenAciklama": "En boy oranı, süre ve dosya ölçülerini anlatır. Çekim yeri yazı 11'in işidir. Mevcut 'E-Ticaret Ürün Görseli' yazısıyla komşu ama o DURAĞAN GÖRSEL; burada görselin satışa etkisi ANLATILMAZ, yalnız kardeş linki verilir (Madde 7).",
   "huni": "TOFU",
   "kume": "video",
-  "kardesler": ["kamerasiz-urun-videosu"],
+  "kardesler": [
+    "kamerasiz-urun-videosu"
+  ],
   "kisaBaslik": "Video Formatları",
   "okumaDk": 7,
   "kopruBaslik": "Format planınızı birlikte çıkaralım",
@@ -32,11 +34,26 @@
     "metaBaslik": "E-Ticaret Ürün Videosu Formatları ve Ölçüleri | TasarımMania",
     "metaAciklama": "Ürün videosu formatı nasıl seçilir? En boy oranı, süre, dosya boyutu ve pazaryeri şartlarını mecra mecra karşılaştırarak teslim listesini çıkarıyoruz.",
     "esAnlamli": [
-      ["en boy oranı", "çerçeve oranı"],
-      ["dikey video", "9:16 sürüm"],
-      ["pazaryeri", "satış platformu"],
-      ["kırpma", "kadraj daraltma"],
-      ["teslim listesi", "çıktı paketi"]
+      [
+        "en boy oranı",
+        "çerçeve oranı"
+      ],
+      [
+        "dikey video",
+        "9:16 sürüm"
+      ],
+      [
+        "pazaryeri",
+        "satış platformu"
+      ],
+      [
+        "kırpma",
+        "kadraj daraltma"
+      ],
+      [
+        "teslim listesi",
+        "çıktı paketi"
+      ]
     ],
     "girisParagraf": "Aynı videoyu her yere yükleyebileceğinizi düşünmek en pahalı varsayımdır. Bir mecrada kusursuz duran bir kare, diğerinde ürünü çerçeve dışında bırakır. Bu yazıda oranı, süreyi ve dosya ölçülerini mecra mecra açıyoruz. Amaç, teslim listesini çekimden önce çıkarmak; sonradan yapılan her kırpma bir kurgu turu demek.",
     "bolumler": [
@@ -91,7 +108,7 @@
       {
         "h2": "Pazaryerleri Hangi Şartları Arar?",
         "dogrudanCevap": "Her satış platformunun kendi kuralları vardır ve bunlar zamanla değişir. Ortak eğilim şudur: temiz arka plan, ürünün net görünmesi, marka logosunun öne çıkmaması ve kısa süre. Ürün videosu formatını seçerken güncel şartları platformun kendi belgesinden okuyun. Kulaktan dolma ölçüler çoğu zaman eskimiştir.",
-        "govde": "<p>Kuralları yükleme gününde değil, çekim planını kurarken okuyun. Sonradan öğrendiğiniz bir şart, elinizdeki görüntüyü işe yaramaz hâle getirebilir.</p><p>Ürün sayfası düzeninin bütünüyle ilişkisini <a href=\"../../hizmetler/web-tasarim-yazilim/e-ticaret/\">e-ticaret hizmetimizde</a> ele alıyoruz. Durağan görsellerin kendi kuralları ise ayrı bir konudur; onu <a href=\"../../blog/e-ticaret-urun-fotograflari/\">ürün görselleri</a> yazısında anlattık.</p><p>Kuralların değiştiğini de hesaba katın. Bir yıl önce hazırladığınız liste bugün eksik kalabilir; yılda bir kez gözden geçirmek yeterlidir. Değişikliği yakalamanın en kolay yolu, satıcı panelindeki duyuruları takip etmektir.</p>"
+        "govde": "<p>Kuralları yükleme gününde değil, çekim planını kurarken okuyun. Sonradan öğrendiğiniz bir şart, elinizdeki görüntüyü işe yaramaz hâle getirebilir.</p><p>Ürün sayfası düzeninin bütünüyle ilişkisini <a href=\"../../hizmetler/web-tasarim-yazilim/e-ticaret/\">e-ticaret hizmetimizde</a> ele alıyoruz. Durağan görsellerin kendi kuralları ise ayrı bir konudur; onu <a href=\"../../blog/e-ticaret-urun-fotograflari/\">ürün görselleri</a> yazısında anlattık.</p><p>Kuralların değiştiğini de hesaba katın. Bir yıl önce hazırladığınız liste bugün eksik kalabilir; yılda bir kez gözden geçirmek yeterlidir. Değişikliği yakalamanın en kolay yolu, satıcı panelindeki duyuruları takip etmektir. Pazaryeri kuralları kadar mevzuat da bağlar; <a href=\"https://ticaret.gov.tr/tuketici/ticari-reklamlar\" target=\"_blank\" rel=\"noopener\">ticari reklam kuralları</a> videodaki vaat için de geçerlidir.</p>"
       },
       {
         "h2": "Format Planınızı Birlikte Çıkaralım",
@@ -101,14 +118,42 @@
     ],
     "karsilastirmaTablosu": {
       "baslik": "Oran, kullanım yeri ve dikkat noktası",
-      "sutunlar": ["En boy oranı", "Nerede çalışır", "Dikkat"],
+      "sutunlar": [
+        "En boy oranı",
+        "Nerede çalışır",
+        "Dikkat"
+      ],
       "satirlar": [
-        ["16:9 yatay", "Ürün sayfası, web, geniş ekran", "Dikey mecrada küçük kalır"],
-        ["1:1 kare", "Akış içeriği, çoklu mecra", "Ekranın tamamını doldurmaz"],
-        ["9:16 dikey", "Tam ekran mecralar", "Yatay çekimi kırparsanız ürün kaçar"],
-        ["4:5 dik dikdörtgen", "Akışta daha çok yer kaplar", "Her platform kabul etmez"],
-        ["Kısa sürüm", "İlk temas ve akış", "Hızlandırma değil, yeniden kurgu"],
-        ["Uzun sürüm", "Ürün sayfası ve kanal", "İlk saniye yine belirleyici"]
+        [
+          "16:9 yatay",
+          "Ürün sayfası, web, geniş ekran",
+          "Dikey mecrada küçük kalır"
+        ],
+        [
+          "1:1 kare",
+          "Akış içeriği, çoklu mecra",
+          "Ekranın tamamını doldurmaz"
+        ],
+        [
+          "9:16 dikey",
+          "Tam ekran mecralar",
+          "Yatay çekimi kırparsanız ürün kaçar"
+        ],
+        [
+          "4:5 dik dikdörtgen",
+          "Akışta daha çok yer kaplar",
+          "Her platform kabul etmez"
+        ],
+        [
+          "Kısa sürüm",
+          "İlk temas ve akış",
+          "Hızlandırma değil, yeniden kurgu"
+        ],
+        [
+          "Uzun sürüm",
+          "Ürün sayfası ve kanal",
+          "İlk saniye yine belirleyici"
+        ]
       ]
     },
     "alinti": {
@@ -151,7 +196,16 @@
       }
     ],
     "kapanis": "Ürün videosu formatı tek bir dosya değil, bir teslim listesidir. Oranı, süreyi ve dosya ölçüsünü çekimden önce yazdığınızda tek çekimden bütün mecralara çıkabilir; listeyi sonraya bırakırsanız her yeni mecra yeni bir kurgu turu ister.",
-    "about": ["Ürün videosu formatı", "E-ticaret video", "En boy oranı"],
-    "mentions": ["9:16 dikey video", "1:1 kare video", "Pazaryeri kuralları", "Altyazı"]
+    "about": [
+      "Ürün videosu formatı",
+      "E-ticaret video",
+      "En boy oranı"
+    ],
+    "mentions": [
+      "9:16 dikey video",
+      "1:1 kare video",
+      "Pazaryeri kuralları",
+      "Altyazı"
+    ]
   }
 }

@@ -31,9 +31,17 @@ const TURLAR = [
   ['geo-onar-10-soru-h2.js', 'soru biçimli H2 başlıkları'],
   ['geo-onar-11-hizmetler-sss.js', '/hizmetler/ SSS bölümü'],
   ['geo-onar-12-person.js', 'Person entity (yazar)'],
+  ['geo-onar-14-font-cls.js', 'yazı tipi CLS (display=optional)'],
+  ['geo-onar-15-hizmet-kaynak.js', 'hizmet sayfası dış kaynağı'],
+  ['geo-onar-16-kaynak-bicim.js', 'kaynak bağlantısı görünümü'],
   ['geo-onar-3-sema.js', 'şema grafiği'],
   ['geo-onar-7-gorsel.js', 'görsel öznitelikleri + sitemap'],
 ];
+
+/* ⚠ geo-onar-13-kaynak.js BU LİSTEDE DEĞİL, bilerek: o betik blog
+   YAPILANDIRMALARINI değiştiriyor, HTML'i değil. Sırası: 13'ü koş →
+   plan/yeniden-uret.js ile üret → sonra bu tur. Buraya konsaydı üretimden
+   sonra çalışıp hiçbir işe yaramazdı. */
 
 console.log(`\n  ONARIM TURU — ${UYGULA ? 'UYGULANIYOR' : 'KURU KOŞU'}\n`);
 for (const [betik, ad] of TURLAR) {

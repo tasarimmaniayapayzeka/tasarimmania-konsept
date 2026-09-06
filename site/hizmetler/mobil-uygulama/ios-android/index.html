@@ -30,7 +30,7 @@
 <link rel="icon" type="image/png" href="../../../../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
 <link rel="stylesheet" href="../../../css/tm.css">
 <style>
 .nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
@@ -563,7 +563,9 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   .akis{margin-inline:-14px;padding:8px}
   .akis-kutu{padding:6px;gap:8px}
 }
-</style>
+.kaynak{color:var(--acc);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.kaynak:hover{text-decoration-thickness:2px}
+  </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -834,7 +836,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <span class="dtay-no">02</span>
           <h2>Native uygulama donanıma nasıl erişir: kamera, sensör, Bluetooth?</h2>
           <p class="dtay-vurgu">Native geliştirme; kamera modülü, ivmeölçer, GPS, parmak izi okuyucu ve Bluetooth çevre birimleri gibi donanım katmanlarına işletim sisteminin kendi API'leri üzerinden erişir.</p>
-          <div class="dtay-devam"><div><p>Bu yol, kamera önizlemesinin gecikmesiz akmasını, sensör verisinin arka planda kesintisiz toplanmasını ve harici cihazlarla (akıllı saat, ölçüm cihazı, POS terminali) düşük gecikmeli eşleşmeyi mümkün kılar. Bildirim izinleri, konum takibi ve biyometrik doğrulama gibi işlemler de platformun güvenlik katmanına doğrudan bağlanır; bu da kullanıcı onayı akışını ve veri güvenliğini native tarafta daha öngörülebilir kılar. Görüntü işleme, ölçüm veya konum bazlı hizmet sunan uygulamalarda bu doğrudan bağlantı, performans farkının en çok hissedildiği noktadır.</p></div></div>
+          <div class="dtay-devam"><div><p>Bu yol, kamera önizlemesinin gecikmesiz akmasını, sensör verisinin arka planda kesintisiz toplanmasını ve harici cihazlarla (akıllı saat, ölçüm cihazı, POS terminali) düşük gecikmeli eşleşmeyi mümkün kılar. Bildirim izinleri, konum takibi ve biyometrik doğrulama gibi işlemler de platformun güvenlik katmanına doğrudan bağlanır; bu da kullanıcı onayı akışını ve veri güvenliğini native tarafta daha öngörülebilir kılar. Görüntü işleme, ölçüm veya konum bazlı hizmet sunan uygulamalarda bu doğrudan bağlantı, performans farkının en çok hissedildiği noktadır. Platform davranışı belgelidir; <a class="kaynak" href="https://developer.apple.com/design/human-interface-guidelines/" target="_blank" rel="noopener">Apple’ın arayüz kılavuzu</a> ve <a class="kaynak" href="https://m3.material.io/" target="_blank" rel="noopener">Material Design</a> farklı kalıp tarif eder.</p></div></div>
           <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>

@@ -29,7 +29,8 @@ const KISI = {
   ad: 'İhsan Ar',
   unvan: 'Dijital Pazarlama Uzmanı',
   rol: 'Kurucu · Dijital Pazarlama Uzmanı',
-  sosyal: 'https://www.instagram.com/ihsanar86/',
+  sosyal: ['https://www.linkedin.com/in/ihsan-ar-47254548/',
+            'https://www.instagram.com/ihsanar86/'],
   capa: `${KANONIK}/hakkimizda/#ihsan-ar`,
   sayfa: `${KANONIK}/hakkimizda/#kurucu`,
 };
@@ -40,7 +41,7 @@ const PERSON = {
   name: KISI.ad,
   jobTitle: KISI.unvan,
   url: KISI.sayfa,
-  sameAs: [KISI.sosyal],
+  sameAs: KISI.sosyal,
   worksFor: { '@id': KANONIK + '/#kurulus' },
 };
 
@@ -58,7 +59,8 @@ const BOLUM = `  <section class="sec" id="kurucu" style="padding-top:0">
         <p>TasarımMania'nın kurucusu. Sitedeki hizmet sayfalarının ve blog yazılarının
           yayın sorumlusu; hangi konunun ne zaman ve hangi derinlikte yazılacağına karar veriyor.</p>
         <p class="krc-bag">
-          <a href="${KISI.sosyal}" target="_blank" rel="noopener me">Instagram</a>
+          <a href="${KISI.sosyal[0]}" target="_blank" rel="noopener me">LinkedIn</a>
+          <a href="${KISI.sosyal[1]}" target="_blank" rel="noopener me">Instagram</a>
           <a href="../iletisim/">İletişim sayfası</a>
         </p>
       </div>

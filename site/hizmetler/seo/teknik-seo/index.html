@@ -30,7 +30,7 @@
 <link rel="icon" type="image/png" href="../../../../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
 <link rel="stylesheet" href="../../../css/tm.css">
 <style>
 .nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
@@ -514,7 +514,9 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   .akis{margin-inline:-14px;padding:8px}
   .akis-kutu{padding:6px;gap:8px}
 }
-</style>
+.kaynak{color:var(--acc);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.kaynak:hover{text-decoration-thickness:2px}
+  </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -784,7 +786,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <span class="dtay-no">02</span>
           <h2>Taranabilirlik, Search Console ve Yapılandırılmış Veri</h2>
           <p class="dtay-vurgu">Arama motorunun bir sayfayı sıralayabilmesi için önce onu bulup taraması, sonra indekslemesi gerekir.</p>
-          <div class="dtay-devam"><div><p>Sitemap.xml, sitenin öncelikli sayfalarını gösteren bir harita işlevi görür; robots.txt ise hangi bölümlerin taranmayacağını tarif eder. Bu dosyalardan biri hatalı kurulduğunda sonuç ağır olabilir: yanlış bir robots.txt kuralı tüm siteyi taramaya kapatabilir, bozuk bir sitemap ise yeni sayfaların indekse girmesini geciktirir. Yönlendirme zincirleri, kırık bağlantılar ve tutarsız canonical etiketleri de tarama bütçesini boşa harcayan sorunlardır ve denetimde tek tek düzeltilir. Search Console entegrasyonu bu çalışmanın doğrulama katmanıdır; kapsama raporu hangi sayfaların indekslendiğini ve dışarıda kalanların gerekçesini gösterir. Yapılandırılmış veri, yani schema işaretlemesi, sayfa içeriğinin anlamını arama motoruna makine diliyle açıklar; doğru işaretlenen hizmet veya soru-cevap verileri, arama sonuçlarında zenginleştirilmiş görünümler doğurabilir.</p></div></div>
+          <div class="dtay-devam"><div><p>Sitemap.xml, sitenin öncelikli sayfalarını gösteren bir harita işlevi görür; robots.txt ise hangi bölümlerin taranmayacağını tarif eder. Bu dosyalardan biri hatalı kurulduğunda sonuç ağır olabilir: yanlış bir robots.txt kuralı tüm siteyi taramaya kapatabilir, bozuk bir sitemap ise yeni sayfaların indekse girmesini geciktirir. Yönlendirme zincirleri, kırık bağlantılar ve tutarsız canonical etiketleri de tarama bütçesini boşa harcayan sorunlardır ve denetimde tek tek düzeltilir. Search Console entegrasyonu bu çalışmanın doğrulama katmanıdır; kapsama raporu hangi sayfaların indekslendiğini ve dışarıda kalanların gerekçesini gösterir. Yapılandırılmış veri, yani schema işaretlemesi, sayfa içeriğinin anlamını arama motoruna makine diliyle açıklar; doğru işaretlenen hizmet veya soru-cevap verileri, arama sonuçlarında zenginleştirilmiş görünümler doğurabilir. Sayfa deneyimi ölçütleri <a class="kaynak" href="https://web.dev/articles/vitals" target="_blank" rel="noopener">Core Web Vitals tanımlarında</a> eşikleriyle birlikte verilir.</p></div></div>
           <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>

@@ -33,7 +33,7 @@
 <link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
 <link rel="stylesheet" href="../../css/tm.css">
 <style>
 .nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
@@ -180,7 +180,7 @@
         "@id": "https://www.tasarimmania.com/#kurulus"
       },
       "articleSection": "Mobil",
-      "wordCount": 1035,
+      "wordCount": 1046,
       "image": {
         "@type": "ImageObject",
         "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/react-native-mi-flutter-mi/gorsel/react-native-mi-flutter-mi-kapak-1440.jpg",
@@ -344,6 +344,20 @@
       "@id": "https://www.tasarimmania.com/blog/react-native-mi-flutter-mi/#kirintili"
     },
     {
+      "@type": "Person",
+      "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar",
+      "name": "İhsan Ar",
+      "jobTitle": "Dijital Pazarlama Uzmanı",
+      "url": "https://www.tasarimmania.com/hakkimizda/#kurucu",
+      "sameAs": [
+        "https://www.linkedin.com/in/ihsan-ar-47254548/",
+        "https://www.instagram.com/ihsanar86/"
+      ],
+      "worksFor": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
       "@type": "WebSite",
       "@id": "https://www.tasarimmania.com/#site",
       "url": "https://www.tasarimmania.com/",
@@ -357,7 +371,7 @@
       "@type": "WebPage",
       "@id": "https://www.tasarimmania.com/blog/react-native-mi-flutter-mi/#sayfa",
       "url": "https://www.tasarimmania.com/blog/react-native-mi-flutter-mi/",
-      "name": "React Native mi Flutter mı? Tek Kod Tabanı Karşılaştırması | TasarımMania",
+      "name": "React Native mi Flutter mı? Karşılaştırma | TasarımMania",
       "description": "React Native mi Flutter mı? Ekip dili, arayüz görünümü, paket ekosistemi ve bakım yükü ölçütleriyle iki çatıyı fiyat vermeden ölçüt ölçüt karşılaştırıyoruz.",
       "inLanguage": "tr-TR",
       "isPartOf": {
@@ -374,19 +388,6 @@
         "@id": "https://www.tasarimmania.com/blog/react-native-mi-flutter-mi/#article"
       },
       "dateModified": "2026-10-02T10:20:00"
-    },
-    {
-      "@type": "Person",
-      "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar",
-      "name": "İhsan Ar",
-      "jobTitle": "Dijital Pazarlama Uzmanı",
-      "url": "https://www.tasarimmania.com/hakkimizda/#kurucu",
-      "sameAs": [
-        "https://www.instagram.com/ihsanar86/"
-      ],
-      "worksFor": {
-        "@id": "https://www.tasarimmania.com/#kurulus"
-      }
     }
   ]
 }
@@ -471,7 +472,7 @@
       <p>Tek tip görünüm hedefliyorsanız kendi çizen çatı işi kolaylaştırır. Platform bileşenine yaslanan yolda ise aynı bileşeni iki cihazda ayrı ayrı denemeniz gerekir.</p>
       <h2>Paket Ekosistemi ve Bakım Yükü Nasıl Ayrışır?</h2>
       <div class="yz-cevap"><p>İki tarafta da geniş bir paket havuzu var, ama karakterleri farklı. React Native ekosistemi web dünyasının birikimini taşır; seçenek boldur, kalite dalgalanır. Flutter tarafında hazır kütüphaneler daha derli topludur, sayı görece azdır. Bakım yükünü paket sayısı değil, seçtiğiniz paketlerin sürdürülme sıklığı belirler.</p></div>
-      <p>Paket seçerken üç şeye bakarız: son güncelleme tarihi, açık sorun sayısı ve bakımcı sayısı. Tek kişinin sürdürdüğü bir paket, ne kadar iyi olursa olsun bir risktir. Bu ölçütler her iki tarafta da aynı işler.</p><p>Sürüm geçişleri de tabloya girer. Yılda bir büyük sürüm çıkması olağandır; asıl soru geçişin ne kadar sancılı olduğudur. Bunu ölçmenin tek dürüst yolu, kendi bağımlılık listenizi denemektir.</p>
+      <p>Paket seçerken üç şeye bakarız: son güncelleme tarihi, açık sorun sayısı ve bakımcı sayısı. Tek kişinin sürdürdüğü bir paket, ne kadar iyi olursa olsun bir risktir. Bu ölçütler her iki tarafta da aynı işler.</p><p>Sürüm geçişleri de tabloya girer. Yılda bir büyük sürüm çıkması olağandır; asıl soru geçişin ne kadar sancılı olduğudur. Bunu ölçmenin tek dürüst yolu, kendi bağımlılık listenizi denemektir. İki çatının sürüm politikası açık; <a href="https://reactnative.dev/" target="_blank" rel="noopener">resmî çatı belgeleri</a> kırılan değişiklikleri duyurur.</p>
       <h3>Az Paket mi, Çok Paket mi İyidir?</h3>
       <p>İkisi de değil; doğru paket iyidir. Bol seçenek karar yorgunluğu yaratır, dar seçenek ise bazen kendi köprünüzü yazmanıza yol açar. Native tarafta React Native için hazır bir çözüm bulmak genelde kolaydır, ama bulduğunuzun bakımlı olduğunu ayrıca doğrulamanız gerekir.</p><p>Bağımlılık listesini kısa tutmak da bir strateji. Her eklediğiniz hazır kütüphane, bir sonraki sürüm geçişinde sizi bekleyen bir iş demektir. Beş bakımlı paket, yirmi sahipsiz paketten iyidir. Listeyi yılda bir gözden geçirmek de iyi bir alışkanlıktır.</p>
       <blockquote class="yz-alinti"><p>&#8220;İki çatı da çalışıyor. Soru hangisinin daha iyi olduğu değil, hangisinin sizin ekibinize oturduğu.&#8221;</p><cite>— TasarımMania mimari görüşmesi notu</cite></blockquote>

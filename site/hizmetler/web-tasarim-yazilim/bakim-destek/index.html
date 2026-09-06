@@ -30,7 +30,7 @@
 <link rel="icon" type="image/png" href="../../../../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
 <link rel="stylesheet" href="../../../css/tm.css">
 <style>
 .nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
@@ -501,7 +501,9 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   .akis{margin-inline:-14px;padding:8px}
   .akis-kutu{padding:6px;gap:8px}
 }
-</style>
+.kaynak{color:var(--acc);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.kaynak:hover{text-decoration-thickness:2px}
+  </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -765,7 +767,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <span class="dtay-no">02</span>
           <h2>WordPress Site Taşıma ve Klonlama Süreci</h2>
           <p class="dtay-vurgu">Site taşıma talebi genellikle sunucu değişikliği, alan adı geçişi veya yeni bir geliştirme ortamı ihtiyacından doğar.</p>
-          <div class="dtay-devam"><div><p>Süreç, mevcut dosya yapısının ve veritabanının bütünlüğü bozulmadan hedef ortama aktarılmasıyla başlar; sonrasında veritabanı içindeki adres referansları yeni ortama göre güncellenir. Klonlama isteniyorsa aynı adımlar, canlı siteyi etkilemeyen ayrı bir test alanı için tekrarlanır ve tasarım denemeleri veya eklenti testleri burada yapılır. DNS yönlendirmesi ve SSL sertifikası taşımanın son adımıdır; bu adım tamamlanana kadar eski ve yeni ortam paralel tutulur, ziyaretçi trafiği kesintiye uğramaz. Taşıma sonrasında sitenin form gönderimi, ödeme entegrasyonu ve önbellekleme ayarları tek tek doğrulanır.</p></div></div>
+          <div class="dtay-devam"><div><p>Süreç, mevcut dosya yapısının ve veritabanının bütünlüğü bozulmadan hedef ortama aktarılmasıyla başlar; sonrasında veritabanı içindeki adres referansları yeni ortama göre güncellenir. Klonlama isteniyorsa aynı adımlar, canlı siteyi etkilemeyen ayrı bir test alanı için tekrarlanır ve tasarım denemeleri veya eklenti testleri burada yapılır. DNS yönlendirmesi ve SSL sertifikası taşımanın son adımıdır; bu adım tamamlanana kadar eski ve yeni ortam paralel tutulur, ziyaretçi trafiği kesintiye uğramaz. Taşıma sonrasında sitenin form gönderimi, ödeme entegrasyonu ve önbellekleme ayarları tek tek doğrulanır. Bakımın ölçülebilir tarafı sayfa deneyimidir; <a class="kaynak" href="https://web.dev/articles/vitals" target="_blank" rel="noopener">Core Web Vitals tanımları</a> eşikleri açıkça verir.</p></div></div>
           <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>

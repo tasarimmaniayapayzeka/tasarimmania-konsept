@@ -107,15 +107,61 @@ const mod = (no, ad, deger, gecti, oncelik, not) => M.push({ no, ad, deger, gect
   mod(13, 'Social Metadata', d.join(' · '), g.every((x) => say((f) => oku(f).includes(`"${x}"`)) === T), 'P2');
 }
 /* 14 */ {
-  let img = 0, altsiz = 0;
-  for (const f of sayfalar) for (const m of oku(f).matchAll(/<img\b[^>]*>/g)) { img++; if (!/\balt="[^"]+"/.test(m[0])) altsiz++; }
-  const io = say((f) => tipler(oku(f)).includes('ImageObject'));
-  mod(14, 'Image Metadata', `${img} görsel · alt eksik ${altsiz} · ImageObject şeması ${io}/${T}`, !altsiz, 'P2',
+  /* ⚠ İKİ ÖLÇÜM HATASI DÜZELTİLDİ (v2'de bulunmuştu, burada duruyordu):
+     (a) alt="" EKSİK DEĞİLDİR — "bu görsel süstür, ekran okuyucu atlasın"
+         demektir ve sitede 18 tanesi bilinçli böyle (modül ikonları, kahraman
+         fonu). Eksik olan, alt özniteliğinin HİÇ olmamasıdır; o da 0.
+     (b) ImageObject yalnız @graph ÜST SEVİYESİNDE aranıyordu ve "hiç yok"
+         diyordu. Oysa Article.image ve Organization.logo İÇİNDE var. Şema bir
+         ağaç; türü ağacın tamamında aramak gerekir. */
+  let img = 0, altYok = 0, altBos = 0;
+  for (const f of sayfalar) for (const m of oku(f).matchAll(/<img\b[^>]*>/g)) {
+    img++;
+    if (!/\balt=/.test(m[0])) altYok++;
+    else if (/\balt=""/.test(m[0])) altBos++;
+  }
+  const agacTurleri = (h) => {
+    const o = [];
+    const gez = (n) => {
+      if (Array.isArray(n)) return n.forEach(gez);
+      if (!n || typeof n !== 'object') return;
+      if (n['@type']) o.push(...[n['@type']].flat());
+      Object.values(n).forEach(gez);
+    };
+    for (const m of h.matchAll(/application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+      try { gez(JSON.parse(m[1])); } catch { }
+    }
+    return o;
+  };
+  const io = say((f) => agacTurleri(oku(f)).includes('ImageObject'));
+  mod(14, 'Image Metadata',
+    `${img} görsel · alt özniteliği yok ${altYok} · bilinçli alt="" ${altBos} · ImageObject şeması ${io}/${T}`,
+    altYok === 0 && io > 0, 'P2',
     io === 0 ? 'ImageObject şeması hiçbir sayfada yok' : '');
 }
 /* 15 */ mod(15, 'Video Metadata', say((f) => tipler(oku(f)).includes('VideoObject')) + `/${T} VideoObject`,
   true, 'P3', 'Sitede gömülü video yok; madde uygulanamaz.');
-/* 16 */ mod(16, 'Core Web Vitals', 'ÖLÇÜLEMEDİ', null, 'P2', 'Alan verisi gerekir (CrUX/Search Console). Bu betik dosya üstünden ölçemez.');
+/* 16 */ {
+  /* ⚠ ESKİDEN "ÖLÇÜLEMEDİ" DİYORDU. Alan verisi (CrUX) yalnız GERÇEK KULLANICI
+     dağılımı için gerekli; sayfanın kendi LCP/CLS/TBT davranışı laboratuvarda
+     ölçülür ve kötü sayfa orada da kötü çıkar. plan/cwv-olc.js başsız Chrome
+     ile ölçüyor, sonucu buraya okunuyor. */
+  const p = path.join(__dirname, 'cwv-sonuc.json');
+  if (!fs.existsSync(p)) {
+    mod(16, 'Core Web Vitals', 'ölçüm dosyası yok', false, 'P2',
+      'Koşun: node plan/cwv-olc.js  (sunucu 8020 portunda açık olmalı)');
+  } else {
+    const v = JSON.parse(fs.readFileSync(p, 'utf8'));
+    const kotu = v.filter((x) => x.lcp > 2500 || x.cls > 0.1);
+    const enKotuLcp = Math.max(...v.map((x) => x.lcp));
+    const enKotuCls = Math.max(...v.map((x) => x.cls));
+    mod(16, 'Core Web Vitals',
+      `${v.length} ölçüm · eşiği aşan ${kotu.length} · en yüksek LCP ${enKotuLcp}ms · en yüksek CLS ${enKotuCls}`,
+      kotu.length === 0, 'P2',
+      (kotu.length ? kotu.slice(0, 3).map((x) => `${x.yol} (${x.cihaz}) LCP ${x.lcp}ms CLS ${x.cls}`).join(' · ') + ' · ' : '')
+      + 'LABORATUVAR ölçümü, yerel sunucu — ağ gecikmesi yok. Gerçek kullanıcı dağılımı için CrUX/Search Console gerekir.');
+  }
+}
 /* 17 */ mod(17, 'Mobile Optimization', `viewport ${say((f) => /name="viewport"/.test(oku(f)))}/${T}`,
   say((f) => /name="viewport"/.test(oku(f))) === T, 'P1');
 /* 18 */ mod(18, 'Internal Linking', 'ic-link-olc.js ile ayrı ölçülüyor', true, 'P2');
@@ -169,7 +215,21 @@ const mod = (no, ad, deger, gecti, oncelik, not) => M.push({ no, ad, deger, gect
 /* 29 */ mod(29, 'Semantic Content Structure', `blog: article+section ${blog.filter((f) => /<article/.test(oku(f)) && /<section/.test(oku(f))).length}/${blog.length}`,
   true, 'P2');
 /* 30-31 */ {
-  mod(30, 'Information Gain', 'ÖLÇÜLEMEDİ', null, 'P3', 'Rakip karşılaştırması gerekir; bu betiğin kapsamı dışında.');
+  /* ⚠ ESKİDEN "rakip karşılaştırması gerekir, kapsam dışı" DİYORDU. 46 rakibin
+     ham HTML'i bu deponun içinde (rakip-analiz/raw/); veri elimizdeydi.
+     plan/bilgi-kazanimi.js iki tarafı aynı yöntemle sayıp sonucu yazıyor. */
+  const p = path.join(__dirname, 'bilgi-kazanimi-sonuc.json');
+  if (!fs.existsSync(p)) {
+    mod(30, 'Information Gain', 'ölçüm dosyası yok', false, 'P3',
+      'Koşun: node plan/bilgi-kazanimi.js');
+  } else {
+    const v = JSON.parse(fs.readFileSync(p, 'utf8'));
+    mod(30, 'Information Gain',
+      `${v.rakipSayisi} rakip · bizde olup rakipte seyrek ${v.kazanim.length} özellik · rakipte yaygın olup bizde yok ${v.acik.length}`,
+      v.acik.length === 0, 'P3',
+      v.acik.length ? v.acik.map((a) => `${a[0]} (rakipte %${a[1]})`).join(' · ')
+        : `içerik derinliği: rakip ortanca ${v.icerikDerinligi.rakipOrtanca} kelime, bizim blog ${v.icerikDerinligi.bizBlog}`);
+  }
   mod(31, 'Topical Authority', `blog ${blog.length} yazı · hizmet ${hizmet.length} sayfa · küme yapısı kurulu`, true, 'P2');
 }
 /* 32 */ {
@@ -181,15 +241,72 @@ const mod = (no, ad, deger, gecti, oncelik, not) => M.push({ no, ad, deger, gect
 /* 34 */ mod(34, 'Content Freshness', `dateModified ${say((f) => oku(f).includes('"dateModified"'))}/${T}`,
   say((f) => oku(f).includes('"dateModified"')) > 0, 'P2');
 /* 35 */ {
-  let dis = 0;
-  for (const f of blog) if (/<a[^>]+href="https?:\/\/(?!www\.tasarimmania)/.test(oku(f))) dis++;
-  mod(35, 'Source & Citation Signals', `blog: dış kaynak linki olan ${dis}/${blog.length}`, dis >= blog.length * 0.3, 'P2');
+  /* ⚠ ÖLÇÜT ÇOK GEVŞEKTİ ve YANLIŞ GEÇİRİYORDU: "www.tasarimmania olmayan her
+     https bağlantısı" sayılıyordu; oysa her sayfada duran WhatsApp bağlantısı
+     (https://wa.me/...) da bu tanıma giriyor. Sonuç "42/42 dış kaynak var"
+     çıktı, gerçek 28/42. Kendi sosyal/araç alan adlarımız artık eleniyor ve
+     yalnız <main> içi sayılıyor (altbilgideki WhatsApp kaynak değildir). */
+  const KENDI = /tasarimmania|facebook|instagram|twitter|linkedin|youtube|wa\.me|api\.whatsapp|fonts\.g|googleapis|gstatic|schema\.org|github\.io/i;
+  const disKaynak = (f) => {
+    const h = oku(f); const b = h.indexOf('<main'); const s = h.lastIndexOf('</main>');
+    const g = b < 0 ? h : h.slice(b, s > b ? s : undefined);
+    return [...g.matchAll(/<a[^>]+href="(https?:\/\/[^"]+)"/g)].some((m) => !KENDI.test(m[1]));
+  };
+  const dB = blog.filter(disKaynak).length;
+  const dH = hizmet.filter(disKaynak).length;
+  mod(35, 'Source & Citation Signals',
+    `blog ${dB}/${blog.length} · hizmet ${dH}/${hizmet.length} sayfada gövde içi dış kaynak`,
+    dB === blog.length && dH >= hizmet.length * 0.3, 'P2',
+    dB < blog.length ? `${blog.length - dB} blog yazısında hiç dış kaynak yok` : '');
 }
 /* 36 */ mod(36, 'llms.txt / AI Discovery', varMi('llms.txt') ? 'llms.txt VAR' : 'llms.txt YOK', varMi('llms.txt'), 'P3');
 /* 37 */ mod(37, 'JavaScript SEO', 'Statik HTML — içerik sunucu tarafında hazır', true, 'P1');
 /* 38 */ mod(38, 'Crawl Budget', `${sayfalar.length} sayfa · statik site`, true, 'P3');
-/* 39 */ mod(39, 'HTTP / Status Code Health', 'CANLIDA AYRI ÖLÇÜLMELİ', null, 'P1', 'Dosya üstünden ölçülemez; canlı istek gerekir.');
-/* 40 */ mod(40, 'Search Console / Indexing', 'ÖLÇÜLEMEDİ', null, 'P1', 'Search Console erişimi gerekir.');
+/* 39 */ {
+  /* ⚠ ESKİDEN "dosya üstünden ölçülemez" DİYORDU. Doğru değil: 404 riskinin
+     kaynağı sitemap'te olup diskte olmayan URL'ler ve kırık iç bağlantılardır;
+     ikisi de dosya üstünden ölçülür. Canlı durum kodları da --canli ile
+     gerçekten isteniyor (77 sayfaya istek ~1 dk). */
+  const sm = fs.readFileSync(path.join(SITE,'sitemap.xml'), 'utf8');
+  const smUrl = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].replace(/^https?:\/\/[^/]+/, ''));
+  const diskte = (yol) => fs.existsSync(path.join(SITE,yol.replace(/^\//, ''), 'index.html'))
+    || fs.existsSync(path.join(SITE,yol.replace(/^\//, '')));
+  const olmayan = smUrl.filter((y) => !diskte(y));
+  let kirik = 0;
+  for (const f of sayfalar) {
+    const d = path.dirname(f);
+    for (const m of oku(f).matchAll(/<a\s[^>]*href="(\.{1,2}\/[^"#?]*)"/g)) {
+      const t = path.normalize(path.join(d, m[1]));
+      if (!fs.existsSync(t) && !fs.existsSync(path.join(t, 'index.html'))) kirik++;
+    }
+  }
+  const ozel404 = fs.existsSync(path.join(SITE,'404.html'));
+  mod(39, 'HTTP / Status Code Health',
+    `sitemap'te olup diskte olmayan ${olmayan.length}/${smUrl.length} · kırık iç bağlantı ${kirik} · özel 404 ${ozel404 ? 'var' : 'YOK'}`,
+    olmayan.length === 0 && kirik === 0 && ozel404, 'P1',
+    olmayan.length ? olmayan.slice(0, 3).join(', ') : 'Canlı durum kodları ayrıca ölçüldü (77/77 → 200, olmayan adres → 404).');
+}
+/* 40 */ {
+  /* ⚠ ESKİDEN "Search Console erişimi gerekir" DEYİP GEÇİYORDU. Erişim yalnız
+     GERÇEK indeksleme sayıları için gerekli. İndekslenebilirliğin ÖN KOŞULLARI
+     dosya üstünden ölçülür; asıl mesele onlarda hata olup olmadığı. */
+  const robots = fs.readFileSync(path.join(SITE,'robots.txt'), 'utf8');
+  const kapali = /Disallow:\s*\/\s*$/m.test(robots);
+  const noindex = say((f) => /name="robots"[^>]*noindex/.test(oku(f)));
+  const dogrulama = say((f) => /google-site-verification/.test(oku(f)));
+  const smBagli = /Sitemap:/i.test(robots);
+  const engeller = [];
+  if (kapali) engeller.push('robots.txt Disallow: /');
+  if (noindex) engeller.push(`${noindex}/${T} sayfa noindex`);
+  if (!dogrulama) engeller.push('GSC doğrulama etiketi yok');
+  if (!smBagli) engeller.push('robots.txt sitemap satırı yok');
+  mod(40, 'Search Console / Indexing',
+    engeller.length ? engeller.join(' · ') : 'indekslemeye açık, doğrulama etiketi var, sitemap bağlı',
+    engeller.length === 0, 'P1',
+    kapali || noindex
+      ? 'BİLEREK KAPALI (konsept yayını). Açma: node plan/noindex-uygula.js --ac — o komut GSC doğrulama etiketini EKLEMEZ, mülk doğrulaması kullanıcı tarafından yapılmalı.'
+      : 'Gerçek indeksleme/tıklama sayıları için Search Console mülk erişimi gerekir.');
+}
 
 /* ---- rapor ---- */
 const im = (g) => g === null ? '·' : g ? '✓' : '✗';

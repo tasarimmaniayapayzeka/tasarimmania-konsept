@@ -32,11 +32,26 @@
     "metaBaslik": "Web Sitesine Chatbot Eklemek Neyi Değiştirir? | TasarımMania",
     "metaAciklama": "Web sitesi chatbot kurmak tam olarak neyi değiştirir? Yanıt süresi, soru yükü, insana devir kuralı ve bilgi tabanını rakam uydurmadan tek tek anlatıyoruz.",
     "esAnlamli": [
-      ["chatbot", "site asistanı"],
-      ["bilgi tabanı", "kaynak metinler"],
-      ["devir", "insana aktarma"],
-      ["kapsam", "yanıt sınırı"],
-      ["konuşma", "sohbet"]
+      [
+        "chatbot",
+        "site asistanı"
+      ],
+      [
+        "bilgi tabanı",
+        "kaynak metinler"
+      ],
+      [
+        "devir",
+        "insana aktarma"
+      ],
+      [
+        "kapsam",
+        "yanıt sınırı"
+      ],
+      [
+        "konuşma",
+        "sohbet"
+      ]
     ],
     "girisParagraf": "Siteye bir asistan koymak kolay; koyduktan sonra doğru çalışmasını sağlamak zor. Çoğu kurulum ilk ayda heyecanla açılıyor, ikinci ayda sessizce kapatılıyor. Sebep genelde araç değil, kapsam. Bu yazıda neyi değiştirdiğini, nerede durması gerektiğini ve başarıyı nasıl ölçeceğinizi anlatıyoruz. Dönüşüm oranı gibi rakamlar vermiyoruz; ölçmediğimiz şeyi yazmıyoruz.",
     "bolumler": [
@@ -79,7 +94,7 @@
       {
         "h2": "Bilgi Tabanını Nasıl Kurarsınız?",
         "dogrudanCevap": "Kaynak metinler sitenizin kendi sayfalarından çıkar. Hizmet açıklamaları, sık sorulan sorular ve fiyat politikası metinleri en sağlam kaynaktır. Web sitesi chatbot bu metinlerin dışına çıkmadığında yanlış yanıt riski düşer. Kaynağı güncellemeyi de takvime bağlayın; eskiyen bir metin, eskiyen bir yanıt demektir.",
-        "govde": "<p>Kaynak metinleri derlerken bir avantaj daha kazanırsınız: eksik yazılmış sayfalar ortaya çıkar. Asistanın yanıtlayamadığı her soru, aslında sitenizde eksik kalan bir başlığı işaret eder.</p><p>Bu yüzden bilgi tabanını sitenin dışında ayrı bir belge olarak değil, sitenin kendi içeriğinin uzantısı olarak kurarız. İçerik güncellendiğinde yanıt da güncellenir. Arayüz tarafındaki karşılığını <a href=\"../../blog/ui-tasarim-ilkeleri/\">arayüz tasarımı ilkeleri</a> yazısında anlattık.</p><p>Kaynak metinleri kısa ve net tutun. Uzun, pazarlama dili ağır basan sayfalar asistanı da belirsiz konuşturur. Ne yaptığınızı düz cümlelerle yazmak hem ziyaretçiye hem asistana yarar.</p>",
+        "govde": "<p>Kaynak metinleri derlerken bir avantaj daha kazanırsınız: eksik yazılmış sayfalar ortaya çıkar. Asistanın yanıtlayamadığı her soru, aslında sitenizde eksik kalan bir başlığı işaret eder.</p><p>Bu yüzden bilgi tabanını sitenin dışında ayrı bir belge olarak değil, sitenin kendi içeriğinin uzantısı olarak kurarız. İçerik güncellendiğinde yanıt da güncellenir. Arayüz tarafındaki karşılığını <a href=\"../../blog/ui-tasarim-ilkeleri/\">arayüz tasarımı ilkeleri</a> yazısında anlattık.</p><p>Kaynak metinleri kısa ve net tutun. Uzun, pazarlama dili ağır basan sayfalar asistanı da belirsiz konuşturur. Ne yaptığınızı düz cümlelerle yazmak hem ziyaretçiye hem asistana yarar. Sohbet kayıtları kişisel veridir; <a href=\"https://www.kvkk.gov.tr/\" target=\"_blank\" rel=\"noopener\">KVKK’nın aydınlatma yükümlülüğü</a> chatbot için de geçerlidir.</p>",
         "altBaslikar": [
           {
             "seviye": "h4",
@@ -101,14 +116,42 @@
     ],
     "karsilastirmaTablosu": {
       "baslik": "Site asistanı neyi çözer, neyi çözmez",
-      "sutunlar": ["Konu", "Çözer mi?", "Neden"],
+      "sutunlar": [
+        "Konu",
+        "Çözer mi?",
+        "Neden"
+      ],
       "satirlar": [
-        ["Tekrarlayan sorular", "Evet", "Yanıtı bir kez yazarsınız, sürekli çalışır"],
-        ["Mesai dışı yanıt", "Evet", "Bekleme süresi ortadan kalkar"],
-        ["Karmaşık teklif görüşmesi", "Hayır", "Kapsam konuşması insan işidir"],
-        ["Eksik site içeriği", "Hayır", "Eksiği kapatmaz, ortaya çıkarır"],
-        ["Şikâyet ve iade", "Kısmen", "Kaydı alır, çözümü insana devreder"],
-        ["Satış kapatma", "Kısmen", "Talebi toplar, kararı hızlandırmaz"]
+        [
+          "Tekrarlayan sorular",
+          "Evet",
+          "Yanıtı bir kez yazarsınız, sürekli çalışır"
+        ],
+        [
+          "Mesai dışı yanıt",
+          "Evet",
+          "Bekleme süresi ortadan kalkar"
+        ],
+        [
+          "Karmaşık teklif görüşmesi",
+          "Hayır",
+          "Kapsam konuşması insan işidir"
+        ],
+        [
+          "Eksik site içeriği",
+          "Hayır",
+          "Eksiği kapatmaz, ortaya çıkarır"
+        ],
+        [
+          "Şikâyet ve iade",
+          "Kısmen",
+          "Kaydı alır, çözümü insana devreder"
+        ],
+        [
+          "Satış kapatma",
+          "Kısmen",
+          "Talebi toplar, kararı hızlandırmaz"
+        ]
       ]
     },
     "alinti": {
@@ -151,7 +194,16 @@
       }
     ],
     "kapanis": "Web sitesi chatbot kurmak siteye bir özellik eklemek değil, içeriğinize konuşan bir yüz vermektir. Kapsamı yazılı çizin, insana devir kapısını her ekranda açık tutun ve başarıyı konuşma sayısıyla değil, doğan taleple ölçün.",
-    "about": ["Web sitesi chatbot", "Yapay zeka entegrasyonu", "Site asistanı"],
-    "mentions": ["Bilgi tabanı", "İnsana devir", "Sık sorulan sorular", "Aydınlatma metni"]
+    "about": [
+      "Web sitesi chatbot",
+      "Yapay zeka entegrasyonu",
+      "Site asistanı"
+    ],
+    "mentions": [
+      "Bilgi tabanı",
+      "İnsana devir",
+      "Sık sorulan sorular",
+      "Aydınlatma metni"
+    ]
   }
 }

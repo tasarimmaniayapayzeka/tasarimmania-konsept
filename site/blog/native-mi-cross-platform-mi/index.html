@@ -33,7 +33,7 @@
 <link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
 <link rel="stylesheet" href="../../css/tm.css">
 <style>
 .nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
@@ -180,7 +180,7 @@
         "@id": "https://www.tasarimmania.com/#kurulus"
       },
       "articleSection": "Mobil",
-      "wordCount": 978,
+      "wordCount": 991,
       "image": {
         "@type": "ImageObject",
         "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/native-mi-cross-platform-mi/gorsel/native-mi-cross-platform-mi-kapak-1440.jpg",
@@ -344,6 +344,20 @@
       "@id": "https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/#kirintili"
     },
     {
+      "@type": "Person",
+      "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar",
+      "name": "İhsan Ar",
+      "jobTitle": "Dijital Pazarlama Uzmanı",
+      "url": "https://www.tasarimmania.com/hakkimizda/#kurucu",
+      "sameAs": [
+        "https://www.linkedin.com/in/ihsan-ar-47254548/",
+        "https://www.instagram.com/ihsanar86/"
+      ],
+      "worksFor": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
       "@type": "WebSite",
       "@id": "https://www.tasarimmania.com/#site",
       "url": "https://www.tasarimmania.com/",
@@ -357,7 +371,7 @@
       "@type": "WebPage",
       "@id": "https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/#sayfa",
       "url": "https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/",
-      "name": "Native mi Cross-Platform mı? Uygulama Mimarisi Seçimi | TasarımMania",
+      "name": "Native mi Cross-Platform mı? Mimari Seçimi | TasarımMania",
       "description": "Native uygulama mı, tek kod tabanı mı? Ekranı kimin çizdiği, donanıma erişim ve performans farkı üzerinden mimari seçimini mekanizmasıyla anlatıyoruz.",
       "inLanguage": "tr-TR",
       "isPartOf": {
@@ -374,19 +388,6 @@
         "@id": "https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/#article"
       },
       "dateModified": "2026-09-30T10:20:00"
-    },
-    {
-      "@type": "Person",
-      "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar",
-      "name": "İhsan Ar",
-      "jobTitle": "Dijital Pazarlama Uzmanı",
-      "url": "https://www.tasarimmania.com/hakkimizda/#kurucu",
-      "sameAs": [
-        "https://www.instagram.com/ihsanar86/"
-      ],
-      "worksFor": {
-        "@id": "https://www.tasarimmania.com/#kurulus"
-      }
     }
   ]
 }
@@ -461,7 +462,7 @@
       <p>Yerli kod yolunda evet, iki ayrı proje yürür. Ekran tasarımı ve sunucu tarafı ortaktır ama arayüz kodunu iki kez yazarsınız. Tek kod tabanında ortak işi bir kez yazarız; yalnız platforma özgü parçaları ayrı tutarız. Uygulama tarafında native kod yine de gerekebilir, ama kapsamı dardır.</p>
       <h2>Tek Kod Tabanı Ekranı Nasıl Çiziyor?</h2>
       <div class="yz-cevap"><p>İki yaklaşım var. Kimi çatılar platformun kendi bileşenine köprü kurar, kimi de her pikseli kendi çizer. Köprü kuran yol yerli görünüm verir. Kendi çizen yol iki platformda birebir aynı sonucu üretir. Bu tercih, uygulamanın hangi cihazda tanıdık hissettireceğini doğrudan belirler. Native uygulama tarafında böyle bir tercih yoktur; bileşen zaten yerlidir.</p></div>
-      <p>Köprü kuran yaklaşımda düğmeye bastığınızda gerçek bir sistem düğmesi tepki verir. Kullanıcı cihazını tanıdık bulur, ama iki platform birbirinin aynı görünmez. Kendi çizen yaklaşımda ise arayüz öğeleri çatının kendi fırçasıyla çizilir; her yerde aynı görünür, hiçbir yerde tam yerli hissettirmez.</p><p>Marka deneyimi tek tip olsun istiyorsanız ikinci yol işinize gelir. Cihaz alışkanlığına yaslanmak istiyorsanız birincisi daha iyi oturur.</p><p>Bu tercihin bakım tarafında da bir bedeli var. Platform arayüzünü yenilediğinde köprü kuran çatı yeniliği kendiliğinden alır. Kendi çizen çatıda ise güncel görünümü siz kovalarsınız. Uygulamanın native bileşenlere ne kadar yaslandığı, bu kovalamacanın uzunluğunu belirler.</p>
+      <p>Köprü kuran yaklaşımda düğmeye bastığınızda gerçek bir sistem düğmesi tepki verir. Kullanıcı cihazını tanıdık bulur, ama iki platform birbirinin aynı görünmez. Kendi çizen yaklaşımda ise arayüz öğeleri çatının kendi fırçasıyla çizilir; her yerde aynı görünür, hiçbir yerde tam yerli hissettirmez.</p><p>Marka deneyimi tek tip olsun istiyorsanız ikinci yol işinize gelir. Cihaz alışkanlığına yaslanmak istiyorsanız birincisi daha iyi oturur.</p><p>Bu tercihin bakım tarafında da bir bedeli var. Platform arayüzünü yenilediğinde köprü kuran çatı yeniliği kendiliğinden alır. Kendi çizen çatıda ise güncel görünümü siz kovalarsınız. Uygulamanın native bileşenlere ne kadar yaslandığı, bu kovalamacanın uzunluğunu belirler. Platform beklentileri belgelidir; <a href="https://developer.apple.com/design/human-interface-guidelines/" target="_blank" rel="noopener">Apple’ın arayüz kılavuzu</a> ile Material Design farklı davranış tarif eder.</p>
       <h3>Kullanıcı Bu Farkı Görür mü?</h3>
       <p>Çoğu kullanıcı adını koyamaz ama farkı sezer. Kaydırma sönümlemesi, klavye davranışı ve geri hareketi cihazdan cihaza değişir. Bunlar küçük ayrıntılardır; üst üste bindiklerinde ürünü yabancı hissettirirler.</p>
       <h2>Donanıma Erişim Hangi Noktada Ayrışır?</h2>

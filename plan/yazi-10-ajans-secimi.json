@@ -32,11 +32,26 @@
     "metaBaslik": "Reklam Filmi Ajansı Seçerken Nelere Bakılır? | TasarımMania",
     "metaAciklama": "Reklam filmi ajansı seçerken neye bakmalısınız? Portföyün gizledikleri, ekip yapısı, teklif okuma ve dikkat edilmesi gereken uyarı işaretlerini anlatıyoruz.",
     "esAnlamli": [
-      ["reklam filmi ajansı", "prodüksiyon şirketi"],
-      ["portföy", "vitrin"],
-      ["teklif", "fiyat belgesi"],
-      ["yönetmen", "işin başındaki kişi"],
-      ["referans", "geçmiş müşteri"]
+      [
+        "reklam filmi ajansı",
+        "prodüksiyon şirketi"
+      ],
+      [
+        "portföy",
+        "vitrin"
+      ],
+      [
+        "teklif",
+        "fiyat belgesi"
+      ],
+      [
+        "yönetmen",
+        "işin başındaki kişi"
+      ],
+      [
+        "referans",
+        "geçmiş müşteri"
+      ]
     ],
     "girisParagraf": "Elinizde beş farklı teklif var ve hepsi kendi işini iyi anlatıyor. Seçim çoğu zaman en güzel vitrine ya da en düşük rakama göre yapılıyor; ikisi de zayıf ölçüttür. Aşağıda beş başlık var. Bunlar bir prodüksiyon şirketinin gerçek kapasitesini, bitmiş işlerinden daha iyi gösterir.",
     "bolumler": [
@@ -91,7 +106,7 @@
       {
         "h2": "Hangi Uyarı İşaretlerini Ciddiye Almalısınız?",
         "dogrudanCevap": "Dört işaret dikkat ister. Kapsam sormadan fiyat veren, sınırsız revizyon vaat eden ve referans vermekten kaçınan ekipler risk taşır. Sözleşmesizlik de dördüncüsüdür; konuşulup yazılmayan her şey ilk anlaşmazlıkta buharlaşır. Reklam filmi ajansı ne kadar sempatik olursa olsun, yazılı olmayan söz sayılmaz.",
-        "govde": "<p>Kapsam sormadan verilen fiyat en yanıltıcı olanıdır. Düşük görünür, sonra her ek istek yeni bir kalem doğurur ve toplam yukarı çıkar. İyi bir ekip önce soru sorar, sonra rakam söyler.</p><p>Sınırsız revizyon vaadi de benzer biçimde çalışır. Ya fiyata baştan gömülüdür ya da bir noktada tartışma çıkar. Hazırlığın turları nasıl azalttığını <a href=\"../../blog/storyboard-nedir/\">storyboard</a> yazısında anlatmıştık.</p><p>Bir işaret daha var: iletişimin kimde olduğu. Tek bir muhatap varsa süreç hızlı yürür. Her soruya farklı kişiden yanıt geliyorsa, o dağınıklık üretime de yansır. İlk görüşmede bunu fark etmek kolaydır.</p>"
+        "govde": "<p>Kapsam sormadan verilen fiyat en yanıltıcı olanıdır. Düşük görünür, sonra her ek istek yeni bir kalem doğurur ve toplam yukarı çıkar. İyi bir ekip önce soru sorar, sonra rakam söyler.</p><p>Sınırsız revizyon vaadi de benzer biçimde çalışır. Ya fiyata baştan gömülüdür ya da bir noktada tartışma çıkar. Hazırlığın turları nasıl azalttığını <a href=\"../../blog/storyboard-nedir/\">storyboard</a> yazısında anlatmıştık.</p><p>Bir işaret daha var: iletişimin kimde olduğu. Tek bir muhatap varsa süreç hızlı yürür. Her soruya farklı kişiden yanıt geliyorsa, o dağınıklık üretime de yansır. İlk görüşmede bunu fark etmek kolaydır. Vaadin kendisi de denetlenir; <a href=\"https://ticaret.gov.tr/tuketici/ticari-reklamlar\" target=\"_blank\" rel=\"noopener\">ticari reklam kuralları</a> abartılı iddiayı marka sahibine fatura eder.</p>"
       },
       {
         "h2": "Görüşmeye Birlikte Hazırlanalım",
@@ -101,14 +116,42 @@
     ],
     "karsilastirmaTablosu": {
       "baslik": "Sorular ve iyi yanıtın nasıl göründüğü",
-      "sutunlar": ["Soru", "İyi yanıt", "Uyarı işareti"],
+      "sutunlar": [
+        "Soru",
+        "İyi yanıt",
+        "Uyarı işareti"
+      ],
       "satirlar": [
-        ["Benzer iş yaptınız mı?", "Kapsamıyla birlikte örnek verir", "Yalnız vitrin gösterir"],
-        ["Ekipte kim çalışacak?", "Adları teklife yazar", "Sonra belli olur der"],
-        ["Teklif nasıl bölünmüş?", "Kalem kalem yazılı", "Tek toplam rakam"],
-        ["Kaç revizyon dahil?", "Sayı sözleşmede", "Sınırsız der"],
-        ["Ham görüntüler kimde?", "Devir şartı yazılı", "Konu açılmaz"],
-        ["Referans verir misiniz?", "Geçmiş müşteri adı verir", "Kaçamak yanıt"]
+        [
+          "Benzer iş yaptınız mı?",
+          "Kapsamıyla birlikte örnek verir",
+          "Yalnız vitrin gösterir"
+        ],
+        [
+          "Ekipte kim çalışacak?",
+          "Adları teklife yazar",
+          "Sonra belli olur der"
+        ],
+        [
+          "Teklif nasıl bölünmüş?",
+          "Kalem kalem yazılı",
+          "Tek toplam rakam"
+        ],
+        [
+          "Kaç revizyon dahil?",
+          "Sayı sözleşmede",
+          "Sınırsız der"
+        ],
+        [
+          "Ham görüntüler kimde?",
+          "Devir şartı yazılı",
+          "Konu açılmaz"
+        ],
+        [
+          "Referans verir misiniz?",
+          "Geçmiş müşteri adı verir",
+          "Kaçamak yanıt"
+        ]
       ]
     },
     "alinti": {
@@ -151,7 +194,16 @@
       }
     ],
     "kapanis": "Reklam filmi ajansı seçimi bir vitrin karşılaştırması değil, bir işleyiş karşılaştırmasıdır. Sorularınıza net yanıt veren, kalemleri açık yazan ve kimin çalışacağını baştan söyleyen ekip; en güzel portföye sahip olandan daha güvenli bir tercihtir.",
-    "about": ["Reklam filmi ajansı", "Video prodüksiyon", "Ajans seçimi"],
-    "mentions": ["Brief", "Prodüksiyon sözleşmesi", "Yönetmen", "Ham görüntüler"]
+    "about": [
+      "Reklam filmi ajansı",
+      "Video prodüksiyon",
+      "Ajans seçimi"
+    ],
+    "mentions": [
+      "Brief",
+      "Prodüksiyon sözleşmesi",
+      "Yönetmen",
+      "Ham görüntüler"
+    ]
   }
 }
