@@ -1,0 +1,62 @@
+{
+  "_aciklama": "YENİ ADRES HARİTASI — kullanıcının 7 Eyl 2026'da verdiği desene göre. Hizmetler kök seviyede kısa slug, blog /blog/ altında, kurumsal sayfalar kökte. ONAY BEKLİYOR: uygulamadan önce kullanıcı slug'ları gözden geçirmeli, adres kalıcıdır.",
+  "_desen": "tasarimmania.com/<hizmet>/ · tasarimmania.com/blog/<yazi>/ · tasarimmania.com/<kurumsal>/",
+  "_kullanicinin_verdigi": ["seo", "web-tasarim", "sosyal-medya", "google-ads", "meta-reklam", "video-produksiyon", "yapay-zeka", "blog", "hakkimizda", "referanslar", "iletisim"],
+
+  "hizmetler": {
+    "/hizmetler/seo/": { "yeni": "/seo/", "kaynak": "kullanıcı" },
+    "/hizmetler/web-tasarim-yazilim/": { "yeni": "/web-tasarim/", "kaynak": "kullanıcı" },
+    "/hizmetler/dijital-pazarlama/sosyal-medya-yonetimi/": { "yeni": "/sosyal-medya/", "kaynak": "kullanıcı" },
+    "/hizmetler/dijital-pazarlama/google-ads/": { "yeni": "/google-ads/", "kaynak": "kullanıcı" },
+    "/hizmetler/dijital-pazarlama/meta-ads/": { "yeni": "/meta-reklam/", "kaynak": "kullanıcı" },
+    "/hizmetler/video-produksiyon/": { "yeni": "/video-produksiyon/", "kaynak": "kullanıcı" },
+
+    "/hizmetler/dijital-pazarlama/": { "yeni": "/dijital-pazarlama/", "kaynak": "öneri" },
+    "/hizmetler/dijital-pazarlama/performans-pazarlamasi/": { "yeni": "/performans-pazarlama/", "kaynak": "öneri" },
+    "/hizmetler/mobil-uygulama/": { "yeni": "/mobil-uygulama/", "kaynak": "öneri" },
+    "/hizmetler/mobil-uygulama/ios-android/": { "yeni": "/ios-android-uygulama/", "kaynak": "öneri" },
+    "/hizmetler/mobil-uygulama/react-native/": { "yeni": "/react-native/", "kaynak": "öneri" },
+    "/hizmetler/mobil-uygulama/uygulama-ui-ux/": { "yeni": "/uygulama-arayuz-tasarimi/", "kaynak": "öneri" },
+    "/hizmetler/mobil-uygulama/aso-uygulama-pazarlamasi/": { "yeni": "/aso/", "kaynak": "öneri" },
+    "/hizmetler/grafik-tasarim/": { "yeni": "/grafik-tasarim/", "kaynak": "öneri" },
+    "/hizmetler/seo/teknik-seo/": { "yeni": "/teknik-seo/", "kaynak": "öneri" },
+    "/hizmetler/seo/icerik-stratejisi/": { "yeni": "/seo-icerik/", "kaynak": "öneri" },
+    "/hizmetler/seo/yerel-seo/": { "yeni": "/yerel-seo/", "kaynak": "öneri" },
+    "/hizmetler/seo/e-ticaret-seo/": { "yeni": "/e-ticaret-seo/", "kaynak": "öneri" },
+    "/hizmetler/seo/cok-dilli-seo/": { "yeni": "/cok-dilli-seo/", "kaynak": "öneri" },
+    "/hizmetler/video-produksiyon/reklam-filmi/": { "yeni": "/reklam-filmi/", "kaynak": "öneri" },
+    "/hizmetler/video-produksiyon/urun-videosu/": { "yeni": "/urun-videosu/", "kaynak": "öneri" },
+    "/hizmetler/video-produksiyon/sosyal-video-reels/": { "yeni": "/reels-video/", "kaynak": "öneri" },
+    "/hizmetler/web-tasarim-yazilim/kurumsal-web-sitesi/": { "yeni": "/kurumsal-web-sitesi/", "kaynak": "öneri" },
+    "/hizmetler/web-tasarim-yazilim/e-ticaret/": { "yeni": "/e-ticaret/", "kaynak": "öneri" },
+    "/hizmetler/web-tasarim-yazilim/ozel-yazilim/": { "yeni": "/ozel-yazilim/", "kaynak": "öneri" },
+    "/hizmetler/web-tasarim-yazilim/bakim-destek/": { "yeni": "/site-bakim/", "kaynak": "öneri" }
+  },
+
+  "birlestirilecek": {
+    "/yapay-zeka/": {
+      "kaynaklar": ["/hizmetler/web-tasarim-yazilim/ai-entegrasyonu/", "/hizmetler/video-produksiyon/ai-destekli-produksiyon/"],
+      "toplam_kelime": 2357,
+      "not": "Kullanıcının ağacında tek /yapay-zeka/ var; sitede iki ayrı AI sayfası duruyor (chatbot entegrasyonu + AI video prodüksiyon). KARAR GEREKİYOR: tek sayfada birleşsin mi, yoksa /yapay-zeka/ hub olup ikisi altında mı kalsın?"
+    }
+  },
+
+  "kurumsal": {
+    "/hakkimizda/": { "yeni": "/hakkimizda/", "kaynak": "kullanıcı — değişmiyor" },
+    "/iletisim/": { "yeni": "/iletisim/", "kaynak": "kullanıcı — değişmiyor" },
+    "/blog/": { "yeni": "/blog/", "kaynak": "kullanıcı — değişmiyor" },
+    "/teklif/": { "yeni": "/teklif/", "kaynak": "öneri — ağaçta yok ama sitede var ve her sayfadan linkli" },
+    "/kvkk/": { "yeni": "/kvkk/", "kaynak": "öneri — ağaçta yok ama form onayı buraya bağlı, KVKK m.10 gereği" }
+  },
+
+  "yeni_yazilacak": {
+    "/referanslar/": {
+      "durum": "sitede YOK",
+      "not": "Vaka/referans sayfası için müşteri izni gerekiyor (bekleyenler listesinde Karar #3 olarak duruyor). İzin alınmadan gerçek marka adı ve sonuç yayınlanamaz."
+    }
+  },
+
+  "kaldirilan_seviye": {
+    "/hizmetler/": "Hub-of-hubs sayfası. Düz yapıda karşılığı yok. KARAR GEREKİYOR: tamamen kaldırılsın mı, yoksa tüm hizmetleri listeleyen bir dizin sayfası olarak /hizmetler/ adresinde kalsın mı?"
+  }
+}
