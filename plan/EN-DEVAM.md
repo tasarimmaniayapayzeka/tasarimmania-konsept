@@ -1,12 +1,12 @@
 # İngilizce sürüm — devam notu
 
-**Son güncelleme:** 7 Eylül 2026 · **18 İngilizce sayfa canlı**, 95 sayfa toplam
+**Son güncelleme:** 7 Eylül 2026 · **19 İngilizce sayfa canlı**, 96 sayfa toplam
 
 Biten: `/en/` · `about` · `contact` · `services` · `blog` · `get-a-quote` ·
 `web-design` · `mobile-app-development` · `digital-marketing` · `seo` ·
 `video-production` · `graphic-design` · `corporate-website` ·
 `ecommerce-website` · `ai-services` · `custom-software-development` ·
-`website-maintenance` · `ios-android-app-development`
+`website-maintenance` · `ios-android-app-development` · `react-native-development`
 
 **Modül 01 (Web & Yazılım) TAMAM** — beş alt hizmetin beşi de İngilizce.
 
@@ -139,18 +139,19 @@ HTML etiket adları · schema.org tür adları · **HTML/CSS/JS yorumları**
 5. **H1 genişliği ölçülmeli.** Kanvas tahmini yanıltıyor — adayı iframe'de
    gerçekten render edip `offsetHeight/lineHeight` ile satır sayın.
    Site `display=optional` kullanıyor: **yedek fontta da ölçün**.
-6. **title ≤60, description ≤165 karakter.** Denetim yakalıyor ama üretimden
+6. **Soru biçimli H2 korunmalı.** Denetim hizmet sayfalarında soru biçimli H2 arıyor; Türkçe başlıktaki soru işaretini çeviride düşürmek P2 üretiyor (ölçüldü: /react-native/).
+7. **title ≤60, description ≤165 karakter.** Denetim yakalıyor ama üretimden
    önce bakın; aynı Türkçe metin birden çok kayıtta olabilir (çakışma kilidi).
 
 ---
 
 ## 4. Kalan iş
 
-### Hizmet alt sayfaları — kalan 16 sayfa, ~26.900 kelime
+### Hizmet alt sayfaları — kalan 15 sayfa, ~25.100 kelime
 *(Modül 01 alt hizmetlerinin tamamı bitti; kalanlar Modül 02-05)*
 
 
-`react-native` (182/1769) ·
+
 `uygulama-arayuz-tasarimi` (169/1689) · `aso` (170/1759) ·
 `google-ads` (181/1716) · `meta-reklam` (177/1546) ·
 `performans-pazarlama` (157/1592) · `sosyal-medya` (169/1729) ·

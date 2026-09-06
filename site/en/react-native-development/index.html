@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- KONSEPT-NOINDEX -->
 <meta name="robots" content="noindex,nofollow">
-<title>React Native ile Mobil Uygulama Geliştirme | TasarımMania</title>
-<meta name="description" content="React native ile tek kod tabanından iOS ve Android; web sitenizle ortak API kullanımı ve verimli geliştirme. İki mağazaya tek ekiple yayın yapılır.">
-<link rel="canonical" href="https://www.tasarimmania.com/react-native/">
+<title>Mobile App Development with React Native | TasarımMania</title>
+<meta name="description" content="React Native: iOS and Android from one codebase, sharing an API with your website and developing efficiently. One team releases to both stores.">
+<link rel="canonical" href="https://www.tasarimmania.com/en/react-native-development/">
 <link rel="alternate" hreflang="tr" href="https://www.tasarimmania.com/react-native/">
 <link rel="alternate" hreflang="en" href="https://www.tasarimmania.com/en/react-native-development/">
 <link rel="alternate" hreflang="x-default" href="https://www.tasarimmania.com/react-native/">
@@ -16,25 +16,25 @@
 <meta name="theme-color" content="#0B0D12">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="tr_TR">
+<meta property="og:locale" content="en">
 <meta property="og:site_name" content="TasarımMania">
-<meta property="og:title" content="React Native ile Mobil Uygulama Geliştirme | TasarımMania">
-<meta property="og:description" content="React native ile tek kod tabanından iOS ve Android; web sitenizle ortak API kullanımı ve verimli geliştirme. İki mağazaya tek ekiple yayın yapılır.">
-<meta property="og:url" content="https://www.tasarimmania.com/react-native/">
+<meta property="og:title" content="Mobile App Development with React Native | TasarımMania">
+<meta property="og:description" content="React Native: iOS and Android from one codebase, sharing an API with your website and developing efficiently. One team releases to both stores.">
+<meta property="og:url" content="https://www.tasarimmania.com/en/react-native-development/">
 <meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="TasarımMania — web, mobil, reklam, video ve SEO hizmetleri kapak görseli">
+<meta property="og:image:alt" content="TasarımMania — cover image for web, mobile, advertising, video and SEO services">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
-<meta name="twitter:title" content="React Native ile Mobil Uygulama Geliştirme | TasarımMania">
-<meta name="twitter:description" content="React native ile tek kod tabanından iOS ve Android; web sitenizle ortak API kullanımı ve verimli geliştirme. İki mağazaya tek ekiple yayın yapılır.">
-<meta name="twitter:image:alt" content="TasarımMania — web, mobil, reklam, video ve SEO hizmetleri kapak görseli">
-<link rel="icon" type="image/png" href="../../assets/logo/marka-daire.png">
+<meta name="twitter:title" content="Mobile App Development with React Native | TasarımMania">
+<meta name="twitter:description" content="React Native: iOS and Android from one codebase, sharing an API with your website and developing efficiently. One team releases to both stores.">
+<meta name="twitter:image:alt" content="TasarımMania — cover image for web, mobile, advertising, video and SEO services">
+<link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
-<link rel="stylesheet" href="../css/tm.css">
+<link rel="stylesheet" href="../../css/tm.css">
 <style>
 .nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
 .nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
@@ -263,7 +263,7 @@
   letter-spacing:-.015em;line-height:1.5;margin-bottom:9px}
 .dtay-k p{font-size:13.5px;color:var(--muted)}
 
-/* --- derinlemesine: "Daha fazla" ile açılan devam metni --- */
+/* --- derinlemesine: "More" ile açılan devam metni --- */
 p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.015em;
   line-height:1.5;margin:0}
 .dtay-devam{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
@@ -339,9 +339,9 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
      KUTU 1 · 0.25s : kart 0.25 · kod penceresi 0.36 · 6 kod satırı 0.46–0.76 ·
                       dallar çizilir 0.80 · telefonlar 1.00/1.08 · API bandı 1.18
      ok 1 · 0.80s
-     KUTU 2 · 0.90s : kart 0.90 · ortak kod tabanı 1.00 · ANA GÖVDE çizilir 1.06 ·
+     KUTU 2 · 0.90s : kart 0.90 · shared codebase 1.00 · ANA GÖVDE çizilir 1.06 ·
                       ayrım noktası 1.34 · YAN KOLLAR dallanır 1.50 ·
-                      modül kutuları 1.62/1.70 · "Ortak kod" 1.80
+                      modül kutuları 1.62/1.70 · "Shared code" 1.80
      ok 2 · 1.40s
      KUTU 3 · 1.50s : kart 1.50 · başlık 1.58 · iki karşılaştırma kartı 1.66/1.74 ·
                       özellik satırları çiftler hâlinde 1.84–2.14 · alt bant 2.26 */
@@ -534,10 +534,10 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   "@graph": [
     {
       "@type": "Service",
-      "name": "React Native ile Mobil Uygulama Geliştirme",
+      "name": "Mobile App Development with React Native",
       "serviceType": "react native",
-      "url": "https://www.tasarimmania.com/react-native/",
-      "description": "React native ile tek kod tabanından iOS ve Android; web sitenizle ortak API kullanımı ve verimli geliştirme. İki mağazaya tek ekiple yayın yapılır.",
+      "url": "https://www.tasarimmania.com/en/react-native-development/",
+      "description": "React Native: iOS and Android from one codebase, sharing an API with your website and developing efficiently. One team releases to both stores.",
       "areaServed": {
         "@type": "Country",
         "name": "Türkiye"
@@ -559,25 +559,25 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           "addressCountry": "TR"
         }
       },
-      "@id": "https://www.tasarimmania.com/react-native/#hizmet",
+      "@id": "https://www.tasarimmania.com/en/react-native-development/#hizmet",
       "subjectOf": [
         {
           "@type": "Article",
           "@id": "https://www.tasarimmania.com/blog/react-native-mi-flutter-mi/#article",
           "url": "https://www.tasarimmania.com/blog/react-native-mi-flutter-mi/",
-          "name": "React Native mi Flutter mı? Tek Kod Tabanı Karşılaştırması"
+          "name": "React Native or Flutter? Comparing the Single-Codebase Options"
         },
         {
           "@type": "Article",
           "@id": "https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/#article",
           "url": "https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/",
-          "name": "Native mi Cross-Platform mı? Uygulama Mimarisi Seçimi"
+          "name": "Native or Cross-Platform? Choosing an App Architecture"
         },
         {
           "@type": "Article",
           "@id": "https://www.tasarimmania.com/blog/mobil-uygulama-gelistirme-sureci/#article",
           "url": "https://www.tasarimmania.com/blog/mobil-uygulama-gelistirme-sureci/",
-          "name": "Mobil Uygulama Geliştirme Süreci Kaç Aşamadan Oluşur?"
+          "name": "How Many Stages Does Mobile App Development Take?"
         }
       ]
     },
@@ -587,29 +587,29 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Ana sayfa",
+          "name": "Home",
           "item": "https://www.tasarimmania.com/"
         },
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Hizmetler",
+          "name": "Services",
           "item": "https://www.tasarimmania.com/hizmetler/"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Mobil Uygulama",
+          "name": "Mobile Apps",
           "item": "https://www.tasarimmania.com/mobil-uygulama/"
         },
         {
           "@type": "ListItem",
           "position": 4,
           "name": "React Native",
-          "item": "https://www.tasarimmania.com/react-native/"
+          "item": "https://www.tasarimmania.com/en/react-native-development/"
         }
       ],
-      "@id": "https://www.tasarimmania.com/react-native/#kirintili"
+      "@id": "https://www.tasarimmania.com/en/react-native-development/#kirintili"
     },
     {
       "@type": "FAQPage",
@@ -617,54 +617,54 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "React Native ile geliştirilen bir uygulama native uygulamadan performans olarak geride mi kalır?",
+          "name": "Does an app built with React Native lag behind a native app on performance?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Arayüz bileşenleri platformun kendi native bileşenlerine bağlandığı için günlük kullanımda fark hissedilmez. Yoğun grafik veya karmaşık animasyon gerektiren nadir senaryolarda ilgili modül native koda taşınarak performans açığı kapatılır."
+            "text": "Because the interface components bind to the platform's own native components, there's no noticeable difference in everyday use. In the rare cases needing heavy graphics or complex animation, that module is moved to native code and the performance gap is closed."
           }
         },
         {
           "@type": "Question",
-          "name": "React Native yerine Flutter neden tercih edilmiyor?",
+          "name": "Why choose React Native rather than Flutter?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Flutter da tek kod tabanı sunar ancak Dart dili kullanır ve web ekibinizin React bilgisiyle örtüşmez. React Native'de aynı ekip bileşen mantığını paylaşabildiği için proje verimliliği daha yüksek kalır."
+            "text": "Flutter also offers a single codebase, but it uses the Dart language, which doesn't overlap with your web team's React knowledge. With React Native the same team can share component logic, so the project stays more efficient."
           }
         },
         {
           "@type": "Question",
-          "name": "Web sitemizle aynı API'yi kullanmak ne gibi bir avantaj sağlıyor?",
+          "name": "What's the advantage of using the same API as our website?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ürün, kullanıcı ve sipariş gibi veriler sunucuda tek yerde tanımlanır; web ve mobil aynı uç noktaları çağırır. Böylece iki ayrı veri kaynağını senkron tutma derdi ortadan kalkar, bir tarafta yapılan güncelleme otomatik olarak diğerine yansır."
+            "text": "Data such as products, users and orders is defined in one place on the server; web and mobile call the same endpoints. That removes the job of keeping two separate data sources in step — an update on one side shows automatically on the other."
           }
         },
         {
           "@type": "Question",
-          "name": "React Native uygulaması iki mağazaya nasıl gönderiliyor?",
+          "name": "How does a React Native app get submitted to both stores?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ortak kod tabanı, platforma özgü derleme adımlarından geçirilerek ayrı iOS ve Android paketlerine dönüştürülür ve otomatik bir yayın hattıyla gönderime hazır hale getirilir."
+            "text": "The shared codebase is put through platform-specific build steps to produce separate iOS and Android packages, and an automated release pipeline gets them ready for submission."
           }
         },
         {
           "@type": "Question",
-          "name": "Hangi projelerde React Native yetersiz kalır, native gerekir?",
+          "name": "On which projects does React Native fall short and native become necessary?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yoğun sensör işleme veya platforma çok özgü grafik gereksinimi olan projelerde ilgili modülün native yazılması gerekebilir; uygulamanın geri kalanı React Native üzerinde kalabilir."
+            "text": "On projects with heavy sensor processing or highly platform-specific graphics requirements, that module may need writing in native code; the rest of the app can stay on React Native."
           }
         },
         {
           "@type": "Question",
-          "name": "React Native ile geliştirilen bir uygulama ileride native'e geçirilebilir mi?",
+          "name": "Can an app built with React Native be moved to native later?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Evet, mimari modüler kurgulandığında ekranlar veya özellikler tek tek native koda taşınabilir. Bu geçiş kademeli yapılabildiği için mevcut uygulama kesintiye uğramadan, ihtiyaç duyulan bölümler zamanla native tarafa aktarılabilir."
+            "text": "Yes — when the architecture is built in modules, screens or features can be moved to native code one at a time. Because the move can be gradual, the parts that need it can be shifted to native over time without interrupting the existing app."
           }
         }
       ],
-      "@id": "https://www.tasarimmania.com/react-native/#sss"
+      "@id": "https://www.tasarimmania.com/en/react-native-development/#sss"
     },
     {
       "@type": "Organization",
@@ -672,14 +672,14 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
       "name": "TasarımMania",
       "url": "https://www.tasarimmania.com/",
       "knowsAbout": [
-        "Web tasarımı ve yazılım geliştirme",
-        "Mobil uygulama geliştirme",
-        "Dijital pazarlama ve performans reklamcılığı",
-        "Video prodüksiyon ve reklam filmi",
-        "Arama motoru optimizasyonu",
-        "Grafik tasarım ve kurumsal kimlik",
-        "E-ticaret sitesi kurulumu",
-        "Sosyal medya yönetimi"
+        "Web design and software development",
+        "Mobile app development",
+        "Digital marketing and performance advertising",
+        "Video production and commercial films",
+        "Search engine optimization",
+        "Graphic design and brand identity",
+        "E-commerce store setup",
+        "Social media management"
       ]
     },
     {
@@ -687,30 +687,30 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
       "@id": "https://www.tasarimmania.com/#site",
       "url": "https://www.tasarimmania.com/",
       "name": "TasarımMania",
-      "inLanguage": "tr-TR",
+      "inLanguage": "en",
       "publisher": {
         "@id": "https://www.tasarimmania.com/#kurulus"
       }
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.tasarimmania.com/react-native/#sayfa",
-      "url": "https://www.tasarimmania.com/react-native/",
-      "name": "React Native ile Mobil Uygulama Geliştirme | TasarımMania",
-      "description": "React native ile tek kod tabanından iOS ve Android; web sitenizle ortak API kullanımı ve verimli geliştirme. İki mağazaya tek ekiple yayın yapılır.",
-      "inLanguage": "tr-TR",
+      "@id": "https://www.tasarimmania.com/en/react-native-development/#sayfa",
+      "url": "https://www.tasarimmania.com/en/react-native-development/",
+      "name": "Mobile App Development with React Native | TasarımMania",
+      "description": "React Native: iOS and Android from one codebase, sharing an API with your website and developing efficiently. One team releases to both stores.",
+      "inLanguage": "en",
       "isPartOf": {
         "@id": "https://www.tasarimmania.com/#site"
       },
       "breadcrumb": {
-        "@id": "https://www.tasarimmania.com/react-native/#kirintili"
+        "@id": "https://www.tasarimmania.com/en/react-native-development/#kirintili"
       },
       "primaryImageOfPage": {
         "@type": "ImageObject",
         "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg"
       },
       "mainEntity": {
-        "@id": "https://www.tasarimmania.com/react-native/#hizmet"
+        "@id": "https://www.tasarimmania.com/en/react-native-development/#hizmet"
       }
     }
   ]
@@ -720,29 +720,29 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 </head>
 <body data-dal="mobil">
 
-<a class="skip" href="#ana">İçeriğe geç</a>
+<a class="skip" href="#ana">Skip to content</a>
 
-<nav class="nav" data-nav aria-label="Ana menü">
+<nav class="nav" data-nav aria-label="Main menu">
   <div class="wrap nav-in">
-    <a class="nav-logo" href="../" aria-label="TasarımMania ana sayfa">
-      <img src="../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async" fetchpriority="high">
+    <a class="nav-logo" href="../" aria-label="TasarımMania home">
+      <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async" fetchpriority="high">
     </a>
     <div class="nav-links">
-      <a href="../hizmetler/" aria-current="page">Hizmetler</a>
-      <a href="../#isler">İşler</a>
-      <a href="../hakkimizda/">Ajans</a>
+      <a href="../services/" aria-current="page">Services</a>
+      <a href="../#isler">Work</a>
+      <a href="../about/">Agency</a>
       <a href="../blog/">Blog</a>
-      <a href="../#surec">Süreç</a>
-      <a href="../teklif/">Teklif Al</a>
-      <a href="../iletisim/">İletişim</a>
+      <a href="../#surec">Process</a>
+      <a href="../get-a-quote/">Get a Quote</a>
+      <a href="../contact/">Contact</a>
     </div>
     <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
-    <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="burger" data-burger aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="mobmenu" data-mobmenu aria-hidden="true">
-  <a href="../hizmetler/">Hizmetler</a><a href="../#isler">İşler</a><a href="../hakkimizda/">Ajans</a><a href="../blog/">Blog</a>
-  <a href="../#surec">Süreç</a><a href="../teklif/">Teklif Al</a><a href="../iletisim/">İletişim</a>
+  <a href="../services/">Services</a><a href="../#isler">Work</a><a href="../about/">Agency</a><a href="../blog/">Blog</a>
+  <a href="../#surec">Process</a><a href="../get-a-quote/">Get a Quote</a><a href="../contact/">Contact</a>
   <a href="tel:+905547916545">0554 791 65 45</a>
 </div>
 
@@ -750,32 +750,32 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 
   <header class="phd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
-        <a href="../">Ana sayfa</a><span aria-hidden="true">/</span>
-        <a href="../hizmetler/">Hizmetler</a><span aria-hidden="true">/</span>
-        <a href="../mobil-uygulama/">Mobil Uygulama</a><span aria-hidden="true">/</span>
+      <nav class="crumb" aria-label="Location">
+        <a href="../">Home</a><span aria-hidden="true">/</span>
+        <a href="../services/">Services</a><span aria-hidden="true">/</span>
+        <a href="../mobile-app-development/">Mobile Apps</a><span aria-hidden="true">/</span>
         <span>React Native</span>
       </nav>
       <div class="phd-iki">
         <div>
-<span class="mod-no">Modül 02 · Mobil Uygulama</span>
-      <h1 data-kin>React Native ile Mobil Uygulama Geliştirme</h1>
-      <p class="lead">React Native teknolojisiyle iOS ve Android uygulamanızı tek kod tabanından geliştirir, web sitenizle aynı API altyapısını paylaştırarak veri tutarlılığını ve geliştirme verimliliğini bir arada sağlarız.</p>
+<span class="mod-no">Module 02 · Mobile Apps</span>
+      <h1 data-kin>Mobile App Development with React Native</h1>
+      <p class="lead">With React Native we build your iOS and Android app from a single codebase and have it share the same API infrastructure as your website, delivering data consistency and development efficiency together.</p>
       <div class="hero-cta">
-        <a class="btn btn-p" href="../teklif/#mobil">Kapsam ve fiyat aralığı çıkaralım
+        <a class="btn btn-p" href="../get-a-quote/#mobil">Let's map the scope and price range
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20React%20Native%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+        <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20React%20Native%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
       </div>
         </div>
         <div class="ciz-kutu" aria-hidden="true">
           <div class="ciz-cerceve">
-            <div class="ciz-bar"><i></i><i></i><i></i><span>tek koddan iki uygulama</span><b>DERLENDİ</b></div>
+            <div class="ciz-bar"><i></i><i></i><i></i><span>two apps from one codebase</span><b>COMPILED</b></div>
             <div class="ciz-svg">
               <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-<text class="cz-etiket" style="--d:0.12s" x="150" y="44">JavaScript / TypeScript</text><rect class="cz-cizgi" style="--u:444;--d:0.00s" x="150" y="64" width="130" height="82" rx="10"/><rect class="cz-dolgu" style="--d:0.00s" x="150" y="64" width="130" height="82" rx="10"/><line class="cz-cizgi" style="--u:110;--d:0.42s" x1="164" y1="86" x2="266" y2="86"/><line class="cz-cizgi" style="--u:82;--d:0.84s" x1="164" y1="102" x2="238" y2="102"/><line class="cz-cizgi" style="--u:110;--d:1.26s" x1="164" y1="118" x2="266" y2="118"/><text class="cz-etiket vurgu" style="--d:1.80s" x="164" y="138">{ tek kod tabanı }</text><line class="cz-cizgi" style="--u:60;--d:1.68s" x1="148" y1="104" x2="96" y2="104"/><line class="cz-cizgi" style="--u:20;--d:2.10s" x1="96" y1="104" x2="106" y2="97"/><line class="cz-cizgi" style="--u:20;--d:2.52s" x1="96" y1="104" x2="106" y2="111"/><line class="cz-cizgi" style="--u:60;--d:2.94s" x1="282" y1="104" x2="334" y2="104"/><line class="cz-cizgi" style="--u:20;--d:3.36s" x1="334" y1="104" x2="324" y2="97"/><line class="cz-cizgi" style="--u:20;--d:3.78s" x1="334" y1="104" x2="324" y2="111"/><rect class="cz-cizgi" style="--u:336;--d:4.20s" x="30" y="58" width="62" height="96" rx="12"/><rect class="cz-dolgu" style="--d:4.20s" x="30" y="58" width="62" height="96" rx="12"/><line class="cz-cizgi" style="--u:46;--d:4.62s" x1="42" y1="82" x2="80" y2="82"/><rect class="cz-cizgi" style="--u:336;--d:5.04s" x="338" y="58" width="62" height="96" rx="12"/><rect class="cz-dolgu" style="--d:5.04s" x="338" y="58" width="62" height="96" rx="12"/><line class="cz-cizgi" style="--u:46;--d:5.46s" x1="350" y1="82" x2="388" y2="82"/><text class="cz-etiket" style="--d:6.00s" x="30" y="176">iOS</text><text class="cz-etiket" style="--d:6.00s" x="338" y="176">Android</text>
+<text class="cz-etiket" style="--d:0.12s" x="150" y="44">JavaScript / TypeScript</text><rect class="cz-cizgi" style="--u:444;--d:0.00s" x="150" y="64" width="130" height="82" rx="10"/><rect class="cz-dolgu" style="--d:0.00s" x="150" y="64" width="130" height="82" rx="10"/><line class="cz-cizgi" style="--u:110;--d:0.42s" x1="164" y1="86" x2="266" y2="86"/><line class="cz-cizgi" style="--u:82;--d:0.84s" x1="164" y1="102" x2="238" y2="102"/><line class="cz-cizgi" style="--u:110;--d:1.26s" x1="164" y1="118" x2="266" y2="118"/><text class="cz-etiket vurgu" style="--d:1.80s" x="164" y="138">{ one codebase }</text><line class="cz-cizgi" style="--u:60;--d:1.68s" x1="148" y1="104" x2="96" y2="104"/><line class="cz-cizgi" style="--u:20;--d:2.10s" x1="96" y1="104" x2="106" y2="97"/><line class="cz-cizgi" style="--u:20;--d:2.52s" x1="96" y1="104" x2="106" y2="111"/><line class="cz-cizgi" style="--u:60;--d:2.94s" x1="282" y1="104" x2="334" y2="104"/><line class="cz-cizgi" style="--u:20;--d:3.36s" x1="334" y1="104" x2="324" y2="97"/><line class="cz-cizgi" style="--u:20;--d:3.78s" x1="334" y1="104" x2="324" y2="111"/><rect class="cz-cizgi" style="--u:336;--d:4.20s" x="30" y="58" width="62" height="96" rx="12"/><rect class="cz-dolgu" style="--d:4.20s" x="30" y="58" width="62" height="96" rx="12"/><line class="cz-cizgi" style="--u:46;--d:4.62s" x1="42" y1="82" x2="80" y2="82"/><rect class="cz-cizgi" style="--u:336;--d:5.04s" x="338" y="58" width="62" height="96" rx="12"/><rect class="cz-dolgu" style="--d:5.04s" x="338" y="58" width="62" height="96" rx="12"/><line class="cz-cizgi" style="--u:46;--d:5.46s" x1="350" y1="82" x2="388" y2="82"/><text class="cz-etiket" style="--d:6.00s" x="30" y="176">iOS</text><text class="cz-etiket" style="--d:6.00s" x="338" y="176">Android</text>
               </svg>
             </div>
-            <div class="ciz-alt"><div class="ciz-cip"><u>KOD TABANI</u><b data-sayac="1" data-birim="">0</b></div><div class="ciz-cip"><u>MAĞAZA</u><b data-sayac="2" data-birim="">0</b></div><div class="ciz-cip"><u>API</u><b>web ile ortak</b></div></div>
+            <div class="ciz-alt"><div class="ciz-cip"><u>CODEBASE</u><b data-sayac="1" data-birim="">0</b></div><div class="ciz-cip"><u>STORES</u><b data-sayac="2" data-birim="">0</b></div><div class="ciz-cip"><u>API</u><b>shared with the web</b></div></div>
           </div>
         </div>
       </div>
@@ -784,31 +784,31 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 
   <section class="sec" id="detay" style="padding-top:0">
     <div class="wrap">
-      <span class="eyebrow dtay-eb rv"><i></i>Derinlemesine</span>
+      <span class="eyebrow dtay-eb rv"><i></i>In depth</span>
       <div class="dtay">
         <article class="dtay-k rv">
           <span class="dtay-no">01</span>
-          <h2>Tek Kod Tabanı, İki Mağaza, Ortak API Katmanı</h2>
-          <p class="dtay-vurgu">React Native projelerinde iOS ve Android arayüzleri aynı JavaScript/TypeScript kod tabanından üretilir; platforma özgü davranış gerektiren noktalarda ayrım yapılır, geri kalan mantık ortak kalır.</p>
-          <div class="dtay-devam"><div><p>Bu yapının asıl değeri, mobil uygulamanın web sitenizle aynı API'yi tüketmesinde ortaya çıkar: ürün kataloğu, kullanıcı hesabı, sipariş veya randevu mantığı sunucu tarafında tek yerde tanımlanır, web ve mobil istemciler bu mantığı aynı uç noktalardan çeker. Böylece stok bilgisi, fiyat güncellemesi veya kullanıcı yetkisi gibi veriler tüm kanallarda eşzamanlı ve tutarlı kalır. Kod paylaşımı arayüz katmanıyla sınırlı değildir; doğrulama kuralları ve bazı iş mantığı fonksiyonları da web ile mobil arasında paylaşılabilir.</p></div></div>
-          <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <h2>One Codebase, Two Stores, a Shared API Layer</h2>
+          <p class="dtay-vurgu">On React Native projects the iOS and Android interfaces are produced from the same JavaScript/TypeScript codebase; the code branches only where platform-specific behaviour is needed, and the rest of the logic stays shared.</p>
+          <div class="dtay-devam"><div><p>The real value of this structure shows when the mobile app consumes the same API as your website: the product catalogue, user accounts, orders or booking logic are defined in one place on the server, and the web and mobile clients pull that logic from the same endpoints. Stock levels, price updates and user permissions stay consistent and in step across every channel. The sharing isn't limited to the interface layer either; validation rules and some business logic functions can be shared between web and mobile too.</p></div></div>
+          <button type="button" class="dtay-more" aria-expanded="false"><span>More</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
         <article class="dtay-k rv d1">
           <span class="dtay-no">02</span>
-          <h2>React Native mi, Flutter mı: Tercih Neden React Native'den Yana?</h2>
-          <p class="dtay-vurgu">Flutter da tek kod tabanından iki platforma yayın yapar, ancak Dart dilini ve kendi render motorunu kullanır; bu da web tarafında React/JavaScript kullanan ekibin birikimini mobilde tekrar kullanamamasına yol açar.</p>
-          <div class="dtay-devam"><div><p>React Native'i tercih etmemizin gerekçesi budur: web arayüzünüzü geliştiren aynı ekip, bileşen mantığını mobil tarafa doğrudan taşıyabilir. npm ekosistemindeki olgun kütüphaneler, kimlik doğrulama veya ödeme gibi yaygın ihtiyaçları hazır modüllerle çözer. Native bileşenlere doğrudan bağlanan mimarisi sayesinde arayüz platformun kendi bileşenlerine yakın davranır. Web ve mobili aynı anda yürüten projelerde React Native'in sağladığı kod ve bilgi paylaşımı verimliliği öne çıkar. Tek kod tabanı da mağaza kurallarına tabidir; <a class="kaynak" href="https://developer.apple.com/app-store/review/guidelines/" target="_blank" rel="noopener">App Store inceleme kılavuzu</a> istisna tanımaz.</p></div></div>
-          <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <h2>React Native or Flutter: Why Do We Lean Towards React Native?</h2>
+          <p class="dtay-vurgu">Flutter also releases to two platforms from one codebase, but it uses the Dart language and its own render engine — which means a team using React and JavaScript on the web can't reuse that knowledge on mobile.</p>
+          <div class="dtay-devam"><div><p>That's our reason for choosing React Native: the same team building your web interface can carry the component logic straight across to mobile. Mature libraries in the npm ecosystem solve common needs like authentication or payments with ready-made modules. Because the architecture binds directly to native components, the interface behaves close to the platform's own. On projects running web and mobile at the same time, the code and knowledge sharing React Native gives you comes to the fore. A single codebase is still subject to the store rules; <a class="kaynak" href="https://developer.apple.com/app-store/review/guidelines/" target="_blank" rel="noopener">the App Store review guidelines</a> make no exceptions.</p></div></div>
+          <button type="button" class="dtay-more" aria-expanded="false"><span>More</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>
 
       <!-- Akış durakları — bu sayfanın KENDİ anlattığı yolu çiziyor:
-           tek kod tabanı → platforma özgü nokta → neden React Native.
+           one codebase → platforma özgü nokta → neden React Native.
            Etiketlerin tamamı sayfada geçen kavramlar: JavaScript / TypeScript,
-           tek kod tabanı, iOS, Android, Ortak API Katmanı, platforma özgü,
-           ayrım, ortak kod tabanı, native modül, geri kalan mantık ortak,
-           React Native, Flutter, Dart, npm ekosistemi, native bileşenler,
-           kendi render motoru, iki platforma yayın, aynı ekip, bileşen mantığı.
+           one codebase, iOS, Android, Ortak API Katmanı, platforma özgü,
+           ayrım, shared codebase, native modül, the rest of the logic stays shared,
+           React Native, Flutter, Dart, npm ecosystem, native components,
+           its own render engine, release to two platforms, aynı ekip, bileşen mantığı.
 
            BİLEREK RAKAM YOK: bu sayfada fiyat, süre ya da yüzde yayımlanmıyor;
            kod satırları çubukla temsil edildi, dosya/sayfa adı uydurulmadı.
@@ -834,18 +834,14 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
       <figure class="akis rv d2">
         <div class="akis-izgara">
 
-          <!-- ===== DURAK 01 — TEK KOD TABANI ===== -->
+          <!-- ===== DURAK 01 — TEK CODEBASE ===== -->
           <div class="akis-kutu">
             <span class="akis-no">01</span>
-            <span class="akis-ad">Tek kod tabanı</span>
+            <span class="akis-ad">One codebase</span>
             <svg viewBox="0 0 380 400" role="img" aria-labelledby="rnB1 rnA1"
                  xmlns="http://www.w3.org/2000/svg">
-              <title id="rnB1">Tek kod tabanı: JavaScript / TypeScript kod penceresinden iOS ve Android'e ayrılan iki dal — temsilî görsel</title>
-              <desc id="rnA1">Üstte üst barında "JavaScript / TypeScript" yazan bir kod penceresi
-                ve içinde altı satır kod. Pencerenin altından çıkan gövde ortadan ikiye ayrılıyor;
-                her dalın ucunda bir telefon çerçevesi var, solunun altında "iOS", sağınkinin
-                altında "Android" yazıyor. En altta iki telefonun da dayandığı ortak bir bant:
-                "Ortak API katmanı". Canlanmada kod satırları sırayla girer, sonra dallar çizilir.</desc>
+              <title id="rnB1">One codebase: two branches splitting from a JavaScript / TypeScript code window to iOS and Android — illustrative graphic</title>
+              <desc id="rnA1">At the top, a code window whose title bar reads “JavaScript / TypeScript”, with six lines of code inside. The stem leaving the bottom of the window splits in two; each branch ends in a phone frame, with “iOS” under the left one and “Android” under the right. At the bottom, a shared band both phones rest on: “Shared API layer”. In the animation the code lines come in one by one, then the branches are drawn.</desc>
               <defs>
                 <linearGradient id="rnSahne1" x1="0" y1="0" x2="0.35" y2="1">
                   <stop offset="0" stop-color="#141C26"/>
@@ -947,7 +943,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                   <circle cx="78" cy="364" r="3" fill="currentColor" fill-opacity=".75"/>
                   <text x="196" y="369" text-anchor="middle"
                         font-family="JetBrains Mono, ui-monospace, monospace"
-                        font-size="13" fill="#AFA2D8">Ortak API katmanı</text>
+                        font-size="13" fill="#AFA2D8">Shared API layer</text>
                 </g>
               </g>
             </svg>
@@ -961,16 +957,11 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <!-- ===== DURAK 02 — PLATFORMA ÖZGÜ NOKTA ===== -->
           <div class="akis-kutu">
             <span class="akis-no">02</span>
-            <span class="akis-ad">Platforma özgü nokta</span>
+            <span class="akis-ad">The platform-specific point</span>
             <svg viewBox="0 0 380 400" role="img" aria-labelledby="rnB2 rnA2"
                  xmlns="http://www.w3.org/2000/svg">
-              <title id="rnB2">Platforma özgü nokta: ortak kod tabanından inen gövde üzerinde bir ayrım noktası ve iki yan kol — temsilî görsel</title>
-              <desc id="rnA2">Üstte "ortak kod tabanı" kutusu. Ondan aşağı inen ana gövde önce
-                çizilir; gövdenin üzerinde, içinde küçük bir çatal ikonu bulunan elmas biçimli bir
-                ayrım noktası var. Ayrımdan sola ve sağa çıkan iki kısa kolun ucunda "iOS modülü"
-                ve "Android modülü" kutuları duruyor, her ikisinin altında kesik çizgili
-                "gerektiğinde native" notu var. Ana gövde düz devam edip "Ortak kod" etiketine
-                iner, en altta "geri kalan mantık ortak" notu yer alır.</desc>
+              <title id="rnB2">The platform-specific point: a branch point on the stem running down from the shared codebase, with two side arms — illustrative graphic</title>
+              <desc id="rnA2">At the top, a box reading “shared codebase”. The main stem running down from it is drawn first; on that stem sits a diamond-shaped branch point containing a small fork icon. Two short arms leaving it to the left and right end in boxes reading “iOS module” and “Android module”, each with a dashed note underneath reading “native where needed”. The main stem carries straight on down to a label reading “Shared code”, with a note at the bottom reading “the rest of the logic stays shared”.</desc>
               <defs>
                 <linearGradient id="rnSahne2" x1="0" y1="0" x2="0.35" y2="1">
                   <stop offset="0" stop-color="#141C26"/>
@@ -997,7 +988,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                         stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
                   <text x="190" y="60" text-anchor="middle"
                         font-family="JetBrains Mono, ui-monospace, monospace"
-                        font-size="13" fill="#C9AEFF">ortak kod tabanı</text>
+                        font-size="13" fill="#C9AEFF">shared codebase</text>
                 </g>
 
                 <!-- ANA GÖVDE önce çizilir (yan kollar 0.44 sn sonra dallanır) -->
@@ -1032,12 +1023,12 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                           font-size="13" fill="#D5E4EC">iOS</text>
                     <text x="77" y="199" text-anchor="middle"
                           font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13" fill="#A8B8C4">modülü</text>
+                          font-size="13" fill="#A8B8C4">module</text>
                     <rect x="22" y="220" width="110" height="46" rx="10" fill="#0D131A"
                           stroke="currentColor" stroke-opacity=".38" stroke-width="1.3" stroke-dasharray="5 5"/>
                     <text x="77" y="240" text-anchor="middle"
                           font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13" fill="#A8B8C4">gerektiğinde</text>
+                          font-size="13" fill="#A8B8C4">if needed</text>
                     <text x="77" y="257" text-anchor="middle"
                           font-family="Inter Tight, system-ui, sans-serif"
                           font-size="13" fill="#C9AEFF">native</text>
@@ -1054,12 +1045,12 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                           font-size="13" fill="#D5E4EC">Android</text>
                     <text x="303" y="199" text-anchor="middle"
                           font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13" fill="#A8B8C4">modülü</text>
+                          font-size="13" fill="#A8B8C4">module</text>
                     <rect x="248" y="220" width="110" height="46" rx="10" fill="#0D131A"
                           stroke="currentColor" stroke-opacity=".38" stroke-width="1.3" stroke-dasharray="5 5"/>
                     <text x="303" y="240" text-anchor="middle"
                           font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13" fill="#A8B8C4">gerektiğinde</text>
+                          font-size="13" fill="#A8B8C4">if needed</text>
                     <text x="303" y="257" text-anchor="middle"
                           font-family="Inter Tight, system-ui, sans-serif"
                           font-size="13" fill="#C9AEFF">native</text>
@@ -1071,10 +1062,10 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                         stroke="currentColor" stroke-opacity=".5" stroke-width="1.4"/>
                   <text x="190" y="311" text-anchor="middle"
                         font-family="JetBrains Mono, ui-monospace, monospace"
-                        font-size="13" fill="#C9AEFF">Ortak kod</text>
+                        font-size="13" fill="#C9AEFF">Shared code</text>
                   <text x="190" y="348" text-anchor="middle"
                         font-family="Inter Tight, system-ui, sans-serif"
-                        font-size="13" fill="#7A8794">geri kalan mantık ortak</text>
+                        font-size="13" fill="#7A8794">the rest of the logic stays shared</text>
                 </g>
               </g>
             </svg>
@@ -1088,17 +1079,11 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <!-- ===== DURAK 03 — NEDEN REACT NATIVE ===== -->
           <div class="akis-kutu">
             <span class="akis-no">03</span>
-            <span class="akis-ad">Neden React Native</span>
+            <span class="akis-ad">Why React Native</span>
             <svg viewBox="0 0 380 400" role="img" aria-labelledby="rnB3 rnA3"
                  xmlns="http://www.w3.org/2000/svg">
-              <title id="rnB3">React Native ve Flutter kartlarının yan yana karşılaştırması — temsilî görsel</title>
-              <desc id="rnA3">Eşit ölçüde iki kart yan yana. Solda "React Native": dil rozetinde
-                "JavaScript / TypeScript", altında üç özellik satırı — tek kod tabanı, npm
-                ekosistemi, native bileşenler. Sağda "Flutter": dil rozetinde "Dart", altında üç
-                satır — tek kod tabanı, kendi render motoru, iki platforma yayın. Sol kart aksan
-                çerçeveli; sağ kart nötr çerçeveli ama yazıları sol kartla aynı parlaklıkta,
-                üzerinde olumsuz bir işaret yok. En altta tek satır: "web ile aynı ekip ve bileşen
-                mantığı".</desc>
+              <title id="rnB3">A side-by-side comparison of the React Native and Flutter cards — illustrative graphic</title>
+              <desc id="rnA3">Two equally sized cards side by side. On the left, “React Native”: a language badge reading “JavaScript / TypeScript”, with three feature rows below — one codebase, npm ecosystem, native components. On the right, “Flutter”: a language badge reading “Dart”, with three rows below — one codebase, its own render engine, release to two platforms. The left card has an accent border; the right card has a neutral border but its text is just as bright as the left card's, with no negative mark on it. At the bottom, a single line: “the same team and component logic as the web”.</desc>
               <defs>
                 <linearGradient id="rnSahne3" x1="0" y1="0" x2="0.35" y2="1">
                   <stop offset="0" stop-color="#141C26"/>
@@ -1122,7 +1107,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 
                 <text class="rn-ust3" x="34" y="52"
                       font-family="JetBrains Mono, ui-monospace, monospace"
-                      font-size="14" fill="#AFA2D8">React Native mi, Flutter mı</text>
+                      font-size="14" fill="#AFA2D8">React Native or Flutter</text>
 
                 <!-- İki kart EŞİT ölçüde (158x250). Fark yalnızca çerçeve rengi:
                      sol aksan (sayfanın tercihi), sağ nötr — sönük değil. -->
@@ -1165,9 +1150,9 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                     <path d="M55,192 l-6,7 l6,7 M63,192 l6,7 l-6,7" fill="none" stroke="currentColor"
                           stroke-opacity=".85" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                     <text x="76" y="196" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13" fill="#D5E4EC">tek kod</text>
+                          font-size="13" fill="#D5E4EC">one</text>
                     <text x="76" y="213" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13" fill="#A8B8C4">tabanı</text>
+                          font-size="13" fill="#A8B8C4">codebase</text>
                   </g>
                   <g>
                     <rect x="206" y="178" width="134" height="42" rx="9" fill="#0C1218"
@@ -1175,9 +1160,9 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                     <path d="M221,192 l-6,7 l6,7 M229,192 l6,7 l-6,7" fill="none" stroke="#92A6B6"
                           stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                     <text x="242" y="196" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13" fill="#D5E4EC">tek kod</text>
+                          font-size="13" fill="#D5E4EC">one</text>
                     <text x="242" y="213" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13" fill="#A8B8C4">tabanı</text>
+                          font-size="13" fill="#A8B8C4">codebase</text>
                   </g>
                   <g>
                     <rect x="40" y="222" width="134" height="42" rx="9" fill="#0C1218"
@@ -1189,7 +1174,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                     <text x="76" y="240" font-family="Inter Tight, system-ui, sans-serif"
                           font-size="13" fill="#D5E4EC">npm</text>
                     <text x="76" y="257" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13" fill="#A8B8C4">ekosistemi</text>
+                          font-size="13" fill="#A8B8C4">ecosystem</text>
                   </g>
                   <g>
                     <rect x="206" y="222" width="134" height="42" rx="9" fill="#0C1218"
@@ -1198,9 +1183,9 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                           stroke="#92A6B6" stroke-width="1.6"/>
                     <circle cx="225" cy="243" r="4" fill="none" stroke="#92A6B6" stroke-width="1.4"/>
                     <text x="242" y="240" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13" fill="#D5E4EC">kendi render</text>
+                          font-size="13" fill="#D5E4EC">its own render</text>
                     <text x="242" y="257" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13" fill="#A8B8C4">motoru</text>
+                          font-size="13" fill="#A8B8C4">engine</text>
                   </g>
                   <g>
                     <rect x="40" y="266" width="134" height="42" rx="9" fill="#0C1218"
@@ -1212,7 +1197,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                     <text x="76" y="284" font-family="Inter Tight, system-ui, sans-serif"
                           font-size="13" fill="#D5E4EC">native</text>
                     <text x="76" y="301" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13" fill="#A8B8C4">bileşenler</text>
+                          font-size="13" fill="#A8B8C4">components</text>
                   </g>
                   <g>
                     <rect x="206" y="266" width="134" height="42" rx="9" fill="#0C1218"
@@ -1222,9 +1207,9 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                     <rect x="227" y="279" width="8" height="16" rx="2.5" fill="none"
                           stroke="#92A6B6" stroke-width="1.5"/>
                     <text x="242" y="284" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13" fill="#D5E4EC">iki platforma</text>
+                          font-size="13" fill="#D5E4EC">release to</text>
                     <text x="242" y="301" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13" fill="#A8B8C4">yayın</text>
+                          font-size="13" fill="#A8B8C4">two platforms</text>
                   </g>
                 </g>
 
@@ -1237,34 +1222,27 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
                           stroke-opacity=".8" stroke-width="1.6"/>
                   <text x="196" y="355" text-anchor="middle"
                         font-family="Inter Tight, system-ui, sans-serif"
-                        font-size="13" fill="#AFA2D8">kod ve bilgi paylaşımı verimliliği</text>
+                        font-size="13" fill="#AFA2D8">the efficiency of shared code and knowledge</text>
                 </g>
               </g>
             </svg>
           </div>
         </div>
-        <figcaption><b>Temsilî görsel.</b> Sayfanın anlattığı yolu çiziyor: tek
-          JavaScript/TypeScript kod tabanından iOS ve Android'e çıkış ve ortak API katmanı,
-          platforma özgü davranış gerektiren noktadaki ayrım ve yalnız orada devreye giren native
-          modül, son olarak React Native ile Flutter'ın yan yana durması. Kutular örnek arayüz
-          çizimidir, gerçek bir uygulamadan alınmadı; kod satırları ad uydurmamak için çubukla
-          temsil edildi. Üçüncü duraktaki iki kart eşit ölçüdedir ve Flutter maddeleri sayfanın
-          kendi ifadeleridir — kıyas bir puan ya da ölçüm değil, tercih gerekçesinin gösterimidir.
-          Marka veya platform logosu kullanılmadı, rozetler yalnızca metindir.</figcaption>
+        <figcaption><b>Illustrative graphic.</b> It draws the route the page describes: from a single JavaScript/TypeScript codebase out to iOS and Android with a shared API layer, the branch at the point where platform-specific behaviour is needed and the native module that comes in only there, and finally React Native and Flutter standing side by side. The boxes are an example interface drawing, not taken from a real app; the code lines are represented by bars so as not to invent names. The two cards at the third stop are the same size, and the Flutter points are the page's own wording — the comparison isn't a score or a measurement, it's a statement of why we choose what we choose. No brand or platform logo is used; the badges are text only.</figcaption>
       </figure>
 
       <div class="dtay-fiyat rv d1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
-        <p><strong>Güncel fiyat ve süre bandı</strong> için Mobil Uygulama sayfasının <a href="../mobil-uygulama/#fiyat">fiyatlandırma bölümüne</a> göz atın — kapsamınıza göre bandı iki dakikada netleştirebilirsiniz.</p>
+        <p><strong>For the current price and timeline band</strong> , look at the <a href="../mobile-app-development/#fiyat">pricing section</a> on the Mobile Apps page — you can settle the band for your scope in two minutes.</p>
       </div>
     </div>
   </section>
 
   <div class="ara-cta rv"><i class="ac3-zemin" aria-hidden="true"></i><i class="ac3-s s1" aria-hidden="true"></i><i class="ac3-s s2" aria-hidden="true"></i>
     <div class="wrap ara-cta-in">
-      <p><b>Kapsamı birlikte çıkaralım</b><span>Beş adım, iki dakika. Ekranda süre ve fiyat aralığı çıkar.</span></p>
+      <p><b>Let's map the scope together</b><span>Five steps, two minutes. The timeline and price range appear on screen.</span></p>
       <div class="ara-cta-btn">
-        <a class="btn btn-p" href="../teklif/#mobil">Kapsam çıkaralım
+        <a class="btn btn-p" href="../get-a-quote/#mobil">Let's map the scope
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-g" href="tel:+905547916545">0554 791 65 45</a>
       </div>
@@ -1274,28 +1252,28 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   <section class="sec" id="sss" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow"><i></i>Sık sorulanlar</span>
-        <h2 data-kin>Sık sorulan sorular: React Native ile uygulama geliştirme</h2>
+        <span class="eyebrow"><i></i>FAQs</span>
+        <h2 data-kin>Frequently asked questions: app development with React Native</h2>
       </div>
       <div class="sd rv d1" data-sd>
-        <div class="sd-sol" role="tablist" aria-label="Sorular">
-        <button type="button" class="sd-soru acik" role="tab" aria-selected="true"><i>01</i><span>React Native ile geliştirilen bir uygulama native uygulamadan performans olarak geride mi kalır?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>02</i><span>React Native yerine Flutter neden tercih edilmiyor?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>03</i><span>Web sitemizle aynı API'yi kullanmak ne gibi bir avantaj sağlıyor?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>04</i><span>React Native uygulaması iki mağazaya nasıl gönderiliyor?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>05</i><span>Hangi projelerde React Native yetersiz kalır, native gerekir?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>06</i><span>React Native ile geliştirilen bir uygulama ileride native'e geçirilebilir mi?</span></button>
+        <div class="sd-sol" role="tablist" aria-label="Questions">
+        <button type="button" class="sd-soru acik" role="tab" aria-selected="true"><i>01</i><span>Does an app built with React Native lag behind a native app on performance?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>02</i><span>Why choose React Native rather than Flutter?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>03</i><span>What's the advantage of using the same API as our website?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>04</i><span>How does a React Native app get submitted to both stores?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>05</i><span>On which projects does React Native fall short and native become necessary?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>06</i><span>Can an app built with React Native be moved to native later?</span></button>
         </div>
         <div class="sd-sag">
-        <div class="sd-cevap acik" role="tabpanel"><h3>React Native ile geliştirilen bir uygulama native uygulamadan performans olarak geride mi kalır?</h3><p>Arayüz bileşenleri platformun kendi native bileşenlerine bağlandığı için günlük kullanımda fark hissedilmez. Yoğun grafik veya karmaşık animasyon gerektiren nadir senaryolarda ilgili modül native koda taşınarak performans açığı kapatılır.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>React Native yerine Flutter neden tercih edilmiyor?</h3><p>Flutter da tek kod tabanı sunar ancak Dart dili kullanır ve web ekibinizin React bilgisiyle örtüşmez. React Native'de aynı ekip bileşen mantığını paylaşabildiği için proje verimliliği daha yüksek kalır.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>Web sitemizle aynı API'yi kullanmak ne gibi bir avantaj sağlıyor?</h3><p>Ürün, kullanıcı ve sipariş gibi veriler sunucuda tek yerde tanımlanır; web ve mobil aynı uç noktaları çağırır. Böylece iki ayrı veri kaynağını senkron tutma derdi ortadan kalkar, bir tarafta yapılan güncelleme otomatik olarak diğerine yansır.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>React Native uygulaması iki mağazaya nasıl gönderiliyor?</h3><p>Ortak kod tabanı, platforma özgü derleme adımlarından geçirilerek ayrı iOS ve Android paketlerine dönüştürülür ve otomatik bir yayın hattıyla gönderime hazır hale getirilir.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>Hangi projelerde React Native yetersiz kalır, native gerekir?</h3><p>Yoğun sensör işleme veya platforma çok özgü grafik gereksinimi olan projelerde ilgili modülün native yazılması gerekebilir; uygulamanın geri kalanı React Native üzerinde kalabilir.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>React Native ile geliştirilen bir uygulama ileride native'e geçirilebilir mi?</h3><p>Evet, mimari modüler kurgulandığında ekranlar veya özellikler tek tek native koda taşınabilir. Bu geçiş kademeli yapılabildiği için mevcut uygulama kesintiye uğramadan, ihtiyaç duyulan bölümler zamanla native tarafa aktarılabilir.</p></div>
+        <div class="sd-cevap acik" role="tabpanel"><h3>Does an app built with React Native lag behind a native app on performance?</h3><p>Because the interface components bind to the platform's own native components, there's no noticeable difference in everyday use. In the rare cases needing heavy graphics or complex animation, that module is moved to native code and the performance gap is closed.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Why choose React Native rather than Flutter?</h3><p>Flutter also offers a single codebase, but it uses the Dart language, which doesn't overlap with your web team's React knowledge. With React Native the same team can share component logic, so the project stays more efficient.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>What's the advantage of using the same API as our website?</h3><p>Data such as products, users and orders is defined in one place on the server; web and mobile call the same endpoints. That removes the job of keeping two separate data sources in step — an update on one side shows automatically on the other.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>How does a React Native app get submitted to both stores?</h3><p>The shared codebase is put through platform-specific build steps to produce separate iOS and Android packages, and an automated release pipeline gets them ready for submission.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>On which projects does React Native fall short and native become necessary?</h3><p>On projects with heavy sensor processing or highly platform-specific graphics requirements, that module may need writing in native code; the rest of the app can stay on React Native.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Can an app built with React Native be moved to native later?</h3><p>Yes — when the architecture is built in modules, screens or features can be moved to native code one at a time. Because the move can be gradual, the parts that need it can be shifted to native over time without interrupting the existing app.</p></div>
           <div class="sd-alt">
             <div class="sd-cubuk" aria-hidden="true"><i data-sd-cubuk></i></div>
-            <a class="sd-wa" href="https://wa.me/905547916545?text=Merhaba%2C%20React%20Native%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Sorunuz farklı mı? WhatsApp'tan sorun →</a>
+            <a class="sd-wa" href="https://wa.me/905547916545?text=Merhaba%2C%20React%20Native%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Is your question different? Ask us on WhatsApp →</a>
           </div>
         </div>
       </div>
@@ -1305,43 +1283,43 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   <section class="sec" id="ayrintilar" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow"><i></i>Ayrıntılar</span>
-        <h2 data-kin>Karar vermeden önce bakmak isterseniz</h2>
+        <span class="eyebrow"><i></i>The detail</span>
+        <h2 data-kin>If you'd like to look before deciding</h2>
       </div>
       <div class="akv rv d1">
         <ol class="akv-liste">
           <li>
             <span class="akv-no">01</span>
-            <div><h3>Native Köprü ve Üçüncü Parti Modül Entegrasyonu</h3><p>Kamera, biyometrik giriş veya push bildirimi gibi cihaza özgü yetenekler için React Native, native köprü (bridge) katmanı üzerinden platformun API'lerine erişir. Topluluk modülleri çoğu senaryoyu karşılar; özel donanım entegrasyonu gerektiğinde küçük bir native modül devreye alınır.</p></div>
+            <div><h3>The Native Bridge and Third-Party Modules</h3><p>For device-specific capabilities such as the camera, biometric login or push notifications, React Native reaches the platform's APIs through a native bridge layer. Community modules cover most scenarios; where a bespoke hardware integration is needed, a small native module is brought in.</p></div>
           </li>
           <li>
             <span class="akv-no">02</span>
-            <div><h3>State Yönetimi ve Ölçeklenebilir Proje Mimarisi</h3><p>Uygulama büyüdükçe ekranlar arası veri akışını yönetmek kritik hale gelir. TypeScript ile tip güvenliği sağlanan, katmanlı bir klasör yapısı ve merkezi state yönetimi kuruyoruz; API çağrıları ve hata yönetimi ayrı bir servis katmanında toplanır.</p></div>
+            <div><h3>State Management and a Scalable Project Architecture</h3><p>As an app grows, managing the flow of data between screens becomes critical. We set up a layered folder structure with type safety through TypeScript, along with central state management; API calls and error handling are gathered in a separate service layer.</p></div>
           </li>
           <li>
             <span class="akv-no">03</span>
-            <div><h3>CI/CD ve Mağaza Yayın Hattı</h3><p>Derleme, imzalama ve mağaza yükleme adımlarını otomatikleştiren bir CI/CD hattı kuruyoruz; her sürüm aynı kontrol adımlarından geçer ve iki mağazaya paralel gönderim standart bir işleyişe dönüşür.</p></div>
+            <div><h3>CI/CD and the Store Release Pipeline</h3><p>We set up a CI/CD pipeline that automates the build, signing and store upload steps; every release goes through the same checks, and parallel submission to both stores becomes routine.</p></div>
           </li>
         </ol>
         <div class="akv-video">
-          <span class="akv-rozet"><i></i>CANLI DÖNGÜ</span>
+          <span class="akv-rozet"><i></i>LIVE LOOP</span>
           <video data-dongu muted loop playsinline preload="metadata" poster="../../../../assets/modul-mobil/react-native.jpg" aria-hidden="true">
-            <source src="../../assets/modul-mobil/react-native.mp4" type="video/mp4">
+            <source src="../../../assets/modul-mobil/react-native.mp4" type="video/mp4">
           </video>
         </div>
       </div>
     </div>
   </section>
 
-  <aside class="sec" id="ilgili" style="padding-top:0" aria-label="İlgili hizmetler">
+  <aside class="sec" id="ilgili" style="padding-top:0" aria-label="Related services">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow"><i></i>İlgili hizmetler</span>
-        <h2 data-kin>Bu konuyla bağlantılı sayfalar</h2>
+        <span class="eyebrow"><i></i>Related services</span>
+        <h2 data-kin>Pages connected to this one</h2>
       </div>
       <div class="hrt rv d1">
         <div class="hrt-sol">
-          <div class="hrt-ben"><i></i><div><b>BU SAYFA</b><span>şu an buradasınız</span></div></div>
+          <div class="hrt-ben"><i></i><div><b>THIS PAGE</b><span>you are here</span></div></div>
         </div>
         <svg class="hrt-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
           <path class="hrt-yol" d="M0,50 C42,50 55,15 100,15"/>
@@ -1352,12 +1330,12 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <path class="hrt-akis g3" d="M0,50 C42,50 55,85 100,85"/>
         </svg>
         <div class="hrt-sag">
-          <a class="yk" href="../ios-android-uygulama/"><b>iOS ve Android (Native)</b>
-            <span>Donanıma tam erişim gereken projeler için native seçim.</span></a>
-          <a class="yk" href="../uygulama-arayuz-tasarimi/"><b>Arayüz Tasarımı (UI/UX)</b>
-            <span>React Native ekranlarının tasarım aşaması.</span></a>
-          <a class="yk" href="../aso/"><b>ASO ve Uygulama Pazarlaması</b>
-            <span>Mağaza görünürlüğü ve indirme kampanyası.</span></a>
+          <a class="yk" href="../ios-android-app-development/"><b>iOS and Android (Native)</b>
+            <span>The native choice for projects needing full hardware access.</span></a>
+          <a class="yk" href="../../uygulama-arayuz-tasarimi/"><b>Interface Design (UI/UX)</b>
+            <span>The design stage for React Native screens.</span></a>
+          <a class="yk" href="../../aso/"><b>ASO and App Marketing</b>
+            <span>Store visibility and download campaigns.</span></a>
         </div>
       </div>
     </div>
@@ -1366,30 +1344,30 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   <section class="sec" style="padding-top:0">
     <div class="wrap">
       <div class="band rv">
-        <h2>Tek Kod Tabanıyla İki Platforma Birden Açılın</h2>
-        <p>React Native mimarisiyle iOS ve Android uygulamanızı web sitenizle aynı API üzerinde, tutarlı ve yönetilebilir bir yapıda kuralım. Proje kapsamınıza uygun teklif ve süreç detayları için fiyatlandırma bölümünü inceleyebilir veya ekibimizle doğrudan görüşebilirsiniz.</p>
+        <h2>Open Up to Both Platforms from One Codebase</h2>
+        <p>Let's build your iOS and Android app on a React Native architecture, on the same API as your website, in a structure that's consistent and manageable. For a quote and process detail matched to your project scope, have a look at the pricing section or talk to our team directly.</p>
         <div class="band-cta">
-          <a class="btn btn-p" href="../teklif/#mobil">Kapsam çıkaralım
+          <a class="btn btn-p" href="../get-a-quote/#mobil">Let's map the scope
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20React%20Native%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+          <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20React%20Native%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
         </div>
       </div>
     </div>
   </section>
 
-  <aside class="sec" style="padding-top:0" aria-label="Konuyla ilgili yazılar">
+  <aside class="sec" style="padding-top:0" aria-label="Related reading">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow"><i></i>Konuyla ilgili yazılar</span>
-        <h2 data-kin>Bu konuda yazdıklarımız</h2>
+        <span class="eyebrow"><i></i>Related reading</span>
+        <h2 data-kin>What we've written on this</h2>
       </div>
       <div class="hrt-sag" data-ic-link="blog">
-          <a class="yk" href="../blog/react-native-mi-flutter-mi/"><b>React Native mi Flutter mı? Tek Kod Tabanı Karşılaştırması</b>
-            <span>React Native mi Flutter mı? Ekip dili, arayüz görünümü, paket ekosistemi ve bakım yükü ölçütleriyle iki</span></a>
-          <a class="yk" href="../blog/native-mi-cross-platform-mi/"><b>Native mi Cross-Platform mı? Uygulama Mimarisi Seçimi</b>
-            <span>Native uygulama mı, tek kod tabanı mı? Ekranı kimin çizdiği, donanıma erişim ve performans farkı</span></a>
-          <a class="yk" href="../blog/mobil-uygulama-gelistirme-sureci/"><b>Mobil Uygulama Geliştirme Süreci Kaç Aşamadan Oluşur?</b>
-            <span>Mobil uygulama geliştirme süreci kaç aşamadan oluşur, her aşama ne kadar sürer? Keşiften mağaza yayınına</span></a>
+          <a class="yk" href="../../blog/react-native-mi-flutter-mi/"><b>React Native or Flutter? Comparing the Single-Codebase Options</b>
+            <span>React Native or Flutter? The two compared on team language, interface look, package ecosystem and maintenance load</span></a>
+          <a class="yk" href="../../blog/native-mi-cross-platform-mi/"><b>Native or Cross-Platform? Choosing an App Architecture</b>
+            <span>A native app or one codebase? Who draws the screen, hardware access and the performance difference</span></a>
+          <a class="yk" href="../../blog/mobil-uygulama-gelistirme-sureci/"><b>How Many Stages Does Mobile App Development Take?</b>
+            <span>How many stages does mobile app development take, and how long is each one? From discovery to store release</span></a>
       </div>
     </div>
   </aside>
@@ -1399,44 +1377,43 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   <div class="wrap">
     <div class="ftr-ust">
       <div>
-        <img src="../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
-        <p>Web, mobil, reklam, video ve SEO’yu tek çatı altında birleştiren
-          İstanbul merkezli 360 derece dijital ajans.</p>
+        <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>An Istanbul-based 360° digital agency bringing web, mobile, advertising, video and SEO together under one roof.</p>
       </div>
       <div>
-        <h3>Modüller</h3>
+        <h3>Modules</h3>
         <ul>
-          <li><a href="../hizmetler/">Tüm hizmetler</a></li>
-          <li><a href="../web-tasarim/">Web &amp; Yazılım</a></li>
-          <li><a href="../mobil-uygulama/">Mobil Uygulama</a></li>
-          <li><a href="../dijital-pazarlama/">Dijital Pazarlama</a></li>
-          <li><a href="../video-produksiyon/">Video Prodüksiyon</a></li>
-          <li><a href="../seo/">SEO Hizmetleri</a></li>
-          <li><a href="../grafik-tasarim/">Grafik Tasarım</a></li>
+          <li><a href="../services/">All services</a></li>
+          <li><a href="../web-design/">Web &amp; Software</a></li>
+          <li><a href="../mobile-app-development/">Mobile Apps</a></li>
+          <li><a href="../digital-marketing/">Digital Marketing</a></li>
+          <li><a href="../video-production/">Video Production</a></li>
+          <li><a href="../seo/">SEO Services</a></li>
+          <li><a href="../graphic-design/">Graphic Design</a></li>
         </ul>
       </div>
       <div>
-        <h3>İletişim</h3>
+        <h3>Contact</h3>
         <ul>
           <li><a href="tel:+905547916545">0554 791 65 45</a></li>
           <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
-          <li><a href="../iletisim/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
-          <li><a href="../iletisim/#ofis">Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</a></li>
+          <li><a href="../contact/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../contact/#ofis">Weekdays 09:00–19:00<br>Saturdays 10:00–16:00</a></li>
         </ul>
       </div>
     </div>
     <div class="ftr-alt">
-      <span>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</span>
-      <span class="mono">BEŞ MODÜL · TEK PANEL</span>
+      <span>© <span id="yil">2026</span> TasarımMania. All rights reserved.</span>
+      <span class="mono">FIVE MODULES · ONE PLACE</span>
     </div>
   </div>
 </footer>
 
-<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
 </a>
 
-<script src="../js/tm.js" defer></script>
+<script src="../../js/tm.js" defer></script>
 <script>
 "use strict";
 document.getElementById('yil').textContent = new Date().getFullYear();
@@ -1502,7 +1479,7 @@ document.getElementById('yil').textContent = new Date().getFullYear();
     btn.addEventListener('click', function(){
       var acikMi = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', acikMi ? 'false' : 'true');
-      btn.querySelector('span').textContent = acikMi ? 'Daha fazla' : 'Daha az';
+      btn.querySelector('span').textContent = acikMi ? 'More' : 'Less';
       var devam = btn.parentElement.querySelector('.dtay-devam');
       if (devam) devam.classList.toggle('acik', !acikMi);
     });
