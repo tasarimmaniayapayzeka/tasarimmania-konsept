@@ -23,6 +23,8 @@ const ODAKLAR = {
   'mobil-uygulama-yaptirma-sorulari': 'uygulama yaptırma',
   'mobil-uygulama-gelistirme-sureci': 'geliştirme süreci',
   'native-mi-cross-platform-mi': 'native uygulama',
+  'react-native-mi-flutter-mi': 'react native',
+  'uygulama-magaza-optimizasyonu': 'mağaza optimizasyonu',
 };
 
 const ESIK = [
