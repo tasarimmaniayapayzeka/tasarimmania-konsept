@@ -220,8 +220,14 @@ kelimeli odakta anlamını yitiriyor (kelimenin kendisiyle yer değiştirmesini 
 **Kurala uyuldu: "storyboard hazırlama".** Gelecekte tablo doldurulurken odak
 sütununun 2-3 kelime olduğu bir kez daha kontrol edilmeli.
 
-**Yayın takvimi:** mevcut kartlar 1 Eylül → 23 Ekim 2026 arası 2 günde bir.
-Yeni yazılar oradan devam ediyor: yazı 1 = **25 Ekim 2026**, sonrakiler 27, 29, 31 Ekim…
+**Yayın takvimi:** mevcut 27 kart 1 Eylül → 23 Ekim 2026 arası, hep **TEK** günlerde.
+Yeni 15 yazı aynı aralığa **ÇİFT** günlerden yerleşti: yazı 1 = **24 Eylül 2026**,
+sonrakiler 26, 28, 30 Eylül, 2 Ekim… son yazı 22 Ekim 2026.
+
+⚠ **Neden tam -30 gün değil -31:** düz bir aylık kaydırma her yeni yazıyı mevcut
+bir yazının tam üstüne oturtuyordu — **15/15 çakışma**, çünkü iki takvim de tek
+günlerdeydi. Bir gün daha kaydırınca çift günlere düştü ve çakışma sıfırlandı.
+Ölçüm aracı: `node plan/tarih-kaydir.js -31` (çakışma varsa uygulamayı reddeder).
 
 ### Yazı üretim hattı (sırayla koşulacak)
 

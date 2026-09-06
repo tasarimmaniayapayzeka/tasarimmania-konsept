@@ -16,6 +16,10 @@ const DIZIN = path.join(KOK, 'site/blog/index.html');
 const HARITA = path.join(KOK, 'site/sitemap.xml');
 const ALAN = 'https://www.tasarimmania.com';
 const UYGULA = process.argv.includes('--uygula');
+/* --guncelle: kayıtlı kaydı SİLİP yeniden ekler. Tarih değiştiğinde gerekir;
+   etkisiz-tekrar koruması normalde "zaten var" deyip atladığı için kart eski
+   tarihte kalıyordu. Kaldırma yalnız kendi slug'ımızı hedefler. */
+const GUNCELLE = process.argv.includes('--guncelle');
 
 const AY = ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran',
   'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'];
@@ -54,6 +58,14 @@ if (!dizin.includes(`data-filtre="${kategori}"`)) {
     + dizin.slice(kes);
   isler.push(`süzgeç düğmesi eklendi: ${kategori}`);
 } else isler.push(`süzgeç düğmesi zaten var: ${kategori}`);
+
+/* ---- 1b. güncelleme kipinde eski kaydı kaldır ---- */
+if (GUNCELLE) {
+  const eskiKart = new RegExp(` {8}<a class="bl-k rv"[^>]*href="\\./${C.slug}/"[\\s\\S]*?<\\/a>\\n`);
+  if (eskiKart.test(dizin)) { dizin = dizin.replace(eskiKart, ''); isler.push('eski kart kaldırıldı'); }
+  const eskiUrl = new RegExp(` {2}<url>\\s*<loc>[^<]*\\/blog\\/${C.slug}\\/<\\/loc>[\\s\\S]*?<\\/url>\\n`);
+  if (eskiUrl.test(harita)) { harita = harita.replace(eskiUrl, ''); isler.push('eski sitemap girdisi kaldırıldı'); }
+}
 
 /* ---- 2. dizin kartı ---- */
 if (dizin.includes(`href="./${C.slug}/"`)) {
