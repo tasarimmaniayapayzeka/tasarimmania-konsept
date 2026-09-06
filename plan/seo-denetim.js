@@ -139,15 +139,25 @@ for (let i = 1; i < cumleler.length; i++) {
  *   pozitif ("kullanıyoruz", "hızlanır", "konumlandırıyoruz" — hepsi etken, "-Vn" gövdenin
  *   parçası). Net zarar. Bu edilgen türü BİLEREK ölçülmüyor; ölçüm dar ama dürüst.
  *   İlk test kümem yalnız edilgen "-n-" örnekleri içerdiği için hatayı görmemişti. */
+/* <EDİLGEN-BLOK-BAŞLA>  — plan/edilgen-test.js ve plan/yazi-tani.js bu iki nişan
+   arasını okuyup çalıştırır. Nişanları SİLMEYİN; sildiğinizde testler kırılır.  */
 const TH = 'a-zA-ZçğıöşüÇĞİÖŞÜ0-9_';
 const YETERLILIK = /([aeıioöuü])bil(ir|ecek|iyor|di|miş|mek|meli|se)/gi;
 const SOZLUKSEL = /(?:küçül|uzan|dayan|kazan|yaşan|düşün|değil|bulun|gerekir)[a-zçğıöşü]*/gi;
 const edilgenRe = new RegExp('(?<![' + TH + '])[' + TH + ']{2,}(?:ıl|il|ul|ül|ın|in|un|ün)(?!t)'
   + '(?:ıyor|iyor|uyor|üyor|dı|di|du|dü|ır|ir|ur|ür|acak|ecek|malı|meli|mış|miş)[' + TH + ']*', 'gi');
+/* 6) Sıfat + "-dIr" koşacı: "uygundur", "yorgundur". Gövde "-Vn" ile bitiyor,
+ *    ardından gelen "du" ikinci gruba takılıyor ve edilgen sanılıyordu.
+ *    Ayırt edici: ekten SONRAKİ kalan tam olarak "dır/dir/dur/dür" ise koşaçtır.
+ *    Gerçek edilgende kalan "dı/di" (yapıl-dı) ya da "ır/ir" (yapıl-ır) olur;
+ *    "-ıldır" diye bir çekim yoktur, o yüzden kural dar ve güvenli. */
+const KOSAC = new RegExp('^[' + TH + ']{2,}(?:ıl|il|ul|ül|ın|in|un|ün)d[ıiuü]r$', 'i');
 const edilgenVar = (c) => {
+  const t = c.replace(YETERLILIK, 'ir').replace(SOZLUKSEL, 'X');
   edilgenRe.lastIndex = 0;
-  return edilgenRe.test(c.replace(YETERLILIK, 'ir').replace(SOZLUKSEL, 'X'));
+  return (t.match(edilgenRe) || []).some((k) => !KOSAC.test(k));
 };
+/* <EDİLGEN-BLOK-BİTİR> */
 const edilgenCumle = cumleler.filter(edilgenVar).length;
 
 /* --- SSS --- */

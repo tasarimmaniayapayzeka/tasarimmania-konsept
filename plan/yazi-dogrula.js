@@ -22,6 +22,7 @@ const ODAKLAR = {
   'mobil-uygulama-gelistirme-maliyeti': 'mobil uygulama geliştirme',
   'mobil-uygulama-yaptirma-sorulari': 'uygulama yaptırma',
   'mobil-uygulama-gelistirme-sureci': 'geliştirme süreci',
+  'native-mi-cross-platform-mi': 'native uygulama',
 };
 
 const ESIK = [

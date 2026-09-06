@@ -13,11 +13,14 @@ const fs = require('fs'), path = require('path');
 
 /* Deseni KAYNAKTAN oku — testin kopyasını tutmak, aracın değiştiğini görmemek demek */
 const src = fs.readFileSync(path.join(__dirname, 'seo-denetim.js'), 'utf8');
-const kes = (a, b) => {
-  const i = src.indexOf(a); if (i < 0) throw new Error('desen bulunamadı: ' + a);
-  return src.slice(i, src.indexOf(b, i) + b.length);
-};
-const kod = kes('const TH =', "return edilgenRe.test(c.replace(YETERLILIK, 'ir').replace(SOZLUKSEL, 'X'));\n};");
+/* Nişanlar yorum içinde durduğu için dilim, açılış yorumu KAPANDIKTAN sonra
+   başlar ve bitiş nişanının yorumu AÇILMADAN önce biter. */
+function nisanArasi() {
+  const b = src.indexOf('<EDİLGEN-BLOK-BAŞLA>'), s = src.indexOf('<EDİLGEN-BLOK-BİTİR>');
+  if (b < 0 || s < 0) throw new Error('seo-denetim.js içinde edilgen blok nişanları yok');
+  return src.slice(src.indexOf('*/', b) + 2, src.lastIndexOf('/*', s));
+}
+const kod = nisanArasi();
 const yeni = new Function(kod + '\nreturn edilgenVar;')();
 
 /* karşılaştırma için ESKİ desen */
@@ -50,6 +53,12 @@ const VAKA = [
   ['Bileşen kurulunca sonraki ekranlar hızlanır.', false, '"hızlan-" gövde'],
   ['Bakımı sürekli gider olarak konumlandırıyoruz.', false, 'ettirgen "-landır-", ETKEN'],
   ['Uygulamanız ortak arka uç kullanacaksa değişir.', false, '"kullan-" gövde'],
+  /* --- SIFAT + "-dIr" KOŞACI --- */
+  ['Cihaz alışkanlığına yaslanırsanız birincisi uygundur.', false, '"uygun" sıfat + koşaç'],
+  ['Bu düzen küçük ekiplerde daha verimlidir.',             false, 'sıfat + koşaç'],
+  /* Koşaç kuralı GERÇEK edilgeni yutmamalı: "-mıştır" kalanı "dIr" değildir */
+  ['Uygulama iki hafta önce yayına alınmıştır.',            true,  'al-ın-mıştır, edilgen kalmalı'],
+  ['Kapsam sözleşmede yazılmıştır.',                        true,  'yaz-ıl-mıştır, edilgen kalmalı'],
   /* --- OLUMSUZLUK EDATI --- */
   ['Görüşme belgesi bir rakam listesi değildir.', false, '"değil" fiil değil'],
   ['Bu bir fiyat listesi değildir.',              false, '"değil" fiil değil'],

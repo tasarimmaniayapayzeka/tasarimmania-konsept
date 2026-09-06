@@ -1,0 +1,156 @@
+{
+  "kategori": "Mobil",
+  "slug": "native-mi-cross-platform-mi",
+  "tarih": "2026-10-31T10:20:00",
+  "kartOzet": "Native ile tek kod tabanı arasındaki farkı mekanizmasıyla açıyoruz: ekranı kim çiziyor, donanıma kim erişiyor, performans gerçekte nerede ayrışıyor.",
+  "eksen": "MEKANİZMA",
+  "eksenAciklama": "İki mimarinin NASIL çalıştığını anlatır. Maliyet yazı 1'in, karar soruları yazı 2'nin, takvim yazı 3'ün işidir. React Native ile Flutter KIYASI yazı 5'e aittir; burada çatı adları karşılaştırılmaz.",
+  "huni": "MOFU",
+  "kume": "mobil",
+  "kardesler": ["react-native-mi-flutter-mi", "uygulama-magaza-optimizasyonu"],
+  "kisaBaslik": "Native mi, Cross-Platform mı",
+  "okumaDk": 7,
+  "kopruBaslik": "Mimarinizi birlikte seçelim",
+  "kopruMetin": "Ürününüzün donanım ihtiyacını, platform beklentisini ve ekip yetkinliğini konuşalım; teknoloji adı değil, seçimin gerekçesini birlikte çıkaralım.",
+  "teklifHash": "#mobil",
+  "hizmetSayfasi": "/hizmetler/mobil-uygulama/ios-android/",
+  "sssBaslik": "Sık sorulan sorular: native uygulama ve cross-platform seçimi",
+  "gorsel": {
+    "kapak": {
+      "slug": "native-mi-cross-platform-mi-kapak",
+      "alt": "Tek bir ışık kaynağından çıkıp iki ayrı çerçeveye dağılan çizgiler; sağdaki iki çerçeve ayna görüntüsü gibi",
+      "altyazi": "Tek kaynaktan iki platforma: farkı yaratan şey, aradaki katmanın ne yaptığıdır."
+    },
+    "govde": {
+      "slug": "native-mi-cross-platform-mi-govde",
+      "alt": "Yan yana iki dikey yüzey; soldaki doğrudan zemine bağlı, sağdaki araya giren ince bir katmanla bağlı",
+      "altyazi": "Sağdaki yolda araya bir katman girer; hız değil, yeni yeteneğe erişim süresi değişir."
+    }
+  },
+  "yazi": {
+    "h1": "Native mi Cross-Platform mı? Uygulama Mimarisi Seçimi",
+    "metaBaslik": "Native mi Cross-Platform mı? Uygulama Mimarisi Seçimi | TasarımMania",
+    "metaAciklama": "Native uygulama mı, tek kod tabanı mı? Ekranı kimin çizdiği, donanıma erişim ve performans farkı üzerinden mimari seçimini mekanizmasıyla anlatıyoruz.",
+    "esAnlamli": [
+      ["native", "yerli kod"],
+      ["cross-platform", "tek kod tabanı"],
+      ["çatı", "geliştirme çerçevesi"],
+      ["bileşen", "arayüz öğesi"],
+      ["köprü", "ara katman"]
+    ],
+    "girisParagraf": "Bu tartışma çoğu zaman marka savaşına dönüşür ve gerçek soru kaybolur. Oysa seçim bir moda tercihi değil, mekanizma tercihidir. İki yol arasındaki fark, ekranı kimin çizdiği ve donanıma kimin eriştiğinde saklıdır. Bu yazıda mekanizmayı açıyor, sonra hangi ürünün hangi yolu seçmesi gerektiğini anlatıyoruz. Çatı adlarını karşılaştırmıyoruz; o ayrı bir konu.",
+    "bolumler": [
+      {
+        "h2": "Native Uygulama Ne Demek, Cross-Platform'dan Nasıl Ayrılır?",
+        "dogrudanCevap": "Ayrım dilde değil, mekanizmada. Native uygulama platformun kendi diliyle ve kendi araçlarıyla çıkar; iOS'ta Swift, Android'de Kotlin iş görür. Cross-platform ise tek kaynaktan iki platforma çıkar. Ayrım dilde değil, ekranı kimin çizdiğinde ve donanıma kimin eriştiğindedir. Mekanizmayı anlayan ekip doğru yolu kolay seçer.",
+        "govde": "<p>Adlar kafa karıştırır, mekanizma karıştırmaz. Yerli kod yolunda uygulamanız işletim sisteminin bileşenlerini doğrudan kullanır. Tek kod tabanı yolunda ise araya bir katman girer ve o katman iki tarafa tercüme eder.</p><p>Bu katmanın varlığı tek başına iyi ya da kötü değildir. Ne kazandırdığı ve ne geciktirdiği, ürünün cinsine göre değişir.</p><p>İki yol üç noktada ayrışır. Aşağıdaki sıra, bu yazının da omurgasını kurar.</p><ol><li><strong>Ekranı kim çiziyor</strong> — platformun kendi öğesi mi, çatının fırçası mı.</li><li><strong>Donanıma kim erişiyor</strong> — doğrudan mı, ara katman üzerinden mi.</li><li><strong>Performans nerede ayrışıyor</strong> — günlük akışta mı, ağır grafikte mi.</li></ol><p>Üçünü birlikte tarttığınızda karar kendini gösterir. Native uygulama tartışması, bu üç soruyu atlayıp marka adı yarıştırınca çıkmaza girer.</p>",
+        "altBaslikar": [
+          {
+            "seviye": "h3",
+            "baslik": "Aynı Uygulama İki Kez mi Yazılıyor?",
+            "metin": "<p>Yerli kod yolunda evet, iki ayrı proje yürür. Ekran tasarımı ve sunucu tarafı ortaktır ama arayüz kodunu iki kez yazarsınız. Tek kod tabanında ortak işi bir kez yazarız; yalnız platforma özgü parçaları ayrı tutarız. Uygulama tarafında native kod yine de gerekebilir, ama kapsamı dardır.</p>"
+          }
+        ]
+      },
+      {
+        "h2": "Tek Kod Tabanı Ekranı Nasıl Çiziyor?",
+        "dogrudanCevap": "İki yaklaşım var. Kimi çatılar platformun kendi bileşenine köprü kurar, kimi de her pikseli kendi çizer. Köprü kuran yol yerli görünüm verir. Kendi çizen yol iki platformda birebir aynı sonucu üretir. Bu tercih, uygulamanın hangi cihazda tanıdık hissettireceğini doğrudan belirler. Native uygulama tarafında böyle bir tercih yoktur; bileşen zaten yerlidir.",
+        "govde": "<p>Köprü kuran yaklaşımda düğmeye bastığınızda gerçek bir sistem düğmesi tepki verir. Kullanıcı cihazını tanıdık bulur, ama iki platform birbirinin aynı görünmez. Kendi çizen yaklaşımda ise arayüz öğeleri çatının kendi fırçasıyla çizilir; her yerde aynı görünür, hiçbir yerde tam yerli hissettirmez.</p><p>Marka deneyimi tek tip olsun istiyorsanız ikinci yol işinize gelir. Cihaz alışkanlığına yaslanmak istiyorsanız birincisi daha iyi oturur.</p><p>Bu tercihin bakım tarafında da bir bedeli var. Platform arayüzünü yenilediğinde köprü kuran çatı yeniliği kendiliğinden alır. Kendi çizen çatıda ise güncel görünümü siz kovalarsınız. Uygulamanın native bileşenlere ne kadar yaslandığı, bu kovalamacanın uzunluğunu belirler.</p>",
+        "altBaslikar": [
+          {
+            "seviye": "h4",
+            "baslik": "Kullanıcı Bu Farkı Görür mü?",
+            "metin": "<p>Çoğu kullanıcı adını koyamaz ama farkı sezer. Kaydırma sönümlemesi, klavye davranışı ve geri hareketi cihazdan cihaza değişir. Bunlar küçük ayrıntılardır; üst üste bindiklerinde ürünü yabancı hissettirirler.</p>"
+          }
+        ]
+      },
+      {
+        "h2": "Donanıma Erişim Hangi Noktada Ayrışır?",
+        "dogrudanCevap": "Kamera, sensör ve arka plan konumu gibi yetenekler her iki yolda da çalışır. Fark hızda değil, yeni bir yetenek çıktığında ortaya çıkar. Platform yeni bir özellik duyurduğunda native uygulama onu ilk gün kullanır. Cross-platform tarafta ise köprünün güncellenmesini beklersiniz. Bekleme süresi genelde haftalarla ölçülür.",
+        "govde": "<p>Yaygın yetenekler için hazır ara katmanlar mevcuttur ve iyi çalışır. Sorun, yaygın olmayanda çıkar: yeni bir sensör, yeni bir ödeme yöntemi, yeni bir güvenlik akışı. O noktada ya köprüyü siz yazarsınız ya da beklersiniz.</p><p>Ürününüz donanımın ucuna oturuyorsa bu bekleme kabul edilebilir olmayabilir. Donanım ihtiyaçlarını <a href=\"../../hizmetler/mobil-uygulama/ios-android/\">iOS ve Android tarafında</a> ayrı ayrı ele alıyoruz.</p>",
+        "altBaslikar": [
+          {
+            "seviye": "h3",
+            "baslik": "Köprüyü Kendimiz Yazabilir miyiz?",
+            "metin": "<p>Yazabilirsiniz ve bazen doğru olan budur. Ancak o köprü artık sizin bakım yükünüzdür. Tek kod tabanının sadeliği, kendi yazdığınız her köprüyle biraz daha azalır.</p>"
+          }
+        ]
+      },
+      {
+        "h2": "Performans Farkı Nerede Gerçekten Hissedilir?",
+        "dogrudanCevap": "Günlük listelerde ve formlarda fark görünmez. Ayrışma ağır grafik, sürekli animasyon ve yoğun veri işlemede başlar. Oyun, harita üstü canlı çizim ve video düzenleme bu gruba girer. Sıradan bir katalog ya da sipariş akışı için native uygulama şart değildir. Ölçüt hız değil, işin cinsidir.",
+        "govde": "<p>Performans tartışması genelde soyut kalır, çünkü kimse hangi işten söz ettiğini söylemez. Ürününüzü şu soruyla sınayın: ekranda saniyede kaç kez yeni bir kare çizilmesi gerekiyor? Yanıt “nadiren” ise mimari seçimi performans üzerinden yapılamaz.</p><p>Uygulamanın açılış süresi ve kurulum boyutu da tabloya girer. İkisi de kullanıcı kaybının sessiz nedenleridir; bütçeye etkisini <a href=\"../../blog/mobil-uygulama-gelistirme-maliyeti/\">uygulama maliyeti</a> yazısında ayrıca ele aldık.</p>"
+      },
+      {
+        "h2": "Hangi Ürün Hangi Yolu Seçmeli?",
+        "dogrudanCevap": "Üç soru yeter. Ürün donanıma ne kadar yaklaşıyor, iki platform aynı anda mı gerekiyor, ekip hangi dile hâkim? Donanım derinse ve tek platform yeterse native uygulama kazanır. İki mağaza şartsa ve donanım sıradan kalıyorsa tek kod tabanı öne geçer. Karar ürünün cinsine bağlıdır, modaya değil.",
+        "govde": "<p>Ekip yetkinliğini çoğu liste atlar, oysa en somut ölçüt odur. Elinizde deneyimli bir yerli kod ekibi varsa tek kod tabanına geçmek hız kazandırmaz. Tersi de doğrudur.</p><p>Kararı hangi soruların netleştirdiğini <a href=\"../../blog/mobil-uygulama-yaptirma-sorulari/\">uygulama yaptırma soruları</a> yazısında sıralamıştık. Seçim netleştikten sonra takvim de netleşir; aşamaları <a href=\"../../blog/mobil-uygulama-gelistirme-sureci/\">geliştirme süreci</a> yazısında anlattık.</p>",
+        "altBaslikar": [
+          {
+            "seviye": "h3",
+            "baslik": "Sonradan Yol Değiştirmek Mümkün mü?",
+            "metin": "<p>Mümkün ama ucuz değil. Arayüz kodunu baştan yazarsınız; sunucu tarafı ve tasarım kalır. Bu yüzden kararı erken vermek, geç vermekten belirgin biçimde ucuza gelir. Uygulamanın native parçalarını sonradan söküp takmak da aynı yükü doğurur.</p>"
+          }
+        ]
+      },
+      {
+        "h2": "Mimarinizi Birlikte Seçelim",
+        "dogrudanCevap": "Mimari kararı tek başına teknik bir tercih değildir. Ürününüzün donanım ihtiyacını, platform beklentisini ve ekibinizin yetkinliğini birlikte konuşuyoruz. Elinizde bir teknoloji adı değil, seçimin gerekçesi kalıyor. Native uygulama ile tek kod tabanı arasındaki fark o gerekçeyle anlam kazanır. Yanlış mimari, altı ay sonra kendini gösterir.",
+        "govde": "<p>Görüşmede üç ölçütü tek tek işaretleriz: donanım derinliği, platform şartı ve ekip. Üçü aynı yönü gösteriyorsa karar nettir. Ayrışıyorlarsa hangisinin ağır bastığını birlikte tartarız. <a href=\"../../hizmetler/mobil-uygulama/react-native/\">Tek kod tabanı yaklaşımını</a> hizmet sayfasında ayrıca anlattık.</p><p>Kararı yazıya dökmek de işin parçası. Hangi ölçütün ağır bastığını bir cümleyle not edin. Altı ay sonra “neden native uygulama seçmiştik” sorusu geldiğinde yanıtı aramak zorunda kalmazsınız. Native uygulama ya da tek kod tabanı, gerekçesi yazılı olduğunda savunulabilir bir karardır.</p>"
+      }
+    ],
+    "karsilastirmaTablosu": {
+      "baslik": "Native ile tek kod tabanı: hangi ölçütte hangisi",
+      "sutunlar": ["Ölçüt", "Native uygulama", "Tek kod tabanı"],
+      "satirlar": [
+        ["Arayüz bileşeni", "Platformun kendi öğesi", "Köprü ya da kendi çizimi"],
+        ["Yeni platform özelliği", "İlk gün kullanılabilir", "Ara katman güncellemesi beklenir"],
+        ["Ağır grafik ve animasyon", "Avantajlı", "Sınırda kalabilir"],
+        ["İki mağaza aynı anda", "Ayrı iki proje yürür", "Tek kaynak, ortak iş"],
+        ["Ekip gereksinimi", "Swift ve Kotlin bilgisi", "Tek dil yeterli"]
+      ]
+    },
+    "alinti": {
+      "metin": "Soru hangi teknolojinin daha iyi olduğu değil. Ürününüz donanımın ucuna mı oturuyor, yoksa ekranın üstünde mi kalıyor?",
+      "kaynak": "TasarımMania mimari görüşmesi notu"
+    },
+    "alintiKonum": 3,
+    "sss": [
+      {
+        "soru": "Native uygulama her zaman daha hızlı mı çalışır?",
+        "cevap": "Hayır, bu yaygın bir basitleştirmedir. Liste kaydırma, form doldurma ve içerik gösterme gibi günlük işlerde kullanıcı hiçbir fark hissetmez. Ayrışma yalnız ağır grafik, sürekli animasyon ve yoğun veri işleme gerektiren ürünlerde ortaya çıkar. Bir sipariş akışında ya da katalogda hız üzerinden mimari seçmek, ölçmeden karar vermek olur. Doğru soru hızın ne kadar olduğu değil, işin hangi cinsten olduğudur."
+      },
+      {
+        "soru": "Tek kod tabanı gerçekten yarı maliyet mi?",
+        "cevap": "Hayır; ortak iş azalır ama ikiye bölünmez."
+      },
+      {
+        "soru": "Uygulamanın bir kısmı native, bir kısmı ortak olabilir mi?",
+        "cevap": "Olabilir ve yaygın bir düzendir. Ortak akışlar tek kaynaktan yürür, donanıma yakın ekranlar yerli kodla yazılır. Karma yapı bakım yükünü biraz artırır ama esneklik kazandırır."
+      },
+      {
+        "soru": "Mağazalar tek kod tabanıyla yazılmış uygulamaları kabul ediyor mu?",
+        "cevap": "Ediyor. Mağaza incelemesi kodun nasıl yazıldığına değil, kuralları karşılayıp karşılamadığına bakar."
+      },
+      {
+        "soru": "Ekibimde yerli kod bilgisi yok, yine de native seçmeli miyim?",
+        "cevap": "Ürün donanımın ucuna oturmuyorsa hayır. Bilmediğiniz bir yolda ilerlemek hem takvimi hem bakım yükünü büyütür."
+      },
+      {
+        "soru": "Cross-platform seçersem tasarımım iki platformda farklı mı görünür?",
+        "cevap": "Seçtiğiniz yaklaşıma bağlı. Köprü kuran çatılarda farklı, kendi çizen çatılarda aynı görünür."
+      },
+      {
+        "soru": "İleride ikinci platformu eklemek zor olur mu?",
+        "cevap": "Tek kod tabanında görece kolaydır; ortak iş zaten yazılmıştır. Yerli kod yolunda ise ikinci platform neredeyse yeni bir projedir."
+      },
+      {
+        "soru": "Mimari seçimini ne zaman kesinleştirmeliyim?",
+        "cevap": "Tasarım kilitlenmeden önce. Sonrası pahalıya gelir."
+      }
+    ],
+    "kapanis": "Native uygulama ile tek kod tabanı arasındaki seçim bir üstünlük yarışı değil, mekanizma tercihidir. Donanım derinliği, platform şartı ve ekip yetkinliği aynı yönü gösteriyorsa karar zaten kendini söyler.",
+    "about": ["Native uygulama", "Cross-platform geliştirme", "Mobil mimari"],
+    "mentions": ["Swift", "Kotlin", "React Native", "Flutter"]
+  }
+}
