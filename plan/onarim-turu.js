@@ -28,6 +28,8 @@ const TURLAR = [
   ['geo-onar-6-yapisal.js', 'yapısal etiketler'],
   ['geo-onar-8-basliklar.js', 'title uzunlukları'],
   ['geo-onar-9-aciklama.js', 'description uzunlukları'],
+  ['geo-onar-10-soru-h2.js', 'soru biçimli H2 başlıkları'],
+  ['geo-onar-11-hizmetler-sss.js', '/hizmetler/ SSS bölümü'],
   ['geo-onar-3-sema.js', 'şema grafiği'],
   ['geo-onar-7-gorsel.js', 'görsel öznitelikleri + sitemap'],
 ];

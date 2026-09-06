@@ -273,7 +273,16 @@
 @media (prefers-reduced-motion:reduce){
   .orb-nokta.secili .puls{animation:none}
 }
-</style>
+.sss{display:grid;gap:11px;max-width:820px}
+.sss details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
+.sss details[open]{border-color:var(--hair-strong)}
+.sss summary{cursor:pointer;list-style:none;padding:18px 22px;font-size:15.6px;font-weight:600;display:flex;align-items:center;gap:14px}
+.sss summary::-webkit-details-marker{display:none}
+.sss summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.sss details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.sss summary:hover{color:var(--acc)}
+.sss .cvp{padding:0 22px 20px;font-size:14.4px;color:var(--muted);line-height:1.7}
+  </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -341,7 +350,8 @@
       },
       "mainEntity": {
         "@id": "https://www.tasarimmania.com/hizmetler/#liste"
-      }
+      },
+      "dateModified": "2026-09-06"
     },
     {
       "@type": "ItemList",
@@ -379,6 +389,53 @@
           "position": 5,
           "name": "SEO",
           "url": "https://www.tasarimmania.com/hizmetler/seo/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.tasarimmania.com/hizmetler/#sss",
+      "dateModified": "2026-09-06",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Beş modülün hepsini almak zorunda mıyım?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır. Her modül tek başına çalışır ve tek başına sözleşmelenir. Sadece web sitesi, sadece reklam yönetimi ya da sadece video prodüksiyon için de anlaşabilirsiniz. Çoğu müşterimiz tek modülle başlayıp zamanla diğerlerini ekliyor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Modülleri birlikte almak neden daha ucuza geliyor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aynı keşif, aynı marka dosyası ve aynı takvim iki kez kurulmuyor. Ayrı ajanslarla çalışırken her biri markayı sıfırdan tanır, her biri ayrı toplantı ve ayrı brief ister. Tek çatı altında keşif bir kez yapılır; bir modülde üretilen görsel, metin ve ölçüm kurulumu diğerinde yeniden kullanılır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Her modül için ayrı kişiyle mi muhatap olacağım?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır. Tek ekip, tek panel, tek fatura. Beş modülün tamamı aynı takvimde ilerler ve tek noktadan yönetilir. Bir sorun çıktığında modüller birbirini göstermez; sorumluluk aynı ekipte kalır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Sonradan modül ekleyebilir miyim?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Evet, istediğiniz ay ekleyebilirsiniz. Modüller birbirinden bağımsız sözleşmelenir. Yeni bir modül eklendiğinde mevcut çalışmanın brief’i ve marka dosyaları devralınır, süreç sıfırdan başlamaz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hangi modülle başlamalıyım?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kaybın nerede olduğuna bakarak. İlk görüşmede ekranı paylaşır, sitenizin ve reklam hesabınızın para kaybettiği noktaları birlikte işaretleriz. Başlangıç modülü tahmine göre değil, o listeye göre seçilir."
+          }
         }
       ]
     }
@@ -689,7 +746,38 @@
     </div>
   </section>
 
-  <section class="sec" style="padding-top:0">
+    <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Sık sorulanlar</span>
+        <h2 data-kin>Beş modüllü çalışma hakkında sık sorulanlar</h2>
+        <p>Modül seçimi, birlikte çalışma ve fiyat tarafında en çok gelen sorular.</p>
+      </div>
+      <div class="sss rv d1">
+        <details>
+          <summary>Beş modülün hepsini almak zorunda mıyım?</summary>
+          <p class="cvp">Hayır. Her modül tek başına çalışır ve tek başına sözleşmelenir. Sadece web sitesi, sadece reklam yönetimi ya da sadece video prodüksiyon için de anlaşabilirsiniz. Çoğu müşterimiz tek modülle başlayıp zamanla diğerlerini ekliyor.</p>
+        </details>
+        <details>
+          <summary>Modülleri birlikte almak neden daha ucuza geliyor?</summary>
+          <p class="cvp">Aynı keşif, aynı marka dosyası ve aynı takvim iki kez kurulmuyor. Ayrı ajanslarla çalışırken her biri markayı sıfırdan tanır, her biri ayrı toplantı ve ayrı brief ister. Tek çatı altında keşif bir kez yapılır; bir modülde üretilen görsel, metin ve ölçüm kurulumu diğerinde yeniden kullanılır.</p>
+        </details>
+        <details>
+          <summary>Her modül için ayrı kişiyle mi muhatap olacağım?</summary>
+          <p class="cvp">Hayır. Tek ekip, tek panel, tek fatura. Beş modülün tamamı aynı takvimde ilerler ve tek noktadan yönetilir. Bir sorun çıktığında modüller birbirini göstermez; sorumluluk aynı ekipte kalır.</p>
+        </details>
+        <details>
+          <summary>Sonradan modül ekleyebilir miyim?</summary>
+          <p class="cvp">Evet, istediğiniz ay ekleyebilirsiniz. Modüller birbirinden bağımsız sözleşmelenir. Yeni bir modül eklendiğinde mevcut çalışmanın brief’i ve marka dosyaları devralınır, süreç sıfırdan başlamaz.</p>
+        </details>
+        <details>
+          <summary>Hangi modülle başlamalıyım?</summary>
+          <p class="cvp">Kaybın nerede olduğuna bakarak. İlk görüşmede ekranı paylaşır, sitenizin ve reklam hesabınızın para kaybettiği noktaları birlikte işaretleriz. Başlangıç modülü tahmine göre değil, o listeye göre seçilir.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+<section class="sec" style="padding-top:0">
     <div class="wrap">
       <div class="band rv">
         <h2>Hangi modüllere ihtiyacınız var, birlikte çıkaralım</h2>

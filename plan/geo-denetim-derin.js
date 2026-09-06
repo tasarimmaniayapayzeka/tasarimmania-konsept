@@ -263,9 +263,11 @@ for (const [ad, re, onc] of [
 
 /* ═══ 23/24/28. AEO-GEO — HİZMET sayfaları (ilk denetimde hiç bakılmadı) ═══ */
 {
+  /* ⚠ KURAL KOŞULSUZDU: 29/29 olduğunda bile bulgu listesinde duruyordu. */
   const soruH2 = G.hizmet.filter((f) => (oku(f).match(/<h2[^>]*>[^<]*\?/g) || []).length >= 1);
-  B('P2', 23, 'Hizmet sayfasında soru biçimli H2', `${soruH2.length}/${G.hizmet.length} sayfada en az 1 tane`,
-    soruH2.length < G.hizmet.length * 0.5 ? 'rehberin AEO modeli hizmet sayfalarında da soru başlığı istiyor' : '');
+  if (soruH2.length < G.hizmet.length)
+    B('P2', 23, 'Hizmet sayfasında soru biçimli H2 yok', `${G.hizmet.length - soruH2.length}/${G.hizmet.length}`,
+      ilk(G.hizmet.filter((f) => !/<h2[^>]*>[^<]*\?/.test(oku(f)))));
   const faq = G.hizmet.filter((f) => /FAQPage/.test(oku(f)));
   if (faq.length < G.hizmet.length) B('P2', 23, 'Hizmet sayfasında FAQPage şeması yok', `${G.hizmet.length - faq.length}/${G.hizmet.length}`, ilk(G.hizmet.filter((f) => !/FAQPage/.test(oku(f)))));
   const tarih = G.hizmet.filter((f) => /"dateModified"/.test(oku(f)));
