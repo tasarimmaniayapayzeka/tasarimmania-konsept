@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- KONSEPT-NOINDEX -->
 <meta name="robots" content="noindex,nofollow">
-<title>E-Ticaret Sitesi Kurulumu — WooCommerce | TasarımMania</title>
-<meta name="description" content="E-ticaret sitesi kurulumu: altyapı seçimi, ürün aktarımı, ödeme ve kargo entegrasyonu, sepet terk otomasyonu tek çatı altında.">
-<link rel="canonical" href="https://www.tasarimmania.com/e-ticaret/">
+<title>E-Commerce Store Setup — WooCommerce | TasarımMania</title>
+<meta name="description" content="E-commerce store setup: platform choice, product migration, payment and shipping integration, and abandoned basket automation, all under one roof.">
+<link rel="canonical" href="https://www.tasarimmania.com/en/ecommerce-website/">
 <link rel="alternate" hreflang="tr" href="https://www.tasarimmania.com/e-ticaret/">
 <link rel="alternate" hreflang="en" href="https://www.tasarimmania.com/en/ecommerce-website/">
 <link rel="alternate" hreflang="x-default" href="https://www.tasarimmania.com/e-ticaret/">
@@ -16,25 +16,25 @@
 <meta name="theme-color" content="#0B0D12">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="tr_TR">
+<meta property="og:locale" content="en">
 <meta property="og:site_name" content="TasarımMania">
-<meta property="og:title" content="E-Ticaret Sitesi Kurulumu — WooCommerce | TasarımMania">
-<meta property="og:description" content="E-ticaret sitesi kurulumu: altyapı seçimi, ürün aktarımı, ödeme ve kargo entegrasyonu, sepet terk otomasyonu tek çatı altında.">
-<meta property="og:url" content="https://www.tasarimmania.com/e-ticaret/">
+<meta property="og:title" content="E-Commerce Store Setup — WooCommerce | TasarımMania">
+<meta property="og:description" content="E-commerce store setup: platform choice, product migration, payment and shipping integration, and abandoned basket automation, all under one roof.">
+<meta property="og:url" content="https://www.tasarimmania.com/en/ecommerce-website/">
 <meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="TasarımMania — web, mobil, reklam, video ve SEO hizmetleri kapak görseli">
+<meta property="og:image:alt" content="TasarımMania — cover image for web, mobile, advertising, video and SEO services">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
-<meta name="twitter:title" content="E-Ticaret Sitesi Kurulumu — WooCommerce | TasarımMania">
-<meta name="twitter:description" content="E-ticaret sitesi kurulumu: altyapı seçimi, ürün aktarımı, ödeme ve kargo entegrasyonu, sepet terk otomasyonu tek çatı altında.">
-<meta name="twitter:image:alt" content="TasarımMania — web, mobil, reklam, video ve SEO hizmetleri kapak görseli">
-<link rel="icon" type="image/png" href="../../assets/logo/marka-daire.png">
+<meta name="twitter:title" content="E-Commerce Store Setup — WooCommerce | TasarımMania">
+<meta name="twitter:description" content="E-commerce store setup: platform choice, product migration, payment and shipping integration, and abandoned basket automation, all under one roof.">
+<meta name="twitter:image:alt" content="TasarımMania — cover image for web, mobile, advertising, video and SEO services">
+<link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
-<link rel="stylesheet" href="../css/tm.css">
+<link rel="stylesheet" href="../../css/tm.css">
 <style>
 .nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
 .nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
@@ -263,7 +263,7 @@
   letter-spacing:-.015em;line-height:1.5;margin-bottom:9px}
 .dtay-k p{font-size:13.5px;color:var(--muted)}
 
-/* --- derinlemesine: "Daha fazla" ile açılan devam metni --- */
+/* --- derinlemesine: "More" ile açılan devam metni --- */
 p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.015em;
   line-height:1.5;margin:0}
 .dtay-devam{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
@@ -328,10 +328,10 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
    Çizelge — her kutu KENDİ içinde canlanır, kutular soldan sağa (mobilde
    yukarıdan aşağı) sırayla girer:
      KUTU 1 · 0.25s : kart 0.25 · görsel 0.38 · çubuklar 0.48–0.56 ·
-                      "Sepete ekle" 0.64 · imleç 0.98 · basış + halka 1.05
+                      "Add to basket" 0.64 · imleç 0.98 · basış + halka 1.05
      ok 1 · 0.80s
      KUTU 2 · 0.90s : kart 0.90 · sepet satırları 0.98–1.06 · ayraç 1.14 ·
-                      toplam 1.18 · "Ödemeye geç" 1.26
+                      toplam 1.18 · "Go to payment" 1.26
      ok 2 · 1.40s
      KUTU 3 · 1.50s : kart 1.50 · ödeme satırları 1.58–1.70 · ayraç 1.76 ·
                       kilit aksana döner 1.82 · SSL 1.88 → ~2.1s */
@@ -531,10 +531,10 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   "@graph": [
     {
       "@type": "Service",
-      "name": "E-Ticaret Sitesi Kurulumu ve Yönetimi",
+      "name": "E-Commerce Store Setup and Management",
       "serviceType": "e-ticaret sitesi",
-      "url": "https://www.tasarimmania.com/e-ticaret/",
-      "description": "E-ticaret sitesi kurulumu: altyapı seçimi, ürün aktarımı, ödeme ve kargo entegrasyonu, sepet terk otomasyonu tek çatı altında.",
+      "url": "https://www.tasarimmania.com/en/ecommerce-website/",
+      "description": "E-commerce store setup: platform choice, product migration, payment and shipping integration, and abandoned basket automation, all under one roof.",
       "areaServed": {
         "@type": "Country",
         "name": "Türkiye"
@@ -556,43 +556,43 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           "addressCountry": "TR"
         }
       },
-      "@id": "https://www.tasarimmania.com/e-ticaret/#hizmet",
+      "@id": "https://www.tasarimmania.com/en/ecommerce-website/#hizmet",
       "subjectOf": [
         {
           "@type": "Article",
           "@id": "https://www.tasarimmania.com/blog/e-ticaret-yazilimi/#article",
           "url": "https://www.tasarimmania.com/blog/e-ticaret-yazilimi/",
-          "name": "E-ticaret Yazılımı Seçimi: Hangi Altyapı Hangi İşletmeye Uygun?"
+          "name": "Choosing E-Commerce Software: Which Platform Suits Which Business?"
         },
         {
           "@type": "Article",
           "@id": "https://www.tasarimmania.com/blog/e-ticaret-web-tasarimi/#article",
           "url": "https://www.tasarimmania.com/blog/e-ticaret-web-tasarimi/",
-          "name": "E-Ticaret Sitesi Tasarımı: Hazır Tema mı, Özel Tasarım mı?"
+          "name": "E-Commerce Site Design: Off-the-Shelf Theme or Bespoke?"
         },
         {
           "@type": "Article",
           "@id": "https://www.tasarimmania.com/blog/kullanici-deneyimi/#article",
           "url": "https://www.tasarimmania.com/blog/kullanici-deneyimi/",
-          "name": "E-Ticaret Kullanıcı Deneyimi: Sepete Giden Yol Nasıl Kısalır?"
+          "name": "E-Commerce UX: How Do You Shorten the Route to the Basket?"
         },
         {
           "@type": "Article",
           "@id": "https://www.tasarimmania.com/blog/odeme-guvenligi/#article",
           "url": "https://www.tasarimmania.com/blog/odeme-guvenligi/",
-          "name": "E-Ticaret Ödeme Entegrasyonu Adım Adım Nasıl Kurulur?"
+          "name": "How Do You Set Up E-Commerce Payments, Step by Step?"
         },
         {
           "@type": "Article",
           "@id": "https://www.tasarimmania.com/blog/e-ticaret-urun-fotograflari/#article",
           "url": "https://www.tasarimmania.com/blog/e-ticaret-urun-fotograflari/",
-          "name": "E-Ticaret Ürün Görseli Satışı Gerçekten Etkiler mi?"
+          "name": "Do Product Images Really Affect E-Commerce Sales?"
         },
         {
           "@type": "Article",
           "@id": "https://www.tasarimmania.com/blog/ui-tasarim-ilkeleri/#article",
           "url": "https://www.tasarimmania.com/blog/ui-tasarim-ilkeleri/",
-          "name": "Arayüz Tasarımı Hangi İlkelere Dayanır?"
+          "name": "What Principles Is Interface Design Built On?"
         }
       ]
     },
@@ -602,29 +602,29 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Ana sayfa",
+          "name": "Home",
           "item": "https://www.tasarimmania.com/"
         },
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Hizmetler",
+          "name": "Services",
           "item": "https://www.tasarimmania.com/hizmetler/"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Web Tasarım & Yazılım",
+          "name": "Web Design &amp; Software",
           "item": "https://www.tasarimmania.com/web-tasarim/"
         },
         {
           "@type": "ListItem",
           "position": 4,
-          "name": "E-Ticaret",
-          "item": "https://www.tasarimmania.com/e-ticaret/"
+          "name": "E-Commerce",
+          "item": "https://www.tasarimmania.com/en/ecommerce-website/"
         }
       ],
-      "@id": "https://www.tasarimmania.com/e-ticaret/#kirintili"
+      "@id": "https://www.tasarimmania.com/en/ecommerce-website/#kirintili"
     },
     {
       "@type": "FAQPage",
@@ -632,54 +632,54 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "E-ticaret sitesi kurulurken hangi altyapı seçilmeli, WooCommerce mi Shopify mı yoksa özel yazılım mı?",
+          "name": "Which platform should an e-commerce store be built on — WooCommerce, Shopify or bespoke software?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Seçim; ürün kataloğunun büyüklüğüne, varyasyon karmaşıklığına ve mevcut sistemlerle entegrasyon ihtiyacına göre yapılır. WooCommerce içerik ve blog yönetimini aynı panelde topladığı için pazarlama odaklı işletmelerde tercih edilir; özel yazılım yüksek hacimli projelerde önerilir."
+            "text": "The choice comes down to the size of the product catalogue, how complex the variations are and what integration with existing systems is needed. WooCommerce is often preferred by marketing-led businesses because it brings content and blog management into the same panel; bespoke software is recommended on high-volume projects."
           }
         },
         {
           "@type": "Question",
-          "name": "Ürünlerimi mevcut bir sistemden yeni siteye nasıl aktarıyorsunuz?",
+          "name": "How do you migrate my products from an existing system to the new site?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Mevcut mağazadan ürün başlığı, açıklama, görsel, fiyat ve stok verisi CSV veya XML feed formatında dışa aktarılır, ardından kategori ve varyasyon eşleştirmesi yapılarak yeni siteye toplu olarak yüklenir. URL yapısı mümkün olduğunca korunarak arama motoru sıralaması etkilenmez. Aktarım sonrası her kayıt manuel kontrolden geçirilir."
+            "text": "Product titles, descriptions, images, prices and stock data are exported from the existing store as a CSV or XML feed, then the categories and variations are mapped and everything is uploaded to the new site in bulk. The URL structure is preserved wherever possible so search rankings aren't affected. After the migration every record is checked by hand."
           }
         },
         {
           "@type": "Question",
-          "name": "Ödeme sistemi (sanal pos) kurulumu kime ait, hangi bankalarla çalışılıyor?",
+          "name": "Who sets up the payment gateway, and which banks do you work with?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sanal pos sözleşmesi ve komisyon görüşmesi işletme ile banka arasında yürür; TasarımMania altyapıyı teknik olarak entegre eder ve taksit, 3D Secure akışlarını test eder. Birden fazla banka aynı sitede tanımlanabilir."
+            "text": "The gateway contract and the commission negotiation run between the business and the bank; TasarımMania integrates the infrastructure technically and tests the instalment and 3D Secure flows. More than one bank can be set up on the same site."
           }
         },
         {
           "@type": "Question",
-          "name": "Kargo entegrasyonu otomatik mi, her kargoyu elle mi giriyoruz?",
+          "name": "Is the shipping integration automatic, or do we enter each consignment by hand?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Standart akışta kargo firması modülü sipariş bilgisini otomatik olarak iletir, takip numarası müşteriye otomatik döner ve stok teslim durumuna göre güncellenir. Elle giriş yalnızca istisnai veya özel anlaşmalı siparişlerde tercih edilir. Otomasyon, kurulum aşamasında işletmenin çalıştığı kargo firmalarına göre yapılandırılır."
+            "text": "In the standard flow the carrier's module passes the order details across automatically, the tracking number goes back to the customer automatically, and stock is updated according to delivery status. Manual entry is only used for exceptional or specially agreed orders. The automation is configured at setup around the carriers the business works with."
           }
         },
         {
           "@type": "Question",
-          "name": "Sepette terk edilen alışverişleri geri kazanma nasıl çalışıyor?",
+          "name": "How does recovering abandoned baskets work?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ödeme adımını tamamlamadan ayrılan ziyaretçiye, sepetindeki ürünleri hatırlatan otomatik bir e-posta veya SMS gönderilir. İçerik özel bir teşvik koduyla desteklenebilir; geri dönüşüm performansı yönetim panelinden izlenir."
+            "text": "A visitor who leaves without completing the payment step is sent an automatic email or SMS reminding them what's in their basket. The message can be backed up with a specific incentive code; recovery performance is tracked from the admin panel."
           }
         },
         {
           "@type": "Question",
-          "name": "E-ticaret sitesi yönetimini teslim sonrası biz mi yürütüyoruz, siz mi?",
+          "name": "After launch, do we manage the store or do you?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Teslim sonrası yönetim modeli işletmenin tercihine göre belirlenir; ürün ekleme, kampanya güncelleme ve sipariş takibi işletme ekibine devredilebilir veya TasarımMania bakım kapsamında bu işleri sürdürebilir. Her iki senaryoda da eğitim ve dokümantasyon sağlanır. Kapsam ve sorumluluk dağılımı fiyatlandırma bölümünde netleştirilir."
+            "text": "The post-launch management model is set by what the business prefers; adding products, updating campaigns and tracking orders can be handed to the business's own team, or TasarımMania can carry on with that work under maintenance. In either case, training and documentation are provided. The scope and the split of responsibility are settled in the pricing section."
           }
         }
       ],
-      "@id": "https://www.tasarimmania.com/e-ticaret/#sss"
+      "@id": "https://www.tasarimmania.com/en/ecommerce-website/#sss"
     },
     {
       "@type": "Organization",
@@ -687,14 +687,14 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
       "name": "TasarımMania",
       "url": "https://www.tasarimmania.com/",
       "knowsAbout": [
-        "Web tasarımı ve yazılım geliştirme",
-        "Mobil uygulama geliştirme",
-        "Dijital pazarlama ve performans reklamcılığı",
-        "Video prodüksiyon ve reklam filmi",
-        "Arama motoru optimizasyonu",
-        "Grafik tasarım ve kurumsal kimlik",
-        "E-ticaret sitesi kurulumu",
-        "Sosyal medya yönetimi"
+        "Web design and software development",
+        "Mobile app development",
+        "Digital marketing and performance advertising",
+        "Video production and commercial films",
+        "Search engine optimization",
+        "Graphic design and brand identity",
+        "E-commerce store setup",
+        "Social media management"
       ]
     },
     {
@@ -702,30 +702,30 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
       "@id": "https://www.tasarimmania.com/#site",
       "url": "https://www.tasarimmania.com/",
       "name": "TasarımMania",
-      "inLanguage": "tr-TR",
+      "inLanguage": "en",
       "publisher": {
         "@id": "https://www.tasarimmania.com/#kurulus"
       }
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.tasarimmania.com/e-ticaret/#sayfa",
-      "url": "https://www.tasarimmania.com/e-ticaret/",
-      "name": "E-Ticaret Sitesi Kurulumu — WooCommerce, Ödeme, Kargo | TasarımMania",
-      "description": "E-ticaret sitesi kurulumu: altyapı seçimi, ürün aktarımı, ödeme ve kargo entegrasyonu, sepet terk otomasyonu tek çatı altında.",
-      "inLanguage": "tr-TR",
+      "@id": "https://www.tasarimmania.com/en/ecommerce-website/#sayfa",
+      "url": "https://www.tasarimmania.com/en/ecommerce-website/",
+      "name": "E-Commerce Store Setup — WooCommerce, Payments, Shipping | TasarımMania",
+      "description": "E-commerce store setup: platform choice, product migration, payment and shipping integration, and abandoned basket automation, all under one roof.",
+      "inLanguage": "en",
       "isPartOf": {
         "@id": "https://www.tasarimmania.com/#site"
       },
       "breadcrumb": {
-        "@id": "https://www.tasarimmania.com/e-ticaret/#kirintili"
+        "@id": "https://www.tasarimmania.com/en/ecommerce-website/#kirintili"
       },
       "primaryImageOfPage": {
         "@type": "ImageObject",
         "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg"
       },
       "mainEntity": {
-        "@id": "https://www.tasarimmania.com/e-ticaret/#hizmet"
+        "@id": "https://www.tasarimmania.com/en/ecommerce-website/#hizmet"
       }
     }
   ]
@@ -736,29 +736,29 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 </head>
 <body data-dal="web">
 
-<a class="skip" href="#ana">İçeriğe geç</a>
+<a class="skip" href="#ana">Skip to content</a>
 
-<nav class="nav" data-nav aria-label="Ana menü">
+<nav class="nav" data-nav aria-label="Main menu">
   <div class="wrap nav-in">
-    <a class="nav-logo" href="../" aria-label="TasarımMania ana sayfa">
-      <img src="../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async" fetchpriority="high">
+    <a class="nav-logo" href="../" aria-label="TasarımMania home">
+      <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async" fetchpriority="high">
     </a>
     <div class="nav-links">
-      <a href="../hizmetler/" aria-current="page">Hizmetler</a>
-      <a href="../#isler">İşler</a>
-      <a href="../hakkimizda/">Ajans</a>
+      <a href="../services/" aria-current="page">Services</a>
+      <a href="../#isler">Work</a>
+      <a href="../about/">Agency</a>
       <a href="../blog/">Blog</a>
-      <a href="../#surec">Süreç</a>
-      <a href="../teklif/">Teklif Al</a>
-      <a href="../iletisim/">İletişim</a>
+      <a href="../#surec">Process</a>
+      <a href="../get-a-quote/">Get a Quote</a>
+      <a href="../contact/">Contact</a>
     </div>
     <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
-    <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="burger" data-burger aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="mobmenu" data-mobmenu aria-hidden="true">
-  <a href="../hizmetler/">Hizmetler</a><a href="../#isler">İşler</a><a href="../hakkimizda/">Ajans</a><a href="../blog/">Blog</a>
-  <a href="../#surec">Süreç</a><a href="../teklif/">Teklif Al</a><a href="../iletisim/">İletişim</a>
+  <a href="../services/">Services</a><a href="../#isler">Work</a><a href="../about/">Agency</a><a href="../blog/">Blog</a>
+  <a href="../#surec">Process</a><a href="../get-a-quote/">Get a Quote</a><a href="../contact/">Contact</a>
   <a href="tel:+905547916545">0554 791 65 45</a>
 </div>
 
@@ -766,32 +766,32 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 
   <header class="phd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
-        <a href="../">Ana sayfa</a><span aria-hidden="true">/</span>
-        <a href="../hizmetler/">Hizmetler</a><span aria-hidden="true">/</span>
-        <a href="../web-tasarim/">Web Tasarım & Yazılım</a><span aria-hidden="true">/</span>
-        <span>E-Ticaret</span>
+      <nav class="crumb" aria-label="Location">
+        <a href="../">Home</a><span aria-hidden="true">/</span>
+        <a href="../services/">Services</a><span aria-hidden="true">/</span>
+        <a href="../web-design/">Web Design &amp; Software</a><span aria-hidden="true">/</span>
+        <span>E-Commerce</span>
       </nav>
       <div class="phd-iki">
         <div>
-<span class="mod-no">Modül 01 · Web Tasarım & Yazılım</span>
-      <h1 data-kin>E-Ticaret Sitesi Kurulumu ve Yönetimi</h1>
-      <p class="lead">TasarımMania, WooCommerce tabanlı bir e-ticaret sitesi kurulumunu ürün aktarımından ödeme ve kargo entegrasyonuna kadar tek elden yürütür.</p>
+<span class="mod-no">Module 01 · Web Design &amp; Software</span>
+      <h1 data-kin>E-Commerce Store Setup and Management</h1>
+      <p class="lead">TasarımMania runs a WooCommerce-based e-commerce store setup end to end, from product migration through to payment and shipping integration.</p>
       <div class="hero-cta">
-        <a class="btn btn-p" href="../teklif/#web">Kapsam ve fiyat aralığı çıkaralım
+        <a class="btn btn-p" href="../get-a-quote/#web">Let's map the scope and price range
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20E-Ticaret%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+        <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20E-Ticaret%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
       </div>
         </div>
         <div class="ciz-kutu" aria-hidden="true">
           <div class="ciz-cerceve">
-            <div class="ciz-bar"><i></i><i></i><i></i><span>mağaza kuruluyor</span><b>SATIŞA HAZIR</b></div>
+            <div class="ciz-bar"><i></i><i></i><i></i><span>store being set up</span><b>READY TO SELL</b></div>
             <div class="ciz-svg">
               <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-<rect class="cz-cizgi" style="--u:340;--d:0.00s" x="14" y="14" width="86" height="74" rx="6"/><rect class="cz-dolgu" style="--d:0.00s" x="14" y="14" width="86" height="74" rx="6"/><rect class="cz-cizgi" style="--u:340;--d:0.42s" x="108" y="14" width="86" height="74" rx="6"/><rect class="cz-dolgu" style="--d:0.42s" x="108" y="14" width="86" height="74" rx="6"/><rect class="cz-cizgi" style="--u:340;--d:0.84s" x="202" y="14" width="86" height="74" rx="6"/><rect class="cz-dolgu" style="--d:0.84s" x="202" y="14" width="86" height="74" rx="6"/><line class="cz-cizgi" style="--u:74;--d:1.26s" x1="24" y1="66" x2="90" y2="66"/><line class="cz-cizgi" style="--u:74;--d:1.68s" x1="118" y1="66" x2="184" y2="66"/><line class="cz-cizgi" style="--u:74;--d:2.10s" x1="212" y1="66" x2="278" y2="66"/><rect class="cz-cizgi" style="--u:288;--d:2.52s" x="310" y="14" width="104" height="30" rx="15"/><rect class="cz-dolgu" style="--d:2.52s" x="310" y="14" width="104" height="30" rx="15"/><text class="cz-etiket vurgu" style="--d:3.06s" x="324" y="33">sepet (3)</text><rect class="cz-cizgi" style="--u:632;--d:2.94s" x="14" y="118" width="270" height="36" rx="6"/><rect class="cz-dolgu" style="--d:2.94s" x="14" y="118" width="270" height="36" rx="6"/><text class="cz-etiket" style="--d:3.48s" x="28" y="140">ödeme — 3D Secure ✓</text><rect class="cz-cizgi" style="--u:200;--d:3.36s" x="300" y="118" width="54" height="36" rx="6"/><rect class="cz-dolgu" style="--d:3.36s" x="300" y="118" width="54" height="36" rx="6"/><line class="cz-cizgi" style="--u:46;--d:3.78s" x1="308" y1="132" x2="346" y2="132"/><path class="cz-cizgi" style="--u:356;--d:4.20s" d="M14,182 h340"/><line class="cz-cizgi" style="--u:22;--d:4.62s" x1="354" y1="182" x2="342" y2="175"/><line class="cz-cizgi" style="--u:22;--d:5.04s" x1="354" y1="182" x2="342" y2="189"/><text class="cz-etiket vurgu" style="--d:5.58s" x="364" y="186">kargo</text>
+<rect class="cz-cizgi" style="--u:340;--d:0.00s" x="14" y="14" width="86" height="74" rx="6"/><rect class="cz-dolgu" style="--d:0.00s" x="14" y="14" width="86" height="74" rx="6"/><rect class="cz-cizgi" style="--u:340;--d:0.42s" x="108" y="14" width="86" height="74" rx="6"/><rect class="cz-dolgu" style="--d:0.42s" x="108" y="14" width="86" height="74" rx="6"/><rect class="cz-cizgi" style="--u:340;--d:0.84s" x="202" y="14" width="86" height="74" rx="6"/><rect class="cz-dolgu" style="--d:0.84s" x="202" y="14" width="86" height="74" rx="6"/><line class="cz-cizgi" style="--u:74;--d:1.26s" x1="24" y1="66" x2="90" y2="66"/><line class="cz-cizgi" style="--u:74;--d:1.68s" x1="118" y1="66" x2="184" y2="66"/><line class="cz-cizgi" style="--u:74;--d:2.10s" x1="212" y1="66" x2="278" y2="66"/><rect class="cz-cizgi" style="--u:288;--d:2.52s" x="310" y="14" width="104" height="30" rx="15"/><rect class="cz-dolgu" style="--d:2.52s" x="310" y="14" width="104" height="30" rx="15"/><text class="cz-etiket vurgu" style="--d:3.06s" x="324" y="33">basket (3)</text><rect class="cz-cizgi" style="--u:632;--d:2.94s" x="14" y="118" width="270" height="36" rx="6"/><rect class="cz-dolgu" style="--d:2.94s" x="14" y="118" width="270" height="36" rx="6"/><text class="cz-etiket" style="--d:3.48s" x="28" y="140">payment — 3D Secure ✓</text><rect class="cz-cizgi" style="--u:200;--d:3.36s" x="300" y="118" width="54" height="36" rx="6"/><rect class="cz-dolgu" style="--d:3.36s" x="300" y="118" width="54" height="36" rx="6"/><line class="cz-cizgi" style="--u:46;--d:3.78s" x1="308" y1="132" x2="346" y2="132"/><path class="cz-cizgi" style="--u:356;--d:4.20s" d="M14,182 h340"/><line class="cz-cizgi" style="--u:22;--d:4.62s" x1="354" y1="182" x2="342" y2="175"/><line class="cz-cizgi" style="--u:22;--d:5.04s" x1="354" y1="182" x2="342" y2="189"/><text class="cz-etiket vurgu" style="--d:5.58s" x="364" y="186">shipping</text>
               </svg>
             </div>
-            <div class="ciz-alt"><div class="ciz-cip"><u>ÜRÜN</u><b data-sayac="500" data-birim="+">0+</b></div><div class="ciz-cip"><u>BANKA</u><b data-sayac="2" data-birim=" pos">0 pos</b></div><div class="ciz-cip"><u>KARGO</u><b>otomatik</b></div></div>
+            <div class="ciz-alt"><div class="ciz-cip"><u>PRODUCTS</u><b data-sayac="500" data-birim="+">0+</b></div><div class="ciz-cip"><u>BANKS</u><b data-sayac="2" data-birim=" pos">0 gateways</b></div><div class="ciz-cip"><u>SHIPPING</u><b>automatic</b></div></div>
           </div>
         </div>
       </div>
@@ -800,31 +800,25 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 
   <section class="sec" id="detay" style="padding-top:0">
     <div class="wrap">
-      <span class="eyebrow dtay-eb rv"><i></i>Derinlemesine</span>
+      <span class="eyebrow dtay-eb rv"><i></i>In depth</span>
       <div class="dtay">
         <article class="dtay-k rv">
           <span class="dtay-no">01</span>
-          <h2>Altyapı Seçimi ve Ürün Aktarım Süreci</h2>
-          <p class="dtay-vurgu">Web Tasarım &amp; Yazılım hizmetimizin e-ticaret bacağında ilk karar altyapı seçimidir.</p>
-          <div class="dtay-devam"><div><p>WooCommerce, WordPress çekirdeğiyle çalıştığı için içerik ve blog yönetimini tek panelde birleştirir; Shopify hazır bir SaaS ortamı sunar ama özelleştirmede sınırlı kalır, özel yazılım ise yüksek hacimli ve karmaşık iş akışlı mağazalar için tercih edilir. Karar; ürün sayısı, varyasyon karmaşıklığı ve mevcut muhasebe sistemiyle entegrasyon ihtiyacına göre verilir.
-
-Mevcut bir sistemden geçişte ürün aktarımı ayrı bir uzmanlık alanıdır. Başlık, açıklama, görsel, fiyat, stok kodu ve kategori eşleştirmesi CSV veya XML feed üzerinden toplu taşınır; URL yapısı mümkün olduğunca korunarak arama motoru kaybı önlenir. Aktarım sonrası her ürün kartı manuel kontrolden geçirilir.</p></div></div>
-          <button type="button" class="dtay-more" aria-expanded="false"><span>Daha fazla</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <h2>Choosing the Platform and Migrating the Products</h2>
+          <p class="dtay-vurgu">On the e-commerce side of our Web Design &amp; Software service, the first decision is the platform.</p>
+          <div class="dtay-devam"><div><p>WooCommerce runs on the WordPress core, so it brings content and blog management into one panel; Shopify offers a ready-made SaaS environment but is limited on customisation, while bespoke software is the choice for high-volume stores with complex workflows. The decision comes down to the number of products, how complex the variations are and what integration is needed with the existing accounting system. Migrating from an existing system is a discipline of its own. Titles, descriptions, images, prices, stock codes and category mappings are moved in bulk through a CSV or XML feed; the URL structure is preserved wherever possible to avoid losing search visibility. After the migration every product record is checked by hand.</p></div></div>
+          <button type="button" class="dtay-more" aria-expanded="false"><span>More</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
         <article class="dtay-k rv d1">
           <span class="dtay-no">02</span>
-          <h2>Ödeme, Kargo ve Sepet Terk Otomasyonu</h2>
-          <p>Sanal pos kurulumu, işletmenin anlaştığı banka veya ödeme kuruluşuyla API seviyesinde entegrasyon gerektirir; TasarımMania altyapıyı teknik olarak kurar ve taksit ile 3D Secure akışını test eder, ancak banka sözleşmesi ve komisyon görüşmesi doğrudan işletme ile ödeme kuruluşu arasında yürür. Birden fazla banka sanal posu aynı sitede tanımlanabilir.
-
-Kargo tarafında amaç, manuel veri girişini ortadan kaldırmaktır: taşıyıcı firmanın modülü sipariş bilgisini otomatik iletir, takip numarası müşteriye otomatik döner ve stok teslim durumuna göre güncellenir.
-
-Sepette terk edilen alışverişler için sistem, ayrılan kullanıcıya sepetindeki ürünleri hatırlatan bir e-posta veya SMS gönderir; performans yönetim panelinden izlenir. Mesafeli satış yükümlülükleri <a class="kaynak" href="https://ticaret.gov.tr/hizmet-ticareti/elektronik-ticaret" target="_blank" rel="noopener">Ticaret Bakanlığı’nın e-ticaret mevzuatında</a> yazılıdır.</p>
+          <h2>Payments, Shipping and Abandoned Basket Automation</h2>
+          <p>Setting up a payment gateway needs API-level integration with the bank or payment institution the business has an agreement with; TasarımMania builds the infrastructure technically and tests the instalment and 3D Secure flows, but the bank contract and the commission negotiation run directly between the business and the payment institution. More than one bank's gateway can be set up on the same site. On the shipping side the aim is to remove manual data entry: the carrier's module passes the order details across automatically, the tracking number goes back to the customer automatically, and stock is updated according to delivery status. For abandoned baskets, the system sends the visitor who left an email or SMS reminding them what's in their basket; performance is tracked from the admin panel. Distance selling obligations are set out <a class="kaynak" href="https://ticaret.gov.tr/hizmet-ticareti/elektronik-ticaret" target="_blank" rel="noopener">in the Ministry of Trade's e-commerce regulations</a> .</p>
         </article>
       </div>
 
       <!-- Akış durakları — bu sayfanın KENDİ anlattığı yolu çizer:
            ürün kartı → sepet → ödeme. Etiketlerin tamamı sayfada geçen
-           kavramlar: sepet, ödeme, 3D Secure, SSL, kargo/teslim akışı.
+           kavramlar: sepet, ödeme, 3D Secure, SSL, shipping/teslim akışı.
            BİLEREK RAKAM YOK: fiyat rakamları bu sayfadan kaldırıldı, bu yüzden
            sepet toplamı tutar yerine "—" ile çiziliyor; yüzde/süre/adet iddiası
            da yok. Marka veya ödeme kuruluşu logosu çizilmedi.
@@ -839,16 +833,14 @@ Sepette terk edilen alışverişler için sistem, ayrılan kullanıcıya sepetin
       <figure class="akis rv d2">
         <div class="akis-izgara">
 
-          <!-- ===== DURAK 01 — ÜRÜN ===== -->
+          <!-- ===== DURAK 01 — PRODUCTS ===== -->
           <div class="akis-kutu">
             <span class="akis-no">01</span>
-            <span class="akis-ad">Ürün</span>
+            <span class="akis-ad">Product</span>
             <svg viewBox="0 0 380 400" role="img" aria-labelledby="etB1 etA1"
                  xmlns="http://www.w3.org/2000/svg">
-              <title id="etB1">Ürün kartı: görsel, iki metin çubuğu ve "Sepete ekle" düğmesi — temsilî görsel</title>
-              <desc id="etA1">Bir ürün kartı çizimi: üstte görsel yer tutucu, altında iki metin
-                çubuğu, en altta aksan renkli "Sepete ekle" düğmesi. Canlanmada düğme basılır,
-                üzerinde imleç belirir ve çevresinde bir halka açılır.</desc>
+              <title id="etB1">Product card: image, two text bars and an “Add to basket” button — illustrative graphic</title>
+              <desc id="etA1">A product card drawing: an image placeholder at the top, two text bars below it, and an accent-coloured “Add to basket” button at the bottom. In the animation the button is pressed, a cursor appears over it and a ring opens around it.</desc>
               <defs>
                 <linearGradient id="etSahne1" x1="0" y1="0" x2="0.35" y2="1">
                   <stop offset="0" stop-color="#141C26"/>
@@ -883,7 +875,7 @@ Sepette terk edilen alışverişler için sistem, ayrılan kullanıcıya sepetin
                   <rect x="34" y="236" width="162" height="13" rx="6.5" fill="#2A3646"/>
                 </g>
 
-                <!-- basılan öğe: "Sepete ekle" -->
+                <!-- basılan öğe: "Add to basket" -->
                 <g class="et-bas">
                   <rect x="34" y="286" width="210" height="50" rx="12" fill="#00E5FF"/>
                   <path d="M52,300 h5 l3.9,15.4 h13.1 l3.2,-10.6 h-17.5" fill="none" stroke="#06323A"
@@ -891,7 +883,7 @@ Sepette terk edilen alışverişler için sistem, ayrılan kullanıcıya sepetin
                   <circle cx="63" cy="321" r="2.1" fill="#06323A"/>
                   <circle cx="71.6" cy="321" r="2.1" fill="#06323A"/>
                   <text x="90" y="317" font-family="Inter Tight, system-ui, sans-serif"
-                        font-size="16" font-weight="700" fill="#06323A">Sepete ekle</text>
+                        font-size="16" font-weight="700" fill="#06323A">Add to basket</text>
                 </g>
               </g>
 
@@ -911,13 +903,11 @@ Sepette terk edilen alışverişler için sistem, ayrılan kullanıcıya sepetin
           <!-- ===== DURAK 02 — SEPET ===== -->
           <div class="akis-kutu">
             <span class="akis-no">02</span>
-            <span class="akis-ad">Sepet</span>
+            <span class="akis-ad">Basket</span>
             <svg viewBox="0 0 380 400" role="img" aria-labelledby="etB2 etA2"
                  xmlns="http://www.w3.org/2000/svg">
-              <title id="etB2">Sepet kartı: iki satır, ayraç, toplam ve "Ödemeye geç" düğmesi — temsilî görsel</title>
-              <desc id="etA2">Sepet çizimi: küçük görsel ve iki çubuktan oluşan iki satır, altında
-                ince bir ayraç, tutar yerine kısa çizgi konmuş bir toplam satırı ve çerçeveli
-                "Ödemeye geç" düğmesi.</desc>
+              <title id="etB2">Basket card: two rows, a divider, a total and a “Go to payment” button — illustrative graphic</title>
+              <desc id="etA2">A basket drawing: two rows each made of a small image and two bars, a thin divider below them, a total row with a dash instead of an amount, and an outlined “Go to payment” button.</desc>
               <defs>
                 <linearGradient id="etSahne2" x1="0" y1="0" x2="0.35" y2="1">
                   <stop offset="0" stop-color="#141C26"/>
@@ -963,7 +953,7 @@ Sepette terk edilen alışverişler için sistem, ayrılan kullanıcıya sepetin
                 <!-- toplam satırı: TUTAR YOK — sayfada fiyat rakamı geçmiyor -->
                 <g class="et-toplam">
                   <text x="34" y="273" font-family="JetBrains Mono, ui-monospace, monospace"
-                        font-size="14.5" letter-spacing=".6" fill="#9FD6E0">Toplam</text>
+                        font-size="14.5" letter-spacing=".6" fill="#9FD6E0">Total</text>
                   <text x="346" y="276" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
                         font-size="26" fill="#8FF6FF">—</text>
                 </g>
@@ -972,7 +962,7 @@ Sepette terk edilen alışverişler için sistem, ayrılan kullanıcıya sepetin
                   <rect x="34" y="302" width="200" height="48" rx="12" fill="none"
                         stroke="#00E5FF" stroke-opacity=".5" stroke-width="1.6"/>
                   <text x="134" y="332" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
-                        font-size="15" font-weight="600" fill="#8FF6FF">Ödemeye geç</text>
+                        font-size="15" font-weight="600" fill="#8FF6FF">Go to payment</text>
                 </g>
               </g>
             </svg>
@@ -986,13 +976,11 @@ Sepette terk edilen alışverişler için sistem, ayrılan kullanıcıya sepetin
           <!-- ===== DURAK 03 — ÖDEME ===== -->
           <div class="akis-kutu">
             <span class="akis-no">03</span>
-            <span class="akis-ad">Ödeme</span>
+            <span class="akis-ad">Payment</span>
             <svg viewBox="0 0 380 400" role="img" aria-labelledby="etB3 etA3"
                  xmlns="http://www.w3.org/2000/svg">
-              <title id="etB3">Ödeme kartı: sanal pos, taksit, birden fazla banka satırları ile 3D Secure ve SSL — temsilî görsel</title>
-              <desc id="etA3">Ödeme çizimi: sanal pos, taksit ve birden fazla banka satırları,
-                altında ince bir ayraç, kilit simgesi ile "3D Secure" etiketi ve sağda "SSL"
-                rozeti. Canlanmada kilit simgesi aksan renge döner.</desc>
+              <title id="etB3">Payment card: gateway, instalments and multiple banks rows, with 3D Secure and SSL — illustrative graphic</title>
+              <desc id="etA3">A payment drawing: rows for payment gateway, instalments and multiple banks, a thin divider below them, a padlock icon with a “3D Secure” label, and an “SSL” badge on the right. In the animation the padlock turns the accent colour.</desc>
               <defs>
                 <linearGradient id="etSahne3" x1="0" y1="0" x2="0.35" y2="1">
                   <stop offset="0" stop-color="#141C26"/>
@@ -1016,7 +1004,7 @@ Sepette terk edilen alışverişler için sistem, ayrılan kullanıcıya sepetin
 
                 <!-- Üç satır da sayfanın KENDİ anlattığı kurulum kalemleri: "sanal pos",
                      "taksit" ve "birden fazla banka aynı sitede tanımlanabilir".
-                     Ödeme yöntemi menüsü DEĞİL — mağazanın hangi yöntemleri sunacağı
+                     Payment yöntemi menüsü DEĞİL — mağazanın hangi yöntemleri sunacağı
                      sayfada yazmıyor, o yüzden yöntem adı uydurulmadı.
                      Marka/kart kuruluşu logosu YOK. -->
                 <g class="et-odeme">
@@ -1026,19 +1014,19 @@ Sepette terk edilen alışverişler için sistem, ayrılan kullanıcıya sepetin
                     <circle cx="60" cy="71" r="9" fill="none" stroke="#00E5FF" stroke-width="1.7"/>
                     <circle cx="60" cy="71" r="4.2" fill="#00E5FF"/>
                     <text x="86" y="77" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="15" fill="#D5E4EC">Sanal pos</text>
+                          font-size="15" fill="#D5E4EC">Payment gateway</text>
                   </g>
                   <g>
                     <rect x="34" y="112" width="312" height="54" rx="11" fill="#101A22" stroke="#26333F"/>
                     <circle cx="60" cy="139" r="9" fill="none" stroke="#4A5C6E" stroke-width="1.7"/>
                     <text x="86" y="145" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="15" fill="#A8B8C4">Taksit</text>
+                          font-size="15" fill="#A8B8C4">Instalments</text>
                   </g>
                   <g>
                     <rect x="34" y="180" width="312" height="54" rx="11" fill="#101A22" stroke="#26333F"/>
                     <circle cx="60" cy="207" r="9" fill="none" stroke="#4A5C6E" stroke-width="1.7"/>
                     <text x="86" y="213" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="15" fill="#A8B8C4">Birden fazla banka</text>
+                          font-size="15" fill="#A8B8C4">Multiple banks</text>
                   </g>
                 </g>
 
@@ -1066,27 +1054,21 @@ Sepette terk edilen alışverişler için sistem, ayrılan kullanıcıya sepetin
             </svg>
           </div>
         </div>
-        <figcaption><b>Temsilî görsel.</b> Sayfanın anlattığı yolu çiziyor: ürün kartından
-          sepete, sepetten ödeme adımına. Kutular ve görseller örnek arayüz çizimidir, gerçek
-          bir mağazadan alınmadı; ödeme kartındaki satırlar yukarıda anlatılan kurulum
-          kalemleridir (sanal pos, taksit, birden fazla banka) — mağazanın müşteriye sunacağı
-          ödeme yöntemleri işletmenin banka sözleşmesine göre belirlenir. Sepet toplamında
-          bilerek tutar yok: bu sayfada fiyat rakamı yayımlamıyoruz, güncel bant için aşağıdaki
-          fiyatlandırma bağlantısına bakın.</figcaption>
+        <figcaption><b>Illustrative graphic.</b> It draws the route the page describes: from the product card to the basket, from the basket to the payment step. The boxes and images are an example interface drawing, not taken from a real store; the rows on the payment card are the setup items described above (payment gateway, instalments, multiple banks) — the payment methods the store offers its customers are set by the business's own bank agreement. The basket total deliberately carries no amount: we don't publish price figures on this page, so for the current band see the pricing link below.</figcaption>
       </figure>
 
       <div class="dtay-fiyat rv d1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
-        <p><strong>Güncel fiyat ve süre bandı</strong> için Web Tasarım & Yazılım sayfasının <a href="../web-tasarim/#fiyat">fiyatlandırma bölümüne</a> göz atın — kapsamınıza göre bandı iki dakikada netleştirebilirsiniz.</p>
+        <p><strong>For the current price and timeline band</strong> , look at the <a href="../web-design/#fiyat">pricing section</a> on the Web Design & Software page — you can settle the band for your scope in two minutes.</p>
       </div>
     </div>
   </section>
 
   <div class="ara-cta rv"><i class="ac3-zemin" aria-hidden="true"></i><i class="ac3-s s1" aria-hidden="true"></i><i class="ac3-s s2" aria-hidden="true"></i>
     <div class="wrap ara-cta-in">
-      <p><b>Kapsamı birlikte çıkaralım</b><span>Beş adım, iki dakika. Ekranda süre ve fiyat aralığı çıkar.</span></p>
+      <p><b>Let's map the scope together</b><span>Five steps, two minutes. The timeline and price range appear on screen.</span></p>
       <div class="ara-cta-btn">
-        <a class="btn btn-p" href="../teklif/#web">Kapsam çıkaralım
+        <a class="btn btn-p" href="../get-a-quote/#web">Let's map the scope
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-g" href="tel:+905547916545">0554 791 65 45</a>
       </div>
@@ -1096,28 +1078,28 @@ Sepette terk edilen alışverişler için sistem, ayrılan kullanıcıya sepetin
   <section class="sec" id="sss" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow"><i></i>Sık sorulanlar</span>
-        <h2 data-kin>Sık sorulan sorular: e-ticaret sitesi kurulumu ve yönetimi</h2>
+        <span class="eyebrow"><i></i>FAQs</span>
+        <h2 data-kin>Frequently asked questions: e-commerce store setup and management</h2>
       </div>
       <div class="sd rv d1" data-sd>
-        <div class="sd-sol" role="tablist" aria-label="Sorular">
-        <button type="button" class="sd-soru acik" role="tab" aria-selected="true"><i>01</i><span>E-ticaret sitesi kurulurken hangi altyapı seçilmeli, WooCommerce mi Shopify mı yoksa özel yazılım mı?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>02</i><span>Ürünlerimi mevcut bir sistemden yeni siteye nasıl aktarıyorsunuz?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>03</i><span>Ödeme sistemi (sanal pos) kurulumu kime ait, hangi bankalarla çalışılıyor?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>04</i><span>Kargo entegrasyonu otomatik mi, her kargoyu elle mi giriyoruz?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>05</i><span>Sepette terk edilen alışverişleri geri kazanma nasıl çalışıyor?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>06</i><span>E-ticaret sitesi yönetimini teslim sonrası biz mi yürütüyoruz, siz mi?</span></button>
+        <div class="sd-sol" role="tablist" aria-label="Questions">
+        <button type="button" class="sd-soru acik" role="tab" aria-selected="true"><i>01</i><span>Which platform should an e-commerce store be built on — WooCommerce, Shopify or bespoke software?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>02</i><span>How do you migrate my products from an existing system to the new site?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>03</i><span>Who sets up the payment gateway, and which banks do you work with?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>04</i><span>Is the shipping integration automatic, or do we enter each consignment by hand?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>05</i><span>How does recovering abandoned baskets work?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>06</i><span>After launch, do we manage the store or do you?</span></button>
         </div>
         <div class="sd-sag">
-        <div class="sd-cevap acik" role="tabpanel"><h3>E-ticaret sitesi kurulurken hangi altyapı seçilmeli, WooCommerce mi Shopify mı yoksa özel yazılım mı?</h3><p>Seçim; ürün kataloğunun büyüklüğüne, varyasyon karmaşıklığına ve mevcut sistemlerle entegrasyon ihtiyacına göre yapılır. WooCommerce içerik ve blog yönetimini aynı panelde topladığı için pazarlama odaklı işletmelerde tercih edilir; özel yazılım yüksek hacimli projelerde önerilir.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>Ürünlerimi mevcut bir sistemden yeni siteye nasıl aktarıyorsunuz?</h3><p>Mevcut mağazadan ürün başlığı, açıklama, görsel, fiyat ve stok verisi CSV veya XML feed formatında dışa aktarılır, ardından kategori ve varyasyon eşleştirmesi yapılarak yeni siteye toplu olarak yüklenir. URL yapısı mümkün olduğunca korunarak arama motoru sıralaması etkilenmez. Aktarım sonrası her kayıt manuel kontrolden geçirilir.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>Ödeme sistemi (sanal pos) kurulumu kime ait, hangi bankalarla çalışılıyor?</h3><p>Sanal pos sözleşmesi ve komisyon görüşmesi işletme ile banka arasında yürür; TasarımMania altyapıyı teknik olarak entegre eder ve taksit, 3D Secure akışlarını test eder. Birden fazla banka aynı sitede tanımlanabilir.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>Kargo entegrasyonu otomatik mi, her kargoyu elle mi giriyoruz?</h3><p>Standart akışta kargo firması modülü sipariş bilgisini otomatik olarak iletir, takip numarası müşteriye otomatik döner ve stok teslim durumuna göre güncellenir. Elle giriş yalnızca istisnai veya özel anlaşmalı siparişlerde tercih edilir. Otomasyon, kurulum aşamasında işletmenin çalıştığı kargo firmalarına göre yapılandırılır.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>Sepette terk edilen alışverişleri geri kazanma nasıl çalışıyor?</h3><p>Ödeme adımını tamamlamadan ayrılan ziyaretçiye, sepetindeki ürünleri hatırlatan otomatik bir e-posta veya SMS gönderilir. İçerik özel bir teşvik koduyla desteklenebilir; geri dönüşüm performansı yönetim panelinden izlenir.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>E-ticaret sitesi yönetimini teslim sonrası biz mi yürütüyoruz, siz mi?</h3><p>Teslim sonrası yönetim modeli işletmenin tercihine göre belirlenir; ürün ekleme, kampanya güncelleme ve sipariş takibi işletme ekibine devredilebilir veya TasarımMania bakım kapsamında bu işleri sürdürebilir. Her iki senaryoda da eğitim ve dokümantasyon sağlanır. Kapsam ve sorumluluk dağılımı fiyatlandırma bölümünde netleştirilir.</p></div>
+        <div class="sd-cevap acik" role="tabpanel"><h3>Which platform should an e-commerce store be built on — WooCommerce, Shopify or bespoke software?</h3><p>The choice comes down to the size of the product catalogue, how complex the variations are and what integration with existing systems is needed. WooCommerce is often preferred by marketing-led businesses because it brings content and blog management into the same panel; bespoke software is recommended on high-volume projects.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>How do you migrate my products from an existing system to the new site?</h3><p>Product titles, descriptions, images, prices and stock data are exported from the existing store as a CSV or XML feed, then the categories and variations are mapped and everything is uploaded to the new site in bulk. The URL structure is preserved wherever possible so search rankings aren't affected. After the migration every record is checked by hand.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Who sets up the payment gateway, and which banks do you work with?</h3><p>The gateway contract and the commission negotiation run between the business and the bank; TasarımMania integrates the infrastructure technically and tests the instalment and 3D Secure flows. More than one bank can be set up on the same site.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Is the shipping integration automatic, or do we enter each consignment by hand?</h3><p>In the standard flow the carrier's module passes the order details across automatically, the tracking number goes back to the customer automatically, and stock is updated according to delivery status. Manual entry is only used for exceptional or specially agreed orders. The automation is configured at setup around the carriers the business works with.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>How does recovering abandoned baskets work?</h3><p>A visitor who leaves without completing the payment step is sent an automatic email or SMS reminding them what's in their basket. The message can be backed up with a specific incentive code; recovery performance is tracked from the admin panel.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>After launch, do we manage the store or do you?</h3><p>The post-launch management model is set by what the business prefers; adding products, updating campaigns and tracking orders can be handed to the business's own team, or TasarımMania can carry on with that work under maintenance. In either case, training and documentation are provided. The scope and the split of responsibility are settled in the pricing section.</p></div>
           <div class="sd-alt">
             <div class="sd-cubuk" aria-hidden="true"><i data-sd-cubuk></i></div>
-            <a class="sd-wa" href="https://wa.me/905547916545?text=Merhaba%2C%20E-Ticaret%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Sorunuz farklı mı? WhatsApp'tan sorun →</a>
+            <a class="sd-wa" href="https://wa.me/905547916545?text=Merhaba%2C%20E-Ticaret%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Is your question different? Ask us on WhatsApp →</a>
           </div>
         </div>
       </div>
@@ -1127,43 +1109,43 @@ Sepette terk edilen alışverişler için sistem, ayrılan kullanıcıya sepetin
   <section class="sec" id="ayrintilar" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow"><i></i>Ayrıntılar</span>
-        <h2 data-kin>Karar vermeden önce bakmak isterseniz</h2>
+        <span class="eyebrow"><i></i>The detail</span>
+        <h2 data-kin>If you'd like to look before deciding</h2>
       </div>
       <div class="akv rv d1">
         <ol class="akv-liste">
           <li>
             <span class="akv-no">01</span>
-            <div><h3>Ürün Yönetimi ve Stok Senkronizasyonu</h3><p>Ürün kartları toplu düzenleme araçlarıyla yönetilir; stok miktarı, varyasyon kombinasyonları ve fiyat güncellemeleri tek ekrandan yapılabilir. Tedarikçi sisteminden gelen stok verisi otomatik senkronizasyonla güncel tutulur, böylece tükenen bir ürün sitede satışta kalmaz.</p></div>
+            <div><h3>Product Management and Stock Synchronisation</h3><p>Product records are managed with bulk editing tools; stock levels, variation combinations and price updates can all be done from one screen. Stock data coming from the supplier's system is kept current through automatic synchronisation, so a product that has run out doesn't stay on sale.</p></div>
           </li>
           <li>
             <span class="akv-no">02</span>
-            <div><h3>Güvenlik ve Ödeme Uyumluluğu</h3><p>Ödeme sayfaları SSL sertifikası ile şifrelenir ve kart bilgileri sitede saklanmaz; işlem doğrudan banka veya ödeme kuruluşunun güvenli altyapısında gerçekleşir. Sanal pos entegrasyonu, 3D Secure doğrulaması dahil olmak üzere güncel güvenlik standartlarına uygun kurulur.</p></div>
+            <div><h3>Security and Payment Compliance</h3><p>Payment pages are encrypted with an SSL certificate and card details aren't stored on the site; the transaction happens directly on the bank's or the payment institution's secure infrastructure. The gateway integration is built to current security standards, including 3D Secure verification.</p></div>
           </li>
           <li>
             <span class="akv-no">03</span>
-            <div><h3>Teslim Sonrası Destek Kapsamı</h3><p>Site teslim edildikten sonra teknik sorunlar, eklenti güncellemeleri ve entegrasyon arızaları destek kapsamında ele alınır. İşletme kendi ürün ve kampanya yönetimini yürütürken altyapı bakımı TasarımMania tarafından takip edilir. Destek kapsamının sınırları fiyatlandırma bölümünde belirtilir.</p></div>
+            <div><h3>What Support Covers After Launch</h3><p>Once the site is delivered, technical problems, plugin updates and integration faults are handled under support. While the business runs its own product and campaign management, the underlying infrastructure is looked after by TasarımMania. The limits of the support scope are stated in the pricing section.</p></div>
           </li>
         </ol>
         <div class="akv-video">
-          <span class="akv-rozet"><i></i>CANLI DÖNGÜ</span>
+          <span class="akv-rozet"><i></i>LIVE LOOP</span>
           <video data-dongu muted loop playsinline preload="metadata" poster="../../../../assets/modul-web/e-ticaret.jpg" aria-hidden="true">
-            <source src="../../assets/modul-web/e-ticaret.mp4" type="video/mp4">
+            <source src="../../../assets/modul-web/e-ticaret.mp4" type="video/mp4">
           </video>
         </div>
       </div>
     </div>
   </section>
 
-  <aside class="sec" id="ilgili" style="padding-top:0" aria-label="İlgili hizmetler">
+  <aside class="sec" id="ilgili" style="padding-top:0" aria-label="Related services">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow"><i></i>İlgili hizmetler</span>
-        <h2 data-kin>Bu konuyla bağlantılı sayfalar</h2>
+        <span class="eyebrow"><i></i>Related services</span>
+        <h2 data-kin>Pages connected to this one</h2>
       </div>
       <div class="hrt rv d1">
         <div class="hrt-sol">
-          <div class="hrt-ben"><i></i><div><b>BU SAYFA</b><span>şu an buradasınız</span></div></div>
+          <div class="hrt-ben"><i></i><div><b>THIS PAGE</b><span>you are here</span></div></div>
         </div>
         <svg class="hrt-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
           <path class="hrt-yol" d="M0,50 C42,50 55,15 100,15"/>
@@ -1174,29 +1156,29 @@ Sepette terk edilen alışverişler için sistem, ayrılan kullanıcıya sepetin
           <path class="hrt-akis g3" d="M0,50 C42,50 55,85 100,85"/>
         </svg>
         <div class="hrt-sag">
-          <a class="yk" href="../web-tasarim/"><b>Web Tasarım & Yazılım</b>
-            <span>Modülün tamamı: kurumsal site, özel yazılım, AI entegrasyonu ve bakım.</span></a>
-          <a class="yk" href="../dijital-pazarlama/"><b>Dijital Pazarlama</b>
-            <span>Mağazaya trafik getiren Google Ads ve Meta Ads yönetimi.</span></a>
-          <a class="yk" href="../seo/"><b>SEO Hizmetleri</b>
-            <span>Ürün ve kategori sayfalarında arama motoru görünürlüğü.</span></a>
+          <a class="yk" href="../web-design/"><b>Web Design &amp; Software</b>
+            <span>The whole module: corporate sites, bespoke software, AI integration and maintenance.</span></a>
+          <a class="yk" href="../digital-marketing/"><b>Digital Marketing</b>
+            <span>Google Ads and Meta Ads management that brings traffic to the store.</span></a>
+          <a class="yk" href="../seo/"><b>SEO Services</b>
+            <span>Search visibility on product and category pages.</span></a>
         </div>
       </div>
     </div>
   </aside>
 
-  <aside class="sec" style="padding-top:0" aria-label="Konuyla ilgili yazılar">
+  <aside class="sec" style="padding-top:0" aria-label="Related reading">
     <div class="wrap">
       <nav class="yz-ilgili rv" aria-labelledby="hub-ilgili">
-        <h2 id="hub-ilgili">E-Ticaret Deneyimi rehber yazıları</h2>
-        <p class="not">Bu hizmetin arkasındaki yöntemi anlatan blog içerikleri.</p>
+        <h2 id="hub-ilgili">E-Commerce Experience guides</h2>
+        <p class="not">Blog posts setting out the method behind this service.</p>
         <ul>
-          <li><a href="../blog/e-ticaret-yazilimi/" style="--k:0,229,255"><span class="kat">E-Ticaret</span><span class="bas">E-ticaret Yazılımı Seçimi: Hangi Altyapı Hangi İşletmeye Uygun?</span></a></li>
-          <li><a href="../blog/e-ticaret-web-tasarimi/" style="--k:0,229,255"><span class="kat">Web Tasarım</span><span class="bas">E-Ticaret Sitesi Tasarımı: Hazır Tema mı, Özel Tasarım mı?</span></a></li>
-          <li><a href="../blog/kullanici-deneyimi/" style="--k:0,229,255"><span class="kat">E-Ticaret</span><span class="bas">E-Ticaret Kullanıcı Deneyimi: Sepete Giden Yol Nasıl Kısalır?</span></a></li>
-          <li><a href="../blog/odeme-guvenligi/" style="--k:0,229,255"><span class="kat">E-Ticaret</span><span class="bas">E-Ticaret Ödeme Entegrasyonu Adım Adım Nasıl Kurulur?</span></a></li>
-          <li><a href="../blog/e-ticaret-urun-fotograflari/" style="--k:0,229,255"><span class="kat">E-Ticaret</span><span class="bas">E-Ticaret Ürün Görseli Satışı Gerçekten Etkiler mi?</span></a></li>
-          <li><a href="../blog/ui-tasarim-ilkeleri/" style="--k:0,229,255"><span class="kat">Web Tasarım</span><span class="bas">Arayüz Tasarımı Hangi İlkelere Dayanır?</span></a></li>
+          <li><a href="../../blog/e-ticaret-yazilimi/" style="--k:0,229,255"><span class="kat">E-Commerce</span><span class="bas">Choosing E-Commerce Software: Which Platform Suits Which Business?</span></a></li>
+          <li><a href="../../blog/e-ticaret-web-tasarimi/" style="--k:0,229,255"><span class="kat">Web Design</span><span class="bas">E-Commerce Site Design: Off-the-Shelf Theme or Bespoke?</span></a></li>
+          <li><a href="../../blog/kullanici-deneyimi/" style="--k:0,229,255"><span class="kat">E-Commerce</span><span class="bas">E-Commerce UX: How Do You Shorten the Route to the Basket?</span></a></li>
+          <li><a href="../../blog/odeme-guvenligi/" style="--k:0,229,255"><span class="kat">E-Commerce</span><span class="bas">How Do You Set Up E-Commerce Payments, Step by Step?</span></a></li>
+          <li><a href="../../blog/e-ticaret-urun-fotograflari/" style="--k:0,229,255"><span class="kat">E-Commerce</span><span class="bas">Do Product Images Really Affect E-Commerce Sales?</span></a></li>
+          <li><a href="../../blog/ui-tasarim-ilkeleri/" style="--k:0,229,255"><span class="kat">Web Design</span><span class="bas">What Principles Is Interface Design Built On?</span></a></li>
         </ul>
       </nav>
     </div>
@@ -1205,12 +1187,12 @@ Sepette terk edilen alışverişler için sistem, ayrılan kullanıcıya sepetin
   <section class="sec" style="padding-top:0">
     <div class="wrap">
       <div class="band rv">
-        <h2>E-Ticaret Sitenizi Kurmaya Hazır mısınız?</h2>
-        <p>WooCommerce kurulumu, ödeme ve kargo entegrasyonu ile sepet kurtarma otomasyonunu tek çatı altında topluyoruz. Projenizin kapsamını konuşmak için bizimle iletişime geçin, fiyatlandırma bölümünde yer alan paketleri birlikte inceleyelim.</p>
+        <h2>Ready to Build Your E-Commerce Store?</h2>
+        <p>We bring the WooCommerce setup, the payment and shipping integration and the basket recovery automation together under one roof. Get in touch to discuss your project's scope, and we'll go through the packages in the pricing section together.</p>
         <div class="band-cta">
-          <a class="btn btn-p" href="../teklif/#web">Kapsam çıkaralım
+          <a class="btn btn-p" href="../get-a-quote/#web">Let's map the scope
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20E-Ticaret%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+          <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20E-Ticaret%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
         </div>
       </div>
     </div>
@@ -1222,44 +1204,43 @@ Sepette terk edilen alışverişler için sistem, ayrılan kullanıcıya sepetin
   <div class="wrap">
     <div class="ftr-ust">
       <div>
-        <img src="../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
-        <p>Web, mobil, reklam, video ve SEO’yu tek çatı altında birleştiren
-          İstanbul merkezli 360 derece dijital ajans.</p>
+        <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>An Istanbul-based 360° digital agency bringing web, mobile, advertising, video and SEO together under one roof.</p>
       </div>
       <div>
-        <h3>Modüller</h3>
+        <h3>Modules</h3>
         <ul>
-          <li><a href="../hizmetler/">Tüm hizmetler</a></li>
-          <li><a href="../web-tasarim/">Web &amp; Yazılım</a></li>
-          <li><a href="../mobil-uygulama/">Mobil Uygulama</a></li>
-          <li><a href="../dijital-pazarlama/">Dijital Pazarlama</a></li>
-          <li><a href="../video-produksiyon/">Video Prodüksiyon</a></li>
-          <li><a href="../seo/">SEO Hizmetleri</a></li>
-          <li><a href="../grafik-tasarim/">Grafik Tasarım</a></li>
+          <li><a href="../services/">All services</a></li>
+          <li><a href="../web-design/">Web &amp; Software</a></li>
+          <li><a href="../mobile-app-development/">Mobile Apps</a></li>
+          <li><a href="../digital-marketing/">Digital Marketing</a></li>
+          <li><a href="../video-production/">Video Production</a></li>
+          <li><a href="../seo/">SEO Services</a></li>
+          <li><a href="../graphic-design/">Graphic Design</a></li>
         </ul>
       </div>
       <div>
-        <h3>İletişim</h3>
+        <h3>Contact</h3>
         <ul>
           <li><a href="tel:+905547916545">0554 791 65 45</a></li>
           <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
-          <li><a href="../iletisim/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
-          <li><a href="../iletisim/#ofis">Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</a></li>
+          <li><a href="../contact/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../contact/#ofis">Weekdays 09:00–19:00<br>Saturdays 10:00–16:00</a></li>
         </ul>
       </div>
     </div>
     <div class="ftr-alt">
-      <span>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</span>
-      <span class="mono">BEŞ MODÜL · TEK PANEL</span>
+      <span>© <span id="yil">2026</span> TasarımMania. All rights reserved.</span>
+      <span class="mono">FIVE MODULES · ONE PLACE</span>
     </div>
   </div>
 </footer>
 
-<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
 </a>
 
-<script src="../js/tm.js" defer></script>
+<script src="../../js/tm.js" defer></script>
 <script>
 "use strict";
 document.getElementById('yil').textContent = new Date().getFullYear();
@@ -1325,7 +1306,7 @@ document.getElementById('yil').textContent = new Date().getFullYear();
     btn.addEventListener('click', function(){
       var acikMi = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', acikMi ? 'false' : 'true');
-      btn.querySelector('span').textContent = acikMi ? 'Daha fazla' : 'Daha az';
+      btn.querySelector('span').textContent = acikMi ? 'More' : 'Less';
       var devam = btn.parentElement.querySelector('.dtay-devam');
       if (devam) devam.classList.toggle('acik', !acikMi);
     });
