@@ -119,7 +119,8 @@ for (const dosya of sayfalar(EN)) {
       const mut = mutlakla(yol);
       const hedef = yeniYol(mut);
       if (!hedef) {
-        if (!mut.startsWith('/en/')) { atlanan++; atlananlar.add(mut); }
+        /* Zaten İngilizce tarafta olan dosya "sözlükte yok" sayılmamalı. */
+        if (!mut.startsWith('/en/') && !mut.startsWith('/assets/en/')) { atlanan++; atlananlar.add(mut); }
         return p;
       }
       kopyalanacak.set(mut, hedef);
@@ -131,12 +132,15 @@ for (const dosya of sayfalar(EN)) {
 
   /* 2 — og:image / twitter:image (mutlak adres) */
   yeni = yeni.replace(/(content=")(https?:\/\/[^"]+)(")/g, (tam, on, url, arka) => {
-    const m = url.match(/^(https?:\/\/[^/]+(?:\/[^/]+)*?)(\/(?:site\/)?(?:assets|blog)\/.*)$/);
+    /* ⚠ "en" alternatife DAHİL. Yoksa .../site/en/blog/... adresinde tembel
+     * grup ".../site/en" e kadar yiyor ve geriye /blog/... kalıyor — yani
+     * ZATEN İngilizce olan dosya "sözlükte yok" diye raporlanıyor. */
+    const m = url.match(/^(https?:\/\/[^/]+(?:\/[^/]+)*?)(\/(?:site\/)?(?:assets|blog|en)\/.*)$/);
     if (!m || !GORSEL.test(m[2].split('?')[0])) return tam;
     /* /site/blog/... → /blog/... ; /assets/... zaten site kökünün üstünde */
     const icYol = m[2].replace(/^\/site/, '');
     const hedef = yeniYol(icYol);
-    if (!hedef) { if (!icYol.startsWith('/en/')) { atlanan++; atlananlar.add(icYol); } return tam; }
+    if (!hedef) { if (!icYol.startsWith('/en/') && !icYol.startsWith('/assets/en/')) { atlanan++; atlananlar.add(icYol); } return tam; }
     kopyalanacak.set(icYol, hedef);
     degisenRef++;
     const onEk = hedef.startsWith('/assets/') ? m[1] : m[1] + '/site';
