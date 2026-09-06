@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- KONSEPT-NOINDEX -->
+<meta name="robots" content="noindex,nofollow">
+<title>Yapay Zeka ile Video Üretimi Nerede İşe Yarar? | TasarımMania</title>
+<meta name="description" content="Yapay zeka video araçları nerede işe yarar, nerede yetersiz kalır? Ürün gerçekliği, tutarlılık ve marka riski üzerinden sınırı somut olarak çiziyoruz.">
+<link rel="canonical" href="https://www.tasarimmania.com/blog/yapay-zeka-ile-video-uretimi/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="Yapay Zeka ile Video Üretimi Nerede İşe Yarar? | TasarımMania">
+<meta property="og:description" content="Yapay zeka video araçları nerede işe yarar, nerede yetersiz kalır? Ürün gerçekliği, tutarlılık ve marka riski üzerinden sınırı somut olarak çiziyoruz.">
+<meta property="og:url" content="https://www.tasarimmania.com/blog/yapay-zeka-ile-video-uretimi/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/yapay-zeka-ile-video-uretimi/gorsel/yapay-zeka-ile-video-uretimi-kapak-1440.jpg">
+<meta property="og:image:width" content="1440">
+<meta property="og:image:height" content="810">
+<meta property="og:image:alt" content="Bir yanı net çizgilerle çizilmiş, öbür yanı dağılıp parçacıklara ayrılan tek bir ışıklı biçim">
+<meta property="article:published_time" content="2026-11-18T10:20:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/yapay-zeka-ile-video-uretimi/gorsel/yapay-zeka-ile-video-uretimi-kapak-1440.jpg">
+<link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/tm.css">
+<style>
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  max-height:calc(100dvh - 74px);overflow-y:auto;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(28px,4vw,52px)) 0 clamp(22px,3vw,34px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.14),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.wa{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:90;width:54px;height:54px;
+  border-radius:50%;background:#25D366;display:grid;place-items:center;
+  box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s;padding-block:7px}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+@media(max-width:960px){.ftr-ust{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.nav-links,.nav-tel{display:none}.burger{display:block}.ftr-ust{grid-template-columns:1fr}}
+/* --- blog yazısı: okuma düzeni --- */
+.yz-ust{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.yz-kat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acc);border:1px solid rgba(var(--acc-rgb),.4);border-radius:99px;padding:6px 13px}
+.yz-meta{font-family:var(--mono);font-size:11.4px;color:var(--muted)}
+.phd h1{font-size:clamp(28px,4.4vw,46px);letter-spacing:-.035em;line-height:1.16;margin-bottom:16px;max-width:22ch}
+.phd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18px);max-width:62ch;line-height:1.78}
+.yz-govde{max-width:760px}
+.yz-govde h2{font-size:clamp(21px,2.9vw,28px);letter-spacing:-.03em;line-height:1.25;margin:44px 0 0}
+.yz-govde h3{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;line-height:1.35;margin:30px 0 10px}
+.yz-govde h4{font-size:15.6px;letter-spacing:-.01em;margin:22px 0 8px;color:var(--fg-dim)}
+.yz-govde p{font-size:15.6px;color:var(--fg-dim);line-height:1.85;margin:0 0 16px}
+.yz-govde ul,.yz-govde ol{margin:0 0 18px;padding-left:0;list-style:none;display:grid;gap:10px}
+.yz-govde li{font-size:15.2px;color:var(--fg-dim);line-height:1.72;display:flex;gap:11px;align-items:flex-start}
+.yz-govde li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:10px}
+.yz-govde ol{counter-reset:s}
+.yz-govde ol li{counter-increment:s}
+.yz-govde ol li::before{content:counter(s);width:auto;height:auto;border-radius:0;background:none;
+  color:var(--acc);font-family:var(--mono);font-size:12px;margin-top:2px;min-width:16px}
+.yz-govde strong{color:var(--fg);font-weight:600}
+/* WCAG 2.5.8 - satir ici baglanti dokunma hedefi >=24px.
+   DIKKAT: padding'i AYRI bir .yz-govde p a kuralina koyma; .yz-govde a:not(.btn)
+   ozgullugu (0,2,1) onu (0,1,2) ezer ve 2px'te kalir. Degeri bu kuralin ICINDE tut. */
+.yz-govde a:not(.btn){color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.4);transition:text-decoration-color .25s;padding-block:4px}
+.yz-govde a:not(.btn):hover{text-decoration-color:var(--acc)}
+/* doğrudan cevap kutusu (snippet hedefi) */
+.yz-cevap{border-left:2px solid var(--acc);background:rgba(var(--acc-rgb),.05);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:16px 20px;margin:16px 0 22px}
+.yz-cevap p{margin:0;color:var(--fg);font-size:15.4px;line-height:1.75}
+/* karşılaştırma tablosu */
+.yz-tablo{margin:26px 0;border:1px solid var(--hair);border-radius:var(--r-md);overflow-x:auto}
+.yz-tablo table{width:100%;border-collapse:collapse;min-width:520px}
+.yz-tablo th{font-family:var(--mono);font-size:10.4px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--acc);text-align:left;padding:14px 16px;border-bottom:1px solid var(--hair);
+  background:rgba(var(--acc-rgb),.05);font-weight:500;white-space:nowrap}
+.yz-tablo td{font-size:13.8px;color:var(--fg-dim);padding:14px 16px;border-bottom:1px solid var(--hair);
+  line-height:1.6;vertical-align:top}
+.yz-tablo tr:last-child td{border-bottom:0}
+.yz-tablo td:first-child{color:var(--fg);font-weight:600}
+.yz-tablo-not{font-family:var(--mono);font-size:10.4px;color:var(--muted);margin:-16px 0 26px;
+  letter-spacing:.04em}
+/* SSS */
+.yz-sss{display:grid;gap:11px;max-width:760px}
+.yz-sss details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
+.yz-sss details[open]{border-color:var(--hair-strong)}
+.yz-sss summary{cursor:pointer;list-style:none;padding:17px 21px;font-size:15.2px;font-weight:600;
+  display:flex;align-items:center;gap:14px;line-height:1.4}
+.yz-sss summary::-webkit-details-marker{display:none}
+.yz-sss summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.yz-sss details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.yz-sss summary:hover{color:var(--acc)}
+.yz-sss p{padding:0 21px 19px;margin:0;font-size:14.4px;color:var(--muted);line-height:1.75}
+/* hizmet köprüsü */
+.yz-kopru{border:1px solid rgba(var(--acc-rgb),.32);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(var(--acc-rgb),.07),transparent);
+  padding:clamp(22px,3vw,32px);margin:36px 0;max-width:760px}
+.yz-kopru b{display:block;font-size:clamp(17px,2.2vw,21px);letter-spacing:-.02em;margin-bottom:9px}
+.yz-kopru p{font-size:14.6px;color:var(--fg-dim);line-height:1.72;margin:0 0 18px}
+.yz-kopru .btn{margin-right:10px}
+/* okuma ilerlemesi */
+.yz-cizgi{position:fixed;top:0;left:0;height:2px;background:var(--acc);z-index:101;width:0;
+  transition:width .1s linear}
+@media(max-width:760px){.yz-govde h2{margin-top:34px}}
+@media(prefers-reduced-motion:reduce){.yz-cizgi{display:none}}
+/* --- 1.2 eklentileri --- */
+.yz-kapak{margin:0 0 clamp(26px,4vw,44px)}
+.yz-kapak img,.yz-gorsel img{width:100%;height:auto;display:block;border-radius:14px;
+  border:1px solid var(--hair);background:#0d1017}
+.yz-kapak figcaption,.yz-gorsel figcaption{margin-top:11px;font-size:13.2px;line-height:1.55;
+  color:var(--muted);max-width:760px}
+.yz-gorsel{margin:clamp(26px,4vw,38px) 0}
+.yz-ai{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--fg-dim);opacity:.72;white-space:nowrap}
+.yz-govde ol{margin:16px 0 20px;padding-left:22px;display:grid;gap:10px}
+.yz-govde ol li{padding-left:4px}
+.yz-govde ol li::marker{color:var(--acc);font-family:var(--mono);font-weight:600}
+.yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
+  background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
+.yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.tasarimmania.com/blog/yapay-zeka-ile-video-uretimi/#article",
+      "headline": "Yapay Zeka ile Video Üretimi Nerede İşe Yarar, Nerede Yaramaz?",
+      "description": "Yapay zeka video araçları nerede işe yarar, nerede yetersiz kalır? Ürün gerçekliği, tutarlılık ve marka riski üzerinden sınırı somut olarak çiziyoruz.",
+      "datePublished": "2026-11-18T10:20:00",
+      "dateModified": "2026-11-18T10:20:00",
+      "inLanguage": "tr-TR",
+      "mainEntityOfPage": "https://www.tasarimmania.com/blog/yapay-zeka-ile-video-uretimi/",
+      "author": { "@type": "Organization", "name": "TasarımMania", "url": "https://www.tasarimmania.com/" },
+      "publisher": { "@id": "https://www.tasarimmania.com/#kurulus" },
+      "articleSection": "Video",
+      "wordCount": 948,
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/yapay-zeka-ile-video-uretimi/gorsel/yapay-zeka-ile-video-uretimi-kapak-1440.jpg",
+        "width": 1440, "height": 810,
+        "caption": "Bir yanı net çizgilerle çizilmiş, öbür yanı dağılıp parçacıklara ayrılan tek bir ışıklı biçim"
+      },
+      "about": ["Yapay zeka ile video üretimi","Video prodüksiyon","Üretken görsel araçlar"],
+      "mentions": [{"@type":"Thing","name":"Referans görsel"},{"@type":"Thing","name":"Lisans şartları"},{"@type":"Thing","name":"Yanıltıcı reklam"},{"@type":"Thing","name":"Karma prodüksiyon"}],
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".ozet", ".yz-cevap"] }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.tasarimmania.com/#kurulus",
+      "name": "TasarımMania",
+      "url": "https://www.tasarimmania.com/",
+      "telephone": "+905547916545",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/logo/marka-yatay-optik.png",
+        "width": 435, "height": 163
+      },
+      "address": { "@type": "PostalAddress", "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+        "addressLocality": "Bakırköy", "addressRegion": "İstanbul", "addressCountry": "TR" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.tasarimmania.com/blog/yapay-zeka-ile-video-uretimi/#sss",
+      "mainEntity": [
+    { "@type": "Question", "name": "Yapay zeka video araçlarıyla reklam filmi tamamen üretilebilir mi?", "acceptedAnswer": { "@type": "Answer", "text": "Teknik olarak bir film çıkarabilirsiniz ama sonucun kullanılabilirliği anlatının cinsine bağlıdır. Ürünün ekranda net göründüğü, etiketin okunduğu ya da elde tutulduğu bir filmde sapma riski yüksektir; izleyici neyin yanlış olduğunu adlandıramasa da bir tutarsızlık sezer. Soyut anlatımlar, atmosfer ağırlıklı sahneler ve ürünün sahnede yer almadığı işlerde ise sonuç bugün oldukça kullanışlı olabiliyor. Kararı araç değil, ürünün sahnedeki rolü vermeli." } },
+    { "@type": "Question", "name": "Ürünümü referans olarak yükleyebilir miyim?", "acceptedAnswer": { "@type": "Answer", "text": "Yükleyebilirsiniz ve sonucu iyileştirir." } },
+    { "@type": "Question", "name": "Üretilmiş görüntüyü kullandığımı belirtmek zorunda mıyım?", "acceptedAnswer": { "@type": "Answer", "text": "Mecra ve mevzuata göre değişir, ancak belirtmek her durumda daha güvenlidir. Sonradan fark edilen bir üretim, güven kaybı olarak geri döner." } },
+    { "@type": "Question", "name": "Var olan çekimimi yapay zekayla uzatabilir miyim?", "acceptedAnswer": { "@type": "Answer", "text": "Kısa uzatmalar ve fon genişletmeleri çoğu zaman işe yarar. Ürünün göründüğü bölgeyi genişletmek ise sapma riski taşır." } },
+    { "@type": "Question", "name": "Seslendirme tarafında durum nasıl?", "acceptedAnswer": { "@type": "Answer", "text": "Ses üretimi görüntüye göre daha olgun. Yine de gerçek bir kişinin sesini taklit etmek izin gerektirir; bunu atlamayın." } },
+    { "@type": "Question", "name": "Maliyeti gerçekten düşürüyor mu?", "acceptedAnswer": { "@type": "Answer", "text": "Fon, atmosfer ve taslak tarafında düşürür. Ürünün kendisinde ise düzeltme turları çoğaldığı için kazanç eriyebilir." } },
+    { "@type": "Question", "name": "Hangi işlerde hiç kullanmamalıyım?", "acceptedAnswer": { "@type": "Answer", "text": "Ürünün ayrıntısının satın alma kararını belirlediği işlerde. Takı, tekstil, gıda ambalajı ve teknik ürünler bu gruba girer." } },
+    { "@type": "Question", "name": "Karma yol nasıl işler?", "acceptedAnswer": { "@type": "Answer", "text": "Ürünü çekersiniz, sahneyi üretirsiniz." } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.tasarimmania.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.tasarimmania.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Yapay Zeka ile Video Üretimi Nerede İşe Yarar, Nerede Yaramaz?", "item": "https://www.tasarimmania.com/blog/yapay-zeka-ile-video-uretimi/" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body data-dal="video">
+
+<i class="yz-cizgi" data-ilerleme aria-hidden="true"></i>
+<a class="skip" href="#ana">İçeriğe geç</a>
+
+<nav class="nav" data-nav aria-label="Ana menü">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../../" aria-label="TasarımMania ana sayfa">
+      <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async">
+    </a>
+    <div class="nav-links">
+      <a href="../../hizmetler/">Hizmetler</a>
+      <a href="../../#isler">İşler</a>
+      <a href="../../hakkimizda/">Ajans</a>
+      <a href="../../blog/" aria-current="page">Blog</a>
+      <a href="../../teklif/">Teklif Al</a>
+      <a href="../../iletisim/">İletişim</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../../hizmetler/">Hizmetler</a><a href="../../#isler">İşler</a><a href="../../hakkimizda/">Ajans</a>
+  <a href="../../blog/">Blog</a><a href="../../teklif/">Teklif Al</a><a href="../../iletisim/">İletişim</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<!-- AYIRT EDİCİ EKSEN: SINIR — Nerede işe yaradığını ve NEREDE YARAMADIĞINI anlatır. Adım adım üretim rotası yazı 14'ün işidir. Burada 'nasıl yapılır' anlatılmaz, sınır çizilir.
+     Huni türü: TOFU · Küme: video · Kardeşler (enjeksiyon turunda): kamerasiz-urun-videosu -->
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Konum">
+        <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
+        <a href="../../blog/">Blog</a><span aria-hidden="true">/</span>
+        <span>Yapay Zeka Video</span>
+      </nav>
+      <div class="yz-ust">
+        <span class="yz-kat">Video</span>
+        <span class="yz-meta">18 Kasım 2026 · 7 dakikalık okuma</span>
+      </div>
+      <h1>Yapay Zeka ile Video Üretimi Nerede İşe Yarar, Nerede Yaramaz?</h1>
+      <p class="ozet">Bu araçlar iki uçta tartışılıyor: ya her şeyi çözecek ya da hiçbir işe yaramayacak. Gerçek ikisinin arasında ve sınırı oldukça belirgin. Bu yazıda nerede zaman kazandırdığını, nerede risk ürettiğini tek tek yazıyoruz. Aşağıdaki ayrım ürünün sahnedeki rolüne dayanıyor; araç adı ya da model karşılaştırması yapmıyoruz.</p>
+    </div>
+  </header>
+
+  <figure class="yz-kapak">
+    <div class="wrap">
+      <img src="./gorsel/yapay-zeka-ile-video-uretimi-kapak-1440.webp"
+           srcset="./gorsel/yapay-zeka-ile-video-uretimi-kapak-640.webp 640w, ./gorsel/yapay-zeka-ile-video-uretimi-kapak-960.webp 960w, ./gorsel/yapay-zeka-ile-video-uretimi-kapak-1440.webp 1440w, ./gorsel/yapay-zeka-ile-video-uretimi-kapak-1920.webp 1920w"
+           sizes="(max-width: 1200px) 100vw, 1160px"
+           alt="Bir yanı net çizgilerle çizilmiş, öbür yanı dağılıp parçacıklara ayrılan tek bir ışıklı biçim"
+           width="1920" height="1080" fetchpriority="high" decoding="async">
+      <figcaption>Aynı araç bir tarafta keskin, öbür tarafta belirsiz sonuç verir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
+    </div>
+  </figure>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <article class="yz-govde">
+      <h2>Yapay Zeka Video Üretimi Nerede İşe Yarar?</h2>
+      <div class="yz-cevap"><p>Üç yerde net biçimde işe yarar. Fikir aşamasında görsel taslak üretir. Arka plan gibi ikincil öğeleri hazırlar ve hazır çekimden mecra sürümleri çoğaltır. Yapay zeka video araçları burada zaman kazandırır. Ana kahraman ürünün kendisiyse tablo değişir; orada gerçek çekim hâlâ öndedir.</p></div>
+      <p>En güvenli kullanım fikir aşamasıdır. Bir sahneyi anlatmak yerine göstermek, onay turlarını kısaltır. Bu taslaklar yayına çıkmaz; yalnız ekip içinde ortak bir resim kurar.</p><p>Aşağıdaki dört iş, üretken araçların rahat çalıştığı alanlardır.</p><ol><li><strong>Taslak kareler</strong> — fikir aşamasında ortak dil.</li><li><strong>Fon ve doku</strong> — sahnenin ikincil öğeleri.</li><li><strong>Mecra sürümleri</strong> — hazır çekimden oran ve süre türetme.</li><li><strong>Soyut anlatım</strong> — ürün sahnede yoksa.</li></ol><p>Mecra sürümü türetmek de güvenli bir kullanım. Elinizde gerçek bir çekim varsa, onu farklı oranlara taşırken fon genişletmek işe yarar. Ürünü zaten kamerayla kaydettiğiniz için sapma riski doğmaz. Fon genişletmek, sıfırdan sahne kurmaktan hem hızlı hem güvenlidir.</p>
+      <h3>Taslak Kareler Yayına Çıkabilir mi?</h3>
+      <p>Çıkmaması daha güvenli. Taslağın işi bir kararı hızlandırmaktır, bir ürünü tanıtmak değil. Video üretiminde yapay zeka en çok bu ara adımda kazandırır; çıktı olarak değil, araç olarak.</p>
+      <h2>Yapay Zeka Nerede Yetersiz Kalır?</h2>
+      <div class="yz-cevap"><p>Ürünün kendisini göstermesi gerektiğinde yetersiz kalır. Model gerçek ürününüzü bilmez; benzerini üretir, aynısını değil. Etiket, doku, renk tonu ve oran küçük ama görünür farklarla kayar. Yapay zeka video üretimi bu noktada bir tanıtım aracı olmaktan çıkıp bir risk hâline gelir. Müşteri eline aldığında farkı görür.</p></div>
+      <p>Fark çoğu zaman ilk bakışta belli olmaz. Ambalajdaki yazı okunaksız çıkar, dikiş yönü değişir, düğme sayısı tutmaz. Bunlar ekranda küçük görünür ama ürünü elinde tutan kişi için büyüktür.</p><p>El ve yüz de hâlâ zorlanılan alanlardır. Ürünü tutan bir el karede yanlış çıktığında izleyicinin dikkati anlatıdan kopar; kazandığınız zaman orada geri gider.</p><p>Bir başka sınır da metin. Ekranda okunacak bir yazı varsa, üretilen karede harfler çoğu zaman bozulur. Marka adının doğru yazılması gereken her sahnede bu riski hesaba katın. Logoyu üretilen kareye sonradan bindirmek daha güvenli bir yoldur.</p>
+      <h3>Referans Görsel Vermek Çözer mi?</h3>
+      <p>Farkı azaltır ama tümüyle kapatmaz. Örnek kare vermek renk ve biçim tutarlılığını belirgin biçimde iyileştirir. Yine de yazı, doku ve küçük ayrıntılarda sapma olasılığı sürer.</p>
+      <h2>Ürün Gerçekliği Neden Sorun Çıkarır?</h2>
+      <div class="yz-cevap"><p>Tutarlılık en zorlandığı yerdir. Aynı ürünü iki ayrı karede birebir aynı üretmek zordur. Logo kayar, dikiş değişir, ambalaj yazısı bozulur. Referans görsel vermek farkı azaltır ama sıfırlamaz. Yapay zeka video ile üretilen bir üründe müşteri, aldığı şeyi göremeyebilir. Beklentiyle gelen ürün arasındaki fark, güveni doğrudan yıpratır.</p></div>
+      <p>Kare bütünlüğü bir videoda fotoğraftan daha kritiktir. Tek karede fark edilmeyen bir sapma, hareket eden bir görüntüde göze çarpar; izleyici neyin yanlış olduğunu söyleyemese de bir şeyin tutmadığını sezer.</p><p>Bu yüzden ürün ana kahramansa kamera çekimini öneririz. Çekim yerini nasıl seçtiğimizi <a href="../../blog/urun-videosu-studyo-mu-mekan-mi/">stüdyo mu mekân mı</a> yazısında anlattık.</p>
+      <h3>Hareket Tutarlılığı Neden Daha Zor?</h3>
+      <p>Tek karede tutan bir ayrıntı, saniyede yirmi dört karede tutmayabilir. Ürünün üzerindeki yazı kareden kareye titrer, gölge yön değiştirir. Videonun her karesini yapay zekaya bırakmak, bu titremeyi kabul etmek demektir.</p>
+      <h2>Hukuki ve Marka Riskleri Neler?</h2>
+      <div class="yz-cevap"><p>Üç başlık dikkat ister: kullandığınız aracın lisans şartları, gerçek kişilere benzeyen yüzler ve reklam mevzuatı. Ürünü olduğundan farklı gösteren bir görüntü yanıltıcı reklam sayılabilir. Yapay zeka video kullandığınızda bunu izleyiciye belirtmek hem dürüst hem güvenlidir. Biz kendi görsellerimizde de bu notu düşüyoruz.</p></div>
+      <p>Lisans şartlarını satın almadan önce okuyun. Bazı araçlar ticari kullanıma izin verirken bazıları sınır koyar; sınırı bilmeden yayınlanan bir video sonradan kaldırılmak zorunda kalabilir.</p><p>Yüz konusunda daha da dikkatli olun. Gerçek bir kişiye benzeyen üretilmiş bir yüz, izin sorunu doğurur. Kimliği belirsiz siluetler ya da tümüyle soyut anlatım bu riski ortadan kaldırır.</p><p>Ekip içi kullanımla yayın arasında da bir çizgi çekin. Taslak karelerde kimse lisans sormaz; yayına çıkan bir görüntüde ise herkes sorar. Aynı aracın iki kullanımı arasındaki fark budur.</p>
+      <h4>Kullandığımızı Belirtmeli miyiz?</h4>
+      <p>Belirtmek her zaman daha sağlamdır. Kısa bir not, izleyicinin sonradan fark etmesinden doğacak güven kaybını baştan engeller.</p>
+      <blockquote class="yz-alinti"><p>&#8220;Model gerçek ürününüzü bilmez. Benzerini üretir, aynısını değil; aradaki fark ekranda küçük, müşterinin elinde büyüktür.&#8221;</p><cite>— TasarımMania prodüksiyon notu</cite></blockquote>
+      <h2>Hangi İşte Hangi Yolu Seçersiniz?</h2>
+      <div class="yz-cevap"><p>Ürün ana kahramansa gerçek çekimi seçin. Sahnede yalnız yer alıyorsa ya da anlatım soyutsa üretim araçları rahatça devreye girer. Karma yol da vardır: ürünü çekip arka planı üretmek çoğu işte en dengeli çözümdür. Yapay zeka video kararı ürünün sahnedeki rolüne bağlıdır.</p></div>
+      <p>Karma yol pratikte en çok işe yarayan yaklaşımdır. Ürünü kontrollü bir kurulumda çekersiniz; fonu, ortamı ve atmosferi üretirsiniz. Böylece ürün gerçek kalır, sahne masrafı düşer.</p><p>Mecra sürümleri de bu mantıkla üretilir. Elinizdeki çekimden farklı oranlar türetmek, sıfırdan sahne üretmekten hem hızlı hem güvenlidir; oran listesini <a href="../../blog/e-ticaret-urun-videosu-formatlari/">ürün videosu formatları</a> yazısında çıkardık.</p><p>Karma yolda tek cümlelik bir kural işe yarar. Ürün karede net görünüyorsa kamerayla çekin, arka planda kalıyorsa üretin. Bu kural çoğu tartışmayı kapatır. Sınır belirsiz kaldığında ekip her karede yeniden tartışır. Kuralı sözleşmeye yazmak da aynı işi görür; sözlü mutabakat üçüncü haftada unutulur.</p>
+      <h2>Sınırları Birlikte Çizelim</h2>
+      <div class="yz-cevap"><p>Sınırı birlikte çizmek en hızlı yoldur. Ürününüzün sahnedeki rolünü, yayın mecralarını ve marka risk eşiğinizi konuşuyoruz. Elinizde bir araç adı değil, hangi karenin nasıl üretileceğinin planı kalıyor. Yapay zeka video araçlarını nerede kullanıp nerede kullanmayacağımızı baştan yazıyoruz. Sınır yazılı olduğunda tartışma da bitiyor.</p></div>
+      <p>Plan çıkarken bütçe tarafını da aynı masada konuşuruz; hangi kalemin ne kadar hareket ettiğini <a href="../../blog/reklam-filmi-fiyat-kalemleri/">fiyat kalemleri</a> yazısında açtık. <a href="../../hizmetler/video-produksiyon/ai-destekli-produksiyon/">Yapay zeka destekli prodüksiyon</a> ve <a href="../../hizmetler/video-produksiyon/">video prodüksiyon</a> sayfalarımızı inceleyebilirsiniz.</p><p>Sınırı yazarken üç satır yeter: hangi kareleri kamerayla çekeceğimiz, hangilerini üreteceğimiz ve hangi durumda ekibin yeniden soracağı. Bu üç satır proje boyunca hakem görevi görür. Yazılı olmayan sınır, ilk sıkışıklıkta esner.</p>
+      <figure class="yz-gorsel">
+        <img src="./gorsel/yapay-zeka-ile-video-uretimi-govde-960.webp"
+             srcset="./gorsel/yapay-zeka-ile-video-uretimi-govde-640.webp 640w, ./gorsel/yapay-zeka-ile-video-uretimi-govde-960.webp 960w, ./gorsel/yapay-zeka-ile-video-uretimi-govde-1440.webp 1440w, ./gorsel/yapay-zeka-ile-video-uretimi-govde-1920.webp 1920w"
+             sizes="(max-width: 760px) 100vw, 760px"
+             alt="Yan yana duran, birbirine çok benzeyen ama küçük ayrıntılarda ayrışan iki ışıklı biçim" width="1920" height="1080" loading="lazy" decoding="async">
+        <figcaption>Benzeri üretilir, aynısı değil: fark küçük ama müşterinin gözünden kaçmaz. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
+      </figure>
+      <h2>Hangi iş hangi yolla yürür</h2>
+      <div class="yz-tablo">
+        <table>
+          <thead><tr><th>İş</th><th>Üretken araçlar</th><th>Kamera çekimi</th></tr></thead>
+          <tbody>
+            <tr><td>Fikir aşaması taslağı</td><td>Hızlı ve ucuz</td><td>Gereksiz</td></tr>
+            <tr><td>Fon ve atmosfer</td><td>Rahat çalışır</td><td>Mekân masrafı doğurur</td></tr>
+            <tr><td>Ürünün kendisi</td><td>Riskli; benzeri çıkar</td><td>Doğru yol</td></tr>
+            <tr><td>El ve yüz yakın plan</td><td>Hâlâ zorlanır</td><td>Güvenli</td></tr>
+            <tr><td>Soyut anlatım</td><td>Güçlü</td><td>Pahalıya gelir</td></tr>
+            <tr><td>Mecra sürümü türetme</td><td>Hızlandırır</td><td>Kurgu işi</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+        <div class="yz-kopru">
+          <b>Sınırları birlikte çizelim</b>
+          <p>Ürününüzün sahnedeki rolünü, yayın mecralarınızı ve marka risk eşiğinizi konuşalım; hangi karenin nasıl üretileceğini baştan yazalım.</p>
+          <a class="btn btn-p" href="../../teklif/#video">Kapsam çıkaralım
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="../../hizmetler/video-produksiyon/ai-destekli-produksiyon/">Hizmet sayfasını gör</a>
+        </div>
+        <p>Yapay zeka video araçları bir yerde ciddi zaman kazandırıyor, başka bir yerde ciddi risk üretiyor. Ayrım noktası ürünün sahnedeki rolü: kahramansa kamerayı seçin, dekorsa üretmekte sakınca yok. Sınırı baştan yazmak, sonradan yapılan pahalı düzeltmeleri engeller.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Sık sorulanlar</span>
+        <h2 data-kin>Sık sorulan sorular: yapay zeka ile video üretimi</h2>
+      </div>
+      <div class="yz-sss rv d1">
+        <details>
+          <summary>Yapay zeka video araçlarıyla reklam filmi tamamen üretilebilir mi?</summary>
+          <p>Teknik olarak bir film çıkarabilirsiniz ama sonucun kullanılabilirliği anlatının cinsine bağlıdır. Ürünün ekranda net göründüğü, etiketin okunduğu ya da elde tutulduğu bir filmde sapma riski yüksektir; izleyici neyin yanlış olduğunu adlandıramasa da bir tutarsızlık sezer. Soyut anlatımlar, atmosfer ağırlıklı sahneler ve ürünün sahnede yer almadığı işlerde ise sonuç bugün oldukça kullanışlı olabiliyor. Kararı araç değil, ürünün sahnedeki rolü vermeli.</p>
+        </details>
+        <details>
+          <summary>Ürünümü referans olarak yükleyebilir miyim?</summary>
+          <p>Yükleyebilirsiniz ve sonucu iyileştirir.</p>
+        </details>
+        <details>
+          <summary>Üretilmiş görüntüyü kullandığımı belirtmek zorunda mıyım?</summary>
+          <p>Mecra ve mevzuata göre değişir, ancak belirtmek her durumda daha güvenlidir. Sonradan fark edilen bir üretim, güven kaybı olarak geri döner.</p>
+        </details>
+        <details>
+          <summary>Var olan çekimimi yapay zekayla uzatabilir miyim?</summary>
+          <p>Kısa uzatmalar ve fon genişletmeleri çoğu zaman işe yarar. Ürünün göründüğü bölgeyi genişletmek ise sapma riski taşır.</p>
+        </details>
+        <details>
+          <summary>Seslendirme tarafında durum nasıl?</summary>
+          <p>Ses üretimi görüntüye göre daha olgun. Yine de gerçek bir kişinin sesini taklit etmek izin gerektirir; bunu atlamayın.</p>
+        </details>
+        <details>
+          <summary>Maliyeti gerçekten düşürüyor mu?</summary>
+          <p>Fon, atmosfer ve taslak tarafında düşürür. Ürünün kendisinde ise düzeltme turları çoğaldığı için kazanç eriyebilir.</p>
+        </details>
+        <details>
+          <summary>Hangi işlerde hiç kullanmamalıyım?</summary>
+          <p>Ürünün ayrıntısının satın alma kararını belirlediği işlerde. Takı, tekstil, gıda ambalajı ve teknik ürünler bu gruba girer.</p>
+        </details>
+        <details>
+          <summary>Karma yol nasıl işler?</summary>
+          <p>Ürünü çekersiniz, sahneyi üretirsiniz.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>Web, mobil, reklam, video ve SEO’yu tek çatı altında birleştiren
+          İstanbul merkezli 360 derece dijital ajans.</p>
+      </div>
+      <div>
+        <h5>Modüller</h5>
+        <ul>
+          <li><a href="../../hizmetler/">Tüm hizmetler</a></li>
+          <li><a href="../../hizmetler/web-tasarim-yazilim/">Web &amp; Yazılım</a></li>
+          <li><a href="../../hizmetler/mobil-uygulama/">Mobil Uygulama</a></li>
+          <li><a href="../../hizmetler/dijital-pazarlama/">Dijital Pazarlama</a></li>
+          <li><a href="../../hizmetler/video-produksiyon/">Video Prodüksiyon</a></li>
+          <li><a href="../../hizmetler/seo/">SEO Hizmetleri</a></li>
+          <li><a href="../../hizmetler/grafik-tasarim/">Grafik Tasarım</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>İletişim</h5>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../../iletisim/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../../iletisim/#ofis">Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</span>
+      <span class="mono">BEŞ MODÜL · TEK PANEL</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+<script>
+"use strict";
+(function(){
+  var c = document.querySelector('[data-ilerleme]');
+  if (!c || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  function ciz(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    c.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', ciz, { passive: true });
+  ciz();
+})();
+</script>

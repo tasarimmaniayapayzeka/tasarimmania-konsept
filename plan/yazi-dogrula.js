@@ -31,6 +31,7 @@ const ODAKLAR = {
   'reklam-filmi-ajansi-secimi': 'reklam filmi ajansı',
   'urun-videosu-studyo-mu-mekan-mi': 'ürün videosu çekimi',
   'e-ticaret-urun-videosu-formatlari': 'ürün videosu formatı',
+  'yapay-zeka-ile-video-uretimi': 'yapay zeka video',
 };
 
 const ESIK = [
