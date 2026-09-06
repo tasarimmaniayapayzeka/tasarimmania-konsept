@@ -33,6 +33,7 @@ const ODAKLAR = {
   'e-ticaret-urun-videosu-formatlari': 'ürün videosu formatı',
   'yapay-zeka-ile-video-uretimi': 'yapay zeka video',
   'kamerasiz-urun-videosu': 'kamerasız video',
+  'web-sitesine-chatbot-eklemek': 'web sitesi chatbot',
 };
 
 const ESIK = [

@@ -190,10 +190,35 @@ Ama iç link boşluğunu kapatmak öncelikse sıra farklı olur: **1, 4, 5, 6**
 
 ## 5. ÜRETİM DURUMU
 
-| # | Yazı | Durum |
-|---|---|---|
-| 1 | Mobil Uygulama Geliştirme Maliyeti | ✅ **TAMAM** — 18/18 eşik, 2 görsel, dizin+sitemap kayıtlı |
-| 2-15 | kalan 14 başlık | ⬜ sırada |
+**15/15 TAMAM.** Hepsi 18/18 eşik, 2'şer görsel + 5 boyut türevi, dizin kartı ve
+sitemap girdisi kayıtlı. Tek komutla doğrulama: `node plan/yazi-dogrula.js --hepsi`
+
+| # | Yazı | Odak | Tür | Kelime | Yoğunluk |
+|---|---|---|---|---|---|
+| 1 | Mobil Uygulama Geliştirme Maliyeti | mobil uygulama geliştirme | TOFU | 1151 | %2.35 |
+| 2 | Uygulama Yaptırma Soruları | uygulama yaptırma | TOFU | 1039 | %2.31 |
+| 3 | Geliştirme Süreci Kaç Aşama | geliştirme süreci | TOFU | 1019 | %2.36 |
+| 4 | Native mi Cross-Platform mı | native uygulama | MOFU | 1030 | %2.33 |
+| 5 | React Native mi Flutter mı | react native | MOFU | 1091 | %2.38 |
+| 6 | Mağaza Optimizasyonu 8 Adım | mağaza optimizasyonu | BOFU | 1015 | %2.36 |
+| 7 | Reklam Filmi Çekim Aşamaları | reklam filmi çekimi | TOFU | 1039 | %2.31 |
+| 8 | Reklam Filmi Fiyat Kalemleri | reklam filmi fiyat | TOFU | 1022 | %2.35 |
+| 9 | Storyboard Ne İşe Yarar | storyboard hazırlama | TOFU | 1017 | %2.36 |
+| 10 | Reklam Filmi Ajansı Seçimi | reklam filmi ajansı | TOFU | 1009 | %2.38 |
+| 11 | Ürün Videosu: Stüdyo mu Mekân mı | ürün videosu çekimi | MOFU | 1016 | %2.36 |
+| 12 | Ürün Videosu Formatları | ürün videosu formatı | TOFU | 1006 | %2.39 |
+| 13 | Yapay Zeka ile Video Üretimi | yapay zeka video | TOFU | 1007 | %2.38 |
+| 14 | Kamerasız Ürün Videosu | kamerasız video | BOFU | 1023 | %2.35 |
+| 15 | Web Sitesine Chatbot Eklemek | web sitesi chatbot | TOFU | 1003 | %2.39 |
+
+### ⚠ Yazı 9'da plan tablosuyla kural çelişti
+
+Tablo odağı **"storyboard"** (tek kelime) yazıyordu; ama bu belgenin 3. bölümündeki
+KURAL "odak 2-3 kelime" diyor. Tek kelimede %2.2-2.4 yoğunluk 1000 kelimede
+**22-24 tekrar** demek — okunur metin çıkmaz. Ayrıca ters dizilim denetimi tek
+kelimeli odakta anlamını yitiriyor (kelimenin kendisiyle yer değiştirmesini arıyor).
+**Kurala uyuldu: "storyboard hazırlama".** Gelecekte tablo doldurulurken odak
+sütununun 2-3 kelime olduğu bir kez daha kontrol edilmeli.
 
 **Yayın takvimi:** mevcut kartlar 1 Eylül → 23 Ekim 2026 arası 2 günde bir.
 Yeni yazılar oradan devam ediyor: yazı 1 = **25 Ekim 2026**, sonrakiler 27, 29, 31 Ekim…
@@ -241,6 +266,34 @@ Bunlar yazının değil, **denetçinin** hatasıydı; yazı 2-15'te de etkili:
 gerçek metinde ölçüldü, **geri alındı**: 2 gerçek yakalamaya karşı 6 yalancı
 pozitif ("kullanıyoruz", "hızlanır" — hepsi etken). `edilgen-test.js` bunu
 "hata" değil "BİLİNEN SINIR" olarak sayar; kayıt duruyor, sessizce silinmedi.
+
+## 6. SONUÇ — iç link boşluğu ne kadar kapandı
+
+Bu 15 yazının varlık sebebi buydu. Tur öncesi ve sonrası, aynı ölçüm aracıyla
+(`node plan/ic-link-olc.js`):
+
+| | Tur öncesi | Tur sonrası |
+|---|---|---|
+| blog → hizmet bağı | 96 | **114** |
+| 2 blog linkinin altında kalan sayfa | 9 | **5** |
+| mobil modülü kapalı sayfa | 0/4 | **3/4** |
+| video modülü kapalı sayfa | 1/5 | **5/5** |
+
+**Kalan 5 sayfanın 4'ü açıklamalı:**
+
+- `/hizmetler/` — modül dizini; blog linki alması beklenen bir sayfa değil.
+- `/mobil-uygulama/aso-uygulama-pazarlamasi/` — **1 yazı, kasıtlı.** Hasatta
+  ikinci bir ticari arama ifadesi çıkmadı (bkz. Bölüm 0). Zorlama yazı üretmek
+  "arama hacmi olmayan sayfa" demek olurdu.
+- `/web-tasarim-yazilim/ai-entegrasyonu/` — **1 yazı, kasıtlı.** Aynı gerekçe.
+- `/seo/yerel-seo/` ve `/web-tasarim-yazilim/bakim-destek/` — bu turun kapsamı
+  dışında; ayrı bir hasat gerektirir.
+
+İkinci ay için önerilen iki yazı (Bölüm 2'de yazılı) hâlâ geçerli: `mağaza
+görselleri` ve `chatbot whatsapp aktarım`. Bu ikisi yazılırsa kalan iki kasıtlı
+boşluk da kapanır.
+
+---
 
 ### Yan bulgu — blog kategori süzgeci bozukmuş (düzeltildi)
 
