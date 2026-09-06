@@ -25,6 +25,7 @@ const ODAKLAR = {
   'native-mi-cross-platform-mi': 'native uygulama',
   'react-native-mi-flutter-mi': 'react native',
   'uygulama-magaza-optimizasyonu': 'mağaza optimizasyonu',
+  'reklam-filmi-cekim-asamalari': 'reklam filmi çekimi',
 };
 
 const ESIK = [
