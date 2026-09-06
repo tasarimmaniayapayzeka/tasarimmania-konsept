@@ -284,6 +284,16 @@
 .sss .cvp{padding:0 22px 20px;font-size:14.4px;color:var(--muted);line-height:1.7}
   .kaynak{color:var(--acc);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .kaynak:hover{text-decoration-thickness:2px}
+  .hzd{display:grid;gap:clamp(24px,3vw,38px)}
+.hzd-grup{display:grid;gap:10px;padding-left:16px;position:relative}
+.hzd-grup::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px;background:var(--mrk,var(--acc));opacity:.55}
+.hzd-grup h3{font-family:var(--mono);font-size:11.4px;letter-spacing:.14em;text-transform:uppercase;color:var(--mrk,var(--acc));margin-bottom:4px}
+.hzd-k{display:block;border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);padding:14px 17px;transition:border-color .25s,transform .25s}
+.hzd-k:hover{border-color:var(--mrk,var(--acc));transform:translateY(-2px)}
+.hzd-k b{display:block;font-size:14.2px;color:var(--fg);margin-bottom:4px;letter-spacing:-.02em}
+.hzd-k span{font-size:12.4px;color:var(--muted);line-height:1.55}
+@media(min-width:760px){.hzd-grup{grid-template-columns:repeat(2,1fr)}.hzd-grup h3{grid-column:1/-1}}
+@media(min-width:1100px){.hzd-grup{grid-template-columns:repeat(3,1fr)}}
   </style>
 <script type="application/ld+json">
 {
@@ -359,38 +369,176 @@
       "@type": "ItemList",
       "@id": "https://www.tasarimmania.com/hizmetler/#liste",
       "name": "TasarımMania hizmet modülleri",
-      "numberOfItems": 5,
+      "numberOfItems": 28,
       "itemListOrder": "https://schema.org/ItemListUnordered",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Web Tasarım & Yazılım",
+          "name": "Web Tasarım ve Yazılım",
           "url": "https://www.tasarimmania.com/web-tasarim/"
         },
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Mobil Uygulama",
-          "url": "https://www.tasarimmania.com/mobil-uygulama/"
+          "name": "Kurumsal Web Sitesi",
+          "url": "https://www.tasarimmania.com/kurumsal-web-sitesi/"
         },
         {
           "@type": "ListItem",
           "position": 3,
+          "name": "E-Ticaret Sitesi Kurulumu ve Yönetimi",
+          "url": "https://www.tasarimmania.com/e-ticaret/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Özel Yazılım Geliştirme",
+          "url": "https://www.tasarimmania.com/ozel-yazilim/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "WordPress Site Yönetimi ve Bakım Hizmeti",
+          "url": "https://www.tasarimmania.com/site-bakim/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Mobil Uygulama Geliştirme",
+          "url": "https://www.tasarimmania.com/mobil-uygulama/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Android iOS Uygulama Geliştirme",
+          "url": "https://www.tasarimmania.com/ios-android-uygulama/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "React Native ile Mobil Uygulama Geliştirme",
+          "url": "https://www.tasarimmania.com/react-native/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "Mobil Uygulama Arayüz Tasarımı (UI/UX)",
+          "url": "https://www.tasarimmania.com/uygulama-arayuz-tasarimi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "ASO ve Mobil Uygulama Pazarlama Hizmeti",
+          "url": "https://www.tasarimmania.com/aso/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
           "name": "Dijital Pazarlama",
           "url": "https://www.tasarimmania.com/dijital-pazarlama/"
         },
         {
           "@type": "ListItem",
-          "position": 4,
+          "position": 12,
+          "name": "Google Ads Yönetimi",
+          "url": "https://www.tasarimmania.com/google-ads/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "name": "Meta Reklam Ajansı Hizmeti",
+          "url": "https://www.tasarimmania.com/meta-reklam/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "name": "Instagram Reklam Yönetimi ve Hesap Büyütme Hizmeti",
+          "url": "https://www.tasarimmania.com/sosyal-medya/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "name": "Performans Pazarlaması Hizmeti",
+          "url": "https://www.tasarimmania.com/performans-pazarlama/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
           "name": "Video Prodüksiyon",
           "url": "https://www.tasarimmania.com/video-produksiyon/"
         },
         {
           "@type": "ListItem",
-          "position": 5,
-          "name": "SEO",
+          "position": 17,
+          "name": "Reklam Filmi Prodüksiyonu",
+          "url": "https://www.tasarimmania.com/reklam-filmi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "name": "Ürün Videosu Çekimi",
+          "url": "https://www.tasarimmania.com/urun-videosu/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "name": "Instagram Reklam Reels Prodüksiyonu",
+          "url": "https://www.tasarimmania.com/reels-video/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "name": "AI Destekli Video Prodüksiyon",
+          "url": "https://www.tasarimmania.com/ai-video-produksiyon/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "name": "SEO Hizmetleri",
           "url": "https://www.tasarimmania.com/seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "name": "Teknik SEO Hizmeti",
+          "url": "https://www.tasarimmania.com/teknik-seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "name": "SEO Blog İçerik Stratejisi",
+          "url": "https://www.tasarimmania.com/seo-icerik/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "name": "Yerel SEO Hizmeti",
+          "url": "https://www.tasarimmania.com/yerel-seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "name": "Shopify SEO Hizmeti",
+          "url": "https://www.tasarimmania.com/e-ticaret-seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "name": "İnternet Sitesi Çeviri ve Çok Dilli SEO Hizmeti",
+          "url": "https://www.tasarimmania.com/cok-dilli-seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 27,
+          "name": "Grafik Tasarım Ajansı Hizmeti",
+          "url": "https://www.tasarimmania.com/grafik-tasarim/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "name": "AI Entegrasyonu",
+          "url": "https://www.tasarimmania.com/yapay-zeka/"
         }
       ]
     },
@@ -776,6 +924,92 @@
           <summary>Hangi modülle başlamalıyım?</summary>
           <p class="cvp">Kaybın nerede olduğuna bakarak. İlk görüşmede ekranı paylaşır, sitenizin ve reklam hesabınızın para kaybettiği noktaları birlikte işaretleriz. Başlangıç modülü tahmine göre değil, o listeye göre seçilir.</p>
         </details>
+      </div>
+    </div>
+  </section>
+  <section class="sec" id="tum-hizmetler" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Dizin</span>
+        <h2 data-kin>Tüm hizmetler</h2>
+        <p>Beş modül ve iki bağımsız hizmet altında 28 sayfa. Her biri kapsamı,
+          neyin dahil olduğunu ve sık sorulanları kendi sayfasında anlatıyor.</p>
+      </div>
+      <div class="hzd rv d1">
+        <div class="hzd-grup" style="--mrk:var(--cy)">
+          <h3>Web Tasarım &amp; Yazılım</h3>
+          <a class="hzd-k" href="../web-tasarim/"><b>Web Tasarım ve Yazılım</b>
+            <span>Şablon değil, sıfırdan yazılmış sistem: kurumsal site, e-ticaret, özel yazılım, AI</span></a>
+          <a class="hzd-k" href="../kurumsal-web-sitesi/"><b>Kurumsal Web Sitesi</b>
+            <span>Kurumsal web yazılım altyapısıyla çok sayfalı, yönetim panelli kurumsal site. Sayfa</span></a>
+          <a class="hzd-k" href="../e-ticaret/"><b>E-Ticaret Sitesi Kurulumu ve Yönetimi</b>
+            <span>E-ticaret sitesi kurulumu: altyapı seçimi, ürün aktarımı, ödeme ve kargo entegrasyonu</span></a>
+          <a class="hzd-k" href="../ozel-yazilim/"><b>Özel Yazılım Geliştirme</b>
+            <span>Bayi paneli, rezervasyon, ERP entegrasyonu gibi hazır sistemin karşılamadığı iş akışları</span></a>
+          <a class="hzd-k" href="../site-bakim/"><b>WordPress Site Yönetimi ve Bakım Hizmeti</b>
+            <span>WordPress site yönetimi: güvenlik güncellemesi, otomatik yedekleme, kesinti izleme ve site</span></a>
+        </div>
+        <div class="hzd-grup" style="--mrk:var(--vi)">
+          <h3>Mobil Uygulama</h3>
+          <a class="hzd-k" href="../mobil-uygulama/"><b>Mobil Uygulama Geliştirme</b>
+            <span>Önce şunu soruyoruz: gerçekten uygulama gerekiyor mu? iOS, Android ve React Native ile</span></a>
+          <a class="hzd-k" href="../ios-android-uygulama/"><b>Android iOS Uygulama Geliştirme</b>
+            <span>Android iOS uygulama geliştirme: Swift ve Kotlin ile native, platforma özgü tasarım ve</span></a>
+          <a class="hzd-k" href="../react-native/"><b>React Native ile Mobil Uygulama Geliştirme</b>
+            <span>React native ile tek kod tabanından iOS ve Android; web sitenizle ortak API kullanımı ve</span></a>
+          <a class="hzd-k" href="../uygulama-arayuz-tasarimi/"><b>Mobil Uygulama Arayüz Tasarımı (UI/UX)</b>
+            <span>Mobil uygulama arayüzü: kullanıcı akışı, wireframe, Figma ekranları ve erişilebilirlik</span></a>
+          <a class="hzd-k" href="../aso/"><b>ASO ve Mobil Uygulama Pazarlama Hizmeti</b>
+            <span>Mobil uygulama pazarlama: App Store/Google Play anahtar kelime optimizasyonu, mağaza</span></a>
+        </div>
+        <div class="hzd-grup" style="--mrk:var(--amber)">
+          <h3>Dijital Pazarlama</h3>
+          <a class="hzd-k" href="../dijital-pazarlama/"><b>Dijital Pazarlama</b>
+            <span>Google Ads, Meta Ads, performans pazarlaması ve sosyal medya yönetimi tek ekipten. Kurulum</span></a>
+          <a class="hzd-k" href="../google-ads/"><b>Google Ads Yönetimi</b>
+            <span>Google reklam ajansı hizmeti: anahtar kelime kurgusu, dönüşüm takibi, teklif stratejisi ve</span></a>
+          <a class="hzd-k" href="../meta-reklam/"><b>Meta Reklam Ajansı Hizmeti</b>
+            <span>Meta reklam ajansı hizmeti: hedef kitle segmentasyonu, reklam formatları, retargeting ve</span></a>
+          <a class="hzd-k" href="../sosyal-medya/"><b>Instagram Reklam Yönetimi ve Hesap Büyütme Hizmeti</b>
+            <span>Instagram reklam yönetimi: içerik takvimi, hesap etkileşimi, hedefleme ve reklam</span></a>
+          <a class="hzd-k" href="../performans-pazarlama/"><b>Performans Pazarlaması Hizmeti</b>
+            <span>Performans pazarlama hizmeti: çoklu kanal verisinin tek raporda birleştirilmesi, edinme</span></a>
+        </div>
+        <div class="hzd-grup" style="--mrk:var(--pink)">
+          <h3>Video Prodüksiyon</h3>
+          <a class="hzd-k" href="../video-produksiyon/"><b>Video Prodüksiyon</b>
+            <span>Senaryodan kurguya reklam filmi, ürün videosu, sosyal video ve AI destekli prodüksiyon</span></a>
+          <a class="hzd-k" href="../reklam-filmi/"><b>Reklam Filmi Prodüksiyonu</b>
+            <span>Reklam filmi fiyatları ve süreci: senaryo yazımı, storyboard, profesyonel çekim ve</span></a>
+          <a class="hzd-k" href="../urun-videosu/"><b>Ürün Videosu Çekimi</b>
+            <span>Ürün videosu çekimi: stüdyo veya mekan çekimi seçenekleri, pazaryeri formatı ve e-ticaret</span></a>
+          <a class="hzd-k" href="../reels-video/"><b>Instagram Reklam Reels Prodüksiyonu</b>
+            <span>Instagram reklam reels üretimi: dikey format, güvenli alan kurgusu, telifsiz müzik ve çoklu</span></a>
+          <a class="hzd-k" href="../ai-video-produksiyon/"><b>AI Destekli Video Prodüksiyon</b>
+            <span>AI video prodüksiyon: fotoğraftan ürün videosu üretimi, marka tutarlılığı ve kamerasız</span></a>
+        </div>
+        <div class="hzd-grup" style="--mrk:var(--lime)">
+          <h3>SEO</h3>
+          <a class="hzd-k" href="../seo/"><b>SEO Hizmetleri</b>
+            <span>Teknik SEO, içerik stratejisi, yerel SEO, çok dilli/e-ticaret optimizasyonu. İlk ay</span></a>
+          <a class="hzd-k" href="../teknik-seo/"><b>Teknik SEO Hizmeti</b>
+            <span>Teknik SEO hizmeti: Core Web Vitals, sitemap/robots.txt, Search Console ve yapılandırılmış</span></a>
+          <a class="hzd-k" href="../seo-icerik/"><b>SEO Blog İçerik Stratejisi</b>
+            <span>SEO blog içerik stratejisi: anahtar kelime araştırması, arama niyeti analizi, rakip boşluk</span></a>
+          <a class="hzd-k" href="../yerel-seo/"><b>Yerel SEO Hizmeti</b>
+            <span>Seo ajansı istanbul hizmeti: Google İşletme Profili optimizasyonu, semt bazlı anahtar</span></a>
+          <a class="hzd-k" href="../e-ticaret-seo/"><b>Shopify SEO Hizmeti</b>
+            <span>Shopify SEO hizmeti: mağaza altyapısına özel teknik ayarlar, ürün ve kategori sayfası</span></a>
+          <a class="hzd-k" href="../cok-dilli-seo/"><b>İnternet Sitesi Çeviri ve Çok Dilli SEO Hizmeti</b>
+            <span>İnternet sitesi çeviri ve çok dilli SEO: hreflang yapılandırması, yurt dışı pazar hedefleme</span></a>
+        </div>
+        <div class="hzd-grup" style="--mrk:var(--cy)">
+          <h3>Bağımsız hizmetler</h3>
+          <a class="hzd-k" href="../grafik-tasarim/"><b>Grafik Tasarım Ajansı Hizmeti</b>
+            <span>Grafik tasarım ajansı hizmeti: logo, kurumsal kimlik kılavuzu, kartvizit/katalog ve sosyal</span></a>
+          <a class="hzd-k" href="../yapay-zeka/"><b>AI Entegrasyonu</b>
+            <span>Web tasarım ai entegrasyonu: kendi içeriğinizle eğitilmiş chatbot, WhatsApp’a aktarım ve</span></a>
+        </div>
       </div>
     </div>
   </section>
