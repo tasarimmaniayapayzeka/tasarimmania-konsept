@@ -444,7 +444,7 @@
       <a href="../../hizmetler/">Hizmetler</a>
       <a href="../../#isler">İşler</a>
       <a href="../../hakkimizda/">Ajans</a>
-      <a href="../../blog/" aria-current="page">Blog</a>
+      <a href="../" aria-current="page">Blog</a>
       <a href="../../#surec">Süreç</a>
       <a href="../../teklif/">Teklif Al</a>
       <a href="../../iletisim/">İletişim</a>
@@ -455,7 +455,7 @@
 </nav>
 <div class="mobmenu" data-mobmenu aria-hidden="true">
   <a href="../../hizmetler/">Hizmetler</a><a href="../../#isler">İşler</a><a href="../../hakkimizda/">Ajans</a>
-  <a href="../../blog/">Blog</a><a href="../../#surec">Süreç</a><a href="../../teklif/">Teklif Al</a><a href="../../iletisim/">İletişim</a>
+  <a href="../">Blog</a><a href="../../#surec">Süreç</a><a href="../../teklif/">Teklif Al</a><a href="../../iletisim/">İletişim</a>
   <a href="tel:+905547916545">0554 791 65 45</a>
 </div>
 
@@ -467,7 +467,7 @@
     <div class="wrap">
       <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
-        <a href="../../blog/">Blog</a><span aria-hidden="true">/</span>
+        <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">E-Ticaret Ödeme Entegrasyonu Adım Adım Nasıl Kurulur?</span>
       </nav>
       <div class="yz-ust">
@@ -495,7 +495,7 @@
       <article class="yz-govde">
       <h2>E-Ticaret Ödeme Entegrasyonu Tam Olarak Neyi Kapsar?</h2>
       <div class="yz-cevap"><p>E-ticaret ödeme entegrasyonu, mağaza yazılımı ile banka arasındaki kart verisi akışını SSL, 3D Secure ve sanal POS araçlarıyla kuran teknik bağlantıdır. Üç katman vardır: taşıma güvenliği, kimlik doğrulama ve tahsilat. Her katmanın kendi aracı ve kendi test yöntemi bulunur. Bir katman eksikse banka işlemi riskli görür.</p></div>
-      <p>E-ticaret ödeme entegrasyonunda katmanları ayırmak sorumluluğu da ayırır. SSL sertifikası sizin sunucunuzda durur. 3D Secure kart sahibinin bankasında çalışır. Sanal POS tanımını ise anlaşmalı banka veya ödeme kuruluşu açar. Arıza çıktığında hangi kapıyı çalacağınızı bu ayrım belirler. Peki testi nereden başlatmalı? Üçünden de aynı gün: e-ticaret ödeme entegrasyonu katmanları ancak birlikte denendiğinde güvenilir sonuç verir. <a href="../../hizmetler/web-tasarim-yazilim/e-ticaret/">E-ticaret geliştirme hizmetimizde</a> bu üç katmanı tek bir kurulum planında topluyoruz.</p>
+      <p>E-ticaret ödeme entegrasyonunda katmanları ayırmak sorumluluğu da ayırır. SSL sertifikası sizin sunucunuzda durur. 3D Secure kart sahibinin bankasında çalışır. Sanal POS tanımını ise anlaşmalı banka veya ödeme kuruluşu açar. Arıza çıktığında hangi kapıyı çalacağınızı bu ayrım belirler. Peki testi nereden başlatmalı? Üçünden de aynı gün: e-ticaret ödeme entegrasyonu katmanları ancak birlikte denendiğinde güvenilir sonuç verir. <a href="../../e-ticaret/">E-ticaret geliştirme hizmetimizde</a> bu üç katmanı tek bir kurulum planında topluyoruz.</p>
       <h3>Sanal POS, ödeme geçidi ve banka hangi noktada devreye girer?</h3>
       <p>Sanal POS, bankanın işletmenize tahsis ettiği sanal kart terminalidir. Ödeme geçidi ise mağaza ile bu terminal arasında mesaj taşıyan yazılım köprüsüdür. Müşteri kartını girer, köprü isteği bankaya iletir, banka provizyon yanıtını döner. Entegrasyonda e-ticaret mağazasını bankaya bağlayan tahsilat hattı üç durak boyunca kesintisiz çalışmalı; tek bir halka koparsa işlem düşer.</p>
       <h2>SSL Sertifikası Kurulumu Nasıl Doğru Yapılır?</h2>
@@ -505,7 +505,7 @@
       <p>DV sertifikası yalnız alan adı sahipliğini doğrular ve dakikalar içinde çıkar. OV sertifikası şirket kaydını da kontrol eder. EV sertifikası en ayrıntılı incelemeyi ister. Şifreleme gücü üçünde de aynıdır; fark, kimliğin ne kadar denetlendiğidir. Kurumsal mağazalara OV öneriyoruz, çünkü tüzel kişilik bilgisi sertifikanın içinde görünür.</p>
       <h2>3D Secure Entegrasyonu Neden Vazgeçilmez?</h2>
       <div class="yz-cevap"><p>Bankalar Türkiye'de tüketici kartlarıyla yapılan çevrimiçi satışta 3D Secure'ü fiilen zorunlu tutuyor. 3D Secure, kart sahibini bankası üzerinden doğrulayan güvenli kimlik doğrulama katmanıdır. Doğrulama başarılıysa sahtecilik itirazındaki sorumluluk bankaya geçer. Kurulumda en sık atlanan adım, doğrulama dönüşündeki imzayı sunucu tarafında yeniden hesaplamaktır.</p></div>
-      <p>Akış şöyle işler: müşteri kart bilgisini girer, ödeme köprüsü isteği bankaya yönlendirir, banka tek kullanımlık kod veya uygulama onayı ister. Onay dönüşü mağazaya imzalı bir mesajla ulaşır. Bu mesajı doğrulamadan siparişi onaylarsanız açık kapı bırakırsınız. İmza kontrolünü tarayıcıya değil sunucuya yaptırın. Ödeme akışında bu tek kural, sahte onayların önünü keser. <a href="../../hizmetler/web-tasarim-yazilim/ozel-yazilim/">Özel yazılım tarafında</a> bu denetimi tek bir doğrulama servisinde topluyoruz.</p>
+      <p>Akış şöyle işler: müşteri kart bilgisini girer, ödeme köprüsü isteği bankaya yönlendirir, banka tek kullanımlık kod veya uygulama onayı ister. Onay dönüşü mağazaya imzalı bir mesajla ulaşır. Bu mesajı doğrulamadan siparişi onaylarsanız açık kapı bırakırsınız. İmza kontrolünü tarayıcıya değil sunucuya yaptırın. Ödeme akışında bu tek kural, sahte onayların önünü keser. <a href="../../ozel-yazilim/">Özel yazılım tarafında</a> bu denetimi tek bir doğrulama servisinde topluyoruz.</p>
       <h3>3DS 2.0 akışı müşteriyi neden daha az yoruyor?</h3>
       <p>3DS 2.0, işlem sırasında cihaz ve davranış verisini bankaya taşır. Banka riski düşük görürse müşteriye hiçbir kod sormaz; işlem sessizce geçer. Buna sürtünmesiz akış diyoruz. Riskli bulunan denemelerde doğrulama ekranı yine devreye girer. Sonuç nettir: güvenlik düşmeden sepet terki azalır.</p>
       <h4>Non-secure işlem hangi durumda açılır?</h4>
@@ -518,7 +518,7 @@
       <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
       <h2>Entegrasyon Sonrası Hangi Testleri Yapmalısınız?</h2>
       <div class="yz-cevap"><p>Canlıya geçtikten sonra üç kontrol şarttır: gerçek kartla küçük tutarlı sipariş, iade akışı ve sipariş bildirimleri. Bu üçlü, ödeme başarılı görünürken siparişin oluşmaması gibi sessiz hataları yakalar. Testleri ilk hafta boyunca günlük tekrarlıyoruz. Çıkan her hatayı ekran görüntüsüyle kaydediyoruz. Kayıt, banka tarafıyla yazışmayı hızlandırır.</p></div>
-      <p>Sessiz hata, e-ticaret ödeme entegrasyonundaki en pahalı arızadır. Müşteri parayı öder, sipariş listede görünmez, çağrı merkezi olayı ertesi gün öğrenir. Bu yüzden ödeme kaydı ile sipariş kaydını iki ayrı yerde eşleştiriyoruz. Günlük mutabakat raporu, tutmayan işlemleri tek bakışta gösterir. E-ticaret ödeme entegrasyonu iyi kurulduğunda, hatayı müşteriden önce size haber verir. <a href="../../hizmetler/seo/e-ticaret-seo/">E-ticaret SEO tarafında</a> da ödeme adımındaki kopmaları dönüşüm kaybı sayıyoruz.</p>
+      <p>Sessiz hata, e-ticaret ödeme entegrasyonundaki en pahalı arızadır. Müşteri parayı öder, sipariş listede görünmez, çağrı merkezi olayı ertesi gün öğrenir. Bu yüzden ödeme kaydı ile sipariş kaydını iki ayrı yerde eşleştiriyoruz. Günlük mutabakat raporu, tutmayan işlemleri tek bakışta gösterir. E-ticaret ödeme entegrasyonu iyi kurulduğunda, hatayı müşteriden önce size haber verir. <a href="../../e-ticaret-seo/">E-ticaret SEO tarafında</a> da ödeme adımındaki kopmaları dönüşüm kaybı sayıyoruz.</p>
       <h3>Webhook ve callback doğrulaması neden kritik?</h3>
       <p>Callback, ödeme sonucunun müşterinin tarayıcısı üzerinden dönmesidir. Webhook ise sağlayıcının doğrudan sunucunuza gönderdiği bildirimdir. Müşteri sayfayı erken kapatırsa callback kaybolur, webhook yine ulaşır. Sipariş durumunu bu yüzden webhook'a bağlıyoruz. Gelen her bildirimin imzasını ve tutarını sipariş kaydıyla karşılaştırıyoruz.</p>
       <h2>Güvenli Ödeme Entegrasyonu: 7 Adımlık Kurulum Listesi</h2>
@@ -551,7 +551,7 @@
           <p>Kapsamınıza uygun yol haritasını birlikte çıkaralım; adımları ve zamanlamayı netleştirelim.</p>
           <a class="btn btn-p" href="../../teklif/#web">Kapsam çıkaralım
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn-g" href="../../hizmetler/web-tasarim-yazilim/e-ticaret/">Hizmet sayfasını gör</a>
+          <a class="btn btn-g" href="../../e-ticaret/">Hizmet sayfasını gör</a>
         </aside>
         <p>Ödeme adımı, mağazanızın kasasıdır. Kasayı üç araçla güvence altına alıyoruz: SSL, 3D Secure ve doğru yapılandırılmış sanal POS. Kurulumu sıraya koyan, testi disipline eden ve mutabakatı otomatikleştiren bir e-ticaret ödeme entegrasyonu, hem sepet terkini hem operasyon yükünü düşürür. Başlamadan önce mevcut altyapınızı birlikte gözden geçirelim.</p>
       </article>
@@ -629,12 +629,12 @@
         <h3>Modüller</h3>
         <ul>
           <li><a href="../../hizmetler/">Tüm hizmetler</a></li>
-          <li><a href="../../hizmetler/web-tasarim-yazilim/">Web &amp; Yazılım</a></li>
-          <li><a href="../../hizmetler/mobil-uygulama/">Mobil Uygulama</a></li>
-          <li><a href="../../hizmetler/dijital-pazarlama/">Dijital Pazarlama</a></li>
-          <li><a href="../../hizmetler/video-produksiyon/">Video Prodüksiyon</a></li>
-          <li><a href="../../hizmetler/seo/">SEO Hizmetleri</a></li>
-          <li><a href="../../hizmetler/grafik-tasarim/">Grafik Tasarım</a></li>
+          <li><a href="../../web-tasarim/">Web &amp; Yazılım</a></li>
+          <li><a href="../../mobil-uygulama/">Mobil Uygulama</a></li>
+          <li><a href="../../dijital-pazarlama/">Dijital Pazarlama</a></li>
+          <li><a href="../../video-produksiyon/">Video Prodüksiyon</a></li>
+          <li><a href="../../seo/">SEO Hizmetleri</a></li>
+          <li><a href="../../grafik-tasarim/">Grafik Tasarım</a></li>
         </ul>
       </div>
       <div>

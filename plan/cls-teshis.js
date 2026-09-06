@@ -6,9 +6,9 @@ const CHROME = 'C:/Program Files/Google/Chrome/Application/chrome.exe';
 const TABAN = 'http://localhost:8020/site';
 
 const HEDEF = [
-  ['/hizmetler/seo/yerel-seo/', '.ciz-kutu'],
-  ['/hizmetler/dijital-pazarlama/meta-ads/', '.ciz-kutu'],
-  ['/hizmetler/seo/teknik-seo/', '.ciz-kutu'],          /* denetim: temiz sayfa */
+  ['/yerel-seo/', '.ciz-kutu'],
+  ['/meta-reklam/', '.ciz-kutu'],
+  ['/teknik-seo/', '.ciz-kutu'],          /* denetim: temiz sayfa */
   ['/blog/grafik-tasarim-turleri/', '.yz-kapak'],
   ['/blog/storyboard-nedir/', '.yz-kapak'],             /* denetim: temiz sayfa */
 ];

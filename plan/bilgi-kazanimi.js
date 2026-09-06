@@ -57,8 +57,8 @@ const rakip = rakipDosyalar.map((f) => ({
 /* ---- biz: rakiple aynı düzlemde olması için ANA SAYFA + tür temsilcileri ---- */
 const BIZ = {
   'ana sayfa': path.join(S, 'index.html'),
-  'hizmet hub': path.join(S, 'hizmetler/seo/index.html'),
-  'hizmet ayrıntı': path.join(S, 'hizmetler/seo/teknik-seo/index.html'),
+  'hizmet hub': path.join(S, 'seo/index.html'),
+  'hizmet ayrıntı': path.join(S, 'teknik-seo/index.html'),
   'blog yazısı': path.join(S, 'blog/storyboard-nedir/index.html'),
 };
 const biz = Object.fromEntries(Object.entries(BIZ).map(([k, f]) => [k, fs.readFileSync(f, 'utf8')]));

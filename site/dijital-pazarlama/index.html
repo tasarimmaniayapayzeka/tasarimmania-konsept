@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- KONSEPT-NOINDEX -->
+<meta name="robots" content="noindex,nofollow">
+<title>Dijital Pazarlama Ajansı — Google ve Meta Ads | TasarımMania</title>
+<meta name="description" content="Google Ads, Meta Ads, performans pazarlaması ve sosyal medya yönetimi tek ekipten. Kurulum 2-3 hafta. Hesaplar sizin adınıza açılır; garanti değil şeffaflık.">
+<link rel="canonical" href="https://www.tasarimmania.com/dijital-pazarlama/">
+<meta name="author" content="TasarımMania">
+<meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="theme-color" content="#0B0D12">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="Dijital Pazarlama Ajansı — Google ve Meta Ads | TasarımMania">
+<meta property="og:description" content="Garanti değil şeffaflık: her ay neyin işe yaradığını açık verilerle gösteriyoruz.">
+<meta property="og:url" content="https://www.tasarimmania.com/dijital-pazarlama/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TasarımMania — web, mobil, reklam, video ve SEO hizmetleri kapak görseli">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta name="twitter:title" content="Dijital Pazarlama Ajansı — Google ve Meta Ads | TasarımMania">
+<meta name="twitter:description" content="Garanti değil şeffaflık: her ay neyin işe yaradığını açık verilerle gösteriyoruz.">
+<meta name="twitter:image:alt" content="TasarımMania — web, mobil, reklam, video ve SEO hizmetleri kapak görseli">
+<link rel="icon" type="image/png" href="../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
+<link rel="stylesheet" href="../css/tm.css">
+<style>
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;max-height:calc(100dvh - 74px);overflow-y:auto;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(28px,4vw,52px)) 0 clamp(30px,4vw,48px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.16),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.mod-no{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:16px;
+  border:1px solid rgba(var(--acc-rgb),.4);border-radius:999px;padding:7px 14px}
+.phd h1{font-size:clamp(31px,5.4vw,58px);letter-spacing:-.035em;line-height:1.12;margin-bottom:16px}
+.phd .h1-alt{font-family:var(--mono);font-size:clamp(12px,1.5vw,14.5px);letter-spacing:.05em;
+  color:var(--muted);margin-bottom:24px}
+.phd .lead{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18.5px);max-width:60ch;line-height:1.75}
+
+.phd-iki{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(28px,4vw,56px);align-items:center}
+.hero-img{width:100%;height:auto;aspect-ratio:1;border-radius:var(--r-lg);border:1px solid var(--hair);
+  background:var(--bg-2);box-shadow:0 30px 70px -30px rgba(0,0,0,.9)}
+
+/* --- HERO 3D (hub): üç katman, sekme + otomatik döngü + fare eğimi --- */
+.hero3d{position:relative}
+.h3-sekme{display:flex;gap:7px;margin-bottom:16px;flex-wrap:wrap}
+.h3-sekme button{font-family:var(--mono);font-size:10.6px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);background:var(--panel);border:1px solid var(--hair);border-radius:999px;
+  padding:8px 15px;cursor:pointer;transition:.3s var(--ease)}
+.h3-sekme button:hover{color:var(--fg-dim);border-color:var(--hair-strong)}
+.h3-sekme button.acik{color:var(--acc);border-color:var(--acc);background:rgba(var(--acc-rgb),.10)}
+.h3-kutu{position:relative;height:clamp(300px,32vw,420px);perspective:1500px;perspective-origin:58% 42%}
+.h3-sahne{position:absolute;inset:0;transform-style:preserve-3d;
+  transform:rotateX(var(--rx,7deg)) rotateY(var(--ry,-15deg));transition:transform .5s var(--ease)}
+.h3-kat{position:absolute;left:0;right:0;top:50%;height:82%;transform-style:preserve-3d;
+  border:1px solid var(--hair);border-radius:13px;overflow:hidden;background:var(--bg-2);
+  box-shadow:0 30px 70px -30px rgba(0,0,0,.9);
+  transform:translateY(-50%) translateZ(var(--z)) translateX(var(--x)) scale(var(--s));
+  opacity:var(--o);transition:transform .6s var(--ease),opacity .6s var(--ease),border-color .4s}
+.h3-kat[data-durum="on"]  {--z:70px;  --x:0;  --s:1;   --o:1;  border-color:rgba(var(--acc-rgb),.5)}
+.h3-kat[data-durum="orta"]{--z:-30px; --x:3%; --s:.94; --o:.5}
+.h3-kat[data-durum="arka"]{--z:-130px;--x:6%; --s:.88; --o:.26}
+.h3-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--hair);
+  background:rgba(255,255,255,.035)}
+.h3-bar i{width:7px;height:7px;border-radius:50%;background:#3A4152;flex:none}
+.h3-bar i:nth-child(1){background:#FF5F57}.h3-bar i:nth-child(2){background:#FEBC2E}.h3-bar i:nth-child(3){background:#28C840}
+.h3-bar span{font-family:var(--mono);font-size:9.6px;color:var(--muted);margin-left:7px;letter-spacing:.05em}
+.h3-bar b{margin-left:auto;font-family:var(--mono);font-size:8.6px;letter-spacing:.13em;color:var(--acc);
+  border:1px solid rgba(var(--acc-rgb),.45);border-radius:99px;padding:3px 8px;font-weight:500}
+.h3-ic{padding:14px;height:calc(100% - 33px);display:flex;flex-direction:column;gap:9px}
+.h3-not{margin-top:16px;font-size:13px;color:var(--muted);line-height:1.6}
+.h3-not b{color:var(--fg-dim);font-weight:500}
+[data-olay]{cursor:pointer;position:relative;transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
+[data-olay]:hover,[data-olay]:focus-visible{transform:translateY(-1px)}
+[data-olay]::after{content:"";position:absolute;left:50%;top:50%;
+  transform:translate(-50%,-50%);width:100%;min-width:26px;height:100%;min-height:26px}
+button[data-olay]{font-family:inherit;color:inherit}
+.ol-sat{display:flex;gap:6px}
+.ol-cip{flex:1;border:1px solid var(--hair);border-radius:7px;padding:7px 8px;background:rgba(255,255,255,.03)}
+.ol-cip u{display:block;text-decoration:none;font-family:var(--mono);font-size:8.2px;letter-spacing:.12em;color:var(--muted)}
+.ol-cip b{display:block;font-family:var(--mono);font-size:13px;color:var(--acc);margin-top:3px;letter-spacing:-.02em}
+.ol-olay{display:grid;gap:6px;margin-top:3px;list-style:none;padding:0}
+.ol-olay li{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:8.8px;
+  color:var(--fg-dim);letter-spacing:.04em}
+.ol-olay i{width:6px;height:6px;border-radius:50%;background:var(--acc);flex:none;
+  box-shadow:0 0 8px 1px rgba(var(--acc-rgb),.8)}
+.ol-olay li.parla{color:var(--acc)}
+.ol-olay li.parla i{animation:olayParla .9s var(--ease) 3}
+@keyframes olayParla{
+  0%,100%{transform:scale(1);box-shadow:0 0 8px 1px rgba(var(--acc-rgb),.8)}
+  50%{transform:scale(1.6);box-shadow:0 0 18px 5px rgba(var(--acc-rgb),1)}}
+.ol-not{margin-top:auto;font-family:var(--mono);font-size:8.4px;color:var(--muted);
+  border-top:1px solid var(--hair);padding-top:8px;line-height:1.5}
+/* hub içerik yardımcıları */
+.hb-cz{height:9px;border-radius:3px;background:rgba(255,255,255,.16)}
+.hb-cz.a{background:rgba(var(--acc-rgb),.5);height:11px}
+.hb-kart{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
+.hb-kart i{height:38px;border-radius:7px;border:1px solid var(--hair);
+  background:linear-gradient(160deg,rgba(var(--acc-rgb),.14),transparent)}
+.hb-cip{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:8.4px;
+  letter-spacing:.08em;color:var(--fg-dim);border:1px solid var(--hair);border-radius:99px;padding:4px 9px}
+.hb-cip.vur{color:var(--acc);border-color:rgba(var(--acc-rgb),.5);background:rgba(var(--acc-rgb),.08)}
+.hb-cipler{display:flex;gap:5px;flex-wrap:wrap}
+.hb-btn{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:6px;
+  height:24px;padding:0 12px;border:0;border-radius:99px;background:var(--acc);color:#04141A;
+  font-family:var(--sans);font-size:9.4px;font-weight:700;cursor:pointer;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.hb-btn:hover,.hb-btn:focus-visible{transform:translateY(-1px);box-shadow:0 7px 18px -6px rgba(var(--acc-rgb),.95)}
+.hb-ipucu{font-family:var(--mono);font-size:10px;letter-spacing:.09em;color:var(--muted);margin-top:5px}
+.hb-term{font-family:var(--mono);font-size:9.2px;line-height:2;color:var(--fg-dim);letter-spacing:.03em}
+.hb-term b{color:var(--acc);font-weight:500}
+.hb-daireler{position:relative;height:74px;margin:4px 0}
+.hb-daireler i{position:absolute;top:0;width:70px;height:70px;border-radius:50%;
+  border:1.4px solid rgba(var(--acc-rgb),.6);background:rgba(var(--acc-rgb),.07)}
+.hb-daireler i:nth-child(1){left:calc(50% - 58px)}
+.hb-daireler i:nth-child(2){left:calc(50% - 12px);opacity:.75}
+.hb-dalga{display:flex;align-items:flex-end;gap:3px;height:34px}
+.hb-dalga i{flex:1;border-radius:2px;background:rgba(var(--acc-rgb),.55);height:var(--h)}
+.hb-serp{display:grid;gap:7px}
+.hb-serp > div{border:1px solid var(--hair);border-radius:7px;padding:7px 9px}
+.hb-serp .siz{border-color:rgba(var(--acc-rgb),.55);background:rgba(var(--acc-rgb),.07)}
+.hb-serp u{display:block;text-decoration:none;font-family:var(--mono);font-size:8px;color:var(--muted)}
+.hb-serp span{display:block;height:7px;border-radius:3px;background:rgba(255,255,255,.16);margin-top:5px;width:72%}
+.hb-serp .siz span{background:rgba(var(--acc-rgb),.5)}
+.hb-film{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.hb-film > *{aspect-ratio:16/10;border-radius:7px;border:1px solid var(--hair);position:relative;
+  background:linear-gradient(160deg,rgba(var(--acc-rgb),.13),transparent);padding:0}
+.hb-zaman{border:1px solid var(--hair);border-radius:7px;padding:6px;display:grid;gap:5px}
+.hb-zaman i{display:block;height:12px;border-radius:4px;background:rgba(var(--acc-rgb),.35)}
+.hb-zaman i.k{width:62%;background:rgba(255,255,255,.14)}
+@media(prefers-reduced-motion:reduce){
+  .h3-sahne{transform:none}
+  .h3-kat{transition:none}
+  .ol-olay li.parla i{animation:none}
+}
+
+.kny{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+.kny > div{border:1px solid var(--hair);border-radius:var(--r-md);padding:18px;background:var(--panel);
+  transition:.35s var(--ease)}
+.kny > div:hover{border-color:var(--hair-strong);transform:translateY(-3px)}
+.kny b{display:block;font-family:var(--mono);font-size:clamp(17px,2.2vw,23px);color:var(--acc);
+  letter-spacing:-.02em;line-height:1.15}
+.kny span{display:block;margin-top:8px;font-size:12.4px;color:var(--muted);line-height:1.45}
+
+.alt{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.alt-k{position:relative;border:1px solid var(--hair);border-radius:var(--r-lg);padding:24px 22px;
+  background:var(--panel);overflow:hidden;transition:.38s var(--ease)}
+.alt-k::after{content:"";position:absolute;right:-70px;top:-70px;width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle,rgba(var(--acc-rgb),.14),transparent 70%);opacity:0;transition:.4s}
+.alt-k:hover{border-color:var(--hair-strong);transform:translateY(-4px)}
+.alt-k:hover::after{opacity:1}
+.alt-k > *{position:relative}
+.alt-no{font-family:var(--mono);font-size:10.6px;letter-spacing:.15em;color:var(--acc);display:block;
+  margin-bottom:13px}
+.alt-k h3{font-size:18px;letter-spacing:-.03em;margin-bottom:9px}
+.alt-k p{font-size:13.8px;color:var(--muted);line-height:1.65;margin-bottom:14px}
+.alt-k ul{display:grid;gap:7px}
+.alt-k li{font-size:12.8px;color:var(--fg-dim);display:flex;gap:8px;align-items:flex-start;line-height:1.5}
+.alt-k li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--acc);flex:none;margin-top:7px}
+
+/* kapsam kartları artık alt sayfa linki */
+a.alt-k{display:block;color:inherit}
+.alt-git{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-family:var(--mono);
+  font-size:10.2px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);
+  transition:gap .3s var(--ease)}
+a.alt-k:hover .alt-git{gap:12px}
+
+.kps{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.kps-k{border:1px solid var(--hair);border-radius:var(--r-lg);padding:24px 22px;background:var(--panel)}
+.kps-k h3{font-family:var(--mono);font-size:10.6px;letter-spacing:.15em;text-transform:uppercase;
+  margin-bottom:16px;font-weight:500}
+.kps-k--var h3{color:var(--acc)}
+.kps-k--yok h3{color:var(--muted)}
+.kps-k ul{display:grid;gap:10px}
+.kps-k li{font-size:13.8px;line-height:1.6;display:flex;gap:10px;align-items:flex-start}
+.kps-k li svg{width:15px;height:15px;flex:none;margin-top:3px}
+.kps-k--var li{color:var(--fg-dim)}
+.kps-k--var li svg{color:var(--acc)}
+.kps-k--yok li{color:var(--muted)}
+.kps-k--yok li svg{color:var(--muted)}
+
+.fyt{border:1px solid var(--hair);border-radius:var(--r-lg);padding:clamp(26px,3.4vw,38px);
+  background:var(--panel);max-width:840px}
+.fyt-band{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.fyt-band b{font-family:var(--mono);font-size:clamp(24px,3.6vw,34px);color:var(--acc);letter-spacing:-.02em;line-height:1.25}
+.fyt-band span{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.fyt > p{font-size:14.4px;color:var(--muted);line-height:1.7;margin-bottom:22px}
+.fyt-ne{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-bottom:22px}
+.fyt-ne li{font-size:13.6px;color:var(--fg-dim);display:flex;gap:9px;align-items:flex-start;line-height:1.55}
+.fyt-ne li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:7px}
+/* Fiyat kutusunun dibinde SONRAKİ ADIM. Yeni iddia eklemiyor: dürüstlük
+   cümlesi zaten #durustluk bölümünde yazıyor, butonlar sayfada zaten
+   kullanılan hedefler. */
+.fyt-adim{margin-top:auto;padding-top:26px;border-top:1px solid var(--hair)}
+.fyt-adim > p{font-size:13.8px;color:var(--muted);line-height:1.65;margin:0 0 16px;max-width:52ch}
+.fyt-adim > p a{color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.45)}
+.fyt-adim > p a:hover{text-decoration-color:var(--acc)}
+.fyt-btn{display:flex;gap:10px;flex-wrap:wrap}
+
+/* --- fiyat kutusu + reklam paneli infografiği yan yana --- */
+.fyt-satir{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);
+  gap:20px;align-items:start}
+/* Kutu grafikle aynı yüksekliğe gerilir; içerik yukarı toplanıp
+   "sonraki adım" bloğu dibe yaslanır — böylece gerilme boşluk üretmez. */
+.fyt-satir .fyt{max-width:none;height:100%;display:flex;flex-direction:column}
+.fyt-satir .fyt-ne{margin-bottom:0}
+@media(max-width:1000px){.fyt-adim{margin-top:26px}}
+.serp{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);
+  padding:18px 18px 16px;height:100%;display:flex;flex-direction:column}
+/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
+.serp svg{width:100%;height:auto;display:block;border-radius:12px}
+.serp figcaption{margin-top:13px;font-size:12.4px;line-height:1.55;color:var(--muted)}
+.serp figcaption b{color:var(--fg-dim);font-weight:600}
+@media(max-width:1000px){
+  .fyt-satir{grid-template-columns:1fr}
+  .serp{max-width:560px;margin-inline:auto}
+}
+
+/* --- reklam paneli infografiği canlanması ---
+   YENİ JS YOK: .serp zaten .rv sınıfında; sitenin mevcut görünürlük gözlemcisi
+   (site/js/tm.js) görününce .in ekliyor, animasyonlar ona bağlı. Tek sefer oynar.
+   prefers-reduced-motion: tm.css'teki global kural animation-duration'ı 0.001ms'e
+   indiriyor ve forwards sayesinde her öğe anında son hâline oturuyor — ayrı
+   bir kural yazmaya gerek yok.
+   Sınıf öneki p- · keyframe öneki p (SEO sayfasındaki s-/s ile çakışmasın).
+   Süre çizelgesi: başlık 0.3s · sekmeler 0.55s · grafik başlığı 0.95s ·
+   kartlar 1.2s · kılavuz çizgileri 1.4s · sütunlar 1.7s · kanal etiketleri 1.78s ·
+   halka+parlama 2.2s · alt şerit 2.35s · rozet 2.5s → toplam ~3s. */
+.serp svg .p-bas{opacity:0}
+.serp svg .p-sekme > g{opacity:0}
+.serp svg .p-baslik{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.serp svg .p-kart > g{opacity:0;transform:translateY(12px);transform-box:fill-box}
+.serp svg .p-izgara line{stroke-dasharray:560;stroke-dashoffset:560}
+.serp svg .p-sutun rect{opacity:0;transform:scaleY(0);
+  transform-box:fill-box;transform-origin:50% 100%}
+.serp svg .p-etiket text{opacity:0}
+.serp svg .p-isik{opacity:0}
+.serp svg .p-halka{stroke-dasharray:480;stroke-dashoffset:480}
+.serp svg .p-alt{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.serp svg .p-rozet{opacity:0;transform:translateX(22px);transform-box:fill-box}
+
+.serp.in svg .p-bas{animation:pBelir .5s var(--ease) .30s forwards}
+.serp.in svg .p-sekme > g:nth-child(1){animation:pBelir .45s var(--ease) .55s forwards}
+.serp.in svg .p-sekme > g:nth-child(2){animation:pBelir .45s var(--ease) .64s forwards}
+.serp.in svg .p-sekme > g:nth-child(3){animation:pBelir .45s var(--ease) .73s forwards}
+.serp.in svg .p-baslik{animation:pKay .5s var(--ease) .95s forwards}
+.serp.in svg .p-kart > g:nth-child(1){animation:pKay .5s var(--ease) 1.20s forwards}
+.serp.in svg .p-kart > g:nth-child(2){animation:pKay .5s var(--ease) 1.32s forwards}
+.serp.in svg .p-izgara line:nth-child(1){animation:pCiz .7s var(--ease) 1.40s forwards}
+.serp.in svg .p-izgara line:nth-child(2){animation:pCiz .7s var(--ease) 1.46s forwards}
+.serp.in svg .p-izgara line:nth-child(3){animation:pCiz .7s var(--ease) 1.52s forwards}
+.serp.in svg .p-izgara line:nth-child(4){animation:pCiz .7s var(--ease) 1.58s forwards}
+.serp.in svg .p-izgara line:nth-child(5){animation:pCiz .7s var(--ease) 1.64s forwards}
+.serp.in svg .p-sutun rect:nth-child(1){animation:pYuksel .6s cubic-bezier(.22,1,.36,1) 1.70s forwards}
+.serp.in svg .p-sutun rect:nth-child(2){animation:pYuksel .6s cubic-bezier(.22,1,.36,1) 1.82s forwards}
+.serp.in svg .p-sutun rect:nth-child(3){animation:pYuksel .6s cubic-bezier(.22,1,.36,1) 1.94s forwards}
+.serp.in svg .p-sutun rect:nth-child(4){animation:pYuksel .6s cubic-bezier(.22,1,.36,1) 2.06s forwards}
+.serp.in svg .p-etiket text:nth-child(1){animation:pBelir .4s var(--ease) 1.78s forwards}
+.serp.in svg .p-etiket text:nth-child(2){animation:pBelir .4s var(--ease) 1.90s forwards}
+.serp.in svg .p-etiket text:nth-child(3){animation:pBelir .4s var(--ease) 2.02s forwards}
+.serp.in svg .p-etiket text:nth-child(4){animation:pBelir .4s var(--ease) 2.14s forwards}
+.serp.in svg .p-isik{animation:pIsik .8s var(--ease) 2.20s forwards}
+.serp.in svg .p-halka{animation:pCiz .85s var(--ease) 2.20s forwards}
+.serp.in svg .p-alt{animation:pKay .5s var(--ease) 2.35s forwards}
+.serp.in svg .p-rozet{animation:pRozet .5s var(--ease) 2.50s forwards}
+
+@keyframes pBelir{to{opacity:1}}
+@keyframes pKay{to{opacity:1;transform:translateY(0)}}
+@keyframes pCiz{to{stroke-dashoffset:0}}
+@keyframes pYuksel{to{opacity:1;transform:scaleY(1)}}
+@keyframes pIsik{to{opacity:.18}}
+@keyframes pRozet{to{opacity:1;transform:translateX(0)}}
+
+.gbs{display:flex;align-items:center;gap:clamp(16px,2.4vw,30px);margin:0 0 20px}
+.gbs img{width:clamp(84px,11vw,132px);height:auto;aspect-ratio:1;flex:none;border-radius:var(--r-md);
+  border:1px solid var(--hair);background:var(--bg-2)}
+.gbs-in{flex:1;min-width:0}
+.gbs-in h3{margin:0 0 10px}
+.gbs-in p{margin:0}
+@media(max-width:560px){
+  .gbs{flex-direction:column;align-items:flex-start;gap:14px}
+  .gbs img{width:88px}
+}
+
+.durust{border:1px solid rgba(var(--acc-rgb),.32);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(var(--acc-rgb),.08),transparent);padding:clamp(24px,3.2vw,34px)}
+.durust h3{font-size:clamp(18px,2.4vw,23px);letter-spacing:-.03em;margin:0 0 12px}
+.durust p{color:var(--fg-dim);font-size:15px;line-height:1.75;margin:0}
+
+.sss,.akor{display:grid;gap:11px;max-width:820px}
+.akor{max-width:none}
+.sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
+.sss details[open],.akor details[open]{border-color:var(--hair-strong)}
+.sss summary,.akor summary{cursor:pointer;list-style:none;padding:18px 22px;font-size:15.6px;font-weight:600;
+  display:flex;align-items:center;gap:14px}
+.sss summary::-webkit-details-marker,.akor summary::-webkit-details-marker{display:none}
+.sss summary::after,.akor summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.sss details[open] summary::after,.akor details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.sss summary:hover,.akor summary:hover{color:var(--acc)}
+.sss .cvp,.akor .cvp{padding:0 22px 20px;font-size:14.4px;color:var(--muted);line-height:1.7}
+
+.iki{display:grid;grid-template-columns:1.45fr .8fr;gap:clamp(20px,3vw,38px);align-items:start}
+.iki-yan{position:sticky;top:calc(var(--nav-h) + 20px);display:grid;gap:12px}
+
+.don{perspective:1200px;perspective-origin:50% 45%}
+.don-sahne{position:relative;transform-style:preserve-3d;animation:donDur 18s linear infinite;
+  aspect-ratio:4/3.1}
+.don:hover .don-sahne{animation-play-state:paused}
+@keyframes donDur{
+  0%{transform:rotateX(9deg) rotateY(-22deg)}
+  50%{transform:rotateX(9deg) rotateY(22deg)}
+  100%{transform:rotateX(9deg) rotateY(-22deg)}
+}
+.don-cam{position:absolute;inset:0;border:1px solid var(--hair);border-radius:13px;overflow:hidden;
+  background:var(--bg-2);box-shadow:0 26px 60px -28px rgba(0,0,0,.95);transform:translateZ(26px)}
+.don-bar{display:flex;align-items:center;gap:6px;padding:8px 11px;border-bottom:1px solid var(--hair);
+  background:rgba(255,255,255,.035)}
+.don-bar i{width:6px;height:6px;border-radius:50%;background:#3A4152;flex:none}
+.don-bar i:nth-child(1){background:#FF5F57}.don-bar i:nth-child(2){background:#FEBC2E}.don-bar i:nth-child(3){background:#28C840}
+.don-bar span{font-family:var(--mono);font-size:8.6px;color:var(--muted);margin-left:6px;letter-spacing:.05em}
+.don-ic{padding:12px;display:flex;flex-direction:column;gap:8px;height:calc(100% - 30px)}
+.don-ic .cz{height:9px;border-radius:3px;background:rgba(255,255,255,.14)}
+.don-ic .cz.a{width:62%;background:rgba(var(--acc-rgb),.55);height:11px}
+.don-ic .cz.b{width:86%}
+.don-ic .cz.c{width:48%}
+.don-kart{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:2px}
+.don-kart i{height:34px;border-radius:6px;border:1px solid var(--hair);
+  background:linear-gradient(160deg,rgba(var(--acc-rgb),.16),transparent)}
+.don-btn{margin-top:auto;width:74px;height:16px;border-radius:99px;background:var(--acc);opacity:.9}
+.don-arka{position:absolute;inset:12px 12px auto 12px;height:70%;border:1px solid var(--hair);
+  border-radius:12px;background:rgba(255,255,255,.02);transform:translateZ(-34px)}
+.don-not{margin-top:14px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);text-align:center}
+
+.yk{display:block;border:1px solid var(--hair);border-radius:var(--r-md);padding:15px 16px;
+  background:var(--panel);transition:.3s var(--ease)}
+.yk:hover{border-color:var(--k,var(--acc));transform:translateY(-2px)}
+.yk b{display:flex;align-items:center;gap:9px;font-size:14.2px;margin-bottom:5px;letter-spacing:-.02em}
+.yk b::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--k,var(--acc));flex:none}
+.yk span{font-size:12.4px;color:var(--muted);line-height:1.55}
+.yk-cta{border-color:rgba(var(--acc-rgb),.4);background:rgba(var(--acc-rgb),.07)}
+.yk-cta .btn{width:100%;justify-content:center;margin-top:11px}
+.yk-bas{font-family:var(--mono);font-size:9.6px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:2px}
+
+@media(max-width:960px){
+  .iki{grid-template-columns:1fr}
+  .iki-yan{position:static}
+  .don{display:none}
+}
+
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.ara-cta{border-block:1px solid var(--hair);background:rgba(var(--acc-rgb),.045);
+  padding:clamp(20px,2.6vw,28px) 0;margin:clamp(28px,3.6vw,44px) 0}
+.ara-cta-in{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.ara-cta p{margin:0}
+.ara-cta p b{display:block;font-size:clamp(16px,2vw,19px);letter-spacing:-.02em;margin-bottom:5px}
+.ara-cta p span{font-size:13.6px;color:var(--muted)}
+.ara-cta-btn{display:flex;gap:10px;flex-wrap:wrap;flex:none}
+
+/* --- ARA CTA: 3D akışkan şerit --- */
+.ara-cta{position:relative;overflow:hidden;isolation:isolate;
+  background:linear-gradient(180deg,rgba(var(--acc-rgb),.06),rgba(11,13,18,.6))}
+.ac3-zemin{position:absolute;left:-12%;right:-12%;bottom:-58%;height:130%;pointer-events:none;z-index:-2;
+  transform:perspective(520px) rotateX(60deg);transform-origin:top;
+  background:
+    repeating-linear-gradient(90deg,rgba(var(--acc-rgb),.18) 0 1px,transparent 1px 72px),
+    repeating-linear-gradient(0deg,rgba(var(--acc-rgb),.14) 0 1px,transparent 1px 72px);
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 34%);
+  mask-image:linear-gradient(180deg,transparent,#000 34%);
+  animation:ac3Zemin 3.2s linear infinite}
+@keyframes ac3Zemin{to{background-position:0 0,0 72px}}
+.ac3-s{position:absolute;top:-35%;bottom:-35%;width:170px;pointer-events:none;z-index:-1;
+  transform:skewX(-18deg);filter:blur(7px);
+  background:linear-gradient(90deg,transparent,rgba(var(--acc-rgb),.14) 42%,
+    rgba(255,255,255,.09) 50%,rgba(var(--acc-rgb),.14) 58%,transparent);
+  animation:ac3Kay 7s linear infinite}
+.ac3-s.s2{width:90px;filter:blur(5px);animation-duration:5.2s;animation-delay:2.2s;opacity:.8}
+@keyframes ac3Kay{from{left:-22%}to{left:118%}}
+.ara-cta-btn .btn-p{position:relative;overflow:hidden;
+  box-shadow:0 10px 32px -10px rgba(var(--acc-rgb),.6);animation:ac3Nabz 2.6s ease-in-out infinite}
+@keyframes ac3Nabz{50%{box-shadow:0 10px 40px -6px rgba(var(--acc-rgb),.95)}}
+.ara-cta-btn .btn-p::after{content:"";position:absolute;top:-45%;bottom:-45%;left:-55%;width:38%;
+  transform:skewX(-25deg);pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);
+  animation:ac3Parla 3.4s var(--ease) infinite}
+@keyframes ac3Parla{0%,52%{left:-55%}88%,100%{left:135%}}
+.ara-cta-btn .btn-p svg{animation:ac3Ok 1.7s var(--ease) infinite}
+@keyframes ac3Ok{50%{transform:translateX(4px)}}
+@media(prefers-reduced-motion:reduce){
+  .ac3-zemin,.ac3-s,.ara-cta-btn .btn-p,.ara-cta-btn .btn-p::after,.ara-cta-btn .btn-p svg{animation:none}
+  .ac3-s{display:none}
+}
+@media(max-width:640px){
+  .ara-cta-in{flex-direction:column;align-items:flex-start}
+  .ara-cta-btn .btn{flex:1}
+}
+
+.band{position:relative;border:1px solid rgba(var(--acc-rgb),.28);border-radius:26px;
+  padding:clamp(38px,5vw,62px) 32px;text-align:center;overflow:hidden;
+  background:linear-gradient(140deg,rgba(var(--acc-rgb),.09),rgba(0,229,255,.07))}
+.band::before{content:"";position:absolute;inset:0;z-index:1;
+  background:radial-gradient(600px 280px at 50% -30%,rgba(var(--acc-rgb),.2),transparent 70%)}
+.band > *{position:relative;z-index:2}
+.band h2{font-size:clamp(23px,3.4vw,38px);margin-bottom:12px}
+.band p{color:var(--fg-dim);margin-bottom:28px;font-size:16px}
+.band-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+
+.wa{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:90;width:54px;height:54px;border-radius:50%;
+  background:#25D366;display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+
+@media(max-width:960px){
+  .phd-iki{grid-template-columns:1fr}
+  .kps{grid-template-columns:1fr}
+  .alt{grid-template-columns:1fr}
+  .kny{grid-template-columns:repeat(2,1fr)}
+  .fyt-ne{grid-template-columns:1fr}
+  .ftr-ust{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .nav-links,.nav-tel{display:none}
+  .burger{display:block}
+  .ftr-ust{grid-template-columns:1fr}
+}
+
+.yz-ilgili{margin:clamp(30px,4vw,44px) 0 0;padding-top:clamp(24px,3vw,32px);
+  border-top:1px solid var(--hair)}
+.yz-ilgili h2{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;margin:0 0 4px}
+.yz-ilgili .not{font-size:13.4px;color:var(--muted);margin:0 0 18px}
+.yz-ilgili ul{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  list-style:none;padding:0;margin:0}
+.yz-ilgili li{margin:0}
+.yz-ilgili a{display:flex;flex-direction:column;gap:5px;height:100%;
+  border:1px solid var(--hair);border-radius:var(--r-md);padding:14px 16px;
+  text-decoration:none;transition:border-color .25s,transform .25s;background:rgba(255,255,255,.012)}
+.yz-ilgili a:hover{border-color:rgba(var(--k,0,229,255),.5);transform:translateY(-2px)}
+.yz-ilgili .kat{font-family:var(--mono);font-size:9.4px;letter-spacing:.14em;
+  text-transform:uppercase;color:rgb(var(--k,0,229,255))}
+.yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
+@media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* GRAFIK-MOBIL-ONARIM */
+/* Dar ekranda grafik küçülünce yazısı okunmaz oluyordu (ölçüm: 390px'te
+   4.4-5.1px). Sitenin tablo deseni: kapsayıcı yatay kayar,
+   SVG okunur asgari genişliğini korur. */
+.serp-kaydir{display:none;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--acc);margin:0 0 10px;opacity:.85}
+@media(max-width:1000px){
+  .serp{overflow:auto hidden;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+  .serp svg{min-width:620px}
+  .serp-kaydir{display:block}
+}
+.kaynak{color:var(--acc);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.kaynak:hover{text-decoration-thickness:2px}
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Dijital Pazarlama",
+      "serviceType": "Google Ads, Meta Ads, performans pazarlaması ve sosyal medya yönetimi",
+      "url": "https://www.tasarimmania.com/dijital-pazarlama/",
+      "description": "Google Ads, Meta Ads, performans pazarlaması ve sosyal medya yönetimini uçtan uca yürüten aylık dijital pazarlama hizmeti.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Türkiye"
+      },
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "TasarımMania",
+        "url": "https://www.tasarimmania.com/",
+        "telephone": "+905547916545",
+        "sameAs": [
+          "https://www.instagram.com/tasarimmaniaa/",
+          "https://www.facebook.com/tasarimmania/"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+          "addressLocality": "Bakırköy",
+          "addressRegion": "İstanbul",
+          "addressCountry": "TR"
+        }
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Dijital Pazarlama alt hizmetleri",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Google Ads yönetimi"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Meta Ads yönetimi"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Performans pazarlaması"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Sosyal medya yönetimi"
+            }
+          }
+        ]
+      },
+      "@id": "https://www.tasarimmania.com/dijital-pazarlama/#hizmet",
+      "subjectOf": [
+        {
+          "@type": "Article",
+          "@id": "https://www.tasarimmania.com/blog/e-posta-pazarlama/#article",
+          "url": "https://www.tasarimmania.com/blog/e-posta-pazarlama/",
+          "name": "E-Posta Pazarlama Stratejisi: Doğru Gönderim Zamanı Var mı?"
+        },
+        {
+          "@type": "Article",
+          "@id": "https://www.tasarimmania.com/blog/google-ads-ve-ppc/#article",
+          "url": "https://www.tasarimmania.com/blog/google-ads-ve-ppc/",
+          "name": "Google Ads Reklam Yönetimi mi, Organik Büyüme mi? Maliyet Kıyası"
+        },
+        {
+          "@type": "Article",
+          "@id": "https://www.tasarimmania.com/blog/reklam-metni-yazma/#article",
+          "url": "https://www.tasarimmania.com/blog/reklam-metni-yazma/",
+          "name": "Google Ads Reklam Metni Nasıl Yazılır? 9 Adımlık Formül"
+        },
+        {
+          "@type": "Article",
+          "@id": "https://www.tasarimmania.com/blog/sosyal-medya-stratejileri/#article",
+          "url": "https://www.tasarimmania.com/blog/sosyal-medya-stratejileri/",
+          "name": "Sosyal Medya Stratejisi Nedir? Platform Seçimi Neye Göre Yapılır?"
+        },
+        {
+          "@type": "Article",
+          "@id": "https://www.tasarimmania.com/blog/sosyal-medya-reklam-yonetimi/#article",
+          "url": "https://www.tasarimmania.com/blog/sosyal-medya-reklam-yonetimi/",
+          "name": "Sosyal Medya Reklam Yönetimi: Hangi Mecrada Hangi Format Kazandırır?"
+        },
+        {
+          "@type": "Article",
+          "@id": "https://www.tasarimmania.com/blog/influencer-pazarlama/#article",
+          "url": "https://www.tasarimmania.com/blog/influencer-pazarlama/",
+          "name": "Influencer Pazarlama Ajansı Gözüyle: Mikro mu, Makro mu?"
+        },
+        {
+          "@type": "Article",
+          "@id": "https://www.tasarimmania.com/blog/sosyal-medya-raporlama/#article",
+          "url": "https://www.tasarimmania.com/blog/sosyal-medya-raporlama/",
+          "name": "Sosyal Medya Raporlama: Hangi Metrikleri İzlemeli?"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana sayfa",
+          "item": "https://www.tasarimmania.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Hizmetler",
+          "item": "https://www.tasarimmania.com/hizmetler/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Dijital Pazarlama",
+          "item": "https://www.tasarimmania.com/dijital-pazarlama/"
+        }
+      ],
+      "@id": "https://www.tasarimmania.com/dijital-pazarlama/#kirintili"
+    },
+    {
+      "@type": "FAQPage",
+      "dateModified": "2026-08-30",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Dijital pazarlama ajansı tam olarak hangi işleri üstleniyor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google Ads, Meta Ads, performans pazarlaması ve sosyal medya yönetimini uçtan uca yürütüyoruz. Hesap kurulumundan hedef kitle tanımına, kreatif üretiminden dönüşüm takibine kadar reklam sürecinin tamamını üstleniyoruz; talep eden işletmeler için Instagram hesabının aylık içerik ve etkileşim yönetimini de kapsıyoruz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Dijital pazarlama fiyatları neye göre belirleniyor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yönetilen kanal sayısı, kapsam genişliği ve raporlama sıklığına göre belirlenir; net rakam, kapsamı birlikte çıkardıktan sonra teklifte belirtilir. Kurulum aşaması ayrıca 2-3 hafta sürer ve bu süreçte hesap açma, hedefleme ve dönüşüm takibi tamamlanır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Reklam bütçesi ajans ücretine dahil mi, ayrı mı ödeniyor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır, reklam bütçesi ayrı ödenir; aylık yönetim ücretine dahil değildir. Reklam bütçesinin kendisi Google Ads veya Meta Business hesabınıza doğrudan siz tarafından yüklenir ve harcanır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Reklam ve ölçüm hesapları kimin adına açılıyor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hesaplar her zaman sizin işletmeniz adına açılır, mülkiyet sizde kalır. Hizmet sona erse dahi hesap, veri ve reklam geçmişi sizde kalmaya devam eder."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Belirli bir dönüşüm sayısı ya da sonuç garantisi veriyor musunuz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır; hiçbir ajans kesin sonuç garantisi veremez, biz de vermiyoruz. Platform algoritmaları, rakip yoğunluğu ve ürün-pazar uyumu ajansın kontrolü dışındadır; bunun yerine gerçekçi hedefler belirleyip şeffaf raporlama ile süreci birlikte yönetiyoruz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Dijital pazarlama hizmet sözleşmesi kaç aylık, erken çıkış hakkı var mı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hizmet aylık yönetim modeliyle ilerler; kurulum tamamlandıktan sonra ay bazında devam eder. Sözleşme ve fesih koşulları görüşme aşamasında netleştirilir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Raporu hangi sıklıkta ve hangi metriklerle veriyorsunuz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aylık düzenli rapor veriyoruz; dönüşüm, maliyet ve etkileşim metrikleri raporda yer alıyor. Rapor üzerinden bir strateji görüşmesi yaparak bir sonraki ayın önceliklerini birlikte belirliyoruz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Google Ads mi Meta Ads mi bize daha uygun, nasıl karar veriliyor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Karar, hedef kitlenizin arama mı yoksa sosyal medya davranışına mı yakın olduğuna göre veriliyor. Arama niyeti yüksekse Google Ads, bilinirlik önemliyse Meta Ads öne çıkar; çoğu işletmede ikisi birlikte yönetilir."
+          }
+        }
+      ],
+      "@id": "https://www.tasarimmania.com/dijital-pazarlama/#sss"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.tasarimmania.com/#kurulus",
+      "name": "TasarımMania",
+      "url": "https://www.tasarimmania.com/",
+      "knowsAbout": [
+        "Web tasarımı ve yazılım geliştirme",
+        "Mobil uygulama geliştirme",
+        "Dijital pazarlama ve performans reklamcılığı",
+        "Video prodüksiyon ve reklam filmi",
+        "Arama motoru optimizasyonu",
+        "Grafik tasarım ve kurumsal kimlik",
+        "E-ticaret sitesi kurulumu",
+        "Sosyal medya yönetimi"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.tasarimmania.com/#site",
+      "url": "https://www.tasarimmania.com/",
+      "name": "TasarımMania",
+      "inLanguage": "tr-TR",
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.tasarimmania.com/dijital-pazarlama/#sayfa",
+      "url": "https://www.tasarimmania.com/dijital-pazarlama/",
+      "name": "Dijital Pazarlama Ajansı — Google Ads, Meta Ads, Performans Pazarlaması | TasarımMania",
+      "description": "Google Ads, Meta Ads, performans pazarlaması ve sosyal medya yönetimi tek ekipten. Kurulum 2-3 hafta. Hesaplar sizin adınıza açılır; garanti değil şeffaflık.",
+      "inLanguage": "tr-TR",
+      "isPartOf": {
+        "@id": "https://www.tasarimmania.com/#site"
+      },
+      "breadcrumb": {
+        "@id": "https://www.tasarimmania.com/dijital-pazarlama/#kirintili"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg"
+      },
+      "mainEntity": {
+        "@id": "https://www.tasarimmania.com/dijital-pazarlama/#hizmet"
+      }
+    }
+  ]
+}
+</script>
+
+</head>
+<body data-dal="pazarlama">
+
+<a class="skip" href="#ana">İçeriğe geç</a>
+
+<nav class="nav" data-nav aria-label="Ana menü">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../" aria-label="TasarımMania ana sayfa">
+      <img src="../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async" fetchpriority="high">
+    </a>
+    <div class="nav-links">
+      <a href="../hizmetler/" aria-current="page">Hizmetler</a>
+      <a href="../#isler">İşler</a>
+      <a href="../hakkimizda/">Ajans</a>
+      <a href="../blog/">Blog</a>
+      <a href="../#surec">Süreç</a>
+      <a href="../teklif/">Teklif Al</a>
+      <a href="../iletisim/">İletişim</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../hizmetler/">Hizmetler</a><a href="../#isler">İşler</a><a href="../hakkimizda/">Ajans</a><a href="../blog/">Blog</a>
+  <a href="../#surec">Süreç</a><a href="../teklif/">Teklif Al</a><a href="../iletisim/">İletişim</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Konum">
+        <a href="../">Ana sayfa</a><span aria-hidden="true">/</span>
+        <a href="../hizmetler/">Hizmetler</a><span aria-hidden="true">/</span>
+        <span>Dijital Pazarlama</span>
+      </nav>
+      <div class="phd-iki">
+        <div>
+          <span class="mod-no">Modül 03</span>
+          <h1 data-kin>Dijital Pazarlama Ajansı: Google Ads, Meta Ads ve Performans Pazarlaması Yönetimi</h1>
+          <p class="h1-alt">GOOGLE ADS · META ADS · PERFORMANS PAZARLAMASI · SOSYAL MEDYA</p>
+          <p class="lead">TasarımMania, işletmenizin çevrimiçi büyümesini uçtan uca üstlenen bir dijital pazarlama ajansı olarak Google Ads, Meta Ads, performans pazarlaması ve sosyal medya yönetimini tek ekipte birleştirir. Hedef kitle tanımından kreatif üretime, dönüşüm takibinden bütçe optimizasyonuna kadar tüm süreci yönetiriz; amacımız tıklama değil, ölçülebilir satış ve müşteri kazanımıdır.</p>
+        </div>
+        <div class="hero3d" data-h3>
+          <div class="h3-sekme" role="tablist" aria-label="Katmanlar">
+            <button type="button" role="tab" class="acik" data-kat="0" aria-selected="true">Reklam</button>
+            <button type="button" role="tab" data-kat="1" aria-selected="false">Hedefleme</button>
+            <button type="button" role="tab" data-kat="2" aria-selected="false">Dönüşüm</button>
+          </div>
+          <div class="h3-kutu">
+            <div class="h3-sahne" data-h3-sahne>
+          <div class="h3-kat" data-kat="0" data-durum="on" role="tabpanel" aria-label="Reklam katmanı">
+            <div class="h3-bar"><i></i><i></i><i></i><span>google arama</span><b>REKLAM</b></div>
+            <div class="h3-ic">
+              <div class="hb-cz" style="width:82%;border-radius:99px;height:14px"></div>
+              <button type="button" class="hb-cip vur" data-olay="reklam_tikla" aria-label="Örnek: reklam tıklaması — dönüşüm karşılığını göster">Ad · başlığınız burada</button>
+              <div class="hb-cz" style="width:88%"></div>
+              <div class="hb-cz" style="width:64%"></div>
+              <button type="button" class="hb-btn" data-olay="form_gonder">Teklif Al
+                <svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              <p class="hb-ipucu">↑ REKLAMA YA DA BUTONA BASIN — DÖNÜŞÜMDE KARŞILIĞI YANAR</p>
+            </div>
+          </div>
+          <div class="h3-kat" data-kat="1" data-durum="orta" role="tabpanel" aria-label="Hedefleme katmanı">
+            <div class="h3-bar"><i></i><i></i><i></i><span>kitle kurgusu</span><b>HEDEFLEME</b></div>
+            <div class="h3-ic">
+              <div class="hb-daireler"><i></i><i></i></div>
+              <div class="hb-cipler"><span class="hb-cip vur">yeniden pazarlama</span><span class="hb-cip">benzer kitle</span><span class="hb-cip">ilgi alanı</span></div>
+              <p class="ol-not" style="margin-top:auto">Kesişimdeki kitle: sitenizi görmüş VE aramada aktif.</p>
+            </div>
+          </div>
+          <div class="h3-kat" data-kat="2" data-durum="arka" role="tabpanel" aria-label="Dönüşüm katmanı">
+            <div class="h3-bar"><i></i><i></i><i></i><span>dönüşüm paneli</span><b>DÖNÜŞÜM</b></div>
+            <div class="h3-ic">
+              <div class="ol-sat">
+                <div class="ol-cip"><u>EBM</u><b>izleniyor</b></div>
+                <div class="ol-cip"><u>DÖNÜŞÜM</u><b>izleniyor</b></div>
+                <div class="ol-cip"><u>BÜTÇE</u><b>optimizasyonda</b></div>
+              </div>
+              <ul class="ol-olay">
+                <li data-ad="reklam_tikla"><i></i>reklam_tikla</li>
+                <li data-ad="form_gonder"><i></i>form_gonder</li>
+                <li data-ad="telefon_tikla"><i></i>telefon_tikla</li>
+              </ul>
+              <p class="ol-not">Hangi tıklamanın satışa döndüğü baştan izlenir.</p>
+            </div>
+          </div>
+            </div>
+          </div>
+          <p class="h3-not"><b>Reklam, kitle ve ölçüm aynı anda kurulur;</b> bütçe kör noktaya akmaz.</p>
+        </div>
+      </div>
+
+      <div class="kny">
+        <div><b>2-3<i> hafta</i></b><span>Kurulum<br>süresi</span></div>
+        <div><b>4<i> kanal</i></b><span>Tek ekipte<br>yönetim</span></div>
+        <div><b>14 yıl</b><span>Web ve yazılımda<br>saha deneyimi</span></div>
+        <div><b>Sizde</b><span>Reklam ve ölçüm<br>hesapları</span></div>
+      </div>
+
+      <div class="hero-cta">
+        <a class="btn btn-p" href="../teklif/#reklam">Kapsam ve bütçe bandı çıkaralım
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Dijital%20Pazarlama%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%0AHedefim%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="sec" id="kapsam" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Bu modülde neler var</span>
+        <h2 data-kin>Bu hizmetin kapsamı: Google Ads, Meta Ads, performans ve sosyal medya</h2>
+        <p>Bu sayfada dört hizmeti tek çatı altında sunuyoruz. Sektörünüze, bütçenize ve hedeflerinize göre hangi kombinasyonun anlamlı olduğuna birlikte karar veririz.</p>
+      </div>
+
+      <div class="alt">
+        <a class="alt-k rv" href="../google-ads/">
+          <span class="alt-no">01</span>
+          <h3>Google Ads: Arama ve Görsel Ağ Reklamları</h3>
+          <p>Aranırken karşınıza çıkmanızı sağlayan hızlı, ölçülebilir reklam kanalı.</p>
+          <ul>
+            <li>Anahtar kelime araştırması ve kampanya kurgusu</li>
+            <li>Görsel ağ ve alışveriş reklamları</li>
+            <li>Dönüşüm takibi ve teklif optimizasyonu</li>
+            <li>Rekabet analizine dayalı hedefleme</li>
+          </ul>
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="alt-k rv d1" href="../meta-reklam/">
+          <span class="alt-no">02</span>
+          <h3>Meta Ads: Facebook ve Instagram Reklamları</h3>
+          <p>Doğru kitleye doğru kreatifle ulaşıp bilinirlik ve satışı birlikte büyüten yönetim.</p>
+          <ul>
+            <li>Hedef kitle segmentasyonu ve pixel kurulumu</li>
+            <li>Reklam kreatifi planlaması</li>
+            <li>A/B testleriyle optimizasyon</li>
+            <li>Yeniden pazarlama (retargeting) kurgusu</li>
+          </ul>
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="alt-k rv" href="../performans-pazarlama/">
+          <span class="alt-no">03</span>
+          <h3>Performans Pazarlaması: Dönüşüm ve Huni Yönetimi</h3>
+          <p>Tüm kanalların verisini birleştirip dönüşüm odaklı karar veren yaklaşım.</p>
+          <ul>
+            <li>Kanal bağımsız dönüşüm hunisi kurgusu</li>
+            <li>Verinin tek raporda birleştirilmesi</li>
+            <li>Edinme maliyeti ve yaşam boyu değer takibi</li>
+            <li>Bütçenin en verimli kanala yönlendirilmesi</li>
+          </ul>
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="alt-k rv d1" href="../sosyal-medya/">
+          <span class="alt-no">04</span>
+          <h3>Sosyal Medya Yönetimi: Sürekli İçerik ve Reklam</h3>
+          <p>Hesabınızı organik içerik ve reklam desteğiyle sürekli canlı tutan yönetim.</p>
+          <ul>
+            <li>İçerik takvimi ve gönderi/reels üretimi</li>
+            <li>Hesap etkileşimi ve topluluk yönetimi</li>
+            <li>Organik içeriğin reklamla desteklenmesi</li>
+            <li>Düzenli büyüme ve etkileşim raporu</li>
+          </ul>
+          <span class="alt-git">Ayrıntılı incele <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <div class="ara-cta rv"><i class="ac3-zemin" aria-hidden="true"></i><i class="ac3-s s1" aria-hidden="true"></i><i class="ac3-s s2" aria-hidden="true"></i>
+    <div class="wrap ara-cta-in">
+      <p><b>Hangi kanal size uygun, birlikte çıkaralım</b><span>Beş adım, iki dakika. Ekranda kapsam ve bütçe bandı çıkar.</span></p>
+      <div class="ara-cta-btn">
+        <a class="btn btn-p" href="../teklif/#reklam">Kapsam çıkaralım
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-g" href="tel:+905547916545">0554 791 65 45</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="sec" id="fiyat" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Bütçe</span>
+        <h2 data-kin>Dijital pazarlama fiyatları 2026: kurulum ve aylık yönetim bandı</h2>
+      </div>
+
+      <div class="fyt-satir">
+      <div class="fyt rv d1">
+        <div class="fyt-band">
+          <b>Kurulum 2-3 hafta · Sonrası aylık yönetim</b>
+          <span>DİJİTAL PAZARLAMA · AYLIK YÖNETİM</span>
+        </div>
+        <p>Bu bir tek seferlik teslim değil, sürekli bir hizmettir: kurulum (hesap açma, hedef kitle, kreatif, dönüşüm takibi) 2-3 hafta sürer; sonrasında hizmet aylık yönetim ücretiyle yürür. Reklam bütçesinin kendisi bu ücrete dahil değildir, ayrı ödenir. Ücreti belirleyen etkenler:</p>
+        <ul class="fyt-ne">
+          <li>Yönetilen kanal sayısı: tek kanal mı, dördü birden mi</li>
+          <li>Kurulum kapsamı: hesap açma, hedefleme, kreatif, dönüşüm takibi</li>
+          <li>Kreatif üretim yükü ve raporlama sıklığı</li>
+          <li>Sektördeki rekabet yoğunluğu ve hedef pazarın genişliği</li>
+          <li>Reklam bütçesi ayrı kalemdir; ilgili hesaba doğrudan ödenir</li>
+          <li>Hizmet tek seferlik değil, aylık yönetim modeliyle yürütülür</li>
+        </ul>
+
+        <div class="fyt-adim">
+          <p>Kesin sonuç garantisi vermiyoruz —
+            <a href="#durustluk">nedenini aşağıda anlattık</a>.
+            Konuşmaya kapsam çıkararak başlıyoruz. Reklam metnindeki her iddia denetlenebilir; <a class="kaynak" href="https://ticaret.gov.tr/tuketici/ticari-reklamlar" target="_blank" rel="noopener">ticari reklam kuralları</a> sınırı çizer.</p>
+          <div class="fyt-btn">
+            <a class="btn btn-p" href="../teklif/#reklam">Kapsam çıkaralım
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Dijital%20Pazarlama%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%0AHedefim%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reklam paneli infografiği — İZLENEN ŞEYİ gösterir, SONUÇ VAADİ DEĞİL.
+           Bu ayrım bilinçli: aşağıdaki #durustluk bölümü kesin sonuç garantisi
+           verilemeyeceğini söylüyor. Bu yüzden panelde tek bir rakam yok:
+           "Harcama" ve "Dönüşüm" kartlarının değeri "—", sütunlarda yalnızca
+           göreceli yükseklik var, y ekseninde etiket yok.
+           X ekseni bilerek ZAMAN DEĞİL kanal: dört sütun, sayfanın kendi
+           "4 kanal · tek ekipte yönetim" künyesindeki kanallardır. Zaman ekseni
+           olsaydı yükselen sütunlar "şu kadar haftada şu kadar arttı" diye
+           okunurdu; o bir sonuç iddiası olurdu ve sayfa tam tersini söylüyor
+           ("net sayı taahhüt etmeyiz"). Aynı nedenle sütunlar birbirine yakın
+           tutuldu ve en yüksek olan sona konmadı — hiçbir artış hikâyesi
+           çıkmasın diye. Anlatılan tek şey şu: takip edilen ölçü harcama değil,
+           dönüşümdür — bu da sayfanın kendi cümlesi ("amacımız tıklama değil,
+           ölçülebilir satış").
+           Inline SVG: ek istek yok, her ölçekte net, viewBox sayesinde
+           oran sabit olduğu için düzen kaymaz. -->
+      <figure class="serp rv d2">
+        <span class="serp-kaydir" aria-hidden="true">Yatay kaydırın →</span>
+        <svg viewBox="0 0 620 700" role="img" aria-labelledby="pnlBaslik pnlAciklama"
+             xmlns="http://www.w3.org/2000/svg">
+          <title id="pnlBaslik">Reklam paneli — temsilî görsel</title>
+          <desc id="pnlAciklama">Bir reklam yönetim paneli çizimi: üstte başlık çubuğu
+            ve yazısız sekmeler, ortada dört kanalın yan yana durduğu sütun grafiği,
+            sağ üstte "Harcama" ve "Dönüşüm" kartları. Kartların değerleri boş
+            bırakılmış, "—" olarak gösteriliyor; grafikte hiçbir sayı yok, sütunlar
+            yalnızca göreceli yükseklik ve birbirine yakın. "Dönüşüm" kartı vurgu
+            halkasıyla çerçevelenmiş.</desc>
+
+          <defs>
+            <linearGradient id="pSut" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FFCB6B"/>
+              <stop offset="1" stop-color="#E8930A"/>
+            </linearGradient>
+          </defs>
+
+          <!-- panel kartı -->
+          <rect x="8" y="8" width="604" height="684" rx="14" fill="#FFFFFF"/>
+
+          <!-- ÜST: panel başlık çubuğu -->
+          <g class="p-bas">
+            <rect x="8" y="8" width="604" height="58" rx="14" fill="#F5F6F8"/>
+            <rect x="8" y="42" width="604" height="24" fill="#F5F6F8"/>
+            <rect x="30" y="27" width="20" height="20" rx="6" fill="#FFB020"/>
+            <rect x="60" y="30" width="146" height="14" rx="7" fill="#C9CDD4"/>
+            <rect x="496" y="27" width="86" height="20" rx="10" fill="#E4E6EA"/>
+            <line x1="8" y1="66" x2="612" y2="66" stroke="#E8EAED" stroke-width="1"/>
+            <line x1="30" y1="118" x2="590" y2="118" stroke="#E8EAED" stroke-width="1"/>
+          </g>
+
+          <!-- ÜST: üç sekme çubuğu (yazısız) -->
+          <g class="p-sekme">
+            <g>
+              <rect x="30" y="88" width="88" height="13" rx="6.5" fill="#FFB020"/>
+              <rect x="30" y="110" width="88" height="3" rx="1.5" fill="#FFB020"/>
+            </g>
+            <g><rect x="134" y="88" width="70" height="13" rx="6.5" fill="#DFE2E7"/></g>
+            <g><rect x="220" y="88" width="80" height="13" rx="6.5" fill="#DFE2E7"/></g>
+          </g>
+
+          <!-- grafik başlığı + yazısız filtre çipleri -->
+          <g class="p-baslik">
+            <text x="32" y="156" font-family="Inter Tight, system-ui, sans-serif"
+                  font-size="15" font-weight="600" fill="#202124">Kanal kırılımı</text>
+            <rect x="32" y="176" width="78" height="26" rx="13" fill="none" stroke="#E4E6EA"/>
+            <rect x="44" y="185" width="54" height="8" rx="4" fill="#DFE2E7"/>
+            <rect x="118" y="176" width="64" height="26" rx="13" fill="none" stroke="#E4E6EA"/>
+            <rect x="130" y="185" width="40" height="8" rx="4" fill="#DFE2E7"/>
+          </g>
+
+          <!-- SAĞ ÜST: iki küçük kart — değerler bilerek boş ("—") -->
+          <g class="p-kart" font-family="Inter Tight, system-ui, sans-serif">
+            <g>
+              <rect x="306" y="132" width="134" height="94" rx="12"
+                    fill="#FBFCFD" stroke="#E4E6EA"/>
+              <text x="322" y="156" font-size="12.5" fill="#5F6368">Harcama</text>
+              <text x="322" y="192" font-family="JetBrains Mono, ui-monospace, monospace"
+                    font-size="26" fill="#202124">—</text>
+              <text x="322" y="214" font-family="JetBrains Mono, ui-monospace, monospace"
+                    font-size="12" fill="#9AA0A6">panelden okunur</text>
+            </g>
+            <g>
+              <rect x="452" y="132" width="134" height="94" rx="12"
+                    fill="#FBFCFD" stroke="#E4E6EA"/>
+              <text x="468" y="156" font-size="12.5" fill="#5F6368">Dönüşüm</text>
+              <text x="468" y="192" font-family="JetBrains Mono, ui-monospace, monospace"
+                    font-size="26" fill="#202124">—</text>
+              <text x="468" y="214" font-family="JetBrains Mono, ui-monospace, monospace"
+                    font-size="12" fill="#9AA0A6">panelden okunur</text>
+            </g>
+          </g>
+
+          <!-- ANA VURGU: dönüşüm kartı halkaya alınır -->
+          <rect class="p-isik" x="442" y="122" width="154" height="114" rx="19" fill="none"
+                stroke="#FFB020" stroke-width="7" opacity=".18"/>
+          <rect class="p-halka" x="447" y="127" width="144" height="104" rx="15" fill="none"
+                stroke="#FFB020" stroke-width="2.5"/>
+
+          <!-- son rozet -->
+          <g class="p-rozet">
+            <rect x="436" y="244" width="155" height="30" rx="15" fill="#0B0D12"
+                  stroke="#FFB020" stroke-width="1.5"/>
+            <text x="513" y="264" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="12" fill="#FFB020" text-anchor="middle">ODAK · DÖNÜŞÜM</text>
+          </g>
+
+          <!-- ORTA: yalnızca yatay kılavuz çizgileri — y ekseninde etiket YOK -->
+          <g class="p-izgara" stroke="#EDEFF2" stroke-width="1">
+            <line x1="44" y1="290" x2="588" y2="290"/>
+            <line x1="44" y1="353" x2="588" y2="353"/>
+            <line x1="44" y1="416" x2="588" y2="416"/>
+            <line x1="44" y1="479" x2="588" y2="479"/>
+            <line x1="44" y1="542" x2="588" y2="542" stroke="#C9CDD4" stroke-width="1.6"/>
+          </g>
+
+          <!-- ORTA: dört kanalın sütunları — göreceli yükseklik, rakam yok.
+               Yükseklikler bilerek birbirine yakın (126-168) ve en yükseği
+               ortada; ne artan bir seri ne de "şu kanal şu kadar katı" okuması
+               çıkmasın diye. -->
+          <g class="p-sutun" fill="url(#pSut)">
+            <rect x="90"  y="334" width="78" height="208" rx="6"/>
+            <rect x="214" y="369" width="78" height="173" rx="6"/>
+            <rect x="338" y="312" width="78" height="230" rx="6"/>
+            <rect x="462" y="353" width="78" height="189" rx="6"/>
+          </g>
+
+          <!-- X ekseni: kanal etiketleri (sayfanın kendi künyesi: 4 kanal) -->
+          <g class="p-etiket" font-family="Inter Tight, system-ui, sans-serif"
+             font-size="12.5" fill="#5F6368" text-anchor="middle">
+            <text x="129" y="566">Google Ads</text>
+            <text x="253" y="566">Meta Ads</text>
+            <text x="377" y="566">Performans</text>
+            <text x="501" y="566">Sosyal</text>
+          </g>
+
+          <!-- ALT: tek satır — fiyat kutusunun kendi cümlesi -->
+          <g class="p-alt">
+            <rect x="30" y="604" width="560" height="44" rx="12"
+                  fill="#FFF8EC" stroke="#F3DCB0"/>
+            <circle cx="52" cy="626" r="5" fill="#FFB020"/>
+            <text x="68" y="631" font-family="Inter Tight, system-ui, sans-serif"
+                  font-size="13.2" fill="#3C4043">Reklam bütçesi ayrı kalemdir; yönetim ücretine dahil değildir</text>
+          </g>
+        </svg>
+        <figcaption><b>Temsilî görsel.</b> Bir reklam panelinin nasıl okunduğunu anlatır;
+          panel değerleri bilerek boş bırakılmıştır, sütunlar yalnızca göreceli
+          yüksekliktir ve hiçbir dönem, artış ya da kanal karşılaştırması anlatmaz.
+          Buradaki hiçbir şey gerçek veri ya da sonuç vaadi değildir — kesin sonuç
+          garantisi verilemeyeceğini aşağıda anlattık.</figcaption>
+      </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="dahil" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Şeffaflık</span>
+        <h2 data-kin>Ne dahil, ne değil?</h2>
+      </div>
+
+      <div class="kps rv d1">
+        <div class="kps-k kps-k--var">
+          <h3>Fiyata dahil</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Hesap açma ve teknik kurulum (pixel, dönüşüm etiketleri)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Hedef kitle ve rakip analizi</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Kampanya kurgusu ve kreatif yönlendirmesi</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Düzenli optimizasyon ve teklif ayarları</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Aylık performans raporu ve strateji görüşmesi</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Seçilen pakete göre sosyal medya içerik takvimi</li>
+          </ul>
+        </div>
+        <div class="kps-k kps-k--yok">
+          <h3>Ayrı kalem</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Google Ads ve Meta Ads reklam bütçesinin kendisi</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Profesyonel fotoğraf veya video çekimi (talep halinde ayrı teklif)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Influencer iş birlikleri ve ürün gönderimleri</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Web sitesi veya e-ticaret altyapısındaki teknik değişiklikler</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="ara-cta rv"><i class="ac3-zemin" aria-hidden="true"></i><i class="ac3-s s1" aria-hidden="true"></i><i class="ac3-s s2" aria-hidden="true"></i>
+    <div class="wrap ara-cta-in">
+      <p><b>Projenizin bandını ekranda görün</b><span>Zorunlu alan yalnızca ad ve telefon.</span></p>
+      <div class="ara-cta-btn">
+        <a class="btn btn-p" href="../teklif/#reklam">Kapsam çıkaralım
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-g" href="tel:+905547916545">0554 791 65 45</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="sec" id="durustluk">
+    <div class="wrap">
+      <div class="durust rv">
+        <h3>Garanti Değil, Şeffaflık Sunuyoruz</h3>
+        <p>Sektörde en sık duyulan vaat kesin sonuç garantisidir; bunu vermiyoruz çünkü gerçekçi değil. Algoritmalar sürekli değişir, rekabet ve ürün-pazar uyumu ajansın kontrolü dışındadır. Farkımız: her ay neyin işe yaradığını açık verilerle gösterir, gerçekçi hedefler belirleriz.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Sık sorulanlar</span>
+        <h2 data-kin>Sık sorulan sorular: dijital pazarlama fiyatı, sözleşmesi ve raporlaması</h2>
+        <p>En çok gelen sorular ve kısa cevapları.</p>
+      </div>
+
+      <div class="iki">
+        <div class="sss rv d1">
+        <details>
+        <summary>Dijital pazarlama ajansı tam olarak hangi işleri üstleniyor?</summary>
+        <p>Google Ads, Meta Ads, performans pazarlaması ve sosyal medya yönetimini uçtan uca yürütüyoruz.</p>
+        <p>Kurulumdan kreatif üretime, dönüşüm takibine kadar tüm süreci üstleniyor, talep halinde sosyal medya yönetimini de ekliyoruz.</p>
+        </details>
+        <details>
+        <summary>Dijital pazarlama fiyatları neye göre belirleniyor?</summary>
+        <p>Yönetilen kanal sayısı, kapsam ve raporlama sıklığına göre belirlenir; <a href="#fiyat">fiyatı neyin belirlediğini yukarıda tek tek yazdık</a>.</p>
+        <p>Kurulum ayrı bir aşamadır; net rakam, kapsamı birlikte çıkardıktan sonra teklifte belirtilir.</p>
+        </details>
+        <details>
+        <summary>Reklam bütçesi ajans ücretine dahil mi, ayrı mı ödeniyor?</summary>
+        <p>Hayır, reklam bütçesi ayrı ödenir; aylık yönetim ücretine dahil değildir.</p>
+        <p>Aylık ücret stratejik ve operasyonel çalışmayı kapsar; reklam bütçesi hesabınızdan doğrudan harcanır ve ayrı tutulur.</p>
+        </details>
+        <details>
+        <summary>Reklam ve ölçüm hesapları kimin adına açılıyor?</summary>
+        <p>Hesaplar her zaman sizin işletmeniz adına açılır, mülkiyet sizde kalır.</p>
+        <p>Hesaplar işletmeniz adına açılır ya da mevcut hesaba yönetici olarak erişiriz; hizmet bitse de veri sizde kalır.</p>
+        </details>
+        <details>
+        <summary>Belirli bir dönüşüm sayısı ya da sonuç garantisi veriyor musunuz?</summary>
+        <p>Hayır; hiçbir ajans kesin sonuç garantisi veremez, biz de vermiyoruz.</p>
+        <p>Algoritma ve rekabet koşulları ajansın kontrolü dışındadır; net sayı taahhüt etmeyip <a href="#durustluk">gerçekçi hedef sunarız</a>.</p>
+        </details>
+        <details>
+        <summary>Dijital pazarlama hizmet sözleşmesi kaç aylık, erken çıkış hakkı var mı?</summary>
+        <p>Hizmet aylık yönetim modeliyle ilerler; kurulum tamamlandıktan sonra ay bazında devam eder.</p>
+        <p>Sözleşme, aylık yönetim mantığıyla kurgulanır; fesih koşulları görüşmede netleştirilir.</p>
+        </details>
+        <details>
+        <summary>Raporu hangi sıklıkta ve hangi metriklerle veriyorsunuz?</summary>
+        <p>Aylık düzenli rapor veriyoruz; dönüşüm, maliyet ve etkileşim metrikleri raporda yer alıyor.</p>
+        <p>Her ay harcama, dönüşüm ve etkileşim verilerini paylaşıp bir sonraki ayın önceliklerini birlikte belirliyoruz.</p>
+        </details>
+        <details>
+        <summary>Google Ads mi Meta Ads mi bize daha uygun, nasıl karar veriliyor?</summary>
+        <p>Karar, hedef kitlenizin arama mı yoksa sosyal medya davranışına mı yakın olduğuna göre veriliyor.</p>
+        <p>Arama niyeti yüksekse Google Ads, bilinirlik önemliyse Meta Ads öne çıkar; çoğu işletmede ikisi birlikte yönetilir.</p>
+        </details>
+      </div>
+        <div class="iki-yan">
+          <p class="yk-bas">Diğer modüller</p>
+          <a class="yk" style="--k:var(--cy)" href="../hizmetler/#moduller"><b>Web Tasarım &amp; Yazılım</b>
+            <span>Diğer dört modülün üzerinde çalıştığı zemin.</span></a>
+          <a class="yk" style="--k:var(--vi)" href="../hizmetler/#moduller"><b>Mobil Uygulama</b>
+            <span>iOS ve Android; web ile ortak API ve tasarım sistemi.</span></a>
+          <a class="yk" style="--k:var(--pink)" href="../hizmetler/#moduller"><b>Video Prodüksiyon</b>
+            <span>Tek çekimden reklam, Reels ve ürün videosu.</span></a>
+          <a class="yk" style="--k:var(--lime)" href="../hizmetler/#moduller"><b>SEO Hizmetleri</b>
+            <span>Teknik SEO, içerik ve yerel görünürlük.</span></a>
+          <div class="yk yk-cta">
+            <b>Sorunuz listede yok mu?</b>
+            <span>Beş adımda kapsamı çıkarın; bütçe bandını ekranda görün.</span>
+            <a class="btn btn-p btn-sm" href="../teklif/#reklam">Kapsam çıkaralım</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ayrintilar" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Ayrıntılar</span>
+        <h2 data-kin>Karar vermeden önce bakmak isterseniz</h2>
+        <p>Kurulum süreci, raporlama, sektörler ve sözleşme koşullarının tamamı burada — açıp okuyun, kapatın.</p>
+      </div>
+      <div class="iki">
+        <div class="akor rv d1">
+        <details id="kurulum">
+          <summary>Kurulum Sürecinde Neler Oluyor?</summary>
+          <div class="cvp">
+            <div class="gbs">
+              <img src="../../assets/modul-pazarlama/kurulum.jpg" alt="3D render: reklam huni yapısını ve kanal ikonlarını temsil eden 3D kompozisyon" width="640" height="640" loading="lazy" decoding="async">
+              <div class="gbs-in">
+                <p>Önce işletmenizi ve rakiplerinizi analiz ediyoruz; ardından hesapları açıp dönüşüm takibini kuruyor, ilk kreatifleri hazırlıyoruz. Süreç tamamlanınca kampanyalar canlıya alınır; kurulum tipik olarak 2-3 hafta sürer.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+        <details id="raporlama">
+          <summary>Raporlama ve İletişim Nasıl İşliyor?</summary>
+          <div class="cvp">
+            <div class="gbs">
+              <img src="../../assets/modul-pazarlama/raporlama.jpg" alt="3D render: takvim üzerinde yükselen grafik çizgisi olan rapor paneli" width="640" height="640" loading="lazy" decoding="async">
+              <div class="gbs-in">
+                <p>Aylık raporun yanında düzenli strateji görüşmeleri yapıyoruz; tek bir muhatapla iletişim kurarsınız ve değişiklik öncesi bilgilendirilirsiniz.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+        <details id="sektorler">
+          <summary>Hangi Sektörler İçin Uygundur?</summary>
+          <p class="cvp">E-ticaret, hizmet, sağlık, eğitim ve kurumsal işletmeler dahil geniş bir yelpazede çalışıyoruz; sektörünüze özgü kısıtlamalar varsa kurguyu buna göre uyarlıyoruz.</p>
+        </details>
+        <details id="kreatif">
+          <summary>Kreatif (Görsel/Video) Üretimi Kim Tarafından Yapılıyor?</summary>
+          <p class="cvp">Reklam metni ve kreatif yönlendirme hizmetin bir parçasıdır; profesyonel çekim veya video prodüksiyonu gerekiyorsa ayrı bir teklifle planlanır.</p>
+        </details>
+        <details id="sozlesme">
+          <summary>Sözleşme ve Fesih Koşulları</summary>
+          <p class="cvp">Hizmet, sürekli aylık yönetim esasına dayanır; sözleşme ve fesih koşulları, fiyatlandırma bölümünde belirtilen akışa göre teklif görüşmesinde netleştirilir.</p>
+        </details>
+      </div>
+        <div class="iki-yan">
+          <div class="don">
+            <div class="don-sahne">
+              <div class="don-cam">
+                <div class="don-bar"><i></i><i></i><i></i><span>kampanya paneli</span></div>
+                <div class="don-ic">
+                  <div class="cz a"></div>
+                  <div class="cz b"></div>
+                  <div class="cz c"></div>
+                  <div class="don-kart"><i></i><i></i><i></i></div>
+                  <div class="don-btn"></div>
+                </div>
+              </div>
+              <div class="don-arka"></div>
+            </div>
+            <p class="don-not">Google Ads · Meta Ads · Performans</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside class="sec" style="padding-top:0" aria-label="Konuyla ilgili yazılar">
+    <div class="wrap">
+      <nav class="yz-ilgili rv" aria-labelledby="hub-ilgili">
+        <h2 id="hub-ilgili">Dijital Pazarlama Performansı rehber yazıları</h2>
+        <p class="not">Bu hizmetin arkasındaki yöntemi anlatan blog içerikleri.</p>
+        <ul>
+          <li><a href="../blog/e-posta-pazarlama/" style="--k:255,176,32"><span class="kat">Dijital Pazarlama</span><span class="bas">E-Posta Pazarlama Stratejisi: Doğru Gönderim Zamanı Var mı?</span></a></li>
+          <li><a href="../blog/google-ads-ve-ppc/" style="--k:255,176,32"><span class="kat">Dijital Pazarlama</span><span class="bas">Google Ads Reklam Yönetimi mi, Organik Büyüme mi? Maliyet Kıyası</span></a></li>
+          <li><a href="../blog/reklam-metni-yazma/" style="--k:255,176,32"><span class="kat">Dijital Pazarlama</span><span class="bas">Google Ads Reklam Metni Nasıl Yazılır? 9 Adımlık Formül</span></a></li>
+          <li><a href="../blog/sosyal-medya-stratejileri/" style="--k:255,176,32"><span class="kat">Sosyal Medya</span><span class="bas">Sosyal Medya Stratejisi Nedir? Platform Seçimi Neye Göre Yapılır?</span></a></li>
+          <li><a href="../blog/sosyal-medya-reklam-yonetimi/" style="--k:255,176,32"><span class="kat">Sosyal Medya</span><span class="bas">Sosyal Medya Reklam Yönetimi: Hangi Mecrada Hangi Format Kazandırır?</span></a></li>
+          <li><a href="../blog/influencer-pazarlama/" style="--k:255,176,32"><span class="kat">Sosyal Medya</span><span class="bas">Influencer Pazarlama Ajansı Gözüyle: Mikro mu, Makro mu?</span></a></li>
+          <li><a href="../blog/sosyal-medya-raporlama/" style="--k:255,176,32"><span class="kat">Sosyal Medya</span><span class="bas">Sosyal Medya Raporlama: Hangi Metrikleri İzlemeli?</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="band rv">
+        <h2>Dijital Pazarlama Sürecinizi Birlikte Kurgulayalım</h2>
+        <p>İşletmeniz için hangi kanalın, hangi bütçeyle ve hangi hedeflerle çalışacağını netleştirmek üzere kısa bir görüşme yeterli.</p>
+        <div class="band-cta">
+          <a class="btn btn-p" href="../teklif/#reklam">Kapsam çıkaralım
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Dijital%20Pazarlama%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%0AHedefim%3A%20" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>Web, mobil, reklam, video ve SEO’yu tek çatı altında birleştiren
+          İstanbul merkezli 360 derece dijital ajans.</p>
+      </div>
+      <div>
+        <h3>Modüller</h3>
+        <ul>
+          <li><a href="../hizmetler/">Tüm hizmetler</a></li>
+          <li><a href="../web-tasarim/">Web &amp; Yazılım</a></li>
+          <li><a href="../mobil-uygulama/">Mobil Uygulama</a></li>
+          <li><a href="./" aria-current="page">Dijital Pazarlama</a></li>
+          <li><a href="../hizmetler/#moduller">Video Prodüksiyon</a></li>
+          <li><a href="../hizmetler/#moduller">SEO Hizmetleri</a></li>
+          <li><a href="../grafik-tasarim/">Grafik Tasarım</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>İletişim</h3>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../iletisim/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../iletisim/#ofis">Hafta içi 09:00–19:00<br>Cumartesi 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. Tüm hakları saklıdır.</span>
+      <span class="mono">BEŞ MODÜL · TEK PANEL</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+</script>
+<script>
+"use strict";
+/* HERO 3D (hub) — web hub'daki çekirdeğin aynısı: sekme/otomatik döngü/eğim/ölçülen noktalar */
+(function hubHero3d(){
+  var kok = document.querySelector('[data-h3]');
+  if (!kok) return;
+  var sahne = kok.querySelector('[data-h3-sahne]');
+  var katlar = [].slice.call(kok.querySelectorAll('.h3-kat'));
+  var sekmeler = [].slice.call(kok.querySelectorAll('.h3-sekme button'));
+  if (!sahne || katlar.length !== 3) return;
+  var AZALT = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var aktif = 0, dongu = null, mudahale = false;
+  var SIRA = ['on', 'orta', 'arka'];
+  function ciz(n){
+    aktif = n;
+    katlar.forEach(function(k, i){ k.setAttribute('data-durum', SIRA[(i - n + 3) % 3]); });
+    sekmeler.forEach(function(b, i){
+      b.classList.toggle('acik', i === n);
+      b.setAttribute('aria-selected', i === n ? 'true' : 'false');
+    });
+  }
+  function durdur(){ if (dongu) { clearInterval(dongu); dongu = null; } mudahale = true; }
+  sekmeler.forEach(function(b){ b.addEventListener('click', function(){ durdur(); ciz(+b.dataset.kat); }); });
+  katlar.forEach(function(k){ k.addEventListener('click', function(){ durdur(); ciz(+k.dataset.kat); }); });
+  var zamanlayici = null;
+  [].slice.call(kok.querySelectorAll('[data-olay]')).forEach(function(nokta){
+    nokta.addEventListener('click', function(e){
+      e.stopPropagation();
+      durdur();
+      ciz(2);
+      var olay = kok.querySelector('.ol-olay li[data-ad="' + nokta.dataset.olay + '"]');
+      if (!olay) return;
+      [].slice.call(kok.querySelectorAll('.ol-olay li.parla')).forEach(function(x){ x.classList.remove('parla'); });
+      if (zamanlayici) clearTimeout(zamanlayici);
+      void olay.offsetWidth;
+      olay.classList.add('parla');
+      zamanlayici = setTimeout(function(){ olay.classList.remove('parla'); }, 2900);
+    });
+  });
+  if (!AZALT) {
+    dongu = setInterval(function(){ if (!mudahale) ciz((aktif + 1) % 3); }, 3600);
+    var kutu = kok.querySelector('.h3-kutu');
+    kutu.addEventListener('mousemove', function(e){
+      var r = kutu.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - .5;
+      var y = (e.clientY - r.top) / r.height - .5;
+      sahne.style.setProperty('--ry', (-15 + x * 16).toFixed(2) + 'deg');
+      sahne.style.setProperty('--rx', (7 - y * 12).toFixed(2) + 'deg');
+    }, { passive: true });
+    kutu.addEventListener('mouseleave', function(){
+      sahne.style.removeProperty('--ry');
+      sahne.style.removeProperty('--rx');
+    });
+  }
+  ciz(0);
+})();
+</script>
+</body>
+</html>

@@ -25,47 +25,47 @@ const UYGULA = process.argv.includes('--uygula');
 /* hizmet sayfası → o sayfanın konusunu SÜRDÜREN yazılar.
    ★ işaretliler şu an öksüz olan üç yazı. */
 const ESLEME = {
-  'hizmetler/mobil-uygulama': [
+  'mobil-uygulama': [
     'mobil-uygulama-gelistirme-maliyeti',
     'mobil-uygulama-gelistirme-sureci',
     'native-mi-cross-platform-mi',
   ],
-  'hizmetler/mobil-uygulama/react-native': [
+  'react-native': [
     'react-native-mi-flutter-mi',            /* ★ */
     'native-mi-cross-platform-mi',
     'mobil-uygulama-gelistirme-sureci',
   ],
-  'hizmetler/mobil-uygulama/ios-android': [
+  'ios-android-uygulama': [
     'native-mi-cross-platform-mi',
     'react-native-mi-flutter-mi',            /* ★ ikinci gelen link */
     'mobil-uygulama-gelistirme-maliyeti',
   ],
-  'hizmetler/mobil-uygulama/aso-uygulama-pazarlamasi': [
+  'aso': [
     'uygulama-magaza-optimizasyonu',         /* ★ */
     'mobil-uygulama-yaptirma-sorulari',
     'mobil-uygulama-gelistirme-sureci',
   ],
-  'hizmetler/video-produksiyon': [
+  'video-produksiyon': [
     'reklam-filmi-cekim-asamalari',
     'urun-videosu-studyo-mu-mekan-mi',
     'reklam-filmi-fiyat-kalemleri',
   ],
-  'hizmetler/video-produksiyon/reklam-filmi': [
+  'reklam-filmi': [
     'reklam-filmi-cekim-asamalari',
     'reklam-filmi-fiyat-kalemleri',
     'storyboard-nedir',
   ],
-  'hizmetler/video-produksiyon/urun-videosu': [
+  'urun-videosu': [
     'urun-videosu-studyo-mu-mekan-mi',
     'e-ticaret-urun-videosu-formatlari',
     'kamerasiz-urun-videosu',
   ],
-  'hizmetler/video-produksiyon/ai-destekli-produksiyon': [
+  'ai-video-produksiyon': [
     'yapay-zeka-ile-video-uretimi',
     'kamerasiz-urun-videosu',
     'e-ticaret-urun-videosu-formatlari',
   ],
-  'hizmetler/web-tasarim-yazilim/ai-entegrasyonu': [
+  'yapay-zeka': [
     'web-sitesine-chatbot-eklemek',          /* ★ */
     'kullanici-deneyimi',
     'seo-ve-web-tasarim',

@@ -117,7 +117,7 @@ harita.kumeler.forEach((k) => {
   let h = fs.readFileSync(P, 'utf8');
   if (h.includes('yz-ilgili')) { console.log('  ~ hub zaten var:', k.hub); return; }
 
-  /* hub derinliğine göre göreli yol: /hizmetler/seo/ -> ../../blog/<slug>/ */
+  /* hub derinliğine göre göreli yol: /seo/ -> ../../blog/<slug>/ */
   const derinlik = k.hub.split('/').filter(Boolean).length;
   const up = '../'.repeat(derinlik);
 

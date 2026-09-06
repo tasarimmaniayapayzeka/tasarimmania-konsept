@@ -19,7 +19,7 @@ function tara(dir, liste) {
   return liste;
 }
 const dosyalar = tara(SITE, []);
-/* site köküne göre URL yolu: site/hizmetler/seo/index.html -> /hizmetler/seo/ */
+/* site köküne göre URL yolu: site/seo/index.html -> /seo/ */
 const url = (f) => '/' + path.relative(SITE, path.dirname(f)).split(path.sep).filter(Boolean).join('/') + (path.dirname(f) === SITE ? '' : '/');
 const SAYFALAR = new Set(dosyalar.map(url));
 

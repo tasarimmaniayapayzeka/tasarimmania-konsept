@@ -23,7 +23,11 @@ function tara(d, o = []) {
 const sayfalar = tara(SITE).filter((f) => fs.statSync(f).size >= 2000);
 const url = (f) => '/' + path.relative(SITE, f).replace(/\\/g, '/').replace(/index\.html$/, '');
 const blog = sayfalar.filter((f) => /[\\/]blog[\\/][^\\/]+[\\/]index\.html$/.test(f));
-const hizmet = sayfalar.filter((f) => /[\\/]hizmetler[\\/]/.test(f));
+/* ⚠ TÜR HARİTADAN OKUNUYOR — yol deseni değil. Adresler düzleşince eski kural
+   28 hizmet sayfasını kaçırıyordu ve modüller sahte geçiş veriyordu.
+   Gerekçe ve ölçüm: plan/sayfa-turu.js */
+const { turuDosyadan } = require('./sayfa-turu');
+const hizmet = sayfalar.filter((f) => turuDosyadan(f, SITE) === 'hizmet');
 
 const oku = (f) => fs.readFileSync(f, 'utf8');
 const varMi = (p) => fs.existsSync(path.join(SITE, p));

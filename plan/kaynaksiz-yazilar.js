@@ -31,6 +31,11 @@ for (const f of yazilar) {
 console.log(`\n  DIŞ KAYNAĞI OLMAYAN BLOG YAZISI: ${yok.length}/${yazilar.length}\n`);
 yok.forEach(([s, h]) => console.log(`  ${s.padEnd(38)} ${h.slice(0, 58)}`));
 
-const hizmet = tara(path.join(S, 'hizmetler'));
+/* ⚠ Hizmet listesi haritadan — klasör taraması adres düzleşince çöktü
+   ("0/1" diyordu, gerçek 29). → plan/sayfa-turu.js */
+const { HIZMET_YOLLARI } = require('./sayfa-turu');
+const hizmet = [...HIZMET_YOLLARI]
+  .map((y) => path.join(S, y.replace(/^\//, ''), 'index.html'))
+  .filter(fs.existsSync);
 const hYok = hizmet.filter((f) => !disVar(fs.readFileSync(f, 'utf8')));
 console.log(`\n  DIŞ KAYNAĞI OLMAYAN HİZMET SAYFASI: ${hYok.length}/${hizmet.length}\n`);

@@ -10,6 +10,7 @@
  *   node plan/ic-link-olc.js mobil-uygulama
  */
 const fs = require('fs'), path = require('path');
+const { HIZMET_YOLLARI } = require('./sayfa-turu');
 const KOK = path.join(__dirname, '..');
 const S = path.join(KOK, 'site');
 const ONEK = process.argv[2] || '';
@@ -30,11 +31,20 @@ for (const d of fs.readdirSync(path.join(S, 'blog'), { withFileTypes: true })) {
   const f = path.join(S, 'blog', d.name, 'index.html');
   if (!fs.existsSync(f)) continue;
   const h = fs.readFileSync(f, 'utf8'), b = menuBolgeleri(h), gorulen = new Set();
+  /* ⚠ ESKİ SAYAÇ "hizmetler/" ARIYORDU — adresler düzleşince hiçbir bağ
+     bulamadı ve "0 blog→hizmet bağı" dedi. Gerçekte bağlar duruyor, yalnız
+     yolları değişti. Artık bağ, sayfanın konumundan çözülüp harita ile
+     karşılaştırılıyor. → plan/sayfa-turu.js */
+  const dizin = path.join(S, 'blog', d.name);
   for (const m of h.matchAll(/<a\s[^>]*href\s*=\s*"([^"]+)"/gi)) {
     if (b.some(([x, y]) => m.index >= x && m.index < y)) continue;
-    if (!/hizmetler\//.test(m[1])) continue;
-    const t = '/hizmetler/' + m[1].replace(/^.*hizmetler\//, '').replace(/[#?].*$/, '');
-    gorulen.add(t.replace(/\/+$/, '') + '/');
+    const ham = m[1].replace(/[#?].*$/, '');
+    if (/^(https?:|mailto:|tel:|#)/i.test(ham) || !ham) continue;
+    const mutlak = path.resolve(dizin, ham);
+    const rel = path.relative(S, mutlak);
+    if (rel.startsWith('..')) continue;
+    const t = '/' + rel.split(path.sep).join('/').replace(/\/?$/, '/');
+    if (HIZMET_YOLLARI.has(t)) gorulen.add(t);
   }
   for (const t of gorulen) (hedefler[t] ??= []).push(d.name);
 }
@@ -47,9 +57,11 @@ function tara(d, o = []) {
   }
   return o;
 }
-const sayfalar = tara(path.join(S, 'hizmetler'))
-  .filter((f) => fs.statSync(f).size >= 2000)          /* yönlendirme kütükleri hariç */
-  .map((f) => '/hizmetler/' + f.replace(/\\/g, '/').split('/site/hizmetler/')[1].replace(/index\.html$/, ''));
+/* ⚠ Hizmet listesi haritadan okunuyor; klasör taraması adres düzleşince
+   çöktü (site/hizmetler/ altında tek sayfa kaldı). → plan/sayfa-turu.js */
+const sayfalar = [...HIZMET_YOLLARI]
+  .filter((y) => fs.existsSync(path.join(S, y.replace(/^\//, ''), 'index.html')))
+  .filter((y) => fs.statSync(path.join(S, y.replace(/^\//, ''), 'index.html')).size >= 2000);
 
 if (ONEK) {
   console.log(`\n■ ${ONEK} modülü — hangi sayfa kaç yazıdan link alıyor`);

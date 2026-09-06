@@ -16,7 +16,7 @@
 const PPT = 'C:/Users/İHSAN/Desktop/Claude-Projeler/26-PinPro/node_modules/puppeteer-core';
 const CHROME = 'C:/Program Files/Google/Chrome/Application/chrome.exe';
 const TABAN = 'http://localhost:8020/site';
-const SAYFALAR = ['/hizmetler/seo/yerel-seo/', '/hizmetler/dijital-pazarlama/meta-ads/', '/blog/grafik-tasarim-turleri/'];
+const SAYFALAR = ['/yerel-seo/', '/meta-reklam/', '/blog/grafik-tasarim-turleri/'];
 
 const OLC = `new Promise((res) => {
   let c = 0;

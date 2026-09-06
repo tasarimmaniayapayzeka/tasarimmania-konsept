@@ -14,10 +14,10 @@ const TABAN = 'http://localhost:8020/site';
 const TEKRAR = 4;
 
 const SAYFALAR = [
-  ['/hizmetler/seo/yerel-seo/', 'tam koşumda 0,1868'],
-  ['/hizmetler/dijital-pazarlama/meta-ads/', 'tam koşumda 0,1849'],
+  ['/yerel-seo/', 'tam koşumda 0,1868'],
+  ['/meta-reklam/', 'tam koşumda 0,1849'],
   ['/blog/grafik-tasarim-turleri/', 'tam koşumda 0,1081'],
-  ['/hizmetler/seo/teknik-seo/', 'DENETİM — tam koşumda 0'],
+  ['/teknik-seo/', 'DENETİM — tam koşumda 0'],
 ];
 
 const OLCUM = `new Promise((res) => {

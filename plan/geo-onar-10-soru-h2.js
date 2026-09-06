@@ -23,82 +23,82 @@ const S = path.join(__dirname, '..', 'site');
 const UYGULA = process.argv.includes('--uygula');
 
 const DEGISIM = {
-  '/hizmetler/dijital-pazarlama/google-ads/': [
+  '/google-ads/': [
     ['Kampanya Mimarisi ve Anahtar Kelime Kurgusu',
       'Kampanya mimarisi ve anahtar kelime kurgusu nasıl kurulur?'],
   ],
-  '/hizmetler/dijital-pazarlama/': [
+  '/dijital-pazarlama/': [
     ['Ne dahil, ne değil', 'Ne dahil, ne değil?'],
   ],
-  '/hizmetler/dijital-pazarlama/meta-ads/': [
+  '/meta-reklam/': [
     ['Reklam Formatı Karşılaştırması ve Retargeting Kurgusu',
       'Hangi reklam formatı hangi hedefe uygun, retargeting nasıl kurulur?'],
   ],
-  '/hizmetler/dijital-pazarlama/performans-pazarlamasi/': [
+  '/performans-pazarlama/': [
     ['Edinme Maliyeti ile Yaşam Boyu Değerin Dengesi',
       'Edinme maliyeti ile yaşam boyu değer nasıl dengelenir?'],
   ],
-  '/hizmetler/grafik-tasarim/': [
+  '/grafik-tasarim/': [
     ['Logodan Kurumsal Kimlik Kılavuzuna Uzanan Süreç',
       'Logodan kurumsal kimlik kılavuzuna süreç nasıl ilerler?'],
   ],
-  '/hizmetler/mobil-uygulama/aso-uygulama-pazarlamasi/': [
+  '/aso/': [
     ['ASO Çalışmasının İçeriği: Anahtar Kelimeden Görsele',
       'ASO çalışması anahtar kelimeden görsele neleri kapsar?'],
   ],
-  '/hizmetler/mobil-uygulama/ios-android/': [
+  '/ios-android-uygulama/': [
     ['Donanıma Doğrudan Erişim: Kamera, Sensör ve Bluetooth',
       'Native uygulama donanıma nasıl erişir: kamera, sensör, Bluetooth?'],
   ],
-  '/hizmetler/mobil-uygulama/uygulama-ui-ux/': [
+  '/uygulama-arayuz-tasarimi/': [
     ['Kullanıcı Akışından Yüksek Çözünürlüklü Ekrana',
       'Kullanıcı akışından yüksek çözünürlüklü ekrana nasıl geçilir?'],
   ],
-  '/hizmetler/seo/cok-dilli-seo/': [
+  '/cok-dilli-seo/': [
     ['ccTLD mi, Alt Dizin mi: Pazar Stratejisi',
       'ccTLD mi, alt dizin mi? Kararı pazar stratejisi belirler'],
   ],
   /* --- zaten soru, yalnız işareti eksik --- */
-  '/hizmetler/seo/e-ticaret-seo/': [
+  '/e-ticaret-seo/': [
     ['Kategori Sayfası mı, Ürün Sayfası mı Önce Optimize Edilir',
       'Kategori Sayfası mı, Ürün Sayfası mı Önce Optimize Edilir?'],
   ],
-  '/hizmetler/seo/icerik-stratejisi/': [
+  '/seo-icerik/': [
     ['Rakip Boşluğu Tespiti ve SEO-GEO Farkı',
       'Rakip boşluğu nasıl tespit edilir, SEO ile GEO farkı nedir?'],
   ],
-  '/hizmetler/seo/': [
+  '/seo/': [
     ['Ne dahil, ne değil', 'Ne dahil, ne değil?'],
   ],
-  '/hizmetler/seo/teknik-seo/': [
+  '/teknik-seo/': [
     ['Core Web Vitals ve Sayfa Performansı',
       'Core Web Vitals sayfa performansını nasıl ölçer?'],
   ],
-  '/hizmetler/video-produksiyon/ai-destekli-produksiyon/': [
+  '/ai-video-produksiyon/': [
     ['Fotoğraftan Ürün Videosuna: Süreç Nasıl İşliyor',
       'Fotoğraftan Ürün Videosuna: Süreç Nasıl İşliyor?'],
     ['Marka Tutarlılığı: Renk, Ton ve Logo Nasıl Korunuyor',
       'Marka Tutarlılığı: Renk, Ton ve Logo Nasıl Korunuyor?'],
   ],
-  '/hizmetler/video-produksiyon/': [
+  '/video-produksiyon/': [
     ['Ne dahil, ne değil', 'Ne dahil, ne değil?'],
   ],
-  '/hizmetler/video-produksiyon/reklam-filmi/': [
+  '/reklam-filmi/': [
     ['Animasyon mu, Çekimli mi: Format Kararı',
       'Animasyon mu, Çekimli mi? Format Kararı'],
   ],
-  '/hizmetler/video-produksiyon/sosyal-video-reels/': [
+  '/reels-video/': [
     ['İlk Saniye Kurgusu ve Anlatı Ritmi',
       'İlk saniye kurgusu ve anlatı ritmi neden belirleyici?'],
   ],
-  '/hizmetler/web-tasarim-yazilim/ai-entegrasyonu/': [
+  '/yapay-zeka/': [
     ['Chatbot Nasıl Öğreniyor: Kendi İçerik Tabanınız',
       'Chatbot Nasıl Öğreniyor? Kendi İçerik Tabanınız'],
   ],
-  '/hizmetler/web-tasarim-yazilim/': [
+  '/web-tasarim/': [
     ['Ne dahil, ne değil', 'Ne dahil, ne değil?'],
   ],
-  '/hizmetler/web-tasarim-yazilim/kurumsal-web-sitesi/': [
+  '/kurumsal-web-sitesi/': [
     ['Sayfa Mimarisi ve Bilgi Hiyerarşisi Nasıl Kurulur',
       'Sayfa Mimarisi ve Bilgi Hiyerarşisi Nasıl Kurulur?'],
   ],

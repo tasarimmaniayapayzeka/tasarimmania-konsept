@@ -95,12 +95,12 @@ function footer(u) {
         <h3>Modüller</h3>
         <ul>
           <li><a href="${u}hizmetler/">Tüm hizmetler</a></li>
-          <li><a href="${u}hizmetler/web-tasarim-yazilim/">Web &amp; Yazılım</a></li>
-          <li><a href="${u}hizmetler/mobil-uygulama/">Mobil Uygulama</a></li>
-          <li><a href="${u}hizmetler/dijital-pazarlama/">Dijital Pazarlama</a></li>
-          <li><a href="${u}hizmetler/video-produksiyon/">Video Prodüksiyon</a></li>
-          <li><a href="${u}hizmetler/seo/">SEO Hizmetleri</a></li>
-          <li><a href="${u}hizmetler/grafik-tasarim/">Grafik Tasarım</a></li>
+          <li><a href="${u}web-tasarim/">Web &amp; Yazılım</a></li>
+          <li><a href="${u}mobil-uygulama/">Mobil Uygulama</a></li>
+          <li><a href="${u}dijital-pazarlama/">Dijital Pazarlama</a></li>
+          <li><a href="${u}video-produksiyon/">Video Prodüksiyon</a></li>
+          <li><a href="${u}seo/">SEO Hizmetleri</a></li>
+          <li><a href="${u}grafik-tasarim/">Grafik Tasarım</a></li>
         </ul>
       </div>
       <div>

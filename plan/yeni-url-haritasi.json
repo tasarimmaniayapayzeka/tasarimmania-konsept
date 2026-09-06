@@ -37,7 +37,8 @@
     "/yapay-zeka/": {
       "kaynaklar": ["/hizmetler/web-tasarim-yazilim/ai-entegrasyonu/", "/hizmetler/video-produksiyon/ai-destekli-produksiyon/"],
       "toplam_kelime": 2357,
-      "not": "Kullanıcının ağacında tek /yapay-zeka/ var; sitede iki ayrı AI sayfası duruyor (chatbot entegrasyonu + AI video prodüksiyon). KARAR GEREKİYOR: tek sayfada birleşsin mi, yoksa /yapay-zeka/ hub olup ikisi altında mı kalsın?"
+      "karar": "TEK SAYFA (kullanıcı, 7 Eyl 2026 — 'yapay-zeka/ böyle olsun'). Hub değil.",
+      "not": "İki sayfanın konusu ayrı: biri siteye chatbot entegrasyonu, diğeri AI ile video prodüksiyon. Tek sayfada iki ayrı bölüm olarak birleşecek; içerik BİRLEŞTİRME işi (kopyala-yapıştır değil), ayrı adımda yapılacak."
     }
   },
 
@@ -51,12 +52,16 @@
 
   "yeni_yazilacak": {
     "/referanslar/": {
-      "durum": "sitede YOK",
-      "not": "Vaka/referans sayfası için müşteri izni gerekiyor (bekleyenler listesinde Karar #3 olarak duruyor). İzin alınmadan gerçek marka adı ve sonuç yayınlanamaz."
+      "durum": "sitede YOK — adres REZERVE, sayfa henüz üretilmeyecek",
+      "karar": "Taşıma turunda oluşturulmuyor (Claude kararı, 7 Eyl 2026).",
+      "gerekce": "Gerçek marka adı, iş ve sonuç yayınlamak müşteri izni gerektiriyor; izin olmadan referans sayfası ya uydurma olur ya da boş kalır. İzinler geldiğinde ayrı adımda yazılacak. Bekleyenlerde Karar #3 olarak duruyor."
     }
   },
 
-  "kaldirilan_seviye": {
-    "/hizmetler/": "Hub-of-hubs sayfası. Düz yapıda karşılığı yok. KARAR GEREKİYOR: tamamen kaldırılsın mı, yoksa tüm hizmetleri listeleyen bir dizin sayfası olarak /hizmetler/ adresinde kalsın mı?"
+  "hizmetler_dizini": {
+    "/hizmetler/": {
+      "karar": "KALIYOR — tüm hizmetleri listeleyen dizin sayfası olarak (Claude kararı, 7 Eyl 2026).",
+      "gerekce": "Sayfanın kendi içeriği var ve silinirse kaybolur: 5 modüllük ItemList şeması, 6 Eyl'de yazılan 5 soruluk görünür SSS + FAQPage şeması, 20 terim/tanım çiftlik <dl> bloğu ve dateModified. Düz yapıda da bir hizmet dizini işe yarar; menüden ve altbilgiden zaten linkli. Kaldırmak, içeriği yok etmek ve bir giriş noktasını kapatmak olurdu."
+    }
   }
 }

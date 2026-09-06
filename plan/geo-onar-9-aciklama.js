@@ -21,52 +21,52 @@ const ALT = 120, UST = 165;
 
 const YENI = {
   /* --- kısa olanlar: sayfadaki somut ayrıntıyla uzatıldı --- */
-  '/hizmetler/dijital-pazarlama/meta-ads/':
+  '/meta-reklam/':
     'Meta reklam ajansı hizmeti: hedef kitle segmentasyonu, reklam formatları, retargeting ve raporlama. '
     + 'Facebook ve Instagram kampanyaları tek panelden yönetilir.',
-  '/hizmetler/seo/e-ticaret-seo/':
+  '/e-ticaret-seo/':
     'Shopify SEO hizmeti: mağaza altyapısına özel teknik ayarlar, ürün ve kategori sayfası optimizasyonu. '
     + 'Filtre URL’leri ve ürün şeması birlikte kurulur.',
-  '/hizmetler/mobil-uygulama/ios-android/':
+  '/ios-android-uygulama/':
     'Android iOS uygulama geliştirme: Swift ve Kotlin ile native, platforma özgü tasarım ve donanım erişimi. '
     + 'Kamera, bildirim ve konum sistem seviyesinde çalışır.',
-  '/hizmetler/mobil-uygulama/react-native/':
+  '/react-native/':
     'React native ile tek kod tabanından iOS ve Android; web sitenizle ortak API kullanımı ve verimli geliştirme. '
     + 'İki mağazaya tek ekiple yayın yapılır.',
-  '/hizmetler/web-tasarim-yazilim/ai-entegrasyonu/':
+  '/yapay-zeka/':
     'Web tasarım ai entegrasyonu: kendi içeriğinizle eğitilmiş chatbot, WhatsApp’a aktarım ve denetim mekanizması. '
     + 'Bilmediği soruyu uydurmaz, insana devreder.',
-  '/hizmetler/seo/cok-dilli-seo/':
+  '/cok-dilli-seo/':
     'İnternet sitesi çeviri ve çok dilli SEO: hreflang yapılandırması, yurt dışı pazar hedefleme ve alan adı kararı. '
     + 'Her dil için ayrı kelime araştırması yapılır.',
-  '/hizmetler/video-produksiyon/ai-destekli-produksiyon/':
+  '/ai-video-produksiyon/':
     'AI video prodüksiyon: fotoğraftan ürün videosu üretimi, marka tutarlılığı ve kamerasız hızlı prodüksiyon hattı. '
     + 'Set kurmadan çoklu varyant çıkarılır.',
-  '/hizmetler/video-produksiyon/urun-videosu/':
+  '/urun-videosu/':
     'Ürün videosu çekimi: stüdyo veya mekan çekimi seçenekleri, pazaryeri formatı ve e-ticaret sitesine entegrasyon. '
     + 'Dikey ve kare versiyonlar birlikte teslim edilir.',
-  '/hizmetler/dijital-pazarlama/google-ads/':
+  '/google-ads/':
     'Google reklam ajansı hizmeti: anahtar kelime kurgusu, dönüşüm takibi, teklif stratejisi ve optimizasyon döngüsü. '
     + 'Arama ve görsel ağ ayrı ayrı raporlanır.',
-  '/hizmetler/video-produksiyon/reklam-filmi/':
+  '/reklam-filmi/':
     'Reklam filmi fiyatları ve süreci: senaryo yazımı, storyboard, profesyonel çekim ve seslendirme tek çatı altında. '
     + 'Her aşama bir öncekinin onayından sonra başlar.',
-  '/hizmetler/video-produksiyon/sosyal-video-reels/':
+  '/reels-video/':
     'Instagram reklam reels üretimi: dikey format, güvenli alan kurgusu, telifsiz müzik ve çoklu platform versiyonlama. '
     + 'TikTok ve Shorts sürümleri aynı çekimden çıkar.',
-  '/hizmetler/grafik-tasarim/':
+  '/grafik-tasarim/':
     'Grafik tasarım ajansı hizmeti: logo, kurumsal kimlik kılavuzu, kartvizit/katalog ve sosyal medya görsel şablonları. '
     + 'Kaynak dosyaların tamamı size teslim edilir.',
-  '/hizmetler/web-tasarim-yazilim/bakim-destek/':
+  '/site-bakim/':
     'WordPress site yönetimi: güvenlik güncellemesi, otomatik yedekleme, kesinti izleme ve site taşıma/klonlama hizmeti. '
     + 'Aylık rapor ve tek noktadan destek verilir.',
-  '/hizmetler/mobil-uygulama/aso-uygulama-pazarlamasi/':
+  '/aso/':
     'Mobil uygulama pazarlama: App Store/Google Play anahtar kelime optimizasyonu, mağaza görselleri ve indirme kampanyası. '
     + 'Sıralama ve indirme birlikte izlenir.',
-  '/hizmetler/mobil-uygulama/uygulama-ui-ux/':
+  '/uygulama-arayuz-tasarimi/':
     'Mobil uygulama arayüzü: kullanıcı akışı, wireframe, Figma ekranları ve erişilebilirlik standartlarıyla tasarım süreci. '
     + 'Geliştirmeden önce ekranlar onaylanır.',
-  '/hizmetler/seo/yerel-seo/':
+  '/yerel-seo/':
     'Seo ajansı istanbul hizmeti: Google İşletme Profili optimizasyonu, semt bazlı anahtar kelime ve yerel dizin kayıtları. '
     + 'Harita görünürlüğü aylık ölçülür.',
   '/teklif/':

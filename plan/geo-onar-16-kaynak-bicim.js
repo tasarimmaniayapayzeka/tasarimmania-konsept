@@ -35,7 +35,12 @@ const u = (f) => '/' + path.relative(S, f).split(path.sep).join('/').replace(/in
 let n = 0, bagSayisi = 0;
 console.log(`\n  ${UYGULA ? 'UYGULANIYOR' : 'KURU KOŞU'}\n`);
 
-for (const f of tara(path.join(S, 'hizmetler'))) {
+/* ⚠ Hizmet listesi haritadan; klasör taraması adres düzleşince çöktü. */
+const { HIZMET_YOLLARI } = require('./sayfa-turu');
+const hizmetDosyalari = [...HIZMET_YOLLARI]
+  .map((y) => path.join(S, y.replace(/^\//, ''), 'index.html'))
+  .filter(fs.existsSync);
+for (const f of hizmetDosyalari) {
   let h = fs.readFileSync(f, 'utf8');
   const once = h;
   let bu = 0;

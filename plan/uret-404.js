@@ -61,11 +61,11 @@ h = h.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/,
 
 /* --- 4. gövde --- */
 const MODULLER = [
-  ['./hizmetler/web-tasarim-yazilim/', 'Web Tasarım &amp; Yazılım', 'Kurumsal site, e-ticaret, özel yazılım'],
-  ['./hizmetler/mobil-uygulama/', 'Mobil Uygulama', 'iOS, Android, React Native, arayüz'],
-  ['./hizmetler/dijital-pazarlama/', 'Dijital Pazarlama', 'Google Ads, Meta Ads, sosyal medya'],
-  ['./hizmetler/video-produksiyon/', 'Video Prodüksiyon', 'Reklam filmi, ürün videosu, Reels'],
-  ['./hizmetler/seo/', 'SEO Hizmetleri', 'Teknik, içerik, yerel ve çok dilli SEO'],
+  ['./web-tasarim/', 'Web Tasarım &amp; Yazılım', 'Kurumsal site, e-ticaret, özel yazılım'],
+  ['./mobil-uygulama/', 'Mobil Uygulama', 'iOS, Android, React Native, arayüz'],
+  ['./dijital-pazarlama/', 'Dijital Pazarlama', 'Google Ads, Meta Ads, sosyal medya'],
+  ['./video-produksiyon/', 'Video Prodüksiyon', 'Reklam filmi, ürün videosu, Reels'],
+  ['./seo/', 'SEO Hizmetleri', 'Teknik, içerik, yerel ve çok dilli SEO'],
   ['./blog/', 'Blog', '42 rehber yazı: maliyet, süreç, karar kriterleri'],
 ];
 const govde = `<main id="ana">

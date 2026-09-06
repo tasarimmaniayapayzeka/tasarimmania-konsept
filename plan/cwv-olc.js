@@ -40,7 +40,7 @@ function tara(d, o = []) {
 }
 const u = (f) => '/' + path.relative(S, f).split(path.sep).join('/').replace(/index\.html$/, '');
 
-const TEMSILCI = ['/', '/hizmetler/', '/hizmetler/seo/', '/hizmetler/seo/teknik-seo/',
+const TEMSILCI = ['/', '/hizmetler/', '/seo/', '/teknik-seo/',
   '/blog/', '/blog/storyboard-nedir/'];
 
 const OLCUM = `new Promise((res) => {

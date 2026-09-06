@@ -40,39 +40,39 @@ const ETBIS = 'https://etbis.ticaret.gov.tr/';
 const CUMLE = {
   '/hizmetler/': `Beş modülün ortak zemini mevzuattır; ${bag(REKLAM, 'ticari reklam kuralları')} hepsinde geçerlidir.`,
 
-  '/hizmetler/web-tasarim-yazilim/': `Sitede toplanan her form verisi ${bag(KVKK, 'KVKK kapsamındadır')}; aydınlatma metni baştan kurulur.`,
-  '/hizmetler/web-tasarim-yazilim/kurumsal-web-sitesi/': `Kurumsal sitede arama görünürlüğünün temeli ${bag(GSC_REHBER, 'Google’ın kendi başlangıç kılavuzunda')} tarif edilir.`,
-  '/hizmetler/web-tasarim-yazilim/e-ticaret/': `Mesafeli satış yükümlülükleri ${bag(ETICARET, 'Ticaret Bakanlığı’nın e-ticaret mevzuatında')} yazılıdır.`,
-  '/hizmetler/web-tasarim-yazilim/ozel-yazilim/': `Panelde tutulan müşteri kaydı kişisel veridir; ${bag(KVKK, 'KVKK’nın veri sorumlusu yükümlülükleri')} tasarıma girer.`,
-  '/hizmetler/web-tasarim-yazilim/ai-entegrasyonu/': `Sohbet kayıtları da kişisel veridir; ${bag(KVKK, 'KVKK aydınlatma yükümlülüğü')} chatbot için de geçerlidir.`,
-  '/hizmetler/web-tasarim-yazilim/bakim-destek/': `Bakımın ölçülebilir tarafı sayfa deneyimidir; ${bag(VITALS, 'Core Web Vitals tanımları')} eşikleri açıkça verir.`,
+  '/web-tasarim/': `Sitede toplanan her form verisi ${bag(KVKK, 'KVKK kapsamındadır')}; aydınlatma metni baştan kurulur.`,
+  '/kurumsal-web-sitesi/': `Kurumsal sitede arama görünürlüğünün temeli ${bag(GSC_REHBER, 'Google’ın kendi başlangıç kılavuzunda')} tarif edilir.`,
+  '/e-ticaret/': `Mesafeli satış yükümlülükleri ${bag(ETICARET, 'Ticaret Bakanlığı’nın e-ticaret mevzuatında')} yazılıdır.`,
+  '/ozel-yazilim/': `Panelde tutulan müşteri kaydı kişisel veridir; ${bag(KVKK, 'KVKK’nın veri sorumlusu yükümlülükleri')} tasarıma girer.`,
+  '/yapay-zeka/': `Sohbet kayıtları da kişisel veridir; ${bag(KVKK, 'KVKK aydınlatma yükümlülüğü')} chatbot için de geçerlidir.`,
+  '/site-bakim/': `Bakımın ölçülebilir tarafı sayfa deneyimidir; ${bag(VITALS, 'Core Web Vitals tanımları')} eşikleri açıkça verir.`,
 
-  '/hizmetler/mobil-uygulama/': `Yayın kapısı mağazanın kendi kurallarıdır; ${bag(AS_INCELEME, 'App Store inceleme kılavuzu')} red sebeplerini sıralar.`,
-  '/hizmetler/mobil-uygulama/ios-android/': `Platform davranışı belgelidir; ${bag(HIG, 'Apple’ın arayüz kılavuzu')} ve ${bag(MATERIAL, 'Material Design')} farklı kalıp tarif eder.`,
-  '/hizmetler/mobil-uygulama/react-native/': `Tek kod tabanı da mağaza kurallarına tabidir; ${bag(AS_INCELEME, 'App Store inceleme kılavuzu')} istisna tanımaz.`,
-  '/hizmetler/mobil-uygulama/uygulama-ui-ux/': `Dokunma hedefi ve erişilebilirlik ölçüleri ${bag(HIG, 'Apple’ın arayüz kılavuzunda')} sayısal olarak tanımlıdır.`,
-  '/hizmetler/mobil-uygulama/aso-uygulama-pazarlamasi/': `Mağaza alanlarının sınırları tahmine bırakılmaz; ${bag(AS_URUN, 'App Store ürün sayfası kılavuzu')} hepsini yazar.`,
+  '/mobil-uygulama/': `Yayın kapısı mağazanın kendi kurallarıdır; ${bag(AS_INCELEME, 'App Store inceleme kılavuzu')} red sebeplerini sıralar.`,
+  '/ios-android-uygulama/': `Platform davranışı belgelidir; ${bag(HIG, 'Apple’ın arayüz kılavuzu')} ve ${bag(MATERIAL, 'Material Design')} farklı kalıp tarif eder.`,
+  '/react-native/': `Tek kod tabanı da mağaza kurallarına tabidir; ${bag(AS_INCELEME, 'App Store inceleme kılavuzu')} istisna tanımaz.`,
+  '/uygulama-arayuz-tasarimi/': `Dokunma hedefi ve erişilebilirlik ölçüleri ${bag(HIG, 'Apple’ın arayüz kılavuzunda')} sayısal olarak tanımlıdır.`,
+  '/aso/': `Mağaza alanlarının sınırları tahmine bırakılmaz; ${bag(AS_URUN, 'App Store ürün sayfası kılavuzu')} hepsini yazar.`,
 
-  '/hizmetler/dijital-pazarlama/': `Reklam metnindeki her iddia denetlenebilir; ${bag(REKLAM, 'ticari reklam kuralları')} sınırı çizer.`,
-  '/hizmetler/dijital-pazarlama/google-ads/': `Kalite puanının nasıl hesaplandığı ${bag(ADS, 'Google Ads yardım belgelerinde')} açıkça anlatılır.`,
-  '/hizmetler/dijital-pazarlama/meta-ads/': `Sosyal mecrada da reklam mevzuatı işler; ${bag(REKLAM, 'ticari reklam kuralları')} platform ayrımı yapmaz.`,
-  '/hizmetler/dijital-pazarlama/performans-pazarlamasi/': `İzin gerektiren gönderiler ${bag(IYS, 'İleti Yönetim Sistemi')} üzerinden kayıt altındadır.`,
-  '/hizmetler/dijital-pazarlama/sosyal-medya-yonetimi/': `İş birliği paylaşımlarında da reklam açıklaması gerekir; ${bag(REKLAM, 'ticari reklam kuralları')} bunu şart koşar.`,
+  '/dijital-pazarlama/': `Reklam metnindeki her iddia denetlenebilir; ${bag(REKLAM, 'ticari reklam kuralları')} sınırı çizer.`,
+  '/google-ads/': `Kalite puanının nasıl hesaplandığı ${bag(ADS, 'Google Ads yardım belgelerinde')} açıkça anlatılır.`,
+  '/meta-reklam/': `Sosyal mecrada da reklam mevzuatı işler; ${bag(REKLAM, 'ticari reklam kuralları')} platform ayrımı yapmaz.`,
+  '/performans-pazarlama/': `İzin gerektiren gönderiler ${bag(IYS, 'İleti Yönetim Sistemi')} üzerinden kayıt altındadır.`,
+  '/sosyal-medya/': `İş birliği paylaşımlarında da reklam açıklaması gerekir; ${bag(REKLAM, 'ticari reklam kuralları')} bunu şart koşar.`,
 
-  '/hizmetler/video-produksiyon/': `Yayına girecek işin mecra sınırları ${bag(RTUK, 'RTÜK’ün yayın ilkelerinde')} tanımlıdır.`,
-  '/hizmetler/video-produksiyon/reklam-filmi/': `Filmdeki vaat de denetlenir; ${bag(REKLAM, 'ticari reklam kuralları')} abartılı iddiayı marka sahibine bağlar.`,
-  '/hizmetler/video-produksiyon/urun-videosu/': `Görüntü ürünü olduğundan farklı gösteremez; ${bag(REKLAM, 'ticari reklam mevzuatı')} yanıltıcı sunumu yasaklar.`,
-  '/hizmetler/video-produksiyon/sosyal-video-reels/': `Kullanılan müzik telif konusudur; ${bag(TELIF, 'Telif Hakları Genel Müdürlüğü')} izin yolunu tarif eder.`,
-  '/hizmetler/video-produksiyon/ai-destekli-produksiyon/': `Üretilen sahne de reklamdır; ${bag(REKLAM, 'ticari reklam kuralları')} yanıltıcı gösterimi kapsar.`,
+  '/video-produksiyon/': `Yayına girecek işin mecra sınırları ${bag(RTUK, 'RTÜK’ün yayın ilkelerinde')} tanımlıdır.`,
+  '/reklam-filmi/': `Filmdeki vaat de denetlenir; ${bag(REKLAM, 'ticari reklam kuralları')} abartılı iddiayı marka sahibine bağlar.`,
+  '/urun-videosu/': `Görüntü ürünü olduğundan farklı gösteremez; ${bag(REKLAM, 'ticari reklam mevzuatı')} yanıltıcı sunumu yasaklar.`,
+  '/reels-video/': `Kullanılan müzik telif konusudur; ${bag(TELIF, 'Telif Hakları Genel Müdürlüğü')} izin yolunu tarif eder.`,
+  '/ai-video-produksiyon/': `Üretilen sahne de reklamdır; ${bag(REKLAM, 'ticari reklam kuralları')} yanıltıcı gösterimi kapsar.`,
 
-  '/hizmetler/seo/': `Aramanın temel kuralları ${bag(GSC_REHBER, 'Google’ın başlangıç kılavuzunda')} birincil kaynaktan okunabilir.`,
-  '/hizmetler/seo/teknik-seo/': `Sayfa deneyimi ölçütleri ${bag(VITALS, 'Core Web Vitals tanımlarında')} eşikleriyle birlikte verilir.`,
-  '/hizmetler/seo/icerik-stratejisi/': `İçeriğin arama sonucundaki görünümü ${bag(GSC_SEMA, 'Google’ın zengin sonuç galerisinde')} tür tür listelenir.`,
-  '/hizmetler/seo/yerel-seo/': `Haritalarda görünürlüğün kuralları ${bag(GSC_REHBER, 'Google’ın kendi belgelerinde')} açık biçimde duruyor.`,
-  '/hizmetler/seo/e-ticaret-seo/': `Ürün sayfası işaretlemesinin karşılığı ${bag(GSC_SEMA, 'zengin sonuç galerisinde')} örnekleriyle gösterilir.`,
-  '/hizmetler/seo/cok-dilli-seo/': `Dil ve ülke eşlemesinin doğru kurulumu ${bag(GSC_REHBER, 'Google’ın belgelerinde')} tarif edilir.`,
+  '/seo/': `Aramanın temel kuralları ${bag(GSC_REHBER, 'Google’ın başlangıç kılavuzunda')} birincil kaynaktan okunabilir.`,
+  '/teknik-seo/': `Sayfa deneyimi ölçütleri ${bag(VITALS, 'Core Web Vitals tanımlarında')} eşikleriyle birlikte verilir.`,
+  '/seo-icerik/': `İçeriğin arama sonucundaki görünümü ${bag(GSC_SEMA, 'Google’ın zengin sonuç galerisinde')} tür tür listelenir.`,
+  '/yerel-seo/': `Haritalarda görünürlüğün kuralları ${bag(GSC_REHBER, 'Google’ın kendi belgelerinde')} açık biçimde duruyor.`,
+  '/e-ticaret-seo/': `Ürün sayfası işaretlemesinin karşılığı ${bag(GSC_SEMA, 'zengin sonuç galerisinde')} örnekleriyle gösterilir.`,
+  '/cok-dilli-seo/': `Dil ve ülke eşlemesinin doğru kurulumu ${bag(GSC_REHBER, 'Google’ın belgelerinde')} tarif edilir.`,
 
-  '/hizmetler/grafik-tasarim/': `Teslim edilen tasarım bir eserdir; ${bag(TELIF, 'telif mevzuatı')} kullanım hakkının kapsamını belirler.`,
+  '/grafik-tasarim/': `Teslim edilen tasarım bir eserdir; ${bag(TELIF, 'telif mevzuatı')} kullanım hakkının kapsamını belirler.`,
 };
 
 function tara(d, o = []) {
@@ -88,10 +88,17 @@ const RAKAM = /\b\d+\s*(TL|₺|%|hafta|ay|gün|yıl|iş günü)\b/i;
 let n = 0; const sorun = [];
 console.log(`\n  ${UYGULA ? 'UYGULANIYOR' : 'KURU KOŞU'}\n`);
 
-for (const f of tara(path.join(S, 'hizmetler'))) {
+/* ⚠ KLASÖR TARAMASI ARTIK ÇALIŞMIYOR: adresler düzleşince site/hizmetler/
+   altında tek sayfa kaldı; bu betik 29 yerine 1 sayfa deniyordu ve sessizce
+   "0 sayfa" diyordu. Hizmet listesi haritadan okunuyor. */
+const { HIZMET_YOLLARI } = require('./sayfa-turu');
+const hizmetDosyalari = [...HIZMET_YOLLARI]
+  .map((y) => path.join(S, y.replace(/^\//, ''), 'index.html'))
+  .filter(fs.existsSync);
+for (const f of hizmetDosyalari) {
   const yol = u(f);
   /* Grafik tasarım eski adresinde meta-refresh yönlendirme duruyor (sayfa
-     /hizmetler/grafik-tasarim/'a taşındı). Yönlendirme sayfası içerik değil. */
+     /grafik-tasarim/'a taşındı). Yönlendirme sayfası içerik değil. */
   const cumle = CUMLE[yol];
   if (!cumle) {
     const ham = fs.readFileSync(f, 'utf8');

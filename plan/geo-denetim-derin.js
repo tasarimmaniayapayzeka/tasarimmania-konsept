@@ -25,8 +25,12 @@ function tara(d, o = []) {
 const hepsi = tara(S).filter((f) => fs.statSync(f).size >= 2000);
 const u = (f) => '/' + path.relative(S, f).split(path.sep).join('/').replace(/index\.html$/, '');
 const oku = (f) => fs.readFileSync(f, 'utf8');
-const tur = (f) => /[/\\]blog[/\\][^/\\]+[/\\]index\.html$/.test(f) ? 'blog'
-  : /[/\\]hizmetler[/\\]/.test(f) ? 'hizmet' : 'diğer';
+/* ⚠ TÜR ARTIK YOLDAN DEĞİL HARİTADAN OKUNUYOR. Eski kural "/hizmetler/ içeriyorsa
+   hizmet" idi; adresler düzleşince 28 hizmet sayfası "diğer" sayıldı ve hizmete
+   özel modüller 29 yerine 1 sayfa denetleyip "0 bulgu" diyerek SAHTE GEÇİŞ verdi.
+   Ölçüldü: "77 sayfa (42 blog · 1 hizmet · 34 diğer)". → plan/sayfa-turu.js */
+const { turuDosyadan } = require('./sayfa-turu');
+const tur = (f) => turuDosyadan(f, S);
 const G = { blog: [], hizmet: [], diğer: [] };
 for (const f of hepsi) G[tur(f)].push(f);
 

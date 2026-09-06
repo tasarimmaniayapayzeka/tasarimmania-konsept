@@ -1,8 +1,8 @@
 /* GEO onarım — Aşama 14: yazı tipi takasından doğan CLS
  *
  * ÖLÇÜLEN DURUM (başsız Chrome, 1440×900, her sayfa 4 kez — kararlı):
- *   /hizmetler/seo/yerel-seo/            CLS 0,1853
- *   /hizmetler/dijital-pazarlama/meta-ads/ CLS 0,1849
+ *   /yerel-seo/            CLS 0,1853
+ *   /meta-reklam/ CLS 0,1849
  *   /blog/grafik-tasarim-turleri/        CLS 0,1081
  *   (Google eşiği "iyi" için 0,1)
  *
