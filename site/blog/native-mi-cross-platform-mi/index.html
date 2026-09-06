@@ -8,6 +8,12 @@
 <title>Native mi Cross-Platform mı? Uygulama Mimarisi Seçimi | TasarımMania</title>
 <meta name="description" content="Native uygulama mı, tek kod tabanı mı? Ekranı kimin çizdiği, donanıma erişim ve performans farkı üzerinden mimari seçimini mekanizmasıyla anlatıyoruz.">
 <link rel="canonical" href="https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/">
+<meta name="author" content="TasarımMania">
+<!-- max-* AYRI etikette: noindex-uygula.js --ac robots etiketini birebir dizgeyle
+     arıyor; içine ekleme yapılırsa indekslemeyi açma betiği kırılır. -->
+<meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="theme-color" content="#0B0D12">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="TasarımMania">
@@ -20,7 +26,10 @@
 <meta property="og:image:alt" content="Tek bir ışık kaynağından çıkıp iki ayrı çerçeveye dağılan çizgiler; sağdaki iki çerçeve ayna görüntüsü gibi">
 <meta property="article:published_time" content="2026-09-30T10:20:00">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Native mi Cross-Platform mı? Uygulama Mimarisi Seçimi | TasarımMania">
+<meta name="twitter:description" content="Native uygulama mı, tek kod tabanı mı? Ekranı kimin çizdiği, donanıma erişim ve performans farkı üzerinden mimari seçimini mekanizmasıyla anlatıyoruz.">
 <meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/native-mi-cross-platform-mi/gorsel/native-mi-cross-platform-mi-kapak-1440.jpg">
+<meta name="twitter:image:alt" content="Tek bir ışık kaynağından çıkıp iki ayrı çerçeveye dağılan çizgiler; sağdaki iki çerçeve ayna görüntüsü gibi">
 <link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,7 +68,7 @@
 .ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
 .ftr-ust img{height:47px;width:auto;margin-bottom:11px}
 .ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
-.ftr h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+.ftr h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--muted);margin-bottom:13px;font-weight:500}
 .ftr ul{display:grid;gap:9px}
 .ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s;padding-block:7px}
@@ -164,19 +173,53 @@
       "dateModified": "2026-09-30T10:20:00",
       "inLanguage": "tr-TR",
       "mainEntityOfPage": "https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/",
-      "author": { "@type": "Organization", "name": "TasarımMania", "url": "https://www.tasarimmania.com/" },
-      "publisher": { "@id": "https://www.tasarimmania.com/#kurulus" },
+      "author": {
+        "@type": "Organization",
+        "name": "TasarımMania",
+        "url": "https://www.tasarimmania.com/"
+      },
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      },
       "articleSection": "Mobil",
       "wordCount": 978,
       "image": {
         "@type": "ImageObject",
         "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/native-mi-cross-platform-mi/gorsel/native-mi-cross-platform-mi-kapak-1440.jpg",
-        "width": 1440, "height": 810,
+        "width": 1440,
+        "height": 810,
         "caption": "Tek bir ışık kaynağından çıkıp iki ayrı çerçeveye dağılan çizgiler; sağdaki iki çerçeve ayna görüntüsü gibi"
       },
-      "about": ["Native uygulama","Cross-platform geliştirme","Mobil mimari"],
-      "mentions": [{"@type":"Thing","name":"Swift"},{"@type":"Thing","name":"Kotlin"},{"@type":"Thing","name":"React Native"},{"@type":"Thing","name":"Flutter"}],
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".ozet", ".yz-cevap"] }
+      "about": [
+        "Native uygulama",
+        "Cross-platform geliştirme",
+        "Mobil mimari"
+      ],
+      "mentions": [
+        {
+          "@type": "Thing",
+          "name": "Swift"
+        },
+        {
+          "@type": "Thing",
+          "name": "Kotlin"
+        },
+        {
+          "@type": "Thing",
+          "name": "React Native"
+        },
+        {
+          "@type": "Thing",
+          "name": "Flutter"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".ozet",
+          ".yz-cevap"
+        ]
+      }
     },
     {
       "@type": "Organization",
@@ -187,32 +230,152 @@
       "logo": {
         "@type": "ImageObject",
         "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/logo/marka-yatay-optik.png",
-        "width": 435, "height": 163
+        "width": 435,
+        "height": 163
       },
-      "address": { "@type": "PostalAddress", "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
-        "addressLocality": "Bakırköy", "addressRegion": "İstanbul", "addressCountry": "TR" }
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+        "addressLocality": "Bakırköy",
+        "addressRegion": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "knowsAbout": [
+        "Web tasarımı ve yazılım geliştirme",
+        "Mobil uygulama geliştirme",
+        "Dijital pazarlama ve performans reklamcılığı",
+        "Video prodüksiyon ve reklam filmi",
+        "Arama motoru optimizasyonu",
+        "Grafik tasarım ve kurumsal kimlik",
+        "E-ticaret sitesi kurulumu",
+        "Sosyal medya yönetimi"
+      ]
     },
     {
       "@type": "FAQPage",
       "@id": "https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/#sss",
       "mainEntity": [
-    { "@type": "Question", "name": "Native uygulama her zaman daha hızlı mı çalışır?", "acceptedAnswer": { "@type": "Answer", "text": "Hayır, bu yaygın bir basitleştirmedir. Liste kaydırma, form doldurma ve içerik gösterme gibi günlük işlerde kullanıcı hiçbir fark hissetmez. Ayrışma yalnız ağır grafik, sürekli animasyon ve yoğun veri işleme gerektiren ürünlerde ortaya çıkar. Bir sipariş akışında ya da katalogda hız üzerinden mimari seçmek, ölçmeden karar vermek olur. Doğru soru hızın ne kadar olduğu değil, işin hangi cinsten olduğudur." } },
-    { "@type": "Question", "name": "Tek kod tabanı gerçekten yarı maliyet mi?", "acceptedAnswer": { "@type": "Answer", "text": "Hayır; ortak iş azalır ama ikiye bölünmez." } },
-    { "@type": "Question", "name": "Uygulamanın bir kısmı native, bir kısmı ortak olabilir mi?", "acceptedAnswer": { "@type": "Answer", "text": "Olabilir ve yaygın bir düzendir. Ortak akışlar tek kaynaktan yürür, donanıma yakın ekranlar yerli kodla yazılır. Karma yapı bakım yükünü biraz artırır ama esneklik kazandırır." } },
-    { "@type": "Question", "name": "Mağazalar tek kod tabanıyla yazılmış uygulamaları kabul ediyor mu?", "acceptedAnswer": { "@type": "Answer", "text": "Ediyor. Mağaza incelemesi kodun nasıl yazıldığına değil, kuralları karşılayıp karşılamadığına bakar." } },
-    { "@type": "Question", "name": "Ekibimde yerli kod bilgisi yok, yine de native seçmeli miyim?", "acceptedAnswer": { "@type": "Answer", "text": "Ürün donanımın ucuna oturmuyorsa hayır. Bilmediğiniz bir yolda ilerlemek hem takvimi hem bakım yükünü büyütür." } },
-    { "@type": "Question", "name": "Cross-platform seçersem tasarımım iki platformda farklı mı görünür?", "acceptedAnswer": { "@type": "Answer", "text": "Seçtiğiniz yaklaşıma bağlı. Köprü kuran çatılarda farklı, kendi çizen çatılarda aynı görünür." } },
-    { "@type": "Question", "name": "İleride ikinci platformu eklemek zor olur mu?", "acceptedAnswer": { "@type": "Answer", "text": "Tek kod tabanında görece kolaydır; ortak iş zaten yazılmıştır. Yerli kod yolunda ise ikinci platform neredeyse yeni bir projedir." } },
-    { "@type": "Question", "name": "Mimari seçimini ne zaman kesinleştirmeliyim?", "acceptedAnswer": { "@type": "Answer", "text": "Tasarım kilitlenmeden önce. Sonrası pahalıya gelir." } }
+        {
+          "@type": "Question",
+          "name": "Native uygulama her zaman daha hızlı mı çalışır?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır, bu yaygın bir basitleştirmedir. Liste kaydırma, form doldurma ve içerik gösterme gibi günlük işlerde kullanıcı hiçbir fark hissetmez. Ayrışma yalnız ağır grafik, sürekli animasyon ve yoğun veri işleme gerektiren ürünlerde ortaya çıkar. Bir sipariş akışında ya da katalogda hız üzerinden mimari seçmek, ölçmeden karar vermek olur. Doğru soru hızın ne kadar olduğu değil, işin hangi cinsten olduğudur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Tek kod tabanı gerçekten yarı maliyet mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır; ortak iş azalır ama ikiye bölünmez."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Uygulamanın bir kısmı native, bir kısmı ortak olabilir mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Olabilir ve yaygın bir düzendir. Ortak akışlar tek kaynaktan yürür, donanıma yakın ekranlar yerli kodla yazılır. Karma yapı bakım yükünü biraz artırır ama esneklik kazandırır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mağazalar tek kod tabanıyla yazılmış uygulamaları kabul ediyor mu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ediyor. Mağaza incelemesi kodun nasıl yazıldığına değil, kuralları karşılayıp karşılamadığına bakar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ekibimde yerli kod bilgisi yok, yine de native seçmeli miyim?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ürün donanımın ucuna oturmuyorsa hayır. Bilmediğiniz bir yolda ilerlemek hem takvimi hem bakım yükünü büyütür."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Cross-platform seçersem tasarımım iki platformda farklı mı görünür?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Seçtiğiniz yaklaşıma bağlı. Köprü kuran çatılarda farklı, kendi çizen çatılarda aynı görünür."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "İleride ikinci platformu eklemek zor olur mu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tek kod tabanında görece kolaydır; ortak iş zaten yazılmıştır. Yerli kod yolunda ise ikinci platform neredeyse yeni bir projedir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mimari seçimini ne zaman kesinleştirmeliyim?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tasarım kilitlenmeden önce. Sonrası pahalıya gelir."
+          }
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.tasarimmania.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.tasarimmania.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Native mi Cross-Platform mı? Uygulama Mimarisi Seçimi", "item": "https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/" }
-      ]
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana sayfa",
+          "item": "https://www.tasarimmania.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.tasarimmania.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Native mi Cross-Platform mı? Uygulama Mimarisi Seçimi",
+          "item": "https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/"
+        }
+      ],
+      "@id": "https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/#kirintili"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.tasarimmania.com/#site",
+      "url": "https://www.tasarimmania.com/",
+      "name": "TasarımMania",
+      "inLanguage": "tr-TR",
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/#sayfa",
+      "url": "https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/",
+      "name": "Native mi Cross-Platform mı? Uygulama Mimarisi Seçimi | TasarımMania",
+      "description": "Native uygulama mı, tek kod tabanı mı? Ekranı kimin çizdiği, donanıma erişim ve performans farkı üzerinden mimari seçimini mekanizmasıyla anlatıyoruz.",
+      "inLanguage": "tr-TR",
+      "isPartOf": {
+        "@id": "https://www.tasarimmania.com/#site"
+      },
+      "breadcrumb": {
+        "@id": "https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/#kirintili"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/native-mi-cross-platform-mi/gorsel/native-mi-cross-platform-mi-kapak-1440.jpg"
+      },
+      "mainEntity": {
+        "@id": "https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/#article"
+      },
+      "dateModified": "2026-09-30T10:20:00"
     }
   ]
 }
@@ -288,7 +451,7 @@
       <h2>Tek Kod Tabanı Ekranı Nasıl Çiziyor?</h2>
       <div class="yz-cevap"><p>İki yaklaşım var. Kimi çatılar platformun kendi bileşenine köprü kurar, kimi de her pikseli kendi çizer. Köprü kuran yol yerli görünüm verir. Kendi çizen yol iki platformda birebir aynı sonucu üretir. Bu tercih, uygulamanın hangi cihazda tanıdık hissettireceğini doğrudan belirler. Native uygulama tarafında böyle bir tercih yoktur; bileşen zaten yerlidir.</p></div>
       <p>Köprü kuran yaklaşımda düğmeye bastığınızda gerçek bir sistem düğmesi tepki verir. Kullanıcı cihazını tanıdık bulur, ama iki platform birbirinin aynı görünmez. Kendi çizen yaklaşımda ise arayüz öğeleri çatının kendi fırçasıyla çizilir; her yerde aynı görünür, hiçbir yerde tam yerli hissettirmez.</p><p>Marka deneyimi tek tip olsun istiyorsanız ikinci yol işinize gelir. Cihaz alışkanlığına yaslanmak istiyorsanız birincisi daha iyi oturur.</p><p>Bu tercihin bakım tarafında da bir bedeli var. Platform arayüzünü yenilediğinde köprü kuran çatı yeniliği kendiliğinden alır. Kendi çizen çatıda ise güncel görünümü siz kovalarsınız. Uygulamanın native bileşenlere ne kadar yaslandığı, bu kovalamacanın uzunluğunu belirler.</p>
-      <h4>Kullanıcı Bu Farkı Görür mü?</h4>
+      <h3>Kullanıcı Bu Farkı Görür mü?</h3>
       <p>Çoğu kullanıcı adını koyamaz ama farkı sezer. Kaydırma sönümlemesi, klavye davranışı ve geri hareketi cihazdan cihaza değişir. Bunlar küçük ayrıntılardır; üst üste bindiklerinde ürünü yabancı hissettirirler.</p>
       <h2>Donanıma Erişim Hangi Noktada Ayrışır?</h2>
       <div class="yz-cevap"><p>Kamera, sensör ve arka plan konumu gibi yetenekler her iki yolda da çalışır. Fark hızda değil, yeni bir yetenek çıktığında ortaya çıkar. Platform yeni bir özellik duyurduğunda native uygulama onu ilk gün kullanır. Cross-platform tarafta ise köprünün güncellenmesini beklersiniz. Bekleme süresi genelde haftalarla ölçülür.</p></div>
@@ -328,13 +491,13 @@
         </table>
       </div>
 
-        <div class="yz-kopru">
+        <aside class="yz-kopru" aria-label="Hizmet köprüsü">
           <b>Mimarinizi birlikte seçelim</b>
           <p>Ürününüzün donanım ihtiyacını, platform beklentisini ve ekip yetkinliğini konuşalım; teknoloji adı değil, seçimin gerekçesini birlikte çıkaralım.</p>
           <a class="btn btn-p" href="../../teklif/#mobil">Kapsam çıkaralım
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../hizmetler/mobil-uygulama/ios-android/">Hizmet sayfasını gör</a>
-        </div>
+        </aside>
         <p>Native uygulama ile tek kod tabanı arasındaki seçim bir üstünlük yarışı değil, mekanizma tercihidir. Donanım derinliği, platform şartı ve ekip yetkinliği aynı yönü gösteriyorsa karar zaten kendini söyler.</p>
       </article>
     </div>
@@ -394,7 +557,7 @@
           İstanbul merkezli 360 derece dijital ajans.</p>
       </div>
       <div>
-        <h5>Modüller</h5>
+        <h3>Modüller</h3>
         <ul>
           <li><a href="../../hizmetler/">Tüm hizmetler</a></li>
           <li><a href="../../hizmetler/web-tasarim-yazilim/">Web &amp; Yazılım</a></li>
@@ -406,7 +569,7 @@
         </ul>
       </div>
       <div>
-        <h5>İletişim</h5>
+        <h3>İletişim</h3>
         <ul>
           <li><a href="tel:+905547916545">0554 791 65 45</a></li>
           <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>

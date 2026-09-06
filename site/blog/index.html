@@ -8,6 +8,10 @@
 <title>Blog — Web, SEO, Reklam ve E-Ticaret Rehberleri | TasarımMania</title>
 <meta name="description" content="Web tasarım, SEO, e-ticaret, reklam yönetimi ve grafik tasarım üzerine uygulanabilir rehberler. Ajans deneyiminden çıkan, ölçüme dayalı içerikler.">
 <link rel="canonical" href="https://www.tasarimmania.com/blog/">
+<meta name="author" content="TasarımMania">
+<meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="theme-color" content="#0B0D12">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="TasarımMania">
@@ -15,8 +19,12 @@
 <meta property="og:description" content="Ajans deneyiminden çıkan, ölçüme dayalı dijital pazarlama rehberleri.">
 <meta property="og:url" content="https://www.tasarimmania.com/blog/">
 <meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta property="og:image:alt" content="TasarımMania — web, mobil, reklam, video ve SEO hizmetleri kapak görseli">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta name="twitter:title" content="Blog — Web, SEO, Reklam ve E-Ticaret Rehberleri">
+<meta name="twitter:description" content="Ajans deneyiminden çıkan, ölçüme dayalı dijital pazarlama rehberleri.">
+<meta name="twitter:image:alt" content="TasarımMania — web, mobil, reklam, video ve SEO hizmetleri kapak görseli">
 <link rel="icon" type="image/png" href="../../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +63,7 @@
 .ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
 .ftr-ust img{height:47px;width:auto;margin-bottom:11px}
 .ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
-.ftr h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+.ftr h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--muted);margin-bottom:13px;font-weight:500}
 .ftr ul{display:grid;gap:9px}
 .ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s;padding-block:7px}
@@ -110,24 +118,342 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "TasarımMania Blog",
-  "url": "https://www.tasarimmania.com/blog/",
-  "description": "Web tasarım, SEO, e-ticaret, reklam yönetimi ve grafik tasarım rehberleri.",
-  "inLanguage": "tr-TR",
-  "isPartOf": { "@type": "WebSite", "name": "TasarımMania", "url": "https://www.tasarimmania.com/" }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.tasarimmania.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.tasarimmania.com/blog/" }
+  "@graph": [
+    {
+      "@type": [
+        "CollectionPage",
+        "WebPage"
+      ],
+      "name": "TasarımMania Blog",
+      "url": "https://www.tasarimmania.com/blog/",
+      "description": "Web tasarım, SEO, e-ticaret, reklam yönetimi ve grafik tasarım rehberleri.",
+      "inLanguage": "tr-TR",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "TasarımMania",
+        "url": "https://www.tasarimmania.com/"
+      },
+      "@id": "https://www.tasarimmania.com/blog/#sayfa",
+      "breadcrumb": {
+        "@id": "https://www.tasarimmania.com/blog/#kirintili"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg"
+      },
+      "mainEntity": {
+        "@id": "https://www.tasarimmania.com/blog/#liste"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana sayfa",
+          "item": "https://www.tasarimmania.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.tasarimmania.com/blog/"
+        }
+      ],
+      "@id": "https://www.tasarimmania.com/blog/#kirintili"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.tasarimmania.com/#kurulus",
+      "name": "TasarımMania",
+      "url": "https://www.tasarimmania.com/",
+      "knowsAbout": [
+        "Web tasarımı ve yazılım geliştirme",
+        "Mobil uygulama geliştirme",
+        "Dijital pazarlama ve performans reklamcılığı",
+        "Video prodüksiyon ve reklam filmi",
+        "Arama motoru optimizasyonu",
+        "Grafik tasarım ve kurumsal kimlik",
+        "E-ticaret sitesi kurulumu",
+        "Sosyal medya yönetimi"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.tasarimmania.com/#site",
+      "url": "https://www.tasarimmania.com/",
+      "name": "TasarımMania",
+      "inLanguage": "tr-TR",
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.tasarimmania.com/blog/#liste",
+      "name": "TasarımMania blog yazıları",
+      "numberOfItems": 42,
+      "itemListOrder": "https://schema.org/ItemListUnordered",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "E-ticaret Yazılımı Seçimi: Hangi Altyapı Hangi İşletmeye Uygun?",
+          "url": "https://www.tasarimmania.com/blog/e-ticaret-yazilimi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "E-Ticaret SEO Ürün ve Kategori Sayfalarını Nasıl Sıralatır?",
+          "url": "https://www.tasarimmania.com/blog/e-ticaret-seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Kurumsal Grafik Tasarım Hangi Alanları Kapsar?",
+          "url": "https://www.tasarimmania.com/blog/grafik-tasarim-turleri/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Sosyal Medya Stratejisi Nedir? Platform Seçimi Neye Göre Yapılır?",
+          "url": "https://www.tasarimmania.com/blog/sosyal-medya-stratejileri/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Yerel SEO ile Haritalarda Görünürlüğe Giden Yol",
+          "url": "https://www.tasarimmania.com/blog/yerel-seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "E-Ticaret Sitesi Tasarımı: Hazır Tema mı, Özel Tasarım mı?",
+          "url": "https://www.tasarimmania.com/blog/e-ticaret-web-tasarimi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "E-Posta Pazarlama Stratejisi: Doğru Gönderim Zamanı Var mı?",
+          "url": "https://www.tasarimmania.com/blog/e-posta-pazarlama/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "Teknik SEO Denetimi Sitenizde Neleri Ortaya Çıkarır?",
+          "url": "https://www.tasarimmania.com/blog/teknik-seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "E-Ticaret Kullanıcı Deneyimi: Sepete Giden Yol Nasıl Kısalır?",
+          "url": "https://www.tasarimmania.com/blog/kullanici-deneyimi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "SEO İçerik Stratejisinde İçerik Takvimi Neden Belirleyicidir?",
+          "url": "https://www.tasarimmania.com/blog/seo-icin-icerik-stratejileri/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "name": "Grafik Tasarım Süreci Kaç Aşamada Tamamlanır?",
+          "url": "https://www.tasarimmania.com/blog/grafik-tasarim-sureci/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "name": "Google Ads Reklam Yönetimi mi, Organik Büyüme mi? Maliyet Kıyası",
+          "url": "https://www.tasarimmania.com/blog/google-ads-ve-ppc/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "name": "Mobil Uygulama Geliştirme Maliyeti Neye Göre Değişir?",
+          "url": "https://www.tasarimmania.com/blog/mobil-uygulama-gelistirme-maliyeti/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "name": "Çok Dilli SEO ve Uluslararası Kurulum: hreflang ve URL Yapısı Rehberi",
+          "url": "https://www.tasarimmania.com/blog/uluslararasi-seo-nasil-yapilir/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "name": "Mobil Uygulama Yaptırmadan Önce Hangi Sorular Sorulur?",
+          "url": "https://www.tasarimmania.com/blog/mobil-uygulama-yaptirma-sorulari/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "name": "E-Ticaret Ürün Görseli Satışı Gerçekten Etkiler mi?",
+          "url": "https://www.tasarimmania.com/blog/e-ticaret-urun-fotograflari/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "name": "Mobil Uygulama Geliştirme Süreci Kaç Aşamadan Oluşur?",
+          "url": "https://www.tasarimmania.com/blog/mobil-uygulama-gelistirme-sureci/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "name": "Backlink Çalışması Sıralamayı Ne Kadar Sürede Etkiler?",
+          "url": "https://www.tasarimmania.com/blog/off-page-seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "name": "Native mi Cross-Platform mı? Uygulama Mimarisi Seçimi",
+          "url": "https://www.tasarimmania.com/blog/native-mi-cross-platform-mi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "name": "Sosyal Medya Reklam Yönetimi: Hangi Mecrada Hangi Format Kazandırır?",
+          "url": "https://www.tasarimmania.com/blog/sosyal-medya-reklam-yonetimi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "name": "React Native mi Flutter mı? Tek Kod Tabanı Karşılaştırması",
+          "url": "https://www.tasarimmania.com/blog/react-native-mi-flutter-mi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "name": "Anahtar Kelime Araştırması Neden İçeriğin Pusulasıdır?",
+          "url": "https://www.tasarimmania.com/blog/anahtar-kelime-arastirmasi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "name": "Uygulama Mağaza Optimizasyonu Nasıl Yapılır? 8 Adım",
+          "url": "https://www.tasarimmania.com/blog/uygulama-magaza-optimizasyonu/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "name": "E-Ticaret Ödeme Entegrasyonu Adım Adım Nasıl Kurulur?",
+          "url": "https://www.tasarimmania.com/blog/odeme-guvenligi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "name": "Reklam Filmi Çekimi Hangi Aşamalardan Geçer?",
+          "url": "https://www.tasarimmania.com/blog/reklam-filmi-cekim-asamalari/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "name": "2026 Grafik Tasarım Trendleri: Bu Yıl Neler Değişti?",
+          "url": "https://www.tasarimmania.com/blog/grafik-tasarim-trendleri/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 27,
+          "name": "Reklam Filmi Fiyatını Belirleyen Kalemler Nelerdir?",
+          "url": "https://www.tasarimmania.com/blog/reklam-filmi-fiyat-kalemleri/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "name": "SEO Raporlama İçin Hangi Araçları Nasıl Kurmalısınız?",
+          "url": "https://www.tasarimmania.com/blog/seo-raporlama-araclari/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 29,
+          "name": "Storyboard Ne İşe Yarar, Çekimden Önce Neyi Kurtarır?",
+          "url": "https://www.tasarimmania.com/blog/storyboard-nedir/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 30,
+          "name": "Influencer Pazarlama Ajansı Gözüyle: Mikro mu, Makro mu?",
+          "url": "https://www.tasarimmania.com/blog/influencer-pazarlama/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 31,
+          "name": "Reklam Filmi Ajansı Seçerken Nelere Bakılır?",
+          "url": "https://www.tasarimmania.com/blog/reklam-filmi-ajansi-secimi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 32,
+          "name": "Çok Dilli E-Ticaret Dönüşüm Oranınızı Nasıl Değiştirir?",
+          "url": "https://www.tasarimmania.com/blog/e-ticaret-sitelerinde-cok-dilli-destek/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 33,
+          "name": "Ürün Videosu Çekimi: Stüdyo mu, Mekân mı?",
+          "url": "https://www.tasarimmania.com/blog/urun-videosu-studyo-mu-mekan-mi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 34,
+          "name": "Arayüz Tasarımı Hangi İlkelere Dayanır?",
+          "url": "https://www.tasarimmania.com/blog/ui-tasarim-ilkeleri/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 35,
+          "name": "E-Ticaret Ürün Videosu Formatları ve Ölçüleri",
+          "url": "https://www.tasarimmania.com/blog/e-ticaret-urun-videosu-formatlari/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 36,
+          "name": "SEO Uyumlu Web Tasarım Arama Görünürlüğünü Nasıl Etkiler?",
+          "url": "https://www.tasarimmania.com/blog/seo-ve-web-tasarim/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 37,
+          "name": "Yapay Zeka ile Video Üretimi Nerede İşe Yarar, Nerede Yaramaz?",
+          "url": "https://www.tasarimmania.com/blog/yapay-zeka-ile-video-uretimi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 38,
+          "name": "Sosyal Medya Raporlama: Hangi Metrikleri İzlemeli?",
+          "url": "https://www.tasarimmania.com/blog/sosyal-medya-raporlama/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 39,
+          "name": "Kamerasız Ürün Videosu Nasıl Üretilir? Adım Adım",
+          "url": "https://www.tasarimmania.com/blog/kamerasiz-urun-videosu/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 40,
+          "name": "Google Ads Reklam Metni Nasıl Yazılır? 9 Adımlık Formül",
+          "url": "https://www.tasarimmania.com/blog/reklam-metni-yazma/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 41,
+          "name": "Web Sitesine Chatbot Eklemek Neyi Değiştirir?",
+          "url": "https://www.tasarimmania.com/blog/web-sitesine-chatbot-eklemek/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 42,
+          "name": "Grafik Tasarım Programları Karşılaştırması: Hangisi Kime Uygun?",
+          "url": "https://www.tasarimmania.com/blog/grafik-tasarim-araclari/"
+        }
+      ]
+    }
   ]
 }
 </script>
+
 </head>
 <body data-dal="web">
 
@@ -597,7 +923,7 @@
           İstanbul merkezli 360 derece dijital ajans.</p>
       </div>
       <div>
-        <h5>Modüller</h5>
+        <h3>Modüller</h3>
         <ul>
           <li><a href="../hizmetler/">Tüm hizmetler</a></li>
           <li><a href="../hizmetler/web-tasarim-yazilim/">Web &amp; Yazılım</a></li>
@@ -609,7 +935,7 @@
         </ul>
       </div>
       <div>
-        <h5>İletişim</h5>
+        <h3>İletişim</h3>
         <ul>
           <li><a href="tel:+905547916545">0554 791 65 45</a></li>
           <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>

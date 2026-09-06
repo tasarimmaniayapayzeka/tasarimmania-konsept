@@ -8,6 +8,10 @@
 <title>SEO Raporlama Araçları: Kurulum Rehberi</title>
 <meta name="description" content="SEO raporlama için Search Console, GA4 ve otomasyon panelini kurma rehberi: zorunlu ayarlar, veriyi bozan kurulum hataları ve 6 adımlık kontrol listesi.">
 <link rel="canonical" href="https://www.tasarimmania.com/blog/seo-raporlama-araclari/">
+<meta name="author" content="TasarımMania">
+<meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="theme-color" content="#0B0D12">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="TasarımMania">
@@ -21,6 +25,9 @@
 <meta property="article:published_time" content="2026-10-09">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/seo-raporlama-araclari/gorsel/seo-raporlama-araclari-kapak-1440.jpg">
+<meta name="twitter:title" content="SEO Raporlama Araçları: Kurulum Rehberi">
+<meta name="twitter:description" content="SEO raporlama için Search Console, GA4 ve otomasyon panelini kurma rehberi: zorunlu ayarlar, veriyi bozan kurulum hataları ve 6 adımlık kontrol listesi.">
+<meta name="twitter:image:alt" content="Üç ölçüm katmanının tek raporda birleşmesini anlatan soyut görsel">
 <link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,7 +66,7 @@
 .ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
 .ftr-ust img{height:47px;width:auto;margin-bottom:11px}
 .ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
-.ftr h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+.ftr h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--muted);margin-bottom:13px;font-weight:500}
 .ftr ul{display:grid;gap:9px}
 .ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s;padding-block:7px}
@@ -180,19 +187,72 @@
       "dateModified": "2026-10-09",
       "inLanguage": "tr-TR",
       "mainEntityOfPage": "https://www.tasarimmania.com/blog/seo-raporlama-araclari/",
-      "author": { "@type": "Organization", "name": "TasarımMania", "url": "https://www.tasarimmania.com/" },
-      "publisher": { "@id": "https://www.tasarimmania.com/#kurulus" },
+      "author": {
+        "@type": "Organization",
+        "name": "TasarımMania",
+        "url": "https://www.tasarimmania.com/"
+      },
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      },
       "articleSection": "Seo",
       "wordCount": 1186,
       "image": {
         "@type": "ImageObject",
         "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/seo-raporlama-araclari/gorsel/seo-raporlama-araclari-kapak-1440.jpg",
-        "width": 1440, "height": 810,
+        "width": 1440,
+        "height": 810,
         "caption": "Üç ölçüm katmanının tek raporda birleşmesini anlatan soyut görsel"
       },
-      "about": [{"@type":"Thing","name":"SEO raporlama","description":"SEO raporlama, organik arama performansını sorgu, sayfa ve dönüşüm kırılımında düzenli olarak ölçen raporlama sürecidir."},{"@type":"Thing","name":"Google Search Console","description":"Google Search Console, bir sitenin arama sonuçlarındaki tıklama, gösterim ve dizin durumunu gösteren ücretsiz ölçüm aracıdır."}],
-      "mentions": [{"@type":"Thing","name":"Google Search Console"},{"@type":"Thing","name":"Google Analytics 4"},{"@type":"Thing","name":"Looker Studio"},{"@type":"Thing","name":"Dönüşüm ölçümü"},{"@type":"Thing","name":"Site haritası"},{"@type":"Thing","name":"Veri katmanı"},{"@type":"Thing","name":"Organik trafik"}],
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".ozet", ".yz-cevap"] }
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "SEO raporlama",
+          "description": "SEO raporlama, organik arama performansını sorgu, sayfa ve dönüşüm kırılımında düzenli olarak ölçen raporlama sürecidir."
+        },
+        {
+          "@type": "Thing",
+          "name": "Google Search Console",
+          "description": "Google Search Console, bir sitenin arama sonuçlarındaki tıklama, gösterim ve dizin durumunu gösteren ücretsiz ölçüm aracıdır."
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "Thing",
+          "name": "Google Search Console"
+        },
+        {
+          "@type": "Thing",
+          "name": "Google Analytics 4"
+        },
+        {
+          "@type": "Thing",
+          "name": "Looker Studio"
+        },
+        {
+          "@type": "Thing",
+          "name": "Dönüşüm ölçümü"
+        },
+        {
+          "@type": "Thing",
+          "name": "Site haritası"
+        },
+        {
+          "@type": "Thing",
+          "name": "Veri katmanı"
+        },
+        {
+          "@type": "Thing",
+          "name": "Organik trafik"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".ozet",
+          ".yz-cevap"
+        ]
+      }
     },
     {
       "@type": "Organization",
@@ -207,32 +267,152 @@
       "logo": {
         "@type": "ImageObject",
         "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/logo/marka-yatay-optik.png",
-        "width": 435, "height": 163
+        "width": 435,
+        "height": 163
       },
-      "address": { "@type": "PostalAddress", "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
-        "addressLocality": "Bakırköy", "addressRegion": "İstanbul", "addressCountry": "TR" }
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+        "addressLocality": "Bakırköy",
+        "addressRegion": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "knowsAbout": [
+        "Web tasarımı ve yazılım geliştirme",
+        "Mobil uygulama geliştirme",
+        "Dijital pazarlama ve performans reklamcılığı",
+        "Video prodüksiyon ve reklam filmi",
+        "Arama motoru optimizasyonu",
+        "Grafik tasarım ve kurumsal kimlik",
+        "E-ticaret sitesi kurulumu",
+        "Sosyal medya yönetimi"
+      ]
     },
     {
       "@type": "FAQPage",
       "@id": "https://www.tasarimmania.com/blog/seo-raporlama-araclari/#sss",
       "mainEntity": [
-    { "@type": "Question", "name": "SEO raporlama için ücretli araç şart mı?", "acceptedAnswer": { "@type": "Answer", "text": "Hayır. Search Console, GA4 ve Looker Studio üçlüsü ücretsizdir ve bir KOBİ'nin karar ihtiyacını fazlasıyla karşılar. Ücretli araçlar rakip takibi, anahtar kelime hacmi ve bağlantı profili gibi ek katmanlar sunar. Bunlar faydalıdır, zorunlu değildir. Önce ücretsiz üçlüyü doğru kurun, veri akmaya başlasın; eksik hissettiğiniz noktayı altı ay sonra somut olarak görürsünüz. Karar o zaman gerçek ihtiyaca dayanır. Ücretli araca geçerken de tek bir eksiği kapatmak için başlayın; paket satın alıp hepsini birden kullanmaya çalışmak raporu kalabalıklaştırır." } },
-    { "@type": "Question", "name": "Kurulum ne kadar sürer?", "acceptedAnswer": { "@type": "Answer", "text": "Kendi projelerimizde tek kişiyle iki iş günü yetiyor. Etiket yerleşimi ve dönüşüm tanımı aynı gün bitebilir; asıl zamanı panel kurulumu alır." } },
-    { "@type": "Question", "name": "Search Console verisi neden GA4'ten farklı çıkıyor?", "acceptedAnswer": { "@type": "Answer", "text": "İki araç farklı şey sayar. Search Console arama sonucundaki tıklamayı, GA4 sitede açılan oturumu ölçer. Arada her zaman fark olur; farkın makul aralıkta kalması yeterlidir." } },
-    { "@type": "Question", "name": "Raporu hangi sıklıkla üretmeliyiz?", "acceptedAnswer": { "@type": "Answer", "text": "Aylık ritim çoğu işletme için yeterlidir. Haftalık kontrolü panel üzerinden yapın, yorumlu belgeyi ayın beşinde paylaşın." } },
-    { "@type": "Question", "name": "Geriye dönük veri alabilir miyiz?", "acceptedAnswer": { "@type": "Answer", "text": "Search Console geriye dönük veri sunmaz. GA4 de kurulum tarihinden öncesini göstermez. Bu yüzden mülkleri bugün açmak en ucuz yatırımdır." } },
-    { "@type": "Question", "name": "Ajans değişince veriler kaybolur mu?", "acceptedAnswer": { "@type": "Answer", "text": "Mülkler işletme hesabına bağlıysa kaybolmaz. Sahiplik ajansın hesabındaysa risk gerçektir; sahipliği kendi kurumsal hesabınızda tutun, ajansa yalnızca kullanıcı yetkisi verin." } },
-    { "@type": "Question", "name": "Panelde kaç metrik olmalı?", "acceptedAnswer": { "@type": "Answer", "text": "Bir ekrana sığacak kadar. Sekiz-on metrik çoğu karar için yeter; fazlası dikkat dağıtır." } },
-    { "@type": "Question", "name": "SEO raporlama kurulumunu kim yapmalı?", "acceptedAnswer": { "@type": "Answer", "text": "Yazılım ve pazarlama tarafı birlikte çalışmalı. Etiket yerleşimi teknik iştir, dönüşüm tanımı ise ticari karardır." } }
+        {
+          "@type": "Question",
+          "name": "SEO raporlama için ücretli araç şart mı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır. Search Console, GA4 ve Looker Studio üçlüsü ücretsizdir ve bir KOBİ'nin karar ihtiyacını fazlasıyla karşılar. Ücretli araçlar rakip takibi, anahtar kelime hacmi ve bağlantı profili gibi ek katmanlar sunar. Bunlar faydalıdır, zorunlu değildir. Önce ücretsiz üçlüyü doğru kurun, veri akmaya başlasın; eksik hissettiğiniz noktayı altı ay sonra somut olarak görürsünüz. Karar o zaman gerçek ihtiyaca dayanır. Ücretli araca geçerken de tek bir eksiği kapatmak için başlayın; paket satın alıp hepsini birden kullanmaya çalışmak raporu kalabalıklaştırır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kurulum ne kadar sürer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kendi projelerimizde tek kişiyle iki iş günü yetiyor. Etiket yerleşimi ve dönüşüm tanımı aynı gün bitebilir; asıl zamanı panel kurulumu alır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Search Console verisi neden GA4'ten farklı çıkıyor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "İki araç farklı şey sayar. Search Console arama sonucundaki tıklamayı, GA4 sitede açılan oturumu ölçer. Arada her zaman fark olur; farkın makul aralıkta kalması yeterlidir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Raporu hangi sıklıkla üretmeliyiz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aylık ritim çoğu işletme için yeterlidir. Haftalık kontrolü panel üzerinden yapın, yorumlu belgeyi ayın beşinde paylaşın."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Geriye dönük veri alabilir miyiz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Search Console geriye dönük veri sunmaz. GA4 de kurulum tarihinden öncesini göstermez. Bu yüzden mülkleri bugün açmak en ucuz yatırımdır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ajans değişince veriler kaybolur mu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mülkler işletme hesabına bağlıysa kaybolmaz. Sahiplik ajansın hesabındaysa risk gerçektir; sahipliği kendi kurumsal hesabınızda tutun, ajansa yalnızca kullanıcı yetkisi verin."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Panelde kaç metrik olmalı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bir ekrana sığacak kadar. Sekiz-on metrik çoğu karar için yeter; fazlası dikkat dağıtır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "SEO raporlama kurulumunu kim yapmalı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yazılım ve pazarlama tarafı birlikte çalışmalı. Etiket yerleşimi teknik iştir, dönüşüm tanımı ise ticari karardır."
+          }
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.tasarimmania.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.tasarimmania.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "SEO Raporlama İçin Hangi Araçları Nasıl Kurmalısınız?", "item": "https://www.tasarimmania.com/blog/seo-raporlama-araclari/" }
-      ]
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana sayfa",
+          "item": "https://www.tasarimmania.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.tasarimmania.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SEO Raporlama İçin Hangi Araçları Nasıl Kurmalısınız?",
+          "item": "https://www.tasarimmania.com/blog/seo-raporlama-araclari/"
+        }
+      ],
+      "@id": "https://www.tasarimmania.com/blog/seo-raporlama-araclari/#kirintili"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.tasarimmania.com/#site",
+      "url": "https://www.tasarimmania.com/",
+      "name": "TasarımMania",
+      "inLanguage": "tr-TR",
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.tasarimmania.com/blog/seo-raporlama-araclari/#sayfa",
+      "url": "https://www.tasarimmania.com/blog/seo-raporlama-araclari/",
+      "name": "SEO Raporlama Araçları: Kurulum Rehberi",
+      "description": "SEO raporlama için Search Console, GA4 ve otomasyon panelini kurma rehberi: zorunlu ayarlar, veriyi bozan kurulum hataları ve 6 adımlık kontrol listesi.",
+      "inLanguage": "tr-TR",
+      "isPartOf": {
+        "@id": "https://www.tasarimmania.com/#site"
+      },
+      "breadcrumb": {
+        "@id": "https://www.tasarimmania.com/blog/seo-raporlama-araclari/#kirintili"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/seo-raporlama-araclari/gorsel/seo-raporlama-araclari-kapak-1440.jpg"
+      },
+      "mainEntity": {
+        "@id": "https://www.tasarimmania.com/blog/seo-raporlama-araclari/#article"
+      },
+      "dateModified": "2026-10-09"
     }
   ]
 }
@@ -365,13 +545,13 @@
         </table>
       </div>
 
-        <div class="yz-kopru">
+        <aside class="yz-kopru" aria-label="Hizmet köprüsü">
           <b>SEO Raporlama Düzeni: 6 Adımda Araç Kurulum Listesi</b>
           <p>Kapsamınıza uygun yol haritasını birlikte çıkaralım; adımları ve zamanlamayı netleştirelim.</p>
           <a class="btn btn-p" href="../../teklif/#web">Kapsam çıkaralım
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../hizmetler/seo/">Hizmet sayfasını gör</a>
-        </div>
+        </aside>
         <p>Ölçüm kurulumu, arama tarafındaki her kararın zeminidir. Araçlar doğru bağlandığında tartışma "sıralama düştü mü" sorusundan çıkar, "hangi sayfaya bütçe ayıralım" sorusuna geçer. Düzenli SEO raporlama alışkanlığı altı ay sonra elinizde karşılaştırılabilir bir tarih bırakır. O tarih olmadan büyüme iddianızı kanıtlayamazsınız.</p>
       </article>
     </div>
@@ -445,7 +625,7 @@
           İstanbul merkezli 360 derece dijital ajans.</p>
       </div>
       <div>
-        <h5>Modüller</h5>
+        <h3>Modüller</h3>
         <ul>
           <li><a href="../../hizmetler/">Tüm hizmetler</a></li>
           <li><a href="../../hizmetler/web-tasarim-yazilim/">Web &amp; Yazılım</a></li>
@@ -457,7 +637,7 @@
         </ul>
       </div>
       <div>
-        <h5>İletişim</h5>
+        <h3>İletişim</h3>
         <ul>
           <li><a href="tel:+905547916545">0554 791 65 45</a></li>
           <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>

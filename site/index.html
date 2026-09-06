@@ -24,6 +24,8 @@
 <!-- KONSEPT-NOINDEX -->
 <meta name="robots" content="noindex,nofollow">
 <link rel="canonical" href="https://www.tasarimmania.com/">
+<meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" type="image/png" href="../assets/logo/marka-daire.png">
 <link rel="apple-touch-icon" href="../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,30 +34,87 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "TasarımMania",
-  "description": "İstanbul merkezli 360 derece dijital ajans ve dijital prodüksiyon stüdyosu.",
-  "telephone": "+905547916545",
-  "sameAs": [
-    "https://www.instagram.com/tasarimmaniaa/",
-    "https://www.facebook.com/tasarimmania/"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
-    "addressLocality": "Bakırköy",
-    "addressRegion": "İstanbul",
-    "addressCountry": "TR"
-  },
-  "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-      "opens": "09:00", "closes": "19:00" },
-    { "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday", "opens": "10:00", "closes": "16:00" }
-  ],
-  "areaServed": "TR",
-  "knowsLanguage": ["tr", "en", "de"]
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "name": "TasarımMania",
+      "description": "İstanbul merkezli 360 derece dijital ajans ve dijital prodüksiyon stüdyosu.",
+      "telephone": "+905547916545",
+      "sameAs": [
+        "https://www.instagram.com/tasarimmaniaa/",
+        "https://www.facebook.com/tasarimmania/"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+        "addressLocality": "Bakırköy",
+        "addressRegion": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "16:00"
+        }
+      ],
+      "areaServed": "TR",
+      "knowsLanguage": [
+        "tr",
+        "en",
+        "de"
+      ],
+      "@id": "https://www.tasarimmania.com/#kurulus",
+      "knowsAbout": [
+        "Web tasarımı ve yazılım geliştirme",
+        "Mobil uygulama geliştirme",
+        "Dijital pazarlama ve performans reklamcılığı",
+        "Video prodüksiyon ve reklam filmi",
+        "Arama motoru optimizasyonu",
+        "Grafik tasarım ve kurumsal kimlik",
+        "E-ticaret sitesi kurulumu",
+        "Sosyal medya yönetimi"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.tasarimmania.com/#site",
+      "url": "https://www.tasarimmania.com/",
+      "name": "TasarımMania",
+      "inLanguage": "tr-TR",
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.tasarimmania.com/#sayfa",
+      "url": "https://www.tasarimmania.com/",
+      "name": "TasarımMania — Dijital İşletim Sisteminiz | 360° Dijital Ajans",
+      "description": "TasarımMania; web yazılım, mobil uygulama, dijital pazarlama, video prodüksiyon ve SEO'yu tek panelde birleştiren İstanbul merkezli 360 derece dijital prodüksiyon stüdyosu. Yurt dışı kampanya ve çok dilli SEO deneyimi.",
+      "inLanguage": "tr-TR",
+      "isPartOf": {
+        "@id": "https://www.tasarimmania.com/#site"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg"
+      }
+    }
+  ]
 }
 </script>
 <link rel="stylesheet" href="./css/tm.css">
@@ -355,7 +414,7 @@ ul{margin:0;padding:0;list-style:none}
 .feat > div:hover{background:rgba(255,255,255,.035)}
 .feat > div:nth-child(3n){border-right:0}
 .feat > div:nth-last-child(-n+3){border-bottom:0}
-.feat h4{font-size:16.5px;margin:14px 0 8px;letter-spacing:-.028em}
+.feat h3,.feat h4{font-size:16.5px;margin:14px 0 8px;letter-spacing:-.028em}
 .feat p{font-size:13.8px;color:var(--muted);line-height:1.62}
 .feat .fi{width:32px;height:32px;border-radius:9px;border:1px solid var(--hair);display:grid;place-items:center;background:rgba(255,255,255,.045)}
 .feat .fi svg{width:16px;height:16px}
@@ -392,7 +451,7 @@ ul{margin:0;padding:0;list-style:none}
 @media (prefers-reduced-motion:reduce){.wk-vis img,.work:hover .wk-vis img{transform:none;transition:none}}
 .wk-b{padding:20px}
 .wk-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--cy)}
-.wk-b h4{font-size:17px;margin:9px 0 7px;letter-spacing:-.03em}
+.wk-b h3,.wk-b h4{font-size:17px;margin:9px 0 7px;letter-spacing:-.03em}
 .wk-b p{font-size:13.4px;color:var(--muted);line-height:1.6}
 .wk-m{display:flex;gap:16px;margin-top:16px;padding-top:14px;border-top:1px solid var(--hair)}
 .wk-m div b{display:block;font-family:var(--mono);font-size:16px;color:var(--lime);letter-spacing:-.02em}
@@ -608,7 +667,7 @@ table.cmp td.col-ok{color:var(--fg-dim)}
 footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255,255,255,.012);position:relative}
 .ft-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
 .ft-brand p{color:var(--muted);font-size:13.6px;margin-top:14px;max-width:300px;line-height:1.62}
-.ft-col h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 14px;font-weight:500}
+.ft-col h3,.ft-col h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 14px;font-weight:500}
 .ft-col a{display:block;font-size:13.8px;color:var(--fg-dim);padding:5px 0;transition:color .25s}
 .ft-col a:hover{color:var(--cy)}
 .ft-bot{margin-top:44px;padding-top:22px;border-top:1px solid var(--hair);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
@@ -746,12 +805,14 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
   .tr-track{animation:none}
   .tile{transform:none!important}
 }
-</style>
+  cite{font-style:inherit}
+  </style>
   <meta property="og:image:secure_url" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta name="twitter:image:alt" content="TasarımMania — 15 ana sayfa konsepti">
 </head>
 <body>
+<a class="skip" href="#top">İçeriğe geç</a>
 
 <div class="grain" aria-hidden="true"></div>
 
@@ -1050,7 +1111,7 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
     <div class="feat rv d1">
       <div>
         <div class="fi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#5FD8FF" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div>
-        <h4>Tek ekip, tek fatura</h4>
+        <h3>Tek ekip, tek fatura</h3>
         <p>Web ajansı, reklam ajansı ve prodüksiyon şirketi arasında koordinatörlük yapmak zorunda kalmazsınız. Tek sözleşme, tek muhatap.</p>
       </div>
       <div>
@@ -1146,7 +1207,7 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
         </div>
         <div class="wk-b">
           <span class="wk-tag">E-Ticaret · Moda</span>
-          <h4>Kadın giyim markası — Meta + Google</h4>
+          <h3>Kadın giyim markası — Meta + Google</h3>
           <p>Sepet terk oranı yüksekti, reklam bütçesi tekrar tekrar aynı kitleye harcanıyordu. Huniyi ayırdık, kreatif rotasyonu haftalığa çektik.</p>
           <div class="wk-m"><div><b>3,1x</b><span>ROAS</span></div><div><b>-%38</b><span>Müşteri edinme maliyeti</span></div></div>
         </div>
@@ -1286,7 +1347,8 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
     <div class="sec-head rv">
       <span class="eyebrow"><i></i>Süreç / 05 adım</span>
       <h2>Nasıl çalışıyoruz</h2>
-      <p>Her adımın süresi, sorumlusu ve sizden ne isteneceği baştan yazılıdır. Sürprize yer yok.</p>
+      <p>Her adımın süresi, sorumlusu ve sizden ne isteneceği baştan yazılıdır. Sürprize yer yok.
+            Bu adımları yürüten ekibi ve çalışma ilkelerimizi <a href="./hakkimizda/">hakkımızda sayfasında</a> anlattık.</p>
     </div>
     <!-- interaktif aşama seçici: ray + tıklanabilir düğümler + panel -->
     <div class="pr rv d1" id="pr">
@@ -1416,17 +1478,17 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
       <figure class="quote rv" style="margin:0">
         <span class="qm" aria-hidden="true">“</span>
         <blockquote style="margin:0"><p>Üç ayrı tedarikçiyle çalışırken hiçbiri diğerinin işini bilmiyordu. TasarımMania geldikten sonra reklam, site ve içerik ilk kez aynı takvimde ilerledi. Teklif sayımız dört ayda ikiye katlandı.</p></blockquote>
-        <figcaption class="qp"><span class="qav" aria-hidden="true"><img src="../assets/kisi/01-murat.jpg" alt="" width="160" height="160" loading="lazy" decoding="async"></span><span><b>Murat Aydın</b><span>Pazarlama Direktörü · Lojistik</span></span></figcaption>
+        <figcaption class="qp"><span class="qav" aria-hidden="true"><img src="../assets/kisi/01-murat.jpg" alt="" width="160" height="160" loading="lazy" decoding="async"></span><span><b><cite>Murat Aydın</cite></b><span>Pazarlama Direktörü · Lojistik</span></span></figcaption>
       </figure>
       <figure class="quote rv d1" style="margin:0">
         <span class="qm" aria-hidden="true">“</span>
         <blockquote style="margin:0"><p>Almanya pazarına açılırken en çok korktuğumuz şey dil ve mevzuattı. Çok dilli SEO yapısını kurup reklamları yerel ekiple aynı kalitede yönettiler. İlk çeyrekte yurt dışı ciromuz toplamın %28'i oldu.</p></blockquote>
-        <figcaption class="qp"><span class="qav" aria-hidden="true"><img src="../assets/kisi/02-selin.jpg" alt="" width="160" height="160" loading="lazy" decoding="async"></span><span><b>Selin Erdoğan</b><span>Kurucu Ortak · E-ticaret</span></span></figcaption>
+        <figcaption class="qp"><span class="qav" aria-hidden="true"><img src="../assets/kisi/02-selin.jpg" alt="" width="160" height="160" loading="lazy" decoding="async"></span><span><b><cite>Selin Erdoğan</cite></b><span>Kurucu Ortak · E-ticaret</span></span></figcaption>
       </figure>
       <figure class="quote rv d2" style="margin:0">
         <span class="qm" aria-hidden="true">“</span>
         <blockquote style="margin:0"><p>Uygulamayı 11 haftada iki mağazada da yayına aldılar ve en önemlisi, süreç boyunca nerede olduğumuzu her hafta bildim. Rapor istemek zorunda kalmadığım ilk ajans.</p></blockquote>
-        <figcaption class="qp"><span class="qav" aria-hidden="true"><img src="../assets/kisi/03-emre.jpg" alt="" width="160" height="160" loading="lazy" decoding="async"></span><span><b>Emre Kılıç</b><span>Dijital Kanallar Müdürü · Perakende</span></span></figcaption>
+        <figcaption class="qp"><span class="qav" aria-hidden="true"><img src="../assets/kisi/03-emre.jpg" alt="" width="160" height="160" loading="lazy" decoding="async"></span><span><b><cite>Emre Kılıç</cite></b><span>Dijital Kanallar Müdürü · Perakende</span></span></figcaption>
       </figure>
     </div>
   </div>
@@ -1621,7 +1683,7 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
         <p>Web, mobil, reklam, video ve SEO'yu tek çatı altında birleştiren İstanbul merkezli 360 derece dijital prodüksiyon stüdyosu.</p>
       </div>
       <div class="ft-col">
-        <h5>Hizmetler</h5>
+        <h3>Hizmetler</h3>
         <a href="./hizmetler/web-tasarim-yazilim/">Web Tasarım &amp; Yazılım</a>
         <a href="./hizmetler/mobil-uygulama/">Mobil Uygulama</a>
         <a href="./hizmetler/dijital-pazarlama/">Dijital Pazarlama</a>
@@ -1629,7 +1691,7 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
         <a href="./hizmetler/seo/">SEO Hizmetleri</a>
       </div>
       <div class="ft-col">
-        <h5>Kurumsal</h5>
+        <h3>Kurumsal</h3>
         <a href="#neden">Neden Biz</a>
         <a href="#isler">Seçili İşler</a>
         <a href="#surec">Çalışma Süreci</a>
@@ -1637,7 +1699,7 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
         <a href="./iletisim/">İletişim</a>
       </div>
       <div class="ft-col">
-        <h5>İletişim</h5>
+        <h3>İletişim</h3>
         <a href="tel:+905547916545">0554 791 65 45</a>
         <a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a>
         <a href="./iletisim/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a>

@@ -46,7 +46,7 @@ const ORTAK_CSS = `
 .ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
 .ftr-ust img{height:47px;width:auto;margin-bottom:11px}
 .ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
-.ftr h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+.ftr h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--muted);margin-bottom:13px;font-weight:500}
 .ftr ul{display:grid;gap:9px}
 .ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s;padding-block:7px}
@@ -92,7 +92,7 @@ function footer(u) {
           İstanbul merkezli 360 derece dijital ajans.</p>
       </div>
       <div>
-        <h5>Modüller</h5>
+        <h3>Modüller</h3>
         <ul>
           <li><a href="${u}hizmetler/">Tüm hizmetler</a></li>
           <li><a href="${u}hizmetler/web-tasarim-yazilim/">Web &amp; Yazılım</a></li>
@@ -104,7 +104,7 @@ function footer(u) {
         </ul>
       </div>
       <div>
-        <h5>İletişim</h5>
+        <h3>İletişim</h3>
         <ul>
           <li><a href="tel:+905547916545">0554 791 65 45</a></li>
           <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
@@ -239,8 +239,17 @@ function yaziUret(cfg) {
     govde += `      <h2>${b.h2}</h2>\n`;
     govde += `      <div class="yz-cevap"><p>${b.dogrudanCevap}</p></div>\n`;
     govde += '      ' + b.govde.replace(/\n/g, '\n      ') + '\n';
+    /* BAŞLIK HİYERARŞİSİ KORUMASI
+       Bölümün tek alt başlığı h4 olduğunda H2'den H4'e atlanıyordu — 16 sayfada
+       ölçüldü. Rehberin 2. modülü (Headings) bunu kırık sayar. Kural: h4 ancak
+       aynı bölümde kendinden ÖNCE bir h3 varsa h4 kalır, yoksa h3'e yükselir.
+       14 yapılandırmayı tek tek düzenlemek yerine kural burada, tek yerde durur. */
+    let h3Gorüldü = false;
     (b.altBaslikar || []).forEach((a) => {
-      govde += `      <${a.seviye}>${a.baslik}</${a.seviye}>\n`;
+      let sv = a.seviye;
+      if (sv === 'h3') h3Gorüldü = true;
+      else if (sv === 'h4' && !h3Gorüldü) sv = 'h3';
+      govde += `      <${sv}>${a.baslik}</${sv}>\n`;
       govde += '      ' + a.metin.replace(/\n/g, '\n      ') + '\n';
     });
     /* 1.2 M72: kaynaklı alıntı — belirtilen bölümün sonuna (varsayılan 4. bölüm) */
@@ -284,6 +293,12 @@ function yaziUret(cfg) {
 <title>${y.metaBaslik}</title>
 <meta name="description" content="${y.metaAciklama}">
 <link rel="canonical" href="https://www.tasarimmania.com/blog/${cfg.slug}/">
+<meta name="author" content="TasarımMania">
+<!-- max-* AYRI etikette: noindex-uygula.js --ac robots etiketini birebir dizgeyle
+     arıyor; içine ekleme yapılırsa indekslemeyi açma betiği kırılır. -->
+<meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="theme-color" content="#0B0D12">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="TasarımMania">
@@ -296,7 +311,10 @@ function yaziUret(cfg) {
 <meta property="og:image:alt" content="${cfg.gorsel.kapak.alt}">
 <meta property="article:published_time" content="${tarih}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${y.metaBaslik}">
+<meta name="twitter:description" content="${y.metaAciklama}">
 <meta name="twitter:image" content="${G_KOK}${cfg.slug}/gorsel/${cfg.gorsel.kapak.slug}-1440.jpg">
+<meta name="twitter:image:alt" content="${cfg.gorsel.kapak.alt}">
 <link rel="icon" type="image/png" href="${u}../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -405,13 +423,13 @@ ${nav(u, 'blog')}
     <div class="wrap">
       <article class="yz-govde">
 ${govde}${tablo}
-        <div class="yz-kopru">
+        <aside class="yz-kopru" aria-label="Hizmet köprüsü">
           <b>${cfg.kopruBaslik}</b>
           <p>${cfg.kopruMetin}</p>
           <a class="btn btn-p" href="${u}teklif/${cfg.teklifHash}">Kapsam çıkaralım
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="${u}${cfg.hizmetSayfasi.replace(/^\//, '')}">Hizmet sayfasını gör</a>
-        </div>
+        </aside>
         <p>${y.kapanis}</p>
       </article>
     </div>

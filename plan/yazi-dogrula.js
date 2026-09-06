@@ -54,8 +54,19 @@ const ESIK = [
   ['3_H1', (v) => v === 1],
   ['3_H2(5-7)', (v) => v >= 5 && v <= 7],
   ['3_H3', (v) => v >= 3],
-  ['3_H4(>=1)', (v) => v >= 1],
 ];
+
+/* ⚠ "3_H4(>=1)" ÖLÇÜTÜ KALDIRILDI — yerine hiyerarşi bütünlüğü kontrolü geldi.
+   Sebep ölçüldü: bölümün tek alt başlığı h4 olunca H2→H4 atlaması doğuyordu
+   (16 sayfa). H4'ün VAR OLMASI bir kalite işareti değil; atlamasız bir
+   H1→H2→H3 zinciri ise 2026 rehberinin 2. modülünün (Headings) istediği şey.
+   Bu kontrol seo-denetim.js çıktısından değil, doğrudan HTML'den yapılır. */
+function hiyerarsiTam(ham) {
+  const s = [...ham.matchAll(/<h([1-6])\b/g)].map((m) => +m[1]);
+  let onceki = 0;
+  for (const x of s) { if (onceki && x > onceki + 1) return false; onceki = x; }
+  return true;
+}
 
 function denetle(yapYolu, odak) {
   const C = JSON.parse(fs.readFileSync(yapYolu, 'utf8'));
@@ -74,6 +85,7 @@ function denetle(yapYolu, odak) {
       path.join(KOK, dizin, 'index.html'), odak, yapYolu], { encoding: 'utf8', maxBuffer: 1 << 24 }));
   } catch (e) { return { slug, kusur: ['seo-denetim.js çöktü: ' + e.message.slice(0, 90)] }; }
   for (const [ad, f] of ESIK) if (!f(R[ad])) kusur.push(`${ad} = ${JSON.stringify(R[ad])}`);
+  if (!hiyerarsiTam(ham)) kusur.push('BAŞLIK HİYERARŞİSİ: atlanmış seviye var (örn. H2→H4)');
 
   /* --- 2. kırık iç link --- */
   for (const m of ham.matchAll(/href="(\.\.[^"#?]*)"/g)) {

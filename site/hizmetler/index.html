@@ -8,6 +8,10 @@
 <title>Hizmetler — Beş modül, tek panel | TasarımMania</title>
 <meta name="description" content="Web &amp; yazılım, mobil uygulama, Meta &amp; Google Ads, video prodüksiyon ve SEO. Beş modül tek ekipte çalışır; aralarındaki bilgi kaybı sıfırlanır.">
 <link rel="canonical" href="https://www.tasarimmania.com/hizmetler/">
+<meta name="author" content="TasarımMania">
+<meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="theme-color" content="#0B0D12">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="TasarımMania">
@@ -17,8 +21,12 @@
 <meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TasarımMania — web, mobil, reklam, video ve SEO hizmetleri kapak görseli">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta name="twitter:title" content="Hizmetler — Beş modül, tek panel | TasarımMania">
+<meta name="twitter:description" content="Web &amp; yazılım, mobil uygulama, reklam, video ve SEO tek ekipte. Modüller arası bilgi kaybı sıfır.">
+<meta name="twitter:image:alt" content="TasarımMania — web, mobil, reklam, video ve SEO hizmetleri kapak görseli">
 <link rel="icon" type="image/png" href="../../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -190,11 +198,12 @@
 .mod-in h3{font-size:21px;margin-bottom:9px}
 .mod-in > p{color:var(--fg-dim);font-size:14.6px;margin-bottom:16px}
 .mod-liste{display:grid;gap:13px;margin-bottom:22px}
-.mod-liste li{display:grid;gap:2px;padding-left:15px;position:relative}
-.mod-liste li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;
+.mod-liste li,.mod-liste>div{display:grid;gap:2px;padding-left:15px;position:relative}
+.mod-liste li::before,.mod-liste>div::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;
   border-radius:2px;background:var(--mrk)}
-.mod-liste b{font-size:14.4px;color:var(--fg);font-weight:600;letter-spacing:-.01em;line-height:1.4}
-.mod-liste span{font-size:12.4px;color:var(--muted);line-height:1.4}
+.mod-liste dd{margin:0}
+  .mod-liste b,.mod-liste dt{font-size:14.4px;color:var(--fg);font-weight:600;letter-spacing:-.01em;line-height:1.4}
+.mod-liste span,.mod-liste dd{font-size:12.4px;color:var(--muted);line-height:1.4}
 
 /* amiral kart: tam genişlik + yatay yerleşim — grid ritmini kırar */
 .mod--amiral{grid-column:1/-1;flex-direction:row}
@@ -227,7 +236,7 @@
 .ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
 .ftr-ust img{height:47px;width:auto;margin-bottom:11px}
 .ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
-.ftr h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+.ftr h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--muted);margin-bottom:13px;font-weight:500}
 .ftr ul{display:grid;gap:9px}
 .ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s}
@@ -268,10 +277,111 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.tasarimmania.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Hizmetler", "item": "https://www.tasarimmania.com/hizmetler/" }
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana sayfa",
+          "item": "https://www.tasarimmania.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Hizmetler",
+          "item": "https://www.tasarimmania.com/hizmetler/"
+        }
+      ],
+      "@id": "https://www.tasarimmania.com/hizmetler/#kirintili"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.tasarimmania.com/#kurulus",
+      "name": "TasarımMania",
+      "url": "https://www.tasarimmania.com/",
+      "knowsAbout": [
+        "Web tasarımı ve yazılım geliştirme",
+        "Mobil uygulama geliştirme",
+        "Dijital pazarlama ve performans reklamcılığı",
+        "Video prodüksiyon ve reklam filmi",
+        "Arama motoru optimizasyonu",
+        "Grafik tasarım ve kurumsal kimlik",
+        "E-ticaret sitesi kurulumu",
+        "Sosyal medya yönetimi"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.tasarimmania.com/#site",
+      "url": "https://www.tasarimmania.com/",
+      "name": "TasarımMania",
+      "inLanguage": "tr-TR",
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.tasarimmania.com/hizmetler/#sayfa",
+      "url": "https://www.tasarimmania.com/hizmetler/",
+      "name": "Hizmetler — Beş modül, tek panel | TasarımMania",
+      "description": "Web & yazılım, mobil uygulama, Meta & Google Ads, video prodüksiyon ve SEO. Beş modül tek ekipte çalışır; aralarındaki bilgi kaybı sıfırlanır.",
+      "inLanguage": "tr-TR",
+      "isPartOf": {
+        "@id": "https://www.tasarimmania.com/#site"
+      },
+      "breadcrumb": {
+        "@id": "https://www.tasarimmania.com/hizmetler/#kirintili"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg"
+      },
+      "mainEntity": {
+        "@id": "https://www.tasarimmania.com/hizmetler/#liste"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.tasarimmania.com/hizmetler/#liste",
+      "name": "TasarımMania hizmet modülleri",
+      "numberOfItems": 5,
+      "itemListOrder": "https://schema.org/ItemListUnordered",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Web Tasarım & Yazılım",
+          "url": "https://www.tasarimmania.com/hizmetler/web-tasarim-yazilim/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Mobil Uygulama",
+          "url": "https://www.tasarimmania.com/hizmetler/mobil-uygulama/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Dijital Pazarlama",
+          "url": "https://www.tasarimmania.com/hizmetler/dijital-pazarlama/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Video Prodüksiyon",
+          "url": "https://www.tasarimmania.com/hizmetler/video-produksiyon/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "SEO",
+          "url": "https://www.tasarimmania.com/hizmetler/seo/"
+        }
+      ]
+    }
   ]
 }
 </script>
@@ -471,12 +581,12 @@
           <div class="mod-in">
             <h3>Web Tasarım &amp; Yazılım</h3>
             <p>Diğer dört modülün üzerinde çalıştığı zemin. Site yavaşsa reklam da SEO da boşa gider — o yüzden hız ve ölçüm sonradan eklenen değil, baştan kurulan parça.</p>
-            <ul class="mod-liste">
-              <li><b>Telefonda 3 saniyede açılsın</b><span>Hız optimizasyonu ve Core Web Vitals</span></li>
-              <li><b>Sepeti terk edeni geri getirin</b><span>E-ticaret kurulumu — WooCommerce</span></li>
-              <li><b>İçeriği ajansa sormadan güncelleyin</b><span>Yönetim paneli ve eğitim</span></li>
-              <li><b>Gece gelen soruyu asistan cevaplasın</b><span>AI chatbot entegrasyonu</span></li>
-            </ul>
+            <dl class="mod-liste">
+              <div><dt>Telefonda 3 saniyede açılsın</dt><dd>Hız optimizasyonu ve Core Web Vitals</dd></div>
+              <div><dt>Sepeti terk edeni geri getirin</dt><dd>E-ticaret kurulumu — WooCommerce</dd></div>
+              <div><dt>İçeriği ajansa sormadan güncelleyin</dt><dd>Yönetim paneli ve eğitim</dd></div>
+              <div><dt>Gece gelen soruyu asistan cevaplasın</dt><dd>AI chatbot entegrasyonu</dd></div>
+            </dl>
             <div class="mod-alt">
               <span class="fiy">Kurulum + 15–30 iş günü</span>
               <a href="./web-tasarim-yazilim/">Web Tasarım & Yazılım modülünü aç <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -492,12 +602,12 @@
           <div class="mod-in">
             <h3>Mobil Uygulama</h3>
             <p>Sadık müşteriyi elde tutan kanal. Web ile aynı tasarım sistemini ve aynı ölçüm şemasını kullanır.</p>
-            <ul class="mod-liste">
-              <li><b>Markanız müşterinin cebinde dursun</b><span>iOS &amp; Android mağaza yayını</span></li>
-              <li><b>Kampanyayı bildirimle ücretsiz duyurun</b><span>Push senaryoları</span></li>
-              <li><b>Sadakat kartını cüzdandan çıkarın</b><span>Puan ve üyelik akışı</span></li>
-              <li><b>Hangi ekranda kaybettiğinizi görün</b><span>Uygulama içi analitik</span></li>
-            </ul>
+            <dl class="mod-liste">
+              <div><dt>Markanız müşterinin cebinde dursun</dt><dd>iOS &amp; Android mağaza yayını</dd></div>
+              <div><dt>Kampanyayı bildirimle ücretsiz duyurun</dt><dd>Push senaryoları</dd></div>
+              <div><dt>Sadakat kartını cüzdandan çıkarın</dt><dd>Puan ve üyelik akışı</dd></div>
+              <div><dt>Hangi ekranda kaybettiğinizi görün</dt><dd>Uygulama içi analitik</dd></div>
+            </dl>
             <div class="mod-alt">
               <span class="fiy">Kapsama göre 8–16 hafta</span>
               <a href="./mobil-uygulama/">Mobil Uygulama modülünü aç <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -513,12 +623,12 @@
           <div class="mod-in">
             <h3>Dijital Pazarlama</h3>
             <p>Trafiği getiren motor. Nereye indireceğini web, neyi göstereceğini video söyler — üçü aynı ekipte olunca bütçe boşa akmaz.</p>
-            <ul class="mod-liste">
-              <li><b>Bütçe doğru kişiye gitsin</b><span>Google Ads yönetimi</span></li>
-              <li><b>Aynı kitleye tekrar tekrar ödemeyin</b><span>Meta &amp; Instagram reklamları</span></li>
-              <li><b>Hesaplar sizin adınıza açılsın</b><span>Veri ve mülkiyet sizde kalır</span></li>
-              <li><b>Yurt dışında da aynı kaliteyle yayın</b><span>Çok dilli kampanya yönetimi</span></li>
-            </ul>
+            <dl class="mod-liste">
+              <div><dt>Bütçe doğru kişiye gitsin</dt><dd>Google Ads yönetimi</dd></div>
+              <div><dt>Aynı kitleye tekrar tekrar ödemeyin</dt><dd>Meta &amp; Instagram reklamları</dd></div>
+              <div><dt>Hesaplar sizin adınıza açılsın</dt><dd>Veri ve mülkiyet sizde kalır</dd></div>
+              <div><dt>Yurt dışında da aynı kaliteyle yayın</dt><dd>Çok dilli kampanya yönetimi</dd></div>
+            </dl>
             <div class="mod-alt">
               <span class="fiy">Aylık · çıkış hakkı ay sonu</span>
               <a href="./dijital-pazarlama/">Dijital Pazarlama modülünü aç <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -534,12 +644,12 @@
           <div class="mod-in">
             <h3>Video Prodüksiyon</h3>
             <p>Reklamın ve sosyal kanalların yakıtı. Tek çekim planından üç format birden çıkar.</p>
-            <ul class="mod-liste">
-              <li><b>Tek çekimden üç format çıksın</b><span>16:9 reklam, 9:16 Reels, 1:1 post</span></li>
-              <li><b>Ürününüz ekranda hak ettiği gibi görünsün</b><span>Ürün ve e-ticaret çekimi</span></li>
-              <li><b>Kreatif yorulmadan yenisi hazır olsun</b><span>Haftalık rotasyon planı</span></li>
-              <li><b>Kurgu için ay beklemeyin</b><span>AI destekli hızlı üretim hattı</span></li>
-            </ul>
+            <dl class="mod-liste">
+              <div><dt>Tek çekimden üç format çıksın</dt><dd>16:9 reklam, 9:16 Reels, 1:1 post</dd></div>
+              <div><dt>Ürününüz ekranda hak ettiği gibi görünsün</dt><dd>Ürün ve e-ticaret çekimi</dd></div>
+              <div><dt>Kreatif yorulmadan yenisi hazır olsun</dt><dd>Haftalık rotasyon planı</dd></div>
+              <div><dt>Kurgu için ay beklemeyin</dt><dd>AI destekli hızlı üretim hattı</dd></div>
+            </dl>
             <div class="mod-alt">
               <span class="fiy">Çekim + 2 hafta kurgu</span>
               <a href="./video-produksiyon/">Video Prodüksiyon modülünü aç <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -555,12 +665,12 @@
           <div class="mod-in">
             <h3>SEO Hizmetleri</h3>
             <p>Zamanla ucuzlayan tek kanal. Reklamı kapattığınızda ayakta kalan trafik burada birikir.</p>
-            <ul class="mod-liste">
-              <li><b>Reklamı kapatınca da telefon çalsın</b><span>Organik trafik ve içerik stratejisi</span></li>
-              <li><b>Bölgenizde arayan sizi bulsun</b><span>Yerel SEO ve İşletme Profili</span></li>
-              <li><b>Google’ın neyi beğenmediğini öğrenin</b><span>Teknik SEO denetimi</span></li>
-              <li><b>Yurt dışı aramalarında görünün</b><span>Çok dilli / uluslararası SEO</span></li>
-            </ul>
+            <dl class="mod-liste">
+              <div><dt>Reklamı kapatınca da telefon çalsın</dt><dd>Organik trafik ve içerik stratejisi</dd></div>
+              <div><dt>Bölgenizde arayan sizi bulsun</dt><dd>Yerel SEO ve İşletme Profili</dd></div>
+              <div><dt>Google’ın neyi beğenmediğini öğrenin</dt><dd>Teknik SEO denetimi</dd></div>
+              <div><dt>Yurt dışı aramalarında görünün</dt><dd>Çok dilli / uluslararası SEO</dd></div>
+            </dl>
             <div class="mod-alt">
               <span class="fiy">Aylık · ilk sonuç 8–12 hafta</span>
               <a href="./seo/">SEO modülünü aç <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -606,7 +716,7 @@
           İstanbul merkezli 360 derece dijital ajans.</p>
       </div>
       <div>
-        <h5>Modüller</h5>
+        <h3>Modüller</h3>
         <ul>
           <li><a href="./web-tasarim-yazilim/">Web Tasarım &amp; Yazılım</a></li>
           <li><a href="./mobil-uygulama/">Mobil Uygulama</a></li>
@@ -617,7 +727,7 @@
         </ul>
       </div>
       <div>
-        <h5>İletişim</h5>
+        <h3>İletişim</h3>
         <ul>
           <li><a href="tel:+905547916545">0554 791 65 45</a></li>
           <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>

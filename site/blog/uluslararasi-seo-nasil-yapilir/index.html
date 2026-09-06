@@ -8,6 +8,10 @@
 <title>Çok Dilli SEO: hreflang ve URL Yapısı Kurulum Rehberi</title>
 <meta name="description" content="Çok dilli SEO kurulumu nasıl yapılır? ccTLD ile alt dizin arasındaki fark, hreflang etiketleri ve sitemap düzeni için 8 adımlık uygulama listesi bu rehberde.">
 <link rel="canonical" href="https://www.tasarimmania.com/blog/uluslararasi-seo-nasil-yapilir/">
+<meta name="author" content="TasarımMania">
+<meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="theme-color" content="#0B0D12">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="TasarımMania">
@@ -21,6 +25,9 @@
 <meta property="article:published_time" content="2026-09-25">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/uluslararasi-seo-nasil-yapilir/gorsel/uluslararasi-seo-nasil-yapilir-kapak-1440.jpg">
+<meta name="twitter:title" content="Çok Dilli SEO: hreflang ve URL Yapısı Kurulum Rehberi">
+<meta name="twitter:description" content="Çok dilli SEO kurulumu nasıl yapılır? ccTLD ile alt dizin arasındaki fark, hreflang etiketleri ve sitemap düzeni için 8 adımlık uygulama listesi bu rehberde.">
+<meta name="twitter:image:alt" content="Çok dilli SEO kurulumunu temsil eden, dil katmanlarına ayrılan soyut cam küre görseli">
 <link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,7 +66,7 @@
 .ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
 .ftr-ust img{height:47px;width:auto;margin-bottom:11px}
 .ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
-.ftr h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+.ftr h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--muted);margin-bottom:13px;font-weight:500}
 .ftr ul{display:grid;gap:9px}
 .ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s;padding-block:7px}
@@ -180,19 +187,76 @@
       "dateModified": "2026-09-25",
       "inLanguage": "tr-TR",
       "mainEntityOfPage": "https://www.tasarimmania.com/blog/uluslararasi-seo-nasil-yapilir/",
-      "author": { "@type": "Organization", "name": "TasarımMania", "url": "https://www.tasarimmania.com/" },
-      "publisher": { "@id": "https://www.tasarimmania.com/#kurulus" },
+      "author": {
+        "@type": "Organization",
+        "name": "TasarımMania",
+        "url": "https://www.tasarimmania.com/"
+      },
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      },
       "articleSection": "Seo",
       "wordCount": 1186,
       "image": {
         "@type": "ImageObject",
         "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/uluslararasi-seo-nasil-yapilir/gorsel/uluslararasi-seo-nasil-yapilir-kapak-1440.jpg",
-        "width": 1440, "height": 810,
+        "width": 1440,
+        "height": 810,
         "caption": "Çok dilli SEO kurulumunu temsil eden, dil katmanlarına ayrılan soyut cam küre görseli"
       },
-      "about": [{"@type":"Thing","name":"Çok dilli SEO","description":"Bir web sitesinin farklı dil sürümlerini arama motorlarına doğru eşleyen teknik optimizasyon alanıdır."},{"@type":"Thing","name":"hreflang","description":"Bir sayfanın hangi dil ve ülke için hazırlandığını arama motorlarına bildiren HTML etiketidir."}],
-      "mentions": [{"@type":"Thing","name":"çok dilli SEO"},{"@type":"Thing","name":"hreflang"},{"@type":"Thing","name":"ccTLD"},{"@type":"Thing","name":"alt dizin yapısı"},{"@type":"Thing","name":"canonical etiketi"},{"@type":"Thing","name":"XML sitemap"},{"@type":"Thing","name":"x-default"},{"@type":"Thing","name":"uluslararası SEO"}],
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".ozet", ".yz-cevap"] }
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Çok dilli SEO",
+          "description": "Bir web sitesinin farklı dil sürümlerini arama motorlarına doğru eşleyen teknik optimizasyon alanıdır."
+        },
+        {
+          "@type": "Thing",
+          "name": "hreflang",
+          "description": "Bir sayfanın hangi dil ve ülke için hazırlandığını arama motorlarına bildiren HTML etiketidir."
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "Thing",
+          "name": "çok dilli SEO"
+        },
+        {
+          "@type": "Thing",
+          "name": "hreflang"
+        },
+        {
+          "@type": "Thing",
+          "name": "ccTLD"
+        },
+        {
+          "@type": "Thing",
+          "name": "alt dizin yapısı"
+        },
+        {
+          "@type": "Thing",
+          "name": "canonical etiketi"
+        },
+        {
+          "@type": "Thing",
+          "name": "XML sitemap"
+        },
+        {
+          "@type": "Thing",
+          "name": "x-default"
+        },
+        {
+          "@type": "Thing",
+          "name": "uluslararası SEO"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".ozet",
+          ".yz-cevap"
+        ]
+      }
     },
     {
       "@type": "Organization",
@@ -207,32 +271,152 @@
       "logo": {
         "@type": "ImageObject",
         "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/logo/marka-yatay-optik.png",
-        "width": 435, "height": 163
+        "width": 435,
+        "height": 163
       },
-      "address": { "@type": "PostalAddress", "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
-        "addressLocality": "Bakırköy", "addressRegion": "İstanbul", "addressCountry": "TR" }
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+        "addressLocality": "Bakırköy",
+        "addressRegion": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "knowsAbout": [
+        "Web tasarımı ve yazılım geliştirme",
+        "Mobil uygulama geliştirme",
+        "Dijital pazarlama ve performans reklamcılığı",
+        "Video prodüksiyon ve reklam filmi",
+        "Arama motoru optimizasyonu",
+        "Grafik tasarım ve kurumsal kimlik",
+        "E-ticaret sitesi kurulumu",
+        "Sosyal medya yönetimi"
+      ]
     },
     {
       "@type": "FAQPage",
       "@id": "https://www.tasarimmania.com/blog/uluslararasi-seo-nasil-yapilir/#sss",
       "mainEntity": [
-    { "@type": "Question", "name": "Dil sürümü açmak yeni bir pazara girmek için yeterli mi?", "acceptedAnswer": { "@type": "Answer", "text": "Dil, pazarın yalnızca bir katmanı. Para birimi, kargo süresi, vergi ve tüketici mevzuatı ayrışıyorsa dil sürümü tek başına yetmez. Aynı Almanca metin, Avusturya'da yanlış fiyat ve yanlış teslimat vaadiyle görünebilir. Bu noktada ülke bazlı sürüm ve ayrı ticari kurgu gerekir." } },
-    { "@type": "Question", "name": "hreflang olmadan çok dilli site yayına alınır mı?", "acceptedAnswer": { "@type": "Answer", "text": "Teknik olarak evet, sağlıklı biçimde hayır. Etiket yoksa arama motoru hangi sürümü kime göstereceğini kendi tahmin eder. Türkçe kullanıcıya İngilizce sayfa çıkması bu yüzden sık görülür. Etiketsiz yayın, sürüm eşlemesini tamamen Google'ın tahminine bırakır." } },
-    { "@type": "Question", "name": "Alt dizinden ccTLD'ye geçersem eski URL'lere ne olur?", "acceptedAnswer": { "@type": "Answer", "text": "Eski adresleri 301 ile yeni alan adındaki karşılıklarına bağlayın ve zinciri tek adımda tutun. Search Console'da adres değişikliği bildirimini yapın, sitemap dosyalarını yeni adreslerle güncelleyin. hreflang satırlarını da yeniden yazın; eski satırlar kaldığı sürece iki yapı birbirine işaret eder. Yeni alan adının otorite kurması zaman ister. Taşımayı düşük sezonda planlayın; trafiğin en yoğun olduğu haftada yapılan geçiş, dalgalanmayı gereksiz yere büyütür." } },
-    { "@type": "Question", "name": "x-default ne işe yarar?", "acceptedAnswer": { "@type": "Answer", "text": "Listede karşılığı olmayan ziyaretçiyi hangi sürüme göndereceğinizi söyler." } },
-    { "@type": "Question", "name": "Dil sürümleri arasında otomatik yönlendirme yapmalı mıyız?", "acceptedAnswer": { "@type": "Answer", "text": "Zorunlu yönlendirmeden kaçının. IP ya da tarayıcı diline göre kullanıcıyı kilitlemek, tarayıcıların diğer sürümleri görmesini engeller. Bunun yerine üst köşede kalıcı bir öneri bandı gösterin. Karar kullanıcıda kalsın." } },
-    { "@type": "Question", "name": "Makine çevirisi yeterli olur mu?", "acceptedAnswer": { "@type": "Answer", "text": "Taban metin olarak işe yarar, son ürün olarak yetmez. Yerel bir editör terminolojiyi ve arama alışkanlığını düzeltmeden yayına almayın. Anahtar kelime araştırmasını da her pazarda sıfırdan yapmak gerekir." } },
-    { "@type": "Question", "name": "Kaç dille başlamak mantıklı?", "acceptedAnswer": { "@type": "Answer", "text": "İki ya da üç dille başlamak çoğu KOBİ için yeterli. Ekip kapasitesi, içerik üretim hızı ve müşteri desteği bu sayıyı belirler. Yönetemediğiniz her dil sürümü zamanla eskir ve markanın güvenilirliğini aşağı çeker." } },
-    { "@type": "Question", "name": "hreflang'i sitemap'te mi head'de mi tanımlamalı?", "acceptedAnswer": { "@type": "Answer", "text": "Sayfa sayısı belirler. Birkaç yüz sayfalık kurumsal sitelerde head yöntemi pratik kalır. On binlerce ürünlü kataloglarda sitemap yöntemi hem sayfa boyutunu korur hem güncellemeyi tek dosyada toplar. İkisini birlikte kullanmayın; çakışan tanımlar hataya yol açar." } }
+        {
+          "@type": "Question",
+          "name": "Dil sürümü açmak yeni bir pazara girmek için yeterli mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dil, pazarın yalnızca bir katmanı. Para birimi, kargo süresi, vergi ve tüketici mevzuatı ayrışıyorsa dil sürümü tek başına yetmez. Aynı Almanca metin, Avusturya'da yanlış fiyat ve yanlış teslimat vaadiyle görünebilir. Bu noktada ülke bazlı sürüm ve ayrı ticari kurgu gerekir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "hreflang olmadan çok dilli site yayına alınır mı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Teknik olarak evet, sağlıklı biçimde hayır. Etiket yoksa arama motoru hangi sürümü kime göstereceğini kendi tahmin eder. Türkçe kullanıcıya İngilizce sayfa çıkması bu yüzden sık görülür. Etiketsiz yayın, sürüm eşlemesini tamamen Google'ın tahminine bırakır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Alt dizinden ccTLD'ye geçersem eski URL'lere ne olur?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Eski adresleri 301 ile yeni alan adındaki karşılıklarına bağlayın ve zinciri tek adımda tutun. Search Console'da adres değişikliği bildirimini yapın, sitemap dosyalarını yeni adreslerle güncelleyin. hreflang satırlarını da yeniden yazın; eski satırlar kaldığı sürece iki yapı birbirine işaret eder. Yeni alan adının otorite kurması zaman ister. Taşımayı düşük sezonda planlayın; trafiğin en yoğun olduğu haftada yapılan geçiş, dalgalanmayı gereksiz yere büyütür."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "x-default ne işe yarar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Listede karşılığı olmayan ziyaretçiyi hangi sürüme göndereceğinizi söyler."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Dil sürümleri arasında otomatik yönlendirme yapmalı mıyız?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zorunlu yönlendirmeden kaçının. IP ya da tarayıcı diline göre kullanıcıyı kilitlemek, tarayıcıların diğer sürümleri görmesini engeller. Bunun yerine üst köşede kalıcı bir öneri bandı gösterin. Karar kullanıcıda kalsın."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Makine çevirisi yeterli olur mu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Taban metin olarak işe yarar, son ürün olarak yetmez. Yerel bir editör terminolojiyi ve arama alışkanlığını düzeltmeden yayına almayın. Anahtar kelime araştırmasını da her pazarda sıfırdan yapmak gerekir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kaç dille başlamak mantıklı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "İki ya da üç dille başlamak çoğu KOBİ için yeterli. Ekip kapasitesi, içerik üretim hızı ve müşteri desteği bu sayıyı belirler. Yönetemediğiniz her dil sürümü zamanla eskir ve markanın güvenilirliğini aşağı çeker."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "hreflang'i sitemap'te mi head'de mi tanımlamalı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sayfa sayısı belirler. Birkaç yüz sayfalık kurumsal sitelerde head yöntemi pratik kalır. On binlerce ürünlü kataloglarda sitemap yöntemi hem sayfa boyutunu korur hem güncellemeyi tek dosyada toplar. İkisini birlikte kullanmayın; çakışan tanımlar hataya yol açar."
+          }
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.tasarimmania.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.tasarimmania.com/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "Çok Dilli SEO ve Uluslararası Kurulum: hreflang ve URL Yapısı Rehberi", "item": "https://www.tasarimmania.com/blog/uluslararasi-seo-nasil-yapilir/" }
-      ]
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana sayfa",
+          "item": "https://www.tasarimmania.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.tasarimmania.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Çok Dilli SEO ve Uluslararası Kurulum: hreflang ve URL Yapısı Rehberi",
+          "item": "https://www.tasarimmania.com/blog/uluslararasi-seo-nasil-yapilir/"
+        }
+      ],
+      "@id": "https://www.tasarimmania.com/blog/uluslararasi-seo-nasil-yapilir/#kirintili"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.tasarimmania.com/#site",
+      "url": "https://www.tasarimmania.com/",
+      "name": "TasarımMania",
+      "inLanguage": "tr-TR",
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.tasarimmania.com/blog/uluslararasi-seo-nasil-yapilir/#sayfa",
+      "url": "https://www.tasarimmania.com/blog/uluslararasi-seo-nasil-yapilir/",
+      "name": "Çok Dilli SEO: hreflang ve URL Yapısı Kurulum Rehberi",
+      "description": "Çok dilli SEO kurulumu nasıl yapılır? ccTLD ile alt dizin arasındaki fark, hreflang etiketleri ve sitemap düzeni için 8 adımlık uygulama listesi bu rehberde.",
+      "inLanguage": "tr-TR",
+      "isPartOf": {
+        "@id": "https://www.tasarimmania.com/#site"
+      },
+      "breadcrumb": {
+        "@id": "https://www.tasarimmania.com/blog/uluslararasi-seo-nasil-yapilir/#kirintili"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/uluslararasi-seo-nasil-yapilir/gorsel/uluslararasi-seo-nasil-yapilir-kapak-1440.jpg"
+      },
+      "mainEntity": {
+        "@id": "https://www.tasarimmania.com/blog/uluslararasi-seo-nasil-yapilir/#article"
+      },
+      "dateModified": "2026-09-25"
     }
   ]
 }
@@ -363,13 +547,13 @@
         </table>
       </div>
 
-        <div class="yz-kopru">
+        <aside class="yz-kopru" aria-label="Hizmet köprüsü">
           <b>Uluslararası SEO Kurulumu: 8 Adımlık Uygulama Listesi</b>
           <p>Kapsamınıza uygun yol haritasını birlikte çıkaralım; adımları ve zamanlamayı netleştirelim.</p>
           <a class="btn btn-p" href="../../teklif/#web">Kapsam çıkaralım
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../hizmetler/seo/cok-dilli-seo/">Hizmet sayfasını gör</a>
-        </div>
+        </aside>
         <p>Uluslararası büyüme, çeviri bütçesiyle değil kurulum kararlarıyla başlar. Alan adı yapısını, hreflang satırlarını ve sitemap düzenini ilk günde doğru kurarsanız, aynı işi ikinci kez yapmazsınız. Pazar listenizi paylaşın; hangi rotanın markanıza uyduğunu birlikte netleştirelim.</p>
       </article>
     </div>
@@ -443,7 +627,7 @@
           İstanbul merkezli 360 derece dijital ajans.</p>
       </div>
       <div>
-        <h5>Modüller</h5>
+        <h3>Modüller</h3>
         <ul>
           <li><a href="../../hizmetler/">Tüm hizmetler</a></li>
           <li><a href="../../hizmetler/web-tasarim-yazilim/">Web &amp; Yazılım</a></li>
@@ -455,7 +639,7 @@
         </ul>
       </div>
       <div>
-        <h5>İletişim</h5>
+        <h3>İletişim</h3>
         <ul>
           <li><a href="tel:+905547916545">0554 791 65 45</a></li>
           <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
