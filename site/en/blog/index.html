@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- KONSEPT-NOINDEX -->
+<meta name="robots" content="noindex,nofollow">
+<title>Blog — Web, SEO and Advertising Guides | TasarımMania</title>
+<meta name="description" content="Practical guides on web design, SEO, e-commerce, ad management and graphic design. Written from agency experience and grounded in measurement.">
+<link rel="canonical" href="https://www.tasarimmania.com/en/blog/">
+<link rel="alternate" hreflang="tr" href="https://www.tasarimmania.com/blog/">
+<link rel="alternate" hreflang="en" href="https://www.tasarimmania.com/en/blog/">
+<link rel="alternate" hreflang="x-default" href="https://www.tasarimmania.com/blog/">
+<link rel="alternate" type="application/rss+xml" title="TasarımMania Blog (RSS)" href="../../blog/rss.xml">
+<link rel="alternate" type="application/atom+xml" title="TasarımMania Blog (Atom)" href="../../blog/atom.xml">
+<meta name="author" content="TasarımMania">
+<meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="theme-color" content="#0B0D12">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="Blog — Web, SEO and Advertising Guides | TasarımMania">
+<meta property="og:description" content="Digital marketing guides grounded in measurement, written from agency experience.">
+<meta property="og:url" content="https://www.tasarimmania.com/en/blog/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta property="og:image:alt" content="TasarımMania — cover image for web, mobile, advertising, video and SEO services">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
+<meta name="twitter:title" content="Blog — Web, SEO and Advertising Guides | TasarımMania">
+<meta name="twitter:description" content="Digital marketing guides grounded in measurement, written from agency experience.">
+<meta name="twitter:image:alt" content="TasarımMania — cover image for web, mobile, advertising, video and SEO services">
+<link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
+<link rel="stylesheet" href="../../css/tm.css">
+<style>
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  max-height:calc(100dvh - 74px);overflow-y:auto;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(28px,4vw,52px)) 0 clamp(22px,3vw,34px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.14),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.wa{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:90;width:54px;height:54px;
+  border-radius:50%;background:#25D366;display:grid;place-items:center;
+  box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s;padding-block:7px}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+@media(max-width:960px){.ftr-ust{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.nav-links,.nav-tel{display:none}.burger{display:block}.ftr-ust{grid-template-columns:1fr}}
+.phd h1{font-size:clamp(30px,5vw,52px);letter-spacing:-.04em;line-height:1.12;margin-bottom:16px}
+.phd .lead{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18.5px);max-width:60ch;line-height:1.75}
+.bl-sayac{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.bl-sayac div{border:1px solid var(--hair);border-radius:var(--r-md);padding:14px 18px;background:var(--panel)}
+.bl-sayac b{display:block;font-family:var(--mono);font-size:20px;color:var(--acc);letter-spacing:-.02em}
+.bl-sayac span{display:block;margin-top:5px;font-size:11.6px;color:var(--muted)}
+.bl-filtre{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.bl-filtre button{font-family:var(--mono);font-size:10.6px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);background:var(--panel);border:1px solid var(--hair);border-radius:999px;
+  padding:9px 16px;cursor:pointer;transition:.3s var(--ease)}
+.bl-filtre button:hover{color:var(--fg-dim);border-color:var(--hair-strong)}
+.bl-filtre button.acik{color:var(--acc);border-color:var(--acc);background:rgba(var(--acc-rgb),.10)}
+.bl-izgara{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.bl-izgara{list-style:none;padding:0;margin:0}
+.bl-i{display:flex}
+.bl-i>.bl-k{flex:1}
+.bl-k{display:flex;flex-direction:column;border:1px solid var(--hair);border-radius:var(--r-lg);
+  background:var(--panel);padding:24px 22px;color:inherit;transition:.35s var(--ease);position:relative;overflow:hidden}
+.bl-k::after{content:"";position:absolute;right:-70px;top:-70px;width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle,rgba(var(--k),.14),transparent 70%);opacity:0;transition:.4s}
+.bl-k:hover{border-color:var(--hair-strong);transform:translateY(-4px)}
+.bl-k:hover::after{opacity:1}
+.bl-k > *{position:relative}
+.bl-k .kat{font-family:var(--mono);font-size:9.6px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgb(var(--k));display:inline-block;border:1px solid rgba(var(--k),.4);border-radius:99px;
+  padding:5px 11px;margin-bottom:14px;align-self:flex-start}
+.bl-k h2{font-size:18.5px;letter-spacing:-.025em;line-height:1.32;margin:0 0 10px}
+.bl-k p{font-size:13.8px;color:var(--muted);line-height:1.68;margin:0 0 16px}
+.bl-k .alt{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding-top:14px;border-top:1px solid var(--hair)}
+.bl-k .tarih{font-family:var(--mono);font-size:10.6px;color:var(--muted)}
+.bl-k .oku{font-family:var(--mono);font-size:10.4px;letter-spacing:.12em;text-transform:uppercase;
+  color:rgb(var(--k));display:inline-flex;align-items:center;gap:7px;transition:gap .3s}
+.bl-k:hover .oku{gap:12px}
+.bl-bos{border:1px dashed var(--hair-strong);border-radius:var(--r-lg);padding:40px 24px;text-align:center;
+  color:var(--muted);font-size:14.4px}
+.band{position:relative;border:1px solid rgba(var(--acc-rgb),.28);border-radius:26px;
+  padding:clamp(38px,5vw,62px) 32px;text-align:center;overflow:hidden;
+  background:linear-gradient(140deg,rgba(var(--acc-rgb),.09),rgba(0,229,255,.07))}
+.band::before{content:"";position:absolute;inset:0;z-index:1;
+  background:radial-gradient(600px 280px at 50% -30%,rgba(var(--acc-rgb),.2),transparent 70%)}
+.band > *{position:relative;z-index:2}
+.band h2{font-size:clamp(23px,3.4vw,38px);margin-bottom:12px}
+.band p{color:var(--fg-dim);margin-bottom:28px;font-size:16px}
+.band-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+@media(max-width:640px){.bl-izgara{grid-template-columns:1fr}}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "CollectionPage",
+        "WebPage"
+      ],
+      "name": "TasarımMania Blog",
+      "url": "https://www.tasarimmania.com/en/blog/",
+      "description": "Guides on web design, SEO, e-commerce, ad management and graphic design.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "TasarımMania",
+        "url": "https://www.tasarimmania.com/"
+      },
+      "@id": "https://www.tasarimmania.com/en/blog/#sayfa",
+      "breadcrumb": {
+        "@id": "https://www.tasarimmania.com/en/blog/#kirintili"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg"
+      },
+      "mainEntity": {
+        "@id": "https://www.tasarimmania.com/en/blog/#liste"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.tasarimmania.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.tasarimmania.com/en/blog/"
+        }
+      ],
+      "@id": "https://www.tasarimmania.com/en/blog/#kirintili"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.tasarimmania.com/#kurulus",
+      "name": "TasarımMania",
+      "url": "https://www.tasarimmania.com/",
+      "knowsAbout": [
+        "Web design and software development",
+        "Mobile app development",
+        "Digital marketing and performance advertising",
+        "Video production and commercial films",
+        "Search engine optimization",
+        "Graphic design and brand identity",
+        "E-commerce store setup",
+        "Social media management"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.tasarimmania.com/#site",
+      "url": "https://www.tasarimmania.com/",
+      "name": "TasarımMania",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.tasarimmania.com/en/blog/#liste",
+      "name": "TasarımMania blog posts",
+      "numberOfItems": 42,
+      "itemListOrder": "https://schema.org/ItemListUnordered",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Choosing E-Commerce Software: Which Platform Suits Which Business?",
+          "url": "https://www.tasarimmania.com/en/blog/e-ticaret-yazilimi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "How Does E-Commerce SEO Rank Product and Category Pages?",
+          "url": "https://www.tasarimmania.com/en/blog/e-ticaret-seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "What Does Corporate Graphic Design Cover?",
+          "url": "https://www.tasarimmania.com/en/blog/grafik-tasarim-turleri/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "What Is a Social Media Strategy? How Do You Choose a Platform?",
+          "url": "https://www.tasarimmania.com/en/blog/sosyal-medya-stratejileri/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Local SEO: The Route to Visibility on Maps",
+          "url": "https://www.tasarimmania.com/en/blog/yerel-seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "E-Commerce Site Design: Off-the-Shelf Theme or Bespoke?",
+          "url": "https://www.tasarimmania.com/en/blog/e-ticaret-web-tasarimi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Email Marketing Strategy: Is There a Right Time to Send?",
+          "url": "https://www.tasarimmania.com/en/blog/e-posta-pazarlama/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "What Does a Technical SEO Audit Uncover on Your Site?",
+          "url": "https://www.tasarimmania.com/en/blog/teknik-seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "E-Commerce UX: How Do You Shorten the Route to the Basket?",
+          "url": "https://www.tasarimmania.com/en/blog/kullanici-deneyimi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "Why Is the Content Calendar Decisive in an SEO Content Strategy?",
+          "url": "https://www.tasarimmania.com/en/blog/seo-icin-icerik-stratejileri/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "name": "How Many Stages Does the Graphic Design Process Take?",
+          "url": "https://www.tasarimmania.com/en/blog/grafik-tasarim-sureci/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "name": "Google Ads or Organic Growth? A Cost Comparison",
+          "url": "https://www.tasarimmania.com/en/blog/google-ads-ve-ppc/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "name": "What Makes Mobile App Development Costs Vary?",
+          "url": "https://www.tasarimmania.com/en/blog/mobil-uygulama-gelistirme-maliyeti/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "name": "Multilingual SEO and International Setup: A Guide to hreflang and URL Structure",
+          "url": "https://www.tasarimmania.com/en/blog/uluslararasi-seo-nasil-yapilir/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "name": "What Should You Ask Before Commissioning a Mobile App?",
+          "url": "https://www.tasarimmania.com/en/blog/mobil-uygulama-yaptirma-sorulari/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "name": "Do Product Images Really Affect E-Commerce Sales?",
+          "url": "https://www.tasarimmania.com/en/blog/e-ticaret-urun-fotograflari/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "name": "How Many Stages Does Mobile App Development Take?",
+          "url": "https://www.tasarimmania.com/en/blog/mobil-uygulama-gelistirme-sureci/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "name": "How Long Does Backlink Work Take to Affect Rankings?",
+          "url": "https://www.tasarimmania.com/en/blog/off-page-seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "name": "Native or Cross-Platform? Choosing an App Architecture",
+          "url": "https://www.tasarimmania.com/en/blog/native-mi-cross-platform-mi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "name": "Social Media Advertising: Which Format Wins on Which Channel?",
+          "url": "https://www.tasarimmania.com/en/blog/sosyal-medya-reklam-yonetimi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "name": "React Native or Flutter? Comparing the Single-Codebase Options",
+          "url": "https://www.tasarimmania.com/en/blog/react-native-mi-flutter-mi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "name": "Why Is Keyword Research the Compass for Your Content?",
+          "url": "https://www.tasarimmania.com/en/blog/anahtar-kelime-arastirmasi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "name": "How Do You Do App Store Optimization? Eight Steps",
+          "url": "https://www.tasarimmania.com/en/blog/uygulama-magaza-optimizasyonu/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "name": "How Do You Set Up E-Commerce Payments, Step by Step?",
+          "url": "https://www.tasarimmania.com/en/blog/odeme-guvenligi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "name": "What Stages Does a Commercial Film Shoot Go Through?",
+          "url": "https://www.tasarimmania.com/en/blog/reklam-filmi-cekim-asamalari/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "name": "Graphic Design Trends in 2026: What Has Changed This Year?",
+          "url": "https://www.tasarimmania.com/en/blog/grafik-tasarim-trendleri/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 27,
+          "name": "What Line Items Set the Price of a Commercial Film?",
+          "url": "https://www.tasarimmania.com/en/blog/reklam-filmi-fiyat-kalemleri/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "name": "Which Tools Should You Set Up for SEO Reporting, and How?",
+          "url": "https://www.tasarimmania.com/en/blog/seo-raporlama-araclari/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 29,
+          "name": "What Is a Storyboard For, and What Does It Save Before the Shoot?",
+          "url": "https://www.tasarimmania.com/en/blog/storyboard-nedir/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 30,
+          "name": "From an Influencer Marketing Agency's View: Micro or Macro?",
+          "url": "https://www.tasarimmania.com/en/blog/influencer-pazarlama/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 31,
+          "name": "What Should You Look for When Choosing a Commercial Film Agency?",
+          "url": "https://www.tasarimmania.com/en/blog/reklam-filmi-ajansi-secimi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 32,
+          "name": "How Does Multilingual E-Commerce Change Your Conversion Rate?",
+          "url": "https://www.tasarimmania.com/en/blog/e-ticaret-sitelerinde-cok-dilli-destek/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 33,
+          "name": "Product Video Shoots: Studio or Location?",
+          "url": "https://www.tasarimmania.com/en/blog/urun-videosu-studyo-mu-mekan-mi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 34,
+          "name": "What Principles Is Interface Design Built On?",
+          "url": "https://www.tasarimmania.com/en/blog/ui-tasarim-ilkeleri/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 35,
+          "name": "E-Commerce Product Video Formats and Dimensions",
+          "url": "https://www.tasarimmania.com/en/blog/e-ticaret-urun-videosu-formatlari/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 36,
+          "name": "How Does SEO-Friendly Web Design Affect Search Visibility?",
+          "url": "https://www.tasarimmania.com/en/blog/seo-ve-web-tasarim/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 37,
+          "name": "Where Does AI Video Production Work, and Where Does It Not?",
+          "url": "https://www.tasarimmania.com/en/blog/yapay-zeka-ile-video-uretimi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 38,
+          "name": "Social Media Reporting: Which Metrics Should You Track?",
+          "url": "https://www.tasarimmania.com/en/blog/sosyal-medya-raporlama/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 39,
+          "name": "How Do You Make a Product Video Without a Camera? Step by Step",
+          "url": "https://www.tasarimmania.com/en/blog/kamerasiz-urun-videosu/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 40,
+          "name": "How to Write Google Ads Copy: A Nine-Step Formula",
+          "url": "https://www.tasarimmania.com/en/blog/reklam-metni-yazma/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 41,
+          "name": "What Does Adding a Chatbot to Your Website Change?",
+          "url": "https://www.tasarimmania.com/en/blog/web-sitesine-chatbot-eklemek/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 42,
+          "name": "Comparing Graphic Design Software: Which One Suits Whom?",
+          "url": "https://www.tasarimmania.com/en/blog/grafik-tasarim-araclari/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+</head>
+<body data-dal="web">
+
+<a class="skip" href="#ana">Skip to content</a>
+
+<nav class="nav" data-nav aria-label="Main menu">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../" aria-label="TasarımMania home">
+      <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async" fetchpriority="high">
+    </a>
+    <div class="nav-links">
+      <a href="../services/">Services</a>
+      <a href="../#isler">Work</a>
+      <a href="../about/">Agency</a>
+      <a href="./" aria-current="page">Blog</a>
+      <a href="../#surec">Process</a>
+      <a href="../../teklif/">Get a Quote</a>
+      <a href="../contact/">Contact</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../services/">Services</a><a href="../#isler">Work</a><a href="../about/">Agency</a>
+  <a href="./">Blog</a><a href="../#surec">Process</a><a href="../../teklif/">Get a Quote</a><a href="../contact/">Contact</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Location">
+        <a href="../">Home</a><span aria-hidden="true">/</span><span>Blog</span>
+      </nav>
+      <h1>Practical digital marketing guides</h1>
+      <p class="lead">We write about the decisions we come up against in the day job: which platform suits whom, what each measurement actually tells you, where the budget goes. Not general definitions — content you can decide on.</p>
+      <div class="bl-sayac">
+        <div><b>1</b><span>posts published</span></div>
+        <div><b>1</b><span>topic areas</span></div>
+        <div><b>15</b><span>monthly publishing target</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="bl-filtre" role="group" aria-label="Category filter">
+        <button type="button" class="acik" data-filtre="All">All</button>
+        <button type="button" class="" data-filtre="E-Commerce">E-Commerce</button>
+        <button type="button" class="" data-filtre="SEO">SEO</button>
+        <button type="button" class="" data-filtre="Digital Marketing">Digital Marketing</button>
+        <button type="button" class="" data-filtre="Social Media">Social Media</button>
+        <button type="button" class="" data-filtre="Graphic Design">Graphic Design</button>
+        <button type="button" class="" data-filtre="Web Design">Web Design</button>
+        <button type="button" class="" data-filtre="Mobile">Mobile</button>
+        <button type="button" class="" data-filtre="Video">Video</button>
+      </div>
+      <ul class="bl-izgara" id="izgara">
+        <li class="bl-i" data-kat="E-Commerce">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/e-ticaret-yazilimi/">
+          <span class="kat">E-Commerce</span>
+          <h2>Choosing E-Commerce Software: Which Platform Suits Which Business?</h2>
+          <p>We separate off-the-shelf packages, subscription platforms and bespoke development on five concrete criteria: catalogue size, integrations, cost structure, ownership and portability.</p>
+          <span class="alt">
+            <span class="tarih">1 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="SEO">
+          <a class="bl-k rv" style="--k:166,255,0" href="../../blog/e-ticaret-seo/">
+          <span class="kat">SEO</span>
+          <h2>How Does E-Commerce SEO Rank Product and Category Pages?</h2>
+          <p>We set out the mechanism that ranks product and category pages: the demand map, the page hierarchy and the internal link flow.</p>
+          <span class="alt">
+            <span class="tarih">3 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Graphic Design">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/grafik-tasarim-turleri/">
+          <span class="kat">Graphic Design</span>
+          <h2>What Does Corporate Graphic Design Cover?</h2>
+          <p>The full range of corporate graphic design outputs, from logo and brand identity to packaging, digital assets and exhibition materials.</p>
+          <span class="alt">
+            <span class="tarih">5 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Social Media">
+          <a class="bl-k rv" style="--k:255,176,32" href="../../blog/sosyal-medya-stratejileri/">
+          <span class="kat">Social Media</span>
+          <h2>What Is a Social Media Strategy? How Do You Choose a Platform?</h2>
+          <p>Audience, platform choice and content axis; how do you build a five-step strategy on an SME budget?</p>
+          <span class="alt">
+            <span class="tarih">7 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="SEO">
+          <a class="bl-k rv" style="--k:166,255,0" href="../../blog/yerel-seo/">
+          <span class="kat">SEO</span>
+          <h2>Local SEO: The Route to Visibility on Maps</h2>
+          <p>Google Business Profile, NAP consistency and customer reviews — the route to visibility on maps and in location-based search.</p>
+          <span class="alt">
+            <span class="tarih">9 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Web Design">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/e-ticaret-web-tasarimi/">
+          <span class="kat">Web Design</span>
+          <h2>E-Commerce Site Design: Off-the-Shelf Theme or Bespoke?</h2>
+          <p>Off-the-shelf theme or bespoke design? We work out the right investment together, with a five-year cost projection.</p>
+          <span class="alt">
+            <span class="tarih">11 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Digital Marketing">
+          <a class="bl-k rv" style="--k:255,176,32" href="../../blog/e-posta-pazarlama/">
+          <span class="kat">Digital Marketing</span>
+          <h2>Email Marketing Strategy: Is There a Right Time to Send?</h2>
+          <p>We set up the timing mechanism of your email marketing with the right send times, frequency and automation flows.</p>
+          <span class="alt">
+            <span class="tarih">13 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="SEO">
+          <a class="bl-k rv" style="--k:166,255,0" href="../../blog/teknik-seo/">
+          <span class="kat">SEO</span>
+          <h2>What Does a Technical SEO Audit Uncover on Your Site?</h2>
+          <p>Crawling, indexing, site speed and Core Web Vitals; we explain what a technical SEO audit actually measures.</p>
+          <span class="alt">
+            <span class="tarih">15 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="E-Commerce">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/kullanici-deneyimi/">
+          <span class="kat">E-Commerce</span>
+          <h2>E-Commerce UX: How Do You Shorten the Route to the Basket?</h2>
+          <p>A shorter route from homepage to payment: a ten-point list that improves e-commerce UX at five stops.</p>
+          <span class="alt">
+            <span class="tarih">17 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="SEO">
+          <a class="bl-k rv" style="--k:166,255,0" href="../../blog/seo-icin-icerik-stratejileri/">
+          <span class="kat">SEO</span>
+          <h2>Why Is the Content Calendar Decisive in an SEO Content Strategy?</h2>
+          <p>How the content calendar, publishing frequency and topic prioritisation in an SEO content strategy determine your organic visibility.</p>
+          <span class="alt">
+            <span class="tarih">19 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Graphic Design">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/grafik-tasarim-sureci/">
+          <span class="kat">Graphic Design</span>
+          <h2>How Many Stages Does the Graphic Design Process Take?</h2>
+          <p>How many stages does graphic design take, from brief to delivery? We set out each step's realistic timing, the causes of delay and a clear schedu</p>
+          <span class="alt">
+            <span class="tarih">21 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Digital Marketing">
+          <a class="bl-k rv" style="--k:255,176,32" href="../../blog/google-ads-ve-ppc/">
+          <span class="kat">Digital Marketing</span>
+          <h2>Google Ads or Organic Growth? A Cost Comparison</h2>
+          <p>We compared the cost of Google Ads management against organic growth: cost per click, monthly budget planning and the spend structure per channel.</p>
+          <span class="alt">
+            <span class="tarih">23 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Mobile">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/mobil-uygulama-gelistirme-maliyeti/">
+          <span class="kat">Mobile</span>
+          <h2>What Makes Mobile App Development Costs Vary?</h2>
+          <p>We open up the five line items that move an app budget without quoting a price: screen and state complexity, number of platforms, integration depth, design originality and post-launch maintenance.</p>
+          <span class="alt">
+            <span class="tarih">24 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="SEO">
+          <a class="bl-k rv" style="--k:166,255,0" href="../../blog/uluslararasi-seo-nasil-yapilir/">
+          <span class="kat">SEO</span>
+          <h2>Multilingual SEO and International Setup: A Guide to hreflang and URL Structure</h2>
+          <p>How do you set up multilingual SEO? The difference between a ccTLD and a subdirectory, hreflang tags and sitemap structure, in an eight-step</p>
+          <span class="alt">
+            <span class="tarih">25 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Mobile">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/mobil-uygulama-yaptirma-sorulari/">
+          <span class="kat">Mobile</span>
+          <h2>What Should You Ask Before Commissioning a Mobile App?</h2>
+          <p>We work through the questions to answer before commissioning an app: the problem being solved, frequency of use, app or site, data ownership and code handover.</p>
+          <span class="alt">
+            <span class="tarih">26 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="E-Commerce">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/e-ticaret-urun-fotograflari/">
+          <span class="kat">E-Commerce</span>
+          <h2>Do Product Images Really Affect E-Commerce Sales?</h2>
+          <p>How does a product image affect the buying decision? We cover the difference angle, light and context make, how to audit your shot set, and the measurement signals</p>
+          <span class="alt">
+            <span class="tarih">27 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Mobile">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/mobil-uygulama-gelistirme-sureci/">
+          <span class="kat">Mobile</span>
+          <h2>How Many Stages Does Mobile App Development Take?</h2>
+          <p>The five stages from discovery to store release, how long each one takes, and what really stretches the schedule.</p>
+          <span class="alt">
+            <span class="tarih">28 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="SEO">
+          <a class="bl-k rv" style="--k:166,255,0" href="../../blog/off-page-seo/">
+          <span class="kat">SEO</span>
+          <h2>How Long Does Backlink Work Take to Affect Rankings?</h2>
+          <p>How long does backlink work take to affect rankings? A realistic timeline through discovery, validation and settling, plus managing expectations.</p>
+          <span class="alt">
+            <span class="tarih">29 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Mobile">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/native-mi-cross-platform-mi/">
+          <span class="kat">Mobile</span>
+          <h2>Native or Cross-Platform? Choosing an App Architecture</h2>
+          <p>We explain the difference between native and a single codebase by mechanism: who draws the screen, who reaches the hardware, where performance really diverges.</p>
+          <span class="alt">
+            <span class="tarih">30 September 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Social Media">
+          <a class="bl-k rv" style="--k:255,176,32" href="../../blog/sosyal-medya-reklam-yonetimi/">
+          <span class="kat">Social Media</span>
+          <h2>Social Media Advertising: Which Format Wins on Which Channel?</h2>
+          <p>We compare Meta, TikTok, LinkedIn and Pinterest ad tools through an SME lens: which format wins on which channel, how you split the budget, step by</p>
+          <span class="alt">
+            <span class="tarih">1 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Mobile">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/react-native-mi-flutter-mi/">
+          <span class="kat">Mobile</span>
+          <h2>React Native or Flutter? Comparing the Single-Codebase Options</h2>
+          <p>We compare the two single-codebase frameworks criterion by criterion: team language, interface look, package ecosystem and maintenance load. Which product should choose which?</p>
+          <span class="alt">
+            <span class="tarih">2 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Digital Marketing">
+          <a class="bl-k rv" style="--k:255,176,32" href="../../blog/anahtar-kelime-arastirmasi/">
+          <span class="kat">Digital Marketing</span>
+          <h2>Why Is Keyword Research the Compass for Your Content?</h2>
+          <p>How does keyword research work? We set out reading search intent, balancing volume against difficulty, and the mechanism for eliminating keywords, step by step for</p>
+          <span class="alt">
+            <span class="tarih">3 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Mobile">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/uygulama-magaza-optimizasyonu/">
+          <span class="kat">Mobile</span>
+          <h2>How Do You Do App Store Optimization? Eight Steps</h2>
+          <p>An eight-step route to arranging your App Store and Google Play listing around search and downloads: measurement, copy, graphics, review management and monthly iteration.</p>
+          <span class="alt">
+            <span class="tarih">4 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="E-Commerce">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/odeme-guvenligi/">
+          <span class="kat">E-Commerce</span>
+          <h2>How Do You Set Up E-Commerce Payments, Step by Step?</h2>
+          <p>How do you set up e-commerce payments? We take the SSL certificate, 3D Secure and the payment gateway connection step by step, with a testing and go-live list.</p>
+          <span class="alt">
+            <span class="tarih">5 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Video">
+          <a class="bl-k rv" style="--k:255,176,32" href="../../blog/reklam-filmi-cekim-asamalari/">
+          <span class="kat">Video</span>
+          <h2>What Stages Does a Commercial Film Shoot Go Through?</h2>
+          <p>The five stages from pre-production to delivery, how long each one takes, and why decisions made after the set is built cost so much.</p>
+          <span class="alt">
+            <span class="tarih">6 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Graphic Design">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/grafik-tasarim-trendleri/">
+          <span class="kat">Graphic Design</span>
+          <h2>Graphic Design Trends in 2026: What Has Changed This Year?</h2>
+          <p>Why are graphic design trends in 2026 changing so fast, and on what schedule should your brand refresh its visual language? We compared the cost of adapting early against delaying.</p>
+          <span class="alt">
+            <span class="tarih">7 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Video">
+          <a class="bl-k rv" style="--k:255,176,32" href="../../blog/reklam-filmi-fiyat-kalemleri/">
+          <span class="kat">Video</span>
+          <h2>What Line Items Set the Price of a Commercial Film?</h2>
+          <p>We open up the six line items that move a commercial film budget without quoting a price: shoot days, crew, performers' usage rights, location, kit and post-production.</p>
+          <span class="alt">
+            <span class="tarih">8 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="SEO">
+          <a class="bl-k rv" style="--k:166,255,0" href="../../blog/seo-raporlama-araclari/">
+          <span class="kat">SEO</span>
+          <h2>Which Tools Should You Set Up for SEO Reporting, and How?</h2>
+          <p>A guide to setting up Search Console, GA4 and an automation dashboard for SEO reporting: the essential settings, the setup mistakes that corrupt the data, and a six-step checklist.</p>
+          <span class="alt">
+            <span class="tarih">9 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Video">
+          <a class="bl-k rv" style="--k:255,176,32" href="../../blog/storyboard-nedir/">
+          <span class="kat">Video</span>
+          <h2>What Is a Storyboard For, and What Does It Save Before the Shoot?</h2>
+          <p>What does a storyboard show, and what does it not? How many frames are drawn, which mistakes it catches before the shoot, and when to move to an animatic — the prep stage, explained.</p>
+          <span class="alt">
+            <span class="tarih">10 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Social Media">
+          <a class="bl-k rv" style="--k:255,176,32" href="../../blog/influencer-pazarlama/">
+          <span class="kat">Social Media</span>
+          <h2>From an Influencer Marketing Agency's View: Micro or Macro?</h2>
+          <p>Micro or macro influencer? We compare how reach and engagement look, and set out the signals to check when choosing an influencer marketing agency</p>
+          <span class="alt">
+            <span class="tarih">11 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Video">
+          <a class="bl-k rv" style="--k:255,176,32" href="../../blog/reklam-filmi-ajansi-secimi/">
+          <span class="kat">Video</span>
+          <h2>What Should You Look for When Choosing a Commercial Film Agency?</h2>
+          <p>What does a portfolio hide, who is actually on the team, how do you read a quote and which warning signs deserve attention? Choosing an agency, in five headings.</p>
+          <span class="alt">
+            <span class="tarih">12 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="E-Commerce">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/e-ticaret-sitelerinde-cok-dilli-destek/">
+          <span class="kat">E-Commerce</span>
+          <h2>How Does Multilingual E-Commerce Change Your Conversion Rate?</h2>
+          <p>We set out the effect of going multilingual in e-commerce on conversion rate, basket abandonment and returns, within a measurable framework. A practical route for SMEs.</p>
+          <span class="alt">
+            <span class="tarih">13 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Video">
+          <a class="bl-k rv" style="--k:255,176,32" href="../../blog/urun-videosu-studyo-mu-mekan-mi/">
+          <span class="kat">Video</span>
+          <h2>Product Video Shoots: Studio or Location?</h2>
+          <p>Should a product video be shot in a studio or on a real location? We compare the two on control, repeatability, credibility and the type of product.</p>
+          <span class="alt">
+            <span class="tarih">14 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Web Design">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/ui-tasarim-ilkeleri/">
+          <span class="kat">Web Design</span>
+          <h2>What Principles Is Interface Design Built On?</h2>
+          <p>Interface design rests on hierarchy, consistency and feedback. We explain how we turn those principles into measurable decisions within a UI/UX design</p>
+          <span class="alt">
+            <span class="tarih">15 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Video">
+          <a class="bl-k rv" style="--k:255,176,32" href="../../blog/e-ticaret-urun-videosu-formatlari/">
+          <span class="kat">Video</span>
+          <h2>E-Commerce Product Video Formats and Dimensions</h2>
+          <p>Which aspect ratio works where, how long should a video be, how do you balance file size against quality? We set out product video formats channel by channel.</p>
+          <span class="alt">
+            <span class="tarih">16 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Web Design">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/seo-ve-web-tasarim/">
+          <span class="kat">Web Design</span>
+          <h2>How Does SEO-Friendly Web Design Affect Search Visibility?</h2>
+          <p>What is SEO-friendly web design, and how do layout and visual decisions affect search visibility? Mobile breakpoints, heading hierarchy and the quote process, here.</p>
+          <span class="alt">
+            <span class="tarih">17 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Video">
+          <a class="bl-k rv" style="--k:255,176,32" href="../../blog/yapay-zeka-ile-video-uretimi/">
+          <span class="kat">Video</span>
+          <h2>Where Does AI Video Production Work, and Where Does It Not?</h2>
+          <p>Where do generative tools genuinely help in video work, and where do they fall short? We draw the line through product accuracy, consistency and brand risk.</p>
+          <span class="alt">
+            <span class="tarih">18 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Social Media">
+          <a class="bl-k rv" style="--k:255,176,32" href="../../blog/sosyal-medya-raporlama/">
+          <span class="kat">Social Media</span>
+          <h2>Social Media Reporting: Which Metrics Should You Track?</h2>
+          <p>How to choose your reach, engagement and conversion metrics for social media reporting, and how to read the report table — in plain language for SMEs.</p>
+          <span class="alt">
+            <span class="tarih">19 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Video">
+          <a class="bl-k rv" style="--k:255,176,32" href="../../blog/kamerasiz-urun-videosu/">
+          <span class="kat">Video</span>
+          <h2>How Do You Make a Product Video Without a Camera? Step by Step</h2>
+          <p>A seven-step route to getting video out of your existing product photographs without building a set: gathering sources, building the scene, motion, sound, quality control and channel versions.</p>
+          <span class="alt">
+            <span class="tarih">20 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Digital Marketing">
+          <a class="bl-k rv" style="--k:255,176,32" href="../../blog/reklam-metni-yazma/">
+          <span class="kat">Digital Marketing</span>
+          <h2>How to Write Google Ads Copy: A Nine-Step Formula</h2>
+          <p>A formula for writing Google Ads copy: how to build the headline, the description and the call to action, and in what order to test them. A nine-step checklist for SMEs.</p>
+          <span class="alt">
+            <span class="tarih">21 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Web Design">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/web-sitesine-chatbot-eklemek/">
+          <span class="kat">Web Design</span>
+          <h2>What Does Adding a Chatbot to Your Website Change?</h2>
+          <p>What does adding an assistant to your site change? Response time, the load of repeated questions, the handover-to-human rule, the knowledge base and the right way to measure success.</p>
+          <span class="alt">
+            <span class="tarih">22 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Graphic Design">
+          <a class="bl-k rv" style="--k:0,229,255" href="../../blog/grafik-tasarim-araclari/">
+          <span class="kat">Graphic Design</span>
+          <h2>Comparing Graphic Design Software: Which One Suits Whom?</h2>
+          <p>Photoshop, Illustrator, Figma and Canva compared: which graphic design software suits which job and which team size? A clear guide for SMEs.</p>
+          <span class="alt">
+            <span class="tarih">23 October 2026 · 7 min</span>
+            <span class="oku">Read <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+          </a>
+        </li>
+      </ul>
+      <p class="bl-bos" id="bos" hidden>No posts in this category yet.</p>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="band rv">
+        <h2>Which step should you take for your own business?</h2>
+        <p>Reading the posts is one thing; applying them to your own situation is another. Let's map your scope in five steps.</p>
+        <div class="band-cta">
+          <a class="btn btn-p" href="../../teklif/">Let's map the scope
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="tel:+905547916545">0554 791 65 45</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../../assets/logo/marka-yatay-optik.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>An Istanbul-based 360° digital agency bringing web, mobile, advertising, video and SEO together under one roof.</p>
+      </div>
+      <div>
+        <h3>Modules</h3>
+        <ul>
+          <li><a href="../services/">All services</a></li>
+          <li><a href="../web-design/">Web &amp; Software</a></li>
+          <li><a href="../mobile-app-development/">Mobile Apps</a></li>
+          <li><a href="../digital-marketing/">Digital Marketing</a></li>
+          <li><a href="../video-production/">Video Production</a></li>
+          <li><a href="../seo/">SEO Services</a></li>
+          <li><a href="../../grafik-tasarim/">Graphic Design</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../contact/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../contact/#ofis">Weekdays 09:00–19:00<br>Saturdays 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. All rights reserved.</span>
+      <span class="mono">FIVE MODULES · ONE PLACE</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+<script>
+"use strict";
+(function(){
+  var dugmeler = [].slice.call(document.querySelectorAll('.bl-filtre button'));
+  /* .bl-i = <li> sarmalı. Kartın kendisini gizlemek yetmez; <li> yerinde
+           kalıp ızgarada boş delik açar — ölçüldü. */
+  var kartlar = [].slice.call(document.querySelectorAll('.bl-i'));
+  var bos = document.getElementById('bos');
+  dugmeler.forEach(function(b){
+    b.addEventListener('click', function(){
+      var f = b.dataset.filtre;
+      dugmeler.forEach(function(x){ x.classList.toggle('acik', x === b); });
+      var gorunen = 0;
+      kartlar.forEach(function(k){
+        var uygun = (f === 'All' || k.dataset.kat === f);
+        k.hidden = !uygun;
+        if (uygun) gorunen++;
+      });
+      bos.hidden = gorunen > 0;
+    });
+  });
+})();
+</script>

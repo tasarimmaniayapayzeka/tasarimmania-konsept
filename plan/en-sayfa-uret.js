@@ -377,7 +377,12 @@ const MUAF_TR = new RegExp('TasarımMania|İhsan Ar|Murat Aydın|Selin Erdoğan|
   + '|Bakırköy|İstanbul|Türkiye|tasarimmania|kampanya\\.config'
   + (MUAF_LISTE.length ? '|' + MUAF_LISTE.join('|') : ''));
 const kalan = new Map();
-for (const m of h.matchAll(/>([^<>{}]*[çğıöşüÇĞİÖŞÜ][^<>{}]*)</g)) {
+/* ⚠ SCRIPT/STYLE MASKELENİR — ölçülmüş yanlış pozitif (/blog/): bir JS
+   yorumu içinde "<li>" geçiyordu ve ">…<" deseni yorumun Türkçesini
+   "çevrilmemiş metin" sandı. Script içindeki gerçek görünür metin zaten
+   aşağıda ayrıca taranıyor (gorunurDizgeler yorumları eliyor). */
+const hMetin = h.replace(/<(script|style)\b[\s\S]*?<\/\1>/gi, (m) => ' '.repeat(m.length));
+for (const m of hMetin.matchAll(/>([^<>{}]*[çğıöşüÇĞİÖŞÜ][^<>{}]*)</g)) {
   const t = m[1].replace(/\s+/g, ' ').trim();
   if (!t || MUAF_TR.test(t)) continue;
   kalan.set(t, (kalan.get(t) || 0) + 1);

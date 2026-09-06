@@ -54,6 +54,14 @@ const belgeSayfasi = (f) => /\/blog\/[^/]+\/$/.test(u(f))
    bloğu OLAN sayfalara bakıyor. İşaret: gövdede birden çok blog yazısına giden
    bağ kümesi ya da "ilgili/bağlantılı/rehber yazıları" başlığı. */
 const tegetBlogu = (f) => {
+  /* ⚠ BLOG DİZİNİ MUAF, DİLDEN BAĞIMSIZ: /blog/ sayfasında yazı bağlantıları
+     TEĞET değil ASIL içeriktir; oraya <aside> koymak yanlış işaretleme olur.
+     Ölçülmüş yanlış alarm: Türkçe /blog/ kartları "./slug/" biçiminde
+     bağlanıyor ve desen tutmuyordu, ama İngilizce kopyada bağlantılar
+     "../../blog/slug/" olduğu için (yazıların İngilizcesi henüz yok, hedef
+     Türkçe kalıyor) kural ateşledi. Aynı sayfa iki dilde farklı sonuç
+     veremez — muafiyet yola değil sayfa kimliğine bağlandı. */
+  if (dilsiz(u(f)) === '/blog/') return false;
   const h = oku(f); const b = h.indexOf('<main'); const s = h.lastIndexOf('</main>');
   const g = b < 0 ? h : h.slice(b, s > b ? s : undefined);
   return (g.match(/href="[^"]*\/blog\/[a-z0-9-]+\//g) || []).length >= 2
