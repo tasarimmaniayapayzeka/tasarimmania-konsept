@@ -293,7 +293,7 @@ function yaziUret(cfg) {
 <title>${y.metaBaslik}</title>
 <meta name="description" content="${y.metaAciklama}">
 <link rel="canonical" href="https://www.tasarimmania.com/blog/${cfg.slug}/">
-<meta name="author" content="TasarımMania">
+<meta name="author" content="İhsan Ar">
 <!-- max-* AYRI etikette: noindex-uygula.js --ac robots etiketini birebir dizgeyle
      arıyor; içine ekleme yapılırsa indekslemeyi açma betiği kırılır. -->
 <meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
@@ -334,7 +334,7 @@ function yaziUret(cfg) {
       "dateModified": "${tarih}",
       "inLanguage": "tr-TR",
       "mainEntityOfPage": "https://www.tasarimmania.com/blog/${cfg.slug}/",
-      "author": { "@type": "Organization", "name": "TasarımMania", "url": "https://www.tasarimmania.com/" },
+      "author": { "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar" },
       "publisher": { "@id": "https://www.tasarimmania.com/#kurulus" },
       "articleSection": ${JSON.stringify(cfg.kategori)},
       "wordCount": ${kelimeSay(govde + tablo)},

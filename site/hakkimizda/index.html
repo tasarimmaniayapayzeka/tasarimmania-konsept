@@ -266,7 +266,14 @@
 
 /* Tanıtım videosu cephesinin stilleri de kaldırıldı (.yt-cephe/.yt-play/.yt-not).
    Bölüm geri gelirse git geçmişinden alınabilir. */
-</style>
+.krc{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);padding:clamp(20px,3vw,30px);max-width:620px}
+.krc h3{font-size:clamp(19px,2.2vw,23px);letter-spacing:-.02em;margin-bottom:5px}
+.krc p.krc-unvan{font-family:var(--mono);font-size:11.6px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);margin-bottom:13px}
+.krc p{color:var(--muted);font-size:14.4px;line-height:1.7}
+.krc-bag{display:flex;flex-wrap:wrap;gap:18px;margin-top:15px}
+.krc-bag a{font-size:13.6px;color:var(--fg);border-bottom:1px solid var(--hair-strong);padding-bottom:2px}
+.krc-bag a:hover{color:var(--acc);border-color:currentColor}
+  </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -308,7 +315,10 @@
         "Grafik tasarım ve kurumsal kimlik",
         "E-ticaret sitesi kurulumu",
         "Sosyal medya yönetimi"
-      ]
+      ],
+      "founder": {
+        "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar"
+      }
     },
     {
       "@type": [
@@ -359,6 +369,19 @@
       "name": "TasarımMania",
       "inLanguage": "tr-TR",
       "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar",
+      "name": "İhsan Ar",
+      "jobTitle": "Dijital Pazarlama Uzmanı",
+      "url": "https://www.tasarimmania.com/hakkimizda/#kurucu",
+      "sameAs": [
+        "https://www.instagram.com/ihsanar86/"
+      ],
+      "worksFor": {
         "@id": "https://www.tasarimmania.com/#kurulus"
       }
     }
@@ -643,6 +666,25 @@
       </div>
     </div>
   </section>
+  <section class="sec" id="kurucu" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Kurucu</span>
+        <h2 data-kin>Bu sitedeki içerik kimin imzasını taşıyor</h2>
+      </div>
+      <div class="krc rv d1">
+        <h3 id="ihsan-ar">İhsan Ar</h3>
+        <p class="krc-unvan">Kurucu · Dijital Pazarlama Uzmanı</p>
+        <p>TasarımMania'nın kurucusu. Sitedeki hizmet sayfalarının ve blog yazılarının
+          yayın sorumlusu; hangi konunun ne zaman ve hangi derinlikte yazılacağına karar veriyor.</p>
+        <p class="krc-bag">
+          <a href="https://www.instagram.com/ihsanar86/" target="_blank" rel="noopener me">Instagram</a>
+          <a href="../iletisim/">İletişim sayfası</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ===== HAREKETLİ ŞERİT ===== -->
   <div class="serit serit--ters" aria-hidden="true">
