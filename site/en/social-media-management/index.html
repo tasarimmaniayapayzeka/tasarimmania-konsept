@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- KONSEPT-NOINDEX -->
 <meta name="robots" content="noindex,nofollow">
-<title>Performance Marketing — Conversion Management | TasarımMania</title>
-<meta name="description" content="Performance marketing: bringing multi-channel data into a single report, managing acquisition cost, lifetime value and the conversion funnel.">
-<link rel="canonical" href="https://www.tasarimmania.com/en/performance-marketing/">
-<link rel="alternate" hreflang="tr" href="https://www.tasarimmania.com/performans-pazarlama/">
-<link rel="alternate" hreflang="en" href="https://www.tasarimmania.com/en/performance-marketing/">
-<link rel="alternate" hreflang="x-default" href="https://www.tasarimmania.com/performans-pazarlama/">
+<title>Instagram Ad Management and Content Calendar | TasarımMania</title>
+<meta name="description" content="Instagram ad management: content calendar, account engagement, targeting and ad optimization from one team, on a monthly management model.">
+<link rel="canonical" href="https://www.tasarimmania.com/en/social-media-management/">
+<link rel="alternate" hreflang="tr" href="https://www.tasarimmania.com/sosyal-medya/">
+<link rel="alternate" hreflang="en" href="https://www.tasarimmania.com/en/social-media-management/">
+<link rel="alternate" hreflang="x-default" href="https://www.tasarimmania.com/sosyal-medya/">
 <meta name="author" content="TasarımMania">
 <meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
 <meta name="theme-color" content="#0B0D12">
@@ -18,17 +18,17 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="TasarımMania">
-<meta property="og:title" content="Performance Marketing — Conversion Management | TasarımMania">
-<meta property="og:description" content="Performance marketing: bringing multi-channel data into a single report, managing acquisition cost, lifetime value and the conversion funnel.">
-<meta property="og:url" content="https://www.tasarimmania.com/en/performance-marketing/">
+<meta property="og:title" content="Instagram Ad Management and Content Calendar | TasarımMania">
+<meta property="og:description" content="Instagram ad management: content calendar, account engagement, targeting and ad optimization from one team, on a monthly management model.">
+<meta property="og:url" content="https://www.tasarimmania.com/en/social-media-management/">
 <meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="TasarımMania — cover image for web, mobile, advertising, video and SEO services">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
-<meta name="twitter:title" content="Performance Marketing — Conversion Management | TasarımMania">
-<meta name="twitter:description" content="Performance marketing: bringing multi-channel data into a single report, managing acquisition cost, lifetime value and the conversion funnel.">
+<meta name="twitter:title" content="Instagram Ad Management and Content Calendar | TasarımMania">
+<meta name="twitter:description" content="Instagram ad management: content calendar, account engagement, targeting and ad optimization from one team, on a monthly management model.">
 <meta name="twitter:image:alt" content="TasarımMania — cover image for web, mobile, advertising, video and SEO services">
 <link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -281,7 +281,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 
 /* --- akış durakları (alt sayfa standardı) ---
    Desen teknik-seo alt sayfasından birebir alındı; yalnızca canlanma öneki
-   değişti (orada "ts-", burada "pf-") ki iki sayfa ileride birleşirse
+   değişti (orada "ts-", burada "sm-") ki iki sayfa ileride birleşirse
    kurallar çakışmasın.
 
    ÖLÇÜLEN KUSUR 1 — mobilde okunmuyordu: tek parça geniş grafik 390px
@@ -312,6 +312,10 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .akis-ok svg{width:22px;height:22px}
 .akis figcaption{margin-top:14px;font-size:12.4px;line-height:1.55;color:var(--muted)}
 .akis figcaption b{color:var(--fg-dim);font-weight:600}
+/* ÖLÇÜLEN KUSUR 3 — ara genişlikler: üç kutu yan yana dururken 900px ekranda
+   kutu içi 210px'e iniyordu (ölçek .55), yani 13'lük yazı 7.2px. Kırılma
+   noktası bu yüzden 1100px; altında kutular alt alta açılıyor ve tek kutu
+   520px'i geçmiyor. Ölçüm: 1100px üstünde 13 → 11.1px, 375px'te 9.68px. */
 @media(max-width:1100px){
   .akis-izgara{grid-template-columns:1fr;gap:10px}
   .akis-ok svg{transform:rotate(90deg)}
@@ -326,96 +330,79 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
    BAŞLANGIÇ DURUMU VERİLEN HER ÖĞENİN .in KARŞILIĞI VAR (aşağıda birebir).
    Çizelge — her kutu KENDİ içinde canlanır, kutular soldan sağa (mobilde
    yukarıdan aşağı) sırayla girer:
-     KUTU 1 · 0.25s : kart 0.25 · üst etiket 0.34 · üç panel 0.40–0.56 ·
-                      sütunlar 0.52–0.72 · çizgi 0.60 · alan 0.72 · noktalar 0.80 ·
-                      halka dilimleri 0.68–0.80 · alt not 0.88
+     KUTU 1 · 0.25s : kart 0.25 · başlık 0.34 · takvim/gösterge çerçevesi 0.40 ·
+                      takvim satırları 0.48–0.72 · gösterge maddeleri 0.80–0.96 ·
+                      alt not 1.04
      ok 1 · 0.80s
-     KUTU 2 · 0.90s : kart 0.90 · üç panel ucu 0.98–1.10 · inen yollar 1.14–1.22 ·
-                      geniş kart 1.26 · üst bar 1.32 · sütun kılavuzları 1.36 ·
-                      tablo satırları 1.42–1.66
+     KUTU 2 · 0.90s : kart 0.90 · üst etiketler 0.98 · gönderi kartı 1.06 ·
+                      yorum satırları 1.14–1.30 · reply işareti 1.38 · alt not 1.46
      ok 2 · 1.40s
-     KUTU 3 · 1.50s : kart 1.50 · üst etiket 1.58 · gövde 1.64 · kiriş çizilir 1.70 ·
-                      mil 1.86 · kefeler 1.92/2.00 · kefe değerleri 2.10/2.18 ·
-                      alt not 2.28 */
-.akis svg .pf-kart{opacity:0;transform:translateY(16px);transform-box:fill-box}
-.akis svg .pf-ust1,
-.akis svg .pf-alan,
-.akis svg .pf-noktalar,
-.akis svg .pf-not1,
-.akis svg .pf-genis,
-.akis svg .pf-ust2,
-.akis svg .pf-kilavuz,
-.akis svg .pf-ust3,
-.akis svg .pf-govde,
-.akis svg .pf-not3{opacity:0}
-.akis svg .pf-paneller > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
-.akis svg .pf-sutun > rect{clip-path:inset(100% 0 0 0)}
-.akis svg .pf-cizgi{stroke-dasharray:130;stroke-dashoffset:130}
-.akis svg .pf-halka > circle{opacity:0}
-.akis svg .pf-stub > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
-.akis svg .pf-yol{stroke-dasharray:140;stroke-dashoffset:140}
-.akis svg .pf-satir > g{opacity:0;transform:translateX(12px);transform-box:fill-box}
-.akis svg .pf-kiris{stroke-dasharray:268;stroke-dashoffset:268}
-.akis svg .pf-mil{opacity:0;transform:scale(.5);transform-box:fill-box;
+     KUTU 3 · 1.50s : kart 1.50 · başlık 1.56 · katman satırları 1.62–1.78 ·
+                      bantlar soldan sağa dolar 1.86–2.02 · aşama okları 2.10/2.26 ·
+                      onay tiki 2.18 · yayın oku çizilir 2.34 */
+.akis svg .sm-kart{opacity:0;transform:translateY(16px);transform-box:fill-box}
+.akis svg .sm-ust1,
+.akis svg .sm-ust2,
+.akis svg .sm-ust3,
+.akis svg .sm-cerceve,
+.akis svg .sm-alt1,
+.akis svg .sm-alt2,
+.akis svg .sm-ok-asama{opacity:0}
+.akis svg .sm-gonderi{opacity:0;transform:translateY(12px);transform-box:fill-box}
+.akis svg .sm-satir > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.akis svg .sm-katman > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.akis svg .sm-gost > g{opacity:0;transform:translateX(12px);transform-box:fill-box}
+.akis svg .sm-yorum > g{opacity:0;transform:translateX(12px);transform-box:fill-box}
+.akis svg .sm-dolgu{clip-path:inset(0 100% 0 0)}
+.akis svg .sm-tik,
+.akis svg .sm-yanit{opacity:0;transform:scale(.5);transform-box:fill-box;
   transform-origin:center}
-.akis svg .pf-kefeler > g{opacity:0;transform:translateY(12px);transform-box:fill-box}
-.akis svg .pf-deger{opacity:0;transform:scale(.5);transform-box:fill-box;
-  transform-origin:center}
+.akis svg .sm-yol{stroke-dasharray:118;stroke-dashoffset:118}
 /* oklar HTML'de: .akis-ok kutusu opaklığı taşıyor, ok çizimi 0'dan girer */
-.akis .pf-ok{opacity:0}
+.akis .sm-ok{opacity:0}
 
-.akis.in svg .pf-k1{animation:pfKart .6s var(--ease) .25s forwards}
-.akis.in svg .pf-ust1{animation:pfBelir .45s var(--ease) .34s forwards}
-.akis.in svg .pf-paneller > g:nth-child(1){animation:pfSatir .45s var(--ease) .40s forwards}
-.akis.in svg .pf-paneller > g:nth-child(2){animation:pfSatir .45s var(--ease) .48s forwards}
-.akis.in svg .pf-paneller > g:nth-child(3){animation:pfSatir .45s var(--ease) .56s forwards}
-.akis.in svg .pf-sutun > rect:nth-child(1){animation:pfBuyu .55s var(--ease) .52s forwards}
-.akis.in svg .pf-sutun > rect:nth-child(2){animation:pfBuyu .55s var(--ease) .57s forwards}
-.akis.in svg .pf-sutun > rect:nth-child(3){animation:pfBuyu .55s var(--ease) .62s forwards}
-.akis.in svg .pf-sutun > rect:nth-child(4){animation:pfBuyu .55s var(--ease) .67s forwards}
-.akis.in svg .pf-sutun > rect:nth-child(5){animation:pfBuyu .55s var(--ease) .72s forwards}
-.akis.in svg .pf-cizgi{animation:pfCiz .75s var(--ease) .60s forwards}
-.akis.in svg .pf-alan{animation:pfBelir .5s var(--ease) .72s forwards}
-.akis.in svg .pf-noktalar{animation:pfBelir .4s var(--ease) .80s forwards}
-.akis.in svg .pf-halka > circle:nth-child(1){animation:pfBelir .45s var(--ease) .68s forwards}
-.akis.in svg .pf-halka > circle:nth-child(2){animation:pfBelir .45s var(--ease) .74s forwards}
-.akis.in svg .pf-halka > circle:nth-child(3){animation:pfBelir .45s var(--ease) .80s forwards}
-.akis.in svg .pf-not1{animation:pfBelir .45s var(--ease) .88s forwards}
-.akis.in .pf-ok1{animation:pfOkBelir .55s var(--ease) .80s forwards}
-.akis.in svg .pf-k2{animation:pfKart .6s var(--ease) .90s forwards}
-.akis.in svg .pf-stub > g:nth-child(1){animation:pfSatir .45s var(--ease) .98s forwards}
-.akis.in svg .pf-stub > g:nth-child(2){animation:pfSatir .45s var(--ease) 1.04s forwards}
-.akis.in svg .pf-stub > g:nth-child(3){animation:pfSatir .45s var(--ease) 1.10s forwards}
-.akis.in svg .pf-y1{animation:pfCiz .6s var(--ease) 1.14s forwards}
-.akis.in svg .pf-y2{animation:pfCiz .6s var(--ease) 1.18s forwards}
-.akis.in svg .pf-y3{animation:pfCiz .6s var(--ease) 1.22s forwards}
-.akis.in svg .pf-genis{animation:pfBelir .5s var(--ease) 1.26s forwards}
-.akis.in svg .pf-ust2{animation:pfBelir .45s var(--ease) 1.32s forwards}
-.akis.in svg .pf-kilavuz{animation:pfBelir .45s var(--ease) 1.36s forwards}
-.akis.in svg .pf-satir > g:nth-child(1){animation:pfSag .42s var(--ease) 1.42s forwards}
-.akis.in svg .pf-satir > g:nth-child(2){animation:pfSag .42s var(--ease) 1.50s forwards}
-.akis.in svg .pf-satir > g:nth-child(3){animation:pfSag .42s var(--ease) 1.58s forwards}
-.akis.in svg .pf-satir > g:nth-child(4){animation:pfSag .42s var(--ease) 1.66s forwards}
-.akis.in .pf-ok2{animation:pfOkBelir .55s var(--ease) 1.40s forwards}
-.akis.in svg .pf-k3{animation:pfKart .6s var(--ease) 1.50s forwards}
-.akis.in svg .pf-ust3{animation:pfBelir .45s var(--ease) 1.58s forwards}
-.akis.in svg .pf-govde{animation:pfBelir .5s var(--ease) 1.64s forwards}
-.akis.in svg .pf-kiris{animation:pfCiz .7s var(--ease) 1.70s forwards}
-.akis.in svg .pf-mil{animation:pfTik .5s var(--ease) 1.86s forwards}
-.akis.in svg .pf-kefeler > g:nth-child(1){animation:pfSatir .5s var(--ease) 1.92s forwards}
-.akis.in svg .pf-kefeler > g:nth-child(2){animation:pfSatir .5s var(--ease) 2.00s forwards}
-.akis.in svg .pf-v1{animation:pfTik .5s var(--ease) 2.10s forwards}
-.akis.in svg .pf-v2{animation:pfTik .5s var(--ease) 2.18s forwards}
-.akis.in svg .pf-not3{animation:pfBelir .45s var(--ease) 2.28s forwards}
+.akis.in svg .sm-k1{animation:smKart .6s var(--ease) .25s forwards}
+.akis.in svg .sm-ust1{animation:smBelir .45s var(--ease) .34s forwards}
+.akis.in svg .sm-cerceve{animation:smBelir .5s var(--ease) .40s forwards}
+.akis.in svg .sm-satir > g:nth-child(1){animation:smSatir .45s var(--ease) .48s forwards}
+.akis.in svg .sm-satir > g:nth-child(2){animation:smSatir .45s var(--ease) .56s forwards}
+.akis.in svg .sm-satir > g:nth-child(3){animation:smSatir .45s var(--ease) .64s forwards}
+.akis.in svg .sm-satir > g:nth-child(4){animation:smSatir .45s var(--ease) .72s forwards}
+.akis.in svg .sm-gost > g:nth-child(1){animation:smSag .42s var(--ease) .80s forwards}
+.akis.in svg .sm-gost > g:nth-child(2){animation:smSag .42s var(--ease) .88s forwards}
+.akis.in svg .sm-gost > g:nth-child(3){animation:smSag .42s var(--ease) .96s forwards}
+.akis.in svg .sm-alt1{animation:smBelir .45s var(--ease) 1.04s forwards}
+.akis.in .sm-ok1{animation:smOkBelir .55s var(--ease) .80s forwards}
+.akis.in svg .sm-k2{animation:smKart .6s var(--ease) .90s forwards}
+.akis.in svg .sm-ust2{animation:smBelir .45s var(--ease) .98s forwards}
+.akis.in svg .sm-gonderi{animation:smKart .5s var(--ease) 1.06s forwards}
+.akis.in svg .sm-yorum > g:nth-child(1){animation:smSag .42s var(--ease) 1.14s forwards}
+.akis.in svg .sm-yorum > g:nth-child(2){animation:smSag .42s var(--ease) 1.22s forwards}
+.akis.in svg .sm-yorum > g:nth-child(3){animation:smSag .42s var(--ease) 1.30s forwards}
+.akis.in svg .sm-yanit{animation:smTik .5s var(--ease) 1.38s forwards}
+.akis.in svg .sm-alt2{animation:smBelir .45s var(--ease) 1.46s forwards}
+.akis.in .sm-ok2{animation:smOkBelir .55s var(--ease) 1.40s forwards}
+.akis.in svg .sm-k3{animation:smKart .6s var(--ease) 1.50s forwards}
+.akis.in svg .sm-ust3{animation:smBelir .45s var(--ease) 1.56s forwards}
+.akis.in svg .sm-katman > g:nth-child(1){animation:smSatir .45s var(--ease) 1.62s forwards}
+.akis.in svg .sm-katman > g:nth-child(2){animation:smSatir .45s var(--ease) 1.70s forwards}
+.akis.in svg .sm-katman > g:nth-child(3){animation:smSatir .45s var(--ease) 1.78s forwards}
+.akis.in svg .sm-d1{animation:smDol .7s var(--ease) 1.86s forwards}
+.akis.in svg .sm-d2{animation:smDol .7s var(--ease) 1.94s forwards}
+.akis.in svg .sm-d3{animation:smDol .7s var(--ease) 2.02s forwards}
+.akis.in svg .sm-a1{animation:smBelir .45s var(--ease) 2.10s forwards}
+.akis.in svg .sm-tik{animation:smTik .5s var(--ease) 2.18s forwards}
+.akis.in svg .sm-a2{animation:smBelir .45s var(--ease) 2.26s forwards}
+.akis.in svg .sm-yol{animation:smCiz .75s var(--ease) 2.34s forwards}
 
-@keyframes pfKart{to{opacity:1;transform:translateY(0)}}
-@keyframes pfSatir{to{opacity:1;transform:translateY(0)}}
-@keyframes pfSag{to{opacity:1;transform:translateX(0)}}
-@keyframes pfBelir{to{opacity:1}}
-@keyframes pfCiz{to{stroke-dashoffset:0}}
-@keyframes pfBuyu{to{clip-path:inset(0 0 0 0)}}
-@keyframes pfTik{to{opacity:1;transform:scale(1)}}
-@keyframes pfOkBelir{0%{opacity:0}45%{opacity:1;filter:brightness(1.7)}to{opacity:1;filter:brightness(1)}}
+@keyframes smKart{to{opacity:1;transform:translateY(0)}}
+@keyframes smSatir{to{opacity:1;transform:translateY(0)}}
+@keyframes smSag{to{opacity:1;transform:translateX(0)}}
+@keyframes smBelir{to{opacity:1}}
+@keyframes smCiz{to{stroke-dashoffset:0}}
+@keyframes smDol{to{clip-path:inset(0 0 0 0)}}
+@keyframes smTik{to{opacity:1;transform:scale(1)}}
+@keyframes smOkBelir{0%{opacity:0}45%{opacity:1;filter:brightness(1.7)}to{opacity:1;filter:brightness(1)}}
 
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
@@ -544,10 +531,10 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   "@graph": [
     {
       "@type": "Service",
-      "name": "Performance Marketing",
-      "serviceType": "performans pazarlama hizmeti",
-      "url": "https://www.tasarimmania.com/en/performance-marketing/",
-      "description": "Performance marketing: bringing multi-channel data into a single report, managing acquisition cost, lifetime value and the conversion funnel.",
+      "name": "Instagram Ad Management and Account Growth Service",
+      "serviceType": "instagram reklam yönetimi",
+      "url": "https://www.tasarimmania.com/en/social-media-management/",
+      "description": "Instagram ad management: content calendar, account engagement, targeting and ad optimization from one team, on a monthly management model.",
       "areaServed": {
         "@type": "Country",
         "name": "Türkiye"
@@ -569,25 +556,25 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           "addressCountry": "TR"
         }
       },
-      "@id": "https://www.tasarimmania.com/en/performance-marketing/#hizmet",
+      "@id": "https://www.tasarimmania.com/en/social-media-management/#hizmet",
       "subjectOf": [
         {
           "@type": "Article",
-          "@id": "https://www.tasarimmania.com/blog/e-posta-pazarlama/#article",
-          "url": "https://www.tasarimmania.com/blog/e-posta-pazarlama/",
-          "name": "Email Marketing Strategy: Is There a Right Time to Send?"
+          "@id": "https://www.tasarimmania.com/blog/grafik-tasarim-turleri/#article",
+          "url": "https://www.tasarimmania.com/blog/grafik-tasarim-turleri/",
+          "name": "What Does Corporate Graphic Design Cover?"
         },
         {
           "@type": "Article",
-          "@id": "https://www.tasarimmania.com/blog/google-ads-ve-ppc/#article",
-          "url": "https://www.tasarimmania.com/blog/google-ads-ve-ppc/",
-          "name": "Google Ads or Organic Growth? A Cost Comparison"
+          "@id": "https://www.tasarimmania.com/blog/influencer-pazarlama/#article",
+          "url": "https://www.tasarimmania.com/blog/influencer-pazarlama/",
+          "name": "From an Influencer Marketing Agency's View: Micro or Macro?"
         },
         {
           "@type": "Article",
-          "@id": "https://www.tasarimmania.com/blog/advertising-metni-yazma/#article",
-          "url": "https://www.tasarimmania.com/blog/advertising-metni-yazma/",
-          "name": "How to Write Google Ads Copy: A Nine-Step Formula"
+          "@id": "https://www.tasarimmania.com/blog/sosyal-medya-raporlama/#article",
+          "url": "https://www.tasarimmania.com/blog/sosyal-medya-raporlama/",
+          "name": "Social Media Reporting: Which Metrics Should You Track?"
         }
       ]
     },
@@ -615,11 +602,11 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
         {
           "@type": "ListItem",
           "position": 4,
-          "name": "Performance Marketing",
-          "item": "https://www.tasarimmania.com/en/performance-marketing/"
+          "name": "Social Media Management",
+          "item": "https://www.tasarimmania.com/en/social-media-management/"
         }
       ],
-      "@id": "https://www.tasarimmania.com/en/performance-marketing/#kirintili"
+      "@id": "https://www.tasarimmania.com/en/social-media-management/#kirintili"
     },
     {
       "@type": "FAQPage",
@@ -627,54 +614,54 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How is performance marketing different from conventional ad management?",
+          "name": "Does the Instagram ad management service include content production, or is only the advertising managed?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Conventional ad management usually focuses on intermediate metrics like impressions or clicks. In performance marketing there's one measure: a concrete business outcome — defined conversions such as a sale, a completed form or a new lead."
+            "text": "The service isn't limited to managing the ad budget; producing post, story and reels content is part of the scope too. Ad copy and the language of organic posts draw on the same brand voice, so the account moves in a single register."
           }
         },
         {
           "@type": "Question",
-          "name": "How is data from several channels brought into one report?",
+          "name": "Are the account's advertising and its organic post content managed by the same team?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A common tagging and UTM standard is set up across every channel, and conversion events are tracked to the same definition. The raw data is fed into a central dashboard and turned into a single table through the chosen attribution model."
+            "text": "Yes — content production and ad management sit with the same team. That arrangement makes it easier to rework creative for advertising, and it lets the formats that stand out in organic posts be carried straight into the ads."
           }
         },
         {
           "@type": "Question",
-          "name": "How are acquisition cost and customer lifetime value calculated?",
+          "name": "Which audience is the Instagram ad shown to, and how?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Acquisition cost is the total spent to win a customer divided by the number of customers won. Lifetime value is the total that customer brings over the relationship; it's established through order frequency and how well they're retained."
+            "text": "The audience is built up in layers: demographic data, interests, custom audiences made of website visitors, and the broader lookalike audiences built from them. The ad runs with different creative variations across the feed, story and reels placements, and the budget is shifted towards whichever audience performs better."
           }
         },
         {
           "@type": "Question",
-          "name": "On what basis is the budget redistributed between channels?",
+          "name": "What happens if an Instagram ad isn't approved or is taken down?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The main criterion is the ratio of the lifetime value each channel produces to its acquisition cost. Budget is shifted towards the channels where that ratio holds up, and on weaker channels spending is capped or the targeting is rebuilt."
+            "text": "Meta's review system can reject an ad, or stop a live one on the grounds of a policy breach. When that happens the team examines the reason given, edits the image or the copy to fit the policy rules, and submits the ad again."
           }
         },
         {
           "@type": "Question",
-          "name": "Do you guarantee a particular number of conversions in performance marketing?",
+          "name": "Who prepares the content calendar, and how often?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No; conversions are also affected by variables outside the ad platforms, such as market conditions and competition. This service isn't a commitment to a fixed figure — it aims to raise the likelihood of conversion through continuous measurement and optimization."
+            "text": "The content calendar is prepared at regular intervals by the editorial team, with the brand message and the seasonal agenda both taken into account. It goes to the account owner for sign-off before anything is published; production and publishing begin once that is given."
           }
         },
         {
           "@type": "Question",
-          "name": "What size of business is this service meaningful for?",
+          "name": "Who keeps the password and admin access to our Instagram account?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It's meaningful for a business of any size that runs advertising on several channels and whose data is scattered. The more complex the sales funnel and the more channels involved, the clearer the difference channel-agnostic measurement makes."
+            "text": "The password and ultimate admin access stay with the brand; the team is granted the page and ad account roles defined through Meta Business Suite. That permission can be withdrawn whenever you wish, and ownership of the account is never transferred at any stage."
           }
         }
       ],
-      "@id": "https://www.tasarimmania.com/en/performance-marketing/#sss"
+      "@id": "https://www.tasarimmania.com/en/social-media-management/#sss"
     },
     {
       "@type": "Organization",
@@ -704,23 +691,23 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.tasarimmania.com/en/performance-marketing/#sayfa",
-      "url": "https://www.tasarimmania.com/en/performance-marketing/",
-      "name": "Performance Marketing — Channel-Agnostic Conversion Management | TasarımMania",
-      "description": "Performance marketing: bringing multi-channel data into a single report, managing acquisition cost, lifetime value and the conversion funnel.",
+      "@id": "https://www.tasarimmania.com/en/social-media-management/#sayfa",
+      "url": "https://www.tasarimmania.com/en/social-media-management/",
+      "name": "Instagram Ad Management — Content Calendar and Ad Optimization | TasarımMania",
+      "description": "Instagram ad management: content calendar, account engagement, targeting and ad optimization from one team, on a monthly management model.",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://www.tasarimmania.com/#site"
       },
       "breadcrumb": {
-        "@id": "https://www.tasarimmania.com/en/performance-marketing/#kirintili"
+        "@id": "https://www.tasarimmania.com/en/social-media-management/#kirintili"
       },
       "primaryImageOfPage": {
         "@type": "ImageObject",
         "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg"
       },
       "mainEntity": {
-        "@id": "https://www.tasarimmania.com/en/performance-marketing/#hizmet"
+        "@id": "https://www.tasarimmania.com/en/social-media-management/#hizmet"
       }
     }
   ]
@@ -764,28 +751,28 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
         <a href="../">Home</a><span aria-hidden="true">/</span>
         <a href="../services/">Services</a><span aria-hidden="true">/</span>
         <a href="../digital-marketing/">Digital Marketing</a><span aria-hidden="true">/</span>
-        <span>Performance Marketing</span>
+        <span>Social Media Management</span>
       </nav>
       <div class="phd-iki">
         <div>
 <span class="mod-no">Module 03 · Meta &amp; Google Ads</span>
-      <h1 data-kin>Performance Marketing</h1>
-      <p class="lead">TasarımMania's performance marketing service takes advertising out of the channel silo and ties it to one outcome metric: conversion. Whether it's Meta, Google, TikTok or LinkedIn, the budget, the data and the reporting are managed under one roof; which channel actually produces results is settled by measurement, not by guesswork.</p>
+      <h1 data-kin>Instagram Ad Management and Account Growth Service</h1>
+      <p class="lead">TasarımMania's Instagram ad management service runs both your account's organic content flow and its paid ad performance under one roof. We covered this service in broad strokes on our Meta &amp; Google Ads hub page; here we take it up through the content calendar, account engagement and the fit between advertising and organic.</p>
       <div class="hero-cta">
         <a class="btn btn-p" href="../get-a-quote/#reklam">Let's map the scope and price range
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Performans%20Pazarlamas%C4%B1%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20Hedefim%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
+        <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Sosyal%20Medya%20Y%C3%B6netimi%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
       </div>
         </div>
         <div class="ciz-kutu" aria-hidden="true">
           <div class="ciz-cerceve">
-            <div class="ciz-bar"><i></i><i></i><i></i><span>funnel being built</span><b>OPTIMIZED</b></div>
+            <div class="ciz-bar"><i></i><i></i><i></i><span>calendar filling up</span><b>SCHEDULED</b></div>
             <div class="ciz-svg">
               <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-<text class="cz-etiket" style="--d:0.12s" x="14" y="34">advertising</text><line class="cz-cizgi" style="--u:62;--d:0.00s" x1="62" y1="40" x2="116" y2="40"/><text class="cz-etiket" style="--d:0.54s" x="360" y="34">social</text><line class="cz-cizgi" style="--u:62;--d:0.42s" x1="368" y1="40" x2="314" y2="40"/><path class="cz-cizgi" style="--u:520;--d:0.84s" d="M120,20 h190 l-30,40 h-130 z"/><path class="cz-cizgi" style="--u:380;--d:1.26s" d="M152,74 h126 l-22,38 h-82 z"/><path class="cz-cizgi" style="--u:250;--d:1.68s" d="M176,126 h78 l-15,34 h-48 z"/><circle class="cz-cizgi" style="--u:81;--d:2.10s" cx="215" cy="184" r="11"/><circle class="cz-cizgi" style="--u:37;--d:2.52s" cx="215" cy="184" r="4"/><circle class="cz-dolgu" style="--d:2.52s" cx="215" cy="184" r="4"/><line class="cz-cizgi" style="--u:78;--d:2.94s" x1="258" y1="143" x2="328" y2="143"/><rect class="cz-cizgi" style="--u:316;--d:3.36s" x="328" y="118" width="90" height="58" rx="8"/><rect class="cz-dolgu" style="--d:3.36s" x="328" y="118" width="90" height="58" rx="8"/><line class="cz-cizgi" style="--u:74;--d:3.78s" x1="340" y1="138" x2="406" y2="138"/><line class="cz-cizgi" style="--u:58;--d:4.20s" x1="340" y1="154" x2="390" y2="154"/><text class="cz-etiket vurgu" style="--d:4.74s" x="328" y="196">one report</text>
+<rect class="cz-cizgi" style="--u:808;--d:0.00s" x="14" y="20" width="242" height="152" rx="10"/><rect class="cz-dolgu" style="--d:0.00s" x="14" y="20" width="242" height="152" rx="10"/><line class="cz-cizgi" style="--u:160;--d:0.42s" x1="94" y1="20" x2="94" y2="172"/><line class="cz-cizgi" style="--u:160;--d:0.84s" x1="174" y1="20" x2="174" y2="172"/><line class="cz-cizgi" style="--u:250;--d:1.26s" x1="14" y1="70" x2="256" y2="70"/><line class="cz-cizgi" style="--u:250;--d:1.68s" x1="14" y1="120" x2="256" y2="120"/><rect class="cz-cizgi" style="--u:88;--d:2.10s" x="28" y="34" width="20" height="14" rx="3"/><rect class="cz-dolgu" style="--d:2.10s" x="28" y="34" width="20" height="14" rx="3"/><rect class="cz-cizgi" style="--u:88;--d:2.52s" x="108" y="84" width="20" height="14" rx="3"/><rect class="cz-dolgu" style="--d:2.52s" x="108" y="84" width="20" height="14" rx="3"/><rect class="cz-cizgi" style="--u:88;--d:2.94s" x="188" y="134" width="20" height="14" rx="3"/><rect class="cz-dolgu" style="--d:2.94s" x="188" y="134" width="20" height="14" rx="3"/><path class="cz-cizgi" style="--u:60;--d:3.36s" d="M122,34 l14,8 l-14,8 z"/><circle class="cz-cizgi" style="--u:201;--d:3.78s" cx="330" cy="60" r="30"/><line class="cz-cizgi" style="--u:28;--d:4.20s" x1="330" y1="60" x2="330" y2="40"/><line class="cz-cizgi" style="--u:26;--d:4.62s" x1="330" y1="60" x2="346" y2="68"/><text class="cz-etiket vurgu" style="--d:5.16s" x="306" y="108">publish time</text><rect class="cz-cizgi" style="--u:308;--d:5.04s" x="300" y="126" width="112" height="32" rx="16"/><rect class="cz-dolgu" style="--d:5.04s" x="300" y="126" width="112" height="32" rx="16"/><text class="cz-etiket" style="--d:5.58s" x="316" y="146">@yourbrand</text>
               </svg>
             </div>
-            <div class="ciz-alt"><div class="ciz-cip"><u>CHANNELS</u><b data-sayac="3" data-birim="+">0+</b></div><div class="ciz-cip"><u>REPORT</u><b data-sayac="1" data-birim="">0</b></div><div class="ciz-cip"><u>COST</u><b>acquisition ↓</b></div></div>
+            <div class="ciz-alt"><div class="ciz-cip"><u>POSTS</u><b data-sayac="12" data-birim="">0</b></div><div class="ciz-cip"><u>REELS</u><b data-sayac="4" data-birim="">0</b></div><div class="ciz-cip"><u>APPROVAL</u><b>yours</b></div></div>
           </div>
         </div>
       </div>
@@ -798,394 +785,368 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
       <div class="dtay">
         <article class="dtay-k rv">
           <span class="dtay-no">01</span>
-          <h2>Bringing Multi-Channel Data into One Report</h2>
-          <p class="dtay-vurgu">Every ad platform tells a different success story in its own interface; that's why channel-level reports are misleading on their own.</p>
-          <div class="dtay-devam"><div><p>A common measurement foundation is set up first: UTM parameters are standardised, conversion events are tracked to a single definition, and every channel's data is fed into a central dashboard. That makes multi-touch journeys visible too — the ones that start on Google and are remembered through Meta. The attribution model — first click, last click or data-driven — is chosen according to the shape of the sales cycle. The result isn't a set of numbers read separately per channel, but a single performance table reflecting the business as a whole.</p></div></div>
+          <h2>How Are the Content Calendar and Account Engagement Managed?</h2>
+          <p class="dtay-vurgu">The content calendar is built on a plan that balances different post types: feeding the brand message, showcasing products and services, and answering community questions.</p>
+          <div class="dtay-devam"><div><p>The editorial team first studies the brand voice and how the target audience behaves, then distributes the post, story and reels formats across the subject headings. The publishing calendar goes to the client for sign-off before it is shared; the account owner sees every post before it goes live and can ask for a revision. On the engagement side, replying to comments, following up direct messages and moderating the community are carried by the same team, so the brand voice stays consistent between organic posts and ad copy. Image production, copywriting and calendar coordination don't run off in separate directions — they flow through one team that owns the work.</p></div></div>
           <button type="button" class="dtay-more" aria-expanded="false"><span>More</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
         <article class="dtay-k rv d1">
           <span class="dtay-no">02</span>
-          <h2>How do you balance acquisition cost against lifetime value?</h2>
-          <p class="dtay-vurgu">A low acquisition cost isn't a measure of success on its own; the lifetime value of the customer it brings has to be tracked alongside it.</p>
-          <div class="dtay-devam"><div><p>Each channel is assessed on the order frequency, basket size and retention of the customers it produces. Cohort-based analysis follows how a group of customers won in a given period behaves over time, and shows which channel brings cheap but low-value customers and which brings expensive but high-value ones. The budget is redistributed on that balance: weight shifts towards channels where lifetime value stays clearly above acquisition cost, and spending is capped where the opposite holds. The decision mechanism isn't a fixed rule but a data loop that keeps updating. Messages that need consent are on record <a class="kaynak" href="https://iys.org.tr/" target="_blank" rel="noopener">through the İleti Yönetim Sistemi</a> , Türkiye's message management system.</p></div></div>
+          <h2>The Ad Targeting, Approval and Optimization Process</h2>
+          <p class="dtay-vurgu">On the advertising side, targeting is built up in layers: the existing follower base, custom audiences made of website visitors, and the broader lookalike audiences built from them.</p>
+          <div class="dtay-devam"><div><p>Every ad set is tested with separate creative variations across the feed, story and reels placements; the performance data shows which image-and-copy combination brings the stronger engagement. Meta's review process sometimes declines an ad, or stops a live one on the grounds of a policy breach; when that happens the team first examines the reason given, then edits the copy or the image and submits it again. Organic posts that perform strongly are backed with ad budget to widen their reach, which sets up a loop where organic and paid work feed each other. Reporting is shared at regular intervals, laid out so it's visible which audience responded to which creative. Collaboration posts have to be disclosed as advertising too; <a class="kaynak" href="https://ticaret.gov.tr/tuketici/ticari-reklamlar" target="_blank" rel="noopener">Türkiye's commercial advertising rules</a> require it.</p></div></div>
           <button type="button" class="dtay-more" aria-expanded="false"><span>More</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>
 
       <!-- Akış durakları — bu sayfanın KENDİ anlattığı yolu çizer:
-           channel-level reports → consolidated report → edinme maliyeti ile yaşam
-           boyu değerin dengesi. Etiketlerin tamamı sayfada geçen ifadeler:
-           "channel-level reports", "tells a different success story",
-           "tek bir consolidated report", "balance", "Acquisition cost",
-           "Lifetime value", "A low acquisition cost isn't başarı
-           göstergesi değildir".
+           içerik takvimi → etkileşim → reklam ve onay. Etiketlerin tamamı
+           sayfada geçen kavramlar: içerik takvimi, marka mesajı, "ürün ve
+           hizmet service showcase", "topluluk questions", gönderi, yorum
+           yanıtlama, following up direct messages, hedefleme, follower base, özel
+           kitleler, "benzeyen lookalike audiences", client sign-off, marka dili
+           kontrolü, yayın, "reach is widened".
 
-           BİLEREK RAKAM YOK: bu sayfanın tezi "tek bir sayıya bakmak
-           yanıltıcıdır". Buraya CAC/LTV/ROAS değeri, tutar ya da oran yazmak
-           sayfayı yalanlardı; bu yüzden kanal adları çubukla, tablo ve kefe
-           değerleri "—" ile temsil edildi. Birinci duraktaki üç grafik
-           birbirinden FARKLI biçimde (sütun / çizgi / halka) çünkü sayfa
-           "her platform kendi arayüzünde tells a different success story"
-           diyor; hiçbiri bir ölçüm değeri göstermiyor. Üçüncü duraktaki terazi
-           bilerek DENGEDE: sayfa birinin üstünlüğünü değil dengeyi anlatıyor.
-           Marka/ürün/platform logosu çizilmedi.
+           BİLEREK RAKAM YOK: bu sayfada takipçi sayısı, etkileşim oranı,
+           erişim ya da reply süresi gibi bir ölçü yayımlanmıyor; hiçbir kutuya
+           sayı, yüzde, tutar veya süre yazılmadı. Üç gönderi türü takvimde
+           EŞİT sayıda (beşer) duruyor: bu sayfanın tezi denge, kıyas değil.
+           Targeting bantları da aynı uzunlukta — kitle büyüklüğü iddiası
+           doğurmasın diye. Marka/platform logosu çizilmedi, avatarlar yüzsüz
+           nötr daire. Sayfa adı, kullanıcı adı ve tarih uydurulmadı; başlıklar
+           çubukla temsil edildi.
 
            NEDEN ÜÇ AYRI SVG: tek parça geniş grafik 390px ekranda ~296px'e
-           sığınca yazısı okunmaz hâle geliyordu. Her durak kendi 380x400
-           kutusunda; 860px altında kutular alt alta açılır, aradaki oklar 90°
-           döner. En küçük yazı 13: mobilde kutu içi ~281px / viewBox 380 =
-           0.74 ölçek, yani ekranda en az 9.6px. Inline SVG: ek istek yok, her
-           ölçekte net, viewBox sayesinde oran sabit (CLS yok). -->
+           sığınca yazısı okunmaz hâle geliyordu (e-ticaret sayfasında ölçüldü).
+           Her durak kendi 380x400 kutusunda; 860px altında kutular alt alta
+           açılır, aradaki oklar 90° döner. En küçük yazı 13: mobilde kutu içi
+           ~281px / viewBox 380 = 0.74 ölçek, yani ekranda en az 9.6px.
+           Inline SVG: ek istek yok, her ölçekte net, viewBox sayesinde oran
+           sabit olduğu için düzen kaymaz (CLS yok). -->
       <figure class="akis rv d2">
         <div class="akis-izgara">
 
-          <!-- ===== DURAK 01 — CHANNELS BAZLI RAPORLAR ===== -->
+          <!-- ===== DURAK 01 — İÇERİK TAKVİMİ ===== -->
           <div class="akis-kutu">
             <span class="akis-no">01</span>
-            <span class="akis-ad">Channel-level reports</span>
-            <svg viewBox="0 0 380 400" role="img" aria-labelledby="pfB1 pfA1"
+            <span class="akis-ad">Content calendar</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="smB1 smA1"
                  xmlns="http://www.w3.org/2000/svg">
-              <title id="pfB1">Channel-level reports: three panels side by side, each with a differently shaped chart — illustrative graphic</title>
-              <desc id="pfA1">Three small panels arranged neatly. Each has an untitled bar at the top; inside each sits a chart in a different shape: columns in the first, a line in the second, a doughnut in the third. Below all three, a single line: “tells a different success story”. None of the charts carries a figure. In the animation the panels come in one by one and the charts fill in.</desc>
+              <title id="smB1">Content calendar: three post types on a four-row grid, with a key that labels the types — illustrative graphic</title>
+              <desc id="smA1">On the left, a four-row calendar grid; each row holds three or four small post tiles, and the tiles are split into three types by a difference in fill and border. The key on the right labels those three types: brand message, product and service showcase, answers to community questions. All three appear the same number of times on the grid; no date, figure or account name is written. In the animation the rows come in from top to bottom and the key items in turn.</desc>
               <defs>
-                <linearGradient id="pfSahne1" x1="0" y1="0" x2="0.35" y2="1">
+                <linearGradient id="smSahne1" x1="0" y1="0" x2="0.35" y2="1">
                   <stop offset="0" stop-color="#141C26"/>
                   <stop offset="1" stop-color="#0A0E14"/>
                 </linearGradient>
-                <radialGradient id="pfIsik1" cx="0.18" cy="0.08" r="0.85">
+                <radialGradient id="smIsik1" cx="0.18" cy="0.08" r="0.85">
                   <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
                   <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
                 </radialGradient>
-                <filter id="pfGolge1" filterUnits="userSpaceOnUse" x="-40" y="-40" width="460" height="480">
+                <filter id="smGolge1" filterUnits="userSpaceOnUse" x="-40" y="-40" width="460" height="480">
                   <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
                 </filter>
+
+                <!-- üç gönderi türü: ayrım renkle değil, dolgu + kenarlık + iç
+                     çizim farkıyla kuruldu ki tek başına renk taşımasın -->
+                <g id="smTurA">
+                  <rect x="0" y="0" width="34" height="44" rx="7" fill="#00E5FF" fill-opacity=".12"
+                        stroke="#00E5FF" stroke-opacity=".55" stroke-width="1.3"/>
+                  <rect x="6" y="7" width="22" height="16" rx="4" fill="#00E5FF" fill-opacity=".3"/>
+                  <rect x="6" y="28" width="18" height="5" rx="2.5" fill="#00E5FF" fill-opacity=".5"/>
+                  <rect x="6" y="36" width="11" height="4" rx="2" fill="#00E5FF" fill-opacity=".3"/>
+                </g>
+                <g id="smTurB">
+                  <rect x="0" y="0" width="34" height="44" rx="7" fill="#101A22" stroke="#00E5FF"
+                        stroke-opacity=".4" stroke-width="1.3" stroke-dasharray="5 4"/>
+                  <rect x="6" y="7" width="22" height="16" rx="4" fill="none" stroke="#4A5C6E" stroke-width="1.3"/>
+                  <path d="M8,20 l5,-6 l4,4 l4,-5 l5,7" fill="none" stroke="#4A5C6E" stroke-width="1.2"
+                        stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="6" y="28" width="18" height="5" rx="2.5" fill="#3A4A5E"/>
+                  <rect x="6" y="36" width="11" height="4" rx="2" fill="#2A3646"/>
+                </g>
+                <g id="smTurC">
+                  <rect x="0" y="0" width="34" height="44" rx="7" fill="#0D131A" stroke="#3A4A5E" stroke-width="1.3"/>
+                  <path d="M8,9 h18 a3,3 0 0 1 3,3 v8 a3,3 0 0 1 -3,3 h-9 l-5,4 v-4 h-4 a3,3 0 0 1 -3,-3 v-8 a3,3 0 0 1 3,-3 z"
+                        fill="#151F2B" stroke="#4A5C6E" stroke-width="1.2"/>
+                  <rect x="6" y="30" width="18" height="5" rx="2.5" fill="#2A3646"/>
+                  <rect x="6" y="38" width="11" height="4" rx="2" fill="#22303C"/>
+                </g>
               </defs>
 
-              <rect width="380" height="400" fill="url(#pfSahne1)"/>
-              <rect width="380" height="400" fill="url(#pfIsik1)"/>
+              <rect width="380" height="400" fill="url(#smSahne1)"/>
+              <rect width="380" height="400" fill="url(#smIsik1)"/>
 
-              <g class="pf-kart pf-k1">
+              <g class="sm-kart sm-k1">
                 <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
-                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#pfGolge1)"/>
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#smGolge1)"/>
 
-                <text class="pf-ust1" x="34" y="52" font-family="JetBrains Mono, ui-monospace, monospace"
-                      font-size="14" letter-spacing=".5" fill="#9FD6E0">channel-level reports</text>
+                <!-- üst etiket kutu adını TEKRAR ETMİYOR: takvimin dağıttığı
+                     formatlar yazıyor — sayfa "gönderi, hikaye ve reels
+                     formatlarını konu başlıklarına göre dağıtır" diyor.
+                     Kutucukların TÜRÜNÜ ise sağdaki gösterge adlandırıyor. -->
+                <g class="sm-ust1">
+                  <text x="34" y="52" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="14" letter-spacing=".5" fill="#9FD6E0">post · story · reels</text>
+                </g>
 
-                <!-- Üç panel: aynı hizada, aynı boyda, üst üste değil. Her birinin
-                     üst barı BAŞLIKSIZ (kanal adı uydurulmadı), grafik biçimi farklı. -->
-                <g class="pf-paneller">
+                <!-- solda takvim ızgarası, sağda gösterge; ikisi de aynı çerçevede belirir -->
+                <g class="sm-cerceve">
+                  <rect x="30" y="72" width="182" height="234" rx="12" fill="#0C1218"
+                        stroke="#00E5FF" stroke-opacity=".22" stroke-width="1.2"/>
+                  <rect x="224" y="72" width="122" height="234" rx="12" fill="#0C1218"
+                        stroke="#26333F" stroke-width="1.2"/>
+                  <text x="236" y="94" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#7A8794">post types</text>
+                </g>
+
+                <!-- dört satır, satır başına üç-dört kutucuk: 15 kutucuk, her tür 5 kez -->
+                <g class="sm-satir">
                   <g>
-                    <rect x="34" y="76" width="96" height="224" rx="11" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
-                    <line x1="34" y1="102" x2="130" y2="102" stroke="#00E5FF"
-                          stroke-opacity=".20" stroke-width="1.2"/>
-                    <circle cx="46" cy="89" r="3.2" fill="#00E5FF" fill-opacity=".75"/>
-                    <rect x="56" y="85.5" width="34" height="7" rx="3.5" fill="#2A3646"/>
-                    <line x1="44" y1="272" x2="120" y2="272" stroke="#26333F" stroke-width="1.2"/>
-                    <g class="pf-sutun">
-                      <rect x="45" y="220" width="10" height="52" rx="3" fill="#00E5FF" fill-opacity=".55"/>
-                      <rect x="61" y="196" width="10" height="76" rx="3" fill="#00E5FF" fill-opacity=".55"/>
-                      <rect x="77" y="232" width="10" height="40" rx="3" fill="#00E5FF" fill-opacity=".55"/>
-                      <rect x="93" y="184" width="10" height="88" rx="3" fill="#00E5FF" fill-opacity=".55"/>
-                      <rect x="109" y="208" width="10" height="64" rx="3" fill="#00E5FF" fill-opacity=".55"/>
-                    </g>
+                    <use href="#smTurA" x="42" y="86"/><use href="#smTurB" x="83" y="86"/>
+                    <use href="#smTurC" x="124" y="86"/><use href="#smTurA" x="165" y="86"/>
                   </g>
                   <g>
-                    <rect x="142" y="76" width="96" height="224" rx="11" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
-                    <line x1="142" y1="102" x2="238" y2="102" stroke="#00E5FF"
-                          stroke-opacity=".20" stroke-width="1.2"/>
-                    <circle cx="154" cy="89" r="3.2" fill="#00E5FF" fill-opacity=".75"/>
-                    <rect x="164" y="85.5" width="34" height="7" rx="3.5" fill="#2A3646"/>
-                    <line x1="152" y1="272" x2="228" y2="272" stroke="#26333F" stroke-width="1.2"/>
-                    <path class="pf-alan" d="M152,260 L167,236 L182,246 L197,206 L212,220 L228,188 L228,272 L152,272 Z"
-                          fill="#00E5FF" fill-opacity=".12"/>
-                    <polyline class="pf-cizgi" points="152,260 167,236 182,246 197,206 212,220 228,188"
-                              fill="none" stroke="#00E5FF" stroke-opacity=".85" stroke-width="2.2"
-                              stroke-linecap="round" stroke-linejoin="round"/>
-                    <g class="pf-noktalar">
-                      <circle cx="197" cy="206" r="3.4" fill="#00E5FF"/>
-                      <circle cx="228" cy="188" r="3.4" fill="#00E5FF"/>
-                    </g>
+                    <use href="#smTurB" x="42" y="140"/><use href="#smTurC" x="83" y="140"/>
+                    <use href="#smTurA" x="124" y="140"/><use href="#smTurB" x="165" y="140"/>
                   </g>
                   <g>
-                    <rect x="250" y="76" width="96" height="224" rx="11" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
-                    <line x1="250" y1="102" x2="346" y2="102" stroke="#00E5FF"
-                          stroke-opacity=".20" stroke-width="1.2"/>
-                    <circle cx="262" cy="89" r="3.2" fill="#00E5FF" fill-opacity=".75"/>
-                    <rect x="272" y="85.5" width="34" height="7" rx="3.5" fill="#2A3646"/>
-                    <circle cx="298" cy="228" r="32" fill="none" stroke="#1B242E" stroke-width="12"/>
-                    <g class="pf-halka" transform="rotate(-90 298 228)">
-                      <circle cx="298" cy="228" r="32" fill="none" stroke="#00E5FF" stroke-opacity=".80"
-                              stroke-width="12" stroke-dasharray="88 201.1" stroke-dashoffset="0"/>
-                      <circle cx="298" cy="228" r="32" fill="none" stroke="#00E5FF" stroke-opacity=".48"
-                              stroke-width="12" stroke-dasharray="56 201.1" stroke-dashoffset="-94"/>
-                      <circle cx="298" cy="228" r="32" fill="none" stroke="#00E5FF" stroke-opacity=".26"
-                              stroke-width="12" stroke-dasharray="44 201.1" stroke-dashoffset="-156"/>
-                    </g>
+                    <use href="#smTurC" x="42" y="194"/><use href="#smTurA" x="83" y="194"/>
+                    <use href="#smTurB" x="124" y="194"/><use href="#smTurC" x="165" y="194"/>
+                  </g>
+                  <g>
+                    <use href="#smTurA" x="42" y="248"/><use href="#smTurB" x="83" y="248"/>
+                    <use href="#smTurC" x="124" y="248"/>
                   </g>
                 </g>
 
-                <g class="pf-not1">
-                  <line x1="34" y1="324" x2="346" y2="324" stroke="#1B242E" stroke-width="1.2"/>
-                  <text x="34" y="352" font-family="Inter Tight, system-ui, sans-serif"
-                        font-size="13" fill="#A8B8C4">tells a different success story</text>
+                <!-- gösterge: aynı kutucuk çizimi küçültülerek etiketleniyor -->
+                <g class="sm-gost">
+                  <g>
+                    <use href="#smTurA" transform="translate(236,106) scale(.6)"/>
+                    <text x="236" y="150" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#8FF6FF">Brand message</text>
+                  </g>
+                  <g>
+                    <use href="#smTurB" transform="translate(236,166) scale(.6)"/>
+                    <text x="236" y="210" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">Product and</text>
+                    <text x="236" y="226" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">service showcase</text>
+                  </g>
+                  <g>
+                    <use href="#smTurC" transform="translate(236,240) scale(.6)"/>
+                    <text x="236" y="284" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">Answers to community</text>
+                    <text x="236" y="300" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">questions</text>
+                  </g>
                 </g>
+
+                <text class="sm-alt1" x="34" y="344" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="13" letter-spacing=".4" fill="#7A8794">post types are balanced</text>
               </g>
             </svg>
           </div>
 
           <div class="akis-ok" aria-hidden="true">
-            <svg class="pf-ok pf-ok1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            <svg class="sm-ok sm-ok1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                  stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </div>
 
-          <!-- ===== DURAK 02 — TEK REPORT ===== -->
+          <!-- ===== DURAK 02 — ETKİLEŞİM ===== -->
           <div class="akis-kutu">
             <span class="akis-no">02</span>
-            <span class="akis-ad">One report</span>
-            <svg viewBox="0 0 380 400" role="img" aria-labelledby="pfB2 pfA2"
+            <span class="akis-ad">Engagement</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="smB2 smA2"
                  xmlns="http://www.w3.org/2000/svg">
-              <title id="pfB2">One report: three lines running down from three panels and meeting in a single wide card — illustrative graphic</title>
-              <desc id="pfA2">At the top, the shrunken ends of the three panels from the previous stop. A line running down from each meets in the middle and connects to a single wide card. The card's top bar carries a “consolidated report” label, and below it a single four-row table skeleton: each row has a bar representing a channel name and three value columns. The values are deliberately “—”; no number is written. In the animation the lines are drawn from top to bottom and the rows come in one by one.</desc>
+              <title id="smB2">Engagement: a post card with three comment rows beneath it and a reply marker — illustrative graphic</title>
+              <desc id="smA2">At the top, a “replying to comments” label. Below it a post card: on the left a square standing for the image area, to its right the heading bars. Under the card, three comment rows; each row has a neutral circle (no face drawn) and a text bar. Beside the first row sit a small reply arrow and a “reply” label. At the bottom, a “following up direct messages” note. No figure, rate or account name is written.</desc>
               <defs>
-                <linearGradient id="pfSahne2" x1="0" y1="0" x2="0.35" y2="1">
+                <linearGradient id="smSahne2" x1="0" y1="0" x2="0.35" y2="1">
                   <stop offset="0" stop-color="#141C26"/>
                   <stop offset="1" stop-color="#0A0E14"/>
                 </linearGradient>
-                <radialGradient id="pfIsik2" cx="0.18" cy="0.08" r="0.85">
+                <radialGradient id="smIsik2" cx="0.18" cy="0.08" r="0.85">
                   <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
                   <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
                 </radialGradient>
-                <filter id="pfGolge2" filterUnits="userSpaceOnUse" x="-40" y="-40" width="460" height="480">
+                <filter id="smGolge2" filterUnits="userSpaceOnUse" x="-40" y="-40" width="460" height="480">
                   <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
                 </filter>
               </defs>
 
-              <rect width="380" height="400" fill="url(#pfSahne2)"/>
-              <rect width="380" height="400" fill="url(#pfIsik2)"/>
+              <rect width="380" height="400" fill="url(#smSahne2)"/>
+              <rect width="380" height="400" fill="url(#smIsik2)"/>
 
-              <g class="pf-kart pf-k2">
+              <g class="sm-kart sm-k2">
                 <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
-                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#pfGolge2)"/>
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#smGolge2)"/>
 
-                <!-- önceki duraktaki üç panelin ucu: aynı kolonlar, aynı grafik biçimleri -->
-                <g class="pf-stub">
+                <g class="sm-ust2">
+                  <text x="34" y="54" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="14" letter-spacing=".5" fill="#9FD6E0">Post</text>
+                  <rect x="196" y="34" width="150" height="30" rx="9" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.3"/>
+                  <text x="271" y="54" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="13" letter-spacing=".2" fill="#8FF6FF">replying to comments</text>
+                </g>
+
+                <!-- gönderi kartı: görsel alanı nötr yer tutucu, başlık çubukla temsil edildi -->
+                <g class="sm-gonderi">
+                  <rect x="34" y="80" width="312" height="104" rx="12" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                  <rect x="50" y="94" width="76" height="76" rx="10" fill="#151F2B" stroke="#3A4A5E"/>
+                  <circle cx="72" cy="116" r="7" fill="#2A3646"/>
+                  <path d="M56,158 l20,-22 l14,16 l10,-11 l24,25" fill="none" stroke="#3A4A5E"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="140" y="100" width="150" height="12" rx="6" fill="#3A4A5E"/>
+                  <rect x="140" y="122" width="110" height="10" rx="5" fill="#2A3646"/>
+                  <rect x="140" y="146" width="86" height="9" rx="4.5" fill="#22303C"/>
+                </g>
+
+                <!-- üç yorum satırı: avatarlar YÜZSÜZ nötr daire -->
+                <g class="sm-yorum">
                   <g>
-                    <rect x="34" y="40" width="96" height="36" rx="9" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".32" stroke-width="1.2"/>
-                    <rect x="46" y="58" width="6" height="10" rx="2" fill="#00E5FF" fill-opacity=".6"/>
-                    <rect x="56" y="52" width="6" height="16" rx="2" fill="#00E5FF" fill-opacity=".6"/>
-                    <rect x="66" y="60" width="6" height="8" rx="2" fill="#00E5FF" fill-opacity=".6"/>
-                    <rect x="76" y="48" width="6" height="20" rx="2" fill="#00E5FF" fill-opacity=".6"/>
-                    <rect x="94" y="55" width="24" height="6" rx="3" fill="#2A3646"/>
+                    <circle cx="62" cy="220" r="14" fill="#151F2B" stroke="#3A4A5E" stroke-width="1.3"/>
+                    <rect x="86" y="206" width="140" height="11" rx="5.5" fill="#3A4A5E"/>
+                    <rect x="86" y="224" width="96" height="9" rx="4.5" fill="#2A3646"/>
                   </g>
                   <g>
-                    <rect x="142" y="40" width="96" height="36" rx="9" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".32" stroke-width="1.2"/>
-                    <polyline points="154,66 164,56 174,61 186,48" fill="none" stroke="#00E5FF"
-                              stroke-opacity=".75" stroke-width="1.9" stroke-linecap="round"
-                              stroke-linejoin="round"/>
-                    <rect x="202" y="55" width="24" height="6" rx="3" fill="#2A3646"/>
+                    <circle cx="62" cy="268" r="14" fill="#151F2B" stroke="#3A4A5E" stroke-width="1.3"/>
+                    <rect x="86" y="254" width="124" height="11" rx="5.5" fill="#3A4A5E"/>
+                    <rect x="86" y="272" width="76" height="9" rx="4.5" fill="#2A3646"/>
                   </g>
                   <g>
-                    <rect x="250" y="40" width="96" height="36" rx="9" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".32" stroke-width="1.2"/>
-                    <circle cx="270" cy="58" r="9" fill="none" stroke="#1B242E" stroke-width="5"/>
-                    <circle cx="270" cy="58" r="9" fill="none" stroke="#00E5FF" stroke-opacity=".7"
-                            stroke-width="5" stroke-dasharray="34 56.6" transform="rotate(-90 270 58)"/>
-                    <rect x="310" y="55" width="24" height="6" rx="3" fill="#2A3646"/>
+                    <circle cx="62" cy="316" r="14" fill="#151F2B" stroke="#3A4A5E" stroke-width="1.3"/>
+                    <rect x="86" y="302" width="132" height="11" rx="5.5" fill="#3A4A5E"/>
+                    <rect x="86" y="320" width="88" height="9" rx="4.5" fill="#2A3646"/>
                   </g>
                 </g>
 
-                <!-- üç ayrı rapor tek bir yerde birleşiyor -->
-                <path class="pf-yol pf-y1" d="M82,78 C82,96 190,90 190,110" fill="none"
-                      stroke="#00E5FF" stroke-opacity=".7" stroke-width="1.8" stroke-linecap="round"/>
-                <path class="pf-yol pf-y2" d="M190,78 V110" fill="none"
-                      stroke="#00E5FF" stroke-opacity=".7" stroke-width="1.8" stroke-linecap="round"/>
-                <path class="pf-yol pf-y3" d="M298,78 C298,96 190,90 190,110" fill="none"
-                      stroke="#00E5FF" stroke-opacity=".7" stroke-width="1.8" stroke-linecap="round"/>
-
-                <rect class="pf-genis" x="34" y="118" width="312" height="242" rx="12"
-                      fill="#0C1218" stroke="#00E5FF" stroke-opacity=".35" stroke-width="1.3"/>
-
-                <g class="pf-ust2">
-                  <circle cx="52" cy="134" r="4" fill="#00E5FF"/>
-                  <text x="64" y="139" font-family="JetBrains Mono, ui-monospace, monospace"
-                        font-size="13" letter-spacing=".4" fill="#8FF6FF">consolidated report</text>
-                  <!-- sütun başlıkları da ad uydurmamak için çubukla temsil edildi -->
-                  <rect x="210" y="131" width="16" height="6" rx="3" fill="#2A3646"/>
-                  <rect x="254" y="131" width="16" height="6" rx="3" fill="#2A3646"/>
-                  <rect x="300" y="131" width="16" height="6" rx="3" fill="#2A3646"/>
-                  <line x1="34" y1="150" x2="346" y2="150" stroke="#00E5FF"
-                        stroke-opacity=".22" stroke-width="1.2"/>
+                <g class="sm-yanit">
+                  <path d="M282,222 h-28 M262,214 l-10,8 l10,8" fill="none" stroke="#00E5FF"
+                        stroke-opacity=".85" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <text x="292" y="227" font-family="Inter Tight, system-ui, sans-serif"
+                        font-size="13" fill="#8FF6FF">reply</text>
                 </g>
 
-                <g class="pf-kilavuz">
-                  <line x1="196" y1="156" x2="196" y2="350" stroke="#1B242E" stroke-width="1"/>
-                  <line x1="240" y1="156" x2="240" y2="350" stroke="#1B242E" stroke-width="1"/>
-                  <line x1="284" y1="156" x2="284" y2="350" stroke="#1B242E" stroke-width="1"/>
-                </g>
-
-                <!-- dört satır: kanal adları uydurulmadı, çubukla temsil edildi.
-                     Üç değer sütununun tamamı "—": bu sayfada rakam yayımlanmıyor. -->
-                <g class="pf-satir">
-                  <g>
-                    <rect x="48" y="158" width="284" height="42" rx="10" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2"/>
-                    <rect x="62" y="172" width="14" height="14" rx="4" fill="#151F2B" stroke="#3A4A5E"/>
-                    <rect x="84" y="173.5" width="76" height="11" rx="5.5" fill="#3A4A5E"/>
-                    <text x="218" y="184" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="15" fill="#A8B8C4">—</text>
-                    <text x="262" y="184" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="15" fill="#A8B8C4">—</text>
-                    <text x="308" y="184" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="15" fill="#A8B8C4">—</text>
-                  </g>
-                  <g>
-                    <rect x="48" y="206" width="284" height="42" rx="10" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2"/>
-                    <rect x="62" y="220" width="14" height="14" rx="4" fill="#151F2B" stroke="#3A4A5E"/>
-                    <rect x="84" y="221.5" width="62" height="11" rx="5.5" fill="#3A4A5E"/>
-                    <text x="218" y="232" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="15" fill="#A8B8C4">—</text>
-                    <text x="262" y="232" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="15" fill="#A8B8C4">—</text>
-                    <text x="308" y="232" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="15" fill="#A8B8C4">—</text>
-                  </g>
-                  <g>
-                    <rect x="48" y="254" width="284" height="42" rx="10" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2"/>
-                    <rect x="62" y="268" width="14" height="14" rx="4" fill="#151F2B" stroke="#3A4A5E"/>
-                    <rect x="84" y="269.5" width="84" height="11" rx="5.5" fill="#3A4A5E"/>
-                    <text x="218" y="280" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="15" fill="#A8B8C4">—</text>
-                    <text x="262" y="280" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="15" fill="#A8B8C4">—</text>
-                    <text x="308" y="280" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="15" fill="#A8B8C4">—</text>
-                  </g>
-                  <g>
-                    <rect x="48" y="302" width="284" height="42" rx="10" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2"/>
-                    <rect x="62" y="316" width="14" height="14" rx="4" fill="#151F2B" stroke="#3A4A5E"/>
-                    <rect x="84" y="317.5" width="68" height="11" rx="5.5" fill="#3A4A5E"/>
-                    <text x="218" y="328" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="15" fill="#A8B8C4">—</text>
-                    <text x="262" y="328" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="15" fill="#A8B8C4">—</text>
-                    <text x="308" y="328" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="15" fill="#A8B8C4">—</text>
-                  </g>
-                </g>
+                <text class="sm-alt2" x="34" y="364" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="13" letter-spacing=".4" fill="#7A8794">following up direct messages</text>
               </g>
             </svg>
           </div>
 
           <div class="akis-ok" aria-hidden="true">
-            <svg class="pf-ok pf-ok2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            <svg class="sm-ok sm-ok2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                  stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </div>
 
-          <!-- ===== DURAK 03 — COST ↔ DEĞER ===== -->
+          <!-- ===== DURAK 03 — REKLAM VE APPROVAL ===== -->
           <div class="akis-kutu">
             <span class="akis-no">03</span>
-            <span class="akis-ad">Cost ↔ value</span>
-            <svg viewBox="0 0 380 400" role="img" aria-labelledby="pfB3 pfA3"
+            <span class="akis-ad">Advertising and approval</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="smB3 smA3"
                  xmlns="http://www.w3.org/2000/svg">
-              <title id="pfB3">The balance of acquisition cost against lifetime value: a set of scales in balance — illustrative graphic</title>
-              <desc id="pfA3">A set of scales. The beam is parallel to the ground, exactly in balance; neither side tips down. The left pan is labelled “Acquisition cost”, the right “Lifetime value”. The values in both pans are deliberately “—”; no amount or ratio is written. Below, a two-line note: “A low acquisition cost isn't a measure of success on its own”. In the animation the beam is drawn from left to right and the pans come in behind it.</desc>
+              <title id="smB3">Advertising and approval: the vertical flow of the targeting, approval and publishing stages — illustrative graphic</title>
+              <desc id="smA3">Three stages one below the other, with arrows between them. The targeting box holds three layer rows: follower base, custom audiences, lookalike audiences; all three bands are the same length and don't indicate an audience size. The approval box has a tick mark, and beside it “client sign-off” and “brand voice check”. The publishing box has a rising arrow and the note “reach is widened”. Nowhere is a figure, rate, budget or timeline written.</desc>
               <defs>
-                <linearGradient id="pfSahne3" x1="0" y1="0" x2="0.35" y2="1">
+                <linearGradient id="smSahne3" x1="0" y1="0" x2="0.35" y2="1">
                   <stop offset="0" stop-color="#141C26"/>
                   <stop offset="1" stop-color="#0A0E14"/>
                 </linearGradient>
-                <radialGradient id="pfIsik3" cx="0.18" cy="0.08" r="0.85">
+                <radialGradient id="smIsik3" cx="0.18" cy="0.08" r="0.85">
                   <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
                   <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
                 </radialGradient>
-                <filter id="pfGolge3" filterUnits="userSpaceOnUse" x="-40" y="-40" width="460" height="480">
+                <filter id="smGolge3" filterUnits="userSpaceOnUse" x="-40" y="-40" width="460" height="480">
                   <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
                 </filter>
               </defs>
 
-              <rect width="380" height="400" fill="url(#pfSahne3)"/>
-              <rect width="380" height="400" fill="url(#pfIsik3)"/>
+              <rect width="380" height="400" fill="url(#smSahne3)"/>
+              <rect width="380" height="400" fill="url(#smIsik3)"/>
 
-              <g class="pf-kart pf-k3">
+              <g class="sm-kart sm-k3">
                 <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
-                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#pfGolge3)"/>
+                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#smGolge3)"/>
 
-                <text class="pf-ust3" x="34" y="52" font-family="JetBrains Mono, ui-monospace, monospace"
-                      font-size="14" letter-spacing=".5" fill="#9FD6E0">balance</text>
+                <text class="sm-ust3" x="34" y="44" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="14" letter-spacing=".5" fill="#9FD6E0">Advertising</text>
 
-                <!-- gövde: mil üçgeni, kolon, taban -->
-                <g class="pf-govde">
-                  <path d="M190,112 L170,152 L210,152 Z" fill="#101A22"
-                        stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"
-                        stroke-linejoin="round"/>
-                  <rect x="183" y="152" width="14" height="118" rx="4" fill="#101A22" stroke="#26333F"/>
-                  <rect x="140" y="270" width="100" height="14" rx="7" fill="#101A22"
-                        stroke="#00E5FF" stroke-opacity=".35" stroke-width="1.3"/>
-                </g>
-
-                <!-- KİRİŞ BİLEREK YATAY: sayfa dengeyi anlatıyor, bir tarafın
-                     üstünlüğünü değil. İki kefe de aynı yükseklikte. -->
-                <line class="pf-kiris" x1="56" y1="116" x2="324" y2="116" stroke="#00E5FF"
-                      stroke-opacity=".85" stroke-width="4" stroke-linecap="round"/>
-                <circle class="pf-mil" cx="190" cy="116" r="5.5" fill="#0B0D12"
-                        stroke="#00E5FF" stroke-width="2.2"/>
-
-                <g class="pf-kefeler">
+                <!-- AŞAMA 1 — hedefleme: üç katman, ÜÇ BANT DA AYNI UZUNLUKTA.
+                     Farklı uzunluk "şu kitle daha büyük" demek olurdu; sayfada
+                     böyle bir ölçü yok, katmanlama var. -->
+                <rect x="34" y="56" width="312" height="126" rx="12" fill="#101A22"
+                      stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                <text x="54" y="84" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing=".6" fill="#8FF6FF">Targeting</text>
+                <g class="sm-katman">
                   <g>
-                    <line x1="100" y1="118" x2="100" y2="158" stroke="#00E5FF"
-                          stroke-opacity=".5" stroke-width="1.6"/>
-                    <path d="M42,158 H158 L142,196 H58 Z" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"
-                          stroke-linejoin="round"/>
-                    <text class="pf-deger pf-v1" x="100" y="187" text-anchor="middle"
-                          font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="20" fill="#8FF6FF">—</text>
-                    <rect x="38" y="206" width="124" height="25" rx="8" fill="#0C1218" stroke="#26333F"/>
-                    <text x="100" y="223" text-anchor="middle"
-                          font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13" fill="#A8B8C4">Acquisition cost</text>
+                    <text x="54" y="110" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">follower base</text>
+                    <rect x="196" y="100" width="130" height="10" rx="5" fill="#1B242E"/>
+                    <rect class="sm-dolgu sm-d1" x="196" y="100" width="130" height="10" rx="5"
+                          fill="#00E5FF" fill-opacity=".55"/>
                   </g>
                   <g>
-                    <line x1="280" y1="118" x2="280" y2="158" stroke="#00E5FF"
-                          stroke-opacity=".5" stroke-width="1.6"/>
-                    <path d="M222,158 H338 L322,196 H238 Z" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"
-                          stroke-linejoin="round"/>
-                    <text class="pf-deger pf-v2" x="280" y="187" text-anchor="middle"
-                          font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="20" fill="#8FF6FF">—</text>
-                    <rect x="218" y="206" width="124" height="25" rx="8" fill="#0C1218" stroke="#26333F"/>
-                    <text x="280" y="223" text-anchor="middle"
-                          font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13" fill="#A8B8C4">Lifetime value</text>
+                    <text x="54" y="140" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">custom audiences</text>
+                    <rect x="196" y="130" width="130" height="10" rx="5" fill="#1B242E"/>
+                    <rect class="sm-dolgu sm-d2" x="196" y="130" width="130" height="10" rx="5"
+                          fill="#00E5FF" fill-opacity=".4"/>
+                  </g>
+                  <g>
+                    <text x="54" y="170" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#A8B8C4">lookalike audiences</text>
+                    <rect x="196" y="160" width="130" height="10" rx="5" fill="#1B242E"/>
+                    <rect class="sm-dolgu sm-d3" x="196" y="160" width="130" height="10" rx="5"
+                          fill="#00E5FF" fill-opacity=".28"/>
                   </g>
                 </g>
 
-                <g class="pf-not3">
-                  <line x1="34" y1="302" x2="346" y2="302" stroke="#1B242E" stroke-width="1.2"/>
-                  <text x="34" y="330" font-family="Inter Tight, system-ui, sans-serif"
-                        font-size="13" fill="#A8B8C4">A low acquisition cost isn't</text>
-                  <text x="34" y="352" font-family="Inter Tight, system-ui, sans-serif"
-                        font-size="13" fill="#A8B8C4">a measure of success on its own</text>
+                <path class="sm-ok-asama sm-a1" d="M178,190 l12,12 l12,-12" fill="none" stroke="#00E5FF"
+                      stroke-opacity=".7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- AŞAMA 2 — onay -->
+                <rect x="34" y="210" width="312" height="80" rx="12" fill="#101A22"
+                      stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                <g class="sm-tik">
+                  <circle cx="66" cy="250" r="15" fill="#00E5FF" fill-opacity=".14"
+                          stroke="#00E5FF" stroke-width="1.8"/>
+                  <path d="M59,250 l5,5 l9,-10" fill="none" stroke="#00E5FF" stroke-width="2.1"
+                        stroke-linecap="round" stroke-linejoin="round"/>
                 </g>
+                <text x="96" y="246" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing=".6" fill="#8FF6FF">Approval</text>
+                <text x="96" y="268" font-family="Inter Tight, system-ui, sans-serif"
+                      font-size="13" fill="#A8B8C4">client sign-off</text>
+                <text x="332" y="268" text-anchor="end" font-family="Inter Tight, system-ui, sans-serif"
+                      font-size="13" fill="#7A8794">brand voice check</text>
+
+                <path class="sm-ok-asama sm-a2" d="M178,298 l12,12 l12,-12" fill="none" stroke="#00E5FF"
+                      stroke-opacity=".7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- AŞAMA 3 — yayın: yükselen ok, üzerinde ölçü yok -->
+                <rect x="34" y="318" width="312" height="58" rx="12" fill="#101A22"
+                      stroke="#00E5FF" stroke-opacity=".38" stroke-width="1.3"/>
+                <path class="sm-yol" d="M56,362 l14,-14 l10,10 l20,-24 M84,334 h14 M98,334 v14"
+                      fill="none" stroke="#00E5FF" stroke-opacity=".8" stroke-width="2.2"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="112" y="348" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing=".6" fill="#8FF6FF">Publishing</text>
+                <text x="112" y="368" font-family="Inter Tight, system-ui, sans-serif"
+                      font-size="13" fill="#A8B8C4">reach is widened</text>
               </g>
             </svg>
           </div>
         </div>
-        <figcaption><b>Illustrative graphic.</b> It draws the route the page describes: each channel's reports read separately in its own interface, those reports meeting in a single consolidated report, and the balance between acquisition cost and lifetime value. The boxes are an example interface drawing, not taken from a real account; the channel names are represented by bars so as not to invent names. The values in the table and in the pans of the scales are deliberately “—”: this page's own argument is that looking at a single number is misleading, so no cost, value or ratio is written here. The scales are deliberately in balance too — the page is describing balance, not the superiority of one side.</figcaption>
+        <figcaption><b>Illustrative graphic.</b> It draws the route the page describes: the content calendar balancing post types, the engagement on the comment and message side, then the targeting → approval → publishing flow. The boxes are an example interface drawing, not taken from a real account; post and comment headings are represented by bars so as not to invent names, and the avatars are faceless neutral circles. The three types on the calendar appear the same number of times on purpose, and the targeting bands are the same length on purpose: this isn't a comparison, it's a way of saying “this type is in the plan too”. Because no measure such as follower count, engagement rate, reach, budget or duration is published on this page, none appears in the graphic either.</figcaption>
       </figure>
 
       <div class="dtay-fiyat rv d1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
-        <p><strong>For the current price and timeline band</strong> , look at the <a href="../digital-marketing/#fiyat">pricing section</a> on the Meta & Google Ads page — you can settle the band for your scope in two minutes.</p>
+        <p><strong>For the current price and timeline band</strong> , look at the <a href="../digital-marketing/#fiyat">pricing section</a> on the Meta &amp; Google Ads page — you can settle the band for your scope in two minutes.</p>
       </div>
     </div>
   </section>
@@ -1205,27 +1166,27 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>FAQs</span>
-        <h2 data-kin>Frequently asked questions: performance marketing</h2>
+        <h2 data-kin>Frequently asked questions: the scope of Instagram ad management</h2>
       </div>
       <div class="sd rv d1" data-sd>
         <div class="sd-sol" role="tablist" aria-label="Questions">
-        <button type="button" class="sd-soru acik" role="tab" aria-selected="true"><i>01</i><span>How is performance marketing different from conventional ad management?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>02</i><span>How is data from several channels brought into one report?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>03</i><span>How are acquisition cost and customer lifetime value calculated?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>04</i><span>On what basis is the budget redistributed between channels?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>05</i><span>Do you guarantee a particular number of conversions in performance marketing?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>06</i><span>What size of business is this service meaningful for?</span></button>
+        <button type="button" class="sd-soru acik" role="tab" aria-selected="true"><i>01</i><span>Does the Instagram ad management service include content production, or is only the advertising managed?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>02</i><span>Are the account's advertising and its organic post content managed by the same team?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>03</i><span>Which audience is the Instagram ad shown to, and how?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>04</i><span>What happens if an Instagram ad isn't approved or is taken down?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>05</i><span>Who prepares the content calendar, and how often?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>06</i><span>Who keeps the password and admin access to our Instagram account?</span></button>
         </div>
         <div class="sd-sag">
-        <div class="sd-cevap acik" role="tabpanel"><h3>How is performance marketing different from conventional ad management?</h3><p>Conventional ad management usually focuses on intermediate metrics like impressions or clicks. In performance marketing there's one measure: a concrete business outcome — defined conversions such as a sale, a completed form or a new lead.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>How is data from several channels brought into one report?</h3><p>A common tagging and UTM standard is set up across every channel, and conversion events are tracked to the same definition. The raw data is fed into a central dashboard and turned into a single table through the chosen attribution model.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>How are acquisition cost and customer lifetime value calculated?</h3><p>Acquisition cost is the total spent to win a customer divided by the number of customers won. Lifetime value is the total that customer brings over the relationship; it's established through order frequency and how well they're retained.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>On what basis is the budget redistributed between channels?</h3><p>The main criterion is the ratio of the lifetime value each channel produces to its acquisition cost. Budget is shifted towards the channels where that ratio holds up, and on weaker channels spending is capped or the targeting is rebuilt.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>Do you guarantee a particular number of conversions in performance marketing?</h3><p>No; conversions are also affected by variables outside the ad platforms, such as market conditions and competition. This service isn't a commitment to a fixed figure — it aims to raise the likelihood of conversion through continuous measurement and optimization.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>What size of business is this service meaningful for?</h3><p>It's meaningful for a business of any size that runs advertising on several channels and whose data is scattered. The more complex the sales funnel and the more channels involved, the clearer the difference channel-agnostic measurement makes.</p></div>
+        <div class="sd-cevap acik" role="tabpanel"><h3>Does the Instagram ad management service include content production, or is only the advertising managed?</h3><p>The service isn't limited to managing the ad budget; producing post, story and reels content is part of the scope too. Ad copy and the language of organic posts draw on the same brand voice, so the account moves in a single register.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Are the account's advertising and its organic post content managed by the same team?</h3><p>Yes — content production and ad management sit with the same team. That arrangement makes it easier to rework creative for advertising, and it lets the formats that stand out in organic posts be carried straight into the ads.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Which audience is the Instagram ad shown to, and how?</h3><p>The audience is built up in layers: demographic data, interests, custom audiences made of website visitors, and the broader lookalike audiences built from them. The ad runs with different creative variations across the feed, story and reels placements, and the budget is shifted towards whichever audience performs better.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>What happens if an Instagram ad isn't approved or is taken down?</h3><p>Meta's review system can reject an ad, or stop a live one on the grounds of a policy breach. When that happens the team examines the reason given, edits the image or the copy to fit the policy rules, and submits the ad again.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Who prepares the content calendar, and how often?</h3><p>The content calendar is prepared at regular intervals by the editorial team, with the brand message and the seasonal agenda both taken into account. It goes to the account owner for sign-off before anything is published; production and publishing begin once that is given.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Who keeps the password and admin access to our Instagram account?</h3><p>The password and ultimate admin access stay with the brand; the team is granted the page and ad account roles defined through Meta Business Suite. That permission can be withdrawn whenever you wish, and ownership of the account is never transferred at any stage.</p></div>
           <div class="sd-alt">
             <div class="sd-cubuk" aria-hidden="true"><i data-sd-cubuk></i></div>
-            <a class="sd-wa" href="https://wa.me/905547916545?text=Merhaba%2C%20Performans%20Pazarlamas%C4%B1%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20Hedefim%3A%20" target="_blank" rel="noopener">Is your question different? Ask us on WhatsApp →</a>
+            <a class="sd-wa" href="https://wa.me/905547916545?text=Merhaba%2C%20Sosyal%20Medya%20Y%C3%B6netimi%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Is your question different? Ask us on WhatsApp →</a>
           </div>
         </div>
       </div>
@@ -1242,21 +1203,21 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
         <ol class="akv-liste">
           <li>
             <span class="akv-no">01</span>
-            <div><h3>Setting Up the Measurement Foundation</h3><p>Before the campaigns start, the conversion tags, the UTM structure and the attribution model are settled. Without that foundation, the data collected can't be compared across channels.</p></div>
+            <div><h3>Choosing the Ad Format and Placement</h3><p>The feed, story, reels and Explore placements speak to different viewing habits; the creative ratio and the message length are adapted separately for each format, and the selection is narrowed or widened according to the campaign objective.</p></div>
           </li>
           <li>
             <span class="akv-no">02</span>
-            <div><h3>The Optimization Cycle</h3><p>The dashboard is monitored regularly; on channels where acquisition cost is rising or lifetime value is falling, the creative, targeting and budget decisions are reviewed again.</p></div>
+            <div><h3>The Measurement and Reporting Approach</h3><p>Performance is tracked by reading reach, engagement and the conversion signals coming from the ads together. The report is laid out to show which content type and which audience produced the stronger result, and it forms the basis for the next period's decisions.</p></div>
           </li>
           <li>
             <span class="akv-no">03</span>
-            <div><h3>Reporting and Transparency</h3><p>Instead of separate tables per channel, a single consolidated report is provided. The business owner sees every channel's contribution to the outcome on the same screen.</p></div>
+            <div><h3>Brand Voice and the Sign-Off Mechanism</h3><p>Every post and every piece of ad copy passes a brand voice check and client sign-off before it is published. The approval flow sets up a way of working in which the account owner has the final word without carrying the production load.</p></div>
           </li>
         </ol>
         <div class="akv-video">
           <span class="akv-rozet"><i></i>LIVE LOOP</span>
-          <video data-dongu muted loop playsinline preload="metadata" poster="../../../../assets/modul-pazarlama/performans-pazarlamasi.jpg" aria-hidden="true">
-            <source src="../../../assets/modul-pazarlama/performans-pazarlamasi.mp4" type="video/mp4">
+          <video data-dongu muted loop playsinline preload="metadata" poster="../../../../assets/modul-pazarlama/sosyal-medya-yonetimi.jpg" aria-hidden="true">
+            <source src="../../../assets/modul-pazarlama/sosyal-medya-yonetimi.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -1282,12 +1243,12 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <path class="hrt-akis g3" d="M0,50 C42,50 55,85 100,85"/>
         </svg>
         <div class="hrt-sag">
-          <a class="yk" href="../google-ads/"><b>Google Ads</b>
-            <span>Performance-led advertising on search and display.</span></a>
-          <a class="yk" href="../meta-ads/"><b>Meta Ads</b>
-            <span>Facebook and Instagram ad account management.</span></a>
-          <a class="yk" href="../social-media-management/"><b>Social Media Management</b>
-            <span>Ongoing content and ad management for the Instagram account.</span></a>
+          <a class="yk" href="../digital-marketing/"><b>Digital Marketing</b>
+            <span>The whole module: Google Ads, Meta Ads and performance marketing.</span></a>
+          <a class="yk" href="../video-production/"><b>Video Production</b>
+            <span>Professional filming and editing for reels and social video.</span></a>
+          <a class="yk" href="../web-design/"><b>Web Design &amp; Software</b>
+            <span>Fast, measurable pages for the ads to land on.</span></a>
         </div>
       </div>
     </div>
@@ -1296,12 +1257,12 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   <section class="sec" style="padding-top:0">
     <div class="wrap">
       <div class="band rv">
-        <h2>Let's Bring Your Channels Together Around One Outcome</h2>
-        <p>If you want to see clearly which channel your ad budget is paying off in, let's look at our process together. You can review the framework of the service in the scope and pricing section, and get in touch with our team for an assessment specific to your business.</p>
+        <h2>Let's Manage Your Instagram Account to a Professional Standard</h2>
+        <p>If you'd like the whole process, from the content calendar through to ad optimization, to sit with one team, let's settle the scope together. You can look through the options in the pricing section and then get in touch with us.</p>
         <div class="band-cta">
           <a class="btn btn-p" href="../get-a-quote/#reklam">Let's map the scope
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Performans%20Pazarlamas%C4%B1%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20Hedefim%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
+          <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Sosyal%20Medya%20Y%C3%B6netimi%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
         </div>
       </div>
     </div>
@@ -1314,12 +1275,12 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
         <h2 data-kin>What we've written on this</h2>
       </div>
       <div class="hrt-sag" data-ic-link="blog">
-          <a class="yk" href="../../blog/e-posta-pazarlama/"><b>Email Marketing Strategy: Is There a Right Time to Send?</b>
-            <span>How do you settle the right send time, frequency and automation timing in an email marketing strategy?</span></a>
-          <a class="yk" href="../../blog/google-ads-ve-ppc/"><b>Google Ads or Organic Growth?</b>
-            <span>We compared the cost of Google Ads management against organic growth: cost per click, monthly budget planning</span></a>
-          <a class="yk" href="../../blog/reklam-metni-yazma/"><b>How to Write Google Ads Copy: Nine Steps</b>
-            <span>A formula for writing Google Ads copy: how to build the headline, the description and the call to action, and in what order to test</span></a>
+          <a class="yk" href="../../blog/grafik-tasarim-turleri/"><b>What Does Corporate Graphic Design Cover?</b>
+            <span>What visual outputs does corporate graphic design cover, from the logo through to the packaging? We look at the range of what the types look like and which</span></a>
+          <a class="yk" href="../../blog/influencer-pazarlama/"><b>Influencer Marketing Agency: Micro or Macro?</b>
+            <span>Micro or macro influencer? We compare how reach and engagement look, and what an influencer marketing agency</span></a>
+          <a class="yk" href="../../blog/sosyal-medya-raporlama/"><b>Social Media Reporting: The Metrics Worth Tracking</b>
+            <span>How to choose the reach, engagement and conversion metrics for social media reporting, and how the report table</span></a>
       </div>
     </div>
   </aside>
