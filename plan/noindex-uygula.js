@@ -71,7 +71,50 @@ dosyalar.forEach((f) => {
 /* robots.txt — hem depo kökü hem site/ (ikisi de zararsız, biri gerçek
    domainde doğru yer olur) */
 const govde = AC
-  ? 'User-agent: *\nAllow: /\n\nSitemap: https://www.tasarimmania.com/sitemap.xml\n'
+  ? `# TasarımMania — arama motorlarına ve yapay zekâ tarayıcılarına AÇIK
+# Bu dosyayı plan/noindex-uygula.js --ac üretir, elle düzenlemeyin.
+
+User-agent: *
+Allow: /
+
+# --- Yapay zekâ tarayıcıları -------------------------------------------
+# 2026 rehberinin GEO bölümü, içeriğin dil modellerine kaynak olabilmesi için
+# bu ajanların AÇIKÇA karşılanmasını istiyor. Kapalı bırakmak, cevap
+# motorlarında (ChatGPT, Claude, Perplexity, AI Overviews) görünmemek demek.
+# Kapatmak isterseniz Allow satırlarını Disallow: / ile değiştirin.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# --- Site haritaları ---------------------------------------------------
+# Dizin dosyası hem sayfa hem görsel haritasını gösterir.
+Sitemap: https://www.tasarimmania.com/sitemap-index.xml
+Sitemap: https://www.tasarimmania.com/sitemap.xml
+Sitemap: https://www.tasarimmania.com/sitemap-gorsel.xml
+`
   : `# KONSEPT YAYINI — arama motorlarına KAPALI
 # Sebep: canonical etiketleri www.tasarimmania.com'u gösteriyor, o adres ise
 # 301 ile başka sayfaya gidiyor. İndekslenirse Google çelişen sinyal alır ve

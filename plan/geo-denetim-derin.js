@@ -45,8 +45,18 @@ const ilk = (l, n = 3) => l.slice(0, n).map(u).join(', ') + (l.length > n ? ' �
 const belgeSayfasi = (f) => /\/blog\/[^/]+\/$/.test(u(f))
   || (u(f).startsWith('/hizmetler/') && u(f).split('/').filter(Boolean).length >= 3)
   || u(f) === '/kvkk/';
+/* <aside> "asıl içeriğin yanındaki teğet içerik" demek. Bir sayfada böyle bir
+   blok YOKSA aside da olmamalı; olmayan bloğu icat etmek yerine kural, teğet
+   bloğu OLAN sayfalara bakıyor. İşaret: gövdede birden çok blog yazısına giden
+   bağ kümesi ya da "ilgili/bağlantılı/rehber yazıları" başlığı. */
+const tegetBlogu = (f) => {
+  const h = oku(f); const b = h.indexOf('<main'); const s = h.lastIndexOf('</main>');
+  const g = b < 0 ? h : h.slice(b, s > b ? s : undefined);
+  return (g.match(/href="[^"]*\/blog\/[a-z0-9-]+\//g) || []).length >= 2
+    || /<h[23][^>]*>[^<]*(bağlantılı sayfalar|yazdıklarımız|rehber yazıları|ilgili yazılar)/i.test(g);
+};
 for (const [etiket, ad, kume] of [['nav', '<nav>', hepsi], ['article', '<article>', hepsi.filter(belgeSayfasi)],
-  ['section', '<section>', hepsi], ['aside', '<aside>', hepsi]]) {
+  ['section', '<section>', hepsi], ['aside', '<aside>', hepsi.filter(tegetBlogu)]]) {
   const yok = kume.filter((f) => !new RegExp(`<${etiket}\\b`).test(oku(f)));
   if (yok.length) B('P2', 1, `${ad} etiketi yok`, `${yok.length}/${kume.length} sayfa`, ozet(yok));
 }
@@ -136,8 +146,18 @@ for (const [ad, re, onc] of [
   if (smYok.length) B('P1', 7, 'Sayfa var ama SITEMAP’te yok', `${smYok.length} sayfa`, smYok.slice(0, 5).join(', '));
   if (sayfaYok.length) B('P1', 7, 'Sitemap’te var ama SAYFA yok (404 riski)', `${sayfaYok.length} URL`, sayfaYok.slice(0, 5).join(', '));
   if (!/changefreq/.test(sm)) B('P3', 7, 'sitemap’te changefreq yok', '', '');
-  B('P3', 7, 'Görsel sitemap yok', `${hepsi.reduce((a, f) => a + (oku(f).match(/<img/g) || []).length, 0)} görsel var`,
-    'rehber "Image Sitemap" maddesini ayrı sayıyor');
+  /* ⚠ KURAL KOŞULSUZDU: dosya üretildikten sonra bile "yok" diyordu. */
+  const gorselHarita = path.join(S, 'sitemap-gorsel.xml');
+  if (!fs.existsSync(gorselHarita)) {
+    B('P3', 7, 'Görsel sitemap yok', `${hepsi.reduce((a, f) => a + (oku(f).match(/<img/g) || []).length, 0)} görsel var`,
+      'rehber "Image Sitemap" maddesini ayrı sayıyor');
+  } else {
+    const gh = fs.readFileSync(gorselHarita, 'utf8');
+    const n = (gh.match(/<image:loc>/g) || []).length;
+    if (!n) B('P3', 7, 'Görsel sitemap BOŞ', 'sitemap-gorsel.xml içinde <image:loc> yok', '');
+    if (!fs.existsSync(path.join(S, 'sitemap-index.xml')))
+      B('P3', 7, 'Sitemap dizini yok', 'iki harita var ama sitemap-index.xml yok', '');
+  }
 }
 
 /* ═══ 9-10. ŞEMA kapsamı — rehberin saydığı türler ═══ */

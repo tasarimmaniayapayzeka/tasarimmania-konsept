@@ -7,7 +7,10 @@
   "eksenAciklama": "İki mimarinin NASIL çalıştığını anlatır. Maliyet yazı 1'in, karar soruları yazı 2'nin, takvim yazı 3'ün işidir. React Native ile Flutter KIYASI yazı 5'e aittir; burada çatı adları karşılaştırılmaz.",
   "huni": "MOFU",
   "kume": "mobil",
-  "kardesler": ["react-native-mi-flutter-mi", "uygulama-magaza-optimizasyonu"],
+  "kardesler": [
+    "react-native-mi-flutter-mi",
+    "uygulama-magaza-optimizasyonu"
+  ],
   "kisaBaslik": "Native mi, Cross-Platform mı",
   "okumaDk": 7,
   "kopruBaslik": "Mimarinizi birlikte seçelim",
@@ -29,14 +32,29 @@
   },
   "yazi": {
     "h1": "Native mi Cross-Platform mı? Uygulama Mimarisi Seçimi",
-    "metaBaslik": "Native mi Cross-Platform mı? Uygulama Mimarisi Seçimi | TasarımMania",
+    "metaBaslik": "Native mi Cross-Platform mı? Mimari Seçimi | TasarımMania",
     "metaAciklama": "Native uygulama mı, tek kod tabanı mı? Ekranı kimin çizdiği, donanıma erişim ve performans farkı üzerinden mimari seçimini mekanizmasıyla anlatıyoruz.",
     "esAnlamli": [
-      ["native", "yerli kod"],
-      ["cross-platform", "tek kod tabanı"],
-      ["çatı", "geliştirme çerçevesi"],
-      ["bileşen", "arayüz öğesi"],
-      ["köprü", "ara katman"]
+      [
+        "native",
+        "yerli kod"
+      ],
+      [
+        "cross-platform",
+        "tek kod tabanı"
+      ],
+      [
+        "çatı",
+        "geliştirme çerçevesi"
+      ],
+      [
+        "bileşen",
+        "arayüz öğesi"
+      ],
+      [
+        "köprü",
+        "ara katman"
+      ]
     ],
     "girisParagraf": "Bu tartışma çoğu zaman marka savaşına dönüşür ve gerçek soru kaybolur. Oysa seçim bir moda tercihi değil, mekanizma tercihidir. İki yol arasındaki fark, ekranı kimin çizdiği ve donanıma kimin eriştiğinde saklıdır. Bu yazıda mekanizmayı açıyor, sonra hangi ürünün hangi yolu seçmesi gerektiğini anlatıyoruz. Çatı adlarını karşılaştırmıyoruz; o ayrı bir konu.",
     "bolumler": [
@@ -101,13 +119,37 @@
     ],
     "karsilastirmaTablosu": {
       "baslik": "Native ile tek kod tabanı: hangi ölçütte hangisi",
-      "sutunlar": ["Ölçüt", "Native uygulama", "Tek kod tabanı"],
+      "sutunlar": [
+        "Ölçüt",
+        "Native uygulama",
+        "Tek kod tabanı"
+      ],
       "satirlar": [
-        ["Arayüz bileşeni", "Platformun kendi öğesi", "Köprü ya da kendi çizimi"],
-        ["Yeni platform özelliği", "İlk gün kullanılabilir", "Ara katman güncellemesi beklenir"],
-        ["Ağır grafik ve animasyon", "Avantajlı", "Sınırda kalabilir"],
-        ["İki mağaza aynı anda", "Ayrı iki proje yürür", "Tek kaynak, ortak iş"],
-        ["Ekip gereksinimi", "Swift ve Kotlin bilgisi", "Tek dil yeterli"]
+        [
+          "Arayüz bileşeni",
+          "Platformun kendi öğesi",
+          "Köprü ya da kendi çizimi"
+        ],
+        [
+          "Yeni platform özelliği",
+          "İlk gün kullanılabilir",
+          "Ara katman güncellemesi beklenir"
+        ],
+        [
+          "Ağır grafik ve animasyon",
+          "Avantajlı",
+          "Sınırda kalabilir"
+        ],
+        [
+          "İki mağaza aynı anda",
+          "Ayrı iki proje yürür",
+          "Tek kaynak, ortak iş"
+        ],
+        [
+          "Ekip gereksinimi",
+          "Swift ve Kotlin bilgisi",
+          "Tek dil yeterli"
+        ]
       ]
     },
     "alinti": {
@@ -150,7 +192,16 @@
       }
     ],
     "kapanis": "Native uygulama ile tek kod tabanı arasındaki seçim bir üstünlük yarışı değil, mekanizma tercihidir. Donanım derinliği, platform şartı ve ekip yetkinliği aynı yönü gösteriyorsa karar zaten kendini söyler.",
-    "about": ["Native uygulama", "Cross-platform geliştirme", "Mobil mimari"],
-    "mentions": ["Swift", "Kotlin", "React Native", "Flutter"]
+    "about": [
+      "Native uygulama",
+      "Cross-platform geliştirme",
+      "Mobil mimari"
+    ],
+    "mentions": [
+      "Swift",
+      "Kotlin",
+      "React Native",
+      "Flutter"
+    ]
   }
 }

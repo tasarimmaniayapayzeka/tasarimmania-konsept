@@ -73,8 +73,13 @@ for (const f of dosyalar) {
     }
   }
 
-  /* hizmet/diğer: "ilgili içerik" <section> → <aside> */
-  for (const baslik of ['Bu konuyla bağlantılı sayfalar', 'Bu konuda yazdıklarımız']) {
+  /* hizmet/diğer: "ilgili içerik" <section> → <aside>
+     ⚠ Modül hub'ları aynı bloğu "… rehber yazıları" başlığıyla kuruyor;
+     ilk sürüm yalnız iki sabit başlığa baktığı için 2 hub'ı kaçırdı. */
+  const basliklar = ['Bu konuyla bağlantılı sayfalar', 'Bu konuda yazdıklarımız'];
+  const rehber = h.match(/<h2[^>]*>([^<]*rehber yazıları)<\/h2>/);
+  if (rehber) basliklar.push(rehber[1]);
+  for (const baslik of basliklar) {
     const bi = h.indexOf(baslik);
     if (bi < 0) continue;
     const si = h.lastIndexOf('<section', bi);
@@ -86,7 +91,7 @@ for (const f of dosyalar) {
     const k = kapanis(h, si, 'section');
     if (!k) continue;
     const acilis = h.slice(si, h.indexOf('>', si) + 1);
-    const etiketAdi = baslik === 'Bu konuda yazdıklarımız' ? 'Konuyla ilgili yazılar' : 'İlgili hizmetler';
+    const etiketAdi = baslik === 'Bu konuyla bağlantılı sayfalar' ? 'İlgili hizmetler' : 'Konuyla ilgili yazılar';
     h = h.slice(0, k.bas) + '</aside>' + h.slice(k.son);
     h = h.slice(0, si) + acilis.replace(/^<section/, '<aside').replace(/>$/, ` aria-label="${etiketAdi}">`)
       + h.slice(si + acilis.length);
