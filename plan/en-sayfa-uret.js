@@ -60,10 +60,12 @@ for (const k of sirali) {
   h = h.split(k.metin).join(k.en);
   degisen++;
 }
-/* kabuk (menü/altbilgi) dizgeleri */
-let kabukDegisen = 0;
-for (const [tr, en] of Object.entries(C.kabukCeviri || {}).sort((a, b) => b[0].length - a[0].length)) {
-  if (!h.includes(tr)) continue;
+/* Kabuk (menü/altbilgi) — 77 sayfada ortak, ayrı dosyada bir kez çevrildi.
+   ⚠ UZUNDAN KISAYA: "Blog" gibi kısa dizgeler uzunların içinde geçebilir. */
+const KABUK = JSON.parse(fs.readFileSync(path.join(__dirname, 'en-kabuk-ceviri.json'), 'utf8')).ceviri;
+let kabukDegisen = 0; const kabukBulunmayan = [];
+for (const [tr, en] of Object.entries(KABUK).sort((a, b) => b[0].length - a[0].length)) {
+  if (!h.includes(tr)) { kabukBulunmayan.push(tr); continue; }
   h = h.split(tr).join(en);
   kabukDegisen++;
 }
