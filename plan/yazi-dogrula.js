@@ -30,6 +30,7 @@ const ODAKLAR = {
   'storyboard-nedir': 'storyboard hazırlama',
   'reklam-filmi-ajansi-secimi': 'reklam filmi ajansı',
   'urun-videosu-studyo-mu-mekan-mi': 'ürün videosu çekimi',
+  'e-ticaret-urun-videosu-formatlari': 'ürün videosu formatı',
 };
 
 const ESIK = [
