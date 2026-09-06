@@ -1,12 +1,12 @@
 # İngilizce sürüm — devam notu
 
-**Son güncelleme:** 7 Eylül 2026 · **23 İngilizce sayfa canlı**, 100 sayfa toplam
+**Son güncelleme:** 7 Eylül 2026 · **24 İngilizce sayfa canlı**, 100 sayfa toplam
 
 Biten: `/en/` · `about` · `contact` · `services` · `blog` · `get-a-quote` ·
 `web-design` · `mobile-app-development` · `digital-marketing` · `seo` ·
 `video-production` · `graphic-design` · `corporate-website` ·
 `ecommerce-website` · `ai-services` · `custom-software-development` ·
-`website-maintenance` · `ios-android-app-development` · `react-native-development` · `app-ui-ux-design` · `app-store-optimization` · `google-ads` · `meta-ads`
+`website-maintenance` · `ios-android-app-development` · `react-native-development` · `app-ui-ux-design` · `app-store-optimization` · `google-ads` · `meta-ads` · `performance-marketing`
 
 **Modül 01 (Web & Yazılım) ve Modül 02 (Mobil Uygulama) TAMAM.**
 
@@ -149,14 +149,11 @@ HTML etiket adları · schema.org tür adları · **HTML/CSS/JS yorumları**
 
 ## 4. Kalan iş
 
-### Hizmet alt sayfaları — kalan 11 sayfa, ~18.500 kelime · hepsi Modül 03-05
+### Hizmet alt sayfaları — kalan 10 sayfa, ~16.900 kelime · hepsi Modül 03-05
 *(Modül 01 ve 02 alt hizmetlerinin tamamı bitti)*
 
 
-
-
-
-`performans-pazarlama` (157/1592) · `sosyal-medya` (169/1729) ·
+`sosyal-medya` (169/1729) ·
 `reklam-filmi` (166/1577) · `urun-videosu` (174/1710) ·
 `reels-video` (167/1768) · `ai-video-produksiyon` (169/1727) ·
 `teknik-seo` (168/1645) · `seo-icerik` (162/1509) · `yerel-seo` (156/1590) ·
