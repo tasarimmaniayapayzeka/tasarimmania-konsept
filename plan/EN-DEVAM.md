@@ -1,12 +1,12 @@
 # İngilizce sürüm — devam notu
 
-**Son güncelleme:** 7 Eylül 2026 · **27 İngilizce sayfa canlı**, 100 sayfa toplam
+**Son güncelleme:** 7 Eylül 2026 · **28 İngilizce sayfa canlı**, 100 sayfa toplam
 
 Biten: `/en/` · `about` · `contact` · `services` · `blog` · `get-a-quote` ·
 `web-design` · `mobile-app-development` · `digital-marketing` · `seo` ·
 `video-production` · `graphic-design` · `corporate-website` ·
 `ecommerce-website` · `ai-services` · `custom-software-development` ·
-`website-maintenance` · `ios-android-app-development` · `react-native-development` · `app-ui-ux-design` · `app-store-optimization` · `google-ads` · `meta-ads` · `performance-marketing` · `social-media-management` · `commercial-video-production` · `product-video-production`
+`website-maintenance` · `ios-android-app-development` · `react-native-development` · `app-ui-ux-design` · `app-store-optimization` · `google-ads` · `meta-ads` · `performance-marketing` · `social-media-management` · `commercial-video-production` · `product-video-production` · `short-form-video`
 
 **Modül 01 (Web & Yazılım), Modül 02 (Mobil Uygulama) ve Modül 03
 (Meta & Google Ads) TAMAM.** Kalan iki modül: 04 Video, 05 SEO.
@@ -50,7 +50,7 @@ Windows yoluna çevirir.
 
 ## 2. Terim sözlüğü — ZORUNLU
 
-Bu kararlar 27 sayfada uygulandı. Değiştirmeyin.
+Bu kararlar 28 sayfada uygulandı. Değiştirmeyin.
 
 ### Marka vaadi
 | Türkçe | İngilizce | Neden |
@@ -162,11 +162,11 @@ HTML etiket adları · schema.org tür adları · **HTML/CSS/JS yorumları**
 
 ## 4. Kalan iş
 
-### Hizmet alt sayfaları — kalan 7 sayfa, ~11.900 kelime · Modül 04 ve 05
+### Hizmet alt sayfaları — kalan 6 sayfa, ~10.100 kelime · Modül 04 ve 05
 *(Modül 01, 02 ve 03 alt hizmetlerinin tamamı bitti)*
 
 
-`reels-video` (167/1768) · `ai-video-produksiyon` (169/1727) ·
+`ai-video-produksiyon` (169/1727) ·
 `teknik-seo` (168/1645) · `seo-icerik` (162/1509) · `yerel-seo` (156/1590) ·
 `e-ticaret-seo` (153/1588) · `cok-dilli-seo` (170/1553)
 
