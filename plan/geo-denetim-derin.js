@@ -29,7 +29,7 @@ const oku = (f) => fs.readFileSync(f, 'utf8');
    hizmet" idi; adresler düzleşince 28 hizmet sayfası "diğer" sayıldı ve hizmete
    özel modüller 29 yerine 1 sayfa denetleyip "0 bulgu" diyerek SAHTE GEÇİŞ verdi.
    Ölçüldü: "77 sayfa (42 blog · 1 hizmet · 34 diğer)". → plan/sayfa-turu.js */
-const { turuDosyadan, kokMu } = require('./sayfa-turu');
+const { turuDosyadan, kokMu, dilsiz } = require('./sayfa-turu');
 const tur = (f) => turuDosyadan(f, S);
 const G = { blog: [], hizmet: [], diğer: [] };
 for (const f of hepsi) G[tur(f)].push(f);
@@ -197,7 +197,10 @@ for (const [ad, re, onc] of [
   /* ⚠ /hizmetler/ MUAF: tek bir hizmeti değil beş modülün KATALOĞUNU sunuyor.
      Oraya Service düğümü koymak "bu sayfa şu hizmettir" demek olurdu — yanlış.
      Katalog karşılığı ItemList olarak eklendi ve ayrıca ölçülüyor. */
-  const hizmetDetay = G.hizmet.filter((f) => u(f) !== '/hizmetler/');
+  /* ⚠ MUAFİYET DİLDEN BAĞIMSIZ: /en/services/ de aynı katalog sayfasıdır.
+     Ölçüldü — muafiyet yalnız Türkçe yola bakarken İngilizce kopya "Service
+     şeması yok" diye P2 verdi, oysa iki dosyanın şema türleri birebir aynı. */
+  const hizmetDetay = G.hizmet.filter((f) => dilsiz(u(f)) !== '/hizmetler/');
   const hizSema = hizmetDetay.filter((f) => semaTur(oku(f)).includes('Service'));
   if (hizSema.length < hizmetDetay.length) B('P2', 9, 'Hizmet sayfasında Service şeması yok', `${hizmetDetay.length - hizSema.length}/${hizmetDetay.length}`, ilk(hizmetDetay.filter((f) => !semaTur(oku(f)).includes('Service'))));
   for (const [p, onc] of [['areaServed', 'P2'], ['provider', 'P2'], ['mainEntityOfPage', 'P3'], ['subjectOf', 'P3'], ['knowsAbout', 'P2']]) {

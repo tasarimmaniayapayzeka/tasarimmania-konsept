@@ -46,6 +46,15 @@ function insanMetni(ham) {
   const d = String(ham).trim();
   if (d.length < 3) return false;
   if (MUAF.has(d)) return false;
+  /* ⚠ TÜMÜ BÜYÜK HARF ETİKET — KOD denetiminden ÖNCE bakılmalı.
+     Ölçülmüş kaçak (/hizmetler/): yörünge diyagramının modül etiketi
+     'PAZARLAMA' şapkalı harf taşımadığı ve boşluksuz olduğu için
+     /^[#.]?[a-zA-Z][\w-]*$/ kalıbına takılıp "değişken adı" sayıldı ve
+     İngilizce sayfada Türkçe kaldı. 'MOBİL' ile 'VİDEO' yalnızca şapkaları
+     sayesinde yakalanmıştı — yani kural değil şans işiydi.
+     Bu kod tabanında tanımlayıcılar camelCase; tümü büyük harf bir sözcük
+     ekran etiketidir. Kod sabiti çıkarsa MUAF listesine gerekçesiyle yazılır. */
+  if (/^[A-ZÇĞİÖŞÜ]{3,}$/.test(d)) return true;
   if (KOD.some((r) => r.test(d))) return false;
   if (TR_HARF.test(d)) return true;
   if (TR_KELIME.test(d)) return true;
