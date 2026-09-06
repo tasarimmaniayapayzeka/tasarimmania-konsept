@@ -20,22 +20,28 @@
  *           node plan/en-metin-cikar.js seo --json
  */
 const fs = require('fs'), path = require('path');
+const { scriptBloklari, gorunurDizgelerAyrintili } = require('./en-script-suzgec.js');
 const S = path.join(__dirname, '..', 'site');
-const HEDEF = process.argv[2];
+/* ⚠ ANA SAYFA İÇİN "anasayfa" YAZIN, "/" DEĞİL. Git Bash tek eğik çizgiyi
+   Windows yoluna çeviriyor (MSYS yol dönüşümü): "/" → "C:\Program Files\Git".
+   Ölçüldü; betik site\C:\Program Files\Git\index.html aramaya çalıştı. */
+const HAM = process.argv[2];
+const HEDEF = (HAM === 'anasayfa' || HAM === '.') ? '' : HAM;
+const AD = HEDEF === '' ? 'anasayfa' : HEDEF.replace(/[\\/]/g, '_');
 const JSON_CIKTI = process.argv.includes('--json');
-if (!HEDEF) { console.error('  kullanım: node plan/en-metin-cikar.js <sayfa-yolu>'); process.exit(2); }
+if (!HAM) { console.error('  kullanım: node plan/en-metin-cikar.js <sayfa-yolu|anasayfa>'); process.exit(2); }
 
-const f = path.join(S, HEDEF === '/' ? '' : HEDEF, 'index.html');
+const f = path.join(S, HEDEF, 'index.html');
 if (!fs.existsSync(f)) { console.error('  ✗ sayfa yok: ' + f); process.exit(2); }
 const h = fs.readFileSync(f, 'utf8');
 
 const kayitlar = [];
-const ekle = (tur, deger, baglam) => {
+const ekle = (tur, deger, baglam, ek) => {
   const d = String(deger).trim();
   if (!d) return;
   if (/^[\d\s.,:;/·—–-]+$/.test(d)) return;          /* yalnız sayı/noktalama */
   if (d.length < 2) return;
-  kayitlar.push({ no: kayitlar.length + 1, tur, metin: d, baglam: baglam || '' });
+  kayitlar.push({ no: kayitlar.length + 1, tur, metin: d, baglam: baglam || '', ...(ek || {}) });
 };
 
 /* --- 1. head meta --- */
@@ -89,6 +95,24 @@ for (const [oz, re] of [['alt', /\salt="([^"]+)"/g], ['aria-label', /\saria-labe
   for (const m of temiz.matchAll(re)) ekle('öznitelik', m[1], oz);
 }
 
+/* --- 3b. SCRIPT İÇİNDEKİ GÖRÜNÜR METİN ---
+   ⚠ ÖLÇÜLMÜŞ KAÇAK (7 Eyl 2026): yukarıdaki maskeleme script'leri tamamen
+   siliyordu. Ama bazı script'ler EKRANA BASILAN veri taşıyor — ana sayfadaki
+   seoWidget'ın anahtar kelime dizisi gibi. İngilizce ana sayfa üretildikten
+   sonra tarayıcıda 5 Türkçe dizge olarak yakalandı. Kod dizgeleri
+   en-script-suzgec.js'te elenir; ayrım tek yerde tanımlı. */
+{
+  const gorulen = new Set();
+  for (const blok of scriptBloklari(h))
+    for (const { ham, tirnak, metin } of gorunurDizgelerAyrintili(blok.kod)) {
+      if (gorulen.has(metin)) continue;      /* aynı dizge script'te birden çok geçebilir */
+      gorulen.add(metin);
+      /* ham + tirnak saklanıyor: üretici çeviriyi TIRNAKLARIYLA BİRLİKTE
+         değiştirip içindeki kesme işaretini kaçırabilsin. Girinti de ham'da. */
+      ekle('script', metin, 'js verisi', { ham, tirnak });
+    }
+}
+
 /* --- 4. menü + altbilgi (kabuk metni) --- */
 const kabuk = h.slice(h.indexOf('<nav class="nav"') >= 0 ? h.indexOf('<nav class="nav"') : 0, mb)
   + h.slice(ms);
@@ -100,8 +124,8 @@ for (const m of kabukTemiz.matchAll(/>([^<>{}]+)</g)) {
 }
 
 if (JSON_CIKTI) {
-  const cikti = { sayfa: HEDEF, kayitlar, kabuk: [...kabukMetin] };
-  const p = path.join('C:/Temp', `en-${HEDEF.replace(/[\\/]/g, '_') || 'anasayfa'}.json`);
+  const cikti = { sayfa: HEDEF, ad: AD, kayitlar, kabuk: [...kabukMetin] };
+  const p = path.join('C:/Temp', `en-${AD}.json`);
   fs.mkdirSync('C:/Temp', { recursive: true });
   fs.writeFileSync(p, JSON.stringify(cikti, null, 2), 'utf8');
   console.log(`  ${kayitlar.length} kayıt + ${kabukMetin.size} kabuk dizgesi → ${p}`);

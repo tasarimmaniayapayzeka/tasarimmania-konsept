@@ -1,0 +1,13 @@
+{
+  "_aciklama": "BLOK DEĞİŞİMİ — ana sayfa. Dizge dizge değiştirilemeyen bütünler. Her blok sayfada TAM 1 kez geçmeli; üretici sayar, tutmazsa durur.",
+
+  "_neden": {
+    "kod editörü widget'ı": "#codeOut alanında harf harf yazılan sahte kod. Değişken adları ('kampanya', 'marka', 'ulke', 'rapor') sayfanın BAŞKA yerlerinde düz metin olarak geçiyor — 'kampanya' 14 kez, biri 'kampanya.config.ts' dosya adı. Tek tek değiştirmek onları bozar. Blok bütün olarak değişir.",
+    "sınıf adları korunuyor": "c-kw / c-str / c-num / c-pr / c-fn / c-com sözdizimi renklendirme sınıfları — dokunulmaz, yoksa renkler kayar.",
+    "satır uzunluğu": "Yazma animasyonu karakter karakter ilerliyor; İngilizce satırlar Türkçeye yakın uzunlukta tutuldu ki kutu taşmasın (en uzun satır 52 → 50 karakter)."
+  },
+
+  "bloklar": {
+    "  var LINES = [\r\n    [ {t:'const ', c:'c-kw'}, {t:'kampanya', c:''}, {t:' = ', c:'c-pr'}, {t:'await ', c:'c-kw'}, {t:'tm.', c:''}, {t:'baslat', c:'c-fn'}, {t:'({', c:'c-pr'} ],\r\n    [ {t:'  marka: ', c:''}, {t:'\"MİMARİ STÜDYO\"', c:'c-str'}, {t:',', c:'c-pr'} ],\r\n    [ {t:'  kanal: [', c:''}, {t:'\"meta\"', c:'c-str'}, {t:', ', c:'c-pr'}, {t:'\"google\"', c:'c-str'}, {t:', ', c:'c-pr'}, {t:'\"tiktok\"', c:'c-str'}, {t:'],', c:'c-pr'} ],\r\n    [ {t:'  hedef: { roas: ', c:''}, {t:'4.2', c:'c-num'}, {t:', ulke: ', c:''}, {t:'\"DE\"', c:'c-str'}, {t:' }', c:'c-pr'} ],\r\n    [ {t:'});', c:'c-pr'} ],\r\n    [ {t:'', c:''} ],\r\n    [ {t:'// dönüşüm hunisi kuruldu ✓', c:'c-com'} ],\r\n    [ {t:'render', c:'c-fn'}, {t:'(kampanya.', c:'c-pr'}, {t:'rapor', c:''}, {t:');', c:'c-pr'} ]\r\n  ];": "  var LINES = [\r\n    [ {t:'const ', c:'c-kw'}, {t:'campaign', c:''}, {t:' = ', c:'c-pr'}, {t:'await ', c:'c-kw'}, {t:'tm.', c:''}, {t:'launch', c:'c-fn'}, {t:'({', c:'c-pr'} ],\r\n    [ {t:'  brand: ', c:''}, {t:'\"ARCHITECTURE STUDIO\"', c:'c-str'}, {t:',', c:'c-pr'} ],\r\n    [ {t:'  channels: [', c:''}, {t:'\"meta\"', c:'c-str'}, {t:', ', c:'c-pr'}, {t:'\"google\"', c:'c-str'}, {t:', ', c:'c-pr'}, {t:'\"tiktok\"', c:'c-str'}, {t:'],', c:'c-pr'} ],\r\n    [ {t:'  target: { roas: ', c:''}, {t:'4.2', c:'c-num'}, {t:', country: ', c:''}, {t:'\"DE\"', c:'c-str'}, {t:' }', c:'c-pr'} ],\r\n    [ {t:'});', c:'c-pr'} ],\r\n    [ {t:'', c:''} ],\r\n    [ {t:'// conversion funnel live ✓', c:'c-com'} ],\r\n    [ {t:'render', c:'c-fn'}, {t:'(campaign.', c:'c-pr'}, {t:'report', c:''}, {t:');', c:'c-pr'} ]\r\n  ];"
+  }
+}

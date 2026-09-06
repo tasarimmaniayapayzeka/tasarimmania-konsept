@@ -14,7 +14,8 @@ const CEVIRI = SOZLUK.ceviri;
 
 /* çevrilmeyecekler: marka, adres, telefon, ürün adı, sembol, sayı */
 const MUAF = [/^TasarımMania$/, /^Blog$/, /^WhatsApp$/, /^©$/, /^\d{4}$/,
-  /^0\d{3} \d{3} \d{2} \d{2}$/, /^Zeytinlik/, /^No:\d/, /^[\d\s.,:;/·—–()+-]+$/];
+  /^0\d{3} \d{3} \d{2} \d{2}$/, /^Zeytinlik/, /^No:\d/, /^[\d\s.,:;/·—–()+-]+$/,
+  /^TasarımMania — Creative Agency$/];   /* logo alt metni — zaten İngilizce */
 
 function tara(d, o = []) {
   for (const e of fs.readdirSync(d, { withFileTypes: true })) {
@@ -36,9 +37,17 @@ for (const f of sayfalar) {
   const kabuk = (navBas >= 0 ? h.slice(navBas, mb) : '') + h.slice(ms);
   const temiz = kabuk.replace(/<(script|style)[\s\S]*?<\/\1>/gi, ' ');
 
+  /* ⚠ ÖZNİTELİKLER DE KABUĞUN PARÇASI — ölçülmüş kaçak: yalnız ">metin<"
+     taranıyordu, kabuktaki aria-label'lar (Ana menü, Hızlı iletişim,
+     WhatsApp ile yazın) hiç görünmüyordu ve İngilizce sayfada Türkçe kaldı. */
+  const ozMetin = [];
+  for (const re of [/\saria-label="([^"]+)"/g, /\salt="([^"]+)"/g,
+    /\stitle="([^"]+)"/g, /\splaceholder="([^"]+)"/g])
+    for (const m of temiz.matchAll(re)) ozMetin.push(m[1]);
+
   const gorulen = new Set();
-  for (const m of temiz.matchAll(/>([^<>{}]+)</g)) {
-    const t = m[1].replace(/\s+/g, ' ').trim();
+  for (const m of [...temiz.matchAll(/>([^<>{}]+)</g)].map((x) => x[1]).concat(ozMetin)) {
+    const t = m.replace(/\s+/g, ' ').trim();
     if (!t || gorulen.has(t)) continue;
     gorulen.add(t);
     toplamDizge++;

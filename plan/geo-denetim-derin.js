@@ -29,7 +29,7 @@ const oku = (f) => fs.readFileSync(f, 'utf8');
    hizmet" idi; adresler düzleşince 28 hizmet sayfası "diğer" sayıldı ve hizmete
    özel modüller 29 yerine 1 sayfa denetleyip "0 bulgu" diyerek SAHTE GEÇİŞ verdi.
    Ölçüldü: "77 sayfa (42 blog · 1 hizmet · 34 diğer)". → plan/sayfa-turu.js */
-const { turuDosyadan } = require('./sayfa-turu');
+const { turuDosyadan, kokMu } = require('./sayfa-turu');
 const tur = (f) => turuDosyadan(f, S);
 const G = { blog: [], hizmet: [], diğer: [] };
 for (const f of hepsi) G[tur(f)].push(f);
@@ -206,7 +206,9 @@ for (const [ad, re, onc] of [
   }
   /* ⚠ ANA SAYFA MUAF: kırıntı gezinme "kökten buraya" yolunu gösterir;
      kökün kendisinde tek öğelik bir yol anlamsızdır. */
-  const kirintiliGerek = hepsi.filter((f) => u(f) !== '/');
+  /* ⚠ /en/ DE KÖKTÜR — İngilizce sürümün ana sayfası, /'nin alt sayfası değil.
+     Ölçüldü: muafiyet yalnız '/' iken /en/ "kırıntısı yok" diye P2 verdi. */
+  const kirintiliGerek = hepsi.filter((f) => !kokMu(u(f)));
   const bcYok = kirintiliGerek.filter((f) => !semaTur(oku(f)).includes('BreadcrumbList'));
   if (bcYok.length) B('P2', 9, 'BreadcrumbList şeması yok', `${bcYok.length}/${kirintiliGerek.length}`, ozet(bcYok));
 }
