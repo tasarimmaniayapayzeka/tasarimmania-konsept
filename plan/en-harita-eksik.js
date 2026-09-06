@@ -36,14 +36,13 @@ function trSayfalar(dizin, on = '') {
   return cikti;
 }
 
-/* Blog YAZILARI haritada tek tek yer almaz (slug kuralı var); /blog/ dizin
- * sayfasının kendisi ise haritada — filtre onu düşürmemeli. */
-const diskte = trSayfalar(SITE).filter((y) => y === '/blog/' || !y.startsWith('/blog/'));
+/* 7 Eyl 2026'dan beri blog yazıları da haritada (42 slug) — hepsi taranıyor. */
+const diskte = trSayfalar(SITE);
 const eksik = diskte.filter((y) => !haritali.has(y));
 const oksuz = [...haritali].filter((y) => y !== '/' && !diskte.includes(y));
 
 console.log('');
-console.log(`  diskte Türkçe sayfa (blog hariç): ${diskte.length}`);
+console.log(`  diskte Türkçe sayfa : ${diskte.length}`);
 console.log(`  haritada karşılığı olan         : ${diskte.length - eksik.length}`);
 console.log('');
 if (eksik.length) {

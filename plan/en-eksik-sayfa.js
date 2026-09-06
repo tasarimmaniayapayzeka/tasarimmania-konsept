@@ -39,14 +39,10 @@ const eksik = { blog: [], hizmet: [], kurumsal: [], haritasiz: [] };
 
 for (const tr of diskte) {
   const hedef = tr === '/' ? '/en/' : en.get(tr);
-  if (!hedef) {
-    /* Blog yazıları haritada tek tek yok — slug kuralı var, bu beklenen. */
-    if (tr.startsWith('/blog/') && tr !== '/blog/') eksik.blog.push(tr);
-    else eksik.haritasiz.push(tr);
-    continue;
-  }
+  if (!hedef) { eksik.haritasiz.push(tr); continue; }
   const varMi = fs.existsSync(path.join(SITE, hedef.replace(/^\//, ''), 'index.html'));
   if (varMi) continue;
+  if (tr.startsWith('/blog/') && tr !== '/blog/') { eksik.blog.push(`${tr}  →  ${hedef}`); continue; }
   if (/^\/(seo|web-tasarim|sosyal-medya|google-ads|meta-reklam|video-produksiyon|yapay-zeka|dijital-pazarlama|performans-pazarlama|mobil-uygulama|ios-android-uygulama|react-native|uygulama-arayuz-tasarimi|aso|grafik-tasarim|teknik-seo|seo-icerik|yerel-seo|e-ticaret-seo|cok-dilli-seo|reklam-filmi|urun-videosu|reels-video|ai-video-produksiyon|kurumsal-web-sitesi|e-ticaret|ozel-yazilim|site-bakim)\/$/.test(tr))
     eksik.hizmet.push(`${tr}  →  ${hedef}`);
   else eksik.kurumsal.push(`${tr}  →  ${hedef}`);
