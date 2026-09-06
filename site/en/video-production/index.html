@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- KONSEPT-NOINDEX -->
 <meta name="robots" content="noindex,nofollow">
-<title>SEO Agency — Technical, Content and Local SEO | TasarımMania</title>
-<meta name="description" content="Technical SEO, content strategy, local and multilingual optimization. Audit in month one, monthly cycle after that. No guaranteed SEO; measurable reporting instead.">
-<link rel="canonical" href="https://www.tasarimmania.com/en/seo/">
-<link rel="alternate" hreflang="tr" href="https://www.tasarimmania.com/seo/">
-<link rel="alternate" hreflang="en" href="https://www.tasarimmania.com/en/seo/">
-<link rel="alternate" hreflang="x-default" href="https://www.tasarimmania.com/seo/">
+<title>Video Production Agency — Commercial Films | TasarımMania</title>
+<meta name="description" content="Commercial films, product videos, social video and AI-assisted production, from script to edit. Delivered in 3–6 weeks; source files and usage rights stay with you.">
+<link rel="canonical" href="https://www.tasarimmania.com/en/video-production/">
+<link rel="alternate" hreflang="tr" href="https://www.tasarimmania.com/video-produksiyon/">
+<link rel="alternate" hreflang="en" href="https://www.tasarimmania.com/en/video-production/">
+<link rel="alternate" hreflang="x-default" href="https://www.tasarimmania.com/video-produksiyon/">
 <meta name="author" content="TasarımMania">
 <meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
 <meta name="theme-color" content="#0B0D12">
@@ -18,17 +18,17 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="TasarımMania">
-<meta property="og:title" content="SEO Agency — Technical, Content and Local SEO | TasarımMania">
-<meta property="og:description" content="Let's be clear from the start: there's no such thing as guaranteed SEO. We offer a transparent method and measurable progress every month.">
-<meta property="og:url" content="https://www.tasarimmania.com/en/seo/">
+<meta property="og:title" content="Video Production Agency — Commercial Films | TasarımMania">
+<meta property="og:description" content="Not every brand needs a big production — we propose a scope that matches what you actually need.">
+<meta property="og:url" content="https://www.tasarimmania.com/en/video-production/">
 <meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="TasarımMania — cover image for web, mobile, advertising, video and SEO services">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
-<meta name="twitter:title" content="SEO Agency — Technical, Content and Local SEO | TasarımMania">
-<meta name="twitter:description" content="Let's be clear from the start: there's no such thing as guaranteed SEO. We offer a transparent method and measurable progress every month.">
+<meta name="twitter:title" content="Video Production Agency — Commercial Films | TasarımMania">
+<meta name="twitter:description" content="Not every brand needs a big production — we propose a scope that matches what you actually need.">
 <meta name="twitter:image:alt" content="TasarımMania — cover image for web, mobile, advertising, video and SEO services">
 <link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -211,21 +211,27 @@ a.alt-k:hover .alt-git{gap:12px}
 
 .fyt{border:1px solid var(--hair);border-radius:var(--r-lg);padding:clamp(26px,3.4vw,38px);
   background:var(--panel);max-width:840px}
-
-/* --- fiyat kutusu + SERP infografiği yan yana --- */
-.fyt-satir{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);
-  gap:20px;align-items:start}
-/* Kutu grafikle aynı yüksekliğe gerilir; içerik yukarı toplanıp
-   "sonraki adım" bloğu dibe yaslanır — böylece gerilme boşluk üretmez. */
-.fyt-satir .fyt{max-width:none;height:100%;display:flex;flex-direction:column}
-.fyt-satir .fyt-ne{margin-bottom:0}
+.fyt-band{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.fyt-band b{font-family:var(--mono);font-size:clamp(24px,3.6vw,34px);color:var(--acc);letter-spacing:-.02em;line-height:1.25}
+.fyt-band span{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.fyt > p{font-size:14.4px;color:var(--muted);line-height:1.7;margin-bottom:22px}
+.fyt-ne{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-bottom:22px}
+.fyt-ne li{font-size:13.6px;color:var(--fg-dim);display:flex;gap:9px;align-items:flex-start;line-height:1.55}
+.fyt-ne li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:7px}
 .fyt-adim{margin-top:auto;padding-top:26px;border-top:1px solid var(--hair)}
 .fyt-adim > p{font-size:13.8px;color:var(--muted);line-height:1.65;margin:0 0 16px;max-width:52ch}
 .fyt-adim > p a{color:var(--acc);text-decoration:underline;text-underline-offset:3px;
   text-decoration-color:rgba(var(--acc-rgb),.45)}
 .fyt-adim > p a:hover{text-decoration-color:var(--acc)}
 .fyt-btn{display:flex;gap:10px;flex-wrap:wrap}
-@media(max-width:1000px){.fyt-adim{margin-top:26px}}
+
+/* --- fiyat kutusu + kurgu zaman çizgisi infografiği yan yana --- */
+.fyt-satir{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);
+  gap:20px;align-items:start}
+/* Kutu grafikle aynı yüksekliğe gerilir; içerik yukarı toplanıp
+   "sonraki adım" bloğu dibe yaslanır — böylece gerilme boşluk üretmez. */
+.fyt-satir .fyt{max-width:none;height:100%;display:flex;flex-direction:column}
+.fyt-satir .fyt-ne{margin-bottom:0}
 .serp{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);
   padding:18px 18px 16px;height:100%;display:flex;flex-direction:column}
 /* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
@@ -234,54 +240,53 @@ a.alt-k:hover .alt-git{gap:12px}
 .serp figcaption b{color:var(--fg-dim);font-weight:600}
 @media(max-width:1000px){
   .fyt-satir{grid-template-columns:1fr}
+  .fyt-adim{margin-top:26px}
   .serp{max-width:560px;margin-inline:auto}
 }
 
-/* --- SERP infografiği canlanması ---
+/* --- kurgu zaman çizgisi infografiği canlanması ---
    YENİ JS YOK: .serp zaten .rv sınıfında; sitenin mevcut görünürlük gözlemcisi
-   (site/js/tm.js) görününce .in ekliyor, animasyonlar ona bağlı. Tek sefer oynar.
+   (site/js/tm.js) görününce .in ekliyor, animasyonlar ona bağlı. One sefer oynar.
    prefers-reduced-motion: tm.css'teki global kural animation-duration'ı 0.001ms'e
-   indiriyor ve forwards sayesinde her öğe anında son hâline oturuyor — ayrı
-   bir kural yazmaya gerek yok, ölçüldü.
-   Süre çizelgesi: yazma 0.25-1.15s · üst 1.15s · halka 1.35s · sonuç 1.5s ·
-   iskelet 1.7s · ışık 2.1s · kupa 2.25s · rozet 2.5s → toplam ~3s. */
-.serp svg .s-sorgu{clip-path:inset(0 100% 0 0)}
-.serp svg .s-imlec{opacity:0;transform:translateX(-172px)}
-.serp svg .s-ust,.serp svg .s-sonuc{opacity:0}
-.serp svg .s-halka{stroke-dasharray:1260;stroke-dashoffset:1260}
-.serp svg .s-isik{opacity:0}
-.serp svg .s-kupa{opacity:0;transform:scale(.4);transform-box:fill-box;transform-origin:center}
-.serp svg .s-rozet{opacity:0;transform:translateX(24px);transform-box:fill-box}
-.serp svg .s-iskelet > g{opacity:0}
+   indiriyor, forwards sayesinde her öğe anında son hâline oturuyor — ayrı kural yok.
+   Sınıf öneki "v-", keyframe öneki "v": SEO sayfasındaki "s-"/"s" ailesiyle
+   birleştirilseler bile çakışmasın diye ayrı tutuldu.
+   Süre çizelgesi: çerçeve 0,30s · kanallar 1,20s · dalga+oynatma çubuğu 1,40s ·
+   klipler 1,50-2,31s · ışık 2,20s · oynat üçgeni 2,42s · aşamalar 2,40-2,54s ·
+   rozet 2,60s → toplam ≈3s. */
+.serp svg .v-cerceve{opacity:0;transform:scale(.965);transform-box:fill-box;transform-origin:center}
+.serp svg .v-kanal{opacity:0}
+.serp svg .v-dalga{stroke-dasharray:1400;stroke-dashoffset:1400}
+.serp svg .v-imlec{opacity:0;transform-box:fill-box}
+.serp svg .v-klip > g{opacity:0}
+.serp svg .v-isik{opacity:0}
+.serp svg .v-oynat{opacity:0;transform:scale(.55);transform-box:fill-box;transform-origin:center}
+.serp svg .v-asama > g{opacity:0;transform:translateY(12px);transform-box:fill-box}
+.serp svg .v-rozet{opacity:0;transform:translateY(14px);transform-box:fill-box}
 
-.serp.in svg .s-sorgu{animation:sYaz .9s var(--ease) .25s forwards}
-.serp.in svg .s-imlec{animation:sImlecKay .9s var(--ease) .25s forwards,
-                                sImlecYanip .34s steps(1,end) .25s 4}
-.serp.in svg .s-ust{animation:sBelir .5s var(--ease) 1.15s forwards}
-.serp.in svg .s-halka{animation:sCiz 1s var(--ease) 1.35s forwards}
-.serp.in svg .s-sonuc{animation:sBelir .55s var(--ease) 1.5s forwards}
-.serp.in svg .s-iskelet > g:nth-child(1){animation:sBelir .45s var(--ease) 1.70s forwards}
-.serp.in svg .s-iskelet > g:nth-child(2){animation:sBelir .45s var(--ease) 1.80s forwards}
-.serp.in svg .s-iskelet > g:nth-child(3){animation:sBelir .45s var(--ease) 1.90s forwards}
-.serp.in svg .s-isik{animation:sIsik .8s var(--ease) 2.1s forwards}
-.serp.in svg .s-kupa{animation:sPat .62s cubic-bezier(.34,1.56,.64,1) 2.25s forwards}
-.serp.in svg .s-rozet{animation:sKay .5s var(--ease) 2.5s forwards}
+.serp.in svg .v-cerceve{animation:vPat .6s var(--ease) .3s forwards}
+.serp.in svg .v-kanal{animation:vBelir .5s var(--ease) 1.2s forwards}
+.serp.in svg .v-dalga{animation:vCiz 1s var(--ease) 1.4s forwards}
+.serp.in svg .v-imlec{animation:vSur 1.05s var(--ease) 1.4s forwards,
+                                vBelir .25s linear 1.4s forwards}
+.serp.in svg .v-klip > g:nth-child(1){animation:vBelir .4s var(--ease) 1.50s forwards}
+.serp.in svg .v-klip > g:nth-child(2){animation:vBelir .4s var(--ease) 1.69s forwards}
+.serp.in svg .v-klip > g:nth-child(3){animation:vBelir .4s var(--ease) 1.90s forwards}
+.serp.in svg .v-klip > g:nth-child(4){animation:vBelir .4s var(--ease) 2.12s forwards}
+.serp.in svg .v-klip > g:nth-child(5){animation:vBelir .4s var(--ease) 2.31s forwards}
+.serp.in svg .v-isik{animation:vIsik .8s var(--ease) 2.2s forwards}
+.serp.in svg .v-asama > g:nth-child(1){animation:vYuksel .4s var(--ease) 2.40s forwards}
+.serp.in svg .v-asama > g:nth-child(2){animation:vYuksel .4s var(--ease) 2.47s forwards}
+.serp.in svg .v-asama > g:nth-child(3){animation:vYuksel .4s var(--ease) 2.54s forwards}
+.serp.in svg .v-oynat{animation:vPat .55s cubic-bezier(.34,1.56,.64,1) 2.42s forwards}
+.serp.in svg .v-rozet{animation:vYuksel .45s var(--ease) 2.6s forwards}
 
-@keyframes sYaz{to{clip-path:inset(0 0 0 0)}}
-@keyframes sImlecKay{from{opacity:1}to{opacity:0;transform:translateX(0)}}
-@keyframes sImlecYanip{0%,49%{opacity:1}50%,100%{opacity:.15}}
-@keyframes sBelir{to{opacity:1}}
-@keyframes sCiz{to{stroke-dashoffset:0}}
-@keyframes sIsik{to{opacity:.16}}
-@keyframes sPat{to{opacity:1;transform:scale(1)}}
-@keyframes sKay{to{opacity:1;transform:translateX(0)}}
-.fyt-band{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
-.fyt-band b{font-family:var(--mono);font-size:clamp(24px,3.6vw,34px);color:var(--acc);letter-spacing:-.02em;line-height:1.25}
-.fyt-band span{font-family:var(--mono);font-size:13px;color:var(--muted)}
-.fyt > p{font-size:14.4px;color:var(--muted);line-height:1.7;margin-bottom:22px}
-.fyt-ne{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-bottom:22px}
-.fyt-ne li{font-size:13.6px;color:var(--fg-dim);display:flex;gap:9px;align-items:flex-start;line-height:1.55}
-.fyt-ne li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:7px}
+@keyframes vBelir{to{opacity:1}}
+@keyframes vCiz{to{stroke-dashoffset:0}}
+@keyframes vSur{to{transform:translateX(438px)}}
+@keyframes vPat{to{opacity:1;transform:scale(1)}}
+@keyframes vIsik{to{opacity:.18}}
+@keyframes vYuksel{to{opacity:1;transform:translateY(0)}}
 
 .gbs{display:flex;align-items:center;gap:clamp(16px,2.4vw,30px);margin:0 0 20px}
 .gbs img{width:clamp(84px,11vw,132px);height:auto;aspect-ratio:1;flex:none;border-radius:var(--r-md);
@@ -451,22 +456,6 @@ a.alt-k:hover .alt-git{gap:12px}
   .ftr-ust{grid-template-columns:1fr}
 }
 
-.yz-ilgili{margin:clamp(30px,4vw,44px) 0 0;padding-top:clamp(24px,3vw,32px);
-  border-top:1px solid var(--hair)}
-.yz-ilgili h2{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;margin:0 0 4px}
-.yz-ilgili .not{font-size:13.4px;color:var(--muted);margin:0 0 18px}
-.yz-ilgili ul{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  list-style:none;padding:0;margin:0}
-.yz-ilgili li{margin:0}
-.yz-ilgili a{display:flex;flex-direction:column;gap:5px;height:100%;
-  border:1px solid var(--hair);border-radius:var(--r-md);padding:14px 16px;
-  text-decoration:none;transition:border-color .25s,transform .25s;background:rgba(255,255,255,.012)}
-.yz-ilgili a:hover{border-color:rgba(var(--k,0,229,255),.5);transform:translateY(-2px)}
-.yz-ilgili .kat{font-family:var(--mono);font-size:9.4px;letter-spacing:.14em;
-  text-transform:uppercase;color:rgb(var(--k,0,229,255))}
-.yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
-@media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
-
 /* GRAFIK-MOBIL-ONARIM */
 /* Dar ekranda grafik küçülünce yazısı okunmaz oluyordu (ölçüm: 390px'te
    4.4-5.1px). Sitenin tablo deseni: kapsayıcı yatay kayar,
@@ -487,10 +476,10 @@ a.alt-k:hover .alt-git{gap:12px}
   "@graph": [
     {
       "@type": "Service",
-      "name": "SEO Services",
-      "serviceType": "Technical SEO, içerik stratejisi, yerel SEO ve çok dilli/e-ticaret SEO",
-      "url": "https://www.tasarimmania.com/en/seo/",
-      "description": "A monthly SEO service covering search engine performance end to end, from the technical foundation to content planning, from local visibility to multilingual store optimization.",
+      "name": "Video Production",
+      "serviceType": "Reklam filmi, ürün videosu, sosyal video ve AI destekli video prodüksiyon",
+      "url": "https://www.tasarimmania.com/en/video-production/",
+      "description": "Commercial films, product videos, social video and AI-assisted production from script through to edit; delivered as a one-off project.",
       "areaServed": {
         "@type": "Country",
         "name": "Türkiye"
@@ -514,75 +503,57 @@ a.alt-k:hover .alt-git{gap:12px}
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "SEO sub-services",
+        "name": "Video Production sub-services",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Technical SEO"
+              "name": "Commercial film production"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Content strategy"
+              "name": "Product video"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Local SEO"
+              "name": "Social video and Reels"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Multilingual / e-commerce SEO"
+              "name": "AI-assisted production"
             }
           }
         ]
       },
-      "@id": "https://www.tasarimmania.com/en/seo/#hizmet",
+      "@id": "https://www.tasarimmania.com/en/video-production/#hizmet",
       "subjectOf": [
         {
           "@type": "Article",
-          "@id": "https://www.tasarimmania.com/blog/e-ticaret-seo/#article",
-          "url": "https://www.tasarimmania.com/blog/e-ticaret-seo/",
-          "name": "How Does E-Commerce SEO Rank Product and Category Pages?"
+          "@id": "https://www.tasarimmania.com/blog/reklam-filmi-cekim-asamalari/#article",
+          "url": "https://www.tasarimmania.com/blog/reklam-filmi-cekim-asamalari/",
+          "name": "What Stages Does a Commercial Film Shoot Go Through?"
         },
         {
           "@type": "Article",
-          "@id": "https://www.tasarimmania.com/blog/yerel-seo/#article",
-          "url": "https://www.tasarimmania.com/blog/yerel-seo/",
-          "name": "Local SEO: The Route to Visibility on Maps"
+          "@id": "https://www.tasarimmania.com/blog/urun-videosu-studyo-mu-mekan-mi/#article",
+          "url": "https://www.tasarimmania.com/blog/urun-videosu-studyo-mu-mekan-mi/",
+          "name": "Product Video Shoots: Studio or Location?"
         },
         {
           "@type": "Article",
-          "@id": "https://www.tasarimmania.com/blog/teknik-seo/#article",
-          "url": "https://www.tasarimmania.com/blog/teknik-seo/",
-          "name": "What Does a Technical SEO Audit Uncover on Your Site?"
-        },
-        {
-          "@type": "Article",
-          "@id": "https://www.tasarimmania.com/blog/off-page-seo/#article",
-          "url": "https://www.tasarimmania.com/blog/off-page-seo/",
-          "name": "How Long Does Backlink Work Take to Affect Rankings?"
-        },
-        {
-          "@type": "Article",
-          "@id": "https://www.tasarimmania.com/blog/seo-raporlama-araclari/#article",
-          "url": "https://www.tasarimmania.com/blog/seo-raporlama-araclari/",
-          "name": "Which Tools Should You Set Up for SEO Reporting, and How?"
-        },
-        {
-          "@type": "Article",
-          "@id": "https://www.tasarimmania.com/blog/seo-ve-web-tasarim/#article",
-          "url": "https://www.tasarimmania.com/blog/seo-ve-web-tasarim/",
-          "name": "How Does SEO-Friendly Web Design Affect Search Visibility?"
+          "@id": "https://www.tasarimmania.com/blog/reklam-filmi-fiyat-kalemleri/#article",
+          "url": "https://www.tasarimmania.com/blog/reklam-filmi-fiyat-kalemleri/",
+          "name": "What Line Items Set the Price of a Commercial Film?"
         }
       ]
     },
@@ -604,11 +575,11 @@ a.alt-k:hover .alt-git{gap:12px}
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "SEO Services",
-          "item": "https://www.tasarimmania.com/en/seo/"
+          "name": "Video Production",
+          "item": "https://www.tasarimmania.com/en/video-production/"
         }
       ],
-      "@id": "https://www.tasarimmania.com/en/seo/#kirintili"
+      "@id": "https://www.tasarimmania.com/en/video-production/#kirintili"
     },
     {
       "@type": "FAQPage",
@@ -616,70 +587,70 @@ a.alt-k:hover .alt-git{gap:12px}
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What exactly does the SEO service cover?",
+          "name": "How are video production prices set?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It covers the technical foundation, content, local visibility and, where needed, multilingual optimization. The work runs on four main axes; the priorities are settled by the audit carried out in the first month."
+            "text": "The price is shaped by the scope of the script, the number of shooting days, the editing load and whether voice-over is needed. The final figure is settled through the factors in the pricing section, taking crew size and editing intensity into account too."
           }
         },
         {
           "@type": "Question",
-          "name": "How long does SEO work take to show results?",
+          "name": "What stages does the video production service have, and how long does it take?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Results appear over months rather than weeks, and they build gradually. The first month is the audit and setup, after which the monthly work continues and the effects become clearer over time."
+            "text": "It has four stages: script, shoot, edit and delivery. Depending on the scope and the number of revisions, the total is completed within the delivery window given in the pricing section."
           }
         },
         {
           "@type": "Question",
-          "name": "Is the promise of guaranteed SEO realistic?",
+          "name": "What's the difference between a corporate film and a commercial film?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No; no agency can control Google's ranking algorithm. “Guaranteed first place” is marketing hyperbole; instead, the method being applied is shared openly and progress is shown concretely in monthly reports."
+            "text": "A corporate film tells the story of the brand and the organization; a commercial film puts a particular product forward. The shooting process is similar, but the message is structured differently: a corporate film focuses on identity, a commercial film on the campaign."
           }
         },
         {
           "@type": "Question",
-          "name": "How is the monthly SEO service run and reported?",
+          "name": "Does AI-assisted production replace a conventional shoot, and what's the quality like?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Each month the planned work is carried out and a performance report is shared. After the first month's audit and setup, the process continues on a monthly cycle; a ranking and traffic report is sent at the end of each month."
+            "text": "It doesn't replace every project, but on the right kind of content it delivers a fast result close to a conventional shoot. Where real performance from an actor or the feel of a particular location is needed, a conventional shoot remains more reliable."
           }
         },
         {
           "@type": "Question",
-          "name": "What's the difference between SEO and SEM (paid search), and should they run together?",
+          "name": "Are voice-over and music for a commercial film included in the price?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "SEM brings immediate paid traffic, SEO builds lasting organic visibility; together they're strong. SEM delivers traffic for as long as you fund it, while SEO builds visibility that accumulates and stays."
+            "text": "Standard voice-over coordination is included; a bespoke composition or licensed music is charged separately. The basic sound design within the agreed scope is included in the price."
           }
         },
         {
           "@type": "Question",
-          "name": "What sets SEO service prices?",
+          "name": "Is a video production studio essential, or can you shoot on location?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It varies with the size of the site, how competitive the sector is and how many markets are being targeted; the monthly SEO service runs on a band set by the factors described in the pricing section."
+            "text": "No, a studio isn't essential; we can shoot at your premises or at a chosen location. A studio is often preferred for product videos, while corporate and social content can be shot on location once it's settled."
           }
         },
         {
           "@type": "Question",
-          "name": "Does district-level (local) SEO really work?",
+          "name": "Who holds the source files and usage rights for the delivered video?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "For businesses with a physical branch or a service area it's highly effective. Most people add their district or city to the query when they search for a service; optimizing the Google Business Profile lifts visibility noticeably."
+            "text": "The final video and its usage rights belong to the client; the raw source files are covered separately in the contract. If a transfer of the raw footage is requested, it's set out as a separate clause at the contract stage."
           }
         },
         {
           "@type": "Question",
-          "name": "Is SEO handled differently on hosted platforms like Shopify or ikas?",
+          "name": "Can a video made for Instagram Reels be used on other channels?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes; the technical constraints and settings specific to those platforms are taken into account. URL structure and speed settings are managed platform by platform and treated as a separate strand of work."
+            "text": "Yes, the vertical format works on most channels; versioning for different platforms is recommended. It works well on TikTok and YouTube Shorts, though horizontal channels may need a re-edit."
           }
         }
       ],
-      "@id": "https://www.tasarimmania.com/en/seo/#sss"
+      "@id": "https://www.tasarimmania.com/en/video-production/#sss"
     },
     {
       "@type": "Organization",
@@ -709,23 +680,23 @@ a.alt-k:hover .alt-git{gap:12px}
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.tasarimmania.com/en/seo/#sayfa",
-      "url": "https://www.tasarimmania.com/en/seo/",
-      "name": "SEO Agency — Technical SEO, Content, Local and Multilingual Visibility | TasarımMania",
-      "description": "Technical SEO, content strategy, local and multilingual optimization. Audit in month one, monthly cycle after that. No guaranteed SEO; measurable reporting instead.",
+      "@id": "https://www.tasarimmania.com/en/video-production/#sayfa",
+      "url": "https://www.tasarimmania.com/en/video-production/",
+      "name": "Video Production Agency — Commercial Films, Product Video, AI Production | TasarımMania",
+      "description": "Commercial films, product videos, social video and AI-assisted production, from script to edit. Delivered in 3–6 weeks; source files and usage rights stay with you.",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://www.tasarimmania.com/#site"
       },
       "breadcrumb": {
-        "@id": "https://www.tasarimmania.com/en/seo/#kirintili"
+        "@id": "https://www.tasarimmania.com/en/video-production/#kirintili"
       },
       "primaryImageOfPage": {
         "@type": "ImageObject",
         "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg"
       },
       "mainEntity": {
-        "@id": "https://www.tasarimmania.com/en/seo/#hizmet"
+        "@id": "https://www.tasarimmania.com/en/video-production/#hizmet"
       }
     }
   ]
@@ -733,7 +704,7 @@ a.alt-k:hover .alt-git{gap:12px}
 </script>
 
 </head>
-<body data-dal="seo">
+<body data-dal="video">
 
 <a class="skip" href="#ana">Skip to content</a>
 
@@ -768,75 +739,73 @@ a.alt-k:hover .alt-git{gap:12px}
       <nav class="crumb" aria-label="Location">
         <a href="../">Home</a><span aria-hidden="true">/</span>
         <a href="../services/">Services</a><span aria-hidden="true">/</span>
-        <span>SEO Services</span>
+        <span>Video Production</span>
       </nav>
       <div class="phd-iki">
         <div>
-          <span class="mod-no">Module 05</span>
-          <h1 data-kin>SEO Services: Sustainable Visibility in Search</h1>
-          <p class="h1-alt">TECHNICAL SEO · CONTENT STRATEGY · LOCAL SEO · MULTILINGUAL / E-COMMERCE SEO</p>
-          <p class="lead">The right SEO agency treats your site as a digital asset that keeps growing, not as a one-off project. The TasarımMania SEO Services module covers your search engine performance end to end: from the technical foundation to content planning, from local visibility to multilingual store optimization. The aim is a lasting position, built through measurable progress month by month and transparent reporting.</p>
+          <span class="mod-no">Module 04</span>
+          <h1 data-kin>Video Production Agency: From Commercial Films to AI-Assisted Video</h1>
+          <p class="h1-alt">COMMERCIAL FILM · PRODUCT VIDEO · SOCIAL VIDEO &amp; REELS · AI PRODUCTION</p>
+          <p class="lead">TasarımMania is a video production agency that brings your brand's story to the screen, running the whole process under one roof — from script to edit, from voice-over to colour grading. Whether it's a commercial film, a product video, social media content or AI-assisted production, every project is planned around your brand's goal and completed as a one-off delivery.</p>
         </div>
         <div class="hero3d" data-h3>
           <div class="h3-sekme" role="tablist" aria-label="Layers">
-            <button type="button" role="tab" class="acik" data-kat="0" aria-selected="true">Crawl</button>
-            <button type="button" role="tab" data-kat="1" aria-selected="false">Content</button>
-            <button type="button" role="tab" data-kat="2" aria-selected="false">Rankings</button>
+            <button type="button" role="tab" class="acik" data-kat="0" aria-selected="true">Script</button>
+            <button type="button" role="tab" data-kat="1" aria-selected="false">Shoot</button>
+            <button type="button" role="tab" data-kat="2" aria-selected="false">Edit</button>
           </div>
           <div class="h3-kutu">
             <div class="h3-sahne" data-h3-sahne>
-          <div class="h3-kat" data-kat="0" data-durum="on" role="tabpanel" aria-label="Crawl layer">
-            <div class="h3-bar"><i></i><i></i><i></i><span>technical audit</span><b>CRAWL</b></div>
+          <div class="h3-kat" data-kat="0" data-durum="on" role="tabpanel" aria-label="Script layer">
+            <div class="h3-bar"><i></i><i></i><i></i><span>storyboard</span><b>SCRIPT</b></div>
             <div class="h3-ic">
-              <div class="hb-term">robots.txt <b>✓</b><br>sitemap.xml <b>✓</b><br>canonical <b>✓</b> · hreflang <b>✓</b></div>
-              <button type="button" class="hb-btn" data-olay="audit_complete">Run the Audit</button>
-              <p class="hb-ipucu">↑ PRESS — ITS COUNTERPART LIGHTS UP IN THE RANKINGS LAYER</p>
+              <div class="hb-film">
+                <button type="button" data-olay="scene_approved" aria-label="Example: scene approval — show its counterpart in the edit"></button>
+                <div></div><div></div>
+              </div>
+              <div class="hb-cz" style="width:76%"></div>
+              <div class="hb-cz" style="width:52%"></div>
+              <p class="hb-ipucu" style="margin-top:auto">↑ PRESS THE FIRST FRAME — ITS COUNTERPART LIGHTS UP IN THE EDIT</p>
             </div>
           </div>
-          <div class="h3-kat" data-kat="1" data-durum="orta" role="tabpanel" aria-label="Content layer">
-            <div class="h3-bar"><i></i><i></i><i></i><span>content plan</span><b>CONTENT</b></div>
+          <div class="h3-kat" data-kat="1" data-durum="orta" role="tabpanel" aria-label="Shoot layer">
+            <div class="h3-bar"><i></i><i></i><i></i><span>on set — recording</span><b>SHOOT</b></div>
             <div class="h3-ic">
-              <div class="hb-cz a" style="width:66%"></div>
-              <div class="hb-cz" style="width:88%"></div>
-              <div class="hb-cz" style="width:74%"></div>
-              <div class="hb-cipler" style="margin-top:auto">
-                <button type="button" class="hb-cip vur" data-olay="keyword_up" aria-label="Example: target keyword — show its counterpart in the rankings">target keyword</button>
-                <span class="hb-cip">search intent</span><span class="hb-cip">internal link</span>
-              </div>
+              <div class="hb-cipler"><span class="hb-cip vur">● REC</span><span class="hb-cip">00:00:00:00</span><span class="hb-cip">4K</span></div>
+              <div class="hb-dalga"><i style="--h:40%"></i><i style="--h:75%"></i><i style="--h:55%"></i><i style="--h:90%"></i><i style="--h:62%"></i><i style="--h:80%"></i><i style="--h:45%"></i><i style="--h:70%"></i><i style="--h:58%"></i></div>
+              <button type="button" class="hb-btn" data-olay="shoot_complete">End the Shoot</button>
             </div>
           </div>
-          <div class="h3-kat" data-kat="2" data-durum="arka" role="tabpanel" aria-label="Rankings layer">
-            <div class="h3-bar"><i></i><i></i><i></i><span>search results</span><b>RANKINGS</b></div>
+          <div class="h3-kat" data-kat="2" data-durum="arka" role="tabpanel" aria-label="Edit layer">
+            <div class="h3-bar"><i></i><i></i><i></i><span>edit suite</span><b>EDIT</b></div>
             <div class="h3-ic">
-              <div class="hb-serp">
-                <div><u>competitor-a.com</u><span></span></div>
-                <div class="siz"><u>yourbrand.com ↑</u><span></span></div>
-                <div><u>competitor-b.com</u><span></span></div>
-              </div>
+              <div class="hb-zaman"><i style="width:84%"></i><i class="k"></i></div>
+              <div class="hb-cipler"><span class="hb-cip vur">16:9</span><span class="hb-cip vur">9:16</span><span class="hb-cip vur">1:1</span></div>
               <ul class="ol-olay">
-                <li data-ad="audit_complete"><i></i>audit_complete</li>
-                <li data-ad="keyword_up"><i></i>keyword_up</li>
+                <li data-ad="scene_approved"><i></i>scene_approved</li>
+                <li data-ad="shoot_complete"><i></i>shoot_complete</li>
+                <li data-ad="export"><i></i>export</li>
               </ul>
-              <p class="ol-not">Progress is reported month by month; measurement, not guarantees.</p>
+              <p class="ol-not">Three formats from one shoot: advert, Reels, product page.</p>
             </div>
           </div>
             </div>
           </div>
-          <p class="h3-not"><b>The technical work, the content and the tracking are set up together;</b> rankings aren't left to chance.</p>
+          <p class="h3-not"><b>Script, shoot and edit flow through one team;</b> the format isn't improvised afterwards.</p>
         </div>
       </div>
 
       <div class="kny">
-        <div><b>Month 1</b><span>Technical audit<br>and setup</span></div>
-        <div><b>Depending on scope</b><span>Monthly SEO service<br>band</span></div>
-        <div><b>8-12<i> weeks</i></b><span>First measurable<br>results</span></div>
-        <div><b>Monthly</b><span>Transparent performance<br>report</span></div>
+        <div><b>3–6<i> weeks</i></b><span>Depending on scope<br>typical delivery time</span></div>
+        <div><b>One<i> delivery</i></b><span>Not a monthly package<br>project-based work</span></div>
+        <div><b>14 years</b><span>Hands-on experience<br>in web and software</span></div>
+        <div><b>Yours</b><span>The final video and<br>the usage rights</span></div>
       </div>
 
       <div class="hero-cta">
-        <a class="btn btn-p" href="../../teklif/#seo">Let's map the scope and budget band
+        <a class="btn btn-p" href="../../teklif/#video">Let's map the scope and price range
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20SEO%20Hizmetleri%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%0ASitem%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
+        <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Video%20Prod%C3%BCksiyon%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%0AProje%20fikrim%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
       </div>
     </div>
   </header>
@@ -845,68 +814,56 @@ a.alt-k:hover .alt-git{gap:12px}
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>What's in this module</span>
-        <h2 data-kin>What this service covers: technical, content, local and multilingual SEO</h2>
-        <p>SEO work runs on four main axes, and each one feeds the others. Content won't rank without a sound technical foundation, and international or e-commerce growth is risky before the local groundwork is laid.</p>
+        <h2 data-kin>What this service covers: commercial films, product video, social video and AI production</h2>
+        <p>Video needs differ from brand to brand; sometimes a cinematic commercial film is called for, sometimes a quickly shot product video is enough. The four headings below separate the most requested services by scope, process and output.</p>
       </div>
 
       <div class="alt">
-        <a class="alt-k rv" href="../../teknik-seo/">
+        <a class="alt-k rv" href="../../reklam-filmi/">
           <span class="alt-no">01</span>
-          <h3>Technical SEO</h3>
-          <p>Clearing up the foundation so search engines can crawl your site without errors and index it quickly.</p>
+          <h3>Commercial Film Production</h3>
+          <p>From script to shoot, from edit to voice-over, we produce a cinematic commercial film that carries your brand's message.</p>
           <ul>
-            <li>Site speed and Core Web Vitals measurement</li>
-            <li>Crawlability audit: sitemap, robots.txt, redirect errors</li>
-            <li>Search Console integration and index monitoring</li>
-            <li>Mobile compatibility and structured data checks</li>
+            <li>Script and storyboard preparation</li>
+            <li>Shooting with a professional crew and kit</li>
+            <li>Editing, colour grading and sound design</li>
+            <li>Voice-over and music integration</li>
           </ul>
           <span class="alt-git">Look in detail <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
-        <a class="alt-k rv d1" href="../../seo-icerik/">
+        <a class="alt-k rv d1" href="../../urun-videosu/">
           <span class="alt-no">02</span>
-          <h3>Content Strategy</h3>
-          <p>A content calendar built on keyword research and aimed at sales.</p>
+          <h3>Product Video</h3>
+          <p>Short videos that present the product clearly and attractively, for an e-commerce page or a product launch.</p>
           <ul>
-            <li>Sector-specific keyword and search intent analysis</li>
-            <li>SEO-friendly blog and service page planning</li>
-            <li>Identifying gaps in competitors' content</li>
-            <li>Updating existing content and structuring internal links</li>
+            <li>A product-focused shooting plan</li>
+            <li>Studio or location shooting options</li>
+            <li>Formats suited to e-commerce platforms</li>
+            <li>A short, effective edit</li>
           </ul>
           <span class="alt-git">Look in detail <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
-        <a class="alt-k rv" href="../../yerel-seo/">
+        <a class="alt-k rv" href="../../reels-video/">
           <span class="alt-no">03</span>
-          <h3>Local SEO</h3>
-          <p>District-level visibility for businesses with a branch or a service area.</p>
+          <h3>Social Video and Reels</h3>
+          <p>Vertical social video content for channels like Instagram and TikTok, built to catch attention in the first second.</p>
           <ul>
-            <li>Google Business Profile setup and optimization</li>
-            <li>District and area-level local keyword work</li>
-            <li>Local directory listings and address consistency</li>
-            <li>A recommended process for managing customer reviews</li>
+            <li>Vertical format production</li>
+            <li>On-trend editing and subtitles</li>
+            <li>Versions made for Instagram and TikTok</li>
+            <li>A workflow built around fast delivery</li>
           </ul>
           <span class="alt-git">Look in detail <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
-        <a class="alt-k rv d1" href="../../cok-dilli-seo/">
+        <a class="alt-k rv d1" href="../../ai-video-produksiyon/">
           <span class="alt-no">04</span>
-          <h3>Multilingual SEO</h3>
-          <p>Language and country configuration for sites opening up to more than one market.</p>
+          <h3>AI-Assisted Production</h3>
+          <p>Video content produced with AI tools and no camera shoot; a fast and economical alternative.</p>
           <ul>
-            <li>hreflang and language/country configuration for site translation</li>
-            <li>Multilingual sitemaps and indexing checks</li>
-            <li>Targeting overseas markets</li>
-            <li>The ccTLD / subdirectory decision</li>
-          </ul>
-          <span class="alt-git">Look in detail <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="alt-k rv" style="grid-column:1/-1" href="../../e-ticaret-seo/">
-          <span class="alt-no">05</span>
-          <h3>E-commerce SEO</h3>
-          <p>An optimization layer built for the store platform itself.</p>
-          <ul>
-            <li>Technical settings specific to platforms like Shopify and ikas</li>
-            <li>SEO-friendly structure on product and category pages</li>
-            <li>Preventing duplicate content (product descriptions)</li>
-            <li>Managing the platform's constraints</li>
+            <li>Image and video generation with AI</li>
+            <li>Script and voice-over integration</li>
+            <li>Production without camera or location costs</li>
+            <li>Fast revisions and variants</li>
           </ul>
           <span class="alt-git">Look in detail <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
@@ -915,9 +872,9 @@ a.alt-k:hover .alt-git{gap:12px}
   </section>
   <div class="ara-cta rv"><i class="ac3-zemin" aria-hidden="true"></i><i class="ac3-s s1" aria-hidden="true"></i><i class="ac3-s s2" aria-hidden="true"></i>
     <div class="wrap ara-cta-in">
-      <p><b>Let's work out your site's priority, together</b><span>Five steps, two minutes. The scope and budget band appear on screen.</span></p>
+      <p><b>Let's work out which kind of video suits you, together</b><span>Five steps, two minutes. The scope and price range appear on screen.</span></p>
       <div class="ara-cta-btn">
-        <a class="btn btn-p" href="../../teklif/#seo">Let's map the scope
+        <a class="btn btn-p" href="../../teklif/#video">Let's map the scope
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-g" href="tel:+905547916545">0554 791 65 45</a>
       </div>
@@ -928,173 +885,237 @@ a.alt-k:hover .alt-git{gap:12px}
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>Budget</span>
-        <h2 data-kin>SEO costs in 2026: an audit in month one, a monthly band after that</h2>
+        <h2 data-kin>Video production costs in 2026: what sets the band</h2>
       </div>
 
       <div class="fyt-satir">
       <div class="fyt rv d1">
         <div class="fyt-band">
-          <b>The price is set by scope and competition</b>
-          <span>SEO SERVICES · MONTHLY</span>
+          <b>The price is set by the scope</b>
+          <span>VIDEO PRODUCTION · 3 – 6 WEEKS</span>
         </div>
-        <p>This is an ongoing service: the first month covers the technical audit and setup, after which the monthly SEO service runs on a band; the first measurable results usually appear within 8–12 weeks. What sets the band:</p>
+        <p>This is a one-off project delivery (not a monthly package); typical delivery takes 3–6 weeks. The final figure is settled by the complexity of the script, the number of shooting days and the editing load, and it's stated in the quote once the scope is mapped. Five things set the band:</p>
         <ul class="fyt-ne">
-          <li>SEO is a continuous service, not a one-off</li>
-          <li>The first month goes on a thorough technical audit and setting up the foundation</li>
-          <li>After that, the work continues on a monthly cycle</li>
-          <li>The price is set by the size of the site, the competition and the number of target markets</li>
-          <li>Results appear gradually and cumulatively</li>
+          <li>The scope of the script and the production plan</li>
+          <li>The number of shooting days and the size of the crew</li>
+          <li>Editing time and how much effects and colour work is involved</li>
+          <li>The voice-over, music and sound design requirement</li>
+          <li>The number of videos requested and how many versions</li>
         </ul>
 
-        <!-- Fiyat kutusunun altı boştu (ölçüldü: 217px) ve daha önemlisi
-             sayfanın en yüksek niyetli anında SONRAKİ ADIM yoktu.
-             Yeni iddia eklemiyor: dürüstlük cümlesi zaten #durustluk
-             bölümünde yazıyor, butonlar sayfada zaten kullanılan hedefler. -->
+        <!-- Fiyat kutusunun altında SONRAKİ ADIM yoktu: sayfanın en yüksek
+             niyetli anı burası. Yeni iddia eklemiyor — dürüstlük cümlesi
+             zaten #durustluk bölümünde yazıyor, butonlar sayfada zaten
+             kullanılan hedefler. -->
         <div class="fyt-adim">
-          <p>We don't guarantee rankings —
-            <a href="#durustluk">we've explained why below</a>. We start the conversation by mapping the scope. The basic rules of search can be read at first hand in <a class="kaynak" href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide" target="_blank" rel="noopener">Google's own starter guide</a> .</p>
+          <p>Not every brand needs a big production —
+            <a href="#durustluk">we've explained why below</a>. We start the conversation by mapping the scope. The channel limits for anything going on air are set out <a class="kaynak" href="https://www.rtuk.gov.tr/" target="_blank" rel="noopener">in RTÜK's broadcasting principles</a> .</p>
           <div class="fyt-btn">
-            <a class="btn btn-p" href="../../teklif/#seo">Let's map the scope
+            <a class="btn btn-p" href="../../teklif/#video">Let's map the scope
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20SEO%20Hizmetleri%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%0ASitem%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
+            <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Video%20Prod%C3%BCksiyon%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%0AProje%20fikrim%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
           </div>
         </div>
       </div>
 
-      <!-- SERP infografiği — HEDEFİ gösterir, VAAT DEĞİL.
-           Bu ayrım bilinçli: iki bölüm aşağıdaki #durustluk bölümü
-           "garantili ilk sıra vaadine temkinli yaklaşın" diyor. Rozet
-           "1. SIRADA" yerine "HEDEF: 1. SIRA" okur ve altyazı sıralamanın
-           garanti edilemeyeceğini tekrar eder. Firma adı temsilîdir.
-           Inline SVG: ek istek yok, her ölçekte net, viewBox sayesinde
-           oran sabit olduğu için düzen kaymaz. -->
+      <!-- Edit zaman çizgisi infografiği — SÜRECİ gösterir, çıktı vaadi DEĞİL.
+           Ekranda yalnızca sayfada geçen iki veri var: 16:9 formatı (kapsam
+           bölümündeki format çipleri) ve "3 – 6 weeks" delivery aralığı (fiyat
+           bandı ve paragrafı). Klip genişlikleri, ses dalgası ve kanal düzeni
+           tamamen temsilîdir; zaman çizgisine bilerek saniye/dakika damgası
+           konmadı, çünkü sayfada böyle bir veri yok.
+           Inline SVG: ek istek yok, her ölçekte net, viewBox sayesinde oran
+           sabit olduğu için düzen kaymaz (SEO sayfasıyla aynı 620x700 oranı). -->
       <figure class="serp rv d2">
         <span class="serp-kaydir" aria-hidden="true">Scroll sideways →</span>
-        <svg viewBox="0 0 620 700" role="img" aria-labelledby="serpBaslik serpAciklama"
+        <svg viewBox="0 0 620 700" role="img" aria-labelledby="vkzBaslik vkzAciklama"
              xmlns="http://www.w3.org/2000/svg">
-          <title id="serpBaslik">First place in the search results — illustrative graphic</title>
-          <desc id="serpAciklama">A drawing of a search engine results page: for the search “enterprise software solutions”, an illustrative Company X result is highlighted in first place, with a trophy icon and a “target: 1st place” badge beside it.</desc>
+          <title id="vkzBaslik">Edit timeline — illustrative graphic</title>
+          <desc id="vkzAciklama">A drawing of a video editing window: at the top a 16:9 preview frame with a play triangle in the middle; below it a timeline made up of video and audio channels with a playhead moving across it from left to right; at the bottom the stage labels Script, Shoot and Edit, with the third stage highlighted.</desc>
 
           <defs>
-            <linearGradient id="kupa" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#FFD97A"/>
-              <stop offset="1" stop-color="#E08E0B"/>
+            <linearGradient id="vkzSahne" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#141926"/>
+              <stop offset="1" stop-color="#070910"/>
             </linearGradient>
-            <filter id="yumusak" x="-30%" y="-30%" width="160%" height="160%">
-              <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0B0D12" flood-opacity=".22"/>
+            <filter id="vkzYumusak" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity=".45"/>
             </filter>
           </defs>
 
-          <!-- tarayıcı kartı -->
-          <rect x="8" y="8" width="604" height="684" rx="14" fill="#FFFFFF"/>
+          <!-- kurgu penceresi gövdesi -->
+          <rect x="8" y="8" width="604" height="684" rx="14" fill="#0E1016"/>
           <circle cx="34" cy="32" r="5" fill="#FF5F57"/>
           <circle cx="52" cy="32" r="5" fill="#FEBC2E"/>
           <circle cx="70" cy="32" r="5" fill="#28C840"/>
-          <rect x="92" y="20" width="380" height="24" rx="12" fill="#F1F3F4"/>
+          <rect x="92" y="20" width="380" height="24" rx="12" fill="#171B24"/>
           <text x="108" y="36" font-family="Inter Tight, system-ui, sans-serif"
-                font-size="12" fill="#5F6368">google.com/search?q=enterprise+software</text>
-          <line x1="8" y1="56" x2="612" y2="56" stroke="#E8EAED" stroke-width="1"/>
+                font-size="12" fill="#8A93A6">edit window · timeline</text>
+          <line x1="8" y1="56" x2="612" y2="56" stroke="#20242C" stroke-width="1"/>
 
-          <!-- arama motoru kelime işareti -->
-          <g font-family="Inter Tight, system-ui, sans-serif" font-size="36" font-weight="600"
-             text-anchor="middle">
-            <text x="310" y="112">
-              <tspan fill="#4285F4">G</tspan><tspan fill="#EA4335">o</tspan><tspan fill="#FBBC05">o</tspan><tspan fill="#4285F4">g</tspan><tspan fill="#34A853">l</tspan><tspan fill="#EA4335">e</tspan>
-            </text>
-          </g>
+          <!-- önizlemenin çevresindeki parlama -->
+          <rect class="v-isik" x="46" y="68" width="528" height="304" rx="18" fill="none"
+                stroke="#FF2D9B" stroke-width="7" opacity=".18"/>
 
-          <!-- arama kutusu -->
-          <rect x="90" y="134" width="440" height="42" rx="21" fill="#FFFFFF"
-                stroke="#DFE1E5" stroke-width="1.4"/>
-          <text class="s-sorgu" x="114" y="161" font-family="Inter Tight, system-ui, sans-serif"
-                font-size="15" fill="#202124">enterprise software solutions</text>
-          <rect class="s-imlec" x="286" y="146" width="1.6" height="18" fill="#202124"/>
-          <g stroke="#4285F4" stroke-width="2" fill="none">
-            <circle cx="498" cy="153" r="6.5"/>
-            <line x1="503" y1="158" x2="508" y2="163" stroke-linecap="round"/>
-          </g>
-
-          <!-- sekmeler + sonuç sayısı -->
-          <g class="s-ust">
-            <g font-family="Inter Tight, system-ui, sans-serif" font-size="12.5">
-              <text x="32" y="206" fill="#1A73E8" font-weight="600">All</text>
-              <text x="86" y="206" fill="#5F6368">Images</text>
-              <text x="156" y="206" fill="#5F6368">Videos</text>
-              <text x="222" y="206" fill="#5F6368">News</text>
-              <text x="290" y="206" fill="#5F6368">Shopping</text>
+          <!-- ÜST: 16:9 önizleme çerçevesi -->
+          <g class="v-cerceve">
+            <rect x="54" y="76" width="512" height="288" rx="12" fill="url(#vkzSahne)"
+                  stroke="#232A38" stroke-width="1.4"/>
+            <g stroke="#2C3444" stroke-width="2" fill="none" stroke-linecap="round">
+              <path d="M76,104 v-14 h14"/>
+              <path d="M544,104 v-14 h-14"/>
+              <path d="M76,336 v14 h14"/>
+              <path d="M544,336 v14 h-14"/>
             </g>
-            <line x1="30" y1="216" x2="66" y2="216" stroke="#1A73E8" stroke-width="2.5"/>
-            <line x1="8" y1="216" x2="612" y2="216" stroke="#E8EAED" stroke-width="1"/>
-            <text x="32" y="240" font-family="Inter Tight, system-ui, sans-serif"
-                  font-size="12" fill="#70757A">About 2,350,000 results (0.38 seconds)</text>
+            <circle cx="310" cy="220" r="44" fill="#11141C" stroke="#2A3140" stroke-width="2"/>
+            <path d="M298,202 L298,238 L331,220 Z" fill="#394153"/>
+            <rect x="70" y="308" width="54" height="24" rx="7" fill="#141A24"/>
+            <text x="97" y="324" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="12" fill="#8A93A6" text-anchor="middle">16:9</text>
           </g>
 
-          <!-- birinci sonuç: vurgulu -->
-          <rect class="s-isik" x="24" y="256" width="478" height="176" rx="16" fill="none"
-                stroke="#A6FF00" stroke-width="7" opacity=".16"/>
-          <rect class="s-halka" x="28" y="260" width="470" height="168" rx="12" fill="#FFFFFF"
-                stroke="#A6FF00" stroke-width="2.5"/>
-          <g class="s-sonuc">
-            <rect x="46" y="278" width="18" height="18" rx="5" fill="#4D7305"/>
-            <text x="70" y="292" font-family="Inter Tight, system-ui, sans-serif"
-                  font-size="12.5" fill="#202124">www.companyx.com</text>
-            <text x="46" y="322" font-family="Inter Tight, system-ui, sans-serif"
-                  font-size="19" font-weight="500" fill="#1A0DAB">Company X | Enterprise Software</text>
-            <text x="46" y="348" font-family="Inter Tight, system-ui, sans-serif"
-                  font-size="12.8" fill="#4D5156">Bespoke software solutions for businesses: leaner</text>
-            <text x="46" y="368" font-family="Inter Tight, system-ui, sans-serif"
-                  font-size="12.8" fill="#4D5156">processes, a solid foundation, sustainable success.</text>
-            <g font-family="Inter Tight, system-ui, sans-serif" font-size="12" fill="#1A0DAB">
-              <text x="46" y="404">Our solutions</text>
-              <text x="140" y="404">Our clients</text>
-              <text x="252" y="404">Blog</text>
-              <text x="298" y="404">Contact</text>
+          <!-- ORTA: iki kanal şeridi -->
+          <g class="v-kanal">
+            <!-- 10px/0,6 aralık bilinçli: etiket 126'da bitiyor, oynatma
+                 çubuğunun başlangıç tutamağı 131'de başlıyor — çakışmıyor. -->
+            <text x="40" y="390" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="12" letter-spacing="0.6" fill="#727D93">TIMELINE</text>
+            <line x1="132" y1="400" x2="580" y2="400" stroke="#242B38" stroke-width="1"/>
+            <g stroke="#2A3140" stroke-width="1">
+              <line x1="132" y1="400" x2="132" y2="406"/>
+              <line x1="160" y1="400" x2="160" y2="405"/>
+              <line x1="188" y1="400" x2="188" y2="405"/>
+              <line x1="216" y1="400" x2="216" y2="405"/>
+              <line x1="244" y1="400" x2="244" y2="406"/>
+              <line x1="272" y1="400" x2="272" y2="405"/>
+              <line x1="300" y1="400" x2="300" y2="405"/>
+              <line x1="328" y1="400" x2="328" y2="405"/>
+              <line x1="356" y1="400" x2="356" y2="406"/>
+              <line x1="384" y1="400" x2="384" y2="405"/>
+              <line x1="412" y1="400" x2="412" y2="405"/>
+              <line x1="440" y1="400" x2="440" y2="405"/>
+              <line x1="468" y1="400" x2="468" y2="406"/>
+              <line x1="496" y1="400" x2="496" y2="405"/>
+              <line x1="524" y1="400" x2="524" y2="405"/>
+              <line x1="552" y1="400" x2="552" y2="405"/>
+              <line x1="580" y1="400" x2="580" y2="406"/>
             </g>
-          </g>
 
-          <!-- kupa -->
-          <g class="s-kupa" filter="url(#yumusak)">
-            <circle cx="522" cy="292" r="38" fill="#0B0D12" stroke="#A6FF00" stroke-width="2"/>
-            <g transform="translate(522,292)" fill="url(#kupa)">
-              <path d="M-13,-17 h26 v9 a13,13 0 0 1 -26,0 z"/>
-              <path d="M-13,-14 h-6 a7,7 0 0 0 7,7 z"/>
-              <path d="M13,-14 h6 a7,7 0 0 1 -7,7 z"/>
-              <rect x="-2.5" y="4" width="5" height="7"/>
-              <rect x="-9" y="11" width="18" height="4.5" rx="1.6"/>
+            <text x="40" y="440" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="12" letter-spacing="1" fill="#A7B0C2">VIDEO</text>
+            <rect x="132" y="412" width="448" height="48" rx="9" fill="#151A23"/>
+            <g fill="#20252F">
+              <rect x="137" y="418" width="92" height="36" rx="6"/>
+              <rect x="235" y="418" width="58" height="36" rx="6"/>
+              <rect x="299" y="418" width="112" height="36" rx="6"/>
+              <rect x="417" y="418" width="70" height="36" rx="6"/>
+              <rect x="493" y="418" width="82" height="36" rx="6"/>
             </g>
-            <text x="522" y="290" font-family="Inter Tight, system-ui, sans-serif"
-                  font-size="12" font-weight="700" fill="#0B0D12" text-anchor="middle">1</text>
+            <g fill="#2C3444">
+              <rect x="145" y="440" width="76" height="4" rx="2"/>
+              <rect x="243" y="440" width="42" height="4" rx="2"/>
+              <rect x="307" y="440" width="96" height="4" rx="2"/>
+              <rect x="425" y="440" width="54" height="4" rx="2"/>
+              <rect x="501" y="440" width="66" height="4" rx="2"/>
+            </g>
+
+            <text x="40" y="498" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="12" letter-spacing="1" fill="#A7B0C2">AUDIO</text>
+            <rect x="132" y="474" width="448" height="40" rx="9" fill="#151A23"/>
+            <line x1="137" y1="494" x2="575" y2="494" stroke="#252C39" stroke-width="1"/>
+
+            <line x1="40" y1="538" x2="580" y2="538" stroke="#1D2330" stroke-width="1"/>
           </g>
 
-          <!-- hedef rozeti -->
-          <g class="s-rozet">
-            <rect x="440" y="348" width="160" height="34" rx="17" fill="#0B0D12"
-                  stroke="#A6FF00" stroke-width="1.5"/>
-            <text x="520" y="370" font-family="JetBrains Mono, ui-monospace, monospace"
-                  font-size="12.5" fill="#A6FF00" text-anchor="middle">TARGET · 1ST PLACE</text>
-          </g>
+          <!-- ses kanalı: ince dalga formu (soldan sağa çizilir) -->
+          <polyline class="v-dalga" fill="none" stroke="#8A93A6" stroke-width="1.6"
+                    stroke-linejoin="round" stroke-linecap="round"
+                    points="137,495.6 145,491.7 153,488.8 161,496.9 169,492.3 177,488.8 185,497.0
+                            193,484.5 201,502.0 209,486.9 217,501.7 225,484.2 233,490.0 241,499.5
+                            249,489.2 257,498.1 265,494.0 273,498.2 281,494.2 289,494.0 297,494.1
+                            305,487.9 313,487.7 321,493.6 329,500.4 337,489.3 345,488.9 353,495.1
+                            361,498.1 369,493.1 377,487.0 385,488.5 393,490.3 401,504.9 409,486.9
+                            417,489.3 425,496.8 433,497.2 441,505.6 449,492.8 457,502.9 465,489.2
+                            473,495.2 481,498.9 489,489.5 497,491.6 505,496.9 513,492.7 521,494.5
+                            529,488.3 537,490.4 545,499.2 553,490.4 561,497.5 569,496.1 575,494.0"/>
 
-          <!-- sıradaki results: iskelet -->
-          <g class="s-iskelet" fill="#E8EAED">
+          <!-- oynatma çubuğunun geçtiği klipler aksan kenarlık alır -->
+          <g class="v-klip">
             <g>
-              <rect x="46" y="462" width="150" height="9" rx="4.5"/>
-              <rect x="46" y="481" width="290" height="14" rx="6" fill="#DADCE0"/>
-              <rect x="46" y="505" width="430" height="8" rx="4"/>
-              <rect x="46" y="521" width="350" height="8" rx="4"/>
+              <rect x="137" y="418" width="92" height="36" rx="6" fill="#FF2D9B" fill-opacity=".14"
+                    stroke="#FF2D9B" stroke-width="1.6"/>
+              <rect x="145" y="440" width="76" height="4" rx="2" fill="#FF2D9B" fill-opacity=".6"/>
             </g>
             <g>
-              <rect x="46" y="558" width="150" height="9" rx="4.5"/>
-              <rect x="46" y="577" width="250" height="14" rx="6" fill="#DADCE0"/>
-              <rect x="46" y="601" width="430" height="8" rx="4"/>
-              <rect x="46" y="617" width="310" height="8" rx="4"/>
+              <rect x="235" y="418" width="58" height="36" rx="6" fill="#FF2D9B" fill-opacity=".14"
+                    stroke="#FF2D9B" stroke-width="1.6"/>
+              <rect x="243" y="440" width="42" height="4" rx="2" fill="#FF2D9B" fill-opacity=".6"/>
             </g>
             <g>
-              <rect x="46" y="654" width="150" height="9" rx="4.5"/>
-              <rect x="46" y="673" width="270" height="14" rx="6" fill="#DADCE0"/>
+              <rect x="299" y="418" width="112" height="36" rx="6" fill="#FF2D9B" fill-opacity=".14"
+                    stroke="#FF2D9B" stroke-width="1.6"/>
+              <rect x="307" y="440" width="96" height="4" rx="2" fill="#FF2D9B" fill-opacity=".6"/>
             </g>
+            <g>
+              <rect x="417" y="418" width="70" height="36" rx="6" fill="#FF2D9B" fill-opacity=".14"
+                    stroke="#FF2D9B" stroke-width="1.6"/>
+              <rect x="425" y="440" width="54" height="4" rx="2" fill="#FF2D9B" fill-opacity=".6"/>
+            </g>
+            <g>
+              <rect x="493" y="418" width="82" height="36" rx="6" fill="#FF2D9B" fill-opacity=".14"
+                    stroke="#FF2D9B" stroke-width="1.6"/>
+              <rect x="501" y="440" width="66" height="4" rx="2" fill="#FF2D9B" fill-opacity=".6"/>
+            </g>
+          </g>
+
+          <!-- oynatma çubuğu: uçtan uca ilerler -->
+          <g class="v-imlec">
+            <path d="M131,386 h12 v12 l-6,7 l-6,-7 z" fill="#FF2D9B"/>
+            <line x1="137" y1="398" x2="137" y2="522" stroke="#FF2D9B" stroke-width="2"/>
+          </g>
+
+          <!-- önizlemedeki oynat üçgeni sonda aksana döner -->
+          <g class="v-oynat" filter="url(#vkzYumusak)">
+            <circle cx="310" cy="220" r="44" fill="#180410" stroke="#FF2D9B" stroke-width="2.5"/>
+            <path d="M298,202 L298,238 L331,220 Z" fill="#FF2D9B"/>
+          </g>
+
+          <!-- ALT: üç aşama etiketi, üçüncüsü aktif -->
+          <g class="v-asama" font-family="Inter Tight, system-ui, sans-serif">
+            <g>
+              <rect x="40" y="558" width="169" height="52" rx="13" fill="#141821"
+                    stroke="#242B38" stroke-width="1.2"/>
+              <circle cx="66" cy="584" r="10" fill="#1E2532"/>
+              <path d="M61.5,584 l3.2,3.4 l6.2,-6.8" fill="none" stroke="#A7B0C2"
+                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="86" y="589" font-size="13.5" fill="#A7B0C2">Script</text>
+            </g>
+            <g>
+              <rect x="225" y="558" width="169" height="52" rx="13" fill="#141821"
+                    stroke="#242B38" stroke-width="1.2"/>
+              <circle cx="251" cy="584" r="10" fill="#1E2532"/>
+              <path d="M246.5,584 l3.2,3.4 l6.2,-6.8" fill="none" stroke="#A7B0C2"
+                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="271" y="589" font-size="13.5" fill="#A7B0C2">Shoot</text>
+            </g>
+            <g>
+              <rect x="410" y="558" width="170" height="52" rx="13" fill="#FF2D9B"
+                    fill-opacity=".10" stroke="#FF2D9B" stroke-width="1.6"/>
+              <circle cx="436" cy="584" r="10" fill="#FF2D9B"/>
+              <path d="M433,579.5 L433,588.5 L441.5,584 Z" fill="#0E1016"/>
+              <text x="456" y="589" font-size="13.5" font-weight="600" fill="#FF2D9B">Edit</text>
+            </g>
+          </g>
+
+          <!-- delivery rozeti: sayfadaki fiyat bandıyla aynı aralık -->
+          <g class="v-rozet">
+            <rect x="200" y="634" width="220" height="34" rx="17" fill="#0B0D12"
+                  stroke="#FF2D9B" stroke-width="1.5"/>
+            <text x="310" y="656" font-family="JetBrains Mono, ui-monospace, monospace"
+                  font-size="12.5" fill="#FF2D9B" text-anchor="middle">DELIVERY · 3 – 6 WEEKS</text>
           </g>
         </svg>
-        <figcaption><b>Illustrative graphic.</b> It shows the result being aimed for; the company name and the figures aren't real. No agency can guarantee a ranking — the reason is below.</figcaption>
+        <figcaption><b>Illustrative graphic.</b> It shows an editing window; the clip layout, the waveform and the channel arrangement aren't taken from a real project. The only real information on screen is the 16:9 format and the typical 3–6 week delivery window, both of which are stated on the page — it contains no other timing, figure or performance claim.</figcaption>
       </figure>
       </div>
     </div>
@@ -1111,23 +1132,23 @@ a.alt-k:hover .alt-git{gap:12px}
         <div class="kps-k kps-k--var">
           <h3>Included in the price</h3>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Monthly technical SEO checks and error tracking</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Keyword and content planning</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Google Business Profile management</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Monthly performance and ranking report</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Search Console and analytics monitoring</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Competitor analysis updates</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>A monthly advisory and recommendations call</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Script and shooting plan preparation</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>A professional crew and basic kit</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Editing, colour grading and sound mixing</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Voice-over coordination within the agreed scope</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Versioning for the delivery formats</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>A limited number of revision rounds</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Progress tracking with a project manager</li>
           </ul>
         </div>
         <div class="kps-k kps-k--yok">
           <h3>Separate line item</h3>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>The cost of writing blog and content copy</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Paid advertising management (the Meta &amp; Google Ads module)</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Professional translation for translating the site</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>A full site refresh or redesign</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Third-party premium SEO tool licences</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>The media budget for the advertising channel</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Fees for actors, models or voice artists</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Location hire and filming permits</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Licensed stock music or a bespoke composition</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>Additional revision rounds and requests outside the scope</li>
           </ul>
         </div>
       </div>
@@ -1135,9 +1156,9 @@ a.alt-k:hover .alt-git{gap:12px}
   </section>
   <div class="ara-cta rv"><i class="ac3-zemin" aria-hidden="true"></i><i class="ac3-s s1" aria-hidden="true"></i><i class="ac3-s s2" aria-hidden="true"></i>
     <div class="wrap ara-cta-in">
-      <p><b>See your site's band on screen</b><span>Only your name and phone number are required.</span></p>
+      <p><b>See your project's band on screen</b><span>Only your name and phone number are required.</span></p>
       <div class="ara-cta-btn">
-        <a class="btn btn-p" href="../../teklif/#seo">Let's map the scope
+        <a class="btn btn-p" href="../../teklif/#video">Let's map the scope
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-g" href="tel:+905547916545">0554 791 65 45</a>
       </div>
@@ -1147,8 +1168,8 @@ a.alt-k:hover .alt-git{gap:12px}
   <section class="sec" id="durustluk">
     <div class="wrap">
       <div class="durust rv">
-        <h3>Let's be clear from the start: there's no such thing as guaranteed SEO</h3>
-        <p>Treat any promise of “guaranteed first place” or “guaranteed SEO” with caution. No agency can control Google's ranking algorithm; anyone claiming otherwise either doesn't know or is misinforming you. Instead of a guaranteed outcome, the basis is a regular, measurable progress report and a transparent method. Results promised quickly rarely last.</p>
+        <h3>Not Every Brand Needs a Big Production</h3>
+        <p>The question to ask first is this: does your product call for a cinematic commercial film, or is a fast, clear piece of storytelling enough? Where the budget is tight, AI-assisted production or an edit built on a simple shoot often gives the better result; we propose a scope built around what your brand actually needs, rather than imposing the same scale on every job.</p>
       </div>
     </div>
   </section>
@@ -1157,51 +1178,51 @@ a.alt-k:hover .alt-git{gap:12px}
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>FAQs</span>
-        <h2 data-kin>Frequently asked questions: SEO timelines, costs and guarantees</h2>
+        <h2 data-kin>Frequently asked questions: video production costs, process and usage rights</h2>
         <p>The questions that come up most, with short answers.</p>
       </div>
 
       <div class="iki">
         <div class="sss rv d1">
         <details>
-        <summary>What exactly does the SEO service cover?</summary>
-        <p>It covers the technical foundation, content, local visibility and, where needed, multilingual optimization.</p>
-        <p>The work runs on four main axes: technical SEO, content strategy, local SEO and multilingual/e-commerce optimization. The priorities are settled by the audit carried out in the first month.</p>
+        <summary>How are video production prices set?</summary>
+        <p>The price is shaped by the scope of the script, the number of shooting days, the editing load and whether voice-over is needed.</p>
+        <p>The final figure is settled through <a href="#fiyat">the factors in the pricing section</a> , taking crew size and editing intensity into account too.</p>
         </details>
         <details>
-        <summary>How long does SEO work take to show results?</summary>
-        <p>Results appear over months rather than weeks, and they build gradually.</p>
-        <p>Unlike advertising, SEO is cumulative work. The first month is the audit and setup, after which the monthly work continues and the effects become clearer over time.</p>
+        <summary>What stages does the video production service have, and how long does it take?</summary>
+        <p>It has four stages: script, shoot, edit and delivery.</p>
+        <p>Depending on the scope and the number of revisions, the total is completed within the delivery window given in the pricing section.</p>
         </details>
         <details>
-        <summary>Is the promise of guaranteed SEO realistic?</summary>
-        <p>No; no agency can control Google's ranking algorithm.</p>
-        <p>“Guaranteed first place” is marketing hyperbole; <a href="#durustluk">instead we share the method we apply openly</a> and show the progress concretely in monthly reports.</p>
+        <summary>What's the difference between a corporate film and a commercial film?</summary>
+        <p>A corporate film tells the story of the brand and the organization; a commercial film puts a particular product forward.</p>
+        <p>The shooting process is similar, but the message is structured differently: a corporate film focuses on identity, a commercial film on the campaign.</p>
         </details>
         <details>
-        <summary>How is the monthly SEO service run and reported?</summary>
-        <p>Each month the planned work is carried out and a performance report is shared.</p>
-        <p>After the first month's audit and setup, the process continues on a monthly cycle; a ranking and traffic report is sent at the end of each month.</p>
+        <summary>Does AI-assisted production replace a conventional shoot, and what's the quality like?</summary>
+        <p>It doesn't replace every project, but on the right kind of content it delivers a fast result close to a conventional shoot.</p>
+        <p>Where real performance from an actor or the feel of a particular location is needed, a conventional shoot remains more reliable.</p>
         </details>
         <details>
-        <summary>What's the difference between SEO and SEM (paid search), and should they run together?</summary>
-        <p>SEM brings immediate paid traffic, SEO builds lasting organic visibility; together they're strong.</p>
-        <p>SEM delivers traffic for as long as you fund it; when the budget stops, so does the effect. SEO builds organic visibility that accumulates over time and stays.</p>
+        <summary>Are voice-over and music for a commercial film included in the price?</summary>
+        <p>Standard voice-over coordination is included; a bespoke composition or licensed music is charged separately.</p>
+        <p>The basic sound design within the agreed scope is included in the price; licensed commercial music is charged separately when it's wanted.</p>
         </details>
         <details>
-        <summary>What sets SEO service prices?</summary>
-        <p>It varies with the size of the site, how competitive the sector is and how many markets are being targeted.</p>
-        <p>The monthly SEO service runs on a band set by the factors described <a href="#fiyat">in the pricing section</a> ; it's settled after the audit, according to the number of pages and how competitive the field is.</p>
+        <summary>Is a video production studio essential, or can you shoot on location?</summary>
+        <p>No, a studio isn't essential; we can shoot at your premises or at a chosen location.</p>
+        <p>A studio is often preferred for product videos, while corporate and social content can be shot on location once the choice is settled.</p>
         </details>
         <details>
-        <summary>Does district-level (local) SEO really work?</summary>
-        <p>For businesses with a physical branch or a service area it's highly effective.</p>
-        <p>Most people add their district or city to the query when they search for a service. Optimizing the Google Business Profile lifts visibility noticeably for local businesses.</p>
+        <summary>Who holds the source files and usage rights for the delivered video?</summary>
+        <p>The final video and its usage rights belong to the client; the raw source files are covered separately in the contract.</p>
+        <p>If a transfer of the raw footage is requested, it's set out as a separate clause at the contract stage.</p>
         </details>
         <details>
-        <summary>Is SEO handled differently on hosted platforms like Shopify or ikas?</summary>
-        <p>Yes; the technical constraints and settings specific to those platforms are taken into account.</p>
-        <p>Hosted e-commerce platforms have their own technical limits; URL structure and speed settings are managed platform by platform and treated as a separate strand of work.</p>
+        <summary>Can a video made for Instagram Reels be used on other channels?</summary>
+        <p>Yes, the vertical format works on most channels; versioning for different platforms is recommended.</p>
+        <p>It works well on TikTok and YouTube Shorts; horizontal channels may need the format re-edited.</p>
         </details>
       </div>
         <div class="iki-yan">
@@ -1212,12 +1233,12 @@ a.alt-k:hover .alt-git{gap:12px}
             <span>iOS and Android; a shared API and design system with the web.</span></a>
           <a class="yk" style="--k:var(--amber)" href="../services/#moduller"><b>Meta &amp; Google Ads</b>
             <span>The accounts are in your name; we build the pages the ads land on.</span></a>
-          <a class="yk" style="--k:var(--pink)" href="../services/#moduller"><b>Video Production</b>
-            <span>Ad, Reels and product video from a single shoot.</span></a>
+          <a class="yk" style="--k:var(--lime)" href="../services/#moduller"><b>SEO Services</b>
+            <span>Technical SEO, content and local visibility.</span></a>
           <div class="yk yk-cta">
             <b>Your question not on the list?</b>
-            <span>Map the scope in five steps; see the budget band on screen.</span>
-            <a class="btn btn-p btn-sm" href="../../teklif/#seo">Let's map the scope</a>
+            <span>Map the scope in five steps; see the timeline and price range on screen.</span>
+            <a class="btn btn-p btn-sm" href="../../teklif/#video">Let's map the scope</a>
           </div>
         </div>
       </div>
@@ -1229,50 +1250,50 @@ a.alt-k:hover .alt-git{gap:12px}
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>The detail</span>
         <h2 data-kin>If you'd like to look before deciding</h2>
-        <p>What makes the first month different, reporting, sectors and contract terms — all here. Open it, read it, close it.</p>
+        <p>The process, the crew, delivery formats and usage rights — all here. Open it, read it, close it.</p>
       </div>
       <div class="iki">
         <div class="akor rv d1">
-        <details id="ilk-ay">
-          <summary>Why does the first month work differently?</summary>
+        <details id="surec">
+          <summary>How Does the Process Work?</summary>
+          <p class="cvp">The process starts with a needs analysis and sign-off on the script; after the shooting schedule, the edit, colour grading and sound design are completed and delivery is made in the agreed formats.</p>
+        </details>
+        <details id="ekip">
+          <summary>Crew and Kit</summary>
           <div class="cvp">
             <div class="gbs">
-              <img src="../../../assets/modul-seo/ilkay.jpg" alt="3D render: a technical audit checklist and a cog icon" width="640" height="640" loading="lazy" decoding="async">
+              <img src="../../../assets/modul-video/ekip.jpg" alt="3D render: camera, boom microphone and director's chair icons" width="640" height="640" loading="lazy" decoding="async">
               <div class="gbs-in">
-                <p>The first month is the technical audit and setup that comes before the monthly work. Your site's priorities are settled during it, and the following months' plan is built on that.</p>
+                <p>Depending on the scope, a crew of director, camera operator, editor and sound designer is assigned; on AI-assisted projects the crew is smaller and more technical.</p>
               </div>
             </div>
           </div>
         </details>
-        <details id="raporlama">
-          <summary>How does reporting work?</summary>
+        <details id="format">
+          <summary>Delivery Formats</summary>
           <div class="cvp">
             <div class="gbs">
-              <img src="../../../assets/modul-seo/raporlama.jpg" alt="3D render: a reporting dashboard with a rising bar chart and a calendar icon" width="640" height="640" loading="lazy" decoding="async">
+              <img src="../../../assets/modul-video/format.jpg" alt="3D render: video frames stacked in different aspect ratios" width="640" height="640" loading="lazy" decoding="async">
               <div class="gbs-in">
-                <p>At the end of every month we share a clear performance report covering rankings, traffic and the work completed.</p>
+                <p>Videos are delivered horizontal, vertical or square depending on the channel, at a suitable resolution and compression; subtitled versions are prepared on request.</p>
               </div>
             </div>
           </div>
         </details>
-        <details id="sektorler">
-          <summary>Which sectors is it suitable for?</summary>
-          <p class="cvp">It's applied across a wide range, including corporate sites, service businesses, e-commerce stores and multi-branch local businesses.</p>
+        <details id="revizyon">
+          <summary>Revision Policy</summary>
+          <p class="cvp">Every project includes a limited number of revision rounds, and that number is settled at the quote stage; revisions that require a change of script count as a separate scope.</p>
         </details>
-        <details id="sozlesme">
-          <summary>How long is the contract?</summary>
-          <p class="cvp">Because SEO is cumulative work, a short-term contract isn't advisable; the scope and the term are settled after the first month's audit.</p>
-        </details>
-        <details id="mevcut-seo">
-          <summary>What if I already have SEO work in place?</summary>
-          <p class="cvp">We don't start from scratch; an audit first establishes the past mistakes and the gains, and the new plan is built on those findings.</p>
+        <details id="kullanim-haklari">
+          <summary>Usage Rights and Continuity</summary>
+          <p class="cvp">The final video delivered can be used indefinitely on the channels agreed; when an update is wanted for a new campaign, a separate project scope is drawn up.</p>
         </details>
       </div>
         <div class="iki-yan">
           <div class="don">
             <div class="don-sahne">
               <div class="don-cam">
-                <div class="don-bar"><i></i><i></i><i></i><span>ranking report</span></div>
+                <div class="don-bar"><i></i><i></i><i></i><span>video project</span></div>
                 <div class="don-ic">
                   <div class="cz a"></div>
                   <div class="cz b"></div>
@@ -1283,8 +1304,22 @@ a.alt-k:hover .alt-git{gap:12px}
               </div>
               <div class="don-arka"></div>
             </div>
-            <p class="don-not">Technical · Content · Local · Multilingual</p>
+            <p class="don-not">Commercial Film · Product Video · Reels</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="band rv">
+        <h2>Let's Talk About Your Project</h2>
+        <p>From a commercial film to AI-assisted production, let's settle together which kind of video suits your brand.</p>
+        <div class="band-cta">
+          <a class="btn btn-p" href="../../teklif/#video">Let's map the scope
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Video%20Prod%C3%BCksiyon%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%0AProje%20fikrim%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
         </div>
       </div>
     </div>
@@ -1292,35 +1327,20 @@ a.alt-k:hover .alt-git{gap:12px}
 
   <aside class="sec" style="padding-top:0" aria-label="Related reading">
     <div class="wrap">
-      <nav class="yz-ilgili rv" aria-labelledby="hub-ilgili">
-        <h2 id="hub-ilgili">SEO Core guides</h2>
-        <p class="not">Blog posts setting out the method behind this service.</p>
-        <ul>
-          <li><a href="../../blog/e-ticaret-seo/" style="--k:166,255,0"><span class="kat">SEO</span><span class="bas">How Does E-Commerce SEO Rank Product and Category Pages?</span></a></li>
-          <li><a href="../../blog/yerel-seo/" style="--k:166,255,0"><span class="kat">SEO</span><span class="bas">Local SEO: The Route to Visibility on Maps</span></a></li>
-          <li><a href="../../blog/teknik-seo/" style="--k:166,255,0"><span class="kat">SEO</span><span class="bas">What Does a Technical SEO Audit Uncover on Your Site?</span></a></li>
-          <li><a href="../../blog/off-page-seo/" style="--k:166,255,0"><span class="kat">SEO</span><span class="bas">How Long Does Backlink Work Take to Affect Rankings?</span></a></li>
-          <li><a href="../../blog/seo-raporlama-araclari/" style="--k:166,255,0"><span class="kat">SEO</span><span class="bas">Which Tools Should You Set Up for SEO Reporting, and How?</span></a></li>
-          <li><a href="../../blog/seo-ve-web-tasarim/" style="--k:0,229,255"><span class="kat">Web Design</span><span class="bas">How Does SEO-Friendly Web Design Affect Search Visibility?</span></a></li>
-        </ul>
-      </nav>
-    </div>
-  </aside>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <div class="band rv">
-        <h2>Let's have a scoping call about SEO Services</h2>
-        <p>Let's look together at your site's technical position and its content and local visibility needs, and settle a monthly SEO plan built for you.</p>
-        <div class="band-cta">
-          <a class="btn btn-p" href="../../teklif/#seo">Let's map the scope
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20SEO%20Hizmetleri%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%0ASitem%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
-        </div>
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Related reading</span>
+        <h2 data-kin>What we've written on this</h2>
+      </div>
+      <div class="hrt-sag" data-ic-link="blog">
+          <a class="yk" href="../../blog/reklam-filmi-cekim-asamalari/"><b>What Stages Does a Commercial Film Shoot Go Through?</b>
+            <span>What stages does a commercial film shoot go through? Pre-production, the shoot day, the edit, colour and delivery</span></a>
+          <a class="yk" href="../../blog/urun-videosu-studyo-mu-mekan-mi/"><b>Product Video Shoots: Studio or Location?</b>
+            <span>Should a product video be shot in a studio or on a real location? Control, repeatability and</span></a>
+          <a class="yk" href="../../blog/reklam-filmi-fiyat-kalemleri/"><b>What Line Items Set the Price of a Commercial Film?</b>
+            <span>Which line items set the price of a commercial film? Shoot days, crew, performers' fees, location and post-production</span></a>
       </div>
     </div>
-  </section>
-
+  </aside>
 </main>
 
 <footer class="ftr">
@@ -1337,8 +1357,8 @@ a.alt-k:hover .alt-git{gap:12px}
           <li><a href="../web-design/">Web &amp; Software</a></li>
           <li><a href="../mobile-app-development/">Mobile Apps</a></li>
           <li><a href="../digital-marketing/">Digital Marketing</a></li>
-          <li><a href="../video-production/">Video Production</a></li>
-          <li><a href="./" aria-current="page">SEO Services</a></li>
+          <li><a href="./" aria-current="page">Video Production</a></li>
+          <li><a href="../services/#moduller">SEO Services</a></li>
           <li><a href="../../grafik-tasarim/">Graphic Design</a></li>
         </ul>
       </div>
