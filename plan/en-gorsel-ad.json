@@ -1,0 +1,78 @@
+{
+  "_kural": "KULLANICI EMRİ: her dil sürümünde görseller o dilin SEO adıyla AYRI kopyalanır; başka dilin klasörüne işaret etmek YASAK. Aynı dosya iki dilde aynı adla servis edilirse arama motoru tekrar sayar.",
+  "_yontem": "İngilizce adlar UYDURULMADI — sayfadaki (zaten çevrilmiş) alt metninden türetildi. Alt metni olmayan dosyalarda Türkçe adın birebir karşılığı kullanıldı.",
+
+  "_blog_kurali": {
+    "aciklama": "Blog görselleri sözlüğe yazılmaz, kuralla türetilir: /blog/<tr-slug>/gorsel/<tr-slug>-<tur>-<en>.<uzanti> → /en/blog/<en-slug>/image/<en-slug>-<tur-en>-<en>.<uzanti>",
+    "klasor": "gorsel → image",
+    "tur": { "kapak": "cover", "govde": "body" },
+    "neden": "42 yazının hepsi aynı desende; elle 400+ satır yazmak yerine kural. Slug karşılığı en-url-haritasi.json'dan gelir."
+  },
+
+  "icerik": {
+    "/assets/ajans/masa.jpg":                "/assets/en/agency/desk-sketchbook-laptop.jpg",
+    "/assets/ajans/studyo.jpg":              "/assets/en/agency/studio.jpg",
+    "/assets/icon-mobil.png":                "/assets/en/icon-mobile.png",
+    "/assets/icon-reklam.png":               "/assets/en/icon-advertising.png",
+    "/assets/icon-seo.png":                  "/assets/en/icon-seo.png",
+    "/assets/icon-video.png":                "/assets/en/icon-video.png",
+    "/assets/icon-web.png":                  "/assets/en/icon-web.png",
+
+    "/assets/kisi/01-murat.jpg":             "/assets/en/people/01-murat.jpg",
+    "/assets/kisi/02-selin.jpg":             "/assets/en/people/02-selin.jpg",
+    "/assets/kisi/03-emre.jpg":              "/assets/en/people/03-emre.jpg",
+
+    "/assets/modul-mobil/guvence.jpg":       "/assets/en/module-mobile/source-code-shield.jpg",
+    "/assets/modul-mobil/magaza.jpg":        "/assets/en/module-mobile/app-store-approval.jpg",
+    "/assets/modul-pazarlama/kurulum.jpg":   "/assets/en/module-marketing/advertising-funnel-channels.jpg",
+    "/assets/modul-pazarlama/raporlama.jpg": "/assets/en/module-marketing/reporting-dashboard.jpg",
+    "/assets/modul-seo/ilkay.jpg":           "/assets/en/module-seo/technical-audit-checklist.jpg",
+    "/assets/modul-seo/raporlama.jpg":       "/assets/en/module-seo/seo-reporting-dashboard.jpg",
+    "/assets/modul-video/ekip.jpg":          "/assets/en/module-video/camera-boom-directors-chair.jpg",
+    "/assets/modul-video/format.jpg":        "/assets/en/module-video/video-aspect-ratios.jpg",
+    "/assets/modul-web/guvence.jpg":         "/assets/en/module-web/post-launch-support.jpg",
+    "/assets/modul-web/hiz.jpg":             "/assets/en/module-web/core-web-vitals-speed-score.jpg",
+    "/assets/modul-web/maliyet.jpg":         "/assets/en/module-web/annual-website-costs.jpg",
+    "/assets/modul-web/sifirdan.jpg":        "/assets/en/module-web/website-architecture-from-scratch.jpg",
+    "/assets/modul-web/takvim.jpg":          "/assets/en/module-web/website-delivery-timeline.jpg",
+    "/assets/modul-web/tasima.jpg":          "/assets/en/module-web/site-migration-301-redirects.jpg",
+
+    "/assets/surec/01-teshis.jpg":           "/assets/en/process/01-diagnosis.jpg",
+    "/assets/surec/02-plan.jpg":             "/assets/en/process/02-plan.jpg",
+    "/assets/surec/03-kurulum.jpg":          "/assets/en/process/03-build.jpg",
+    "/assets/surec/04-yayin.jpg":            "/assets/en/process/04-launch.jpg",
+    "/assets/surec/05-olcum.jpg":            "/assets/en/process/05-measurement.jpg",
+
+    "/assets/vaka/01-eticaret.jpg":          "/assets/en/case/01-fashion-ecommerce.jpg",
+    "/assets/vaka/02-klinik.jpg":            "/assets/en/case/02-aesthetic-clinic.jpg",
+    "/assets/vaka/03-mobil.jpg":             "/assets/en/case/03-loyalty-app.jpg",
+    "/assets/vaka/04-video.jpg":             "/assets/en/case/04-cinema-camera-set.jpg",
+    "/assets/vaka/05-seo.jpg":               "/assets/en/case/05-analytics-dashboard.jpg",
+    "/assets/vaka/06-kurumsal.jpg":          "/assets/en/case/06-corporate-lobby.jpg",
+
+    "/assets/og-kapak.jpg":                  "/assets/en/og-cover.jpg"
+  },
+
+  "marka": {
+    "_neden": "Dosya adı MARKANIN KENDİ ADI. 'sks-ref.png' → 'sks-construction.png' yazmak markayı çevirmek olurdu; marka adı çevrilmez (sözlükteki 'Çevrilmeyenler' başlığı). Bu yüzden burada değişen KLASÖR: dosya ayrı bir kopya olarak /assets/en/ altına iniyor, İngilizce sayfa artık Türkçe klasöre işaret etmiyor. Ad korunuyor çünkü marka adı iki dilde de aynı.",
+    "_uyari": "Kullanıcı 'adlar da farklı olsun' derse burası tek tek gözden geçirilmeli; şu hâliyle kural 'ayrı kopya' kısmını karşılıyor, 'ayrı ad' kısmını marka adları için bilerek karşılamıyor.",
+
+    "/assets/logo/marka-yatay-optik.png":         "/assets/en/brand/tasarimmania-logo-horizontal.png",
+    "/assets/referans/dr-serkan-yildiz-ref.png":  "/assets/en/clients/dr-serkan-yildiz.png",
+    "/assets/referans/erkan-bey-ref.png":         "/assets/en/clients/erkan-bey-zeytinleri.png",
+    "/assets/referans/fina-ders-ref.png":         "/assets/en/clients/fina-ders.png",
+    "/assets/referans/fix-spa-ref.png":           "/assets/en/clients/fix-spa.png",
+    "/assets/referans/grand-onur-hotel-ref.png":  "/assets/en/clients/grand-onur-hotel.png",
+    "/assets/referans/laguna-med.png":            "/assets/en/clients/laguna-med.png",
+    "/assets/referans/loss-hotel-ref-1.png":      "/assets/en/clients/loss-hotel.png",
+    "/assets/referans/moi-ref-1.png":             "/assets/en/clients/moi-eyebrow.png",
+    "/assets/referans/moi-ref-2.png":             "/assets/en/clients/moi-eyelash.png",
+    "/assets/referans/moiz-kozmetik-ref.png":     "/assets/en/clients/moi-kozmetik.png",
+    "/assets/referans/mor-spa-ref.png":           "/assets/en/clients/mor-spa-wellness.png",
+    "/assets/referans/oba-dis.png":               "/assets/en/clients/oba-dis-poliklinigi.png",
+    "/assets/referans/palace-suit-ref.png":       "/assets/en/clients/palace-suit-hotel.png",
+    "/assets/referans/premium-spa-ref.png":       "/assets/en/clients/premium-spa.png",
+    "/assets/referans/sevinc-kurs-ref.png":       "/assets/en/clients/sevinc-kurs-merkezi.png",
+    "/assets/referans/sks-ref.png":               "/assets/en/clients/sks-insaat.png"
+  }
+}

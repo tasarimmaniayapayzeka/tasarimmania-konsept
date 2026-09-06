@@ -29,6 +29,7 @@ node plan/en-sayfa-uret.js <sayfa>              # KURU KOŞU — hesap tutuyor m
 node plan/en-sayfa-uret.js <sayfa> --kaynak-yaz # numara kilidi
 node plan/en-sayfa-uret.js <sayfa> --uygula
 node plan/en-ic-link.js --uygula                # iç bağlantıları İngilizceye çevir
+node plan/en-gorsel-ayir.js --uygula            # GÖRSELLERİ AYRI KOPYA + AYRI AD
 node plan/en-birim.js --uygula                  # sayaç birimi + ondalık ayırıcı
 node plan/en-hreflang.js --uygula               # karşılıklı hreflang
 node plan/en-sitemap.js 2026-09-07 --uygula     # sitemap'e ekle
@@ -167,7 +168,23 @@ HTML etiket adları · schema.org tür adları · **HTML/CSS/JS yorumları**
    **uydurmaz**, `<b>` yedek metninden türetir — çip ile sayaç aynı kelimeyi
    söylesin diye. Statik ondalık virgülü de düzeltir; binlik ayırıcıya
    dokunmaz (Türkçede binlik grubu hep 3 hane: `48.000` → `48,000` doğru).
-9. **Adres haritasında sayfa eksik olabilir.** İki kez oldu: `/hizmetler/`
+9. **Görsel iki dilde AYNI dosya olamaz.** Kullanıcı emri: *"görseller aynı
+   etiketle asla gelmesin, Türkçe ve İngilizce ayrı olsun, panele iki kez
+   yüklenecek; yoksa spam olur, SEO yapamayız."* Sayfa üreticisi görsel
+   yollarını **maskeliyor** (yol maskesi kilidi), yani çeviri sırasında hiç
+   dokunulmuyor — bu yüzden 35 İngilizce sayfanın 62 görselinin **60'ı**
+   Türkçe adlı dosyaya işaret ediyordu ve hiçbir denetim bunu yakalamadı.
+   `plan/en-gorsel-ayir.js` kopyalar + adları çevirir + **sıfır çapraz
+   referans** kaldığını doğrular. Sözlük: `plan/en-gorsel-ad.json`.
+   - Blog görselleri sözlükte değil, **kuralla** türetilir
+     (`gorsel/`→`image/`, `kapak`→`cover`, `govde`→`body`) — 42 yazı aynı desende.
+   - Marka/müşteri logolarında **ad korunur, klasör değişir**: dosya adı
+     markanın kendi adı, marka adı çevrilmez. Ayrı kopya kuralı karşılanıyor.
+   - ⚠ `/assets/` **site kökünün DIŞINDA** (`<kök>/assets`, `<kök>/site`).
+     Göreli yolu site köküne göre hesaplamak `../../assets/…` üretti,
+     doğrusu `../../../assets/…` — ölçüldü, 102 kırık yol. Göreli yol artık
+     gerçek disk yolları üzerinden hesaplanıyor.
+10. **Adres haritasında sayfa eksik olabilir.** İki kez oldu: `/hizmetler/`
    ve `/ai-video-produksiyon/`. İkisi de ancak üretici *"adres haritada yok"*
    deyip durunca ortaya çıktı — yani çeviri dosyası boşuna yazılmıştı.
    `plan/en-harita-eksik.js` aynı boşluğu **önceden** gösterir; tura
