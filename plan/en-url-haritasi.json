@@ -1,0 +1,60 @@
+{
+  "_aciklama": "İNGİLİZCE ADRES HARİTASI — kullanıcının 7 Eyl 2026'da verdiği desene göre. Slug'lar ÇEVRİLİYOR (web-design, social-media-management, video-production), Türkçesi taşınmıyor. ONAY BEKLİYOR.",
+  "_desen": "tasarimmania.com/en/<service>/ · tasarimmania.com/en/blog/<post>/ · tasarimmania.com/en/<corporate>/",
+  "_kullanicinin_verdigi": ["seo", "web-design", "social-media-management", "google-ads", "meta-ads", "video-production", "blog"],
+  "_not": "Kullanıcının listesinde 6 hizmet var; Türkçe tarafta 7 ana hizmet vardı (yapay-zeka eksik). Türkçedeki 27 hizmet sayfasının tamamının İngilizce karşılığı aşağıda önerildi.",
+
+  "hizmetler": {
+    "/seo/":                       { "en": "/en/seo/",                          "kaynak": "kullanıcı" },
+    "/web-tasarim/":               { "en": "/en/web-design/",                   "kaynak": "kullanıcı" },
+    "/sosyal-medya/":              { "en": "/en/social-media-management/",      "kaynak": "kullanıcı" },
+    "/google-ads/":                { "en": "/en/google-ads/",                   "kaynak": "kullanıcı" },
+    "/meta-reklam/":               { "en": "/en/meta-ads/",                     "kaynak": "kullanıcı" },
+    "/video-produksiyon/":         { "en": "/en/video-production/",             "kaynak": "kullanıcı" },
+
+    "/yapay-zeka/":                { "en": "/en/ai-services/",                  "kaynak": "öneri" },
+    "/dijital-pazarlama/":         { "en": "/en/digital-marketing/",            "kaynak": "öneri" },
+    "/performans-pazarlama/":      { "en": "/en/performance-marketing/",        "kaynak": "öneri" },
+    "/mobil-uygulama/":            { "en": "/en/mobile-app-development/",       "kaynak": "öneri" },
+    "/ios-android-uygulama/":      { "en": "/en/ios-android-app-development/",  "kaynak": "öneri" },
+    "/react-native/":              { "en": "/en/react-native-development/",     "kaynak": "öneri" },
+    "/uygulama-arayuz-tasarimi/":  { "en": "/en/app-ui-ux-design/",             "kaynak": "öneri" },
+    "/aso/":                       { "en": "/en/app-store-optimization/",       "kaynak": "öneri" },
+    "/grafik-tasarim/":            { "en": "/en/graphic-design/",               "kaynak": "öneri" },
+    "/teknik-seo/":                { "en": "/en/technical-seo/",                "kaynak": "öneri" },
+    "/seo-icerik/":                { "en": "/en/seo-content-strategy/",         "kaynak": "öneri" },
+    "/yerel-seo/":                 { "en": "/en/local-seo/",                    "kaynak": "öneri" },
+    "/e-ticaret-seo/":             { "en": "/en/ecommerce-seo/",                "kaynak": "öneri" },
+    "/cok-dilli-seo/":             { "en": "/en/multilingual-seo/",             "kaynak": "öneri" },
+    "/reklam-filmi/":              { "en": "/en/commercial-video-production/",  "kaynak": "öneri" },
+    "/urun-videosu/":              { "en": "/en/product-video-production/",     "kaynak": "öneri" },
+    "/reels-video/":               { "en": "/en/short-form-video/",             "kaynak": "öneri" },
+    "/kurumsal-web-sitesi/":       { "en": "/en/corporate-website/",            "kaynak": "öneri" },
+    "/e-ticaret/":                 { "en": "/en/ecommerce-website/",            "kaynak": "öneri" },
+    "/ozel-yazilim/":              { "en": "/en/custom-software-development/",  "kaynak": "öneri" },
+    "/site-bakim/":                { "en": "/en/website-maintenance/",          "kaynak": "öneri" }
+  },
+
+  "kurumsal": {
+    "/hakkimizda/":  { "en": "/en/about/",           "kaynak": "öneri" },
+    "/iletisim/":    { "en": "/en/contact/",         "kaynak": "öneri" },
+    "/blog/":        { "en": "/en/blog/",            "kaynak": "kullanıcı" },
+    "/teklif/":      { "en": "/en/get-a-quote/",     "kaynak": "öneri" },
+    "/referanslar/": { "en": "/en/case-studies/",    "kaynak": "öneri",
+      "not": "'references' İngilizcede Türkçe kalıbının birebir çevirisi olur ve zayıf durur; sektörde karşılığı 'case studies'. Onayınıza bağlı." },
+    "/kvkk/":        { "en": "/en/privacy-policy/",  "kaynak": "öneri",
+      "not": "KVKK Türk mevzuatına özgü; İngilizce sürümde karşılığı genel gizlilik politikasıdır. Metin birebir çeviri DEĞİL, İngilizce ziyaretçi için yeniden yazılmalı." }
+  },
+
+  "blog": {
+    "_kural": "42 yazının her biri /en/blog/<ingilizce-slug>/ altında. Slug'lar İngilizce ODAK KELİMEDEN türetilecek, Türkçe slug'ın çevirisi olmayacak — odak kelimeler İngilizcede farklı.",
+    "_durum": "Slug listesi henüz üretilmedi: İngilizce odak kelime kaynağı kullanıcı kararına bağlı (sektör terimi varsayımı mı, Ahrefs/Semrush verisi mi)."
+  },
+
+  "_acik_kararlar": [
+    "hreflang değeri: yalnız 'en' mi, 'en-GB'/'en-US' gibi ülkeye bağlı mı",
+    "İngilizce odak kelimeler: sektör terimi varsayımı mı, arama hacmi verisi mi",
+    "/en/case-studies/ adı onaylanıyor mu ('references' yerine)",
+    "/en/ai-services/ — Türkçedeki /yapay-zeka/ karşılığı; kullanıcının listesinde yoktu"
+  ]
+}
