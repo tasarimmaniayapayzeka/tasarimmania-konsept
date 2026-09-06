@@ -181,7 +181,18 @@ const blokYuttuSet = new Set(C.kayitlar.filter((k) => blokOncesiVar.has(k.no) &&
 const donguBasiVar = new Set(C.kayitlar.filter((k) => varMi(k.metin)).map((k) => k.no));
 
 /* ═══ 2. METİN DEĞİŞTİRME — uzundan kısaya ═══ */
-const sirali = [...C.kayitlar].sort((a, b) => b.metin.length - a.metin.length);
+/* ⚠ TEK SIRA — ölçülmüş bozulma (7 Eyl 2026, /hakkimizda/): kayıtlar ve kabuk
+   sözlüğü AYRI turlarda uygulanıyordu. Her tur kendi içinde uzundan kısaya
+   sıralıydı ama turlar arasında böyle bir garanti yoktu. Kayıt 38
+   ("tek çatı altında") kabuktaki uzun altbilgi cümlesinin içinde geçiyor ve
+   önce çalıştığı için onu parçaladı:
+     "Web, mobil, reklam, video ve SEO’yu under one roof birleştiren Istanbul…"
+   Çözüm: iki sözlük TEK listede toplanıp birlikte sıralanıyor. */
+const KABUK = JSON.parse(fs.readFileSync(path.join(__dirname, 'en-kabuk-ceviri.json'), 'utf8')).ceviri;
+const sirali = [
+  ...C.kayitlar.map((k) => ({ tip: 'kayit', metin: k.metin, k })),
+  ...Object.entries(KABUK).map(([tr, en]) => ({ tip: 'kabuk', metin: tr, en })),
+].sort((a, b) => b.metin.length - a.metin.length);
 let degisen = 0, esnekEslesen = 0, blokYuttu = 0, ortusen = 0;
 const bulunamayan = []; const blokEksik = [];
 /* ⚠ DEĞİŞTİRME İŞLEVLE: İngilizce metinde "$&" ya da "$1" geçerse replace
@@ -191,7 +202,38 @@ const bulunamayan = []; const blokEksik = [];
    ana sayfanın tüm widget'ları sessizce durdu, konsolda iz bırakmadan.
    Bu yüzden script kayıtları 'tırnak + ham + tırnak' bütünü olarak değişir ve
    çeviri içindeki tırnak kaçırılır. Girinti ham'dan aynen taşınır. */
-for (const k of sirali) {
+/* ═══ YOL ÖZNİTELİKLERİNİ MASKELE ═══
+   ⚠ ÖLÇÜLMÜŞ BOZULMA (/hakkimizda/): kayıt 40 ("marka" → "worked with") bir
+   dosya adının içine girdi: assets/logo/marka-yatay-optik.png →
+   "logo/worked with-yatay-optik.png". Kelime sınırı koruması yetmedi çünkü
+   "marka" iki yanında "/" ve "-" ile duruyordu — ikisi de harf değil.
+   href/src/srcset ve url(...) çeviriye KAPALI: içlerinde çevrilecek insan
+   metni yok, yollar zaten 5. adımda yeniden hesaplanıyor. */
+const yolKasa = [];
+const YER = (i) => `@@YOL${i}@@`;
+h = h.replace(/(\s(?:href|src|srcset)=")([^"]*)(")/g, (t, a, v, b) => {
+  yolKasa.push(v); return a + YER(yolKasa.length - 1) + b;
+}).replace(/url\((['"]?)([^)]*?)\1\)/g, (t, q, v) => {
+  yolKasa.push(v); return `url(${q}${YER(yolKasa.length - 1)}${q})`;
+});
+
+let kabukDegisen = 0; const kabukBulunmayan = [];
+for (const g of sirali) {
+  /* --- kabuk girdisi: menü/altbilgi, 79 sayfada ortak --- */
+  if (g.tip === 'kabuk') {
+    const d = sinirli(g.metin, false);
+    if (d.test(h)) { d.lastIndex = 0; h = h.replace(d, () => g.en); kabukDegisen++; continue; }
+    /* ⚠ BOŞLUK-ESNEK YEDEK — ölçülmüş hata (/hakkimizda/): altbilgi cümlesi
+       kaynakta iki satıra bölünmüş ve satır sonu CRLF. Sözlükteki tek satırlı
+       (ve \n'li) biçim birebir eşleşmiyordu; cümle çevrilmeden kaldı ve içindeki
+       "tek çatı altında" parçası ayrı bir kayıtla değişip cümleyi yarı Türkçe
+       yarı İngilizce bıraktı. Kayıtlarda bu yedek zaten vardı, kabukta yoktu. */
+    const esnekK = sinirli(g.metin, true);
+    if (esnekK.test(h)) { esnekK.lastIndex = 0; h = h.replace(esnekK, () => g.en); kabukDegisen++; esnekEslesen++; continue; }
+    kabukBulunmayan.push(g.metin);
+    continue;
+  }
+  const k = g.k;
   if (k.tur === 'script' && k.tirnak) {
     const on = k.ham.match(/^\s*/)[0], arka = k.ham.match(/\s*$/)[0];
     const aranan = k.tirnak + k.ham + k.tirnak;
@@ -218,22 +260,24 @@ for (const k of sirali) {
   /* 3) Hiç yoktu → çıkarımdan sonra sayfa değişmiş. Gerçek sorun. */
   bulunamayan.push(k);
 }
+/* maskeyi kaldır — bundan sonrası yolları gerçekten hesaplayacak */
+{
+  const kalanMaske = (h.match(/@@YOL\d+@@/g) || []).length;
+  h = h.replace(/@@YOL(\d+)@@/g, (t, i) => yolKasa[+i]);
+  const sonra = (h.match(/@@YOL\d+@@/g) || []).length;
+  if (kalanMaske !== yolKasa.length || sonra) {
+    console.error(`\n  ✗ ÜRETİM DURDU — yol maskesi bozuldu: ${yolKasa.length} maskelendi, ${kalanMaske} bulundu, ${sonra} geri kaldı`);
+    console.error('     Bir çeviri maskenin içine yazmış olabilir.\n');
+    process.exit(1);
+  }
+}
+
 if (blokEksik.length) {
   console.error(`\n  ✗ ÜRETİM DURDU — blok ${blokEksik.length} kaydı yuttu, İngilizcesi sayfada yok\n`);
   blokEksik.forEach((k) => console.error(`     ${String(k.no).padStart(3)}. "${k.metin.slice(0, 44)}" → "${String(k.en).slice(0, 44)}"`));
   process.exit(1);
 }
-/* Kabuk (menü/altbilgi) — 77 sayfada ortak, ayrı dosyada bir kez çevrildi.
-   ⚠ UZUNDAN KISAYA: "Blog" gibi kısa dizgeler uzunların içinde geçebilir. */
-const KABUK = JSON.parse(fs.readFileSync(path.join(__dirname, 'en-kabuk-ceviri.json'), 'utf8')).ceviri;
-let kabukDegisen = 0; const kabukBulunmayan = [];
-for (const [tr, en] of Object.entries(KABUK).sort((a, b) => b[0].length - a[0].length)) {
-  const d = sinirli(tr, false);
-  if (!d.test(h)) { kabukBulunmayan.push(tr); continue; }
-  d.lastIndex = 0;
-  h = h.replace(d, () => en);
-  kabukDegisen++;
-}
+/* Kabuk (menü/altbilgi) artık yukarıdaki TEK sırada işleniyor — ayrı tur yok. */
 
 /* ═══ 3. DİL VE ADRES YERELLEŞTİRME ═══ */
 h = h.replace(/<html lang="tr"/, '<html lang="en"')
