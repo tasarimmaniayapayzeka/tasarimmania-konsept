@@ -161,9 +161,16 @@ const blokOncesiVar = new Set(C.kayitlar.filter((k) => varMi(k.metin)).map((k) =
   const blokDosya = path.join(__dirname, `en-blok-${AD}.json`);
   if (fs.existsSync(blokDosya)) {
     const BLOK = JSON.parse(fs.readFileSync(blokDosya, 'utf8')).bloklar || {};
+    /* ⚠ SATIR SONU DOSYADAN DOSYAYA DEĞİŞİYOR — ölçüldü: /iletisim/ CRLF,
+       /teklif/ LF. Blok anahtarını tek bir biçimde yazmak, öteki dosyada
+       "0 kez geçiyor" demek. Eşleşme satır sonundan bağımsız yapılıyor:
+       anahtardaki her satır sonu \r?\n olarak aranıyor, karşılık ise
+       DOSYANIN KENDİ satır sonuyla yazılıyor. */
+    const dosyaSS = h.includes('\r\n') ? '\r\n' : '\n';
+    const blokDeseni = (s) => new RegExp(s.split(/\r?\n/).map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('\\r?\\n'), 'g');
     const hata = [];
-    for (const [tr, en] of Object.entries(BLOK)) {
-      const n = h.split(tr).length - 1;
+    for (const tr of Object.keys(BLOK)) {
+      const n = (h.match(blokDeseni(tr)) || []).length;
       if (n !== 1) hata.push({ tr, n });
     }
     if (hata.length) {
@@ -171,7 +178,10 @@ const blokOncesiVar = new Set(C.kayitlar.filter((k) => varMi(k.metin)).map((k) =
       hata.forEach((x) => console.error(`     ${x.n} kez: "${x.tr.slice(0, 72)}…"`));
       process.exit(1);
     }
-    for (const [tr, en] of Object.entries(BLOK)) { h = h.split(tr).join(en); blokDegisen++; }
+    for (const [tr, en] of Object.entries(BLOK)) {
+      h = h.replace(blokDeseni(tr), () => en.split(/\r?\n/).join(dosyaSS));
+      blokDegisen++;
+    }
   }
 }
 /* Bloğun gerçekten yuttuğu kayıtlar: önce vardı, blok sonrası yok. */

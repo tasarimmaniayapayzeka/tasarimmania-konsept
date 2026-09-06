@@ -1,0 +1,19 @@
+{
+  "_aciklama": "BLOK DEĞİŞİMİ — /teklif/. Bütçe bandı ve kapsam kartı JS'te sayılarla birleşiyor. Her blok sayfada TAM 1 kez geçmeli; üretici sayar, tutmazsa durur.",
+
+  "_neden": {
+    "para birimi yer değiştiriyor": "Türkçede sayı önce, birim sonra: '45 – 90 bin ₺'. İngilizcede sembol öne geçer: '₺45k – 90k'. Dizgeleri tek tek çevirmek ('bin ₺' → 'k ₺') sayının yanlış tarafında birim bırakırdı.",
+    "'hafta' ve 'Durum' çıkarılmıyordu": "Boşluksuz ve şapkasız tek kelimeler süzgeçte 'değişken adı' sayılıyor. Blok satırın tamamını değiştirdiği için ikisi de karşılanıyor.",
+    "BUTCE dizisinin ortası çıkarılmıyordu": "'50 – 150 bin ₺' ve '150 – 400 bin ₺' rakamla başladığı için insan-metni kuralına takılmıyordu; yalnız 'altı'/'üzeri' olanlar çıkmıştı. Yarısı çevrilmiş bir seçenek listesi olurdu."
+  },
+
+  "bloklar": {
+    "  var BUTCE = [\r\n    { id:'a', ad:'50 bin ₺ altı' }, { id:'b', ad:'50 – 150 bin ₺' },\r\n    { id:'c', ad:'150 – 400 bin ₺' }, { id:'d', ad:'400 bin ₺ üzeri' },\r\n    { id:'x', ad:'Henüz netleştirmedik' }\r\n  ];": "  var BUTCE = [\r\n    { id:'a', ad:'Under ₺50k' }, { id:'b', ad:'₺50k – 150k' },\r\n    { id:'c', ad:'₺150k – 400k' }, { id:'d', ad:'Over ₺400k' },\r\n    { id:'x', ad:'Not settled yet' }\r\n  ];",
+
+    "      miniBantDeger.textContent = h.alt + '–' + h.ust + ' bin ₺ · ' + h.haftaAlt + '–' + h.haftaUst + ' hafta';": "      miniBantDeger.textContent = '₺' + h.alt + 'k–' + h.ust + 'k · ' + h.haftaAlt + '–' + h.haftaUst + ' weeks';",
+
+    "    var satir = '';\r\n    satir += sat('Modüller', adlar(HIZMET, secim.hizmet));\r\n    if (secim.durum) satir += sat('Durum', DURUM.filter(function(x){return x.id===secim.durum;})[0].ad);\r\n    if (secim.kapsam.length) satir += sat('Ek kapsam', adlar(KAPSAM, secim.kapsam));\r\n    satir += sat('Tahmini süre', h.haftaAlt + '–' + h.haftaUst + ' hafta');": "    var satir = '';\r\n    satir += sat('Modules', adlar(HIZMET, secim.hizmet));\r\n    if (secim.durum) satir += sat('Situation', DURUM.filter(function(x){return x.id===secim.durum;})[0].ad);\r\n    if (secim.kapsam.length) satir += sat('Add-ons', adlar(KAPSAM, secim.kapsam));\r\n    satir += sat('Estimated time', h.haftaAlt + '–' + h.haftaUst + ' weeks');",
+
+    "      '<div class=\"kart-bant\"><span class=\"etk\">Bütçe bandı</span>' +\r\n      '<b>' + h.alt + ' – ' + h.ust + ' bin ₺</b>' +\r\n      '<small>' + (h.aylikVar ? 'Aylık yönetim kalemleri ayrıca aylıklandırılır. ' : '') +\r\n      'Bu bir bağlayıcı teklif değildir; kapsam netleştikçe daralır.</small></div>';": "      '<div class=\"kart-bant\"><span class=\"etk\">Budget band</span>' +\r\n      '<b>₺' + h.alt + 'k – ' + h.ust + 'k</b>' +\r\n      '<small>' + (h.aylikVar ? 'Monthly management items are billed separately each month. ' : '') +\r\n      'This is not a binding quote; the range narrows as the scope is settled.</small></div>';"
+  }
+}
