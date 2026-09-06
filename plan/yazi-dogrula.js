@@ -32,6 +32,7 @@ const ODAKLAR = {
   'urun-videosu-studyo-mu-mekan-mi': 'ürün videosu çekimi',
   'e-ticaret-urun-videosu-formatlari': 'ürün videosu formatı',
   'yapay-zeka-ile-video-uretimi': 'yapay zeka video',
+  'kamerasiz-urun-videosu': 'kamerasız video',
 };
 
 const ESIK = [
