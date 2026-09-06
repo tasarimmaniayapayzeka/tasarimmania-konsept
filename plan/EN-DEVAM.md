@@ -1,15 +1,16 @@
 # İngilizce sürüm — devam notu
 
-**Son güncelleme:** 7 Eylül 2026 · **28 İngilizce sayfa canlı**, 100 sayfa toplam
+**Son güncelleme:** 7 Eylül 2026 · **29 İngilizce sayfa canlı**, 100 sayfa toplam
 
 Biten: `/en/` · `about` · `contact` · `services` · `blog` · `get-a-quote` ·
 `web-design` · `mobile-app-development` · `digital-marketing` · `seo` ·
 `video-production` · `graphic-design` · `corporate-website` ·
 `ecommerce-website` · `ai-services` · `custom-software-development` ·
-`website-maintenance` · `ios-android-app-development` · `react-native-development` · `app-ui-ux-design` · `app-store-optimization` · `google-ads` · `meta-ads` · `performance-marketing` · `social-media-management` · `commercial-video-production` · `product-video-production` · `short-form-video`
+`website-maintenance` · `ios-android-app-development` · `react-native-development` · `app-ui-ux-design` · `app-store-optimization` · `google-ads` · `meta-ads` · `performance-marketing` · `social-media-management` · `commercial-video-production` · `product-video-production` · `short-form-video` · `ai-video-production`
 
-**Modül 01 (Web & Yazılım), Modül 02 (Mobil Uygulama) ve Modül 03
-(Meta & Google Ads) TAMAM.** Kalan iki modül: 04 Video, 05 SEO.
+**Modül 01 (Web & Yazılım), Modül 02 (Mobil Uygulama), Modül 03
+(Meta & Google Ads) ve Modül 04 (Video Prodüksiyon) TAMAM.**
+Kalan tek modül: **05 SEO** — beş alt hizmet.
 
 Bu dosya bir sonraki oturum için. Hat kurulu ve çalışıyor; burada yazan
 kararlara uymak zorunlu — uyulmazsa site iki farklı İngilizce konuşur.
@@ -19,6 +20,7 @@ kararlara uymak zorunlu — uyulmazsa site iki farklı İngilizce konuşur.
 ## 1. Hat: bir sayfa nasıl çevrilir
 
 ```bash
+node plan/en-harita-eksik.js                    # haritada eksik sayfa var mı
 node plan/en-metin-cikar.js <sayfa> --json      # C:/Temp/en-<sayfa>.json
 node plan/en-kayit-goster.js <sayfa>            # kayıtları oku
 # plan/en-ceviri-<sayfa>.json yaz  (anahtar = kayıt numarası)
@@ -50,7 +52,7 @@ Windows yoluna çevirir.
 
 ## 2. Terim sözlüğü — ZORUNLU
 
-Bu kararlar 28 sayfada uygulandı. Değiştirmeyin.
+Bu kararlar 29 sayfada uygulandı. Değiştirmeyin.
 
 ### Marka vaadi
 | Türkçe | İngilizce | Neden |
@@ -157,16 +159,21 @@ HTML etiket adları · schema.org tür adları · **HTML/CSS/JS yorumları**
    **uydurmaz**, `<b>` yedek metninden türetir — çip ile sayaç aynı kelimeyi
    söylesin diye. Statik ondalık virgülü de düzeltir; binlik ayırıcıya
    dokunmaz (Türkçede binlik grubu hep 3 hane: `48.000` → `48,000` doğru).
+9. **Adres haritasında sayfa eksik olabilir.** İki kez oldu: `/hizmetler/`
+   ve `/ai-video-produksiyon/`. İkisi de ancak üretici *"adres haritada yok"*
+   deyip durunca ortaya çıktı — yani çeviri dosyası boşuna yazılmıştı.
+   `plan/en-harita-eksik.js` aynı boşluğu **önceden** gösterir; tura
+   başlamadan çalıştırın. Şu an diskteki 34 Türkçe sayfanın 34'ü haritada.
 
 ---
 
 ## 4. Kalan iş
 
-### Hizmet alt sayfaları — kalan 6 sayfa, ~10.100 kelime · Modül 04 ve 05
-*(Modül 01, 02 ve 03 alt hizmetlerinin tamamı bitti)*
+### Hizmet alt sayfaları — kalan 5 sayfa, ~7.900 kelime · yalnız Modül 05 (SEO)
+*(Modül 01, 02, 03 ve 04 alt hizmetlerinin tamamı bitti)*
 
 
-`ai-video-produksiyon` (169/1727) ·
+
 `teknik-seo` (168/1645) · `seo-icerik` (162/1509) · `yerel-seo` (156/1590) ·
 `e-ticaret-seo` (153/1588) · `cok-dilli-seo` (170/1553)
 
