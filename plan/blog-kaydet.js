@@ -76,7 +76,8 @@ if (dizin.includes(`href="./${C.slug}/"`)) {
     + '<path d="M5 12h14M13 6l6 6-6 6"/></svg>';
   const ozet = C.kartOzet || C.yazi.metaAciklama;
   const kart =
-`        <a class="bl-k rv" data-kat="${kacir(kategori)}" style="--k:${renk}" href="./${C.slug}/">
+`        <li class="bl-i" data-kat="${kacir(kategori)}">
+          <a class="bl-k rv" style="--k:${renk}" href="./${C.slug}/">
           <span class="kat">${kacir(kategori)}</span>
           <h2>${kacir(C.yazi.h1)}</h2>
           <p>${kacir(ozet)}</p>
@@ -89,7 +90,7 @@ if (dizin.includes(`href="./${C.slug}/"`)) {
   /* Kartlar tarihe göre ARTAN sırada; yeni kart kendi tarihinden sonraki ilk kartın
      ÖNÜNE girer. Tarih karşılaştırması görünen metinden değil, kart sırasından
      türetiliyor: mevcut kartların tarihini ay adından çözüp sayıya çeviriyoruz. */
-  const kartlar = [...dizin.matchAll(/ {8}<a class="bl-k rv"[\s\S]*?<\/a>\n/g)];
+  const kartlar = [...dizin.matchAll(/ {8}<li class="bl-i"[\s\S]*?<\/li>\n/g)];
   const tarihi = (k) => {
     const m = k.match(/<span class="tarih">(\d+) (\S+) (\d{4})/);
     if (!m) return Infinity;

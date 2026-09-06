@@ -35,7 +35,9 @@ const TURLAR = [
   ['geo-onar-15-hizmet-kaynak.js', 'hizmet sayfası dış kaynağı'],
   ['geo-onar-16-kaynak-bicim.js', 'kaynak bağlantısı görünümü'],
   ['geo-onar-3-sema.js', 'şema grafiği'],
+  ['geo-onar-17-liste-yapisi.js', 'liste yapısı (blog ul/li · teklif ol)'],
   ['geo-onar-7-gorsel.js', 'görsel öznitelikleri + sitemap'],
+  ['akis-uret.js', 'RSS + Atom akışı'],
 ];
 
 /* ⚠ geo-onar-13-kaynak.js BU LİSTEDE DEĞİL, bilerek: o betik blog

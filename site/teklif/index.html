@@ -65,14 +65,14 @@
   padding:clamp(30px,4vw,54px) 0 clamp(50px,6vw,84px)}
 .shr-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);overflow:hidden}
 
-.shr-ray{display:flex;gap:0;border-bottom:1px solid var(--hair);background:rgba(255,255,255,.015)}
-.shr-ray div{flex:1;padding:13px 8px;text-align:center;font-family:var(--mono);font-size:10px;
+.shr-ray{list-style:none;margin:0;padding:0;display:flex;gap:0;border-bottom:1px solid var(--hair);background:rgba(255,255,255,.015)}
+.shr-ray li{flex:1;padding:13px 8px;text-align:center;font-family:var(--mono);font-size:10px;
   letter-spacing:.1em;text-transform:uppercase;color:var(--muted);position:relative;transition:.3s}
-.shr-ray div::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:0;
+.shr-ray li::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:0;
   background:var(--acc);transition:width .45s var(--ease)}
-.shr-ray div.gecti{color:var(--fg-dim)}
-.shr-ray div.gecti::after,.shr-ray div.aktif::after{width:100%}
-.shr-ray div.aktif{color:var(--acc)}
+.shr-ray li.gecti{color:var(--fg-dim)}
+.shr-ray li.gecti::after,.shr-ray li.aktif::after{width:100%}
+.shr-ray li.aktif{color:var(--acc)}
 
 .shr-govde{padding:clamp(22px,3vw,34px)}
 .adim{display:none}
@@ -183,8 +183,8 @@
 @media(max-width:760px){
   .nav-links,.nav-tel{display:none}
   .burger{display:block}
-  .shr-ray div{font-size:0;padding:11px 4px}
-  .shr-ray div::before{content:attr(data-no);font-size:10px}
+  .shr-ray li{font-size:0;padding:11px 4px}
+  .shr-ray li::before{content:attr(data-no);font-size:10px}
   .shr-alt .ileri{width:100%;justify-content:center;order:1}
   .shr-alt .geri{order:2}
 }
@@ -303,13 +303,13 @@
 
     <!-- ---------- SİHİRBAZ ---------- -->
     <div class="shr-kutu">
-      <div class="shr-ray" id="shrRay" role="list">
-        <div data-no="1" class="aktif" role="listitem">Hizmet</div>
-        <div data-no="2" role="listitem">Durum</div>
-        <div data-no="3" role="listitem">Kapsam</div>
-        <div data-no="4" role="listitem">Bütçe</div>
-        <div data-no="5" role="listitem">İletişim</div>
-      </div>
+      <ol class="shr-ray" id="shrRay">
+        <li data-no="1" class="aktif">Hizmet</li>
+        <li data-no="2">Durum</li>
+        <li data-no="3">Kapsam</li>
+        <li data-no="4">Bütçe</li>
+        <li data-no="5">İletişim</li>
+      </ol>
 
       <form class="shr-govde" id="shrForm" novalidate>
 

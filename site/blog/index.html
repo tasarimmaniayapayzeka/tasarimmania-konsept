@@ -8,6 +8,8 @@
 <title>Blog — Web, SEO ve Reklam Rehberleri | TasarımMania</title>
 <meta name="description" content="Web tasarım, SEO, e-ticaret, reklam yönetimi ve grafik tasarım üzerine uygulanabilir rehberler. Ajans deneyiminden çıkan, ölçüme dayalı içerikler.">
 <link rel="canonical" href="https://www.tasarimmania.com/blog/">
+<link rel="alternate" type="application/rss+xml" title="TasarımMania Blog (RSS)" href="./rss.xml">
+<link rel="alternate" type="application/atom+xml" title="TasarımMania Blog (Atom)" href="./atom.xml">
 <meta name="author" content="TasarımMania">
 <meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
 <meta name="theme-color" content="#0B0D12">
@@ -85,6 +87,9 @@
 .bl-filtre button:hover{color:var(--fg-dim);border-color:var(--hair-strong)}
 .bl-filtre button.acik{color:var(--acc);border-color:var(--acc);background:rgba(var(--acc-rgb),.10)}
 .bl-izgara{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.bl-izgara{list-style:none;padding:0;margin:0}
+.bl-i{display:flex}
+.bl-i>.bl-k{flex:1}
 .bl-k{display:flex;flex-direction:column;border:1px solid var(--hair);border-radius:var(--r-lg);
   background:var(--panel);padding:24px 22px;color:inherit;transition:.35s var(--ease);position:relative;overflow:hidden}
 .bl-k::after{content:"";position:absolute;right:-70px;top:-70px;width:180px;height:180px;border-radius:50%;
@@ -514,8 +519,9 @@
         <button type="button" class="" data-filtre="Mobil">Mobil</button>
         <button type="button" class="" data-filtre="Video">Video</button>
       </div>
-      <div class="bl-izgara" id="izgara">
-        <a class="bl-k rv" data-kat="E-Ticaret" style="--k:0,229,255" href="./e-ticaret-yazilimi/">
+      <ul class="bl-izgara" id="izgara">
+        <li class="bl-i" data-kat="E-Ticaret">
+          <a class="bl-k rv" style="--k:0,229,255" href="./e-ticaret-yazilimi/">
           <span class="kat">E-Ticaret</span>
           <h2>E-ticaret Yazılımı Seçimi: Hangi Altyapı Hangi İşletmeye Uygun?</h2>
           <p>Hazır paket, abonelikli platform ve ısmarlama geliştirme arasındaki farkı beş somut kriterle ayırıyoruz: katalog büyüklüğü, entegrasyon, maliyet yapısı, sahiplik ve taşınabilirlik.</p>
@@ -523,8 +529,10 @@
             <span class="tarih">1 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Seo" style="--k:166,255,0" href="./e-ticaret-seo/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Seo">
+          <a class="bl-k rv" style="--k:166,255,0" href="./e-ticaret-seo/">
           <span class="kat">Seo</span>
           <h2>E-Ticaret SEO Ürün ve Kategori Sayfalarını Nasıl Sıralatır?</h2>
           <p>Ürün ve kategori sayfalarını sıralatan mekanizmayı; talep haritası, sayfa hiyerarşisi ve iç bağlantı akışını anlatıyoruz.</p>
@@ -532,8 +540,10 @@
             <span class="tarih">3 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Grafik Tasarım" style="--k:0,229,255" href="./grafik-tasarim-turleri/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Grafik Tasarım">
+          <a class="bl-k rv" style="--k:0,229,255" href="./grafik-tasarim-turleri/">
           <span class="kat">Grafik Tasarım</span>
           <h2>Kurumsal Grafik Tasarım Hangi Alanları Kapsar?</h2>
           <p>Logo ve kurumsal kimlikten ambalaja, dijital görsellerden fuar materyaline kurumsal grafik tasarımın tüm çıktı yelpazesi.</p>
@@ -541,8 +551,10 @@
             <span class="tarih">5 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Sosyal Medya" style="--k:255,176,32" href="./sosyal-medya-stratejileri/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Sosyal Medya">
+          <a class="bl-k rv" style="--k:255,176,32" href="./sosyal-medya-stratejileri/">
           <span class="kat">Sosyal Medya</span>
           <h2>Sosyal Medya Stratejisi Nedir? Platform Seçimi Neye Göre Yapılır?</h2>
           <p>Hedef kitle, platform seçimi ve içerik ekseni; beş adımlık strateji rotasını KOBİ bütçesiyle nasıl kurarsınız?</p>
@@ -550,8 +562,10 @@
             <span class="tarih">7 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Seo" style="--k:166,255,0" href="./yerel-seo/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Seo">
+          <a class="bl-k rv" style="--k:166,255,0" href="./yerel-seo/">
           <span class="kat">Seo</span>
           <h2>Yerel SEO ile Haritalarda Görünürlüğe Giden Yol</h2>
           <p>Google İşletme Profili, NAP tutarlılığı ve müşteri yorumlarıyla haritalarda ve konum bazlı aramada görünürlüğe giden rota.</p>
@@ -559,8 +573,10 @@
             <span class="tarih">9 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Web Tasarım" style="--k:0,229,255" href="./e-ticaret-web-tasarimi/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Web Tasarım">
+          <a class="bl-k rv" style="--k:0,229,255" href="./e-ticaret-web-tasarimi/">
           <span class="kat">Web Tasarım</span>
           <h2>E-Ticaret Sitesi Tasarımı: Hazır Tema mı, Özel Tasarım mı?</h2>
           <p>Hazır tema mı özel tasarım mı? Beş yıllık maliyet projeksiyonuyla doğru yatırımı birlikte hesaplıyoruz.</p>
@@ -568,8 +584,10 @@
             <span class="tarih">11 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Dijital Pazarlama" style="--k:255,176,32" href="./e-posta-pazarlama/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Dijital Pazarlama">
+          <a class="bl-k rv" style="--k:255,176,32" href="./e-posta-pazarlama/">
           <span class="kat">Dijital Pazarlama</span>
           <h2>E-Posta Pazarlama Stratejisi: Doğru Gönderim Zamanı Var mı?</h2>
           <p>Doğru gönderim zamanı, sıklık ve otomasyon akışlarıyla e-posta pazarlamanızın zamanlama mekanizmasını kuruyoruz.</p>
@@ -577,8 +595,10 @@
             <span class="tarih">13 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Seo" style="--k:166,255,0" href="./teknik-seo/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Seo">
+          <a class="bl-k rv" style="--k:166,255,0" href="./teknik-seo/">
           <span class="kat">Seo</span>
           <h2>Teknik SEO Denetimi Sitenizde Neleri Ortaya Çıkarır?</h2>
           <p>Tarama, indeksleme, site hızı ve Core Web Vitals; teknik SEO denetiminin ölçtüğü bulguları anlatıyoruz.</p>
@@ -586,8 +606,10 @@
             <span class="tarih">15 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="E-Ticaret" style="--k:0,229,255" href="./kullanici-deneyimi/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="E-Ticaret">
+          <a class="bl-k rv" style="--k:0,229,255" href="./kullanici-deneyimi/">
           <span class="kat">E-Ticaret</span>
           <h2>E-Ticaret Kullanıcı Deneyimi: Sepete Giden Yol Nasıl Kısalır?</h2>
           <p>Ana sayfadan ödemeye kısalan bir rota: e-ticaret kullanıcı deneyimini beş durakta iyileştiren 10 adımlık liste.</p>
@@ -595,8 +617,10 @@
             <span class="tarih">17 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Seo" style="--k:166,255,0" href="./seo-icin-icerik-stratejileri/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Seo">
+          <a class="bl-k rv" style="--k:166,255,0" href="./seo-icin-icerik-stratejileri/">
           <span class="kat">Seo</span>
           <h2>SEO İçerik Stratejisinde İçerik Takvimi Neden Belirleyicidir?</h2>
           <p>SEO içerik stratejisinde içerik takvimi, yayın sıklığı ve konu önceliklendirme zamanlamasının organik görünürlüğünüzü nasıl belirlediğini anlatıyoruz.</p>
@@ -604,8 +628,10 @@
             <span class="tarih">19 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Grafik Tasarım" style="--k:0,229,255" href="./grafik-tasarim-sureci/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Grafik Tasarım">
+          <a class="bl-k rv" style="--k:0,229,255" href="./grafik-tasarim-sureci/">
           <span class="kat">Grafik Tasarım</span>
           <h2>Grafik Tasarım Süreci Kaç Aşamada Tamamlanır?</h2>
           <p>Brief'ten teslime grafik tasarım süreci kaç aşamada biter? Her adımın gerçekçi süresini, gecikme nedenlerini ve net bir takvim planını adım adım anlatıyoru</p>
@@ -613,8 +639,10 @@
             <span class="tarih">21 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Dijital Pazarlama" style="--k:255,176,32" href="./google-ads-ve-ppc/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Dijital Pazarlama">
+          <a class="bl-k rv" style="--k:255,176,32" href="./google-ads-ve-ppc/">
           <span class="kat">Dijital Pazarlama</span>
           <h2>Google Ads Reklam Yönetimi mi, Organik Büyüme mi? Maliyet Kıyası</h2>
           <p>Google Ads reklam yönetimi ile organik büyümenin maliyetini kıyasladık: tıklama maliyeti, aylık bütçe planı ve kanal başına gider yapısı tek bir tabloda.</p>
@@ -622,8 +650,10 @@
             <span class="tarih">23 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Mobil" style="--k:0,229,255" href="./mobil-uygulama-gelistirme-maliyeti/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Mobil">
+          <a class="bl-k rv" style="--k:0,229,255" href="./mobil-uygulama-gelistirme-maliyeti/">
           <span class="kat">Mobil</span>
           <h2>Mobil Uygulama Geliştirme Maliyeti Neye Göre Değişir?</h2>
           <p>Uygulama bütçesini hareket ettiren beş kalemi fiyat vermeden açıyoruz: ekran ve durum yoğunluğu, platform sayısı, entegrasyon derinliği, tasarım özgünlüğü ve yayın sonrası bakım.</p>
@@ -631,8 +661,10 @@
             <span class="tarih">24 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Seo" style="--k:166,255,0" href="./uluslararasi-seo-nasil-yapilir/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Seo">
+          <a class="bl-k rv" style="--k:166,255,0" href="./uluslararasi-seo-nasil-yapilir/">
           <span class="kat">Seo</span>
           <h2>Çok Dilli SEO ve Uluslararası Kurulum: hreflang ve URL Yapısı Rehberi</h2>
           <p>Çok dilli SEO kurulumu nasıl yapılır? ccTLD ile alt dizin arasındaki fark, hreflang etiketleri ve sitemap düzeni için 8 adımlık uygulama listesi bu rehberd</p>
@@ -640,8 +672,10 @@
             <span class="tarih">25 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Mobil" style="--k:0,229,255" href="./mobil-uygulama-yaptirma-sorulari/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Mobil">
+          <a class="bl-k rv" style="--k:0,229,255" href="./mobil-uygulama-yaptirma-sorulari/">
           <span class="kat">Mobil</span>
           <h2>Mobil Uygulama Yaptırmadan Önce Hangi Sorular Sorulur?</h2>
           <p>Uygulama yaptırmadan önce yanıtlanması gereken soruları sırayla açıyoruz: çözülen sorun, kullanım sıklığı, uygulama mı site mi kararı, veri sahipliği ve kod devri.</p>
@@ -649,8 +683,10 @@
             <span class="tarih">26 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="E-Ticaret" style="--k:0,229,255" href="./e-ticaret-urun-fotograflari/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="E-Ticaret">
+          <a class="bl-k rv" style="--k:0,229,255" href="./e-ticaret-urun-fotograflari/">
           <span class="kat">E-Ticaret</span>
           <h2>E-Ticaret Ürün Görseli Satışı Gerçekten Etkiler mi?</h2>
           <p>E-ticaret ürün görseli satın alma kararını nasıl etkiler? Açı, ışık ve bağlam farkını, kare setinizi denetleme adımlarını ve ölçüm sinyallerini anlatıyoruz</p>
@@ -658,8 +694,10 @@
             <span class="tarih">27 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Mobil" style="--k:0,229,255" href="./mobil-uygulama-gelistirme-sureci/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Mobil">
+          <a class="bl-k rv" style="--k:0,229,255" href="./mobil-uygulama-gelistirme-sureci/">
           <span class="kat">Mobil</span>
           <h2>Mobil Uygulama Geliştirme Süreci Kaç Aşamadan Oluşur?</h2>
           <p>Keşiften mağaza yayınına kadar beş aşamayı, her birinin ne kadar sürdüğünü ve takvimi asıl neyin uzattığını sırayla açıyoruz.</p>
@@ -667,8 +705,10 @@
             <span class="tarih">28 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Seo" style="--k:166,255,0" href="./off-page-seo/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Seo">
+          <a class="bl-k rv" style="--k:166,255,0" href="./off-page-seo/">
           <span class="kat">Seo</span>
           <h2>Backlink Çalışması Sıralamayı Ne Kadar Sürede Etkiler?</h2>
           <p>Backlink çalışması sıralamayı ne kadar sürede etkiler? Keşif, doğrulama ve yerleşme aşamalarıyla gerçekçi bir zaman çizgisi ve beklenti yönetimi rehberi.</p>
@@ -676,8 +716,10 @@
             <span class="tarih">29 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Mobil" style="--k:0,229,255" href="./native-mi-cross-platform-mi/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Mobil">
+          <a class="bl-k rv" style="--k:0,229,255" href="./native-mi-cross-platform-mi/">
           <span class="kat">Mobil</span>
           <h2>Native mi Cross-Platform mı? Uygulama Mimarisi Seçimi</h2>
           <p>Native ile tek kod tabanı arasındaki farkı mekanizmasıyla açıyoruz: ekranı kim çiziyor, donanıma kim erişiyor, performans gerçekte nerede ayrışıyor.</p>
@@ -685,8 +727,10 @@
             <span class="tarih">30 Eylül 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Sosyal Medya" style="--k:255,176,32" href="./sosyal-medya-reklam-yonetimi/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Sosyal Medya">
+          <a class="bl-k rv" style="--k:255,176,32" href="./sosyal-medya-reklam-yonetimi/">
           <span class="kat">Sosyal Medya</span>
           <h2>Sosyal Medya Reklam Yönetimi: Hangi Mecrada Hangi Format Kazandırır?</h2>
           <p>Meta, TikTok, LinkedIn ve Pinterest reklam araçlarını KOBİ gözüyle kıyaslıyoruz: hangi mecrada hangi format kazandırır, bütçeyi nasıl bölersiniz, adım adım</p>
@@ -694,8 +738,10 @@
             <span class="tarih">1 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Mobil" style="--k:0,229,255" href="./react-native-mi-flutter-mi/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Mobil">
+          <a class="bl-k rv" style="--k:0,229,255" href="./react-native-mi-flutter-mi/">
           <span class="kat">Mobil</span>
           <h2>React Native mi Flutter mı? Tek Kod Tabanı Karşılaştırması</h2>
           <p>İki tek kod tabanı çatısını ölçüt ölçüt karşılaştırıyoruz: ekip dili, arayüz görünümü, paket ekosistemi ve bakım yükü. Hangi ürün hangisini seçmeli?</p>
@@ -703,8 +749,10 @@
             <span class="tarih">2 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Dijital Pazarlama" style="--k:255,176,32" href="./anahtar-kelime-arastirmasi/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Dijital Pazarlama">
+          <a class="bl-k rv" style="--k:255,176,32" href="./anahtar-kelime-arastirmasi/">
           <span class="kat">Dijital Pazarlama</span>
           <h2>Anahtar Kelime Araştırması Neden İçeriğin Pusulasıdır?</h2>
           <p>Anahtar kelime araştırması nasıl işler? Arama niyetini çözümleme, hacim ile zorluk dengesi ve kelime eleme mekanizmasını KOBİ'ler için adım adım anlatıyoru</p>
@@ -712,8 +760,10 @@
             <span class="tarih">3 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Mobil" style="--k:0,229,255" href="./uygulama-magaza-optimizasyonu/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Mobil">
+          <a class="bl-k rv" style="--k:0,229,255" href="./uygulama-magaza-optimizasyonu/">
           <span class="kat">Mobil</span>
           <h2>Uygulama Mağaza Optimizasyonu Nasıl Yapılır? 8 Adım</h2>
           <p>App Store ve Google Play sayfanızı aramaya ve indirmeye göre düzenlemenin sekiz adımlık rotası: ölçüm, metin, görsel, yorum yönetimi ve aylık yineleme.</p>
@@ -721,8 +771,10 @@
             <span class="tarih">4 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="E-Ticaret" style="--k:0,229,255" href="./odeme-guvenligi/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="E-Ticaret">
+          <a class="bl-k rv" style="--k:0,229,255" href="./odeme-guvenligi/">
           <span class="kat">E-Ticaret</span>
           <h2>E-Ticaret Ödeme Entegrasyonu Adım Adım Nasıl Kurulur?</h2>
           <p>E-ticaret ödeme entegrasyonu nasıl kurulur? SSL sertifikası, 3D Secure ve sanal POS bağlantısını adım adım anlatıyoruz; test ve canlıya geçiş listesiyle.</p>
@@ -730,8 +782,10 @@
             <span class="tarih">5 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Video" style="--k:255,176,32" href="./reklam-filmi-cekim-asamalari/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Video">
+          <a class="bl-k rv" style="--k:255,176,32" href="./reklam-filmi-cekim-asamalari/">
           <span class="kat">Video</span>
           <h2>Reklam Filmi Çekimi Hangi Aşamalardan Geçer?</h2>
           <p>Ön hazırlıktan teslime kadar beş aşamayı, her birinin ne kadar sürdüğünü ve set kurulduktan sonra verilen kararların neden pahalıya geldiğini anlatıyoruz.</p>
@@ -739,8 +793,10 @@
             <span class="tarih">6 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Grafik Tasarım" style="--k:0,229,255" href="./grafik-tasarim-trendleri/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Grafik Tasarım">
+          <a class="bl-k rv" style="--k:0,229,255" href="./grafik-tasarim-trendleri/">
           <span class="kat">Grafik Tasarım</span>
           <h2>2026 Grafik Tasarım Trendleri: Bu Yıl Neler Değişti?</h2>
           <p>2026 grafik tasarım trendleri neden hızla değişiyor, markanız görsel dilini hangi takvimde yenilemeli? Erken uyum ile gecikmenin maliyetini karşılaştırdık.</p>
@@ -748,8 +804,10 @@
             <span class="tarih">7 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Video" style="--k:255,176,32" href="./reklam-filmi-fiyat-kalemleri/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Video">
+          <a class="bl-k rv" style="--k:255,176,32" href="./reklam-filmi-fiyat-kalemleri/">
           <span class="kat">Video</span>
           <h2>Reklam Filmi Fiyatını Belirleyen Kalemler Nelerdir?</h2>
           <p>Reklam filmi bütçesini hareket ettiren altı kalemi fiyat vermeden açıyoruz: çekim günü, ekip, oyuncu kullanım hakları, mekân, ekipman ve kurgu sonrası işler.</p>
@@ -757,8 +815,10 @@
             <span class="tarih">8 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Seo" style="--k:166,255,0" href="./seo-raporlama-araclari/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Seo">
+          <a class="bl-k rv" style="--k:166,255,0" href="./seo-raporlama-araclari/">
           <span class="kat">Seo</span>
           <h2>SEO Raporlama İçin Hangi Araçları Nasıl Kurmalısınız?</h2>
           <p>SEO raporlama için Search Console, GA4 ve otomasyon panelini kurma rehberi: zorunlu ayarlar, veriyi bozan kurulum hataları ve 6 adımlık kontrol listesi.</p>
@@ -766,8 +826,10 @@
             <span class="tarih">9 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Video" style="--k:255,176,32" href="./storyboard-nedir/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Video">
+          <a class="bl-k rv" style="--k:255,176,32" href="./storyboard-nedir/">
           <span class="kat">Video</span>
           <h2>Storyboard Ne İşe Yarar, Çekimden Önce Neyi Kurtarır?</h2>
           <p>Storyboard neyi gösterir, neyi göstermez? Kaç kare çizilir, hangi hataları çekimden önce yakalar ve animatiğe ne zaman geçilir — hazırlık aşamasını açıyoruz.</p>
@@ -775,8 +837,10 @@
             <span class="tarih">10 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Sosyal Medya" style="--k:255,176,32" href="./influencer-pazarlama/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Sosyal Medya">
+          <a class="bl-k rv" style="--k:255,176,32" href="./influencer-pazarlama/">
           <span class="kat">Sosyal Medya</span>
           <h2>Influencer Pazarlama Ajansı Gözüyle: Mikro mu, Makro mu?</h2>
           <p>Mikro mu makro influencer mı? Erişim ve etkileşim görünümünü karşılaştırıyor, influencer pazarlama ajansı seçiminde bakılacak görünüm sinyallerini anlatıyo</p>
@@ -784,8 +848,10 @@
             <span class="tarih">11 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Video" style="--k:255,176,32" href="./reklam-filmi-ajansi-secimi/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Video">
+          <a class="bl-k rv" style="--k:255,176,32" href="./reklam-filmi-ajansi-secimi/">
           <span class="kat">Video</span>
           <h2>Reklam Filmi Ajansı Seçerken Nelere Bakılır?</h2>
           <p>Portföy neyi gizler, ekipte kim var, teklif nasıl okunur ve hangi uyarı işaretleri ciddiye alınmalı? Ajans seçimini beş başlıkta açıyoruz.</p>
@@ -793,8 +859,10 @@
             <span class="tarih">12 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="E-Ticaret" style="--k:0,229,255" href="./e-ticaret-sitelerinde-cok-dilli-destek/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="E-Ticaret">
+          <a class="bl-k rv" style="--k:0,229,255" href="./e-ticaret-sitelerinde-cok-dilli-destek/">
           <span class="kat">E-Ticaret</span>
           <h2>Çok Dilli E-Ticaret Dönüşüm Oranınızı Nasıl Değiştirir?</h2>
           <p>Çok dilli e-ticaret kararının dönüşüm oranı, sepet terk ve iade metriklerine etkisini ölçülebilir bir çerçeveyle anlatıyoruz. KOBİ'ler için pratik yol.</p>
@@ -802,8 +870,10 @@
             <span class="tarih">13 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Video" style="--k:255,176,32" href="./urun-videosu-studyo-mu-mekan-mi/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Video">
+          <a class="bl-k rv" style="--k:255,176,32" href="./urun-videosu-studyo-mu-mekan-mi/">
           <span class="kat">Video</span>
           <h2>Ürün Videosu Çekimi: Stüdyo mu, Mekân mı?</h2>
           <p>Ürün videosu çekimini stüdyoda mı, gerçek mekânda mı yapmalı? Kontrol, tekrarlanabilirlik, inandırıcılık ve ürün cinsi üzerinden ikisini karşılaştırıyoruz.</p>
@@ -811,8 +881,10 @@
             <span class="tarih">14 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Web Tasarım" style="--k:0,229,255" href="./ui-tasarim-ilkeleri/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Web Tasarım">
+          <a class="bl-k rv" style="--k:0,229,255" href="./ui-tasarim-ilkeleri/">
           <span class="kat">Web Tasarım</span>
           <h2>Arayüz Tasarımı Hangi İlkelere Dayanır?</h2>
           <p>Arayüz tasarımı hiyerarşi, tutarlılık ve geri bildirim ilkelerine dayanır. UI UX tasarım hizmeti kapsamında bu ilkeleri nasıl ölçülebilir kararlara çeviriy</p>
@@ -820,8 +892,10 @@
             <span class="tarih">15 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Video" style="--k:255,176,32" href="./e-ticaret-urun-videosu-formatlari/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Video">
+          <a class="bl-k rv" style="--k:255,176,32" href="./e-ticaret-urun-videosu-formatlari/">
           <span class="kat">Video</span>
           <h2>E-Ticaret Ürün Videosu Formatları ve Ölçüleri</h2>
           <p>Hangi en boy oranı nerede çalışır, video ne kadar sürmeli, dosya boyutu ile kalite nasıl dengelenir? Ürün videosu formatlarını mecra mecra açıyoruz.</p>
@@ -829,8 +903,10 @@
             <span class="tarih">16 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Web Tasarım" style="--k:0,229,255" href="./seo-ve-web-tasarim/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Web Tasarım">
+          <a class="bl-k rv" style="--k:0,229,255" href="./seo-ve-web-tasarim/">
           <span class="kat">Web Tasarım</span>
           <h2>SEO Uyumlu Web Tasarım Arama Görünürlüğünü Nasıl Etkiler?</h2>
           <p>SEO uyumlu web tasarım nedir, yerleşim ve görsel kararları arama görünürlüğünü nasıl etkiler? Mobil kırılım, başlık hiyerarşisi ve teklif süreci burada.</p>
@@ -838,8 +914,10 @@
             <span class="tarih">17 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Video" style="--k:255,176,32" href="./yapay-zeka-ile-video-uretimi/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Video">
+          <a class="bl-k rv" style="--k:255,176,32" href="./yapay-zeka-ile-video-uretimi/">
           <span class="kat">Video</span>
           <h2>Yapay Zeka ile Video Üretimi Nerede İşe Yarar, Nerede Yaramaz?</h2>
           <p>Üretken araçlar video işinin neresinde gerçekten işe yarıyor, nerede yetersiz kalıyor? Ürün gerçekliği, tutarlılık ve marka riski üzerinden sınırı çiziyoruz.</p>
@@ -847,8 +925,10 @@
             <span class="tarih">18 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Sosyal Medya" style="--k:255,176,32" href="./sosyal-medya-raporlama/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Sosyal Medya">
+          <a class="bl-k rv" style="--k:255,176,32" href="./sosyal-medya-raporlama/">
           <span class="kat">Sosyal Medya</span>
           <h2>Sosyal Medya Raporlama: Hangi Metrikleri İzlemeli?</h2>
           <p>Sosyal medya raporlama için erişim, etkileşim ve dönüşüm metriklerini nasıl seçeceğinizi, rapor tablosunu nasıl okuyacağınızı KOBİ diliyle anlatıyoruz.</p>
@@ -856,8 +936,10 @@
             <span class="tarih">19 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Video" style="--k:255,176,32" href="./kamerasiz-urun-videosu/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Video">
+          <a class="bl-k rv" style="--k:255,176,32" href="./kamerasiz-urun-videosu/">
           <span class="kat">Video</span>
           <h2>Kamerasız Ürün Videosu Nasıl Üretilir? Adım Adım</h2>
           <p>Elinizdeki ürün fotoğraflarından set kurmadan video çıkarmanın yedi adımlık rotası: kaynak toplama, sahne kurulumu, hareket, ses, kalite kontrolü ve mecra sürümleri.</p>
@@ -865,8 +947,10 @@
             <span class="tarih">20 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Dijital Pazarlama" style="--k:255,176,32" href="./reklam-metni-yazma/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Dijital Pazarlama">
+          <a class="bl-k rv" style="--k:255,176,32" href="./reklam-metni-yazma/">
           <span class="kat">Dijital Pazarlama</span>
           <h2>Google Ads Reklam Metni Nasıl Yazılır? 9 Adımlık Formül</h2>
           <p>Google Ads reklam metni yazma formülü: başlık, açıklama ve çağrı cümlesi nasıl kurulur, hangi sırayla test edilir? KOBİ'ler için 9 adımlık kontrol listesi.</p>
@@ -874,8 +958,10 @@
             <span class="tarih">21 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Web Tasarım" style="--k:0,229,255" href="./web-sitesine-chatbot-eklemek/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Web Tasarım">
+          <a class="bl-k rv" style="--k:0,229,255" href="./web-sitesine-chatbot-eklemek/">
           <span class="kat">Web Tasarım</span>
           <h2>Web Sitesine Chatbot Eklemek Neyi Değiştirir?</h2>
           <p>Siteye asistan eklemek neyi değiştirir? Yanıt süresi, tekrarlayan soru yükü, insana devir kuralı, bilgi tabanı ve başarıyı ölçmenin doğru yolu.</p>
@@ -883,8 +969,10 @@
             <span class="tarih">22 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-        <a class="bl-k rv" data-kat="Grafik Tasarım" style="--k:0,229,255" href="./grafik-tasarim-araclari/">
+          </a>
+        </li>
+        <li class="bl-i" data-kat="Grafik Tasarım">
+          <a class="bl-k rv" style="--k:0,229,255" href="./grafik-tasarim-araclari/">
           <span class="kat">Grafik Tasarım</span>
           <h2>Grafik Tasarım Programları Karşılaştırması: Hangisi Kime Uygun?</h2>
           <p>Photoshop, Illustrator, Figma ve Canva kıyası: hangi grafik tasarım programları hangi işe ve ekip büyüklüğüne uygun? KOBİ'ler için net bir seçim rehberi.</p>
@@ -892,8 +980,9 @@
             <span class="tarih">23 Ekim 2026 · 7 dk</span>
             <span class="oku">Oku <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </span>
-        </a>
-      </div>
+          </a>
+        </li>
+      </ul>
       <p class="bl-bos" id="bos" hidden>Bu kategoride henüz yazı yok.</p>
     </div>
   </section>
@@ -966,7 +1055,9 @@ document.getElementById('yil').textContent = new Date().getFullYear();
 "use strict";
 (function(){
   var dugmeler = [].slice.call(document.querySelectorAll('.bl-filtre button'));
-  var kartlar = [].slice.call(document.querySelectorAll('.bl-k'));
+  /* .bl-i = <li> sarmalı. Kartın kendisini gizlemek yetmez; <li> yerinde
+           kalıp ızgarada boş delik açar — ölçüldü. */
+  var kartlar = [].slice.call(document.querySelectorAll('.bl-i'));
   var bos = document.getElementById('bos');
   dugmeler.forEach(function(b){
     b.addEventListener('click', function(){

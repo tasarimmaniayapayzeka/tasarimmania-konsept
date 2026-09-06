@@ -164,8 +164,25 @@ const M = [
 ['05', 'Image Sitemap', () => fs.existsSync(path.join(S, 'sitemap-gorsel.xml')) ? VAR(`${(fs.readFileSync(path.join(S, 'sitemap-gorsel.xml'), 'utf8').match(/<image:loc>/g) || []).length} görsel`) : YOK('yok')],
 ['05', 'Video Sitemap', () => NA('sitedeki videolar aria-hidden süs döngüleri; indekslenecek içerik videosu yok')],
 ['05', 'News Sitemap', () => NA('Google News yayıncısı değil; haber içeriği yok')],
-['05', 'RSS', () => YOK('blog akışı için RSS yok')],
-['05', 'Atom Feed', () => YOK('Atom akışı yok')],
+/* ⚠ Bu iki kontrol sabit YOK yazıyordu — gerçek ölçüm konmamıştı. Akış
+   üretildikten sonra bile "yok" demeye devam etti. Artık dosyayı, öğe
+   sayısını ve head bağlantısını ölçüyor. */
+['05', 'RSS', () => {
+  const p = path.join(S, 'blog', 'rss.xml');
+  if (!fs.existsSync(p)) return YOK('site/blog/rss.xml yok');
+  const x = fs.readFileSync(p, 'utf8');
+  const n = (x.match(/<item>/g) || []).length;
+  const bag = say((h) => /type="application\/rss\+xml"/.test(h));
+  return n ? VAR(`${n} öğe · head bağlantısı ${bag} sayfada`) : YOK('akış boş');
+}],
+['05', 'Atom Feed', () => {
+  const p = path.join(S, 'blog', 'atom.xml');
+  if (!fs.existsSync(p)) return YOK('site/blog/atom.xml yok');
+  const x = fs.readFileSync(p, 'utf8');
+  const n = (x.match(/<entry>/g) || []).length;
+  const bag = say((h) => /type="application\/atom\+xml"/.test(h));
+  return n ? VAR(`${n} öğe · head bağlantısı ${bag} sayfada`) : YOK('akış boş');
+}],
 ['05', 'lastmod', () => { const sm = fs.readFileSync(path.join(S, 'sitemap.xml'), 'utf8'); const n = (sm.match(/<lastmod>/g) || []).length; const url = (sm.match(/<url>/g) || []).length; return n === url ? VAR(`${n}/${url}`) : YOK(`${n}/${url}`); }],
 ];
 
