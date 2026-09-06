@@ -1,6 +1,11 @@
 # İngilizce sürüm — devam notu
 
-**Son güncelleme:** 7 Eylül 2026 · 12 sayfa canlı, 89 sayfa toplam
+**Son güncelleme:** 7 Eylül 2026 · **15 İngilizce sayfa canlı**, 92 sayfa toplam
+
+Biten: `/en/` · `about` · `contact` · `services` · `blog` · `get-a-quote` ·
+`web-design` · `mobile-app-development` · `digital-marketing` · `seo` ·
+`video-production` · `graphic-design` · `corporate-website` ·
+`ecommerce-website` · `ai-services`
 
 Bu dosya bir sonraki oturum için. Hat kurulu ve çalışıyor; burada yazan
 kararlara uymak zorunlu — uyulmazsa site iki farklı İngilizce konuşur.
@@ -138,9 +143,10 @@ HTML etiket adları · schema.org tür adları · **HTML/CSS/JS yorumları**
 
 ## 4. Kalan iş
 
-### Hizmet alt sayfaları — 22 sayfa, ~36.700 kelime
-`kurumsal-web-sitesi` (172/1672) · `e-ticaret` (165/1654) ·
-`yapay-zeka` (159/1557) · `ozel-yazilim` (162/1583) · `site-bakim` (167/1561) ·
+### Hizmet alt sayfaları — kalan 19 sayfa, ~31.800 kelime
+*(kurumsal-web-sitesi, e-ticaret ve yapay-zeka BİTTİ)*
+
+`ozel-yazilim` (162/1583) · `site-bakim` (167/1561) ·
 `ios-android-uygulama` (172/1714) · `react-native` (182/1769) ·
 `uygulama-arayuz-tasarimi` (169/1689) · `aso` (170/1759) ·
 `google-ads` (181/1716) · `meta-reklam` (177/1546) ·
