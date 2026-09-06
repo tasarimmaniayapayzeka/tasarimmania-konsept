@@ -34,7 +34,14 @@ node plan/en-hreflang.js --uygula               # karşılıklı hreflang
 node plan/en-sitemap.js 2026-09-07 --uygula     # sitemap'e ekle
 node plan/geo-denetim-derin.js                  # 0 bulgu olmalı
 node plan/etiket-denge.js && node plan/en-js-sozdizim.js && node plan/yol-butunlugu.js
+node plan/en-son-tarama.js                      # TÜM EN sayfalarında kalan Türkçe
 ```
+
+`en-son-tarama.js` üretimden **sonra** tarar; üreticinin raporu üretim
+anını gösteriyor, oysa sayfaya sonra `en-ic-link.js`, `en-birim.js` ve
+`en-hreflang.js` de dokunuyor. Muaf listesi (marka, kurum, yer, kişi,
+müşteri markası) betiğin içinde ve gerekçeli — 20 ad.
+Son ölçüm: **34 sayfa, 0 bulgu, noindex'i olmayan sayfa 0.**
 
 **Ana sayfa için `anasayfa` yazın, `/` değil** — Git Bash tek eğik çizgiyi
 Windows yoluna çevirir.
