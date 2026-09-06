@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- KONSEPT-NOINDEX -->
 <meta name="robots" content="noindex,nofollow">
-<title>Graphic Design Agency — Logo, Brand Identity | TasarımMania</title>
-<meta name="description" content="Graphic design agency services: logo, brand identity guidelines, business cards and catalogues, and social media templates. Every source file is handed over to you.">
-<link rel="canonical" href="https://www.tasarimmania.com/en/graphic-design/">
-<link rel="alternate" hreflang="tr" href="https://www.tasarimmania.com/grafik-tasarim/">
-<link rel="alternate" hreflang="en" href="https://www.tasarimmania.com/en/graphic-design/">
-<link rel="alternate" hreflang="x-default" href="https://www.tasarimmania.com/grafik-tasarim/">
+<title>AI Chatbot Integration for Your Website | TasarımMania</title>
+<meta name="description" content="AI integration: a chatbot trained on your own content, WhatsApp handover and a review mechanism. It doesn't invent answers — it hands over to a person.">
+<link rel="canonical" href="https://www.tasarimmania.com/en/ai-services/">
+<link rel="alternate" hreflang="tr" href="https://www.tasarimmania.com/yapay-zeka/">
+<link rel="alternate" hreflang="en" href="https://www.tasarimmania.com/en/ai-services/">
+<link rel="alternate" hreflang="x-default" href="https://www.tasarimmania.com/yapay-zeka/">
 <meta name="author" content="TasarımMania">
 <meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
 <meta name="theme-color" content="#0B0D12">
@@ -18,17 +18,17 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="TasarımMania">
-<meta property="og:title" content="Graphic Design Agency — Logo, Brand Identity | TasarımMania">
-<meta property="og:description" content="Graphic design agency services: logo, brand identity guidelines, business cards and catalogues, and social media templates. Every source file is handed over to you.">
-<meta property="og:url" content="https://www.tasarimmania.com/en/graphic-design/">
+<meta property="og:title" content="AI Chatbot Integration for Your Website | TasarımMania">
+<meta property="og:description" content="AI integration: a chatbot trained on your own content, WhatsApp handover and a review mechanism. It doesn't invent answers — it hands over to a person.">
+<meta property="og:url" content="https://www.tasarimmania.com/en/ai-services/">
 <meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="TasarımMania — cover image for web, mobile, advertising, video and SEO services">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
-<meta name="twitter:title" content="Graphic Design Agency — Logo, Brand Identity | TasarımMania">
-<meta name="twitter:description" content="Graphic design agency services: logo, brand identity guidelines, business cards and catalogues, and social media templates. Every source file is handed over to you.">
+<meta name="twitter:title" content="AI Chatbot Integration for Your Website | TasarımMania">
+<meta name="twitter:description" content="AI integration: a chatbot trained on your own content, WhatsApp handover and a review mechanism. It doesn't invent answers — it hands over to a person.">
 <meta name="twitter:image:alt" content="TasarımMania — cover image for web, mobile, advertising, video and SEO services">
 <link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -279,22 +279,41 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
 
-/* --- akış durakları (alt sayfa standardı) ---
-   Bu sayfanın kendi anlattığı yol: logo → kimlik kılavuzu → şablonlar.
-   Üç ayrı 380x400 kutu; 860px altında alt alta açılır, aradaki oklar 90° döner.
+/* --- AKIŞ İNFOGRAFİĞİ (.akis) — ÜÇ DURAK, ÜÇ AYRI KUTU ---
+   Hub sayfada aynı anlatı fiyat kutusunun YANINA dikey giriyor; burada fiyat
+   kutusu yok ve .dtay metin bloğu dar olduğu için akış tam genişlik duruyor.
 
-   ÖLÇÜ: mobilde kutu iç genişliği ~281px, viewBox 380 → ölçek 0.74.
-   Bu bloktaki en küçük yazı 13 seçildi, yani ekranda en az 9.6px. Tek parça
-   geniş grafik kullanılsaydı aynı yazı 2-3px'e düşerdi (e-ticaret sayfasında
-   ölçülmüştü), o yüzden kutulara bölündü.
+   NEDEN TEK PARÇA DEĞİL (ölçüm): 1200x430 tek SVG, 390px ekranda 296px'e
+   sığınca içindeki 9.5px yazı 2.4px'e düşüyordu — okunmuyordu. Artık üç ayrı
+   SVG var ve 1100px altında alt alta açılıyorlar.
 
-   AD ÇAKIŞMASI (bir kez yapılıp geri alınan hata): tm.css satır 161-171'deki
-   global kayan yazı bileşeni "span{display:inline-flex}" ve
-   "span::before{content:...}" kurallarıyla figure içindeki HER <span>'i ele
-   geçiriyor. Bu yüzden ad .akis; .akis-no / .akis-ad stilleri de AÇIK yazıldı,
-   <span> görünümü mirasa bırakılmıyor.
+   OKUNURLUK — TARAYICIDA ÖLÇÜLDÜ, VARSAYILMADI (headless Chrome, 360-1920px
+   arası tarama). Ekranda görünen punto = SVG puntosu * (SVG genişliği / 380).
+   Hedef: hiçbir kırılımda 9.5px'in altına düşmemek.
 
-   viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok). */
+     ekran   sütun   SVG px   15 punto ekranda
+      360      1      248        9.8   (en dar uç)
+      375      1      263       10.4
+      390      1      278       11.0
+      768      1      611*      24.1   (*max-width sınırı)
+     1100      1      611*      24.1
+     1101      3      273       10.8   (üç sütun tam burada başlıyor)
+     1240+     3      319       12.6
+
+   "İç genişlik ~300px, ölçek 0.79" tahmini fazla iyimserdi: 390px'te gerçek
+   ölçek 0.731. O yüzden taban 12 değil 15 punto. 15'İN ALTINA İNİLMEZ —
+   12 punto 390px'te 8.8px, 360px'te 7.8px ederdi; 14 punto bile 360px'te
+   9.1px'te kalıp eşiğin altına düşüyordu.
+
+   NEDEN YENİ SINIF ADI: bu blok eskiden tm.css'teki GLOBAL kayan-yazı bandı
+   bileşeniyle aynı adı taşıyordu. O bileşen kendi içinde
+   "<ad> span{display:inline-flex}" + "<ad> span::before{content:...}" kuralları
+   tanımlıyor; figure'ün içine konan her <span> bu kuralları yiyordu (ölçüldü:
+   ipucu span'i 1440px'te display:none olması gerekirken inline-flex alıyordu).
+   Bu yüzden ad tamamen bırakılıp ".akis" ailesine geçildi — tm.css'te böyle bir
+   önek yok, çakışma bitti. Yine de .akis-no/.akis-ad birer <span> olduğu için
+   display'leri aşağıda AÇIKÇA veriliyor: bir daha miras kazasına açık kalmasın,
+   stil bu dosyada görünür olsun. */
 .akis{border:1px solid var(--hair);border-radius:var(--r-lg);
   background:var(--panel);padding:18px;margin:26px 0 0}
 .akis-izgara{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
@@ -306,93 +325,104 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   letter-spacing:.14em;color:var(--acc);opacity:.9}
 .akis-ad{display:block;font-size:13.5px;font-weight:600;color:var(--fg);
   letter-spacing:-.01em;margin-top:-6px}
+/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
 .akis-kutu svg{width:100%;height:auto;display:block;border-radius:10px}
 .akis-ok{display:grid;place-items:center;color:var(--acc);opacity:.6}
 .akis-ok svg{width:22px;height:22px}
 .akis figcaption{margin-top:14px;font-size:12.4px;line-height:1.55;color:var(--muted)}
 .akis figcaption b{color:var(--fg-dim);font-weight:600}
+/* KIRILIM 1100px — TAHMİN DEĞİL, TARAMAYLA BULUNDU.
+   Üç sütun ancak sütun başına düşen SVG >= 258px olduğunda 9.5px eşiğini
+   tutuyor; ölçümde bu 1100px'ten sonra oluyor. Kırılım bunun ALTINA konursa
+   sayfa tam orada bozulur: tek sütun 860px'te 741px'lik SVG verirken üç sütun
+   861px'te 195px'e düşüyor (15 punto → 7.7px, mobilden bile kötü).
+   KIRILIMI DÜŞÜRME; SVG'ye yazı eklersen taramayı tekrarla. */
 @media(max-width:1100px){
   .akis-izgara{grid-template-columns:1fr;gap:10px}
   .akis-ok svg{transform:rotate(90deg)}
   .akis{padding:14px}
   .akis-kutu{width:100%;max-width:520px;margin-inline:auto}
 }
+@media(max-width:860px){
+  .akis{padding:14px}
+}
 
-/* --- durak canlanması ---
+/* --- akış canlanması ---
    YENİ JS YOK: figure zaten .rv sınıfında; site/js/tm.js görününce .in ekliyor.
-   prefers-reduced-motion: tm.css'teki global kural animation-duration'ı
-   0.001ms'e indiriyor, "forwards" sayesinde her öğe anında son hâline oturuyor.
-   BAŞLANGIÇ DURUMU VERİLEN HER ÖĞENİN .in KARŞILIĞI VAR (aşağıda birebir);
-   tek istisna .gt-isik: kasıtlı sönen aydınlanma parıltısı.
-   Önek "gt-": e-ticaret sayfası "et-", hub "w-", SEO "s-" kullanıyor.
-   Çizelge — her kutu KENDİ içinde canlanır, kutular soldan sağa (mobilde
-   yukarıdan aşağı) sırayla girer:
-     KUTU 1 · 0.25s : kart 0.25 · tuval 0.38 · logo işareti 0.46 ·
-                      koruma alanı ölçüsü 0.58 · varyantlar 0.62–0.74 ·
-                      teslim çipleri 0.78
-     ok 1 · 0.80s
-     KUTU 2 · 0.90s : kart 0.90 · palet daireleri 0.98–1.10 · ayraç 1.12 ·
-                      tipografi 1.14–1.24 · ayraç 1.28 · doğru/yanlış 1.30–1.36
-     ok 2 · 1.40s
-     KUTU 3 · 1.50s : kart 1.50 · business card 1.58 · katalog 1.68 ·
-                      sosyal medya 1.78 · aydınlanma 1.62–1.82 → ~2.1s */
-.akis svg .gt-kart{opacity:0;transform:translateY(16px);transform-box:fill-box}
-.akis svg .gt-tuval,
-.akis svg .gt-olcu,
-.akis svg .gt-cip,
-.akis svg .gt-ayrac,
-.akis svg .gt-tip,
-.akis svg .gt-isik{opacity:0}
-.akis svg .gt-isaret{opacity:0;transform:scale(.82);transform-box:fill-box;
-  transform-origin:center}
-.akis svg .gt-varyant > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
-.akis svg .gt-palet > circle{opacity:0;transform:scale(.5);transform-box:fill-box;
-  transform-origin:center}
-.akis svg .gt-cubuk rect{clip-path:inset(0 100% 0 0)}
-.akis svg .gt-kural > g{opacity:0;transform:translateY(8px);transform-box:fill-box}
-.akis svg .gt-format > g{opacity:0;transform:translateX(12px);transform-box:fill-box}
-/* oklar HTML tarafında: .akis-ok kutusu opaklığı taşıyor, ok çizimi 0'dan girer */
-.akis .gt-ok{opacity:0}
+   Tek sefer oynar. prefers-reduced-motion: tm.css'teki global kural
+   animation-duration'ı .001ms'e indiriyor, "forwards" sayesinde her öğe anında
+   son hâline oturuyor — ayrı kural gerekmiyor.
+   Sınıf/keyframe öneki "ai-"/"ai": hub sayfa "w-"/"w", SEO "s-"/"s" kullanıyor;
+   sayfalar ileride birleşirse çakışmasın diye ayrı tutuldu.
+   Sıra kutu kutu okunur — soldan sağa, mobilde yukarıdan aşağı:
+   1. kutu .25s'te başlar: pencere .25s · ilk soru .40s · ilk yanıt .54s ·
+     ikinci soru .68s · bağlantı hatları .78–.86s + akan nokta .84s · ok 1.06s
+   2. kutu .90s'te başlar: bilgi tabanı paneli .90s · dosya satırları 1.02–1.18s ·
+     eşleşen satırın parlaması 1.24s
+   3. kutu 1.50s'te başlar: pencere 1.50s · dönüş hattı 1.62s · cevap balonu
+     1.78s · hale vurgusu 2.02s · yazıyor göstergesi 2.16s → ~2.7s.
+   AŞAĞIDA BAŞLANGIÇ DURUMU VERİLEN HER ÖĞENİN .in KARŞILIĞI VAR. */
+.akis svg .ai-pencere,
+.akis svg .ai-cerceve,
+.akis svg .ai-panel,
+.akis svg .ai-soru1,
+.akis svg .ai-cevap1,
+.akis svg .ai-soru2,
+.akis svg .ai-satir > g,
+.akis svg .ai-ok,
+.akis svg .ai-yaziyor,
+.akis svg .ai-parla,
+.akis svg .ai-akan,
+.akis svg .ai-hale{opacity:0;transform-box:fill-box}
+.akis svg .ai-pencere,
+.akis svg .ai-cerceve{transform:translateY(-14px)}
+.akis svg .ai-panel{transform:translateX(20px)}
+.akis svg .ai-soru1,
+.akis svg .ai-cevap1,
+.akis svg .ai-soru2{transform:translateY(10px)}
+.akis svg .ai-satir > g{transform:translateX(12px)}
+.akis svg .ai-hale{transform-origin:center}
+.akis svg .ai-cevap2{clip-path:inset(100% 0 0 0);transform-box:fill-box}
+/* dasharray'ler yol uzunluklarından büyük seçildi: hat ~280, dönüş ~330 */
+.akis svg .ai-hat{stroke-dasharray:340;stroke-dashoffset:340}
+.akis svg .ai-donus{stroke-dasharray:420;stroke-dashoffset:420}
+.akis svg .ai-nokta{opacity:.3}
 
-.akis.in svg .gt-k1{animation:gtKart .6s var(--ease) .25s forwards}
-.akis.in svg .gt-tuval{animation:gtBelir .5s var(--ease) .38s forwards}
-.akis.in svg .gt-isaret{animation:gtIsaret .55s var(--ease) .46s forwards}
-.akis.in svg .gt-olcu{animation:gtBelir .5s var(--ease) .58s forwards}
-.akis.in svg .gt-varyant > g:nth-child(1){animation:gtSatir .45s var(--ease) .62s forwards}
-.akis.in svg .gt-varyant > g:nth-child(2){animation:gtSatir .45s var(--ease) .68s forwards}
-.akis.in svg .gt-varyant > g:nth-child(3){animation:gtSatir .45s var(--ease) .74s forwards}
-.akis.in svg .gt-cip{animation:gtBelir .45s var(--ease) .78s forwards}
-.akis.in .gt-ok1{animation:gtOkBelir .55s var(--ease) .80s forwards}
-.akis.in svg .gt-k2{animation:gtKart .6s var(--ease) .90s forwards}
-.akis.in svg .gt-palet > circle:nth-of-type(1){animation:gtNokta .45s var(--ease) .98s forwards}
-.akis.in svg .gt-palet > circle:nth-of-type(2){animation:gtNokta .45s var(--ease) 1.02s forwards}
-.akis.in svg .gt-palet > circle:nth-of-type(3){animation:gtNokta .45s var(--ease) 1.06s forwards}
-.akis.in svg .gt-palet > circle:nth-of-type(4){animation:gtNokta .45s var(--ease) 1.10s forwards}
-.akis.in svg .gt-a2{animation:gtBelir .4s var(--ease) 1.12s forwards}
-.akis.in svg .gt-tip{animation:gtBelir .45s var(--ease) 1.14s forwards}
-.akis.in svg .gt-cubuk rect:nth-of-type(1){animation:gtCiz .5s var(--ease) 1.18s forwards}
-.akis.in svg .gt-cubuk rect:nth-of-type(2){animation:gtCiz .5s var(--ease) 1.24s forwards}
-.akis.in svg .gt-a2b{animation:gtBelir .4s var(--ease) 1.28s forwards}
-.akis.in svg .gt-kural > g:nth-child(1){animation:gtSatir .45s var(--ease) 1.30s forwards}
-.akis.in svg .gt-kural > g:nth-child(2){animation:gtSatir .45s var(--ease) 1.36s forwards}
-.akis.in .gt-ok2{animation:gtOkBelir .55s var(--ease) 1.40s forwards}
-.akis.in svg .gt-k3{animation:gtKart .6s var(--ease) 1.50s forwards}
-.akis.in svg .gt-format > g:nth-child(1){animation:gtSag .42s var(--ease) 1.58s forwards}
-.akis.in svg .gt-format > g:nth-child(2){animation:gtSag .42s var(--ease) 1.68s forwards}
-.akis.in svg .gt-format > g:nth-child(3){animation:gtSag .42s var(--ease) 1.78s forwards}
-.akis.in svg .gt-i1{animation:gtIsik .9s var(--ease) 1.62s forwards}
-.akis.in svg .gt-i2{animation:gtIsik .9s var(--ease) 1.72s forwards}
-.akis.in svg .gt-i3{animation:gtIsik .9s var(--ease) 1.82s forwards}
+/* 1. kutu — sohbet penceresi */
+.akis.in svg .ai-pencere{animation:aiGel .6s var(--ease) .25s forwards}
+.akis.in svg .ai-soru1{animation:aiBalon .5s var(--ease) .40s forwards}
+.akis.in svg .ai-cevap1{animation:aiBalon .5s var(--ease) .54s forwards}
+.akis.in svg .ai-soru2{animation:aiBalon .5s var(--ease) .68s forwards}
+.akis.in svg .ai-hat.g1{animation:aiHat .62s var(--ease) .78s forwards}
+.akis.in svg .ai-hat.g2{animation:aiHat .62s var(--ease) .82s forwards}
+.akis.in svg .ai-hat.g3{animation:aiHat .62s var(--ease) .86s forwards}
+.akis.in svg .ai-akan{animation:aiAkan 1s var(--ease) .84s forwards}
+.akis.in svg .ai-ok{animation:aiBelir .35s var(--ease) 1.06s forwards}
+/* 2. kutu — bilgi tabanı */
+.akis.in svg .ai-panel{animation:aiGel .6s var(--ease) .90s forwards}
+.akis.in svg .ai-satir > g:nth-child(1){animation:aiSatir .45s var(--ease) 1.02s forwards}
+.akis.in svg .ai-satir > g:nth-child(2){animation:aiSatir .45s var(--ease) 1.10s forwards}
+.akis.in svg .ai-satir > g:nth-child(3){animation:aiSatir .45s var(--ease) 1.18s forwards}
+.akis.in svg .ai-parla{animation:aiParla 1.1s var(--ease) 1.24s forwards}
+/* 3. kutu — kaynaktan dönen cevap */
+.akis.in svg .ai-cerceve{animation:aiGel .6s var(--ease) 1.50s forwards}
+.akis.in svg .ai-donus{animation:aiHat .6s var(--ease) 1.62s forwards}
+.akis.in svg .ai-cevap2{animation:aiAcil .58s var(--ease) 1.78s forwards}
+.akis.in svg .ai-hale{animation:aiHale .85s var(--ease) 2.02s forwards}
+.akis.in svg .ai-yaziyor{animation:aiBelir .4s var(--ease) 2.16s forwards}
+.akis.in svg .ai-nokta{animation:aiNokta .45s steps(1,end) 2.30s 3}
 
-@keyframes gtKart{to{opacity:1;transform:translateY(0)}}
-@keyframes gtSatir{to{opacity:1;transform:translateY(0)}}
-@keyframes gtSag{to{opacity:1;transform:translateX(0)}}
-@keyframes gtIsaret{to{opacity:1;transform:scale(1)}}
-@keyframes gtNokta{to{opacity:1;transform:scale(1)}}
-@keyframes gtCiz{to{clip-path:inset(0 0 0 0)}}
-@keyframes gtBelir{to{opacity:1}}
-@keyframes gtOkBelir{0%{opacity:0}45%{opacity:1;filter:brightness(1.7)}to{opacity:1;filter:brightness(1)}}
-@keyframes gtIsik{35%{opacity:.85}to{opacity:0}}
+@keyframes aiGel{to{opacity:1;transform:translate(0,0)}}
+@keyframes aiBalon{to{opacity:1;transform:translateY(0)}}
+@keyframes aiSatir{to{opacity:1;transform:translateX(0)}}
+@keyframes aiBelir{to{opacity:1}}
+@keyframes aiHat{to{stroke-dashoffset:0}}
+@keyframes aiAkan{0%{opacity:0;transform:translateX(0)}18%{opacity:1}80%{opacity:1}
+  100%{opacity:0;transform:translateX(262px)}}
+@keyframes aiParla{0%{opacity:0}32%{opacity:1}68%{opacity:1}100%{opacity:.5}}
+@keyframes aiAcil{to{clip-path:inset(0 0 0 0)}}
+@keyframes aiHale{35%{opacity:.9}to{opacity:0;transform:scale(1.05)}}
+@keyframes aiNokta{0%,49%{opacity:1}50%,100%{opacity:.3}}
 
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
@@ -500,22 +530,6 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   .ftr-ust{grid-template-columns:1fr}
 }
 
-.yz-ilgili{margin:clamp(30px,4vw,44px) 0 0;padding-top:clamp(24px,3vw,32px);
-  border-top:1px solid var(--hair)}
-.yz-ilgili h2{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;margin:0 0 4px}
-.yz-ilgili .not{font-size:13.4px;color:var(--muted);margin:0 0 18px}
-.yz-ilgili ul{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  list-style:none;padding:0;margin:0}
-.yz-ilgili li{margin:0}
-.yz-ilgili a{display:flex;flex-direction:column;gap:5px;height:100%;
-  border:1px solid var(--hair);border-radius:var(--r-md);padding:14px 16px;
-  text-decoration:none;transition:border-color .25s,transform .25s;background:rgba(255,255,255,.012)}
-.yz-ilgili a:hover{border-color:rgba(var(--k,0,229,255),.5);transform:translateY(-2px)}
-.yz-ilgili .kat{font-family:var(--mono);font-size:9.4px;letter-spacing:.14em;
-  text-transform:uppercase;color:rgb(var(--k,0,229,255))}
-.yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
-@media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
-
 /* DAR-EKRAN-DOLGU */
 /* ÖLÇÜLDÜ (iframe ile gerçek dar viewport'ta; headless Chrome --window-size
    ile 500px'in ALTINA İNMİYOR, ayrıca iframe kaydırma çubuğu 15px yiyor —
@@ -537,10 +551,10 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   "@graph": [
     {
       "@type": "Service",
-      "name": "Graphic Design Agency Services: Logo, Brand Identity and Visual Templates",
-      "serviceType": "grafik tasarım ajansı",
-      "url": "https://www.tasarimmania.com/en/graphic-design/",
-      "description": "Graphic design agency services: logo, brand identity guidelines, business cards and catalogues, and social media templates. Every source file is handed over to you.",
+      "name": "AI Integration: An AI Chatbot That Talks on Your Website",
+      "serviceType": "web tasarım ai",
+      "url": "https://www.tasarimmania.com/en/ai-services/",
+      "description": "AI integration: a chatbot trained on your own content, WhatsApp handover and a review mechanism. It doesn't invent answers — it hands over to a person.",
       "areaServed": {
         "@type": "Country",
         "name": "Türkiye"
@@ -562,31 +576,25 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           "addressCountry": "TR"
         }
       },
-      "@id": "https://www.tasarimmania.com/en/graphic-design/#hizmet",
+      "@id": "https://www.tasarimmania.com/en/ai-services/#hizmet",
       "subjectOf": [
         {
           "@type": "Article",
-          "@id": "https://www.tasarimmania.com/blog/grafik-tasarim-turleri/#article",
-          "url": "https://www.tasarimmania.com/blog/grafik-tasarim-turleri/",
-          "name": "What Does Corporate Graphic Design Cover?"
+          "@id": "https://www.tasarimmania.com/blog/web-sitesine-chatbot-eklemek/#article",
+          "url": "https://www.tasarimmania.com/blog/web-sitesine-chatbot-eklemek/",
+          "name": "What Does Adding a Chatbot to Your Website Change?"
         },
         {
           "@type": "Article",
-          "@id": "https://www.tasarimmania.com/blog/grafik-tasarim-sureci/#article",
-          "url": "https://www.tasarimmania.com/blog/grafik-tasarim-sureci/",
-          "name": "How Many Stages Does the Graphic Design Process Take?"
+          "@id": "https://www.tasarimmania.com/blog/kullanici-deneyimi/#article",
+          "url": "https://www.tasarimmania.com/blog/kullanici-deneyimi/",
+          "name": "E-Commerce UX: How Do You Shorten the Route to the Basket?"
         },
         {
           "@type": "Article",
-          "@id": "https://www.tasarimmania.com/blog/grafik-tasarim-trendleri/#article",
-          "url": "https://www.tasarimmania.com/blog/grafik-tasarim-trendleri/",
-          "name": "Graphic Design Trends in 2026: What Has Changed This Year?"
-        },
-        {
-          "@type": "Article",
-          "@id": "https://www.tasarimmania.com/blog/grafik-tasarim-araclari/#article",
-          "url": "https://www.tasarimmania.com/blog/grafik-tasarim-araclari/",
-          "name": "Comparing Graphic Design Software: Which One Suits Whom?"
+          "@id": "https://www.tasarimmania.com/blog/seo-ve-web-tasarim/#article",
+          "url": "https://www.tasarimmania.com/blog/seo-ve-web-tasarim/",
+          "name": "How Does SEO-Friendly Web Design Affect Search Visibility?"
         }
       ]
     },
@@ -608,11 +616,17 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Graphic Design",
-          "item": "https://www.tasarimmania.com/en/graphic-design/"
+          "name": "Web Design &amp; Software",
+          "item": "https://www.tasarimmania.com/web-tasarim/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "AI Integration",
+          "item": "https://www.tasarimmania.com/en/ai-services/"
         }
       ],
-      "@id": "https://www.tasarimmania.com/en/graphic-design/#kirintili"
+      "@id": "https://www.tasarimmania.com/en/ai-services/#kirintili"
     },
     {
       "@type": "FAQPage",
@@ -620,54 +634,54 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is a brand identity, and how is it different from just a logo?",
+          "name": "What exactly can an AI chatbot added to a website do?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The logo is the brand's mark, while the brand identity is a whole system covering the colour palette, typography, visual language and rules of use. The identity guidelines make sure the logo is applied consistently across every channel."
+            "text": "It understands the visitor's question, finds the right answer in your site's content base, gives product and service information, and directs booking or contact requests. On questions outside its scope it passes the conversation automatically to the relevant team or to your WhatsApp line."
           }
         },
         {
           "@type": "Question",
-          "name": "What stages does a logo go through before it's delivered?",
+          "name": "Is the chatbot trained on our own content, or is a general AI answering?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The process runs through a discovery call, concept sketches, vector production of the chosen direction, and a final check. At delivery you get the vector source files together with the different usage formats."
+            "text": "The chatbot uses a dedicated knowledge base built from your site's pages and your own documents. It doesn't chat about random subjects the way a general AI would; it bases its answers only on the content source you've defined."
           }
         },
         {
           "@type": "Question",
-          "name": "What makes business card and catalogue design prices vary?",
+          "name": "Does building your own website with ChatGPT replace a professional AI integration?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The cost is set by things like the number of pages, how complex the content is, whether illustration is needed and the delivery format. Current package details are in the pricing section."
+            "text": "No. ChatGPT is a general-purpose chat tool and isn't connected to your site's data, your brand voice or your business processes. In a professional integration the chatbot is embedded in your site, confined to your own content and connected to channels like WhatsApp; that's a different piece of engineering from dropping in an off-the-shelf chat window."
           }
         },
         {
           "@type": "Question",
-          "name": "What formats is a catalogue delivered in?",
+          "name": "What happens if the chatbot gives a wrong or misleading answer — who's in control?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A catalogue can be prepared as a high-resolution, print-ready PDF, or as an interactive digital file with a page-turn effect on screen. Where it's needed, both formats are delivered together."
+            "text": "Because the chatbot only answers from the defined content base, the risk of error is limited; even so, every conversation is logged and reviewed regularly. When a problematic answer is found, the content base is updated and the boundaries are redefined. The final say is always yours."
           }
         },
         {
           "@type": "Question",
-          "name": "Are social media templates part of the package, or offered separately?",
+          "name": "Can chatbot conversations be handed over to WhatsApp?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The template set is offered either as an add-on module to the brand identity package or as a standalone service. The scope is settled during the call, according to what the brand needs."
+            "text": "Yes. Depending on what the visitor asks for, the chatbot can direct the conversation to your WhatsApp line, so a conversation that starts on the site continues with your team without a break and the enquiry isn't lost."
           }
         },
         {
           "@type": "Question",
-          "name": "Can we keep our existing logo and just have brand identity guidelines produced?",
+          "name": "Can AI integration be added to an existing site later?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes — the existing logo can be analysed and kept, with guidelines produced covering only colour, typography and rules of use. If the logo needs revising, that's assessed separately."
+            "text": "Yes — the chatbot can be added to an existing site as a separate widget; it doesn't require rebuilding the site's design or its foundation. The knowledge base is built from your existing pages and documents."
           }
         }
       ],
-      "@id": "https://www.tasarimmania.com/en/graphic-design/#sss"
+      "@id": "https://www.tasarimmania.com/en/ai-services/#sss"
     },
     {
       "@type": "Organization",
@@ -697,23 +711,23 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.tasarimmania.com/en/graphic-design/#sayfa",
-      "url": "https://www.tasarimmania.com/en/graphic-design/",
-      "name": "Graphic Design Agency — Logo, Brand Identity, Catalogues | TasarımMania",
-      "description": "Graphic design agency services: logo, brand identity guidelines, business cards and catalogues, and social media templates. Every source file is handed over to you.",
+      "@id": "https://www.tasarimmania.com/en/ai-services/#sayfa",
+      "url": "https://www.tasarimmania.com/en/ai-services/",
+      "name": "AI Chatbot Integration for Your Website | TasarımMania",
+      "description": "AI integration: a chatbot trained on your own content, WhatsApp handover and a review mechanism. It doesn't invent answers — it hands over to a person.",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://www.tasarimmania.com/#site"
       },
       "breadcrumb": {
-        "@id": "https://www.tasarimmania.com/en/graphic-design/#kirintili"
+        "@id": "https://www.tasarimmania.com/en/ai-services/#kirintili"
       },
       "primaryImageOfPage": {
         "@type": "ImageObject",
         "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg"
       },
       "mainEntity": {
-        "@id": "https://www.tasarimmania.com/en/graphic-design/#hizmet"
+        "@id": "https://www.tasarimmania.com/en/ai-services/#hizmet"
       }
     }
   ]
@@ -756,28 +770,29 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
       <nav class="crumb" aria-label="Location">
         <a href="../">Home</a><span aria-hidden="true">/</span>
         <a href="../services/">Services</a><span aria-hidden="true">/</span>
-        <span>Graphic Design</span>
+        <a href="../web-design/">Web Design &amp; Software</a><span aria-hidden="true">/</span>
+        <span>AI Integration</span>
       </nav>
       <div class="phd-iki">
         <div>
-<span class="mod-no">Standalone Service</span>
-      <h1 data-kin>Graphic Design Agency Services: Logo, Brand Identity and Visual Templates</h1>
-      <p class="lead">As a graphic design agency, TasarımMania produces your brand's logo, brand identity guidelines, business card and catalogue designs and social media templates under one roof. This work runs independently of your website's interface design, and aims to keep your brand consistent on every surface, printed and digital.</p>
+<span class="mod-no">Module 01 · Web Design &amp; Software</span>
+      <h1 data-kin>AI Integration: An AI Chatbot That Talks on Your Website</h1>
+      <p class="lead">AI integration for web design gives your site a proper system that talks to your visitors in real time through a chatbot trained on your own content, and hands the conversation over to WhatsApp when it needs to.</p>
       <div class="hero-cta">
         <a class="btn btn-p" href="../get-a-quote/#web">Let's map the scope and price range
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Grafik%20Tasar%C4%B1m%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
+        <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20AI%20Entegrasyonu%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
       </div>
         </div>
         <div class="ciz-kutu" aria-hidden="true">
           <div class="ciz-cerceve">
-            <div class="ciz-bar"><i></i><i></i><i></i><span>identity in progress</span><b>READY FOR SIGN-OFF</b></div>
+            <div class="ciz-bar"><i></i><i></i><i></i><span>assistant in training</span><b>LIVE</b></div>
             <div class="ciz-svg">
               <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-<circle class="cz-cizgi" style="--u:352;--d:0.00s" cx="100" cy="90" r="54"/><circle class="cz-cizgi" style="--u:176;--d:0.42s" cx="128" cy="90" r="26"/><line class="cz-cizgi" style="--u:120;--d:0.84s" x1="44" y1="90" x2="156" y2="90"/><line class="cz-cizgi" style="--u:120;--d:1.26s" x1="100" y1="34" x2="100" y2="146"/><text class="cz-etiket vurgu" style="--d:1.80s" x="58" y="170">logo grid</text><rect class="cz-cizgi" style="--u:180;--d:1.68s" x="200" y="30" width="40" height="40" rx="8"/><rect class="cz-dolgu" style="--d:1.68s" x="200" y="30" width="40" height="40" rx="8"/><rect class="cz-cizgi" style="--u:180;--d:2.10s" x="248" y="30" width="40" height="40" rx="8"/><rect class="cz-dolgu" style="--d:2.10s" x="248" y="30" width="40" height="40" rx="8"/><rect class="cz-cizgi" style="--u:180;--d:2.52s" x="296" y="30" width="40" height="40" rx="8"/><rect class="cz-dolgu" style="--d:2.52s" x="296" y="30" width="40" height="40" rx="8"/><text class="cz-etiket" style="--d:3.06s" x="200" y="88">core palette</text><rect class="cz-cizgi" style="--u:488;--d:2.94s" x="200" y="110" width="152" height="82" rx="8"/><rect class="cz-dolgu" style="--d:2.94s" x="200" y="110" width="152" height="82" rx="8"/><circle class="cz-cizgi" style="--u:62;--d:3.36s" cx="222" cy="132" r="8"/><circle class="cz-dolgu" style="--d:3.36s" cx="222" cy="132" r="8"/><line class="cz-cizgi" style="--u:116;--d:3.78s" x1="214" y1="162" x2="322" y2="162"/><line class="cz-cizgi" style="--u:86;--d:4.20s" x1="214" y1="176" x2="292" y2="176"/><text class="cz-etiket" style="--d:4.74s" x="358" y="130">business card</text>
+<rect class="cz-cizgi" style="--u:416;--d:0.00s" x="14" y="20" width="152" height="46" rx="12"/><rect class="cz-dolgu" style="--d:0.00s" x="14" y="20" width="152" height="46" rx="12"/><line class="cz-cizgi" style="--u:120;--d:0.42s" x1="28" y1="38" x2="140" y2="38"/><line class="cz-cizgi" style="--u:86;--d:0.84s" x1="28" y1="52" x2="106" y2="52"/><rect class="cz-cizgi" style="--u:512;--d:1.26s" x="120" y="86" width="192" height="54" rx="12"/><rect class="cz-dolgu" style="--d:1.26s" x="120" y="86" width="192" height="54" rx="12"/><text class="cz-etiket vurgu" style="--d:1.80s" x="134" y="108">AI answer</text><circle class="cz-cizgi" style="--u:31;--d:1.68s" cx="142" cy="124" r="3"/><circle class="cz-dolgu" style="--d:1.68s" cx="142" cy="124" r="3"/><circle class="cz-cizgi" style="--u:31;--d:2.10s" cx="156" cy="124" r="3"/><circle class="cz-dolgu" style="--d:2.10s" cx="156" cy="124" r="3"/><circle class="cz-cizgi" style="--u:31;--d:2.52s" cx="170" cy="124" r="3"/><circle class="cz-dolgu" style="--d:2.52s" cx="170" cy="124" r="3"/><line class="cz-cizgi" style="--u:52;--d:2.94s" x1="312" y1="112" x2="356" y2="112"/><line class="cz-cizgi" style="--u:20;--d:3.36s" x1="356" y1="112" x2="346" y2="105"/><line class="cz-cizgi" style="--u:20;--d:3.78s" x1="356" y1="112" x2="346" y2="119"/><rect class="cz-cizgi" style="--u:204;--d:4.20s" x="360" y="94" width="56" height="36" rx="18"/><rect class="cz-dolgu" style="--d:4.20s" x="360" y="94" width="56" height="36" rx="18"/><text class="cz-etiket vurgu" style="--d:4.74s" x="370" y="116">WA</text><text class="cz-etiket" style="--d:4.74s" x="14" y="172">source: your site content only</text><text class="cz-etiket" style="--d:4.74s" x="14" y="190">never goes outside the source ✓</text>
               </svg>
             </div>
-            <div class="ciz-alt"><div class="ciz-cip"><u>COLOUR</u><b data-sayac="3" data-birim=" ana">0 core</b></div><div class="ciz-cip"><u>VARIANTS</u><b data-sayac="2" data-birim="">0</b></div><div class="ciz-cip"><u>DELIVERY</u><b>print + digital</b></div></div>
+            <div class="ciz-alt"><div class="ciz-cip"><u>ANSWER</u><b>7/24</b></div><div class="ciz-cip"><u>TRAINING</u><b>your own content</b></div><div class="ciz-cip"><u>HANDOVER</u><b>WhatsApp</b></div></div>
           </div>
         </div>
       </div>
@@ -790,324 +805,273 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
       <div class="dtay">
         <article class="dtay-k rv">
           <span class="dtay-no">01</span>
-          <h2>How does the process run, from logo to brand identity guidelines?</h2>
-          <p class="dtay-vurgu">The logo is the brand's single visual signature, while the brand identity guidelines are a thorough set of rules describing how that signature is used in every setting.</p>
-          <div class="dtay-devam"><div><p>The process starts with a discovery call that settles the brand's values and its audience. The direction is then set through concept sketches and a moodboard, and the chosen concept is produced in vector format. At this stage the colour palette, typographic hierarchy and logo variants (horizontal, vertical, mark) are defined together. The guidelines document brings the minimum size, clear space, examples of prohibited use and the colour codes together in one file. That way, different agencies or in-house teams all apply the brand to the same standard.</p></div></div>
+          <h2>How Does the Chatbot Learn? Your Own Knowledge Base</h2>
+          <p class="dtay-vurgu">The system we build isn't a general chat engine; it rests on a dedicated knowledge base made up of your site's pages, your service descriptions, your FAQs and the documents you share.</p>
+          <div class="dtay-devam"><div><p>When a question comes in, the chatbot searches that knowledge base first and keeps its answer confined to what it finds there. This approach cuts the risk of invented answers and stops it straying outside your brand voice. As your services change, the answers are refreshed by updating the knowledge base — the chatbot doesn't have to be rebuilt.</p></div></div>
           <button type="button" class="dtay-more" aria-expanded="false"><span>More</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
         <article class="dtay-k rv d1">
           <span class="dtay-no">02</span>
-          <h2>The Technical Difference Between Business Cards, Catalogues and Social Media Templates</h2>
-          <p class="dtay-vurgu">Business card and catalogue files going to print need a CMYK colour profile, bleed and high resolution, while digital catalogues and social media templates are prepared in RGB and optimized for screens.</p>
-          <div class="dtay-devam"><div><p>Depending on the number of products and the page layout, a catalogue can be delivered as a print-ready PDF or as an interactive digital format with a page-turn effect. Social media templates come in different ratios — post, story, cover image — matched to the brand's colours and typography, in editable layers. The aim is for the same brand identity to appear intact on every channel. Because pricing and delivery times vary with the package, those details are covered in the pricing section. The design delivered is a creative work; <a class="kaynak" href="https://www.telifhaklari.gov.tr/" target="_blank" rel="noopener">copyright law</a> sets the extent of the usage rights.</p></div></div>
+          <h2>Boundaries, Review and the Handover-to-Human Mechanism</h2>
+          <p class="dtay-vurgu">We set clear boundaries for the chatbot, defining which subjects it can answer on and which situations it must stay out of.</p>
+          <div class="dtay-devam"><div><p>In cases such as price negotiation, complaint handling or complex requests, the conversation is automatically directed to a member of staff or to your WhatsApp line. The full conversation history is logged, so it's visible which questions went unanswered and the knowledge base can be strengthened accordingly. Control always stays with you; the chatbot isn't an independent decision-maker but a layer working within a defined frame. Chat logs are personal data too; <a class="kaynak" href="https://www.kvkk.gov.tr/" target="_blank" rel="noopener">the KVKK duty to inform</a> applies to a chatbot as well.</p></div></div>
           <button type="button" class="dtay-more" aria-expanded="false"><span>More</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>
 
-      <!-- Akış durakları — bu sayfanın KENDİ anlattığı yolu çizer:
-           logo → kurumsal kimlik kılavuzu → şablonlar. Etiketlerin tamamı
-           sayfada geçen kavramlar: logo varyasyonları (yatay, dikey, simge),
-           koruma alanı, vektörel, print + digital, renk paleti, tipografi,
-           kullanım kuralları / doğru-yanlış kullanım, business card, katalog,
-           sosyal medya, CMYK, PDF, RGB.
-
-           BİLEREK RAKAM YOK: fiyat rakamları bu siteden kaldırıldı; yüzde,
-           süre veya adet iddiası da çizilmedi. Logo işareti soyut geometrik
-           bir formdur — TasarımMania logosu değildir; marka, yazılım veya
-           platform logosu da çizilmedi.
-
-           NEDEN ÜÇ AYRI SVG: tek parça geniş grafik dar ekranda küçülünce
-           yazısı okunmaz hâle geliyordu. Her durak kendi 380x400 kutusunda;
-           860px altında kutular alt alta açılır, oklar 90° döner. En küçük
-           yazı 13 seçildi: mobilde kutu içi ~281px / viewBox 380 = 0.74
-           ölçek, yani ekranda en az 9.6px. -->
+      <!-- Akış infografiği — bu sayfanın KENDİ iddiasını çizer: chatbot genel
+           bir sohbet motoru değil, soruyu "sitenizin kendi içeriğinden" oluşan
+           bir bilgi tabanında arayıp yanıtı yalnızca oradan kuran bir katmandır
+           (bkz. 01/02 kartları ve SSS 2).
+           ÜÇ AYRI SVG: anlatının üç durağı üç kutuya bölündü, çünkü tek parça
+           1200px'lik şerit dar ekranda okunmuyordu (yazı 2.4px'e düşüyordu).
+           1100px altında kutular alt alta açılır, aradaki oklar aşağı döner
+           (kırılım tarayıcı taramasıyla bulundu; gerekçe stil bloğunda).
+           Her durak SVG'sinde en küçük yazı 15 punto — 390px'te ~11px eder.
+           Balonların İÇİNE YAZI YAZILMADI: metin çubuğu kullanıldı, böylece
+           olmayan bir müşteri diyaloğunu alıntılamış olmuyoruz.
+           GRAFİKTE BİLEREK HİÇ RAKAM YOK — bu sayfada yüzde, süre, adet ya da
+           fiyat verisi geçmiyor; grafik sayfada olmayan bir sayıyı üretemez.
+           Inline SVG: ek istek yok, her ölçekte net, viewBox sayesinde oran
+           sabit olduğu için düzen kaymaz (CLS yok). -->
       <figure class="akis rv d2">
         <div class="akis-izgara">
 
-          <!-- ===== DURAK 01 — LOGO ===== -->
+          <!-- ===== DURAK 01 — CHAT PENCERESİ ===== -->
           <div class="akis-kutu">
-            <span class="akis-no">01</span>
-            <span class="akis-ad">Logo</span>
-            <svg viewBox="0 0 380 400" role="img" aria-labelledby="gtB1 gtA1"
+            <span class="akis-no">01</span><span class="akis-ad">Chat window</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="aiAkis1Bas aiAkis1Ack"
                  xmlns="http://www.w3.org/2000/svg">
-              <title id="gtB1">Logo canvas: an abstract geometric mark, clear-space measurement and horizontal, vertical and icon variants — illustrative graphic</title>
-              <desc id="gtA1">A logo drawing: at the top, an abstract geometric mark on a canvas, surrounded by a dashed clear-space frame and a measurement line; below it, three small boxes showing the horizontal, vertical and icon variants; at the bottom, vector and print + digital delivery chips. The mark is illustrative — it isn't the TasarımMania logo.</desc>
+              <title id="aiAkis1Bas">A chat window embedded in your site: the visitor's question comes in — illustrative graphic</title>
+              <desc id="aiAkis1Ack">A drawing of a light-coloured chat window: right-aligned visitor bubbles and a left-aligned assistant bubble with an accent border. The bubbles carry text bars rather than words. Below the window, three thin connector lines run to the right; when a question is asked, a dot travels rightwards along them.</desc>
+
               <defs>
-                <linearGradient id="gtSahne1" x1="0" y1="0" x2="0.35" y2="1">
+                <linearGradient id="aiSahne1" x1="0" y1="0" x2="0.45" y2="1">
                   <stop offset="0" stop-color="#141C26"/>
                   <stop offset="1" stop-color="#0A0E14"/>
                 </linearGradient>
-                <radialGradient id="gtIsik1" cx="0.18" cy="0.08" r="0.85">
-                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                <radialGradient id="aiIsik1" cx="0.22" cy="0.18" r="0.8">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".16"/>
                   <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
                 </radialGradient>
-                <filter id="gtGolge1" x="-25%" y="-25%" width="150%" height="150%">
-                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                <filter id="aiGolge1" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#04070B" flood-opacity=".55"/>
                 </filter>
               </defs>
 
-              <rect width="380" height="400" fill="url(#gtSahne1)"/>
-              <rect width="380" height="400" fill="url(#gtIsik1)"/>
+              <rect width="380" height="400" fill="url(#aiSahne1)"/>
+              <rect width="380" height="400" fill="url(#aiIsik1)"/>
 
-              <g class="gt-kart gt-k1">
-                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
-                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#gtGolge1)"/>
+              <g class="ai-pencere">
+                <rect x="14" y="16" width="352" height="290" rx="16" fill="#FFFFFF" filter="url(#aiGolge1)"/>
+                <circle cx="38" cy="40" r="5" fill="#FF5F57"/>
+                <circle cx="55" cy="40" r="5" fill="#FEBC2E"/>
+                <circle cx="72" cy="40" r="5" fill="#28C840"/>
+                <rect x="90" y="27" width="164" height="26" rx="13" fill="#F1F3F4"/>
+                <text x="102" y="45" font-family="Inter Tight, system-ui, sans-serif"
+                      font-size="15" fill="#5F6368">yourbrand.com</text>
+                <text x="352" y="45" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing="1.1" fill="#9AA0A6">CHAT</text>
+                <line x1="14" y1="66" x2="366" y2="66" stroke="#E8EAED" stroke-width="1"/>
+                <text x="30" y="88" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing="1.1" fill="#9AA0A6">ASSISTANT</text>
+                <text x="350" y="88" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing="1.1" fill="#9AA0A6">VISITOR</text>
+              </g>
 
-                <!-- tuval -->
-                <g class="gt-tuval">
-                  <rect x="34" y="40" width="312" height="164" rx="10" fill="#151F2B" stroke="#26333F"/>
-                  <line x1="34" y1="122" x2="346" y2="122" stroke="#26333F" stroke-opacity=".7"/>
-                  <line x1="158" y1="40" x2="158" y2="204" stroke="#26333F" stroke-opacity=".7"/>
-                </g>
+              <!-- ziyaretçi balonu 1 — sağ hizalı, açık gri, İÇİNDE YAZI YOK -->
+              <g class="ai-soru1">
+                <rect x="150" y="102" width="200" height="44" rx="12" fill="#EDEFF2" stroke="#E1E4E9"/>
+                <rect x="166" y="114" width="158" height="8" rx="4" fill="#C3C7CD"/>
+                <rect x="166" y="128" width="104" height="8" rx="4" fill="#D5D8DD"/>
+              </g>
 
-                <!-- soyut geometrik işaret: marka logosu DEĞİL, temsilî form -->
-                <g class="gt-isaret">
-                  <circle cx="150" cy="122" r="34" fill="none" stroke="#00E5FF" stroke-width="6"/>
-                  <path d="M172,96 L204,150 H140 Z" fill="#00E5FF" fill-opacity=".8"/>
-                </g>
+              <!-- asistan balonu 1 — sol hizalı, aksan kenarlıklı -->
+              <g class="ai-cevap1">
+                <rect x="30" y="158" width="236" height="62" rx="12" fill="#EDFDFF"
+                      stroke="#00E5FF" stroke-width="1.8"/>
+                <rect x="46" y="170" width="202" height="8" rx="4" fill="#4FBFD4"/>
+                <rect x="46" y="185" width="174" height="8" rx="4" fill="#7ED4E4"/>
+                <rect x="46" y="200" width="120" height="8" rx="4" fill="#A9E4EF"/>
+              </g>
 
-                <!-- koruma alanı ölçüsü -->
-                <g class="gt-olcu">
-                  <rect x="101" y="73" width="115" height="98" fill="none" stroke="#00E5FF"
-                        stroke-opacity=".45" stroke-width="1" stroke-dasharray="5 5"/>
-                  <line x1="101" y1="188" x2="216" y2="188" stroke="#00E5FF" stroke-opacity=".5"/>
-                  <line x1="101" y1="182" x2="101" y2="194" stroke="#00E5FF" stroke-opacity=".5"/>
-                  <line x1="216" y1="182" x2="216" y2="194" stroke="#00E5FF" stroke-opacity=".5"/>
-                  <text x="226" y="193" font-family="JetBrains Mono, ui-monospace, monospace"
-                        font-size="13" letter-spacing=".4" fill="#9FD6E0">Clear space</text>
-                </g>
+              <!-- ziyaretçi balonu 2 = akışı başlatan soru -->
+              <g class="ai-soru2">
+                <rect x="126" y="232" width="224" height="44" rx="12" fill="#EDEFF2" stroke="#E1E4E9"/>
+                <rect x="142" y="244" width="192" height="8" rx="4" fill="#C3C7CD"/>
+                <rect x="142" y="258" width="134" height="8" rx="4" fill="#D5D8DD"/>
+              </g>
 
-                <!-- logo varyasyonları: sayfada geçen yatay / dikey / simge -->
-                <g class="gt-varyant">
+              <!-- soru bilgi tabanına gidiyor: ince bağlantı hatları -->
+              <g fill="none" stroke="#00E5FF" stroke-width="1.6" stroke-opacity=".55" stroke-linecap="round">
+                <path class="ai-hat g1" d="M28,352 C104,352 140,326 298,326"/>
+                <path class="ai-hat g2" d="M28,352 C104,352 140,352 298,352"/>
+                <path class="ai-hat g3" d="M28,352 C104,352 140,378 298,378"/>
+                <path class="ai-ok" stroke-width="1.9" stroke-opacity=".9" d="M288,345 L299,352 L288,359"/>
+              </g>
+              <circle class="ai-akan" cx="30" cy="352" r="4.5" fill="#00E5FF"/>
+            </svg>
+          </div>
+
+          <div class="akis-ok" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <!-- ===== DURAK 02 — KNOWLEDGE BASE ===== -->
+          <div class="akis-kutu">
+            <span class="akis-no">02</span><span class="akis-ad">Knowledge base</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="aiAkis2Bas aiAkis2Ack"
+                 xmlns="http://www.w3.org/2000/svg">
+              <title id="aiAkis2Bas">The matching row is found in a knowledge base built from your site's own content — illustrative graphic</title>
+              <desc id="aiAkis2Ack">A knowledge base panel labelled “your site's own content”: each of three rows carries a small file icon and content bars. When a question arrives, the middle row lights up in the accent colour; below the panel sits a note reading “never goes outside the source”.</desc>
+
+              <defs>
+                <linearGradient id="aiSahne2" x1="0" y1="0" x2="0.45" y2="1">
+                  <stop offset="0" stop-color="#141C26"/>
+                  <stop offset="1" stop-color="#0A0E14"/>
+                </linearGradient>
+                <radialGradient id="aiIsik2" cx="0.22" cy="0.18" r="0.8">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".16"/>
+                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+
+              <rect width="380" height="400" fill="url(#aiSahne2)"/>
+              <rect width="380" height="400" fill="url(#aiIsik2)"/>
+
+              <g class="ai-panel">
+                <text x="16" y="30" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing="0.6" fill="#00E5FF">YOUR SITE'S OWN CONTENT</text>
+                <rect x="14" y="42" width="352" height="338" rx="14" fill="#0E141C"
+                      stroke="#00E5FF" stroke-opacity=".42" stroke-width="1.2"/>
+                <text x="350" y="72" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing="1" fill="#00E5FF">KNOWLEDGE BASE</text>
+                <line x1="30" y1="88" x2="350" y2="88" stroke="#00E5FF" stroke-opacity=".26" stroke-width="1"/>
+
+                <!-- üç satır: küçük dosya ikonu + içerik çubukları -->
+                <g class="ai-satir">
                   <g>
-                    <rect x="34" y="226" width="96" height="80" rx="10" fill="#101A22" stroke="#26333F"/>
-                    <circle cx="56" cy="258" r="9" fill="none" stroke="#00E5FF" stroke-width="3"/>
-                    <rect x="72" y="252" width="42" height="8" rx="4" fill="#3A4A5E"/>
-                    <rect x="72" y="265" width="30" height="6" rx="3" fill="#2A3646"/>
-                    <text x="82" y="326" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13.5" fill="#A8B8C4">Horizontal</text>
+                    <rect x="30" y="104" width="320" height="62" rx="10" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".18" stroke-width="1"/>
+                    <rect x="44" y="120" width="24" height="32" rx="4" fill="#0B1219"
+                          stroke="#00E5FF" stroke-opacity=".55" stroke-width="1.3"/>
+                    <g stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.3" stroke-linecap="round">
+                      <line x1="50" y1="130" x2="62" y2="130"/>
+                      <line x1="50" y1="137" x2="64" y2="137"/>
+                      <line x1="50" y1="144" x2="58" y2="144"/>
+                    </g>
+                    <rect x="84" y="122" width="204" height="10" rx="5" fill="#00E5FF" fill-opacity=".38"/>
+                    <rect x="84" y="142" width="128" height="8" rx="4" fill="#00E5FF" fill-opacity=".16"/>
                   </g>
                   <g>
-                    <rect x="142" y="226" width="96" height="80" rx="10" fill="#101A22" stroke="#26333F"/>
-                    <circle cx="190" cy="250" r="9" fill="none" stroke="#00E5FF" stroke-width="3"/>
-                    <rect x="166" y="266" width="48" height="8" rx="4" fill="#3A4A5E"/>
-                    <rect x="174" y="279" width="32" height="6" rx="3" fill="#2A3646"/>
-                    <text x="190" y="326" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13.5" fill="#A8B8C4">Vertical</text>
+                    <rect x="30" y="180" width="320" height="62" rx="10" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".18" stroke-width="1"/>
+                    <rect x="44" y="196" width="24" height="32" rx="4" fill="#0B1219"
+                          stroke="#00E5FF" stroke-opacity=".55" stroke-width="1.3"/>
+                    <g stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.3" stroke-linecap="round">
+                      <line x1="50" y1="206" x2="62" y2="206"/>
+                      <line x1="50" y1="213" x2="64" y2="213"/>
+                      <line x1="50" y1="220" x2="58" y2="220"/>
+                    </g>
+                    <rect x="84" y="198" width="242" height="10" rx="5" fill="#00E5FF" fill-opacity=".38"/>
+                    <rect x="84" y="218" width="106" height="8" rx="4" fill="#00E5FF" fill-opacity=".16"/>
+                    <!-- eşleşen satır: soru geldiğinde bu satır parlar -->
+                    <rect class="ai-parla" x="30" y="180" width="320" height="62" rx="10"
+                          fill="#00E5FF" fill-opacity=".10" stroke="#00E5FF" stroke-opacity=".85"
+                          stroke-width="1.8"/>
                   </g>
                   <g>
-                    <rect x="250" y="226" width="96" height="80" rx="10" fill="#101A22" stroke="#26333F"/>
-                    <circle cx="298" cy="266" r="14" fill="none" stroke="#00E5FF" stroke-width="4"/>
-                    <path d="M304,254 L316,276 H292 Z" fill="#00E5FF" fill-opacity=".75"/>
-                    <text x="298" y="326" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13.5" fill="#A8B8C4">Icon</text>
+                    <rect x="30" y="256" width="320" height="62" rx="10" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".18" stroke-width="1"/>
+                    <rect x="44" y="272" width="24" height="32" rx="4" fill="#0B1219"
+                          stroke="#00E5FF" stroke-opacity=".55" stroke-width="1.3"/>
+                    <g stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.3" stroke-linecap="round">
+                      <line x1="50" y1="282" x2="62" y2="282"/>
+                      <line x1="50" y1="289" x2="64" y2="289"/>
+                      <line x1="50" y1="296" x2="58" y2="296"/>
+                    </g>
+                    <rect x="84" y="274" width="180" height="10" rx="5" fill="#00E5FF" fill-opacity=".38"/>
+                    <rect x="84" y="294" width="144" height="8" rx="4" fill="#00E5FF" fill-opacity=".16"/>
                   </g>
                 </g>
 
-                <!-- teslim çipleri: sayfada geçen "vektörel kaynak dosyalar" ve
-                     "basılı-dijital her yüzey" -->
-                <g class="gt-cip">
-                  <rect x="34" y="340" width="104" height="32" rx="9" fill="none"
-                        stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
-                  <text x="86" y="361" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                        font-size="13" letter-spacing=".4" fill="#8FF6FF">Vector</text>
-                  <rect x="150" y="340" width="146" height="32" rx="9" fill="none"
-                        stroke="#26333F" stroke-width="1.4"/>
-                  <text x="223" y="361" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                        font-size="13" letter-spacing=".4" fill="#A8B8C4">Print + digital</text>
-                </g>
+                <text x="30" y="352" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" fill="#7C99A4">never goes outside the source</text>
               </g>
             </svg>
           </div>
 
           <div class="akis-ok" aria-hidden="true">
-            <svg class="gt-ok gt-ok1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                  stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </div>
 
-          <!-- ===== DURAK 02 — KİMLİK KILAVUZU ===== -->
+          <!-- ===== DURAK 03 — KAYNAKTAN DÖNEN ANSWER ===== -->
           <div class="akis-kutu">
-            <span class="akis-no">02</span>
-            <span class="akis-ad">Identity guidelines</span>
-            <svg viewBox="0 0 380 400" role="img" aria-labelledby="gtB2 gtA2"
+            <span class="akis-no">03</span><span class="akis-ad">The answer coming back from the source</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="aiAkis3Bas aiAkis3Ack"
                  xmlns="http://www.w3.org/2000/svg">
-              <title id="gtB2">An open guidelines page: colour palette, typography and right-and-wrong rules of use — illustrative graphic</title>
-              <desc id="gtA2">A guidelines page drawing: at the top, four colour circles as the palette; in the middle, a typography row with a large letterform and two text bars; at the bottom, two boxes for rules of use — one ticked as correct use, the other crossed as incorrect. The colours are examples, not a brand palette.</desc>
+              <title id="aiAkis3Bas">The answer is built only from the knowledge base and returns to the chat window — illustrative graphic</title>
+              <desc id="aiAkis3Ack">A thin connector line returning from the knowledge base to the chat window; below it a left-aligned assistant answer bubble with an accent border opens upwards, and a highlight halo expands and fades once around it. The bubble carries text bars rather than words; at the bottom sits a three-dot typing indicator.</desc>
+
               <defs>
-                <linearGradient id="gtSahne2" x1="0" y1="0" x2="0.35" y2="1">
+                <linearGradient id="aiSahne3" x1="0" y1="0" x2="0.45" y2="1">
                   <stop offset="0" stop-color="#141C26"/>
                   <stop offset="1" stop-color="#0A0E14"/>
                 </linearGradient>
-                <radialGradient id="gtIsik2" cx="0.18" cy="0.08" r="0.85">
-                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                <radialGradient id="aiIsik3" cx="0.22" cy="0.18" r="0.8">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".16"/>
                   <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
                 </radialGradient>
-                <filter id="gtGolge2" x="-25%" y="-25%" width="150%" height="150%">
-                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                <filter id="aiGolge3" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#04070B" flood-opacity=".55"/>
                 </filter>
               </defs>
 
-              <rect width="380" height="400" fill="url(#gtSahne2)"/>
-              <rect width="380" height="400" fill="url(#gtIsik2)"/>
+              <rect width="380" height="400" fill="url(#aiSahne3)"/>
+              <rect width="380" height="400" fill="url(#aiIsik3)"/>
 
-              <g class="gt-kart gt-k2">
-                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
-                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#gtGolge2)"/>
+              <!-- bilgi tabanından dönen hat -->
+              <path class="ai-donus" fill="none" stroke="#00E5FF" stroke-width="1.6"
+                    stroke-opacity=".45" stroke-linecap="round"
+                    d="M18,26 C130,26 200,26 268,26 C316,26 336,38 336,60"/>
 
-                <text x="34" y="64" font-family="JetBrains Mono, ui-monospace, monospace"
-                      font-size="13.5" letter-spacing=".5" fill="#9FD6E0">Colour palette</text>
+              <g class="ai-cerceve">
+                <rect x="14" y="64" width="352" height="316" rx="16" fill="#FFFFFF" filter="url(#aiGolge3)"/>
+                <text x="30" y="92" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing="1.1" fill="#9AA0A6">ASSISTANT</text>
+                <text x="350" y="92" text-anchor="end" font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="15" letter-spacing="1.1" fill="#9AA0A6">CHAT</text>
+                <line x1="14" y1="110" x2="366" y2="110" stroke="#E8EAED" stroke-width="1"/>
+              </g>
 
-                <!-- dört renk dairesi: örnek swatch, sayı/kod iddiası yok -->
-                <g class="gt-palet">
-                  <circle cx="60" cy="110" r="23" fill="#00E5FF" stroke="#26333F"/>
-                  <circle cx="132" cy="110" r="23" fill="#1F7E96" stroke="#26333F"/>
-                  <circle cx="204" cy="110" r="23" fill="#38506A" stroke="#26333F"/>
-                  <circle cx="276" cy="110" r="23" fill="#E4EEF4" stroke="#26333F"/>
-                </g>
+              <!-- asistan balonu 2 = kaynaktan dönen cevap; aşağıdan yukarı açılır -->
+              <g class="ai-cevap2">
+                <rect x="30" y="140" width="308" height="118" rx="12" fill="#EDFDFF"
+                      stroke="#00E5FF" stroke-width="1.8"/>
+                <rect x="48" y="158" width="268" height="9" rx="4.5" fill="#4FBFD4"/>
+                <rect x="48" y="180" width="244" height="9" rx="4.5" fill="#7ED4E4"/>
+                <rect x="48" y="202" width="214" height="9" rx="4.5" fill="#7ED4E4"/>
+                <rect x="48" y="224" width="148" height="9" rx="4.5" fill="#A9E4EF"/>
+              </g>
+              <!-- vurgu halesi: cevap oturunca bir kez genişleyip söner -->
+              <rect class="ai-hale" x="26" y="136" width="316" height="126" rx="15"
+                    fill="none" stroke="#00E5FF" stroke-width="2"/>
 
-                <line class="gt-ayrac gt-a2" x1="34" y1="152" x2="346" y2="152"
-                      stroke="#00E5FF" stroke-opacity=".26" stroke-width="1"/>
-
-                <text x="34" y="180" font-family="JetBrains Mono, ui-monospace, monospace"
-                      font-size="13.5" letter-spacing=".5" fill="#9FD6E0">Typography</text>
-
-                <!-- büyük harf örneği + küçük metin çubukları -->
-                <g class="gt-tip">
-                  <text x="34" y="232" font-family="Inter Tight, system-ui, sans-serif"
-                        font-size="44" font-weight="700" fill="#E4EEF4">Aa</text>
-                </g>
-                <g class="gt-cubuk">
-                  <rect x="112" y="196" width="196" height="14" rx="7" fill="#3A4A5E"/>
-                  <rect x="112" y="220" width="148" height="11" rx="5.5" fill="#2A3646"/>
-                </g>
-
-                <line class="gt-ayrac gt-a2b" x1="34" y1="256" x2="346" y2="256"
-                      stroke="#00E5FF" stroke-opacity=".26" stroke-width="1"/>
-
-                <text x="34" y="284" font-family="JetBrains Mono, ui-monospace, monospace"
-                      font-size="13.5" letter-spacing=".5" fill="#9FD6E0">Rules of use</text>
-
-                <!-- doğru / yanlış kullanım karşılaştırması -->
-                <g class="gt-kural">
-                  <g>
-                    <rect x="34" y="298" width="148" height="76" rx="11" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
-                    <circle cx="58" cy="336" r="13" fill="none" stroke="#00E5FF" stroke-width="1.6"/>
-                    <path d="M51,336 l5,5 l10,-11" fill="none" stroke="#00E5FF" stroke-width="2.2"
-                          stroke-linecap="round" stroke-linejoin="round"/>
-                    <text x="82" y="341" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13.5" fill="#8FF6FF">Correct</text>
-                  </g>
-                  <g>
-                    <rect x="198" y="298" width="148" height="76" rx="11" fill="#101A22"
-                          stroke="#4A5C6E" stroke-width="1.2"/>
-                    <circle cx="222" cy="336" r="13" fill="none" stroke="#6B7A8A" stroke-width="1.6"/>
-                    <path d="M216,330 l12,12 M228,330 l-12,12" fill="none" stroke="#6B7A8A"
-                          stroke-width="2.2" stroke-linecap="round"/>
-                    <text x="246" y="341" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13.5" fill="#A8B8C4">Incorrect</text>
-                  </g>
-                </g>
+              <!-- yazılıyor göstergesi: üç nokta -->
+              <g class="ai-yaziyor">
+                <rect x="30" y="292" width="104" height="50" rx="14" fill="#EDFDFF"
+                      stroke="#00E5FF" stroke-width="1.4" stroke-opacity=".7"/>
+                <circle class="ai-nokta" cx="58" cy="317" r="7" fill="#00A9C0"/>
+                <circle class="ai-nokta" cx="82" cy="317" r="7" fill="#00A9C0"/>
+                <circle class="ai-nokta" cx="106" cy="317" r="7" fill="#00A9C0"/>
               </g>
             </svg>
           </div>
 
-          <div class="akis-ok" aria-hidden="true">
-            <svg class="gt-ok gt-ok2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                 stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </div>
-
-          <!-- ===== DURAK 03 — ŞABLONLAR ===== -->
-          <div class="akis-kutu">
-            <span class="akis-no">03</span>
-            <span class="akis-ad">Templates</span>
-            <svg viewBox="0 0 380 400" role="img" aria-labelledby="gtB3 gtA3"
-                 xmlns="http://www.w3.org/2000/svg">
-              <title id="gtB3">Three format cards: business card CMYK, catalogue PDF, social media RGB — illustrative graphic</title>
-              <desc id="gtA3">A template drawing: at the top, a horizontal business card with a CMYK label; in the middle, a vertical catalogue page that reads as folded in two, with a PDF label; at the bottom, a square social media card with an RGB label. In the animation the three format cards light up in turn.</desc>
-              <defs>
-                <linearGradient id="gtSahne3" x1="0" y1="0" x2="0.35" y2="1">
-                  <stop offset="0" stop-color="#141C26"/>
-                  <stop offset="1" stop-color="#0A0E14"/>
-                </linearGradient>
-                <radialGradient id="gtIsik3" cx="0.18" cy="0.08" r="0.85">
-                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
-                  <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
-                </radialGradient>
-                <filter id="gtGolge3" x="-25%" y="-25%" width="150%" height="150%">
-                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
-                </filter>
-              </defs>
-
-              <rect width="380" height="400" fill="url(#gtSahne3)"/>
-              <rect width="380" height="400" fill="url(#gtIsik3)"/>
-
-              <g class="gt-kart gt-k3">
-                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
-                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#gtGolge3)"/>
-
-                <!-- Format etiketleri sayfanın KENDİ teknik ayrımından geliyor:
-                     baskıya giden business card/katalog CMYK, katalog baskıya hazır PDF,
-                     sosyal medya şablonları RGB. Ölçü veya adet uydurulmadı. -->
-                <g class="gt-format">
-                  <g>
-                    <rect class="gt-isik gt-i1" x="28" y="46" width="162" height="98" rx="13"
-                          fill="none" stroke="#00E5FF" stroke-width="3"/>
-                    <rect x="34" y="52" width="150" height="86" rx="10" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
-                    <circle cx="56" cy="76" r="8" fill="none" stroke="#00E5FF" stroke-width="2.4"/>
-                    <rect x="50" y="98" width="84" height="9" rx="4.5" fill="#3A4A5E"/>
-                    <rect x="50" y="113" width="56" height="7" rx="3.5" fill="#2A3646"/>
-                    <text x="200" y="88" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="15" fill="#D5E4EC">Business card</text>
-                    <rect x="200" y="100" width="72" height="28" rx="8" fill="none"
-                          stroke="#00E5FF" stroke-opacity=".4" stroke-width="1.2"/>
-                    <text x="236" y="119" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="13" letter-spacing=".8" fill="#8FF6FF">CMYK</text>
-                  </g>
-                  <g>
-                    <rect class="gt-isik gt-i2" x="28" y="152" width="112" height="136" rx="13"
-                          fill="none" stroke="#00E5FF" stroke-width="3"/>
-                    <rect x="34" y="158" width="100" height="124" rx="10" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
-                    <line x1="84" y1="166" x2="84" y2="274" stroke="#00E5FF" stroke-opacity=".35"
-                          stroke-width="1" stroke-dasharray="4 5"/>
-                    <rect x="44" y="174" width="30" height="7" rx="3.5" fill="#3A4A5E"/>
-                    <rect x="44" y="188" width="22" height="6" rx="3" fill="#2A3646"/>
-                    <rect x="94" y="174" width="30" height="7" rx="3.5" fill="#3A4A5E"/>
-                    <rect x="94" y="188" width="26" height="6" rx="3" fill="#2A3646"/>
-                    <rect x="44" y="204" width="30" height="24" rx="4" fill="#1B2734" stroke="#26333F"/>
-                    <rect x="94" y="204" width="30" height="24" rx="4" fill="#1B2734" stroke="#26333F"/>
-                    <rect x="44" y="240" width="30" height="6" rx="3" fill="#2A3646"/>
-                    <rect x="94" y="240" width="24" height="6" rx="3" fill="#2A3646"/>
-                    <text x="200" y="210" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="15" fill="#D5E4EC">Catalogue</text>
-                    <rect x="200" y="222" width="64" height="28" rx="8" fill="none"
-                          stroke="#00E5FF" stroke-opacity=".4" stroke-width="1.2"/>
-                    <text x="232" y="241" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="13" letter-spacing=".8" fill="#8FF6FF">PDF</text>
-                  </g>
-                  <g>
-                    <rect class="gt-isik gt-i3" x="28" y="292" width="92" height="88" rx="13"
-                          fill="none" stroke="#00E5FF" stroke-width="3"/>
-                    <rect x="34" y="298" width="80" height="76" rx="10" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
-                    <circle cx="58" cy="322" r="9" fill="none" stroke="#00E5FF" stroke-width="2.2"/>
-                    <rect x="46" y="344" width="56" height="8" rx="4" fill="#3A4A5E"/>
-                    <rect x="46" y="358" width="36" height="6" rx="3" fill="#2A3646"/>
-                    <text x="200" y="328" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="15" fill="#D5E4EC">Social media</text>
-                    <rect x="200" y="340" width="64" height="28" rx="8" fill="none"
-                          stroke="#00E5FF" stroke-opacity=".4" stroke-width="1.2"/>
-                    <text x="232" y="359" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="13" letter-spacing=".8" fill="#8FF6FF">RGB</text>
-                  </g>
-                </g>
-              </g>
-            </svg>
-          </div>
         </div>
-        <figcaption><b>Illustrative graphic.</b> It draws the route the page describes: from logo to brand identity guidelines, from guidelines to templates. The logo mark is an abstract geometric form — it isn't the TasarımMania logo or any real client's logo; the palette circles are example swatches, and the brand colour codes are defined in the guidelines file. The format labels are the technical distinction described above: business cards and catalogues going to print are CMYK, social media templates are RGB. Measurements, quantities and price figures were deliberately left out — for the current band, see the pricing link below.</figcaption>
+        <figcaption><b>Illustrative graphic.</b> The chat window embedded in your site takes the question, finds the matching row in the knowledge base in the second box — that is, in your site's own content — and builds the answer only from there. The bubbles deliberately carry no words: text bars are used, because there's no real customer conversation here. The window, the domain name and the file rows are examples. The graphic deliberately carries no figures.</figcaption>
       </figure>
 
       <div class="dtay-fiyat rv d1">
@@ -1132,27 +1096,27 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>FAQs</span>
-        <h2 data-kin>Frequently asked questions: graphic design and brand identity</h2>
+        <h2 data-kin>Frequently asked questions: AI chatbot integration for a website</h2>
       </div>
       <div class="sd rv d1" data-sd>
         <div class="sd-sol" role="tablist" aria-label="Questions">
-        <button type="button" class="sd-soru acik" role="tab" aria-selected="true"><i>01</i><span>What is a brand identity, and how is it different from just a logo?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>02</i><span>What stages does a logo go through before it's delivered?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>03</i><span>What makes business card and catalogue design prices vary?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>04</i><span>What formats is a catalogue delivered in?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>05</i><span>Are social media templates part of the package, or offered separately?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>06</i><span>Can we keep our existing logo and just have brand identity guidelines produced?</span></button>
+        <button type="button" class="sd-soru acik" role="tab" aria-selected="true"><i>01</i><span>What exactly can an AI chatbot added to a website do?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>02</i><span>Is the chatbot trained on our own content, or is a general AI answering?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>03</i><span>Does building your own website with ChatGPT replace a professional AI integration?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>04</i><span>What happens if the chatbot gives a wrong or misleading answer — who's in control?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>05</i><span>Can chatbot conversations be handed over to WhatsApp?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>06</i><span>Can AI integration be added to an existing site later?</span></button>
         </div>
         <div class="sd-sag">
-        <div class="sd-cevap acik" role="tabpanel"><h3>What is a brand identity, and how is it different from just a logo?</h3><p>The logo is the brand's mark, while the brand identity is a whole system covering the colour palette, typography, visual language and rules of use. The identity guidelines make sure the logo is applied consistently across every channel.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>What stages does a logo go through before it's delivered?</h3><p>The process runs through a discovery call, concept sketches, vector production of the chosen direction, and a final check. At delivery you get the vector source files together with the different usage formats.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>What makes business card and catalogue design prices vary?</h3><p>The cost is set by things like the number of pages, how complex the content is, whether illustration is needed and the delivery format. Current package details are in the pricing section.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>What formats is a catalogue delivered in?</h3><p>A catalogue can be prepared as a high-resolution, print-ready PDF, or as an interactive digital file with a page-turn effect on screen. Where it's needed, both formats are delivered together.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>Are social media templates part of the package, or offered separately?</h3><p>The template set is offered either as an add-on module to the brand identity package or as a standalone service. The scope is settled during the call, according to what the brand needs.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>Can we keep our existing logo and just have brand identity guidelines produced?</h3><p>Yes — the existing logo can be analysed and kept, with guidelines produced covering only colour, typography and rules of use. If the logo needs revising, that's assessed separately.</p></div>
+        <div class="sd-cevap acik" role="tabpanel"><h3>What exactly can an AI chatbot added to a website do?</h3><p>It understands the visitor's question, finds the right answer in your site's content base, gives product and service information, and directs booking or contact requests. On questions outside its scope it passes the conversation automatically to the relevant team or to your WhatsApp line.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Is the chatbot trained on our own content, or is a general AI answering?</h3><p>The chatbot uses a dedicated knowledge base built from your site's pages and your own documents. It doesn't chat about random subjects the way a general AI would; it bases its answers only on the content source you've defined.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Does building your own website with ChatGPT replace a professional AI integration?</h3><p>No. ChatGPT is a general-purpose chat tool and isn't connected to your site's data, your brand voice or your business processes. In a professional integration the chatbot is embedded in your site, confined to your own content and connected to channels like WhatsApp; that's a different piece of engineering from dropping in an off-the-shelf chat window.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>What happens if the chatbot gives a wrong or misleading answer — who's in control?</h3><p>Because the chatbot only answers from the defined content base, the risk of error is limited; even so, every conversation is logged and reviewed regularly. When a problematic answer is found, the content base is updated and the boundaries are redefined. The final say is always yours.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Can chatbot conversations be handed over to WhatsApp?</h3><p>Yes. Depending on what the visitor asks for, the chatbot can direct the conversation to your WhatsApp line, so a conversation that starts on the site continues with your team without a break and the enquiry isn't lost.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Can AI integration be added to an existing site later?</h3><p>Yes — the chatbot can be added to an existing site as a separate widget; it doesn't require rebuilding the site's design or its foundation. The knowledge base is built from your existing pages and documents.</p></div>
           <div class="sd-alt">
             <div class="sd-cubuk" aria-hidden="true"><i data-sd-cubuk></i></div>
-            <a class="sd-wa" href="https://wa.me/905547916545?text=Merhaba%2C%20Grafik%20Tasar%C4%B1m%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Is your question different? Ask us on WhatsApp →</a>
+            <a class="sd-wa" href="https://wa.me/905547916545?text=Merhaba%2C%20AI%20Entegrasyonu%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Is your question different? Ask us on WhatsApp →</a>
           </div>
         </div>
       </div>
@@ -1169,21 +1133,21 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
         <ol class="akv-liste">
           <li>
             <span class="akv-no">01</span>
-            <div><h3>What's in the Identity Guidelines</h3><p>The guidelines delivered bring together the logo variants, colour codes, typographic hierarchy, examples of the visual language and right-and-wrong usage comparisons. That document becomes the shared reference for every supplier working with the brand.</p></div>
+            <div><h3>The Technical Setup: Widget, API and Data Sources</h3><p>The chatbot sits on your site as a small widget and talks to your knowledge base through an API in the background. The knowledge base is built from site pages, product and service catalogues, FAQs and the documents you share. A WhatsApp Business integration lets the conversation continue without changing channel.</p></div>
           </li>
           <li>
             <span class="akv-no">02</span>
-            <div><h3>Feedback and Sign-Off Flow</h3><p>After the concept is shared, feedback is gathered from a single point and revisions are applied accordingly. The sign-off flow is set up so that different stakeholders' views come together on one file.</p></div>
+            <div><h3>Brand Voice and Updating the Content</h3><p>The chatbot's tone is defined around your corporate voice; formal, friendly or technical. When a new service is added or a piece of information changes, the knowledge base is updated without rebuilding the chatbot, and the change shows in the answers straight away.</p></div>
           </li>
           <li>
             <span class="akv-no">03</span>
-            <div><h3>The File Package Delivered</h3><p>At the end of the project you receive the vector source files, print-ready versions, social media profile images and editable template layers together. A file-naming standard is shared as well.</p></div>
+            <div><h3>Tracking Performance and Improving It</h3><p>The conversation logs show which questions come up most and which went unanswered. That data is used to widen the knowledge base regularly and to optimize the welcome messages and routing rules.</p></div>
           </li>
         </ol>
         <div class="akv-video">
           <span class="akv-rozet"><i></i>LIVE LOOP</span>
-          <video data-dongu muted loop playsinline preload="metadata" poster="../../../assets/modul-web/grafik-tasarim.jpg" aria-hidden="true">
-            <source src="../../../assets/modul-web/grafik-tasarim.mp4" type="video/mp4">
+          <video data-dongu muted loop playsinline preload="metadata" poster="../../../../assets/modul-web/ai-entegrasyonu.jpg" aria-hidden="true">
+            <source src="../../../assets/modul-web/ai-entegrasyonu.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -1209,46 +1173,47 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <path class="hrt-akis g3" d="M0,50 C42,50 55,85 100,85"/>
         </svg>
         <div class="hrt-sag">
+          <a class="yk" href="../../ozel-yazilim/"><b>Bespoke Software</b>
+            <span>Development from scratch for the workflows an off-the-shelf system doesn't cover.</span></a>
+          <a class="yk" href="../../site-bakim/"><b>Maintenance and Support</b>
+            <span>Ongoing security and backup management for a live site.</span></a>
           <a class="yk" href="../corporate-website/"><b>Corporate Websites</b>
-            <span>The web interface design the identity is applied to.</span></a>
-          <a class="yk" href="../ecommerce-website/"><b>E-Commerce</b>
-            <span>Product images and the store's visual language.</span></a>
-          <a class="yk" href="../ai-services/"><b>AI Integration</b>
-            <span>Chatbot content that carries the brand's voice.</span></a>
+            <span>The multi-page site architecture the chatbot sits on.</span></a>
         </div>
       </div>
-    </div>
-  </aside>
-
-  <aside class="sec" style="padding-top:0" aria-label="Related reading">
-    <div class="wrap">
-      <nav class="yz-ilgili rv" aria-labelledby="hub-ilgili">
-        <h2 id="hub-ilgili">Graphic Design guides</h2>
-        <p class="not">Blog posts setting out the method behind this service.</p>
-        <ul>
-          <li><a href="../../blog/grafik-tasarim-turleri/" style="--k:0,229,255"><span class="kat">Graphic Design</span><span class="bas">What Does Corporate Graphic Design Cover?</span></a></li>
-          <li><a href="../../blog/grafik-tasarim-sureci/" style="--k:0,229,255"><span class="kat">Graphic Design</span><span class="bas">How Many Stages Does the Graphic Design Process Take?</span></a></li>
-          <li><a href="../../blog/grafik-tasarim-trendleri/" style="--k:0,229,255"><span class="kat">Graphic Design</span><span class="bas">Graphic Design Trends in 2026: What Has Changed This Year?</span></a></li>
-          <li><a href="../../blog/grafik-tasarim-araclari/" style="--k:0,229,255"><span class="kat">Graphic Design</span><span class="bas">Comparing Graphic Design Software: Which One Suits Whom?</span></a></li>
-        </ul>
-      </nav>
     </div>
   </aside>
 
   <section class="sec" style="padding-top:0">
     <div class="wrap">
       <div class="band rv">
-        <h2>Let's Turn Your Brand Identity Into a Corporate System</h2>
-        <p>Let your logo, business card, catalogue and social media graphics meet in one design language. Get in touch to discuss the scope and delivery plan that suits you.</p>
+        <h2>Let's Add a Talking AI Layer to Your Site</h2>
+        <p>The scope of an AI integration differs from project to project; which knowledge base gets built and how the WhatsApp integration works are settled in the first call. For the scope and terms, have a look at the pricing section or get in touch with our team.</p>
         <div class="band-cta">
           <a class="btn btn-p" href="../get-a-quote/#web">Let's map the scope
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Grafik%20Tasar%C4%B1m%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
+          <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20AI%20Entegrasyonu%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
         </div>
       </div>
     </div>
   </section>
 
+  <aside class="sec" style="padding-top:0" aria-label="Related reading">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Related reading</span>
+        <h2 data-kin>What we've written on this</h2>
+      </div>
+      <div class="hrt-sag" data-ic-link="blog">
+          <a class="yk" href="../../blog/web-sitesine-chatbot-eklemek/"><b>What Does Adding a Chatbot to Your Website Change?</b>
+            <span>What does setting up a website chatbot actually change? Response time, the question load, the handover-to-human rule and</span></a>
+          <a class="yk" href="../../blog/kullanici-deneyimi/"><b>E-Commerce UX: How Do You Shorten the Route to the Basket?</b>
+            <span>How to shorten the e-commerce UX route: homepage, product page, basket and payment</span></a>
+          <a class="yk" href="../../blog/seo-ve-web-tasarim/"><b>How Does SEO-Friendly Web Design Affect Search Visibility?</b>
+            <span>What is SEO-friendly web design, and how do layout and visual decisions affect search visibility? Mobile</span></a>
+      </div>
+    </div>
+  </aside>
 </main>
 
 <footer class="ftr">
@@ -1267,7 +1232,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <li><a href="../digital-marketing/">Digital Marketing</a></li>
           <li><a href="../video-production/">Video Production</a></li>
           <li><a href="../seo/">SEO Services</a></li>
-          <li><a href="./">Graphic Design</a></li>
+          <li><a href="../graphic-design/">Graphic Design</a></li>
         </ul>
       </div>
       <div>
