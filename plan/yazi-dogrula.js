@@ -26,6 +26,8 @@ const ODAKLAR = {
   'react-native-mi-flutter-mi': 'react native',
   'uygulama-magaza-optimizasyonu': 'mağaza optimizasyonu',
   'reklam-filmi-cekim-asamalari': 'reklam filmi çekimi',
+  'reklam-filmi-fiyat-kalemleri': 'reklam filmi fiyat',
+  'storyboard-nedir': 'storyboard hazırlama',
 };
 
 const ESIK = [
