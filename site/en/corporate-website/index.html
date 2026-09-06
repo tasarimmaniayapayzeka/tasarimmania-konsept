@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- KONSEPT-NOINDEX -->
 <meta name="robots" content="noindex,nofollow">
-<title>Graphic Design Agency — Logo, Brand Identity | TasarımMania</title>
-<meta name="description" content="Graphic design agency services: logo, brand identity guidelines, business cards and catalogues, and social media templates. Every source file is handed over to you.">
-<link rel="canonical" href="https://www.tasarimmania.com/en/graphic-design/">
-<link rel="alternate" hreflang="tr" href="https://www.tasarimmania.com/grafik-tasarim/">
-<link rel="alternate" hreflang="en" href="https://www.tasarimmania.com/en/graphic-design/">
-<link rel="alternate" hreflang="x-default" href="https://www.tasarimmania.com/grafik-tasarim/">
+<title>Corporate Website Costs and Process | TasarımMania</title>
+<meta name="description" content="Multi-page corporate sites with an admin panel, built on corporate web software. Page architecture, permissions and SEO integration under one roof.">
+<link rel="canonical" href="https://www.tasarimmania.com/en/corporate-website/">
+<link rel="alternate" hreflang="tr" href="https://www.tasarimmania.com/kurumsal-web-sitesi/">
+<link rel="alternate" hreflang="en" href="https://www.tasarimmania.com/en/corporate-website/">
+<link rel="alternate" hreflang="x-default" href="https://www.tasarimmania.com/kurumsal-web-sitesi/">
 <meta name="author" content="TasarımMania">
 <meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
 <meta name="theme-color" content="#0B0D12">
@@ -18,17 +18,17 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="TasarımMania">
-<meta property="og:title" content="Graphic Design Agency — Logo, Brand Identity | TasarımMania">
-<meta property="og:description" content="Graphic design agency services: logo, brand identity guidelines, business cards and catalogues, and social media templates. Every source file is handed over to you.">
-<meta property="og:url" content="https://www.tasarimmania.com/en/graphic-design/">
+<meta property="og:title" content="Corporate Website Costs and Process | TasarımMania">
+<meta property="og:description" content="Multi-page corporate sites with an admin panel, built on corporate web software. Page architecture, permissions and SEO integration under one roof.">
+<meta property="og:url" content="https://www.tasarimmania.com/en/corporate-website/">
 <meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="TasarımMania — cover image for web, mobile, advertising, video and SEO services">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg">
-<meta name="twitter:title" content="Graphic Design Agency — Logo, Brand Identity | TasarımMania">
-<meta name="twitter:description" content="Graphic design agency services: logo, brand identity guidelines, business cards and catalogues, and social media templates. Every source file is handed over to you.">
+<meta name="twitter:title" content="Corporate Website Costs and Process | TasarımMania">
+<meta name="twitter:description" content="Multi-page corporate sites with an admin panel, built on corporate web software. Page architecture, permissions and SEO integration under one roof.">
 <meta name="twitter:image:alt" content="TasarımMania — cover image for web, mobile, advertising, video and SEO services">
 <link rel="icon" type="image/png" href="../../../assets/logo/marka-daire.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -279,22 +279,19 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
 
-/* --- akış durakları (alt sayfa standardı) ---
-   Bu sayfanın kendi anlattığı yol: logo → kimlik kılavuzu → şablonlar.
-   Üç ayrı 380x400 kutu; 860px altında alt alta açılır, aradaki oklar 90° döner.
-
-   ÖLÇÜ: mobilde kutu iç genişliği ~281px, viewBox 380 → ölçek 0.74.
-   Bu bloktaki en küçük yazı 13 seçildi, yani ekranda en az 9.6px. Tek parça
-   geniş grafik kullanılsaydı aynı yazı 2-3px'e düşerdi (e-ticaret sayfasında
-   ölçülmüştü), o yüzden kutulara bölündü.
-
-   AD ÇAKIŞMASI (bir kez yapılıp geri alınan hata): tm.css satır 161-171'deki
-   global kayan yazı bileşeni "span{display:inline-flex}" ve
-   "span::before{content:...}" kurallarıyla figure içindeki HER <span>'i ele
-   geçiriyor. Bu yüzden ad .akis; .akis-no / .akis-ad stilleri de AÇIK yazıldı,
-   <span> görünümü mirasa bırakılmıyor.
-
-   viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok). */
+/* --- KURULUM AKIŞI (alt sayfa standardı: üç durak, her biri viewBox 380×400) ---
+   Hub sayfada grafik fiyat kutusunun YANINA dikey giriyor. Burada fiyat kutusu
+   yok ve .dtay metin bloğu dar; dikey grafik sağa konsaydı solda ~285px ölü
+   boşluk kalırdı. Bu yüzden alt sayfalarda grafik tam genişlik.
+   NEDEN TEK PARÇA DEĞİL: eskiden tek 1200×430 çizimdi; 390px ekranda 296px'e
+   sığınca içindeki 9.5px yazı 2.4px'e düşüyordu (ölçüldü). Çizim üç ayrı
+   kutuya bölündü, dar ekranda alt alta açılıyor, her SVG kendi genişliğini
+   alıyor — kaydırmaya gerek kalmadı.
+   İSİM — BİLEREK ".akis": tm.css:161-171'de kayan yazı bandı için GLOBAL bir
+   bileşen var; onun "span{display:inline-flex}" ve "span::before{content:...}"
+   kuralları figure içine konan HER <span>'i ele geçiriyordu (ölçüldü: 1440px'te
+   gizlenmesi gereken ipucu span'i inline-flex alıyordu). O sınıf adı bu sayfada
+   tamamen terk edildi — tek bir geçişi bile kalmadı, çakışma kaynağında bitti. */
 .akis{border:1px solid var(--hair);border-radius:var(--r-lg);
   background:var(--panel);padding:18px;margin:26px 0 0}
 .akis-izgara{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
@@ -302,10 +299,13 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
 .akis-kutu{border:1px solid var(--hair);border-radius:var(--r-md);
   background:rgba(255,255,255,.02);padding:14px;display:flex;
   flex-direction:column;gap:10px}
+/* .akis-no ve .akis-ad <span>: çakışma bitti ama hiçbir global span kuralına
+   yaslanmamak için kendi stilleri açıkça veriliyor. */
 .akis-no{display:inline-block;font-family:var(--mono);font-size:10.5px;
   letter-spacing:.14em;color:var(--acc);opacity:.9}
 .akis-ad{display:block;font-size:13.5px;font-weight:600;color:var(--fg);
   letter-spacing:-.01em;margin-top:-6px}
+/* viewBox + height:auto = oran sabit, düzen kaymaz (CLS yok) */
 .akis-kutu svg{width:100%;height:auto;display:block;border-radius:10px}
 .akis-ok{display:grid;place-items:center;color:var(--acc);opacity:.6}
 .akis-ok svg{width:22px;height:22px}
@@ -318,81 +318,95 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   .akis-kutu{width:100%;max-width:520px;margin-inline:auto}
 }
 
-/* --- durak canlanması ---
-   YENİ JS YOK: figure zaten .rv sınıfında; site/js/tm.js görününce .in ekliyor.
+/* --- akış canlanması ---
+   YENİ JS YOK: figure zaten .rv sınıfında; site/js/tm.js'teki görünürlük
+   gözlemcisi görününce .in ekliyor, animasyonlar ona bağlı. Tek sefer oynar.
    prefers-reduced-motion: tm.css'teki global kural animation-duration'ı
-   0.001ms'e indiriyor, "forwards" sayesinde her öğe anında son hâline oturuyor.
-   BAŞLANGIÇ DURUMU VERİLEN HER ÖĞENİN .in KARŞILIĞI VAR (aşağıda birebir);
-   tek istisna .gt-isik: kasıtlı sönen aydınlanma parıltısı.
-   Önek "gt-": e-ticaret sayfası "et-", hub "w-", SEO "s-" kullanıyor.
-   Çizelge — her kutu KENDİ içinde canlanır, kutular soldan sağa (mobilde
-   yukarıdan aşağı) sırayla girer:
-     KUTU 1 · 0.25s : kart 0.25 · tuval 0.38 · logo işareti 0.46 ·
-                      koruma alanı ölçüsü 0.58 · varyantlar 0.62–0.74 ·
-                      teslim çipleri 0.78
-     ok 1 · 0.80s
-     KUTU 2 · 0.90s : kart 0.90 · palet daireleri 0.98–1.10 · ayraç 1.12 ·
-                      tipografi 1.14–1.24 · ayraç 1.28 · doğru/yanlış 1.30–1.36
-     ok 2 · 1.40s
-     KUTU 3 · 1.50s : kart 1.50 · business card 1.58 · katalog 1.68 ·
-                      sosyal medya 1.78 · aydınlanma 1.62–1.82 → ~2.1s */
-.akis svg .gt-kart{opacity:0;transform:translateY(16px);transform-box:fill-box}
-.akis svg .gt-tuval,
-.akis svg .gt-olcu,
-.akis svg .gt-cip,
-.akis svg .gt-ayrac,
-.akis svg .gt-tip,
-.akis svg .gt-isik{opacity:0}
-.akis svg .gt-isaret{opacity:0;transform:scale(.82);transform-box:fill-box;
+   0.001ms'e indiriyor; "forwards" sayesinde her öğe anında son hâline oturur.
+   Sınıf/keyframe öneki "ks-"/"ks": hub sayfası "w-"/"w", SEO sayfası "s-"/"s"
+   kullanıyor; sayfalar ileride birleşirse çakışmasın diye ayrı tutuldu.
+   Kutu kutu okunuş (mobilde yukarıdan aşağı): 0.25s site haritası ·
+   0.90s admin panel · 1.50s entegrasyon rozetleri · 1.86s vurgu
+   (Publish basılır, halka açılır, rozetler sırayla aydınlanır) → ~2.5s.
+   Duraklar arası bağlantı artık SVG'de değil, HTML'deki .akis-ok oklarında;
+   bu yüzden eski ks-bag/ks-ok kuralları kalktı.
+   KURAL: burada başlangıç durumu verilen HER öğenin aşağıda bir .in
+   karşılığı var — yoksa öğe kalıcı olarak görünmez kalırdı. */
+.akis svg .ks-alan1,
+.akis svg .ks-alan2,
+.akis svg .ks-alan3{opacity:0;transform-box:fill-box}
+.akis svg .ks-alan1{transform:translateX(-18px)}
+.akis svg .ks-alan2{transform:translateY(14px)}
+.akis svg .ks-alan3{transform:translateX(18px)}
+.akis svg .ks-kok{opacity:0;transform:translateY(-14px);transform-box:fill-box}
+.akis svg .ks-dal,
+.akis svg .ks-yhat{stroke-dasharray:var(--u);stroke-dashoffset:var(--u)}
+.akis svg .ks-cocuk > g,
+.akis svg .ks-yaprak > g,
+.akis svg .ks-kutu > g,
+.akis svg .ks-rozet > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
+.akis svg .ks-not,
+.akis svg .ks-imlec,
+.akis svg .ks-parla{opacity:0}
+.akis svg .ks-pencere{opacity:0;transform:scale(.94);transform-box:fill-box;
   transform-origin:center}
-.akis svg .gt-varyant > g{opacity:0;transform:translateY(10px);transform-box:fill-box}
-.akis svg .gt-palet > circle{opacity:0;transform:scale(.5);transform-box:fill-box;
+.akis svg .ks-menu rect{transform:scaleX(.04);transform-box:fill-box;
+  transform-origin:left center}
+.akis svg .ks-yaz rect{clip-path:inset(0 100% 0 0)}
+.akis svg .ks-bas{transform-box:fill-box;transform-origin:center}
+.akis svg .ks-halka{opacity:0;transform:scale(.92);transform-box:fill-box;
   transform-origin:center}
-.akis svg .gt-cubuk rect{clip-path:inset(0 100% 0 0)}
-.akis svg .gt-kural > g{opacity:0;transform:translateY(8px);transform-box:fill-box}
-.akis svg .gt-format > g{opacity:0;transform:translateX(12px);transform-box:fill-box}
-/* oklar HTML tarafında: .akis-ok kutusu opaklığı taşıyor, ok çizimi 0'dan girer */
-.akis .gt-ok{opacity:0}
+.akis svg .ks-isik > rect{opacity:0}
 
-.akis.in svg .gt-k1{animation:gtKart .6s var(--ease) .25s forwards}
-.akis.in svg .gt-tuval{animation:gtBelir .5s var(--ease) .38s forwards}
-.akis.in svg .gt-isaret{animation:gtIsaret .55s var(--ease) .46s forwards}
-.akis.in svg .gt-olcu{animation:gtBelir .5s var(--ease) .58s forwards}
-.akis.in svg .gt-varyant > g:nth-child(1){animation:gtSatir .45s var(--ease) .62s forwards}
-.akis.in svg .gt-varyant > g:nth-child(2){animation:gtSatir .45s var(--ease) .68s forwards}
-.akis.in svg .gt-varyant > g:nth-child(3){animation:gtSatir .45s var(--ease) .74s forwards}
-.akis.in svg .gt-cip{animation:gtBelir .45s var(--ease) .78s forwards}
-.akis.in .gt-ok1{animation:gtOkBelir .55s var(--ease) .80s forwards}
-.akis.in svg .gt-k2{animation:gtKart .6s var(--ease) .90s forwards}
-.akis.in svg .gt-palet > circle:nth-of-type(1){animation:gtNokta .45s var(--ease) .98s forwards}
-.akis.in svg .gt-palet > circle:nth-of-type(2){animation:gtNokta .45s var(--ease) 1.02s forwards}
-.akis.in svg .gt-palet > circle:nth-of-type(3){animation:gtNokta .45s var(--ease) 1.06s forwards}
-.akis.in svg .gt-palet > circle:nth-of-type(4){animation:gtNokta .45s var(--ease) 1.10s forwards}
-.akis.in svg .gt-a2{animation:gtBelir .4s var(--ease) 1.12s forwards}
-.akis.in svg .gt-tip{animation:gtBelir .45s var(--ease) 1.14s forwards}
-.akis.in svg .gt-cubuk rect:nth-of-type(1){animation:gtCiz .5s var(--ease) 1.18s forwards}
-.akis.in svg .gt-cubuk rect:nth-of-type(2){animation:gtCiz .5s var(--ease) 1.24s forwards}
-.akis.in svg .gt-a2b{animation:gtBelir .4s var(--ease) 1.28s forwards}
-.akis.in svg .gt-kural > g:nth-child(1){animation:gtSatir .45s var(--ease) 1.30s forwards}
-.akis.in svg .gt-kural > g:nth-child(2){animation:gtSatir .45s var(--ease) 1.36s forwards}
-.akis.in .gt-ok2{animation:gtOkBelir .55s var(--ease) 1.40s forwards}
-.akis.in svg .gt-k3{animation:gtKart .6s var(--ease) 1.50s forwards}
-.akis.in svg .gt-format > g:nth-child(1){animation:gtSag .42s var(--ease) 1.58s forwards}
-.akis.in svg .gt-format > g:nth-child(2){animation:gtSag .42s var(--ease) 1.68s forwards}
-.akis.in svg .gt-format > g:nth-child(3){animation:gtSag .42s var(--ease) 1.78s forwards}
-.akis.in svg .gt-i1{animation:gtIsik .9s var(--ease) 1.62s forwards}
-.akis.in svg .gt-i2{animation:gtIsik .9s var(--ease) 1.72s forwards}
-.akis.in svg .gt-i3{animation:gtIsik .9s var(--ease) 1.82s forwards}
+/* kutu 1 — site haritası */
+.akis.in svg .ks-alan1{animation:ksGel .55s var(--ease) .25s forwards}
+.akis.in svg .ks-kok{animation:ksDus .5s var(--ease) .32s forwards}
+.akis.in svg .ks-dal{animation:ksCiz .5s var(--ease) .46s forwards}
+.akis.in svg .ks-cocuk > g:nth-child(1){animation:ksKart .42s var(--ease) .58s forwards}
+.akis.in svg .ks-cocuk > g:nth-child(2){animation:ksKart .42s var(--ease) .66s forwards}
+.akis.in svg .ks-cocuk > g:nth-child(3){animation:ksKart .42s var(--ease) .74s forwards}
+.akis.in svg .ks-yhat{animation:ksCiz .45s var(--ease) .70s forwards}
+.akis.in svg .ks-yaprak > g:nth-child(1){animation:ksKart .4s var(--ease) .80s forwards}
+.akis.in svg .ks-yaprak > g:nth-child(2){animation:ksKart .4s var(--ease) .87s forwards}
+.akis.in svg .ks-yaprak > g:nth-child(3){animation:ksKart .4s var(--ease) .94s forwards}
+.akis.in svg .ks-not1{animation:ksBelir .45s var(--ease) 1.00s forwards}
+/* kutu 2 — admin panel */
+.akis.in svg .ks-alan2{animation:ksGel .55s var(--ease) .90s forwards}
+.akis.in svg .ks-pencere{animation:ksAc .5s var(--ease) .97s forwards}
+.akis.in svg .ks-imlec{animation:ksBelir .3s var(--ease) 1.11s forwards}
+.akis.in svg .ks-menu rect:nth-of-type(1){animation:ksCubuk .35s var(--ease) 1.11s forwards}
+.akis.in svg .ks-menu rect:nth-of-type(2){animation:ksCubuk .35s var(--ease) 1.17s forwards}
+.akis.in svg .ks-menu rect:nth-of-type(3){animation:ksCubuk .35s var(--ease) 1.23s forwards}
+.akis.in svg .ks-menu rect:nth-of-type(4){animation:ksCubuk .35s var(--ease) 1.29s forwards}
+.akis.in svg .ks-kutu > g:nth-child(1){animation:ksKart .4s var(--ease) 1.19s forwards}
+.akis.in svg .ks-kutu > g:nth-child(2){animation:ksKart .4s var(--ease) 1.27s forwards}
+.akis.in svg .ks-yaz rect:nth-of-type(1){animation:ksSil .5s var(--ease) 1.33s forwards}
+.akis.in svg .ks-yaz rect:nth-of-type(2){animation:ksSil .5s var(--ease) 1.41s forwards}
+.akis.in svg .ks-not2{animation:ksBelir .45s var(--ease) 1.48s forwards}
+/* kutu 3 — entegrasyon; sonda vurgu: Publish basılır, rozetler aydınlanır */
+.akis.in svg .ks-alan3{animation:ksGel .55s var(--ease) 1.50s forwards}
+.akis.in svg .ks-rozet > g:nth-child(1){animation:ksKart .4s var(--ease) 1.58s forwards}
+.akis.in svg .ks-rozet > g:nth-child(2){animation:ksKart .4s var(--ease) 1.66s forwards}
+.akis.in svg .ks-rozet > g:nth-child(3){animation:ksKart .4s var(--ease) 1.74s forwards}
+.akis.in svg .ks-not3{animation:ksBelir .45s var(--ease) 1.80s forwards}
+.akis.in svg .ks-bas{animation:ksBas .4s var(--ease) 1.86s}
+.akis.in svg .ks-halka{animation:ksHalka .8s var(--ease) 1.88s forwards}
+.akis.in svg .ks-parla{animation:ksYanip .6s var(--ease) 1.88s forwards}
+.akis.in svg .ks-isik > rect:nth-child(1){animation:ksYanip .55s var(--ease) 1.90s forwards}
+.akis.in svg .ks-isik > rect:nth-child(2){animation:ksYanip .55s var(--ease) 1.98s forwards}
+.akis.in svg .ks-isik > rect:nth-child(3){animation:ksYanip .55s var(--ease) 2.06s forwards}
 
-@keyframes gtKart{to{opacity:1;transform:translateY(0)}}
-@keyframes gtSatir{to{opacity:1;transform:translateY(0)}}
-@keyframes gtSag{to{opacity:1;transform:translateX(0)}}
-@keyframes gtIsaret{to{opacity:1;transform:scale(1)}}
-@keyframes gtNokta{to{opacity:1;transform:scale(1)}}
-@keyframes gtCiz{to{clip-path:inset(0 0 0 0)}}
-@keyframes gtBelir{to{opacity:1}}
-@keyframes gtOkBelir{0%{opacity:0}45%{opacity:1;filter:brightness(1.7)}to{opacity:1;filter:brightness(1)}}
-@keyframes gtIsik{35%{opacity:.85}to{opacity:0}}
+@keyframes ksGel{to{opacity:1;transform:translate(0,0)}}
+@keyframes ksDus{to{opacity:1;transform:translateY(0)}}
+@keyframes ksKart{to{opacity:1;transform:translateY(0)}}
+@keyframes ksCiz{to{stroke-dashoffset:0}}
+@keyframes ksBelir{to{opacity:1}}
+@keyframes ksAc{to{opacity:1;transform:scale(1)}}
+@keyframes ksCubuk{to{transform:scaleX(1)}}
+@keyframes ksSil{to{clip-path:inset(0 0 0 0)}}
+@keyframes ksBas{40%{transform:scale(.94)}to{transform:scale(1)}}
+@keyframes ksHalka{30%{opacity:.9}to{opacity:0;transform:scale(1.22)}}
+@keyframes ksYanip{35%{opacity:.5}to{opacity:0}}
 
 .sss,.akor{display:grid;gap:11px;max-width:820px}
 .sss details,.akor details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
@@ -500,21 +514,9 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   .ftr-ust{grid-template-columns:1fr}
 }
 
-.yz-ilgili{margin:clamp(30px,4vw,44px) 0 0;padding-top:clamp(24px,3vw,32px);
-  border-top:1px solid var(--hair)}
-.yz-ilgili h2{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;margin:0 0 4px}
-.yz-ilgili .not{font-size:13.4px;color:var(--muted);margin:0 0 18px}
-.yz-ilgili ul{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  list-style:none;padding:0;margin:0}
-.yz-ilgili li{margin:0}
-.yz-ilgili a{display:flex;flex-direction:column;gap:5px;height:100%;
-  border:1px solid var(--hair);border-radius:var(--r-md);padding:14px 16px;
-  text-decoration:none;transition:border-color .25s,transform .25s;background:rgba(255,255,255,.012)}
-.yz-ilgili a:hover{border-color:rgba(var(--k,0,229,255),.5);transform:translateY(-2px)}
-.yz-ilgili .kat{font-family:var(--mono);font-size:9.4px;letter-spacing:.14em;
-  text-transform:uppercase;color:rgb(var(--k,0,229,255))}
-.yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
-@media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+/* GRAFIK-MOBIL-ONARIM: yatay kaydırma çözümü kaldırıldı. Grafik artık üç
+   ayrı kutuya bölünüp dar ekranda alt alta açıldığı için ne overflow-x'e,
+   ne min-width'e, ne de "yatay kaydırın" ipucuna gerek var. */
 
 /* DAR-EKRAN-DOLGU */
 /* ÖLÇÜLDÜ (iframe ile gerçek dar viewport'ta; headless Chrome --window-size
@@ -537,10 +539,10 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
   "@graph": [
     {
       "@type": "Service",
-      "name": "Graphic Design Agency Services: Logo, Brand Identity and Visual Templates",
-      "serviceType": "grafik tasarım ajansı",
-      "url": "https://www.tasarimmania.com/en/graphic-design/",
-      "description": "Graphic design agency services: logo, brand identity guidelines, business cards and catalogues, and social media templates. Every source file is handed over to you.",
+      "name": "Corporate Websites: A Multi-Page Brand Presence Built on Corporate Web Software",
+      "serviceType": "kurumsal web yazılım",
+      "url": "https://www.tasarimmania.com/en/corporate-website/",
+      "description": "Multi-page corporate sites with an admin panel, built on corporate web software. Page architecture, permissions and SEO integration under one roof.",
       "areaServed": {
         "@type": "Country",
         "name": "Türkiye"
@@ -562,31 +564,25 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           "addressCountry": "TR"
         }
       },
-      "@id": "https://www.tasarimmania.com/en/graphic-design/#hizmet",
+      "@id": "https://www.tasarimmania.com/en/corporate-website/#hizmet",
       "subjectOf": [
         {
           "@type": "Article",
-          "@id": "https://www.tasarimmania.com/blog/grafik-tasarim-turleri/#article",
-          "url": "https://www.tasarimmania.com/blog/grafik-tasarim-turleri/",
-          "name": "What Does Corporate Graphic Design Cover?"
-        },
-        {
-          "@type": "Article",
-          "@id": "https://www.tasarimmania.com/blog/grafik-tasarim-sureci/#article",
-          "url": "https://www.tasarimmania.com/blog/grafik-tasarim-sureci/",
-          "name": "How Many Stages Does the Graphic Design Process Take?"
-        },
-        {
-          "@type": "Article",
-          "@id": "https://www.tasarimmania.com/blog/grafik-tasarim-trendleri/#article",
-          "url": "https://www.tasarimmania.com/blog/grafik-tasarim-trendleri/",
-          "name": "Graphic Design Trends in 2026: What Has Changed This Year?"
+          "@id": "https://www.tasarimmania.com/blog/e-ticaret-web-tasarimi/#article",
+          "url": "https://www.tasarimmania.com/blog/e-ticaret-web-tasarimi/",
+          "name": "E-Commerce Site Design: Off-the-Shelf Theme or Bespoke?"
         },
         {
           "@type": "Article",
           "@id": "https://www.tasarimmania.com/blog/grafik-tasarim-araclari/#article",
           "url": "https://www.tasarimmania.com/blog/grafik-tasarim-araclari/",
           "name": "Comparing Graphic Design Software: Which One Suits Whom?"
+        },
+        {
+          "@type": "Article",
+          "@id": "https://www.tasarimmania.com/blog/grafik-tasarim-sureci/#article",
+          "url": "https://www.tasarimmania.com/blog/grafik-tasarim-sureci/",
+          "name": "How Many Stages Does the Graphic Design Process Take?"
         }
       ]
     },
@@ -603,16 +599,22 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           "@type": "ListItem",
           "position": 2,
           "name": "Services",
-          "item": "https://www.tasarimmania.com/hizmetler/"
+          "item": "https://www.tasarimmania.com/services/"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Graphic Design",
-          "item": "https://www.tasarimmania.com/en/graphic-design/"
+          "name": "Web Design &amp; Software",
+          "item": "https://www.tasarimmania.com/web-tasarim/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Corporate Websites",
+          "item": "https://www.tasarimmania.com/en/corporate-website/"
         }
       ],
-      "@id": "https://www.tasarimmania.com/en/graphic-design/#kirintili"
+      "@id": "https://www.tasarimmania.com/en/corporate-website/#kirintili"
     },
     {
       "@type": "FAQPage",
@@ -620,54 +622,54 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is a brand identity, and how is it different from just a logo?",
+          "name": "How many pages does a corporate website have, and what sets the number?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The logo is the brand's mark, while the brand identity is a whole system covering the colour palette, typography, visual language and rules of use. The identity guidelines make sure the logo is applied consistently across every channel."
+            "text": "There's no fixed number of pages; it's set project by project, according to the range of your services and products, your audience segments and your corporate communications needs. In the discovery call we map the site structure together first, then settle the scope."
           }
         },
         {
           "@type": "Question",
-          "name": "What stages does a logo go through before it's delivered?",
+          "name": "What's the difference between a corporate website and a single-page landing page?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The process runs through a discovery call, concept sketches, vector production of the chosen direction, and a final check. At delivery you get the vector source files together with the different usage formats."
+            "text": "A landing page is a single-flow structure focused on one offer. A corporate site carries a multi-layered information architecture that serves several service groups and different visitor profiles; it aims for visibility across a broad set of topics in search."
           }
         },
         {
           "@type": "Question",
-          "name": "What makes business card and catalogue design prices vary?",
+          "name": "Which pages must a corporate site have?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The cost is set by things like the number of pages, how complex the content is, whether illustration is needed and the delivery format. Current package details are in the pricing section."
+            "text": "About, service or product pages, case studies, careers, contact and the privacy pages form the backbone of a corporate site. Depending on the sector, pages like a press room, investor relations or a dealer network are added to that backbone."
           }
         },
         {
           "@type": "Question",
-          "name": "What formats is a catalogue delivered in?",
+          "name": "How is a corporate website made findable on Google?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A catalogue can be prepared as a high-resolution, print-ready PDF, or as an interactive digital file with a page-turn effect on screen. Where it's needed, both formats are delivered together."
+            "text": "A sound page hierarchy, a clean internal link structure, schema markup and a fast technical foundation — combined with a content strategy — position the site as a credible source in search. Run alongside our SEO service, the result lasts longer."
           }
         },
         {
           "@type": "Question",
-          "name": "Are social media templates part of the package, or offered separately?",
+          "name": "Is it more sensible to refresh my existing corporate site or rebuild it from scratch?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The template set is offered either as an add-on module to the brand identity package or as a standalone service. The scope is settled during the call, according to what the brand needs."
+            "text": "That depends on the existing site's technical foundation and the volume of its content; a short audit establishes together which route is more efficient. The detail is shared in the pricing section."
           }
         },
         {
           "@type": "Question",
-          "name": "Can we keep our existing logo and just have brand identity guidelines produced?",
+          "name": "Who prepares the content (copy, photographs) for a corporate website?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes — the existing logo can be analysed and kept, with guidelines produced covering only colour, typography and rules of use. If the logo needs revising, that's assessed separately."
+            "text": "We build the copy with you, keeping your corporate tone; you share the raw information and your brand guidelines if you have them. On the visual side you can use your existing corporate photographs, or we can bring professional photography and image production into the project where it's needed."
           }
         }
       ],
-      "@id": "https://www.tasarimmania.com/en/graphic-design/#sss"
+      "@id": "https://www.tasarimmania.com/en/corporate-website/#sss"
     },
     {
       "@type": "Organization",
@@ -697,23 +699,23 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.tasarimmania.com/en/graphic-design/#sayfa",
-      "url": "https://www.tasarimmania.com/en/graphic-design/",
-      "name": "Graphic Design Agency — Logo, Brand Identity, Catalogues | TasarımMania",
-      "description": "Graphic design agency services: logo, brand identity guidelines, business cards and catalogues, and social media templates. Every source file is handed over to you.",
+      "@id": "https://www.tasarimmania.com/en/corporate-website/#sayfa",
+      "url": "https://www.tasarimmania.com/en/corporate-website/",
+      "name": "Corporate Website Costs and Process — Corporate Web Software | TasarımMania",
+      "description": "Multi-page corporate sites with an admin panel, built on corporate web software. Page architecture, permissions and SEO integration under one roof.",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://www.tasarimmania.com/#site"
       },
       "breadcrumb": {
-        "@id": "https://www.tasarimmania.com/en/graphic-design/#kirintili"
+        "@id": "https://www.tasarimmania.com/en/corporate-website/#kirintili"
       },
       "primaryImageOfPage": {
         "@type": "ImageObject",
         "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/og-kapak.jpg"
       },
       "mainEntity": {
-        "@id": "https://www.tasarimmania.com/en/graphic-design/#hizmet"
+        "@id": "https://www.tasarimmania.com/en/corporate-website/#hizmet"
       }
     }
   ]
@@ -756,28 +758,29 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
       <nav class="crumb" aria-label="Location">
         <a href="../">Home</a><span aria-hidden="true">/</span>
         <a href="../services/">Services</a><span aria-hidden="true">/</span>
-        <span>Graphic Design</span>
+        <a href="../web-design/">Web Design &amp; Software</a><span aria-hidden="true">/</span>
+        <span>Corporate Websites</span>
       </nav>
       <div class="phd-iki">
         <div>
-<span class="mod-no">Standalone Service</span>
-      <h1 data-kin>Graphic Design Agency Services: Logo, Brand Identity and Visual Templates</h1>
-      <p class="lead">As a graphic design agency, TasarımMania produces your brand's logo, brand identity guidelines, business card and catalogue designs and social media templates under one roof. This work runs independently of your website's interface design, and aims to keep your brand consistent on every surface, printed and digital.</p>
+<span class="mod-no">Module 01 · Web Design &amp; Software</span>
+      <h1 data-kin>Corporate Websites: A Multi-Page Brand Presence Built on Corporate Web Software</h1>
+      <p class="lead">Our corporate web software takes your company beyond a single landing page, into a multi-page structure that carries your services, your product groups, your HR processes and your brand identity together. In this part of our Web Design &amp; Software service we set out the architecture and the process detail that separate a corporate site from the alternatives.</p>
       <div class="hero-cta">
         <a class="btn btn-p" href="../get-a-quote/#web">Let's map the scope and price range
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Grafik%20Tasar%C4%B1m%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
+        <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Kurumsal%20Web%20Sitesi%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
       </div>
         </div>
         <div class="ciz-kutu" aria-hidden="true">
           <div class="ciz-cerceve">
-            <div class="ciz-bar"><i></i><i></i><i></i><span>identity in progress</span><b>READY FOR SIGN-OFF</b></div>
+            <div class="ciz-bar"><i></i><i></i><i></i><span>site architecture in progress</span><b>UNDER CONSTRUCTION</b></div>
             <div class="ciz-svg">
               <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-<circle class="cz-cizgi" style="--u:352;--d:0.00s" cx="100" cy="90" r="54"/><circle class="cz-cizgi" style="--u:176;--d:0.42s" cx="128" cy="90" r="26"/><line class="cz-cizgi" style="--u:120;--d:0.84s" x1="44" y1="90" x2="156" y2="90"/><line class="cz-cizgi" style="--u:120;--d:1.26s" x1="100" y1="34" x2="100" y2="146"/><text class="cz-etiket vurgu" style="--d:1.80s" x="58" y="170">logo grid</text><rect class="cz-cizgi" style="--u:180;--d:1.68s" x="200" y="30" width="40" height="40" rx="8"/><rect class="cz-dolgu" style="--d:1.68s" x="200" y="30" width="40" height="40" rx="8"/><rect class="cz-cizgi" style="--u:180;--d:2.10s" x="248" y="30" width="40" height="40" rx="8"/><rect class="cz-dolgu" style="--d:2.10s" x="248" y="30" width="40" height="40" rx="8"/><rect class="cz-cizgi" style="--u:180;--d:2.52s" x="296" y="30" width="40" height="40" rx="8"/><rect class="cz-dolgu" style="--d:2.52s" x="296" y="30" width="40" height="40" rx="8"/><text class="cz-etiket" style="--d:3.06s" x="200" y="88">core palette</text><rect class="cz-cizgi" style="--u:488;--d:2.94s" x="200" y="110" width="152" height="82" rx="8"/><rect class="cz-dolgu" style="--d:2.94s" x="200" y="110" width="152" height="82" rx="8"/><circle class="cz-cizgi" style="--u:62;--d:3.36s" cx="222" cy="132" r="8"/><circle class="cz-dolgu" style="--d:3.36s" cx="222" cy="132" r="8"/><line class="cz-cizgi" style="--u:116;--d:3.78s" x1="214" y1="162" x2="322" y2="162"/><line class="cz-cizgi" style="--u:86;--d:4.20s" x1="214" y1="176" x2="292" y2="176"/><text class="cz-etiket" style="--d:4.74s" x="358" y="130">business card</text>
+<rect class="cz-cizgi" style="--u:272;--d:0.00s" x="165" y="14" width="100" height="26" rx="6"/><rect class="cz-dolgu" style="--d:0.00s" x="165" y="14" width="100" height="26" rx="6"/><text class="cz-etiket vurgu" style="--d:0.54s" x="178" y="31">/ home</text><line class="cz-cizgi" style="--u:136;--d:0.42s" x1="215" y1="40" x2="93" y2="78"/><line class="cz-cizgi" style="--u:46;--d:0.84s" x1="215" y1="40" x2="215" y2="78"/><line class="cz-cizgi" style="--u:136;--d:1.26s" x1="215" y1="40" x2="337" y2="78"/><rect class="cz-cizgi" style="--u:292;--d:1.68s" x="38" y="78" width="110" height="26" rx="6"/><rect class="cz-dolgu" style="--d:1.68s" x="38" y="78" width="110" height="26" rx="6"/><text class="cz-etiket" style="--d:2.22s" x="50" y="95">/services</text><rect class="cz-cizgi" style="--u:292;--d:2.10s" x="160" y="78" width="110" height="26" rx="6"/><rect class="cz-dolgu" style="--d:2.10s" x="160" y="78" width="110" height="26" rx="6"/><text class="cz-etiket" style="--d:2.64s" x="172" y="95">/about</text><rect class="cz-cizgi" style="--u:292;--d:2.52s" x="282" y="78" width="110" height="26" rx="6"/><rect class="cz-dolgu" style="--d:2.52s" x="282" y="78" width="110" height="26" rx="6"/><text class="cz-etiket" style="--d:3.06s" x="294" y="95">/contact</text><line class="cz-cizgi" style="--u:61;--d:2.94s" x1="93" y1="104" x2="54" y2="140"/><line class="cz-cizgi" style="--u:60;--d:3.36s" x1="93" y1="104" x2="130" y2="140"/><rect class="cz-cizgi" style="--u:200;--d:3.78s" x="20" y="140" width="68" height="22" rx="5"/><rect class="cz-dolgu" style="--d:3.78s" x="20" y="140" width="68" height="22" rx="5"/><rect class="cz-cizgi" style="--u:200;--d:4.20s" x="96" y="140" width="68" height="22" rx="5"/><rect class="cz-dolgu" style="--d:4.20s" x="96" y="140" width="68" height="22" rx="5"/><text class="cz-etiket" style="--d:4.74s" x="24" y="178">sub-pages × 6</text><text class="cz-etiket" style="--d:4.74s" x="282" y="150">breadcrumb ✓</text><text class="cz-etiket" style="--d:4.74s" x="282" y="168">mega menu ✓</text><text class="cz-etiket" style="--d:4.74s" x="282" y="186">role-based panel ✓</text>
               </svg>
             </div>
-            <div class="ciz-alt"><div class="ciz-cip"><u>COLOUR</u><b data-sayac="3" data-birim=" ana">0 core</b></div><div class="ciz-cip"><u>VARIANTS</u><b data-sayac="2" data-birim="">0</b></div><div class="ciz-cip"><u>DELIVERY</u><b>print + digital</b></div></div>
+            <div class="ciz-alt"><div class="ciz-cip"><u>PAGES</u><b data-sayac="24" data-birim="">0</b></div><div class="ciz-cip"><u>SCHEMA</u><b data-sayac="3" data-birim=" tür">0 types</b></div><div class="ciz-cip"><u>MENU</u><b data-sayac="2" data-birim=" seviye">0 levels</b></div></div>
           </div>
         </div>
       </div>
@@ -790,324 +793,316 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
       <div class="dtay">
         <article class="dtay-k rv">
           <span class="dtay-no">01</span>
-          <h2>How does the process run, from logo to brand identity guidelines?</h2>
-          <p class="dtay-vurgu">The logo is the brand's single visual signature, while the brand identity guidelines are a thorough set of rules describing how that signature is used in every setting.</p>
-          <div class="dtay-devam"><div><p>The process starts with a discovery call that settles the brand's values and its audience. The direction is then set through concept sketches and a moodboard, and the chosen concept is produced in vector format. At this stage the colour palette, typographic hierarchy and logo variants (horizontal, vertical, mark) are defined together. The guidelines document brings the minimum size, clear space, examples of prohibited use and the colour codes together in one file. That way, different agencies or in-house teams all apply the brand to the same standard.</p></div></div>
+          <h2>How Are the Page Architecture and Information Hierarchy Built?</h2>
+          <p class="dtay-vurgu">On a corporate site the number of pages isn't decided arbitrarily; the breadth of the service and product groups, the variety of audience segments and the different information needs of decision-makers all shape that number.</p>
+          <div class="dtay-devam"><div><p>First we map a site structure together with your corporate communications team, settling the main menu headings, the sub-menus and the deep categories that call for a mega menu. Every service or product group gets its own landing page, while corporate pages (leadership, values, sustainability), the careers section, the press room and investor relations sit in a separate layer of the hierarchy. The breadcrumb structure and internal link strategy are built so the visitor never loses their bearings on any page. That way a large volume of content becomes easy to navigate rather than complicated.</p></div></div>
           <button type="button" class="dtay-more" aria-expanded="false"><span>More</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
         <article class="dtay-k rv d1">
           <span class="dtay-no">02</span>
-          <h2>The Technical Difference Between Business Cards, Catalogues and Social Media Templates</h2>
-          <p class="dtay-vurgu">Business card and catalogue files going to print need a CMYK colour profile, bleed and high resolution, while digital catalogues and social media templates are prepared in RGB and optimized for screens.</p>
-          <div class="dtay-devam"><div><p>Depending on the number of products and the page layout, a catalogue can be delivered as a print-ready PDF or as an interactive digital format with a page-turn effect. Social media templates come in different ratios — post, story, cover image — matched to the brand's colours and typography, in editable layers. The aim is for the same brand identity to appear intact on every channel. Because pricing and delivery times vary with the package, those details are covered in the pricing section. The design delivered is a creative work; <a class="kaynak" href="https://www.telifhaklari.gov.tr/" target="_blank" rel="noopener">copyright law</a> sets the extent of the usage rights.</p></div></div>
+          <h2>Admin Panel, Brand Identity and System Integrations</h2>
+          <p class="dtay-vurgu">A multi-page structure demands a strong content management panel; we set up role-based permissions so the marketing, HR and sales teams can update their own sections without getting in each other's way.</p>
+          <div class="dtay-devam"><div><p>The colour, typography and logo rules from your brand identity guidelines are built into a predefined component library in the panel, so brand consistency holds whichever department adds the content. A blog and news module lets company announcements and sector content be published regularly, while schema markup, corporate data (Organization schema), an XML sitemap and canonical tags help search engines read the site architecture correctly. For multinational companies we set up a language-based hreflang structure. If you need integration with existing systems such as a CRM, an application form, a dealer locator or an ERP, we build those connections into the architecture from the start. The foundation of search visibility on a corporate site is described <a class="kaynak" href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide" target="_blank" rel="noopener">in Google's own starter guide</a> .</p></div></div>
           <button type="button" class="dtay-more" aria-expanded="false"><span>More</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         </article>
       </div>
 
-      <!-- Akış durakları — bu sayfanın KENDİ anlattığı yolu çizer:
-           logo → kurumsal kimlik kılavuzu → şablonlar. Etiketlerin tamamı
-           sayfada geçen kavramlar: logo varyasyonları (yatay, dikey, simge),
-           koruma alanı, vektörel, print + digital, renk paleti, tipografi,
-           kullanım kuralları / doğru-yanlış kullanım, business card, katalog,
-           sosyal medya, CMYK, PDF, RGB.
-
-           BİLEREK RAKAM YOK: fiyat rakamları bu siteden kaldırıldı; yüzde,
-           süre veya adet iddiası da çizilmedi. Logo işareti soyut geometrik
-           bir formdur — TasarımMania logosu değildir; marka, yazılım veya
-           platform logosu da çizilmedi.
-
-           NEDEN ÜÇ AYRI SVG: tek parça geniş grafik dar ekranda küçülünce
-           yazısı okunmaz hâle geliyordu. Her durak kendi 380x400 kutusunda;
-           860px altında kutular alt alta açılır, oklar 90° döner. En küçük
-           yazı 13 seçildi: mobilde kutu içi ~281px / viewBox 380 = 0.74
-           ölçek, yani ekranda en az 9.6px. -->
+      <!-- Kurulum akışı — bu sayfanın KENDİ anlattığı sırayı çizer:
+           önce site haritası (kart 01), sonra rol bazlı admin panel, en sonda
+           existing system entegrasyonları (kart 02). Yeni iddia eklemez; çizilen
+           her etiket sayfada geçiyor: "site haritası", "mega menü", "breadcrumb",
+           "iç link", "landing page", "rol bazlı yetki", "kurumsal kimlik",
+           "ERP", "CRM", "bayi bulucu", "şema işaretlemesi", "XML site haritası".
+           Rozetler ERP/CRM/Dealer locator: bu sayfada geçen üç sistem bunlar —
+           kargo/ödeme e-ticaret sayfasının konusu, buraya uydurulmadı.
+           GRAFİKTE BİLEREK HİÇ RAKAM YOK: sayfa sayısı projeye özel belirleniyor
+           (bkz. SSS 01) ve fiyat bu sayfada verilmiyor; bir sayı çizmek
+           "bizim standardımız bu" izlenimi verirdi.
+           ÜÇ AYRI SVG: dar ekranda kutular alt alta açılsın diye. Her kutunun
+           viewBox'ı 380×400. ÖLÇÜM (390px ekran): .wrap 24px + .akis 14px+1px
+           + .akis-kutu 14px+1px yan boşlukları düşünce kutu iç genişliği 282px
+           kalıyor, yani ölçek 380 → 282 = 0.742. Bu yüzden en küçük yazı 13
+           punto: ekranda 13 × 0.742 = 9.65px. (12 punto denendi, ekranda
+           8.91px'e düşüyordu — okunurluk eşiğinin altı.) Eski tek parça
+           çizimde aynı ekranda yazı 2.37px'ti.
+           Duraklar arası bağlantı SVG'de değil, aradaki .akis-ok oklarında;
+           mobilde o oklar 90° dönüp aşağı bakıyor. -->
       <figure class="akis rv d2">
         <div class="akis-izgara">
 
-          <!-- ===== DURAK 01 — LOGO ===== -->
           <div class="akis-kutu">
-            <span class="akis-no">01</span>
-            <span class="akis-ad">Logo</span>
-            <svg viewBox="0 0 380 400" role="img" aria-labelledby="gtB1 gtA1"
+            <span class="akis-no">01</span><span class="akis-ad">Site structure</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="ks1Baslik ks1Aciklama"
                  xmlns="http://www.w3.org/2000/svg">
-              <title id="gtB1">Logo canvas: an abstract geometric mark, clear-space measurement and horizontal, vertical and icon variants — illustrative graphic</title>
-              <desc id="gtA1">A logo drawing: at the top, an abstract geometric mark on a canvas, surrounded by a dashed clear-space frame and a measurement line; below it, three small boxes showing the horizontal, vertical and icon variants; at the bottom, vector and print + digital delivery chips. The mark is illustrative — it isn't the TasarımMania logo.</desc>
+              <title id="ks1Baslik">Stop 1 — site structure tree, illustrative graphic</title>
+              <desc id="ks1Aciklama">An “Home” box at the top; the branches below it split into Services, Company and Blog. Under the Services branch, three “landing page” leaves are listed one below the other. At the bottom, a note reading breadcrumb, internal links and mega menu.</desc>
               <defs>
-                <linearGradient id="gtSahne1" x1="0" y1="0" x2="0.35" y2="1">
+                <linearGradient id="ks1Sahne" x1="0" y1="0" x2="0.35" y2="1">
                   <stop offset="0" stop-color="#141C26"/>
                   <stop offset="1" stop-color="#0A0E14"/>
                 </linearGradient>
-                <radialGradient id="gtIsik1" cx="0.18" cy="0.08" r="0.85">
-                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                <radialGradient id="ks1Isik" cx="0.3" cy="0.16" r="0.8">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".13"/>
                   <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
                 </radialGradient>
-                <filter id="gtGolge1" x="-25%" y="-25%" width="150%" height="150%">
-                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
-                </filter>
               </defs>
 
-              <rect width="380" height="400" fill="url(#gtSahne1)"/>
-              <rect width="380" height="400" fill="url(#gtIsik1)"/>
+              <g class="ks-alan1">
+                <rect width="380" height="400" rx="10" fill="url(#ks1Sahne)"/>
+                <rect width="380" height="400" rx="10" fill="url(#ks1Isik)"/>
+                <rect x="0.6" y="0.6" width="378.8" height="398.8" rx="10" fill="none"
+                      stroke="#00E5FF" stroke-opacity=".28" stroke-width="1.2"/>
 
-              <g class="gt-kart gt-k1">
-                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
-                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#gtGolge1)"/>
-
-                <!-- tuval -->
-                <g class="gt-tuval">
-                  <rect x="34" y="40" width="312" height="164" rx="10" fill="#151F2B" stroke="#26333F"/>
-                  <line x1="34" y1="122" x2="346" y2="122" stroke="#26333F" stroke-opacity=".7"/>
-                  <line x1="158" y1="40" x2="158" y2="204" stroke="#26333F" stroke-opacity=".7"/>
+                <!-- kök: ana sayfa -->
+                <g class="ks-kok">
+                  <rect x="115" y="24" width="150" height="40" rx="10" fill="#101A22"
+                        stroke="#00E5FF" stroke-opacity=".7" stroke-width="1.5"/>
+                  <text x="190" y="50" text-anchor="middle"
+                        font-family="JetBrains Mono, ui-monospace, monospace"
+                        font-size="14" fill="#8FF6FF">Home</text>
                 </g>
 
-                <!-- soyut geometrik işaret: marka logosu DEĞİL, temsilî form -->
-                <g class="gt-isaret">
-                  <circle cx="150" cy="122" r="34" fill="none" stroke="#00E5FF" stroke-width="6"/>
-                  <path d="M172,96 L204,150 H140 Z" fill="#00E5FF" fill-opacity=".8"/>
-                </g>
+                <!-- dallanma -->
+                <path class="ks-dal" style="--u:350" fill="none" stroke="#00E5FF" stroke-opacity=".55"
+                      stroke-width="1.6"
+                      d="M190,64 V86 M62,86 H318 M62,86 V108 M190,86 V108 M318,86 V108"/>
 
-                <!-- koruma alanı ölçüsü -->
-                <g class="gt-olcu">
-                  <rect x="101" y="73" width="115" height="98" fill="none" stroke="#00E5FF"
-                        stroke-opacity=".45" stroke-width="1" stroke-dasharray="5 5"/>
-                  <line x1="101" y1="188" x2="216" y2="188" stroke="#00E5FF" stroke-opacity=".5"/>
-                  <line x1="101" y1="182" x2="101" y2="194" stroke="#00E5FF" stroke-opacity=".5"/>
-                  <line x1="216" y1="182" x2="216" y2="194" stroke="#00E5FF" stroke-opacity=".5"/>
-                  <text x="226" y="193" font-family="JetBrains Mono, ui-monospace, monospace"
-                        font-size="13" letter-spacing=".4" fill="#9FD6E0">Clear space</text>
-                </g>
-
-                <!-- logo varyasyonları: sayfada geçen yatay / dikey / simge -->
-                <g class="gt-varyant">
+                <g class="ks-cocuk">
                   <g>
-                    <rect x="34" y="226" width="96" height="80" rx="10" fill="#101A22" stroke="#26333F"/>
-                    <circle cx="56" cy="258" r="9" fill="none" stroke="#00E5FF" stroke-width="3"/>
-                    <rect x="72" y="252" width="42" height="8" rx="4" fill="#3A4A5E"/>
-                    <rect x="72" y="265" width="30" height="6" rx="3" fill="#2A3646"/>
-                    <text x="82" y="326" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13.5" fill="#A8B8C4">Horizontal</text>
+                    <rect x="8" y="108" width="108" height="34" rx="9" fill="#0E1820"
+                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.2"/>
+                    <text x="62" y="130" text-anchor="middle"
+                          font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="13.5" fill="#9FD6E0">Services</text>
                   </g>
                   <g>
-                    <rect x="142" y="226" width="96" height="80" rx="10" fill="#101A22" stroke="#26333F"/>
-                    <circle cx="190" cy="250" r="9" fill="none" stroke="#00E5FF" stroke-width="3"/>
-                    <rect x="166" y="266" width="48" height="8" rx="4" fill="#3A4A5E"/>
-                    <rect x="174" y="279" width="32" height="6" rx="3" fill="#2A3646"/>
-                    <text x="190" y="326" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13.5" fill="#A8B8C4">Vertical</text>
+                    <rect x="136" y="108" width="108" height="34" rx="9" fill="#0E1820"
+                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.2"/>
+                    <text x="190" y="130" text-anchor="middle"
+                          font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="13.5" fill="#9FD6E0">Company</text>
                   </g>
                   <g>
-                    <rect x="250" y="226" width="96" height="80" rx="10" fill="#101A22" stroke="#26333F"/>
-                    <circle cx="298" cy="266" r="14" fill="none" stroke="#00E5FF" stroke-width="4"/>
-                    <path d="M304,254 L316,276 H292 Z" fill="#00E5FF" fill-opacity=".75"/>
-                    <text x="298" y="326" text-anchor="middle" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13.5" fill="#A8B8C4">Icon</text>
+                    <rect x="264" y="108" width="108" height="34" rx="9" fill="#0E1820"
+                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.2"/>
+                    <text x="318" y="130" text-anchor="middle"
+                          font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="13.5" fill="#9FD6E0">Blog</text>
                   </g>
                 </g>
 
-                <!-- teslim çipleri: sayfada geçen "vektörel kaynak dosyalar" ve
-                     "basılı-dijital her yüzey" -->
-                <g class="gt-cip">
-                  <rect x="34" y="340" width="104" height="32" rx="9" fill="none"
-                        stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
-                  <text x="86" y="361" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                        font-size="13" letter-spacing=".4" fill="#8FF6FF">Vector</text>
-                  <rect x="150" y="340" width="146" height="32" rx="9" fill="none"
-                        stroke="#26333F" stroke-width="1.4"/>
-                  <text x="223" y="361" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                        font-size="13" letter-spacing=".4" fill="#A8B8C4">Print + digital</text>
+                <!-- Services dalının altındaki yapraklar -->
+                <path class="ks-yhat" style="--u:230" fill="none" stroke="#00E5FF" stroke-opacity=".4"
+                      stroke-width="1.4"
+                      d="M62,142 V314 M62,180 H80 M62,247 H80 M62,314 H80"/>
+                <g class="ks-yaprak">
+                  <g>
+                    <rect x="80" y="163" width="286" height="34" rx="8" fill="#0B1218"
+                          stroke="#00E5FF" stroke-opacity=".3" stroke-width="1"/>
+                    <text x="96" y="185" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="13.5" fill="#7C99A4">landing page</text>
+                    <rect x="300" y="176" width="52" height="9" rx="4.5" fill="#1B2A33"/>
+                  </g>
+                  <g>
+                    <rect x="80" y="230" width="286" height="34" rx="8" fill="#0B1218"
+                          stroke="#00E5FF" stroke-opacity=".3" stroke-width="1"/>
+                    <text x="96" y="252" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="13.5" fill="#7C99A4">landing page</text>
+                    <rect x="300" y="243" width="52" height="9" rx="4.5" fill="#1B2A33"/>
+                  </g>
+                  <g>
+                    <rect x="80" y="297" width="286" height="34" rx="8" fill="#0B1218"
+                          stroke="#00E5FF" stroke-opacity=".3" stroke-width="1"/>
+                    <text x="96" y="319" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="13.5" fill="#7C99A4">landing page</text>
+                    <rect x="300" y="310" width="52" height="9" rx="4.5" fill="#1B2A33"/>
+                  </g>
                 </g>
+                <text class="ks-not ks-not1" x="16" y="368"
+                      font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="13" fill="#6E8894">breadcrumb · internal links · mega menu</text>
               </g>
             </svg>
           </div>
 
           <div class="akis-ok" aria-hidden="true">
-            <svg class="gt-ok gt-ok1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                  stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </div>
 
-          <!-- ===== DURAK 02 — KİMLİK KILAVUZU ===== -->
           <div class="akis-kutu">
-            <span class="akis-no">02</span>
-            <span class="akis-ad">Identity guidelines</span>
-            <svg viewBox="0 0 380 400" role="img" aria-labelledby="gtB2 gtA2"
+            <span class="akis-no">02</span><span class="akis-ad">Admin panel</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="ks2Baslik ks2Aciklama"
                  xmlns="http://www.w3.org/2000/svg">
-              <title id="gtB2">An open guidelines page: colour palette, typography and right-and-wrong rules of use — illustrative graphic</title>
-              <desc id="gtA2">A guidelines page drawing: at the top, four colour circles as the palette; in the middle, a typography row with a large letterform and two text bars; at the bottom, two boxes for rules of use — one ticked as correct use, the other crossed as incorrect. The colours are examples, not a brand palette.</desc>
+              <title id="ks2Baslik">Stop 2 — role-based admin panel, illustrative graphic</title>
+              <desc id="ks2Aciklama">An admin panel window: the address bar at the top reads “admin panel”, four menu bars run down the left edge, two content area boxes sit on the right along with an accent-filled “Publish” button. Below, a note on role-based permissions and brand identity.</desc>
               <defs>
-                <linearGradient id="gtSahne2" x1="0" y1="0" x2="0.35" y2="1">
+                <linearGradient id="ks2Sahne" x1="0" y1="0" x2="0.35" y2="1">
                   <stop offset="0" stop-color="#141C26"/>
                   <stop offset="1" stop-color="#0A0E14"/>
                 </linearGradient>
-                <radialGradient id="gtIsik2" cx="0.18" cy="0.08" r="0.85">
-                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                <radialGradient id="ks2Isik" cx="0.3" cy="0.16" r="0.8">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".13"/>
                   <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
                 </radialGradient>
-                <filter id="gtGolge2" x="-25%" y="-25%" width="150%" height="150%">
-                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
+                <filter id="ks2Golge" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#04070B" flood-opacity=".55"/>
                 </filter>
+                <clipPath id="ks2Kirp"><rect x="16" y="24" width="348" height="300" rx="12"/></clipPath>
               </defs>
 
-              <rect width="380" height="400" fill="url(#gtSahne2)"/>
-              <rect width="380" height="400" fill="url(#gtIsik2)"/>
+              <g class="ks-alan2">
+                <rect width="380" height="400" rx="10" fill="url(#ks2Sahne)"/>
+                <rect width="380" height="400" rx="10" fill="url(#ks2Isik)"/>
+                <rect x="0.6" y="0.6" width="378.8" height="398.8" rx="10" fill="none"
+                      stroke="#00E5FF" stroke-opacity=".28" stroke-width="1.2"/>
 
-              <g class="gt-kart gt-k2">
-                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
-                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#gtGolge2)"/>
+                <g class="ks-pencere">
+                  <rect x="16" y="24" width="348" height="300" rx="12" fill="#FFFFFF"
+                        filter="url(#ks2Golge)"/>
+                  <g clip-path="url(#ks2Kirp)">
+                    <circle cx="40" cy="48" r="5" fill="#FF5F57"/>
+                    <circle cx="58" cy="48" r="5" fill="#FEBC2E"/>
+                    <circle cx="76" cy="48" r="5" fill="#28C840"/>
+                    <rect x="96" y="37" width="192" height="22" rx="11" fill="#F1F3F4"/>
+                    <text x="108" y="52" font-family="Inter Tight, system-ui, sans-serif"
+                          font-size="13" fill="#5F6368">admin panel</text>
+                    <line x1="16" y1="72" x2="364" y2="72" stroke="#E8EAED" stroke-width="1"/>
 
-                <text x="34" y="64" font-family="JetBrains Mono, ui-monospace, monospace"
-                      font-size="13.5" letter-spacing=".5" fill="#9FD6E0">Colour palette</text>
+                    <!-- sol kenar: dört menü çubuğu -->
+                    <rect x="16" y="72" width="92" height="252" fill="#F5F6F7"/>
+                    <line x1="108" y1="72" x2="108" y2="324" stroke="#E8EAED" stroke-width="1"/>
+                    <g class="ks-menu">
+                      <rect x="32" y="96" width="60" height="10" rx="5" fill="#6B7684"/>
+                      <rect x="32" y="126" width="48" height="10" rx="5" fill="#C3C7CD"/>
+                      <rect x="32" y="156" width="56" height="10" rx="5" fill="#C3C7CD"/>
+                      <rect x="32" y="186" width="42" height="10" rx="5" fill="#C3C7CD"/>
+                    </g>
+                    <rect class="ks-imlec" x="16" y="92" width="3.5" height="18" fill="#00E5FF"/>
 
-                <!-- dört renk dairesi: örnek swatch, sayı/kod iddiası yok -->
-                <g class="gt-palet">
-                  <circle cx="60" cy="110" r="23" fill="#00E5FF" stroke="#26333F"/>
-                  <circle cx="132" cy="110" r="23" fill="#1F7E96" stroke="#26333F"/>
-                  <circle cx="204" cy="110" r="23" fill="#38506A" stroke="#26333F"/>
-                  <circle cx="276" cy="110" r="23" fill="#E4EEF4" stroke="#26333F"/>
-                </g>
+                    <!-- iki alan kutusu -->
+                    <g class="ks-kutu">
+                      <g>
+                        <rect x="128" y="96" width="60" height="8" rx="4" fill="#C3C7CD"/>
+                        <rect x="128" y="112" width="216" height="42" rx="9" fill="#F5F6F7" stroke="#E3E6EA"/>
+                      </g>
+                      <g>
+                        <rect x="128" y="170" width="78" height="8" rx="4" fill="#C3C7CD"/>
+                        <rect x="128" y="186" width="216" height="42" rx="9" fill="#F5F6F7" stroke="#E3E6EA"/>
+                      </g>
+                    </g>
+                    <g class="ks-yaz">
+                      <rect x="142" y="128" width="124" height="10" rx="5" fill="#D5D8DD"/>
+                      <rect x="142" y="202" width="92" height="10" rx="5" fill="#D5D8DD"/>
+                    </g>
 
-                <line class="gt-ayrac gt-a2" x1="34" y1="152" x2="346" y2="152"
-                      stroke="#00E5FF" stroke-opacity=".26" stroke-width="1"/>
-
-                <text x="34" y="180" font-family="JetBrains Mono, ui-monospace, monospace"
-                      font-size="13.5" letter-spacing=".5" fill="#9FD6E0">Typography</text>
-
-                <!-- büyük harf örneği + küçük metin çubukları -->
-                <g class="gt-tip">
-                  <text x="34" y="232" font-family="Inter Tight, system-ui, sans-serif"
-                        font-size="44" font-weight="700" fill="#E4EEF4">Aa</text>
-                </g>
-                <g class="gt-cubuk">
-                  <rect x="112" y="196" width="196" height="14" rx="7" fill="#3A4A5E"/>
-                  <rect x="112" y="220" width="148" height="11" rx="5.5" fill="#2A3646"/>
-                </g>
-
-                <line class="gt-ayrac gt-a2b" x1="34" y1="256" x2="346" y2="256"
-                      stroke="#00E5FF" stroke-opacity=".26" stroke-width="1"/>
-
-                <text x="34" y="284" font-family="JetBrains Mono, ui-monospace, monospace"
-                      font-size="13.5" letter-spacing=".5" fill="#9FD6E0">Rules of use</text>
-
-                <!-- doğru / yanlış kullanım karşılaştırması -->
-                <g class="gt-kural">
-                  <g>
-                    <rect x="34" y="298" width="148" height="76" rx="11" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
-                    <circle cx="58" cy="336" r="13" fill="none" stroke="#00E5FF" stroke-width="1.6"/>
-                    <path d="M51,336 l5,5 l10,-11" fill="none" stroke="#00E5FF" stroke-width="2.2"
-                          stroke-linecap="round" stroke-linejoin="round"/>
-                    <text x="82" y="341" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13.5" fill="#8FF6FF">Correct</text>
-                  </g>
-                  <g>
-                    <rect x="198" y="298" width="148" height="76" rx="11" fill="#101A22"
-                          stroke="#4A5C6E" stroke-width="1.2"/>
-                    <circle cx="222" cy="336" r="13" fill="none" stroke="#6B7A8A" stroke-width="1.6"/>
-                    <path d="M216,330 l12,12 M228,330 l-12,12" fill="none" stroke="#6B7A8A"
-                          stroke-width="2.2" stroke-linecap="round"/>
-                    <text x="246" y="341" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="13.5" fill="#A8B8C4">Incorrect</text>
+                    <!-- Publish düğmesi: sitenin kendi buton dili (derin aksan zemin,
+                         parlak aksan kenarlık, beyaz yazı) -->
+                    <g class="ks-bas">
+                      <rect x="224" y="256" width="120" height="42" rx="11" fill="#05737F"
+                            stroke="#00E5FF" stroke-width="2"/>
+                      <text x="284" y="283" text-anchor="middle"
+                            font-family="JetBrains Mono, ui-monospace, monospace"
+                            font-size="13.5" letter-spacing=".4" fill="#FFFFFF">Publish</text>
+                    </g>
+                    <rect class="ks-parla" x="224" y="256" width="120" height="42" rx="11" fill="#8FF6FF"/>
+                    <rect class="ks-halka" x="224" y="256" width="120" height="42" rx="11" fill="none"
+                          stroke="#00E5FF" stroke-width="2"/>
                   </g>
                 </g>
+                <text class="ks-not ks-not2" x="16" y="368"
+                      font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="13" fill="#6E8894">role-based permissions · brand identity</text>
               </g>
             </svg>
           </div>
 
           <div class="akis-ok" aria-hidden="true">
-            <svg class="gt-ok gt-ok2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                  stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </div>
 
-          <!-- ===== DURAK 03 — ŞABLONLAR ===== -->
           <div class="akis-kutu">
-            <span class="akis-no">03</span>
-            <span class="akis-ad">Templates</span>
-            <svg viewBox="0 0 380 400" role="img" aria-labelledby="gtB3 gtA3"
+            <span class="akis-no">03</span><span class="akis-ad">Integration</span>
+            <svg viewBox="0 0 380 400" role="img" aria-labelledby="ks3Baslik ks3Aciklama"
                  xmlns="http://www.w3.org/2000/svg">
-              <title id="gtB3">Three format cards: business card CMYK, catalogue PDF, social media RGB — illustrative graphic</title>
-              <desc id="gtA3">A template drawing: at the top, a horizontal business card with a CMYK label; in the middle, a vertical catalogue page that reads as folded in two, with a PDF label; at the bottom, a square social media card with an RGB label. In the animation the three format cards light up in turn.</desc>
+              <title id="ks3Baslik">Stop 3 — integrations with existing systems, illustrative graphic</title>
+              <desc id="ks3Aciklama">Three integration badges one below the other: ERP, CRM and Dealer locator, each with an icon box and a “existing system” sub-label. Below, a note on schema markup and the XML sitemap.</desc>
               <defs>
-                <linearGradient id="gtSahne3" x1="0" y1="0" x2="0.35" y2="1">
+                <linearGradient id="ks3Sahne" x1="0" y1="0" x2="0.35" y2="1">
                   <stop offset="0" stop-color="#141C26"/>
                   <stop offset="1" stop-color="#0A0E14"/>
                 </linearGradient>
-                <radialGradient id="gtIsik3" cx="0.18" cy="0.08" r="0.85">
-                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".15"/>
+                <radialGradient id="ks3Isik" cx="0.3" cy="0.16" r="0.8">
+                  <stop offset="0" stop-color="#00E5FF" stop-opacity=".13"/>
                   <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
                 </radialGradient>
-                <filter id="gtGolge3" x="-25%" y="-25%" width="150%" height="150%">
-                  <feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#04070B" flood-opacity=".55"/>
-                </filter>
               </defs>
 
-              <rect width="380" height="400" fill="url(#gtSahne3)"/>
-              <rect width="380" height="400" fill="url(#gtIsik3)"/>
+              <g class="ks-alan3">
+                <rect width="380" height="400" rx="10" fill="url(#ks3Sahne)"/>
+                <rect width="380" height="400" rx="10" fill="url(#ks3Isik)"/>
+                <rect x="0.6" y="0.6" width="378.8" height="398.8" rx="10" fill="none"
+                      stroke="#00E5FF" stroke-opacity=".28" stroke-width="1.2"/>
 
-              <g class="gt-kart gt-k3">
-                <rect x="14" y="14" width="352" height="372" rx="14" fill="#0E141C"
-                      stroke="#00E5FF" stroke-opacity=".30" stroke-width="1.2" filter="url(#gtGolge3)"/>
-
-                <!-- Format etiketleri sayfanın KENDİ teknik ayrımından geliyor:
-                     baskıya giden business card/katalog CMYK, katalog baskıya hazır PDF,
-                     sosyal medya şablonları RGB. Ölçü veya adet uydurulmadı. -->
-                <g class="gt-format">
+                <g class="ks-rozet">
+                  <!-- ERP -->
                   <g>
-                    <rect class="gt-isik gt-i1" x="28" y="46" width="162" height="98" rx="13"
-                          fill="none" stroke="#00E5FF" stroke-width="3"/>
-                    <rect x="34" y="52" width="150" height="86" rx="10" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
-                    <circle cx="56" cy="76" r="8" fill="none" stroke="#00E5FF" stroke-width="2.4"/>
-                    <rect x="50" y="98" width="84" height="9" rx="4.5" fill="#3A4A5E"/>
-                    <rect x="50" y="113" width="56" height="7" rx="3.5" fill="#2A3646"/>
-                    <text x="200" y="88" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="15" fill="#D5E4EC">Business card</text>
-                    <rect x="200" y="100" width="72" height="28" rx="8" fill="none"
-                          stroke="#00E5FF" stroke-opacity=".4" stroke-width="1.2"/>
-                    <text x="236" y="119" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="13" letter-spacing=".8" fill="#8FF6FF">CMYK</text>
+                    <rect x="14" y="26" width="352" height="80" rx="14" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".5" stroke-width="1.4"/>
+                    <rect x="34" y="44" width="44" height="44" rx="12" fill="#0B1218"
+                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1"/>
+                    <rect x="44" y="54" width="24" height="5" rx="2.5" fill="#00E5FF" opacity=".9"/>
+                    <rect x="44" y="63" width="24" height="5" rx="2.5" fill="#00E5FF" opacity=".62"/>
+                    <rect x="44" y="72" width="24" height="5" rx="2.5" fill="#00E5FF" opacity=".38"/>
+                    <text x="96" y="61" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="15" letter-spacing=".6" fill="#8FF6FF">ERP</text>
+                    <text x="96" y="83" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="13" fill="#6E8894">existing system</text>
                   </g>
+                  <!-- CRM -->
                   <g>
-                    <rect class="gt-isik gt-i2" x="28" y="152" width="112" height="136" rx="13"
-                          fill="none" stroke="#00E5FF" stroke-width="3"/>
-                    <rect x="34" y="158" width="100" height="124" rx="10" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
-                    <line x1="84" y1="166" x2="84" y2="274" stroke="#00E5FF" stroke-opacity=".35"
-                          stroke-width="1" stroke-dasharray="4 5"/>
-                    <rect x="44" y="174" width="30" height="7" rx="3.5" fill="#3A4A5E"/>
-                    <rect x="44" y="188" width="22" height="6" rx="3" fill="#2A3646"/>
-                    <rect x="94" y="174" width="30" height="7" rx="3.5" fill="#3A4A5E"/>
-                    <rect x="94" y="188" width="26" height="6" rx="3" fill="#2A3646"/>
-                    <rect x="44" y="204" width="30" height="24" rx="4" fill="#1B2734" stroke="#26333F"/>
-                    <rect x="94" y="204" width="30" height="24" rx="4" fill="#1B2734" stroke="#26333F"/>
-                    <rect x="44" y="240" width="30" height="6" rx="3" fill="#2A3646"/>
-                    <rect x="94" y="240" width="24" height="6" rx="3" fill="#2A3646"/>
-                    <text x="200" y="210" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="15" fill="#D5E4EC">Catalogue</text>
-                    <rect x="200" y="222" width="64" height="28" rx="8" fill="none"
-                          stroke="#00E5FF" stroke-opacity=".4" stroke-width="1.2"/>
-                    <text x="232" y="241" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="13" letter-spacing=".8" fill="#8FF6FF">PDF</text>
+                    <rect x="14" y="132" width="352" height="80" rx="14" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".5" stroke-width="1.4"/>
+                    <rect x="34" y="150" width="44" height="44" rx="12" fill="#0B1218"
+                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1"/>
+                    <circle cx="56" cy="165" r="6.6" fill="none" stroke="#00E5FF" stroke-width="1.8"/>
+                    <path d="M44,184 a12,10 0 0 1 24,0" fill="none" stroke="#00E5FF" stroke-width="1.8"/>
+                    <text x="96" y="167" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="15" letter-spacing=".6" fill="#8FF6FF">CRM</text>
+                    <text x="96" y="189" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="13" fill="#6E8894">existing system</text>
                   </g>
+                  <!-- Dealer locator -->
                   <g>
-                    <rect class="gt-isik gt-i3" x="28" y="292" width="92" height="88" rx="13"
-                          fill="none" stroke="#00E5FF" stroke-width="3"/>
-                    <rect x="34" y="298" width="80" height="76" rx="10" fill="#101A22"
-                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1.4"/>
-                    <circle cx="58" cy="322" r="9" fill="none" stroke="#00E5FF" stroke-width="2.2"/>
-                    <rect x="46" y="344" width="56" height="8" rx="4" fill="#3A4A5E"/>
-                    <rect x="46" y="358" width="36" height="6" rx="3" fill="#2A3646"/>
-                    <text x="200" y="328" font-family="Inter Tight, system-ui, sans-serif"
-                          font-size="15" fill="#D5E4EC">Social media</text>
-                    <rect x="200" y="340" width="64" height="28" rx="8" fill="none"
-                          stroke="#00E5FF" stroke-opacity=".4" stroke-width="1.2"/>
-                    <text x="232" y="359" text-anchor="middle" font-family="JetBrains Mono, ui-monospace, monospace"
-                          font-size="13" letter-spacing=".8" fill="#8FF6FF">RGB</text>
+                    <rect x="14" y="238" width="352" height="80" rx="14" fill="#101A22"
+                          stroke="#00E5FF" stroke-opacity=".5" stroke-width="1.4"/>
+                    <rect x="34" y="256" width="44" height="44" rx="12" fill="#0B1218"
+                          stroke="#00E5FF" stroke-opacity=".45" stroke-width="1"/>
+                    <path d="M56,293 C56,293 45,282 45,273 a11,11 0 1 1 22,0 C67,282 56,293 56,293 Z"
+                          fill="none" stroke="#00E5FF" stroke-width="1.8"/>
+                    <circle cx="56" cy="273" r="3.4" fill="#00E5FF"/>
+                    <text x="96" y="273" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="15" letter-spacing=".6" fill="#8FF6FF">Dealer locator</text>
+                    <text x="96" y="295" font-family="JetBrains Mono, ui-monospace, monospace"
+                          font-size="13" fill="#6E8894">existing system</text>
                   </g>
                 </g>
+                <!-- rozetler sırayla aydınlanır -->
+                <g class="ks-isik" fill="none" stroke="#00E5FF" stroke-width="2">
+                  <rect x="14" y="26" width="352" height="80" rx="14"/>
+                  <rect x="14" y="132" width="352" height="80" rx="14"/>
+                  <rect x="14" y="238" width="352" height="80" rx="14"/>
+                </g>
+                <text class="ks-not ks-not3" x="16" y="368"
+                      font-family="JetBrains Mono, ui-monospace, monospace"
+                      font-size="13" fill="#6E8894">schema markup · XML sitemap</text>
               </g>
             </svg>
           </div>
+
         </div>
-        <figcaption><b>Illustrative graphic.</b> It draws the route the page describes: from logo to brand identity guidelines, from guidelines to templates. The logo mark is an abstract geometric form — it isn't the TasarımMania logo or any real client's logo; the palette circles are example swatches, and the brand colour codes are defined in the guidelines file. The format labels are the technical distinction described above: business cards and catalogues going to print are CMYK, social media templates are RGB. Measurements, quantities and price figures were deliberately left out — for the current band, see the pricing link below.</figcaption>
+        <figcaption><b>Illustrative graphic.</b> Three stops in order: first the site structure is mapped, then the role-based admin panel is set up, and finally the existing systems are connected — the same order described in the two sections above. The page names in the tree, the panel screen and the badges are illustrative; they aren't taken from a real project. The graphic deliberately carries no page count, timeline or price: the scope is set separately on every project.</figcaption>
       </figure>
 
       <div class="dtay-fiyat rv d1">
@@ -1132,27 +1127,27 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>FAQs</span>
-        <h2 data-kin>Frequently asked questions: graphic design and brand identity</h2>
+        <h2 data-kin>Frequently asked questions: corporate website scope and process</h2>
       </div>
       <div class="sd rv d1" data-sd>
         <div class="sd-sol" role="tablist" aria-label="Questions">
-        <button type="button" class="sd-soru acik" role="tab" aria-selected="true"><i>01</i><span>What is a brand identity, and how is it different from just a logo?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>02</i><span>What stages does a logo go through before it's delivered?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>03</i><span>What makes business card and catalogue design prices vary?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>04</i><span>What formats is a catalogue delivered in?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>05</i><span>Are social media templates part of the package, or offered separately?</span></button>
-        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>06</i><span>Can we keep our existing logo and just have brand identity guidelines produced?</span></button>
+        <button type="button" class="sd-soru acik" role="tab" aria-selected="true"><i>01</i><span>How many pages does a corporate website have, and what sets the number?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>02</i><span>What's the difference between a corporate website and a single-page landing page?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>03</i><span>Which pages must a corporate site have?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>04</i><span>How is a corporate website made findable on Google?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>05</i><span>Is it more sensible to refresh my existing corporate site or rebuild it from scratch?</span></button>
+        <button type="button" class="sd-soru" role="tab" aria-selected="false"><i>06</i><span>Who prepares the content (copy, photographs) for a corporate website?</span></button>
         </div>
         <div class="sd-sag">
-        <div class="sd-cevap acik" role="tabpanel"><h3>What is a brand identity, and how is it different from just a logo?</h3><p>The logo is the brand's mark, while the brand identity is a whole system covering the colour palette, typography, visual language and rules of use. The identity guidelines make sure the logo is applied consistently across every channel.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>What stages does a logo go through before it's delivered?</h3><p>The process runs through a discovery call, concept sketches, vector production of the chosen direction, and a final check. At delivery you get the vector source files together with the different usage formats.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>What makes business card and catalogue design prices vary?</h3><p>The cost is set by things like the number of pages, how complex the content is, whether illustration is needed and the delivery format. Current package details are in the pricing section.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>What formats is a catalogue delivered in?</h3><p>A catalogue can be prepared as a high-resolution, print-ready PDF, or as an interactive digital file with a page-turn effect on screen. Where it's needed, both formats are delivered together.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>Are social media templates part of the package, or offered separately?</h3><p>The template set is offered either as an add-on module to the brand identity package or as a standalone service. The scope is settled during the call, according to what the brand needs.</p></div>
-        <div class="sd-cevap" role="tabpanel"><h3>Can we keep our existing logo and just have brand identity guidelines produced?</h3><p>Yes — the existing logo can be analysed and kept, with guidelines produced covering only colour, typography and rules of use. If the logo needs revising, that's assessed separately.</p></div>
+        <div class="sd-cevap acik" role="tabpanel"><h3>How many pages does a corporate website have, and what sets the number?</h3><p>There's no fixed number of pages; it's set project by project, according to the range of your services and products, your audience segments and your corporate communications needs. In the discovery call we map the site structure together first, then settle the scope.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>What's the difference between a corporate website and a single-page landing page?</h3><p>A landing page is a single-flow structure focused on one offer. A corporate site carries a multi-layered information architecture that serves several service groups and different visitor profiles; it aims for visibility across a broad set of topics in search.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Which pages must a corporate site have?</h3><p>About, service or product pages, case studies, careers, contact and the privacy pages form the backbone of a corporate site. Depending on the sector, pages like a press room, investor relations or a dealer network are added to that backbone.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>How is a corporate website made findable on Google?</h3><p>A sound page hierarchy, a clean internal link structure, schema markup and a fast technical foundation — combined with a content strategy — position the site as a credible source in search. Run alongside our SEO service, the result lasts longer.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Is it more sensible to refresh my existing corporate site or rebuild it from scratch?</h3><p>That depends on the existing site's technical foundation and the volume of its content; a short audit establishes together which route is more efficient. The detail is shared in the pricing section.</p></div>
+        <div class="sd-cevap" role="tabpanel"><h3>Who prepares the content (copy, photographs) for a corporate website?</h3><p>We build the copy with you, keeping your corporate tone; you share the raw information and your brand guidelines if you have them. On the visual side you can use your existing corporate photographs, or we can bring professional photography and image production into the project where it's needed.</p></div>
           <div class="sd-alt">
             <div class="sd-cubuk" aria-hidden="true"><i data-sd-cubuk></i></div>
-            <a class="sd-wa" href="https://wa.me/905547916545?text=Merhaba%2C%20Grafik%20Tasar%C4%B1m%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Is your question different? Ask us on WhatsApp →</a>
+            <a class="sd-wa" href="https://wa.me/905547916545?text=Merhaba%2C%20Kurumsal%20Web%20Sitesi%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Is your question different? Ask us on WhatsApp →</a>
           </div>
         </div>
       </div>
@@ -1169,21 +1164,21 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
         <ol class="akv-liste">
           <li>
             <span class="akv-no">01</span>
-            <div><h3>What's in the Identity Guidelines</h3><p>The guidelines delivered bring together the logo variants, colour codes, typographic hierarchy, examples of the visual language and right-and-wrong usage comparisons. That document becomes the shared reference for every supplier working with the brand.</p></div>
+            <div><h3>Page Architecture and Menu Structure</h3><p>The main menu, the sub-menus and whether a mega menu is needed are designed together, according to the number of service and product groups and the extent of the corporate pages. A breadcrumb and internal link strategy make a large volume of content easy to navigate.</p></div>
           </li>
           <li>
             <span class="akv-no">02</span>
-            <div><h3>Feedback and Sign-Off Flow</h3><p>After the concept is shared, feedback is gathered from a single point and revisions are applied accordingly. The sign-off flow is set up so that different stakeholders' views come together on one file.</p></div>
+            <div><h3>Admin Panel and Permissions</h3><p>Departments can update their own content sections with role-based permissions; because the brand identity rules are built into predefined components, brand consistency is preserved.</p></div>
           </li>
           <li>
             <span class="akv-no">03</span>
-            <div><h3>The File Package Delivered</h3><p>At the end of the project you receive the vector source files, print-ready versions, social media profile images and editable template layers together. A file-naming standard is shared as well.</p></div>
+            <div><h3>SEO and System Integrations</h3><p>Schema markup, an XML sitemap and a canonical structure strengthen search visibility; existing systems such as a CRM, an application form or a dealer locator are integrated into the architecture.</p></div>
           </li>
         </ol>
         <div class="akv-video">
           <span class="akv-rozet"><i></i>LIVE LOOP</span>
-          <video data-dongu muted loop playsinline preload="metadata" poster="../../../assets/modul-web/grafik-tasarim.jpg" aria-hidden="true">
-            <source src="../../../assets/modul-web/grafik-tasarim.mp4" type="video/mp4">
+          <video data-dongu muted loop playsinline preload="metadata" poster="../../../../assets/modul-web/kurumsal-web-sitesi.jpg" aria-hidden="true">
+            <source src="../../../assets/modul-web/kurumsal-web-sitesi.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -1209,46 +1204,47 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <path class="hrt-akis g3" d="M0,50 C42,50 55,85 100,85"/>
         </svg>
         <div class="hrt-sag">
-          <a class="yk" href="../corporate-website/"><b>Corporate Websites</b>
-            <span>The web interface design the identity is applied to.</span></a>
-          <a class="yk" href="../../e-ticaret/"><b>E-Commerce</b>
-            <span>Product images and the store's visual language.</span></a>
-          <a class="yk" href="../../yapay-zeka/"><b>AI Integration</b>
-            <span>Chatbot content that carries the brand's voice.</span></a>
+          <a class="yk" href="../web-design/"><b>Web Design &amp; Software</b>
+            <span>The whole module: e-commerce, bespoke software, AI integration and maintenance.</span></a>
+          <a class="yk" href="../seo/"><b>SEO Services</b>
+            <span>Technical and content SEO so the corporate site gets found in search.</span></a>
+          <a class="yk" href="../digital-marketing/"><b>Digital Marketing</b>
+            <span>Google Ads and Meta Ads management that brings traffic to the site.</span></a>
         </div>
       </div>
-    </div>
-  </aside>
-
-  <aside class="sec" style="padding-top:0" aria-label="Related reading">
-    <div class="wrap">
-      <nav class="yz-ilgili rv" aria-labelledby="hub-ilgili">
-        <h2 id="hub-ilgili">Graphic Design guides</h2>
-        <p class="not">Blog posts setting out the method behind this service.</p>
-        <ul>
-          <li><a href="../../blog/grafik-tasarim-turleri/" style="--k:0,229,255"><span class="kat">Graphic Design</span><span class="bas">What Does Corporate Graphic Design Cover?</span></a></li>
-          <li><a href="../../blog/grafik-tasarim-sureci/" style="--k:0,229,255"><span class="kat">Graphic Design</span><span class="bas">How Many Stages Does the Graphic Design Process Take?</span></a></li>
-          <li><a href="../../blog/grafik-tasarim-trendleri/" style="--k:0,229,255"><span class="kat">Graphic Design</span><span class="bas">Graphic Design Trends in 2026: What Has Changed This Year?</span></a></li>
-          <li><a href="../../blog/grafik-tasarim-araclari/" style="--k:0,229,255"><span class="kat">Graphic Design</span><span class="bas">Comparing Graphic Design Software: Which One Suits Whom?</span></a></li>
-        </ul>
-      </nav>
     </div>
   </aside>
 
   <section class="sec" style="padding-top:0">
     <div class="wrap">
       <div class="band rv">
-        <h2>Let's Turn Your Brand Identity Into a Corporate System</h2>
-        <p>Let your logo, business card, catalogue and social media graphics meet in one design language. Get in touch to discuss the scope and delivery plan that suits you.</p>
+        <h2>Let's Talk About Your Corporate Web Software Project</h2>
+        <p>Let's settle your company's page count, menu structure and integration needs together; once the scope is clear we share the detail in the process and pricing section.</p>
         <div class="band-cta">
           <a class="btn btn-p" href="../get-a-quote/#web">Let's map the scope
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Grafik%20Tasar%C4%B1m%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
+          <a class="btn btn-g" href="https://wa.me/905547916545?text=Merhaba%2C%20Kurumsal%20Web%20Sitesi%20sayfan%C4%B1zdan%20yaz%C4%B1yorum.%20%C4%B0htiyac%C4%B1m%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a>
         </div>
       </div>
     </div>
   </section>
 
+  <aside class="sec" style="padding-top:0" aria-label="Related reading">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>Related reading</span>
+        <h2 data-kin>What we've written on this</h2>
+      </div>
+      <div class="hrt-sag" data-ic-link="blog">
+          <a class="yk" href="../../blog/e-ticaret-web-tasarimi/"><b>E-Commerce Site Design: Theme or Bespoke?</b>
+            <span>An off-the-shelf theme or a bespoke e-commerce site? Five-year total cost, with licence, adaptation and refresh line items</span></a>
+          <a class="yk" href="../../blog/grafik-tasarim-araclari/"><b>Graphic Design Software: Which One Suits Whom?</b>
+            <span>Photoshop, Illustrator, Figma and Canva compared: which graphic design software suits which job and which team size</span></a>
+          <a class="yk" href="../../blog/grafik-tasarim-sureci/"><b>The Graphic Design Process: A Stage Timeline from Brief to Delivery</b>
+            <span>How many stages does graphic design take, from brief to delivery? Each step's realistic timing and the causes of delay</span></a>
+      </div>
+    </div>
+  </aside>
 </main>
 
 <footer class="ftr">
@@ -1267,7 +1263,7 @@ p.dtay-vurgu{font-size:15.2px;font-weight:600;color:var(--fg);letter-spacing:-.0
           <li><a href="../digital-marketing/">Digital Marketing</a></li>
           <li><a href="../video-production/">Video Production</a></li>
           <li><a href="../seo/">SEO Services</a></li>
-          <li><a href="./">Graphic Design</a></li>
+          <li><a href="../graphic-design/">Graphic Design</a></li>
         </ul>
       </div>
       <div>
