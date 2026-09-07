@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- KONSEPT-NOINDEX -->
+<meta name="robots" content="noindex,nofollow">
+<title>What to Ask Before Commissioning an App | TasarımMania</title>
+<meta name="description" content="Which questions should you ask before deciding to commission an app? We open up the problem definition, usage frequency, data ownership and code handover in turn.">
+<link rel="canonical" href="https://www.tasarimmania.com/en/blog/questions-before-building-an-app/">
+<link rel="alternate" hreflang="tr" href="https://www.tasarimmania.com/blog/mobil-uygulama-yaptirma-sorulari/">
+<link rel="alternate" hreflang="en" href="https://www.tasarimmania.com/en/blog/questions-before-building-an-app/">
+<link rel="alternate" hreflang="x-default" href="https://www.tasarimmania.com/blog/mobil-uygulama-yaptirma-sorulari/">
+<link rel="alternate" type="application/rss+xml" title="TasarımMania Blog (RSS)" href="../../../blog/rss.xml">
+<link rel="alternate" type="application/atom+xml" title="TasarımMania Blog (Atom)" href="../../../blog/atom.xml">
+<meta name="author" content="İhsan Ar">
+<!-- max-* AYRI etikette: noindex-uygula.js --ac robots etiketini birebir dizgeyle
+     arıyor; içine ekleme yapılırsa indekslemeyi açma betiği kırılır. -->
+<meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="theme-color" content="#0B0D12">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="What to Ask Before Commissioning an App | TasarımMania">
+<meta property="og:description" content="Which questions should you ask before deciding to commission an app? We open up the problem definition, usage frequency, data ownership and code handover in turn.">
+<meta property="og:url" content="https://www.tasarimmania.com/en/blog/questions-before-building-an-app/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/en/blog/questions-before-building-an-app/image/questions-before-building-an-app-cover-1440.jpg">
+<meta property="og:image:width" content="1440">
+<meta property="og:image:height" content="810">
+<meta property="og:image:alt" content="A lit fork in the road on a dark ground; one branch woven with sparse nodes, the other with dense ones">
+<meta property="article:published_time" content="2026-09-26T10:20:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What to Ask Before Commissioning an App | TasarımMania">
+<meta name="twitter:description" content="Which questions should you ask before deciding to commission an app? We open up the problem definition, usage frequency, data ownership and code handover in turn.">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/en/blog/questions-before-building-an-app/image/questions-before-building-an-app-cover-1440.jpg">
+<meta name="twitter:image:alt" content="A lit fork in the road on a dark ground; one branch woven with sparse nodes, the other with dense ones">
+<link rel="icon" type="image/png" href="../../../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
+<link rel="stylesheet" href="../../../css/tm.css">
+<style>
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  max-height:calc(100dvh - 74px);overflow-y:auto;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(28px,4vw,52px)) 0 clamp(22px,3vw,34px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.14),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.wa{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:90;width:54px;height:54px;
+  border-radius:50%;background:#25D366;display:grid;place-items:center;
+  box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s;padding-block:7px}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+@media(max-width:960px){.ftr-ust{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.nav-links,.nav-tel{display:none}.burger{display:block}.ftr-ust{grid-template-columns:1fr}}
+/* --- blog yazısı: okuma düzeni --- */
+.yz-ust{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.yz-kat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acc);border:1px solid rgba(var(--acc-rgb),.4);border-radius:99px;padding:6px 13px}
+.yz-meta{font-family:var(--mono);font-size:11.4px;color:var(--muted)}
+.phd h1{font-size:clamp(28px,4.4vw,46px);letter-spacing:-.035em;line-height:1.16;margin-bottom:16px;max-width:22ch}
+.phd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18px);max-width:62ch;line-height:1.78}
+.yz-govde{max-width:760px}
+.yz-govde h2{font-size:clamp(21px,2.9vw,28px);letter-spacing:-.03em;line-height:1.25;margin:44px 0 0}
+.yz-govde h3{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;line-height:1.35;margin:30px 0 10px}
+.yz-govde h4{font-size:15.6px;letter-spacing:-.01em;margin:22px 0 8px;color:var(--fg-dim)}
+.yz-govde p{font-size:15.6px;color:var(--fg-dim);line-height:1.85;margin:0 0 16px}
+.yz-govde ul,.yz-govde ol{margin:0 0 18px;padding-left:0;list-style:none;display:grid;gap:10px}
+.yz-govde li{font-size:15.2px;color:var(--fg-dim);line-height:1.72;display:flex;gap:11px;align-items:flex-start}
+.yz-govde li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:10px}
+.yz-govde ol{counter-reset:s}
+.yz-govde ol li{counter-increment:s}
+.yz-govde ol li::before{content:counter(s);width:auto;height:auto;border-radius:0;background:none;
+  color:var(--acc);font-family:var(--mono);font-size:12px;margin-top:2px;min-width:16px}
+.yz-govde strong{color:var(--fg);font-weight:600}
+/* WCAG 2.5.8 - satir ici baglanti dokunma hedefi >=24px.
+   DIKKAT: padding'i AYRI bir .yz-govde p a kuralina koyma; .yz-govde a:not(.btn)
+   ozgullugu (0,2,1) onu (0,1,2) ezer ve 2px'te kalir. Degeri bu kuralin ICINDE tut. */
+.yz-govde a:not(.btn){color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.4);transition:text-decoration-color .25s;padding-block:4px}
+.yz-govde a:not(.btn):hover{text-decoration-color:var(--acc)}
+/* doğrudan cevap kutusu (snippet hedefi) */
+.yz-cevap{border-left:2px solid var(--acc);background:rgba(var(--acc-rgb),.05);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:16px 20px;margin:16px 0 22px}
+.yz-cevap p{margin:0;color:var(--fg);font-size:15.4px;line-height:1.75}
+/* karşılaştırma tablosu */
+.yz-tablo{margin:26px 0;border:1px solid var(--hair);border-radius:var(--r-md);overflow-x:auto}
+.yz-tablo table{width:100%;border-collapse:collapse;min-width:520px}
+.yz-tablo th{font-family:var(--mono);font-size:10.4px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--acc);text-align:left;padding:14px 16px;border-bottom:1px solid var(--hair);
+  background:rgba(var(--acc-rgb),.05);font-weight:500;white-space:nowrap}
+.yz-tablo td{font-size:13.8px;color:var(--fg-dim);padding:14px 16px;border-bottom:1px solid var(--hair);
+  line-height:1.6;vertical-align:top}
+.yz-tablo tr:last-child td{border-bottom:0}
+.yz-tablo td:first-child{color:var(--fg);font-weight:600}
+.yz-tablo-not{font-family:var(--mono);font-size:10.4px;color:var(--muted);margin:-16px 0 26px;
+  letter-spacing:.04em}
+/* SSS */
+.yz-sss{display:grid;gap:11px;max-width:760px}
+.yz-sss details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
+.yz-sss details[open]{border-color:var(--hair-strong)}
+.yz-sss summary{cursor:pointer;list-style:none;padding:17px 21px;font-size:15.2px;font-weight:600;
+  display:flex;align-items:center;gap:14px;line-height:1.4}
+.yz-sss summary::-webkit-details-marker{display:none}
+.yz-sss summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.yz-sss details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.yz-sss summary:hover{color:var(--acc)}
+.yz-sss p{padding:0 21px 19px;margin:0;font-size:14.4px;color:var(--muted);line-height:1.75}
+/* hizmet köprüsü */
+.yz-kopru{border:1px solid rgba(var(--acc-rgb),.32);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(var(--acc-rgb),.07),transparent);
+  padding:clamp(22px,3vw,32px);margin:36px 0;max-width:760px}
+.yz-kopru b{display:block;font-size:clamp(17px,2.2vw,21px);letter-spacing:-.02em;margin-bottom:9px}
+.yz-kopru p{font-size:14.6px;color:var(--fg-dim);line-height:1.72;margin:0 0 18px}
+.yz-kopru .btn{margin-right:10px}
+/* okuma ilerlemesi */
+.yz-cizgi{position:fixed;top:0;left:0;height:2px;background:var(--acc);z-index:101;width:0;
+  transition:width .1s linear}
+@media(max-width:760px){.yz-govde h2{margin-top:34px}}
+@media(prefers-reduced-motion:reduce){.yz-cizgi{display:none}}
+/* --- 1.2 eklentileri --- */
+.yz-kapak{margin:0 0 clamp(26px,4vw,44px)}
+.yz-kapak img,.yz-gorsel img{width:100%;height:auto;display:block;border-radius:14px;
+  border:1px solid var(--hair);background:#0d1017}
+.yz-kapak figcaption,.yz-gorsel figcaption{margin-top:11px;font-size:13.2px;line-height:1.55;
+  color:var(--muted);max-width:760px}
+.yz-gorsel{margin:clamp(26px,4vw,38px) 0}
+.yz-ai{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--fg-dim);opacity:.72;white-space:nowrap}
+.yz-govde ol{margin:16px 0 20px;padding-left:22px;display:grid;gap:10px}
+.yz-govde ol li{padding-left:4px}
+.yz-govde ol li::marker{color:var(--acc);font-family:var(--mono);font-weight:600}
+.yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
+  background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
+.yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.tasarimmania.com/en/blog/questions-before-building-an-app/#article",
+      "headline": "Which Questions Do You Ask Before Commissioning a Mobile App?",
+      "description": "Which questions should you ask before deciding to commission an app? We open up the problem definition, usage frequency, data ownership and code handover in turn.",
+      "datePublished": "2026-09-26T10:20:00",
+      "dateModified": "2026-09-26T10:20:00",
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://www.tasarimmania.com/en/blog/questions-before-building-an-app/",
+      "author": {
+        "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar"
+      },
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      },
+      "articleSection": "Mobile",
+      "wordCount": 1021,
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/mobil-uygulama-yaptirma-sorulari/gorsel/mobil-uygulama-yaptirma-sorulari-kapak-1440.jpg",
+        "width": 1440,
+        "height": 810,
+        "caption": "A lit fork in the road on a dark ground; one branch woven with sparse nodes, the other with dense ones"
+      },
+      "about": [
+        "Mobile uygulama yaptırma",
+        "Proje kapsamı",
+        "Yazılım sözleşmesi"
+      ],
+      "mentions": [
+        {
+          "@type": "Thing",
+          "name": "Source code handover"
+        },
+        {
+          "@type": "Thing",
+          "name": "App Store"
+        },
+        {
+          "@type": "Thing",
+          "name": "Google Play"
+        },
+        {
+          "@type": "Thing",
+          "name": "Non-disclosure agreement"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".ozet",
+          ".yz-cevap"
+        ]
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.tasarimmania.com/#kurulus",
+      "name": "TasarımMania",
+      "url": "https://www.tasarimmania.com/",
+      "telephone": "+905547916545",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/logo/marka-yatay-optik.png",
+        "width": 435,
+        "height": 163
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+        "addressLocality": "Bakırköy",
+        "addressRegion": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "knowsAbout": [
+        "Web design and software development",
+        "Mobile app development",
+        "Digital marketing and performance advertising",
+        "Video production and commercial films",
+        "Search engine optimization",
+        "Graphic design and brand identity",
+        "E-commerce store setup",
+        "Social media management"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.tasarimmania.com/en/blog/questions-before-building-an-app/#sss",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which document should I have in hand for the decision to commission an app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A single page is enough, but that page has to be full. It should contain: a one-sentence definition of the problem being solved, who the user is, how often they will open the app, a list of the screens you cannot do without, and the names of the services it will talk to. With that page in hand, the meeting stops being guesswork and both sides talk about the same job. Without it, the first session is spent filling it in anyway; what you lose isn't time, it's the clarity you gain."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "If I explain my idea, will the agency steal it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ask for a non-disclosure agreement; no serious team will be troubled by that."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I have the app built small first and grow it later?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and that is usually the right way. Focus the first release on a single job, measure it, then widen. That way you head off the budget you would have spent on the wrong feature."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do I lose if I don't take the source code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You lose the freedom to change agency. The product carries on working, but every change has to pass through one door."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Couldn't the agency open the store account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The account should be opened in your name and the agency invited in as a developer. The reviews, the download data and the app itself are all tied to that account."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which questions can be left until the quotation stage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Colour, typeface and secondary screens can wait. The problem definition, the user, the frequency and the handover terms cannot."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I do if the agency asks me for screen designs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Don't give them. Screen design is the output of the work, not its input. What is expected of you is to describe the problem, the user and the constraints; the rest is the team's job."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does commissioning an app take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the scope. The answer to the question of duration only means something once the stages are settled."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.tasarimmania.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.tasarimmania.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Which Questions Do You Ask Before Commissioning a Mobile App?",
+          "item": "https://www.tasarimmania.com/en/blog/questions-before-building-an-app/"
+        }
+      ],
+      "@id": "https://www.tasarimmania.com/en/blog/questions-before-building-an-app/#kirintili"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar",
+      "name": "İhsan Ar",
+      "jobTitle": "Digital Marketing Specialist",
+      "url": "https://www.tasarimmania.com/hakkimizda/#kurucu",
+      "sameAs": [
+        "https://www.linkedin.com/in/ihsan-ar-47254548/",
+        "https://www.instagram.com/ihsanar86/"
+      ],
+      "worksFor": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.tasarimmania.com/#site",
+      "url": "https://www.tasarimmania.com/",
+      "name": "TasarımMania",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.tasarimmania.com/en/blog/questions-before-building-an-app/#sayfa",
+      "url": "https://www.tasarimmania.com/en/blog/questions-before-building-an-app/",
+      "name": "What to Ask Before Commissioning an App | TasarımMania",
+      "description": "Which questions should you ask before deciding to commission an app? We open up the problem definition, usage frequency, data ownership and code handover in turn.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.tasarimmania.com/#site"
+      },
+      "breadcrumb": {
+        "@id": "https://www.tasarimmania.com/en/blog/questions-before-building-an-app/#kirintili"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/mobil-uygulama-yaptirma-sorulari/gorsel/mobil-uygulama-yaptirma-sorulari-kapak-1440.jpg"
+      },
+      "mainEntity": {
+        "@id": "https://www.tasarimmania.com/en/blog/questions-before-building-an-app/#article"
+      },
+      "dateModified": "2026-09-26T10:20:00"
+    }
+  ]
+}
+</script>
+</head>
+<body data-dal="mobil">
+
+<i class="yz-cizgi" data-ilerleme aria-hidden="true"></i>
+<a class="skip" href="#ana">Skip to content</a>
+
+<nav class="nav" data-nav aria-label="Main menu">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../../" aria-label="TasarımMania home">
+      <img src="../../../../assets/en/brand/tasarimmania-logo-horizontal.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async" fetchpriority="high">
+    </a>
+    <div class="nav-links">
+      <a href="../../services/">Services</a>
+      <a href="../../#isler">Work</a>
+      <a href="../../about/">Agency</a>
+      <a href="../" aria-current="page">Blog</a>
+      <a href="../../get-a-quote/">Get a Quote</a>
+      <a href="../../contact/">Communication</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../../services/">Services</a><a href="../../#isler">Work</a><a href="../../about/">Agency</a>
+  <a href="../">Blog</a><a href="../../get-a-quote/">Get a Quote</a><a href="../../contact/">Communication</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<!-- AYIRT EDİCİ EKSEN: KARAR — Yaptırma kararının kendisini sorgular. Maliyet kalemleri yazı 1'in, süreç aşamaları yazı 3'ün, mimari seçimi yazı 4'ün işidir. Burada FİYAT ve AŞAMA anlatılmaz.
+     Huni türü: TOFU · Küme: mobil · Kardeşler (enjeksiyon turunda): mobil-uygulama-gelistirme-sureci, native-mi-cross-platform-mi, react-native-mi-flutter-mi -->
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Location">
+        <a href="../../">Home</a><span aria-hidden="true">/</span>
+        <a href="../">Blog</a><span aria-hidden="true">/</span>
+        <span>Commissioning Questions</span>
+      </nav>
+      <div class="yz-ust">
+        <span class="yz-kat">Mobile</span>
+        <span class="yz-meta">26 September 2026 · 7 min read</span>
+      </div>
+      <h1>Which Questions Do You Ask Before Commissioning a Mobile App?</h1>
+      <p class="ozet">Most projects begin with the wrong question: what will it cost? Yet the price isn't settled until the scope is. The right order is to answer the questions that describe the product first. In this article we open up, in sequence, the questions you need to put on the table before ordering a piece of mobile software. The questions are short; their answers set the direction of your project.</p>
+    </div>
+  </header>
+
+  <figure class="yz-kapak">
+    <div class="wrap">
+      <img src="./image/questions-before-building-an-app-cover-1440.webp"
+           srcset="./image/questions-before-building-an-app-cover-640.webp 640w, ./image/questions-before-building-an-app-cover-960.webp 960w, ./image/questions-before-building-an-app-cover-1440.webp 1440w, ./image/questions-before-building-an-app-cover-1920.webp 1920w"
+           sizes="(max-width: 1200px) 100vw, 1160px"
+           alt="A lit fork in the road on a dark ground; one branch woven with sparse nodes, the other with dense ones"
+           width="1920" height="1080" fetchpriority="high" decoding="async">
+      <figcaption>The decision point comes before any screen is drawn; everything after is a continuation of that fork. <span class="yz-ai">Image generated with AI.</span></figcaption>
+    </div>
+  </figure>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <article class="yz-govde">
+      <h2>Which Question Comes Before the Decision to Commission an App?</h2>
+      <div class="yz-cevap"><p>One question comes before everything else: which problem are you solving? If the answer won't fit into a single sentence, neither will the scope. The screen list, the technology and the budget all come after that sentence. The most expensive mistake in commissioning an app is starting to draw screens before defining the problem. Those screens end up in the bin.</p></div>
+      <p>Most meetings open with a list of screens. But a list is a solution, and nobody says which problem the solution belongs to. We don't talk about screens in the first session. We ask this: how does this work run today, and where does it get stuck?</p><p>Once the answer becomes concrete, the scope narrows of its own accord. If the problem your app solves fits into a single sentence, the brief fits onto a single page.</p><p>Who answers that question matters too. When the decision is taken by the person who does the work in the field, the product comes out closer to reality. Apps described only around the management table tend to fill up with screens nobody opens. Invite at least one user to the first session.</p>
+      <h3>The Practical Way to Get the Problem Down to One Sentence</h3>
+      <p>Fit the sentence into this template: <em>“[who], [in what situation], cannot do [what].”</em> If the template won't fill, the problem isn't defined yet. Teams that come to a commissioning meeting with that sentence end up with a markedly narrower scope than those who don't.</p>
+      <h2>How Often Will Your User Open the App?</h2>
+      <div class="yz-cevap"><p>Frequency is the sharpest measure of whether an app is needed at all. A product that gets opened several times a week deserves one. For a transaction carried out three times a year, a mobile-friendly page will do. Take the decision to commission an app on that behavioural data, not on feeling. If you don't have the data, gather it first.</p></div>
+      <p>The interval between uses determines whether the product stays on the home screen. Nobody makes room for an icon they will open twice a year. How often your existing site is visited is a good indicator here; the repeat rate there gives you the real answer.</p><p>Without measurement you guess, and guessing gets expensive. Even a simple month of logging firms the decision up. We took up the relationship between user behaviour and interface decisions separately in the <a href="../ecommerce-ux/">user experience</a> article.</p><p>When you measure frequency, don't look at a single number. How long it takes the same user to come back tells you more than total visits. A product a hundred people visited once and one ten people visited ten times each look the same in the table, yet as a case for commissioning an app they are diametrically opposed.</p>
+      <h3>Does a Low Frequency Kill the App Idea?</h3>
+      <p>No, but it changes the order. Build the mobile-friendly flow first, then watch the data. If the frequency rises, your case for commissioning an app is no longer a guess but a measurement.</p>
+      <h2>Does This Job Call for an App or a Mobile Site?</h2>
+      <div class="yz-cevap"><p>Four criteria settle the decision: frequency of use, the need for notifications, offline working and hardware access. If even one of them is essential, an app starts to make sense. If none of them applies, a mobile-friendly site does the same job for less. Test the wish to commission an app against those four criteria, not against fashion.</p></div>
+      <p>The browser has come a long way in recent years. Camera, location and offline caching now work on the web side too. But sending an instant alert, tracking location in the background and appearing on the store shelf are still an app's work.</p><p>Making that distinction early protects the budget. We opened up which items move the cost, item by item, in the <a href="../mobile-app-development-cost/">app cost</a> article. And we set out the stages and the schedule in the <a href="../mobile-app-development-process/">development process</a> article.</p><p>Test the four criteria one by one, not as a block. Most teams stop at the sentence “let's send notifications” and ask nothing further. Yet if an email or a text message does the same job, the need for notifications alone is not a case for commissioning an app.</p>
+      <h3>When Does the Single Codebase Question Come Up?</h3>
+      <p>After the decision to build an app is settled. The choice of architecture is a separate discussion; we explained <a href="../../react-native-development/">the single codebase approach</a> on the service page. We opened up the difference in mechanism in the <a href="../../../blog/native-mi-cross-platform-mi/">native or cross-platform</a> article. Don't disturb the order of decisions: the rationale first, the technology second.</p>
+      <h2>Where Will the Data Sit, and Who Will Own the Code?</h2>
+      <div class="yz-cevap"><p>Look for two lines in the contract: ownership of the source code, and where the data will be held. Without those two lines, the product isn't yours. The store accounts should be opened in your own name too, not the agency's. Not asking about these in a commissioning meeting is the most expensive silence there is. Put the handover term in writing from the start.</p></div>
+      <p>This heading looks legal rather than technical, yet both lead to the same door. Whoever holds the software holds the product's future. When you want to change agency, these lines are what save you.</p><p>Set three things up in your own name: the store developer accounts, the domain and the cloud account. Let the development team join those as guests, not as owners.</p><p>Where the data sits is a separate question. If you process personal data, the server's country, the retention period and the deletion procedure should all be written into the contract. Adding those lines later, on a product already live, is both expensive and slow. If the app collects personal data, the <a href="https://www.kvkk.gov.tr/" target="_blank" rel="noopener">data controller obligations under KVKK</a> — KVKK is Türkiye's personal data protection law — should be written into the contract from the outset.</p>
+      <h3>How Is the Handover Made Painless?</h3>
+      <p>Let repository access, environment variables and the setup document be shared from day one. The decision to commission ties down not the app's last day but its first; the handover is discussed when it begins, not when it ends.</p>
+      <blockquote class="yz-alinti"><p>&#8220;A list of screens is a solution. Order it without writing down which problem it belongs to and you buy the solution while leaving the problem at home.&#8221;</p><cite>— TasarımMania scoping meeting note</cite></blockquote>
+      <h2>Which Five Questions Should You Ask the Agency?</h2>
+      <div class="yz-cevap"><p>Five questions reveal an agency's real capacity. Have you released a similar product in the stores? Who draws the error states? How do maintenance and code handover work? Ask for the answers in writing. A commissioning meeting isn't an exam, it's a rehearsal for working together. If your questions don't get clear answers, the problem isn't at your end.</p></div>
+      <p>What a team can do is shown less by its portfolio than by the answers it gives to your questions. Ask the five below in order and take notes on the answers.</p><ol><li><strong>Release experience</strong> — in which stores have you released a similar product?</li><li><strong>Error states</strong> — who draws the empty list, the broken connection and the timeout?</li><li><strong>Maintenance</strong> — how does the process work when a new operating system version comes out?</li><li><strong>Handover</strong> — how do the source code and the accounts pass to us?</li><li><strong>Communication</strong> — who reports weekly progress, and in what form?</li></ol><p>If the answers stay verbal they get forgotten. Ask for them in writing; let them go into the annex of the quote.</p>
+      <h3>Why Isn't the Portfolio Enough on Its Own?</h3>
+      <p>The work in the window appears finished; how it got finished doesn't. Whether an app released two years ago is still standing today tells you more. Look it up in the store and check the date of the last update. Glance at the reviews too: whether the faults users reported were answered tells you more honestly about a team's maintenance habits than any portfolio.</p>
+      <h2>Let's Answer Your Questions Together</h2>
+      <div class="yz-cevap"><p>You don't have to answer most of these questions on your own. In the meeting we talk through the problem, the user and the frequency of use together. What you are left with is not a list of screens but the rationale for a decision. Take the decision to commission an app on that rationale and you won't have to turn back later. The first three months spent on the wrong product never come back, whatever the budget.</p></div>
+      <p>You leave the scoping session with a single page in hand: the problem, the user, the frequency, the four criteria and the handover terms. <a href="../../mobile-app-development/">Our mobile app service</a> page is always open if you'd like to look through it. Putting the rationale for your app in writing before you commission it makes every decision that follows easier.</p>
+      <figure class="yz-gorsel">
+        <img src="./image/questions-before-building-an-app-body-960.webp"
+             srcset="./image/questions-before-building-an-app-body-640.webp 640w, ./image/questions-before-building-an-app-body-960.webp 960w, ./image/questions-before-building-an-app-body-1440.webp 1440w, ./image/questions-before-building-an-app-body-1920.webp 1920w"
+             sizes="(max-width: 760px) 100vw, 760px"
+             alt="Concentric rings of light, each narrower than the last, with the innermost the brightest point" width="1920" height="1080" loading="lazy" decoding="async">
+        <figcaption>Each question narrows the scope a little further; the innermost ring is the real work itself. <span class="yz-ai">Image generated with AI.</span></figcaption>
+      </figure>
+      <h2>App or mobile site? The four criteria</h2>
+      <div class="yz-tablo">
+        <table>
+          <thead><tr><th>Criterion</th><th>An app is needed</th><th>A mobile site will do</th></tr></thead>
+          <tbody>
+            <tr><td>Frequency of use</td><td>A few times a week</td><td>A few times a year</td></tr>
+            <tr><td>Need for notifications</td><td>Instant alerts essential</td><td>Email is enough</td></tr>
+            <tr><td>Working offline</td><td>Must work without a connection</td><td>Always online</td></tr>
+            <tr><td>Hardware access</td><td>Camera, sensors, background location</td><td>Not required</td></tr>
+            <tr><td>Store visibility</td><td>Being on the shelf matters</td><td>Search engines are enough</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+        <aside class="yz-kopru" aria-label="Service bridge">
+          <b>Let's answer your questions together</b>
+          <p>Let's talk through the problem you want to solve, your user and the frequency of use; let's produce, together, a written case for whether an app is needed at all.</p>
+          <a class="btn btn-p" href="../../get-a-quote/#mobil">Let's map the scope
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="../../mobile-app-development/">See the service page</a>
+        </aside>
+        <p>The decision to commission an app begins with a question, not with technology. Once you put the problem, the user, the frequency and the handover terms in writing, every remaining decision gets easier on its own.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>FAQs</span>
+        <h2 data-kin>Frequently asked questions: deciding to commission an app</h2>
+      </div>
+      <div class="yz-sss rv d1">
+        <details>
+          <summary>Which document should I have in hand for the decision to commission an app?</summary>
+          <p>A single page is enough, but that page has to be full. It should contain: a one-sentence definition of the problem being solved, who the user is, how often they will open the app, a list of the screens you cannot do without, and the names of the services it will talk to. With that page in hand, the meeting stops being guesswork and both sides talk about the same job. Without it, the first session is spent filling it in anyway; what you lose isn't time, it's the clarity you gain.</p>
+        </details>
+        <details>
+          <summary>If I explain my idea, will the agency steal it?</summary>
+          <p>Ask for a non-disclosure agreement; no serious team will be troubled by that.</p>
+        </details>
+        <details>
+          <summary>Can I have the app built small first and grow it later?</summary>
+          <p>Yes, and that is usually the right way. Focus the first release on a single job, measure it, then widen. That way you head off the budget you would have spent on the wrong feature.</p>
+        </details>
+        <details>
+          <summary>What do I lose if I don't take the source code?</summary>
+          <p>You lose the freedom to change agency. The product carries on working, but every change has to pass through one door.</p>
+        </details>
+        <details>
+          <summary>Couldn't the agency open the store account?</summary>
+          <p>No. The account should be opened in your name and the agency invited in as a developer. The reviews, the download data and the app itself are all tied to that account.</p>
+        </details>
+        <details>
+          <summary>Which questions can be left until the quotation stage?</summary>
+          <p>Colour, typeface and secondary screens can wait. The problem definition, the user, the frequency and the handover terms cannot.</p>
+        </details>
+        <details>
+          <summary>What should I do if the agency asks me for screen designs?</summary>
+          <p>Don't give them. Screen design is the output of the work, not its input. What is expected of you is to describe the problem, the user and the constraints; the rest is the team's job.</p>
+        </details>
+        <details>
+          <summary>How long does commissioning an app take?</summary>
+          <p>It depends on the scope. The answer to the question of duration only means something once the stages are settled.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../../../assets/en/brand/tasarimmania-logo-horizontal.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>An Istanbul-based 360° digital agency bringing web, mobile, advertising, video and SEO together under one roof.</p>
+      </div>
+      <div>
+        <h3>Modules</h3>
+        <ul>
+          <li><a href="../../services/">All services</a></li>
+          <li><a href="../../web-design/">Web &amp; Software</a></li>
+          <li><a href="../../mobile-app-development/">Mobile Apps</a></li>
+          <li><a href="../../digital-marketing/">Digital Marketing</a></li>
+          <li><a href="../../video-production/">Video Production</a></li>
+          <li><a href="../../seo/">SEO Services</a></li>
+          <li><a href="../../graphic-design/">Graphic Design</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Communication</h3>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../../contact/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../../contact/#ofis">Weekdays 09:00–19:00<br>Saturdays 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. All rights reserved.</span>
+      <span class="mono">FIVE MODULES · ONE PLACE</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../../../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+<script>
+"use strict";
+(function(){
+  var c = document.querySelector('[data-ilerleme]');
+  if (!c || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  function ciz(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    c.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', ciz, { passive: true });
+  ciz();
+})();
+</script>
