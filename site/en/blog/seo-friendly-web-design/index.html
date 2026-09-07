@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- KONSEPT-NOINDEX -->
+<meta name="robots" content="noindex,nofollow">
+<title>How SEO-Friendly Web Design Affects Visibility</title>
+<meta name="description" content="What is SEO-friendly web design, and how do layout and image decisions affect search visibility? Mobile breakpoints, heading hierarchy and the quote process.">
+<link rel="canonical" href="https://www.tasarimmania.com/en/blog/seo-friendly-web-design/">
+<link rel="alternate" hreflang="tr" href="https://www.tasarimmania.com/blog/seo-ve-web-tasarim/">
+<link rel="alternate" hreflang="en" href="https://www.tasarimmania.com/en/blog/seo-friendly-web-design/">
+<link rel="alternate" hreflang="x-default" href="https://www.tasarimmania.com/blog/seo-ve-web-tasarim/">
+<link rel="alternate" type="application/rss+xml" title="TasarımMania Blog (RSS)" href="../../../blog/rss.xml">
+<link rel="alternate" type="application/atom+xml" title="TasarımMania Blog (Atom)" href="../../../blog/atom.xml">
+<meta name="author" content="İhsan Ar">
+<meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="theme-color" content="#0B0D12">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="How SEO-Friendly Web Design Affects Visibility">
+<meta property="og:description" content="What is SEO-friendly web design, and how do layout and image decisions affect search visibility? Mobile breakpoints, heading hierarchy and the quote process.">
+<meta property="og:url" content="https://www.tasarimmania.com/en/blog/seo-friendly-web-design/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/en/blog/seo-friendly-web-design/image/seo-friendly-web-design-cover-1440.jpg">
+<meta property="og:image:width" content="1440">
+<meta property="og:image:height" content="810">
+<meta property="og:image:alt" content="3D image of abstract glass panels moving into a hierarchical order on a dark background">
+<meta property="article:published_time" content="2026-10-17">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/en/blog/seo-friendly-web-design/image/seo-friendly-web-design-cover-1440.jpg">
+<meta name="twitter:title" content="How SEO-Friendly Web Design Affects Visibility">
+<meta name="twitter:description" content="What is SEO-friendly web design, and how do layout and image decisions affect search visibility? Mobile breakpoints, heading hierarchy and the quote process.">
+<meta name="twitter:image:alt" content="3D image of abstract glass panels moving into a hierarchical order on a dark background">
+<link rel="icon" type="image/png" href="../../../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
+<link rel="stylesheet" href="../../../css/tm.css">
+<style>
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  max-height:calc(100dvh - 74px);overflow-y:auto;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(28px,4vw,52px)) 0 clamp(22px,3vw,34px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.14),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.wa{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:90;width:54px;height:54px;
+  border-radius:50%;background:#25D366;display:grid;place-items:center;
+  box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s;padding-block:7px}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+@media(max-width:960px){.ftr-ust{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.nav-links,.nav-tel{display:none}.burger{display:block}.ftr-ust{grid-template-columns:1fr}}
+/* --- blog yazısı: okuma düzeni --- */
+.yz-ust{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.yz-kat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acc);border:1px solid rgba(var(--acc-rgb),.4);border-radius:99px;padding:6px 13px}
+.yz-meta{font-family:var(--mono);font-size:11.4px;color:var(--muted)}
+.phd h1{font-size:clamp(28px,4.4vw,46px);letter-spacing:-.035em;line-height:1.16;margin-bottom:16px;max-width:22ch}
+.phd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18px);max-width:62ch;line-height:1.78}
+.yz-govde{max-width:760px}
+.yz-govde h2{font-size:clamp(21px,2.9vw,28px);letter-spacing:-.03em;line-height:1.25;margin:44px 0 0}
+.yz-govde h3{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;line-height:1.35;margin:30px 0 10px}
+.yz-govde h4{font-size:15.6px;letter-spacing:-.01em;margin:22px 0 8px;color:var(--fg-dim)}
+.yz-govde p{font-size:15.6px;color:var(--fg-dim);line-height:1.85;margin:0 0 16px}
+.yz-govde ul,.yz-govde ol{margin:0 0 18px;padding-left:0;list-style:none;display:grid;gap:10px}
+.yz-govde li{font-size:15.2px;color:var(--fg-dim);line-height:1.72;display:flex;gap:11px;align-items:flex-start}
+.yz-govde li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:10px}
+.yz-govde ol{counter-reset:s}
+.yz-govde ol li{counter-increment:s}
+.yz-govde ol li::before{content:counter(s);width:auto;height:auto;border-radius:0;background:none;
+  color:var(--acc);font-family:var(--mono);font-size:12px;margin-top:2px;min-width:16px}
+.yz-govde strong{color:var(--fg);font-weight:600}
+/* WCAG 2.5.8 - satir ici baglanti dokunma hedefi >=24px.
+   DIKKAT: padding'i AYRI bir .yz-govde p a kuralina koyma; .yz-govde a:not(.btn)
+   ozgullugu (0,2,1) onu (0,1,2) ezer ve 2px'te kalir. Degeri bu kuralin ICINDE tut. */
+.yz-govde a:not(.btn){color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.4);transition:text-decoration-color .25s;padding-block:4px}
+.yz-govde a:not(.btn):hover{text-decoration-color:var(--acc)}
+/* doğrudan cevap kutusu (snippet hedefi) */
+.yz-cevap{border-left:2px solid var(--acc);background:rgba(var(--acc-rgb),.05);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:16px 20px;margin:16px 0 22px}
+.yz-cevap p{margin:0;color:var(--fg);font-size:15.4px;line-height:1.75}
+/* karşılaştırma tablosu */
+.yz-tablo{margin:26px 0;border:1px solid var(--hair);border-radius:var(--r-md);overflow-x:auto}
+.yz-tablo table{width:100%;border-collapse:collapse;min-width:520px}
+.yz-tablo th{font-family:var(--mono);font-size:10.4px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--acc);text-align:left;padding:14px 16px;border-bottom:1px solid var(--hair);
+  background:rgba(var(--acc-rgb),.05);font-weight:500;white-space:nowrap}
+.yz-tablo td{font-size:13.8px;color:var(--fg-dim);padding:14px 16px;border-bottom:1px solid var(--hair);
+  line-height:1.6;vertical-align:top}
+.yz-tablo tr:last-child td{border-bottom:0}
+.yz-tablo td:first-child{color:var(--fg);font-weight:600}
+.yz-tablo-not{font-family:var(--mono);font-size:10.4px;color:var(--muted);margin:-16px 0 26px;
+  letter-spacing:.04em}
+/* SSS */
+.yz-sss{display:grid;gap:11px;max-width:760px}
+.yz-sss details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
+.yz-sss details[open]{border-color:var(--hair-strong)}
+.yz-sss summary{cursor:pointer;list-style:none;padding:17px 21px;font-size:15.2px;font-weight:600;
+  display:flex;align-items:center;gap:14px;line-height:1.4}
+.yz-sss summary::-webkit-details-marker{display:none}
+.yz-sss summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.yz-sss details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.yz-sss summary:hover{color:var(--acc)}
+.yz-sss p{padding:0 21px 19px;margin:0;font-size:14.4px;color:var(--muted);line-height:1.75}
+/* hizmet köprüsü */
+.yz-kopru{border:1px solid rgba(var(--acc-rgb),.32);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(var(--acc-rgb),.07),transparent);
+  padding:clamp(22px,3vw,32px);margin:36px 0;max-width:760px}
+.yz-kopru b{display:block;font-size:clamp(17px,2.2vw,21px);letter-spacing:-.02em;margin-bottom:9px}
+.yz-kopru p{font-size:14.6px;color:var(--fg-dim);line-height:1.72;margin:0 0 18px}
+.yz-kopru .btn{margin-right:10px}
+/* okuma ilerlemesi */
+.yz-cizgi{position:fixed;top:0;left:0;height:2px;background:var(--acc);z-index:101;width:0;
+  transition:width .1s linear}
+@media(max-width:760px){.yz-govde h2{margin-top:34px}}
+@media(prefers-reduced-motion:reduce){.yz-cizgi{display:none}}
+/* --- 1.2 eklentileri --- */
+.yz-kapak{margin:0 0 clamp(26px,4vw,44px)}
+.yz-kapak img,.yz-gorsel img{width:100%;height:auto;display:block;border-radius:14px;
+  border:1px solid var(--hair);background:#0d1017}
+.yz-kapak figcaption,.yz-gorsel figcaption{margin-top:11px;font-size:13.2px;line-height:1.55;
+  color:var(--muted);max-width:760px}
+.yz-gorsel{margin:clamp(26px,4vw,38px) 0}
+.yz-ai{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--fg-dim);opacity:.72;white-space:nowrap}
+.yz-govde ol{margin:16px 0 20px;padding-left:22px;display:grid;gap:10px}
+.yz-govde ol li{padding-left:4px}
+.yz-govde ol li::marker{color:var(--acc);font-family:var(--mono);font-weight:600}
+.yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
+  background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
+.yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+.yz-ilgili{margin:clamp(30px,4vw,44px) 0 0;padding-top:clamp(24px,3vw,32px);
+  border-top:1px solid var(--hair)}
+.yz-ilgili h2{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;margin:0 0 4px}
+.yz-ilgili .not{font-size:13.4px;color:var(--muted);margin:0 0 18px}
+.yz-ilgili ul{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  list-style:none;padding:0;margin:0}
+.yz-ilgili li{margin:0}
+.yz-ilgili a{display:flex;flex-direction:column;gap:5px;height:100%;
+  border:1px solid var(--hair);border-radius:var(--r-md);padding:14px 16px;
+  text-decoration:none;transition:border-color .25s,transform .25s;background:rgba(255,255,255,.012)}
+.yz-ilgili a:hover{border-color:rgba(var(--k,0,229,255),.5);transform:translateY(-2px)}
+.yz-ilgili .kat{font-family:var(--mono);font-size:9.4px;letter-spacing:.14em;
+  text-transform:uppercase;color:rgb(var(--k,0,229,255))}
+.yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
+@media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.tasarimmania.com/en/blog/seo-friendly-web-design/#article",
+      "headline": "How Does SEO-Friendly Web Design Affect Search Visibility?",
+      "description": "What is SEO-friendly web design, and how do layout and image decisions affect search visibility? Mobile breakpoints, heading hierarchy and the quote process.",
+      "datePublished": "2026-10-17",
+      "dateModified": "2026-10-17",
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://www.tasarimmania.com/en/blog/seo-friendly-web-design/",
+      "author": {
+        "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar"
+      },
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      },
+      "articleSection": "Web Design",
+      "wordCount": 1187,
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/seo-ve-web-tasarim/gorsel/seo-ve-web-tasarim-kapak-1440.jpg",
+        "width": 1440,
+        "height": 810,
+        "caption": "3D image of abstract glass panels moving into a hierarchical order on a dark background"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "SEO-friendly web design",
+          "description": "SEO-friendly web design is a design approach that aims at the same time for a page to be understood by the search engine and to be easy for the visitor to use."
+        },
+        {
+          "@type": "Thing",
+          "name": "Mobile breakpoint",
+          "description": "A mobile breakpoint is the threshold at which the design is rearranged according to the width of the screen."
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "Thing",
+          "name": "Page layout"
+        },
+        {
+          "@type": "Thing",
+          "name": "Heading hierarchy"
+        },
+        {
+          "@type": "Thing",
+          "name": "Mobile breakpoint"
+        },
+        {
+          "@type": "Thing",
+          "name": "Visual weight"
+        },
+        {
+          "@type": "Thing",
+          "name": "Contrast and legibility"
+        },
+        {
+          "@type": "Thing",
+          "name": "Content parity"
+        },
+        {
+          "@type": "Thing",
+          "name": "Search visibility"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".ozet",
+          ".yz-cevap"
+        ]
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.tasarimmania.com/#kurulus",
+      "name": "TasarımMania",
+      "url": "https://www.tasarimmania.com/",
+      "telephone": "+905547916545",
+      "sameAs": [
+        "https://www.instagram.com/tasarimmaniaa/",
+        "https://www.facebook.com/tasarimmania/"
+      ],
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/logo/marka-yatay-optik.png",
+        "width": 435,
+        "height": 163
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+        "addressLocality": "Bakırköy",
+        "addressRegion": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "knowsAbout": [
+        "Web design and software development",
+        "Mobile app development",
+        "Digital marketing and performance advertising",
+        "Video production and commercial films",
+        "Search engine optimization",
+        "Graphic design and brand identity",
+        "E-commerce store setup",
+        "Social media management"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.tasarimmania.com/en/blog/seo-friendly-web-design/#sss",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What exactly is SEO-friendly web design?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SEO-friendly design is an approach that aims for a page to be both understood by the search engine and easy for the visitor to use. The order of the layout, the heading hierarchy, the visual weight and the mobile behaviour are its four main decisions. Rather than squeezing the text into the page afterwards, it puts the content at the centre of the design. The visitor finds what they're looking for faster, stays on the page longer, and is more likely to get in touch. We work that structure out separately for every project; we don't proceed on a ready-made template."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I improve visibility without having my current site rebuilt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can. On most projects we tidy the homepage layout and the heading order first. Then we go over the mobile view. Those two interventions make a visible difference while keeping the existing infrastructure. We assess the decision on a full rebuild together at the next stage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a layout change more important than the content?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The two complete each other; they don't compete. Weak content isn't rescued by a good layout, and strong content stays invisible in a bad one. In practice we write the content first and build the layout around it. When the order runs that way, both sides win."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which sections cause the most trouble at the mobile breakpoint?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Menus, tables and multi-column sections are the areas that struggle most on a narrow screen. We turn the menu into a plain structure that opens with a single tap. We move tables into a card view rather than horizontal scrolling. We stack the columns and set the order by importance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do we have to reduce the number of images?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No — what matters is function, not number. Every image should have a job on the page: showing the product, explaining the process, or building trust. We take out the images with no job. The ones that stay we place at the right size and in the right format."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does the design process take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It varies with scope. Single-page promotional sites are finished in a few weeks. On multi-section corporate projects the timeline lengthens. We settle the schedule at the discovery stage and share the delivery date for each step in writing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are template themes enough for this?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Templates do a job to start with, but they limit you in the long run. Off-the-shelf themes usually carry a lot of sections and unnecessary images. Cleaning those out can take longer than building from scratch. Once the brand narrative is clear, a bespoke structure stays more flexible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a design change affect rankings straight away?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, the effect usually becomes clear within a few weeks. It takes time for the new layout to show up in visitor behaviour. Patient measurement is essential."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.tasarimmania.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.tasarimmania.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How Does SEO-Friendly Web Design Affect Search Visibility?",
+          "item": "https://www.tasarimmania.com/en/blog/seo-friendly-web-design/"
+        }
+      ],
+      "@id": "https://www.tasarimmania.com/en/blog/seo-friendly-web-design/#kirintili"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.tasarimmania.com/#site",
+      "url": "https://www.tasarimmania.com/",
+      "name": "TasarımMania",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.tasarimmania.com/en/blog/seo-friendly-web-design/#sayfa",
+      "url": "https://www.tasarimmania.com/en/blog/seo-friendly-web-design/",
+      "name": "How SEO-Friendly Web Design Affects Visibility",
+      "description": "What is SEO-friendly web design, and how do layout and image decisions affect search visibility? Mobile breakpoints, heading hierarchy and the quote process.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.tasarimmania.com/#site"
+      },
+      "breadcrumb": {
+        "@id": "https://www.tasarimmania.com/en/blog/seo-friendly-web-design/#kirintili"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/seo-ve-web-tasarim/gorsel/seo-ve-web-tasarim-kapak-1440.jpg"
+      },
+      "mainEntity": {
+        "@id": "https://www.tasarimmania.com/en/blog/seo-friendly-web-design/#article"
+      },
+      "dateModified": "2026-10-17"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar",
+      "name": "İhsan Ar",
+      "jobTitle": "Digital Marketing Specialist",
+      "url": "https://www.tasarimmania.com/hakkimizda/#kurucu",
+      "sameAs": [
+        "https://www.linkedin.com/in/ihsan-ar-47254548/",
+        "https://www.instagram.com/ihsanar86/"
+      ],
+      "worksFor": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body data-dal="web">
+
+<i class="yz-cizgi" data-ilerleme aria-hidden="true"></i>
+<a class="skip" href="#ana">Skip to content</a>
+
+<nav class="nav" data-nav aria-label="Main menu">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../../" aria-label="TasarımMania home">
+      <img src="../../../../assets/en/brand/tasarimmania-logo-horizontal.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async" fetchpriority="high">
+    </a>
+    <div class="nav-links">
+      <a href="../../services/">Services</a>
+      <a href="../../#isler">Work</a>
+      <a href="../../about/">Agency</a>
+      <a href="../" aria-current="page">Blog</a>
+      <a href="../../#surec">Process</a>
+      <a href="../../get-a-quote/">Get a Quote</a>
+      <a href="../../contact/">Contact</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../../services/">Services</a><a href="../../#isler">Work</a><a href="../../about/">Agency</a>
+  <a href="../">Blog</a><a href="../../#surec">Process</a><a href="../../get-a-quote/">Get a Quote</a><a href="../../contact/">Contact</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<!-- AYIRT EDİCİ EKSEN: GÖRÜNÜM — Yerleşim, görsel ağırlığı ve mobil kırılım gibi tasarım kararlarının arama görünürlüğüne etkisi; CWV metriklerinin tanımı/eşiği ve denetim tespiti YALNIZ teknik-seo'da — her metrik anışında oraya link verilir, metrik anlatımına girilmez. Backlink süresi off-page yazısında.
+     Huni türü: TOFU · Küme: SEO Çekirdek · Kardeşler (enjeksiyon turunda): e-ticaret-seo, yerel-seo, teknik-seo -->
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Location">
+        <a href="../../">Home</a><span aria-hidden="true">/</span>
+        <a href="../">Blog</a><span aria-hidden="true">/</span>
+        <span aria-current="page">How Does SEO-Friendly Web Design Affect Search Visibility?</span>
+      </nav>
+      <div class="yz-ust">
+        <span class="yz-kat">Web Design</span>
+        <span class="yz-meta">17 October 2026 · 7 min read</span>
+      </div>
+      <h1>How Does SEO-Friendly Web Design Affect Search Visibility?</h1>
+      <p class="ozet">Showing up in the search results isn't a question of text alone. The moment a visitor lands on a page they make a decision: stay, or go back. The design largely makes that decision for them. SEO-friendly web design is the approach that brings the structure a search engine understands together with the order a person understands. On SME projects we build those two sides at the same table. Through this piece we'll talk about layout, visual weight and mobile breakpoint decisions.</p>
+    </div>
+  </header>
+
+  <figure class="yz-kapak">
+    <div class="wrap">
+      <img src="./image/seo-friendly-web-design-cover-1440.webp"
+           srcset="./image/seo-friendly-web-design-cover-640.webp 640w, ./image/seo-friendly-web-design-cover-960.webp 960w, ./image/seo-friendly-web-design-cover-1440.webp 1440w, ./image/seo-friendly-web-design-cover-1920.webp 1920w"
+           sizes="(max-width: 1200px) 100vw, 1160px"
+           alt="3D image of abstract glass panels moving into a hierarchical order on a dark background"
+           width="1920" height="1080" fetchpriority="high" decoding="async">
+      <figcaption>Design decisions set the order in which the content is seen. <span class="yz-ai">Image generated with AI.</span></figcaption>
+    </div>
+  </figure>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <article class="yz-govde">
+      <h2>Which Design Decisions Touch the Rankings?</h2>
+      <div class="yz-cevap"><p>Design decisions affect search visibility indirectly, but powerfully. The search engine reads the content; the visitor reads the layout. When the two contradict each other, the ranking drops. The layout, the heading order and the use of white space set how much of the content actually gets seen. That's why we take the design and the content decisions in the same meeting.</p></div>
+      <p>A page's value lies in the text for the search engine, and in the first glance for the visitor. SEO-friendly web design brings those two values together in one structure. The menu gets simpler, the headings fall into order, and the important content moves up. That's why we talk about the SEO side of the design at the first draft.</p><p>We handle measurement topics such as crawling and indexing separately; that side falls within the scope of our <a href="../../technical-seo/">technical SEO</a> work.</p><p>SEO-friendly web design starts from this fact: the visitor doesn't read the page, they scan it. Their eye stops on headings, buttons and bold phrases. When the design makes that scanning habit easier, the content gets the attention it deserves. Otherwise even well-written text goes to waste.</p>
+      <h3>The story the design tells the search engine</h3>
+      A search engine doesn't feel the appearance of a page directly. It still draws a meaning from the heading order, the link structure and the order of the content. A tidy interface presents the subject with a clear hierarchy. A scattered one weakens the signal.
+      <h3>The link between user behaviour and design</h3>
+      If a visitor can't find what they're after, they go back. That return is a behaviour showing the page didn't meet the question. A well-built layout carries the answer to the first screen. Time on page lengthens, and the page holds its place in the search results. Where the answer sits is as decisive as the answer itself.
+      <h2>What Does Page Layout Mean in Search?</h2>
+      <div class="yz-cevap"><p>Page layout is the order that sets in which sequence and with what weight the content is presented. On the search side, that order raises the clarity of the subject. On the visitor side, it shortens the decision time. A design that pushes an important heading down can make even strong text invisible. The layout drawing doesn't start before the content plan is ready.</p></div>
+      <p>The mistake we see most often on corporate pages is every section being designed with equal weight. On a page like that, no message stands out. Yet SEO alignment in web design starts with making the priority visible. And we set the order of priority by the first question the client asks.</p><p>We pick a single main message. We put it on the first screen. <a href="../../corporate-website/">Corporate website</a> projects end that sequence just above the form; the visitor has the answer to their question before they reach the quote step.</p>
+      <h3>Heading hierarchy and reading order</h3>
+      There is only one H1 on a page; below it come the H2 blocks that divide the subject, and beneath those the supporting subheadings. In SEO-friendly web design practice, when that order breaks, both the visitor and the search engine lose the thread. We number the headings before we write them.
+      <h4>What should be visible on the first screen?</h4>
+      The first screen is the area visible when the page opens, without scrolling. We put three things there: what we do, who it helps, and a link to act on. The rest goes below. That simplicity speeds up both reading and conversion.
+      <h3>Why is white space content?</h3>
+      White space isn't decoration. The breathing room between two sections sets the reading order. On cramped pages the headings blur into each other and the reader doesn't know where to stop. We open the gaps between sections to a fixed measure, so every heading owns its own text.
+      <h2>Does Visual Weight Affect Rankings?</h2>
+      <div class="yz-cevap"><p>Yes, visual weight affects rankings. Enormous cover images push the text down. The visitor sees the message late and runs out of patience early. When we position an image as part of the story rather than as decoration, both readability and visibility gain. An image doesn't replace the text; it supports it. We make that distinction section by section.</p></div>
+      <p>The number of businesses trading online in Türkiye went from over 600,000 to 634,000 in a year. That growth is set out by <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">the Ministry of Trade's data</a> . As competition grows, visual language alone isn't enough.</p><p>Every image should answer a question. Is it showing the product, explaining the process, or building trust? If there's no answer, we remove the image. In SEO-friendly web design decisions, white space does as much work as an image; when we take a box out, we make room for text. We place the images that remain at the right size, with page speed in mind.</p>
+      <h3>Visual density and the balance with content</h3>
+      Images and text on a page should feed each other. In practice we follow a simple balance rule: at most one strong image per main section. We break the text blocks at three or four lines. The eye doesn't tire while scrolling, and the message settles piece by piece.
+      <h3>Colour and contrast decisions</h3>
+      Light grey text on grey looks elegant and can't be read on a phone in daylight. The first of the SEO-friendly web design decisions is legibility; the colour palette doesn't drop below that limit. We keep the brand colours and leave the body text in a dark tone.
+      <h3>What do we put in place of an image?</h3>
+      When a section is left without an image, we don't go looking for decoration. Most of the time a short three-item list or a clear subheading does the same job. Those are read, and they reach the search engine as text. We use a cover image only where it can explain the subject at a glance.
+      <h2>What Do We Watch at the Mobile Breakpoints?</h2>
+      <div class="yz-cevap"><p>Our first rule at the mobile breakpoint is simple: content isn't lost, it's only rearranged. The breakpoint is the threshold at which the design is rearranged according to the width of the screen. A layout that looks fine on a desktop can become unreadable on a narrow screen. That's why we start the design from the phone screen. We settle the breakpoints before coding begins. That way surprise corrections disappear.</p></div>
+      <p>Three things break on a narrow screen: the menu, the tables and the multi-column sections. Our checklist is short and numerical.</p><ol><li>Touch targets should be at least 44 pixels high.</li><li>Body text shouldn't drop below 16 pixels.</li><li>The main call-to-action button should be visible on the first scroll.</li><li>No section should produce horizontal scrolling.</li></ol><p>We follow the public data on how widespread mobile use is through <a href="https://www.btk.gov.tr/" target="_blank" rel="noopener">BTK's publications</a>  — BTK is Türkiye's information and communication technologies authority. That's why we draw the wireframe at the narrow screen width first and then open it out to the desktop. When the order is reversed, menus overflow and tables scroll sideways.</p><p>We handle the mobile equivalent of the interface decisions with the same logic in <a href="../../app-ui-ux-design/">our UI/UX work</a> . We put the breakpoint thresholds in writing at the start of the project.</p>
+      <h3>Touch targets and thumb clearance</h3>
+      On a phone there is no clicking, there is tapping. When small links are lined up next to each other, the finger finds the wrong target. We enlarge the buttons and put space between them. The complaint about mis-taps doesn't come in after that adjustment.
+      <h3>The principle of content parity</h3>
+      The mobile version should carry the same information as the desktop. In a search-friendly design approach that equality isn't up for negotiation. Some agencies hide sections on a narrow screen; we don't hide them, we fold them. The visitor opens them if they want to and moves on if they don't. That way the story the page tells stays whole on every device.
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
+      <h2>Get a Quote for SEO-Friendly Web Design</h2>
+      <div class="yz-cevap"><p>We start the quote process with a discovery meeting and put the layout wireframe to you for approval. The goal, the content inventory and the competitor pages come to the table on day one. Once approval comes through, the design and the coding move forward. We share the reasoning behind every decision in writing. That way the budget rests on a plan rather than a guess. If you have an existing site, we look at that too.</p></div>
+      <p>The success of a design project is measured not on delivery day but in the third month. That's why we stay with you after launch as well. In the first months we follow visitor behaviour and suggest small corrections to the layout.</p><p>If you want to grow your site's search visibility, <a href="../../get-a-quote/">the quote form</a> is all you need to fill in. Our aim isn't a short-term jump but lasting organic visibility. We look at your existing pages and draw up a concrete route map under the layout, visual weight and mobile breakpoint headings.</p>
+      <h3>How does the process work?</h3>
+      The work runs in four steps: discovery, wireframe, design, launch. In discovery we work out the target audience and the competitor pages. In the wireframe we draw the layout. In design we build the visual language. At launch we bring the measurement setup into play. We take your approval at the end of every step.
+      <figure class="yz-gorsel">
+        <img src="./image/seo-friendly-web-design-body-960.webp"
+             srcset="./image/seo-friendly-web-design-body-640.webp 640w, ./image/seo-friendly-web-design-body-960.webp 960w, ./image/seo-friendly-web-design-body-1440.webp 1440w, ./image/seo-friendly-web-design-body-1920.webp 1920w"
+             sizes="(max-width: 760px) 100vw, 760px"
+             alt="Abstract 3D column image showing a desktop layout stacking vertically on a narrow screen" width="1920" height="1080" loading="lazy" decoding="async">
+        <figcaption>At the mobile breakpoint the content isn't lost; it's only reordered. <span class="yz-ai">Image generated with AI.</span></figcaption>
+      </figure>
+      <h2>What Design Decisions Mean for Visibility and Experience</h2>
+      <div class="yz-tablo">
+        <table>
+          <thead><tr><th>Design decision</th><th>Effect on visibility</th><th>Effect on the user</th></tr></thead>
+          <tbody>
+            <tr><td>Single-column mobile layout</td><td>The heading order becomes clear</td><td>The reading flow stays unbroken</td></tr>
+            <tr><td>Heavy use of images</td><td>The main message drops below the fold</td><td>The first impression is delayed</td></tr>
+            <tr><td>A prominent call-to-action button</td><td>The purpose of the page is legible</td><td>The quote step gets easier</td></tr>
+            <tr><td>A complicated menu</td><td>The main subject heading fades</td><td>The visitor loses their bearings</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+        <aside class="yz-kopru" aria-label="Service bridge">
+          <b>Get a Quote for SEO-Friendly Web Design</b>
+          <p>Let's work out the route map that suits your scope together; let's settle the steps and the timing.</p>
+          <a class="btn btn-p" href="../../get-a-quote/#web">Let's map the scope
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="../../technical-seo/">See the service page</a>
+        </aside>
+        <p>Visibility doesn't come from a single intervention. When you build the layout, visual weight and mobile breakpoint decisions together, the site becomes both readable and findable. For companies doing big work with a small team, that order is a significant gain. We start measuring from the first month and share the findings with you in figures. When you're ready, let's set up the design table together.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec ilgili-bolum" style="padding-top:0">
+    <div class="wrap">
+      <nav class="yz-ilgili rv" aria-labelledby="ilgili-baslik">
+        <h2 id="ilgili-baslik">Related guides</h2>
+        <p class="not">Other headings from the SEO core cluster that round this piece out.</p>
+        <ul>
+          <li><a href="../../../blog/e-ticaret-seo/" style="--k:166,255,0"><span class="kat">SEO</span><span class="bas">How Does E-Commerce SEO Rank Product and Category Pages?</span></a></li>
+          <li><a href="../../../blog/yerel-seo/" style="--k:166,255,0"><span class="kat">SEO</span><span class="bas">Local SEO Service: The Route to Visibility on Maps</span></a></li>
+          <li><a href="../technical-seo-audit/" style="--k:166,255,0"><span class="kat">SEO</span><span class="bas">What Does a Technical SEO Audit Uncover on Your Site?</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>FAQs</span>
+        <h2 data-kin>Frequently asked questions: SEO-friendly web design</h2>
+      </div>
+      <div class="yz-sss rv d1">
+        <details>
+          <summary>What exactly is SEO-friendly web design?</summary>
+          <p>SEO-friendly design is an approach that aims for a page to be both understood by the search engine and easy for the visitor to use. The order of the layout, the heading hierarchy, the visual weight and the mobile behaviour are its four main decisions. Rather than squeezing the text into the page afterwards, it puts the content at the centre of the design. The visitor finds what they're looking for faster, stays on the page longer, and is more likely to get in touch. We work that structure out separately for every project; we don't proceed on a ready-made template.</p>
+        </details>
+        <details>
+          <summary>Can I improve visibility without having my current site rebuilt?</summary>
+          <p>Yes, you can. On most projects we tidy the homepage layout and the heading order first. Then we go over the mobile view. Those two interventions make a visible difference while keeping the existing infrastructure. We assess the decision on a full rebuild together at the next stage.</p>
+        </details>
+        <details>
+          <summary>Is a layout change more important than the content?</summary>
+          <p>The two complete each other; they don't compete. Weak content isn't rescued by a good layout, and strong content stays invisible in a bad one. In practice we write the content first and build the layout around it. When the order runs that way, both sides win.</p>
+        </details>
+        <details>
+          <summary>Which sections cause the most trouble at the mobile breakpoint?</summary>
+          <p>Menus, tables and multi-column sections are the areas that struggle most on a narrow screen. We turn the menu into a plain structure that opens with a single tap. We move tables into a card view rather than horizontal scrolling. We stack the columns and set the order by importance.</p>
+        </details>
+        <details>
+          <summary>Do we have to reduce the number of images?</summary>
+          <p>No — what matters is function, not number. Every image should have a job on the page: showing the product, explaining the process, or building trust. We take out the images with no job. The ones that stay we place at the right size and in the right format.</p>
+        </details>
+        <details>
+          <summary>How long does the design process take?</summary>
+          <p>It varies with scope. Single-page promotional sites are finished in a few weeks. On multi-section corporate projects the timeline lengthens. We settle the schedule at the discovery stage and share the delivery date for each step in writing.</p>
+        </details>
+        <details>
+          <summary>Are template themes enough for this?</summary>
+          <p>Templates do a job to start with, but they limit you in the long run. Off-the-shelf themes usually carry a lot of sections and unnecessary images. Cleaning those out can take longer than building from scratch. Once the brand narrative is clear, a bespoke structure stays more flexible.</p>
+        </details>
+        <details>
+          <summary>Does a design change affect rankings straight away?</summary>
+          <p>No, the effect usually becomes clear within a few weeks. It takes time for the new layout to show up in visitor behaviour. Patient measurement is essential.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../../../assets/en/brand/tasarimmania-logo-horizontal.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>An Istanbul-based 360° digital agency bringing web, mobile, advertising, video and SEO together under one roof.</p>
+      </div>
+      <div>
+        <h3>Modules</h3>
+        <ul>
+          <li><a href="../../services/">All services</a></li>
+          <li><a href="../../web-design/">Web &amp; Software</a></li>
+          <li><a href="../../mobile-app-development/">Mobile Apps</a></li>
+          <li><a href="../../digital-marketing/">Digital Marketing</a></li>
+          <li><a href="../../video-production/">Video Production</a></li>
+          <li><a href="../../seo/">SEO Services</a></li>
+          <li><a href="../../graphic-design/">Graphic Design</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../../contact/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../../contact/#ofis">Weekdays 09:00–19:00<br>Saturdays 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. All rights reserved.</span>
+      <span class="mono">FIVE MODULES · ONE PLACE</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../../../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+<script>
+"use strict";
+(function(){
+  var c = document.querySelector('[data-ilerleme]');
+  if (!c || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  function ciz(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    c.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', ciz, { passive: true });
+  ciz();
+})();
+</script>

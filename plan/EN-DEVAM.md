@@ -1,6 +1,6 @@
 # İngilizce sürüm — devam notu
 
-**Son güncelleme:** 7 Eylül 2026 · **41 İngilizce sayfa canlı** (34 sayfa + 7 blog yazısı), 100 sayfa toplam
+**Son güncelleme:** 7 Eylül 2026 · **42 İngilizce sayfa canlı** (34 sayfa + 8 blog yazısı), 100 sayfa toplam
 
 Biten: `/en/` · `about` · `contact` · `services` · `blog` · `get-a-quote` ·
 `web-design` · `mobile-app-development` · `digital-marketing` · `seo` ·
@@ -61,7 +61,7 @@ Windows yoluna çevirir.
 
 ## 2. Terim sözlüğü — ZORUNLU
 
-Bu kararlar 41 sayfada uygulandı. Değiştirmeyin.
+Bu kararlar 42 sayfada uygulandı. Değiştirmeyin.
 
 ### Marka vaadi
 | Türkçe | İngilizce | Neden |
@@ -132,6 +132,7 @@ HTML etiket adları · schema.org tür adları · **HTML/CSS/JS yorumları**
 | Telif Hakları Genel Müdürlüğü | Türkiye's Directorate General of Copyright | /reels-video/, blog |
 | ticaret.gov.tr bağlantısı | Türkiye's commercial advertising rules / legislation | 4 sayfa |
 | Ticaret Bakanlığı | Türkiye's Ministry of Trade | blog/teknik-seo |
+| BTK | BTK, Türkiye's information and communication technologies authority | blog/seo-ve-web-tasarim |
 | ETBİS | ETBİS, Türkiye's e-commerce information system | blog/teknik-seo |
 | TÜİK | TurkStat *(kurumun kendi resmî İngilizce kısaltması)* | blog/teknik-seo |
 
