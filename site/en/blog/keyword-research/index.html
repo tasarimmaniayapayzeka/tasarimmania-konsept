@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- KONSEPT-NOINDEX -->
+<meta name="robots" content="noindex,nofollow">
+<title>Keyword Research: Intent and the Selection Mechanism</title>
+<meta name="description" content="How does keyword research work? We set out reading search intent, balancing volume against difficulty and the sifting mechanism, step by step, for SMEs.">
+<link rel="canonical" href="https://www.tasarimmania.com/en/blog/keyword-research/">
+<link rel="alternate" hreflang="tr" href="https://www.tasarimmania.com/blog/anahtar-kelime-arastirmasi/">
+<link rel="alternate" hreflang="en" href="https://www.tasarimmania.com/en/blog/keyword-research/">
+<link rel="alternate" hreflang="x-default" href="https://www.tasarimmania.com/blog/anahtar-kelime-arastirmasi/">
+<link rel="alternate" type="application/rss+xml" title="TasarımMania Blog (RSS)" href="../../../blog/rss.xml">
+<link rel="alternate" type="application/atom+xml" title="TasarımMania Blog (Atom)" href="../../../blog/atom.xml">
+<meta name="author" content="İhsan Ar">
+<meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="theme-color" content="#0B0D12">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="Keyword Research: Intent and the Selection Mechanism">
+<meta property="og:description" content="How does keyword research work? We set out reading search intent, balancing volume against difficulty and the sifting mechanism, step by step, for SMEs.">
+<meta property="og:url" content="https://www.tasarimmania.com/en/blog/keyword-research/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/en/blog/keyword-research/image/keyword-research-cover-1440.jpg">
+<meta property="og:image:width" content="1440">
+<meta property="og:image:height" content="810">
+<meta property="og:image:alt" content="Abstract dark-toned 3D composition representing word clusters separating by search intent">
+<meta property="article:published_time" content="2026-10-03">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/en/blog/keyword-research/image/keyword-research-cover-1440.jpg">
+<meta name="twitter:title" content="Keyword Research: Intent and the Selection Mechanism">
+<meta name="twitter:description" content="How does keyword research work? We set out reading search intent, balancing volume against difficulty and the sifting mechanism, step by step, for SMEs.">
+<meta name="twitter:image:alt" content="Abstract dark-toned 3D composition representing word clusters separating by search intent">
+<link rel="icon" type="image/png" href="../../../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
+<link rel="stylesheet" href="../../../css/tm.css">
+<style>
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  max-height:calc(100dvh - 74px);overflow-y:auto;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(28px,4vw,52px)) 0 clamp(22px,3vw,34px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.14),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.wa{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:90;width:54px;height:54px;
+  border-radius:50%;background:#25D366;display:grid;place-items:center;
+  box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s;padding-block:7px}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+@media(max-width:960px){.ftr-ust{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.nav-links,.nav-tel{display:none}.burger{display:block}.ftr-ust{grid-template-columns:1fr}}
+/* --- blog yazısı: okuma düzeni --- */
+.yz-ust{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.yz-kat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acc);border:1px solid rgba(var(--acc-rgb),.4);border-radius:99px;padding:6px 13px}
+.yz-meta{font-family:var(--mono);font-size:11.4px;color:var(--muted)}
+.phd h1{font-size:clamp(28px,4.4vw,46px);letter-spacing:-.035em;line-height:1.16;margin-bottom:16px;max-width:22ch}
+.phd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18px);max-width:62ch;line-height:1.78}
+.yz-govde{max-width:760px}
+.yz-govde h2{font-size:clamp(21px,2.9vw,28px);letter-spacing:-.03em;line-height:1.25;margin:44px 0 0}
+.yz-govde h3{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;line-height:1.35;margin:30px 0 10px}
+.yz-govde h4{font-size:15.6px;letter-spacing:-.01em;margin:22px 0 8px;color:var(--fg-dim)}
+.yz-govde p{font-size:15.6px;color:var(--fg-dim);line-height:1.85;margin:0 0 16px}
+.yz-govde ul,.yz-govde ol{margin:0 0 18px;padding-left:0;list-style:none;display:grid;gap:10px}
+.yz-govde li{font-size:15.2px;color:var(--fg-dim);line-height:1.72;display:flex;gap:11px;align-items:flex-start}
+.yz-govde li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:10px}
+.yz-govde ol{counter-reset:s}
+.yz-govde ol li{counter-increment:s}
+.yz-govde ol li::before{content:counter(s);width:auto;height:auto;border-radius:0;background:none;
+  color:var(--acc);font-family:var(--mono);font-size:12px;margin-top:2px;min-width:16px}
+.yz-govde strong{color:var(--fg);font-weight:600}
+/* WCAG 2.5.8 - satir ici baglanti dokunma hedefi >=24px.
+   DIKKAT: padding'i AYRI bir .yz-govde p a kuralina koyma; .yz-govde a:not(.btn)
+   ozgullugu (0,2,1) onu (0,1,2) ezer ve 2px'te kalir. Degeri bu kuralin ICINDE tut. */
+.yz-govde a:not(.btn){color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.4);transition:text-decoration-color .25s;padding-block:4px}
+.yz-govde a:not(.btn):hover{text-decoration-color:var(--acc)}
+/* doğrudan cevap kutusu (snippet hedefi) */
+.yz-cevap{border-left:2px solid var(--acc);background:rgba(var(--acc-rgb),.05);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:16px 20px;margin:16px 0 22px}
+.yz-cevap p{margin:0;color:var(--fg);font-size:15.4px;line-height:1.75}
+/* karşılaştırma tablosu */
+.yz-tablo{margin:26px 0;border:1px solid var(--hair);border-radius:var(--r-md);overflow-x:auto}
+.yz-tablo table{width:100%;border-collapse:collapse;min-width:520px}
+.yz-tablo th{font-family:var(--mono);font-size:10.4px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--acc);text-align:left;padding:14px 16px;border-bottom:1px solid var(--hair);
+  background:rgba(var(--acc-rgb),.05);font-weight:500;white-space:nowrap}
+.yz-tablo td{font-size:13.8px;color:var(--fg-dim);padding:14px 16px;border-bottom:1px solid var(--hair);
+  line-height:1.6;vertical-align:top}
+.yz-tablo tr:last-child td{border-bottom:0}
+.yz-tablo td:first-child{color:var(--fg);font-weight:600}
+.yz-tablo-not{font-family:var(--mono);font-size:10.4px;color:var(--muted);margin:-16px 0 26px;
+  letter-spacing:.04em}
+/* SSS */
+.yz-sss{display:grid;gap:11px;max-width:760px}
+.yz-sss details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
+.yz-sss details[open]{border-color:var(--hair-strong)}
+.yz-sss summary{cursor:pointer;list-style:none;padding:17px 21px;font-size:15.2px;font-weight:600;
+  display:flex;align-items:center;gap:14px;line-height:1.4}
+.yz-sss summary::-webkit-details-marker{display:none}
+.yz-sss summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.yz-sss details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.yz-sss summary:hover{color:var(--acc)}
+.yz-sss p{padding:0 21px 19px;margin:0;font-size:14.4px;color:var(--muted);line-height:1.75}
+/* hizmet köprüsü */
+.yz-kopru{border:1px solid rgba(var(--acc-rgb),.32);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(var(--acc-rgb),.07),transparent);
+  padding:clamp(22px,3vw,32px);margin:36px 0;max-width:760px}
+.yz-kopru b{display:block;font-size:clamp(17px,2.2vw,21px);letter-spacing:-.02em;margin-bottom:9px}
+.yz-kopru p{font-size:14.6px;color:var(--fg-dim);line-height:1.72;margin:0 0 18px}
+.yz-kopru .btn{margin-right:10px}
+/* okuma ilerlemesi */
+.yz-cizgi{position:fixed;top:0;left:0;height:2px;background:var(--acc);z-index:101;width:0;
+  transition:width .1s linear}
+@media(max-width:760px){.yz-govde h2{margin-top:34px}}
+@media(prefers-reduced-motion:reduce){.yz-cizgi{display:none}}
+/* --- 1.2 eklentileri --- */
+.yz-kapak{margin:0 0 clamp(26px,4vw,44px)}
+.yz-kapak img,.yz-gorsel img{width:100%;height:auto;display:block;border-radius:14px;
+  border:1px solid var(--hair);background:#0d1017}
+.yz-kapak figcaption,.yz-gorsel figcaption{margin-top:11px;font-size:13.2px;line-height:1.55;
+  color:var(--muted);max-width:760px}
+.yz-gorsel{margin:clamp(26px,4vw,38px) 0}
+.yz-ai{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--fg-dim);opacity:.72;white-space:nowrap}
+.yz-govde ol{margin:16px 0 20px;padding-left:22px;display:grid;gap:10px}
+.yz-govde ol li{padding-left:4px}
+.yz-govde ol li::marker{color:var(--acc);font-family:var(--mono);font-weight:600}
+.yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
+  background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
+.yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+.yz-ilgili{margin:clamp(30px,4vw,44px) 0 0;padding-top:clamp(24px,3vw,32px);
+  border-top:1px solid var(--hair)}
+.yz-ilgili h2{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;margin:0 0 4px}
+.yz-ilgili .not{font-size:13.4px;color:var(--muted);margin:0 0 18px}
+.yz-ilgili ul{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  list-style:none;padding:0;margin:0}
+.yz-ilgili li{margin:0}
+.yz-ilgili a{display:flex;flex-direction:column;gap:5px;height:100%;
+  border:1px solid var(--hair);border-radius:var(--r-md);padding:14px 16px;
+  text-decoration:none;transition:border-color .25s,transform .25s;background:rgba(255,255,255,.012)}
+.yz-ilgili a:hover{border-color:rgba(var(--k,0,229,255),.5);transform:translateY(-2px)}
+.yz-ilgili .kat{font-family:var(--mono);font-size:9.4px;letter-spacing:.14em;
+  text-transform:uppercase;color:rgb(var(--k,0,229,255))}
+.yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
+@media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.tasarimmania.com/en/blog/keyword-research/#article",
+      "headline": "Why Is Keyword Research the Compass for Your Content?",
+      "description": "How does keyword research work? We set out reading search intent, balancing volume against difficulty and the sifting mechanism, step by step, for SMEs.",
+      "datePublished": "2026-10-03",
+      "dateModified": "2026-10-03",
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://www.tasarimmania.com/en/blog/keyword-research/",
+      "author": {
+        "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar"
+      },
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      },
+      "articleSection": "Digital Marketing",
+      "wordCount": 1188,
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/anahtar-kelime-arastirmasi/gorsel/anahtar-kelime-arastirmasi-kapak-1440.jpg",
+        "width": 1440,
+        "height": 810,
+        "caption": "Abstract dark-toned 3D composition representing word clusters separating by search intent"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Keyword Research",
+          "description": "Keyword research is the work that sets content targets by measuring which phrases a subject is asked about in search engines, and how often."
+        },
+        {
+          "@type": "Thing",
+          "name": "Search Intent",
+          "description": "Search intent is the classification that defines the type of result a user wants to reach when they type a query."
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "Thing",
+          "name": "Search intent"
+        },
+        {
+          "@type": "Thing",
+          "name": "Long-tail keywords"
+        },
+        {
+          "@type": "Thing",
+          "name": "Keyword clustering"
+        },
+        {
+          "@type": "Thing",
+          "name": "Search volume"
+        },
+        {
+          "@type": "Thing",
+          "name": "Keyword difficulty"
+        },
+        {
+          "@type": "Thing",
+          "name": "Query classification"
+        },
+        {
+          "@type": "Thing",
+          "name": "Content strategy"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".ozet",
+          ".yz-cevap"
+        ]
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.tasarimmania.com/#kurulus",
+      "name": "TasarımMania",
+      "url": "https://www.tasarimmania.com/",
+      "telephone": "+905547916545",
+      "sameAs": [
+        "https://www.instagram.com/tasarimmaniaa/",
+        "https://www.facebook.com/tasarimmania/"
+      ],
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/logo/marka-yatay-optik.png",
+        "width": 435,
+        "height": 163
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+        "addressLocality": "Bakırköy",
+        "addressRegion": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "knowsAbout": [
+        "Web design and software development",
+        "Mobile app development",
+        "Digital marketing and performance advertising",
+        "Video production and commercial films",
+        "Search engine optimization",
+        "Graphic design and brand identity",
+        "E-commerce store setup",
+        "Social media management"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.tasarimmania.com/en/blog/keyword-research/#sss",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does keyword research take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The scope sets the time. On a local business offering a single service, a few days is enough. On a catalogue with hundreds of products, building the pool and tagging it can stretch to two weeks. The list grows over time, but the initial setup is done once."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many keywords should a small business start with?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A core list of thirty to forty terms is enough for most SMEs. Start with the service that brings in revenue."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are low-volume keywords useless?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On the contrary — a query with a sharp purpose carries high value even at low volume. A term a hundred people search while ready to buy can bring more business than one ten thousand people search out of curiosity. Always read the volume together with the purpose."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I understand search intent without a measurement dashboard?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Largely, yes. Type the query and look at the type of the first ten results: are guide articles, category pages or product pages in the majority? The dominant type shows the kind of content that query expects. That observation gives you a useful direction without needing an expensive setup."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I open two separate pages for the same keyword?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually no. Two pages carrying the same purpose split each other's ranking. Gather the queries onto one strong page; open a second page only if the purpose really is different."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does competitors' keyword list guide us?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A competitor's list is a starting point, not a target. The queries your competitor ranks for show the language of the market. Even so, their resources and brand strength differ from yours. Rather than copying, look for the long-tail areas your competitors have left empty."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which details should we watch in Turkish searches?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Four details make a difference in Turkish queries. The first is suffixed forms: users often type “çelik kapı fiyatları” (steel door prices, plural) rather than “çelik kapı fiyatı” (singular). The second is writing without diacritics; there is a large audience searching “isitici” instead of “ısıtıcı” (heater). The third is regional differences in usage, that is, the same product having different names from city to city. The fourth is settled use of English equivalents; in some sectors users never search the Turkish term at all. Bring all four into the pool as you build the list. Those four details are what bring your list closer to the real language of search."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should we review the keyword list?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A review once a quarter is enough for most sectors. When there's a new product, a new region or a sudden shift in the sector's agenda, refresh the list without waiting."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.tasarimmania.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.tasarimmania.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Why Is Keyword Research the Compass for Your Content?",
+          "item": "https://www.tasarimmania.com/en/blog/keyword-research/"
+        }
+      ],
+      "@id": "https://www.tasarimmania.com/en/blog/keyword-research/#kirintili"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.tasarimmania.com/#site",
+      "url": "https://www.tasarimmania.com/",
+      "name": "TasarımMania",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.tasarimmania.com/en/blog/keyword-research/#sayfa",
+      "url": "https://www.tasarimmania.com/en/blog/keyword-research/",
+      "name": "Keyword Research: Intent and the Selection Mechanism",
+      "description": "How does keyword research work? We set out reading search intent, balancing volume against difficulty and the sifting mechanism, step by step, for SMEs.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.tasarimmania.com/#site"
+      },
+      "breadcrumb": {
+        "@id": "https://www.tasarimmania.com/en/blog/keyword-research/#kirintili"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/anahtar-kelime-arastirmasi/gorsel/anahtar-kelime-arastirmasi-kapak-1440.jpg"
+      },
+      "mainEntity": {
+        "@id": "https://www.tasarimmania.com/en/blog/keyword-research/#article"
+      },
+      "dateModified": "2026-10-03"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar",
+      "name": "İhsan Ar",
+      "jobTitle": "Digital Marketing Specialist",
+      "url": "https://www.tasarimmania.com/hakkimizda/#kurucu",
+      "sameAs": [
+        "https://www.linkedin.com/in/ihsan-ar-47254548/",
+        "https://www.instagram.com/ihsanar86/"
+      ],
+      "worksFor": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body data-dal="pazarlama">
+
+<i class="yz-cizgi" data-ilerleme aria-hidden="true"></i>
+<a class="skip" href="#ana">Skip to content</a>
+
+<nav class="nav" data-nav aria-label="Main menu">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../../" aria-label="TasarımMania home">
+      <img src="../../../../assets/en/brand/tasarimmania-logo-horizontal.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async" fetchpriority="high">
+    </a>
+    <div class="nav-links">
+      <a href="../../services/">Services</a>
+      <a href="../../#isler">Work</a>
+      <a href="../../about/">Agency</a>
+      <a href="../" aria-current="page">Blog</a>
+      <a href="../../#surec">Process</a>
+      <a href="../../get-a-quote/">Get a Quote</a>
+      <a href="../../contact/">Contact</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../../services/">Services</a><a href="../../#isler">Work</a><a href="../../about/">Agency</a>
+  <a href="../">Blog</a><a href="../../#surec">Process</a><a href="../../get-a-quote/">Get a Quote</a><a href="../../contact/">Contact</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<!-- AYIRT EDİCİ EKSEN: MEKANİZMA — Arama niyetini çözümleme ve kelime seçim mekanizması; çiftin diğer yarısı (icerik-stratejileri) takvim/planlama ZAMANLAMA'sına ayrıldı, yayın planına burada girilmez.
+     Huni türü: TOFU · Küme: İçerik Stratejisi · Kardeşler (enjeksiyon turunda): seo-icin-icerik-stratejileri, seo-raporlama-araclari, google-ads-ve-ppc -->
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Location">
+        <a href="../../">Home</a><span aria-hidden="true">/</span>
+        <a href="../">Blog</a><span aria-hidden="true">/</span>
+        <span aria-current="page">Why Is Keyword Research the Compass for Your Content?</span>
+      </nav>
+      <div class="yz-ust">
+        <span class="yz-kat">Digital Marketing</span>
+        <span class="yz-meta">3 October 2026 · 7 min read</span>
+      </div>
+      <h1>Why Is Keyword Research the Compass for Your Content?</h1>
+      <p class="ozet">Why does a site's traffic stand still? The answer usually lies not in the technical foundations but in the keywords you're targeting. Many SMEs in Türkiye produce content in their own internal language, while the customer types something completely different into the search box. The method that closes the distance between those two languages is called keyword research. In this piece we open the mechanism up: how we measure demand, and how we read intent.</p>
+    </div>
+  </header>
+
+  <figure class="yz-kapak">
+    <div class="wrap">
+      <img src="./image/keyword-research-cover-1440.webp"
+           srcset="./image/keyword-research-cover-640.webp 640w, ./image/keyword-research-cover-960.webp 960w, ./image/keyword-research-cover-1440.webp 1440w, ./image/keyword-research-cover-1920.webp 1920w"
+           sizes="(max-width: 1200px) 100vw, 1160px"
+           alt="Abstract dark-toned 3D composition representing word clusters separating by search intent"
+           width="1920" height="1080" fetchpriority="high" decoding="async">
+      <figcaption>The right keyword is the compass that sets the direction of the content. <span class="yz-ai">Image generated with AI.</span></figcaption>
+    </div>
+  </figure>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <article class="yz-govde">
+      <h2>What Does Measuring Search Demand Mean?</h2>
+      <div class="yz-cevap"><p>Keyword research is the work that measures which phrases a subject is asked about in search engines, and how often. The measurement reads the monthly search count, the intensity of competition and the purpose behind the query together. Volume on its own misleads. When those figures come side by side, a clear direction emerges. Measurement is the first step of producing content.</p></div>
+      <p>Search demand is a measurable signal showing how many people ask about a subject and with which words. A site that doesn't read the signal writes answers to questions nobody is asking. You say “dermocosmetic set”; the customer types “skincare set”. Your lost visitor stands in exactly that gap. Keyword research measures the gap and closes it.</p><p>Competition hardens every year too. According to the Ministry of Trade's <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">ETBİS 2025 report</a>  — ETBİS is Türkiye's e-commerce information system — the number of businesses trading online reached 634,611. A business that leaves its keyword choices to chance stays invisible in that crowd. <a href="../../seo/">In our SEO work</a> we start every project with measurement.</p>
+      <h3>Winning the Demand Behind the Word</h3>
+      When a page ranks, you don't win a keyword; you win the attention of the person who typed it. The difference between the query “air conditioner” and “quiet air conditioner recommendation for an office” is the distance left to a purchase. The first query carries curiosity, the second carries a decision.
+      <h3>The Triangle of Volume, Difficulty and Intent</h3>
+      The monthly search count shows the size of the demand, the difficulty level the hardness of the competition, and the intent the purpose of the query. If one of those figures is missing, the decision is crippled. A high-volume term whose purpose doesn't fit brings traffic to the site, not enquiries. So what does a term with a sharp purpose and low volume do? It brings few visitors; a significant share of them walk all the way to the enquiry form.
+      <h2>How Do We Read Search Intent?</h2>
+      <div class="yz-cevap"><p>We read intent by looking at the common form of the pages ranking for a query. Search intent is the concept that defines the type of result a user wants to reach when they type a query. The kind of content Google lists on the first page reveals what that query expects. The method rests on observation; guesswork doesn't come into it. You can reach the same conclusion by reading the screen rather than a dashboard.</p></div>
+      <p>Intent analysis is the stage that makes a keyword list useful. Two terms with the same volume go to different pages because they carry different purposes. Teams that skip this stage don't get conversions. Keyword research carried out without the intent layer is left half done.</p><p>Internet access in Türkiye has spread across a broad base; <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TurkStat's household ICT usage surveys</a>  — TurkStat is Türkiye's statistical institute — measure that spread regularly. As the user profile widens, the phrases describing the same service diversify. Short and question-form queries ask for their own layer in your list.</p>
+      <h3>The Four Intent Classes</h3>
+      Informational intent wants to learn, navigational intent goes to a particular brand, commercial intent compares options, and transactional intent is ready to buy. Each class wants a different type of page. A guide article corresponds to informational intent, a category page to commercial intent, and a product page to transactional intent.
+      <h3>The Results Page Is the Most Reliable Evidence</h3>
+      The quickest way to understand a query's purpose is to read the results page. If eight of the first ten results are list articles, that query wants a guide. A screen full of category pages, meanwhile, gives away a user looking for a product. The screen itself is the evidence; no assumption is needed.
+      <h4>The Early Sign of an Intent Mismatch</h4>
+      If your page ranks, clicks come in, and the session length is measured in seconds, there's a mismatch. The user hasn't found what they were after. You see the same signal when a visitor returns to the results page for a second search. In that case change the type of the page; the keyword can stay where it is.
+      <h2>The Keyword Selection Mechanism: From Pool to Priority</h2>
+      <div class="yz-cevap"><p>Keyword research reduces a broad pool of candidates to a short list ordered by business value. We widen the pool, tag it by intent, sift out the irrelevant terms and prioritise what remains. A written criterion governs the process from start to finish. The output of each step is the input of the next. A shorter list gathers up the resources that were scattering.</p></div>
+      <p>The selection starts with a wide pool and ends with a narrow list. The road between them has five steps. The sift is the heart of keyword research.</p><ol><li><strong>Work out the seed terms:</strong> your service names, your product categories and the questions coming from your customers build the first pool.</li><li><strong>Widen the pool:</strong> for every seed term, add the synonyms, the local usages and the question forms.</li><li><strong>Tag by intent:</strong> give every query an informational, navigational, commercial or transactional tag.</li><li><strong>Sift:</strong> take out the terms that don't match your service area and the ones with weak relevance.</li><li><strong>Prioritise:</strong> order the remaining terms by business value and by a level of competition you can reach.</li></ol><p>We apply this mechanism in the first phase of <a href="../../seo-content-strategy/">our content strategy service</a> . On the store side, category and filter pages go through the same sift; on the <a href="../../ecommerce-seo/">e-commerce SEO</a> side the list is shaped by the category tree. Your content calendar is born from that file.</p>
+      <h3>The Pool-Widening Stage</h3>
+      The wider the keyword pool is at the start of the research, the more accurate the sift. For a manufacturer, “office chair” comes from a seed; “office chair with lumbar support” comes from real demand. At the widening stage our aim is variety; a long but single-coloured list is no use at the sifting table.
+      <h3>The Sifting Filters</h3>
+      For a term to stay on the list it has to be relevant to your service, sit at a level of competition you can reach, and find a real page to correspond to. A term with nothing to correspond to gives birth to an empty page. Sifting shortens the list; the real gain is your resources flowing in one direction without scattering.
+      <h2>Why Do Long-Tail Keywords Benefit SMEs?</h2>
+      <div class="yz-cevap"><p>Because the competition is sparse, small sites rank far faster on long-tail queries. Long-tail keywords are queries of three or more words, low in search count but clear in purpose. As the tail lengthens, the variety of queries grows; the same demand spreads across more phrases. That spread opens a door for a small site.</p></div>
+      <p>On general terms, the first page is full of large brands that have been investing for years. Competing there is a test of patience for an SME. The long tail, meanwhile, is an area that hasn't yet grown crowded. “Crane” takes you to the crowd; “electric warehouse crane hire” takes you to the right customer. The long tail is the most productive layer in keyword research.</p><p>You can follow the size of the market through public data; <a href="https://ticaret.gov.tr/duyurular/turkiyede-e-ticaretin-gorunumu-raporu-yayinlandi-06-05-2025" target="_blank" rel="noopener">the Ministry of Trade's e-commerce outlook announcement</a>  shares the number of businesses. In a market growing more crowded, keyword research is the cheapest way to stand apart.</p>
+      <h3>Competition Thins Out, Conversion Goes Up</h3>
+      As the query lengthens, the picture in the user's head sharpens. Someone typing a five-word query knows what they want and is one step closer to the enquiry form. So what does a visitor arriving from a general term do? Most of the time they browse and close the page.
+      <h3>Clustering and Topic Authority</h3>
+      We call gathering queries that share the same purpose onto a single page clustering. Instead of twenty weak pages for twenty separate queries, you build three strong ones. Clustering logic both prevents a patchwork pile of content and tightens the links between pages. That's how topic authority accumulates, page by page.
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
+      <h2>Hand Your Keyword Research to a Professional</h2>
+      <div class="yz-cevap"><p>Handing the research over doesn't mean giving up control; it means transferring the measurement load to a specialist team. Keyword research is a specialism that brings reading data and sector knowledge to the same table. Your team knows its own business, and we know how to read search data. When the two meet, the list becomes both realistic and workable.</p></div>
+      <p>At most SMEs, marketing sits on one person's shoulders; there's no time left to tag hundreds of queries. We turn that job into a structure: we build the pool, tag it, and hand over the priority list in a single file.</p><p>The output of the research is a keyword map, not an ornamental table. If you'd like to compare your own list with ours, get in touch through <a href="../../get-a-quote/">the quote form</a> . We make the first assessment, you make the decision.</p>
+      <h3>What Changes When You Work with Us?</h3>
+      The first thing that changes after keyword research is clarity. You see which page was written for which query, and why each term was sifted out, with the reasoning. Speed rises too; your team comes out of the argument about words and goes back to producing. Because the list rests on a shared criterion, consistency follows by itself.
+      <figure class="yz-gorsel">
+        <img src="./image/keyword-research-body-960.webp"
+             srcset="./image/keyword-research-body-640.webp 640w, ./image/keyword-research-body-960.webp 960w, ./image/keyword-research-body-1440.webp 1440w, ./image/keyword-research-body-1920.webp 1920w"
+             sizes="(max-width: 760px) 100vw, 760px"
+             alt="Abstract 3D image symbolising the sifting funnel through which long-tail queries narrow to a priority list" width="1920" height="1080" loading="lazy" decoding="async">
+        <figcaption>From a wide pool to a priority list: choosing keywords is a sifting mechanism. <span class="yz-ai">Image generated with AI.</span></figcaption>
+      </figure>
+      <h2>Choosing Keywords on Instinct Compared with Choosing on Data</h2>
+      <div class="yz-tablo">
+        <table>
+          <thead><tr><th>Criterion</th><th>Choosing on instinct</th><th>Choosing on data</th></tr></thead>
+          <tbody>
+            <tr><td>Starting point</td><td>In-team assumption</td><td>Real search queries</td></tr>
+            <tr><td>Intent match</td><td>Coincidental</td><td>Tagged and classified</td></tr>
+            <tr><td>Assessing competition</td><td>None</td><td>Difficulty and a reading of the results page</td></tr>
+            <tr><td>Long-tail coverage</td><td>Narrow</td><td>Wide and clustered</td></tr>
+            <tr><td>Typical risk</td><td>The wrong visitor on the wrong page</td><td>Higher setup effort</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+        <aside class="yz-kopru" aria-label="Service bridge">
+          <b>Hand Your Keyword Research to a Professional</b>
+          <p>Let's work out the route map that suits your scope together; let's settle the steps and the timing.</p>
+          <a class="btn btn-p" href="../../get-a-quote/#web">Let's map the scope
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="../../seo-content-strategy/">See the service page</a>
+        </aside>
+        <p>A keyword list is the compass of content production. If the compass points at the wrong north, your speed is no use. Measure the demand, read the purpose, and do the sifting against a criterion. Those three steps change the quality of the traffic reaching your site.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec ilgili-bolum" style="padding-top:0">
+    <div class="wrap">
+      <nav class="yz-ilgili rv" aria-labelledby="ilgili-baslik">
+        <h2 id="ilgili-baslik">Related guides</h2>
+        <p class="not">Other headings from the Content Strategy cluster that round this piece out.</p>
+        <ul>
+          <li><a href="../../../blog/seo-icin-icerik-stratejileri/" style="--k:166,255,0"><span class="kat">SEO</span><span class="bas">Why Is the Content Calendar Decisive in an SEO Content Strategy?</span></a></li>
+          <li><a href="../seo-reporting-tools/" style="--k:166,255,0"><span class="kat">SEO</span><span class="bas">Which Tools Should You Set Up for SEO Reporting, and How?</span></a></li>
+          <li><a href="../../../blog/google-ads-ve-ppc/" style="--k:255,176,32"><span class="kat">Digital Marketing</span><span class="bas">Google Ads or Organic Growth? A Cost Comparison</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>FAQs</span>
+        <h2 data-kin>Frequently asked questions: keyword research</h2>
+      </div>
+      <div class="yz-sss rv d1">
+        <details>
+          <summary>How long does keyword research take?</summary>
+          <p>The scope sets the time. On a local business offering a single service, a few days is enough. On a catalogue with hundreds of products, building the pool and tagging it can stretch to two weeks. The list grows over time, but the initial setup is done once.</p>
+        </details>
+        <details>
+          <summary>How many keywords should a small business start with?</summary>
+          <p>A core list of thirty to forty terms is enough for most SMEs. Start with the service that brings in revenue.</p>
+        </details>
+        <details>
+          <summary>Are low-volume keywords useless?</summary>
+          <p>On the contrary — a query with a sharp purpose carries high value even at low volume. A term a hundred people search while ready to buy can bring more business than one ten thousand people search out of curiosity. Always read the volume together with the purpose.</p>
+        </details>
+        <details>
+          <summary>Can I understand search intent without a measurement dashboard?</summary>
+          <p>Largely, yes. Type the query and look at the type of the first ten results: are guide articles, category pages or product pages in the majority? The dominant type shows the kind of content that query expects. That observation gives you a useful direction without needing an expensive setup.</p>
+        </details>
+        <details>
+          <summary>Should I open two separate pages for the same keyword?</summary>
+          <p>Usually no. Two pages carrying the same purpose split each other's ranking. Gather the queries onto one strong page; open a second page only if the purpose really is different.</p>
+        </details>
+        <details>
+          <summary>Does competitors' keyword list guide us?</summary>
+          <p>A competitor's list is a starting point, not a target. The queries your competitor ranks for show the language of the market. Even so, their resources and brand strength differ from yours. Rather than copying, look for the long-tail areas your competitors have left empty.</p>
+        </details>
+        <details>
+          <summary>Which details should we watch in Turkish searches?</summary>
+          <p>Four details make a difference in Turkish queries. The first is suffixed forms: users often type “çelik kapı fiyatları” (steel door prices, plural) rather than “çelik kapı fiyatı” (singular). The second is writing without diacritics; there is a large audience searching “isitici” instead of “ısıtıcı” (heater). The third is regional differences in usage, that is, the same product having different names from city to city. The fourth is settled use of English equivalents; in some sectors users never search the Turkish term at all. Bring all four into the pool as you build the list. Those four details are what bring your list closer to the real language of search.</p>
+        </details>
+        <details>
+          <summary>How often should we review the keyword list?</summary>
+          <p>A review once a quarter is enough for most sectors. When there's a new product, a new region or a sudden shift in the sector's agenda, refresh the list without waiting.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../../../assets/en/brand/tasarimmania-logo-horizontal.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>An Istanbul-based 360° digital agency bringing web, mobile, advertising, video and SEO together under one roof.</p>
+      </div>
+      <div>
+        <h3>Modules</h3>
+        <ul>
+          <li><a href="../../services/">All services</a></li>
+          <li><a href="../../web-design/">Web &amp; Software</a></li>
+          <li><a href="../../mobile-app-development/">Mobile Apps</a></li>
+          <li><a href="../../digital-marketing/">Digital Marketing</a></li>
+          <li><a href="../../video-production/">Video Production</a></li>
+          <li><a href="../../seo/">SEO Services</a></li>
+          <li><a href="../../graphic-design/">Graphic Design</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../../contact/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../../contact/#ofis">Weekdays 09:00–19:00<br>Saturdays 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. All rights reserved.</span>
+      <span class="mono">FIVE MODULES · ONE PLACE</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../../../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+<script>
+"use strict";
+(function(){
+  var c = document.querySelector('[data-ilerleme]');
+  if (!c || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  function ciz(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    c.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', ciz, { passive: true });
+  ciz();
+})();
+</script>

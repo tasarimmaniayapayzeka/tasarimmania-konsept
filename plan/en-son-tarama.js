@@ -33,6 +33,10 @@ const MUAF = [
   'Özgürlük Meydanı',
   /* kişi adı — kurucu ve yorum sahipleri */
   'İhsan Ar', 'Murat Aydın', 'Selin Erdoğan', 'Emre Kılıç', 'Dr. Serkan Yıldız',
+  /* Türkçe arama örneği — /blog/keyword-research/ Türkçe arama davranışını
+   * anlatıyor; örnekler çevrilirse pasaj anlamsız kalır (ekli hâl farkı ve
+   * noktasız yazım ancak Türkçede görünür). */
+  'çelik kapı fiyatları', 'çelik kapı fiyatı', 'ısıtıcı',
   /* müşteri markası — logo alt metni */
   'SKS İnşaat', 'Oba Diş Ağız ve Diş Sağlığı Polikliniği', 'Sevinç Kurs Merkezi',
 ];
