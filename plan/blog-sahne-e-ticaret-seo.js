@@ -25,14 +25,19 @@ module.exports = {
   },
 
   /* Döngü videosunun yerleşeceği çapa. Sahnelerle AYNI listeye girer;
-     taraf (sağ/sol) belge sırasına göre otomatik atanır. */
-  videoCapa: '<h2>Ürün Sayfasında Sıralamayı Hangi Sinyaller Üretir?</h2>',
+     taraf (sağ/sol) belge sırasına göre otomatik atanır.
+     ⚠ EŞLEME YENİDEN YAPILDI. Önce her sahne bir SONRAKİ bölüme
+     düşüyordu (üç dişli, "mekanizma nasıl çalışır" bölümünün değil
+     kategori bölümünün yanındaydı). Artık her görsel ANLATTIĞI bölümün
+     karşısında duruyor — iki sütunlu düzende bu şart, çünkü görsel ile
+     metin aynı hizada ve aynı anda okunuyor. */
+  videoCapa: '<h2>İçerik Katmanı Satış Sayfalarını Nasıl Güçlendirir?</h2>',
   videoAciklama: 'Talep analizi, sayfa eşleştirme, sinyal üretimi ve otorite dağıtımı sürekli bakım ister; hizmet bu döngüyü kurar, ölçer ve raporlar.',
 
   sahneler: [
     /* ── 1: üç dişli — mekanizmanın kendisi ── */
     {
-      capa: '<h2>Kategori Sayfaları Arama Talebini Nasıl Yakalar?</h2>',
+      capa: '<h2>E-Ticaret SEO Nedir, Sıralamayı Üreten Mekanizma Nasıl Çalışır?</h2>',
       bar: 'sıralamayı üreten mekanizma',
       rozet: 'ÜÇ DİŞLİ',
       aciklama: 'Mekanizma üç dişliyle döner: arama talebi sayfalara dağılır, her sayfa tek niyete odaklanır, otorite iç bağlantılarla doğru sayfalara akar. Halkalardan biri koptuğunda diğerleri de güç kaybeder.',
@@ -59,9 +64,40 @@ module.exports = {
 <text class="cz-etiket" style="--d:3.10s" x="215" y="34" text-anchor="middle">ÜÇÜ AYNI PLANDA BULUŞUR</text>`,
     },
 
-    /* ── 2: ürün sayfası sinyalleri ── */
+    /* ── 2: kategori çatısı — geniş talebi kategori toplar ── */
     {
-      capa: '<h2>Site Mimarisi ve İç Bağlantı Akışı Neden Belirleyicidir?</h2>',
+      capa: '<h2>Kategori Sayfaları Arama Talebini Nasıl Yakalar?</h2>',
+      bar: 'talep haritası mağaza yapısına oturur',
+      rozet: 'ÇATI',
+      aciklama: 'Kategori sayfası, tek bir ürünün karşılayamayacağı geniş aramaları toplayan vitrindir. Ürün sayfaları bu çatının altında spesifik talebi karşılar; hiyerarşi talep haritasıyla birebir örtüşür.',
+      cipler: [
+        { u: 'KATEGORİ', s: '1', birim: '' },
+        { u: 'ALT KIRILIM', s: '5', birim: '' },
+        { u: 'AÇIKLAMA', s: '300', birim: ' kelime' },
+      ],
+      svg: `<rect class="cz-cizgi" style="--u:330;--d:0.00s" x="148" y="26" width="134" height="38" rx="8"/>
+<rect class="cz-dolgu" style="--d:0.00s" x="148" y="26" width="134" height="38" rx="8"/>
+<text class="cz-etiket vurgu" style="--d:0.45s" x="215" y="50" text-anchor="middle">KATEGORİ</text>
+<path class="cz-cizgi" style="--u:40;--d:0.70s" d="M215 64 V92"/>
+<path class="cz-cizgi" style="--u:230;--d:0.95s" d="M74 92 H356"/>
+<path class="cz-cizgi" style="--u:40;--d:1.20s" d="M74 92 V118 M144 92 V118 M215 92 V118 M286 92 V118 M356 92 V118"/>
+<rect class="cz-cizgi" style="--u:200;--d:1.45s" x="46" y="118" width="56" height="60" rx="6"/>
+<rect class="cz-dolgu" style="--d:1.45s" x="46" y="118" width="56" height="60" rx="6"/>
+<rect class="cz-cizgi" style="--u:200;--d:1.62s" x="116" y="118" width="56" height="60" rx="6"/>
+<rect class="cz-dolgu" style="--d:1.62s" x="116" y="118" width="56" height="60" rx="6"/>
+<rect class="cz-cizgi" style="--u:200;--d:1.79s" x="187" y="118" width="56" height="60" rx="6"/>
+<rect class="cz-dolgu" style="--d:1.79s" x="187" y="118" width="56" height="60" rx="6"/>
+<rect class="cz-cizgi" style="--u:200;--d:1.96s" x="258" y="118" width="56" height="60" rx="6"/>
+<rect class="cz-dolgu" style="--d:1.96s" x="258" y="118" width="56" height="60" rx="6"/>
+<rect class="cz-cizgi" style="--u:200;--d:2.13s" x="328" y="118" width="56" height="60" rx="6"/>
+<rect class="cz-dolgu" style="--d:2.13s" x="328" y="118" width="56" height="60" rx="6"/>
+<path class="cz-sonradan" style="--d:2.40s" d="M46 196 H384"/>
+<text class="cz-etiket" style="--d:2.60s" x="215" y="208" text-anchor="middle">ÜRÜN SAYFALARI</text>`,
+    },
+
+    /* ── 3: ürün sayfası sinyalleri ── */
+    {
+      capa: '<h2>Ürün Sayfasında Sıralamayı Hangi Sinyaller Üretir?</h2>',
       bar: 'ürün sayfasını sıralatan sinyaller',
       rozet: 'ÜÇ SİNYAL',
       aciklama: 'Ürün sayfasını sıralatan üç ana sinyal: özgün açıklama, yapılandırılmış veri ve kullanıcı etkileşimi. Sinyaller birleştiğinde sayfa hem makineye hem alıcıya aynı hikâyeyi anlatır.',
@@ -90,9 +126,9 @@ module.exports = {
 <text class="cz-etiket vurgu" style="--d:3.70s" x="392" y="127" text-anchor="middle">SIRA</text>`,
     },
 
-    /* ── 3: bağlantı akışı ── */
+    /* ── 4: bağlantı akışı ── */
     {
-      capa: '<h2>Mağazanız İçin Profesyonel E-Ticaret SEO Desteği Alın</h2>',
+      capa: '<h2>Site Mimarisi ve İç Bağlantı Akışı Neden Belirleyicidir?</h2>',
       bar: 'otorite ana sayfadan ürüne akar',
       rozet: 'AKIŞ',
       aciklama: 'Dış dünyadan en çok referans alan sayfa çoğu mağazada ana sayfadır. Menü o gücü kategorilere, kategori de listelediği ürünlere aktarır. Ana sayfadan üç tıkla ulaşılamayan ürün önemsiz kalır.',

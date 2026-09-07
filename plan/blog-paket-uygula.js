@@ -105,57 +105,64 @@ const BLOG_CSS = `
    ÇÖZÜM: okuma sütunu ortalanır ve genişler; görseller KÜÇÜLÜR ve
    dönüşümlü olarak sağa/sola yaslanır, metin etraflarından akar. */
 
-/* 1) Okuma sütunu ORTALANDI ve 720px'de tutuldu.
-      ⚠ ÖNCE 1000px DENENDİ, GERİ ALINDI — ölçüldü: 15,4px yazıyla satır
-      102 KARAKTER çıktı. Rahat okuma aralığı 55-75 karakter; 100 üstü
-      gözün satır başını kaybettiği bölge. 720px → ölçülen 73 karakter. */
-.yz-govde{max-width:720px;margin-inline:auto}
-/* 2) Kapak artık metinle AYNI kenarlarda biter — basamak kalkar.
-      (Önce 1192px'di, metinden 432px genişti.) */
-.yz-kapak img,.yz-kapak figcaption{max-width:720px;margin-inline:auto}
+/* 1) GÖVDE ARTIK İKİ SÜTUN — kullanıcı kararı: soru panelindeki (.sd)
+      düzenin aynısı. Her h2 bölümü bir satır: bir yanda metin, öbür yanda
+      görsel; bölümden bölüme taraf DEĞİŞİYOR.
+      ⚠ YÜZEN (float) DÜZEN GERİ ALINDI. Metin görselin etrafından
+      akıyordu ama sarılan satırlar 48-56 karaktere düşüyor, paragraf
+      görselin altında birden 73 karaktere çıkıyordu — satır uzunluğu
+      paragraf içinde zıplıyor, göz her seferinde yeniden ayar yapıyor.
+      İki sütunda metin ölçüsü bölüm boyunca SABİT. */
+.yz-govde{max-width:none}
+.yz-bolum{margin:0 0 clamp(30px,4vw,52px)}
+.yz-bolum .yz-metin{max-width:720px}
+/* 2) Kapak metin sütunuyla aynı ölçüde — eskiden 1192px'di, metinden
+      432px genişti ve basamak yapıyordu. */
+.yz-kapak img,.yz-kapak figcaption{max-width:1188px;margin-inline:auto}
 
-/* 3) AKIŞKAN GÖRSEL — dönüşümlü sağ/sol, metin etrafından akar.
-      ⚠ GÖRSEL SÜTUNUN İÇİNE SIĞDIRILMIYOR, KENARA TAŞIYOR. 720px sütunun
-      içine 340px'lik bir figür koyulsaydı yanında 355px (≈36 karakter)
-      kalırdı — sarılan metin o genişlikte kırık kırık okunur. Bunun yerine
-      figür 160px dışarı taşıyor: yanındaki metin ≈52 karaktere çıkıyor,
-      sayfa da tek eksenli olmaktan kurtuluyor.
-      Taşma payı SABİT 160px ve yüzme yalnız >=1180px'te açık; o genişlikte
-      .wrap en dar hâlinde 1116px, sütun 720px → her yanda 198px boşluk
-      var, 160px taşma her zaman sığıyor. */
-.yz-gor{margin:8px 0 22px;clear:none}
-/* Yanında yeterli metin olmayan figür yüzmez: tam sütun genişliği. */
-.yz-gor.tam{width:100%!important;float:none!important;margin-inline:0!important;clear:both}
-.yz-gor figcaption{margin-top:10px;font-size:12.6px;line-height:1.6;color:var(--muted)}
-@media(min-width:1180px){
-  .yz-gor{width:340px;float:right;margin-left:26px;margin-right:-160px}
-  .yz-gor.sol{float:left;margin-left:-160px;margin-right:26px}
+/* 3) İKİ SÜTUN — .sd panelinin oranıyla aynı mantık: metin sütunu okuma
+      ölçüsünde sabitlenir, kalan alan görsele gider.
+      560px metin = ölçülen 73 karakter (rahat aralık 55-75). */
+@media(min-width:1000px){
+  .yz-bolum.ikili{display:grid;grid-template-columns:minmax(0,560px) 1fr;
+    gap:clamp(28px,3.4vw,48px);align-items:start}
+  .yz-bolum.ikili .yz-metin{max-width:none}
+  /* dönüşümlü taraf: tek bölümlerde görsel sağda, çiftlerde solda */
+  .yz-bolum.ikili.ters{grid-template-columns:1fr minmax(0,560px)}
+  .yz-bolum.ikili.ters .yz-gorsel-sutun{order:-1}
+  /* ⚠ GÖRSEL SÜTUNU SINIRLANDI — ölçüldü. 1fr bırakılınca 1440px'te
+     görsel 584px oluyordu, metin sütunundan (560px) GENİŞ. Kullanıcının
+     isteği "resimleri ebat olarak küçült" idi; görselin metni ezmesi o
+     isteğin tersi. 500px tavan: her zaman metinden dar kalıyor.
+     Sütun kendi tarafının DIŞ kenarına yaslanıyor — görsel sağdaysa
+     sağ kenara, soldaysa sol kenara; ortada kalan boşluk iki sütun
+     arasına gidiyor, kenarda ölü alan oluşmuyor. */
+  .yz-bolum.ikili .yz-gorsel-sutun{max-width:500px;justify-self:end;
+    position:sticky;top:calc(var(--nav-h) + 20px)}
+  .yz-bolum.ikili.ters .yz-gorsel-sutun{justify-self:start}
 }
-/* Bölüm başlığı yüzen görselin yanına sıkışmasın; her h2 yeni satırdan. */
-.yz-govde h2{clear:both}
-/* Tablo, alıntı ve bant yüzen görselin yanında ezilmesin. */
-.yz-govde .yz-tablo,.yz-govde .yz-alinti,.yz-govde .ara-cta{clear:both}
+.yz-gorsel-sutun{margin:0}
+.yz-gorsel-sutun figcaption{margin-top:11px;font-size:12.8px;line-height:1.62;color:var(--muted)}
+/* Tablo, alıntı ve bant her zaman tam genişlik. */
+.yz-bolum .yz-tablo,.yz-bolum .yz-alinti,.yz-bolum .ara-cta{max-width:1188px}
 
-/* 4) Sahne kutusu yüzen çerçeve içinde: sabit yükseklik YOK, en-boy oranı
-      var. Hero'da 240-330px'e kilitliydi; burada genişliğe göre esner. */
-.yz-gor .ciz-kutu{height:auto}
-.yz-gor .ciz-cerceve{aspect-ratio:430/292;height:auto}
-.yz-gor .ciz-bar span{font-size:8.6px}
-.yz-gor .ciz-cip u{font-size:7px}
-.yz-gor .ciz-cip b{font-size:10.5px}
-/* 5) Döngü videosu da aynı yüzen çerçevede — .akv ızgarası KULLANILMIYOR. */
-.yz-gor video,.yz-gor img{display:block;width:100%;height:auto;border-radius:14px;
-  border:1px solid rgba(var(--acc-rgb),.3);background:var(--bg-2)}
-.yz-gor .cerceveli{position:relative;border-radius:14px;overflow:hidden;
+/* 4) Sahne kutusu: sabit yükseklik YOK, en-boy oranı var. Hero'da
+      240-330px'e kilitliydi; sütun içinde genişliğe göre esner. */
+.yz-gorsel-sutun .ciz-kutu{height:auto}
+.yz-gorsel-sutun .ciz-cerceve{aspect-ratio:430/300;height:auto}
+/* 5) Döngü videosu aynı sütunda — .akv ızgarası KULLANILMIYOR. */
+.yz-gorsel-sutun video,.yz-gorsel-sutun img{display:block;width:100%;height:auto;
+  border-radius:14px;border:1px solid rgba(var(--acc-rgb),.3);background:var(--bg-2)}
+.yz-gorsel-sutun .cerceveli{position:relative;border-radius:14px;overflow:hidden;
   box-shadow:0 26px 60px -30px rgba(0,0,0,.9)}
-.yz-gor .akv-rozet{position:absolute;left:11px;top:10px;z-index:2}
+.yz-gorsel-sutun .akv-rozet{position:absolute;left:11px;top:10px;z-index:2}
 
-/* 6) 1180px ALTINDA YÜZME YOK — görsel tam sütun genişliğinde, metin
-      altından devam eder. Eşik keyfî değil: bu genişliğin altında ya
-      figürün dışarı taşıması .wrap boşluğunu aşar ya da sarılan metin
-      okunmaz ölçüye (≈36 karakter) düşer. İkisi de kötü; yüzmemesi iyi. */
-@media(max-width:1179px){
-  .yz-gor,.yz-gor.sol{float:none;width:100%;margin:26px 0}
+/* 6) 1000px ALTINDA TEK SÜTUN: görsel metnin altına iner. Eşik, iki
+      sütunun ikisinin de kendi işini görebildiği en dar nokta —
+      560px metin + 28px boşluk + görselin okunabilir en küçük hâli. */
+@media(max-width:999px){
+  .yz-bolum .yz-metin{max-width:none}
+  .yz-gorsel-sutun{margin-top:26px}
 }
 /* ⚠ ARA CTA'YI TAM GENİŞLİĞE TAŞIMA DENENDİ, GERİ ALINDI (ölçüldü).
    İlk sürüm negatif kenar boşluğuyla bandı .wrap dolgusunun dışına
@@ -367,7 +374,106 @@ ${gorsel}
  *   bulunuyor, sıralanıyor, taraf ondan sonra atanıyor. Yoksa iki komşu
  *   figür aynı tarafa düşüp mizanpaj tek yana yığılır.
  */
-function yuzenGorseller(html) {
+/* 3e) İKİ SÜTUNLU BÖLÜMLER — kullanıcı kararı (.sd panelindeki düzen)
+ *
+ * Gövde h2'lere göre bölümlere ayrılır; her bölüm bir ızgara satırı olur:
+ *   <section class="yz-bolum ikili [ters]">
+ *     <div class="yz-metin">   h2 + cevap kutusu + paragraflar </div>
+ *     <figure class="yz-gorsel-sutun"> sahne ya da video </figure>
+ *   </section>
+ * Görseli olmayan bölüm tek sütun kalır (.ikili sınıfı almaz).
+ *
+ * ⚠ h2 KONUMLARI DENGELİ TARANMAZ, GEREKMİYOR: gövdedeki bütün <h2>'ler
+ *   üst düzeyde (iç içe h2 yok, ölçüldü). Basit arama yeterli.
+ *
+ * ⚠ TARAF, GÖRSELLİ BÖLÜMLERİN SIRASINA GÖRE DÖNÜŞÜR — bölüm sırasına
+ *   göre değil. Aralarda görselsiz bölüm varsa sayaç ilerlemez, yoksa
+ *   arka arkaya iki görsel aynı tarafa düşer.
+ */
+function ikiSutunKur(html) {
+  const m = html.match(/(<article class="yz-govde">)([\s\S]*?)(<\/article>)/);
+  if (!m) { rapor.push('gövde bulunamadı — İKİ SÜTUN KURULMADI'); return html; }
+  let govde = m[2];
+
+  /* eski tam genişlik gövde görselini çıkar, kaynağını sakla */
+  const eski = govde.match(/\s*<figure class="yz-gorsel">[\s\S]*?<\/figure>/);
+  const eskiSrc = eski ? (eski[0].match(/<img[^>]*src="([^"]+)"/) || [])[1] : '';
+  const eskiAlt = eski ? (eski[0].match(/alt="([^"]*)"/) || [])[1] : '';
+  if (eski) { govde = govde.replace(eski[0], ''); rapor.push('eski tam genişlik gövde görseli kaldırıldı (%87 derinlikteydi)'); }
+
+  /* görsel tanımlarını çapaya göre indeksle */
+  const vid = SAHNELER.video;
+  const videoVar = vid && fs.existsSync(path.join(KOK, vid.dosya));
+  if (!videoVar) rapor.push(`⚠ döngü videosu YOK (${vid ? vid.dosya : '—'}) — eski görsel kullanıldı`);
+  const gorselHarita = new Map();
+  for (const s of SAHNELER.sahneler) gorselHarita.set(s.capa, { tur: 'sahne', ...s });
+  if (SAHNELER.videoCapa) gorselHarita.set(SAHNELER.videoCapa, {
+    tur: 'video', aciklama: SAHNELER.videoAciklama || '',
+    src: videoVar ? vid.src : eskiSrc, poster: videoVar ? vid.poster : '', alt: eskiAlt, videoVar,
+  });
+
+  function gorselHtml(f) {
+    if (f.tur === 'sahne') return `<div class="ciz-kutu" aria-hidden="true">
+          <div class="ciz-cerceve">
+            <div class="ciz-bar"><i></i><i></i><i></i><span>${f.bar}</span><b>${f.rozet}</b></div>
+            <div class="ciz-svg">
+              <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true">${f.svg}</svg>
+            </div>
+            <div class="ciz-alt">${f.cipler.map((c) => `<div class="ciz-cip"><u>${c.u}</u><b data-sayac="${c.s}" data-birim="${c.birim}">0${c.birim}</b></div>`).join('')}</div>
+          </div>
+        </div>`;
+    return f.videoVar
+      ? `<div class="cerceveli">
+          <b class="akv-rozet"><i></i>CANLI DÖNGÜ</b>
+          <video data-dongu muted loop playsinline preload="metadata" poster="${f.poster}" aria-label="${f.alt}">
+            <source src="${f.src}" type="video/mp4">
+          </video>
+        </div>`
+      : `<img src="${f.src}" alt="${f.alt}" loading="lazy" decoding="async">`;
+  }
+
+  /* bölümlere ayır */
+  const h2ler = [...govde.matchAll(/<h2[^>]*>[\s\S]*?<\/h2>/g)];
+  if (!h2ler.length) { rapor.push('h2 yok — İKİ SÜTUN KURULMADI'); return html; }
+  const parcalar = [];
+  const onSoz = govde.slice(0, h2ler[0].index);
+  for (let i = 0; i < h2ler.length; i++) {
+    const bas = h2ler[i].index;
+    const son = i + 1 < h2ler.length ? h2ler[i + 1].index : govde.length;
+    parcalar.push({ h2: h2ler[i][0], ic: govde.slice(bas, son) });
+  }
+
+  let sayac = 0, gorselli = 0; const eslesmeyen = [];
+  const bolumler = parcalar.map((p) => {
+    const f = gorselHarita.get(p.h2.trim());
+    if (!f) return `      <section class="yz-bolum">
+        <div class="yz-metin">${p.ic}</div>
+      </section>`;
+    const ters = sayac % 2 === 1 ? ' ters' : '';
+    sayac++; gorselli++;
+    return `      <section class="yz-bolum ikili${ters}">
+        <div class="yz-metin">${p.ic}</div>
+        <figure class="yz-gorsel-sutun">
+          ${gorselHtml(f)}
+          <figcaption>${f.aciklama}</figcaption>
+        </figure>
+      </section>`;
+  });
+
+  /* çapası hiçbir h2'ye denk gelmeyen görsel var mı */
+  const h2Metinleri = new Set(parcalar.map((p) => p.h2.trim()));
+  for (const capa of gorselHarita.keys()) if (!h2Metinleri.has(capa.trim())) eslesmeyen.push(capa.slice(0, 52));
+  for (const e of eslesmeyen) rapor.push(`⚠ çapa hiçbir h2 ile eşleşmedi, görsel KONULMADI: "${e}…"`);
+
+  rapor.push(`iki sütun: ${parcalar.length} bölüm · ${gorselli} tanesi görselli (dönüşümlü sağ/sol) · ${parcalar.length - gorselli} tanesi tek sütun`);
+  return html.replace(m[0], m[1] + '\n' + onSoz + bolumler.join('\n') + '\n    ' + m[3]);
+}
+
+/* [KULLANIM DIŞI] yüzen (float) düzen — iki sütuna geçilince bırakıldı.
+ * Metin görselin etrafından akıyordu ama sarılan satırlar 48-56 karaktere
+ * düşüp görselin altında 73'e çıkıyordu; satır uzunluğu paragraf içinde
+ * zıplıyordu. Gerekçe kodda kalsın diye duruyor; ÇAĞRILMIYOR. */
+function yuzenGorseller_KULLANILMIYOR(html) {
   const eski = html.match(/\s*<figure class="yz-gorsel">[\s\S]*?<\/figure>/);
   const eskiSrc = eski ? (eski[0].match(/<img[^>]*src="([^"]+)"/) || [])[1] : '';
   const eskiAlt = eski ? (eski[0].match(/alt="([^"]*)"/) || [])[1] : '';
@@ -546,7 +652,7 @@ function jsEkle(html) {
 h = sssDonustur(h);
 h = ilgiliDonustur(h);
 h = kopruDonustur(h);
-h = yuzenGorseller(h);
+h = ikiSutunKur(h);
 h = cssEkle(h);
 h = jsEkle(h);
 

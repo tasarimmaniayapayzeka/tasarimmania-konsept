@@ -422,57 +422,64 @@
    ÇÖZÜM: okuma sütunu ortalanır ve genişler; görseller KÜÇÜLÜR ve
    dönüşümlü olarak sağa/sola yaslanır, metin etraflarından akar. */
 
-/* 1) Okuma sütunu ORTALANDI ve 720px'de tutuldu.
-      ⚠ ÖNCE 1000px DENENDİ, GERİ ALINDI — ölçüldü: 15,4px yazıyla satır
-      102 KARAKTER çıktı. Rahat okuma aralığı 55-75 karakter; 100 üstü
-      gözün satır başını kaybettiği bölge. 720px → ölçülen 73 karakter. */
-.yz-govde{max-width:720px;margin-inline:auto}
-/* 2) Kapak artık metinle AYNI kenarlarda biter — basamak kalkar.
-      (Önce 1192px'di, metinden 432px genişti.) */
-.yz-kapak img,.yz-kapak figcaption{max-width:720px;margin-inline:auto}
+/* 1) GÖVDE ARTIK İKİ SÜTUN — kullanıcı kararı: soru panelindeki (.sd)
+      düzenin aynısı. Her h2 bölümü bir satır: bir yanda metin, öbür yanda
+      görsel; bölümden bölüme taraf DEĞİŞİYOR.
+      ⚠ YÜZEN (float) DÜZEN GERİ ALINDI. Metin görselin etrafından
+      akıyordu ama sarılan satırlar 48-56 karaktere düşüyor, paragraf
+      görselin altında birden 73 karaktere çıkıyordu — satır uzunluğu
+      paragraf içinde zıplıyor, göz her seferinde yeniden ayar yapıyor.
+      İki sütunda metin ölçüsü bölüm boyunca SABİT. */
+.yz-govde{max-width:none}
+.yz-bolum{margin:0 0 clamp(30px,4vw,52px)}
+.yz-bolum .yz-metin{max-width:720px}
+/* 2) Kapak metin sütunuyla aynı ölçüde — eskiden 1192px'di, metinden
+      432px genişti ve basamak yapıyordu. */
+.yz-kapak img,.yz-kapak figcaption{max-width:1188px;margin-inline:auto}
 
-/* 3) AKIŞKAN GÖRSEL — dönüşümlü sağ/sol, metin etrafından akar.
-      ⚠ GÖRSEL SÜTUNUN İÇİNE SIĞDIRILMIYOR, KENARA TAŞIYOR. 720px sütunun
-      içine 340px'lik bir figür koyulsaydı yanında 355px (≈36 karakter)
-      kalırdı — sarılan metin o genişlikte kırık kırık okunur. Bunun yerine
-      figür 160px dışarı taşıyor: yanındaki metin ≈52 karaktere çıkıyor,
-      sayfa da tek eksenli olmaktan kurtuluyor.
-      Taşma payı SABİT 160px ve yüzme yalnız >=1180px'te açık; o genişlikte
-      .wrap en dar hâlinde 1116px, sütun 720px → her yanda 198px boşluk
-      var, 160px taşma her zaman sığıyor. */
-.yz-gor{margin:8px 0 22px;clear:none}
-/* Yanında yeterli metin olmayan figür yüzmez: tam sütun genişliği. */
-.yz-gor.tam{width:100%!important;float:none!important;margin-inline:0!important;clear:both}
-.yz-gor figcaption{margin-top:10px;font-size:12.6px;line-height:1.6;color:var(--muted)}
-@media(min-width:1180px){
-  .yz-gor{width:340px;float:right;margin-left:26px;margin-right:-160px}
-  .yz-gor.sol{float:left;margin-left:-160px;margin-right:26px}
+/* 3) İKİ SÜTUN — .sd panelinin oranıyla aynı mantık: metin sütunu okuma
+      ölçüsünde sabitlenir, kalan alan görsele gider.
+      560px metin = ölçülen 73 karakter (rahat aralık 55-75). */
+@media(min-width:1000px){
+  .yz-bolum.ikili{display:grid;grid-template-columns:minmax(0,560px) 1fr;
+    gap:clamp(28px,3.4vw,48px);align-items:start}
+  .yz-bolum.ikili .yz-metin{max-width:none}
+  /* dönüşümlü taraf: tek bölümlerde görsel sağda, çiftlerde solda */
+  .yz-bolum.ikili.ters{grid-template-columns:1fr minmax(0,560px)}
+  .yz-bolum.ikili.ters .yz-gorsel-sutun{order:-1}
+  /* ⚠ GÖRSEL SÜTUNU SINIRLANDI — ölçüldü. 1fr bırakılınca 1440px'te
+     görsel 584px oluyordu, metin sütunundan (560px) GENİŞ. Kullanıcının
+     isteği "resimleri ebat olarak küçült" idi; görselin metni ezmesi o
+     isteğin tersi. 500px tavan: her zaman metinden dar kalıyor.
+     Sütun kendi tarafının DIŞ kenarına yaslanıyor — görsel sağdaysa
+     sağ kenara, soldaysa sol kenara; ortada kalan boşluk iki sütun
+     arasına gidiyor, kenarda ölü alan oluşmuyor. */
+  .yz-bolum.ikili .yz-gorsel-sutun{max-width:500px;justify-self:end;
+    position:sticky;top:calc(var(--nav-h) + 20px)}
+  .yz-bolum.ikili.ters .yz-gorsel-sutun{justify-self:start}
 }
-/* Bölüm başlığı yüzen görselin yanına sıkışmasın; her h2 yeni satırdan. */
-.yz-govde h2{clear:both}
-/* Tablo, alıntı ve bant yüzen görselin yanında ezilmesin. */
-.yz-govde .yz-tablo,.yz-govde .yz-alinti,.yz-govde .ara-cta{clear:both}
+.yz-gorsel-sutun{margin:0}
+.yz-gorsel-sutun figcaption{margin-top:11px;font-size:12.8px;line-height:1.62;color:var(--muted)}
+/* Tablo, alıntı ve bant her zaman tam genişlik. */
+.yz-bolum .yz-tablo,.yz-bolum .yz-alinti,.yz-bolum .ara-cta{max-width:1188px}
 
-/* 4) Sahne kutusu yüzen çerçeve içinde: sabit yükseklik YOK, en-boy oranı
-      var. Hero'da 240-330px'e kilitliydi; burada genişliğe göre esner. */
-.yz-gor .ciz-kutu{height:auto}
-.yz-gor .ciz-cerceve{aspect-ratio:430/292;height:auto}
-.yz-gor .ciz-bar span{font-size:8.6px}
-.yz-gor .ciz-cip u{font-size:7px}
-.yz-gor .ciz-cip b{font-size:10.5px}
-/* 5) Döngü videosu da aynı yüzen çerçevede — .akv ızgarası KULLANILMIYOR. */
-.yz-gor video,.yz-gor img{display:block;width:100%;height:auto;border-radius:14px;
-  border:1px solid rgba(var(--acc-rgb),.3);background:var(--bg-2)}
-.yz-gor .cerceveli{position:relative;border-radius:14px;overflow:hidden;
+/* 4) Sahne kutusu: sabit yükseklik YOK, en-boy oranı var. Hero'da
+      240-330px'e kilitliydi; sütun içinde genişliğe göre esner. */
+.yz-gorsel-sutun .ciz-kutu{height:auto}
+.yz-gorsel-sutun .ciz-cerceve{aspect-ratio:430/300;height:auto}
+/* 5) Döngü videosu aynı sütunda — .akv ızgarası KULLANILMIYOR. */
+.yz-gorsel-sutun video,.yz-gorsel-sutun img{display:block;width:100%;height:auto;
+  border-radius:14px;border:1px solid rgba(var(--acc-rgb),.3);background:var(--bg-2)}
+.yz-gorsel-sutun .cerceveli{position:relative;border-radius:14px;overflow:hidden;
   box-shadow:0 26px 60px -30px rgba(0,0,0,.9)}
-.yz-gor .akv-rozet{position:absolute;left:11px;top:10px;z-index:2}
+.yz-gorsel-sutun .akv-rozet{position:absolute;left:11px;top:10px;z-index:2}
 
-/* 6) 1180px ALTINDA YÜZME YOK — görsel tam sütun genişliğinde, metin
-      altından devam eder. Eşik keyfî değil: bu genişliğin altında ya
-      figürün dışarı taşıması .wrap boşluğunu aşar ya da sarılan metin
-      okunmaz ölçüye (≈36 karakter) düşer. İkisi de kötü; yüzmemesi iyi. */
-@media(max-width:1179px){
-  .yz-gor,.yz-gor.sol{float:none;width:100%;margin:26px 0}
+/* 6) 1000px ALTINDA TEK SÜTUN: görsel metnin altına iner. Eşik, iki
+      sütunun ikisinin de kendi işini görebildiği en dar nokta —
+      560px metin + 28px boşluk + görselin okunabilir en küçük hâli. */
+@media(max-width:999px){
+  .yz-bolum .yz-metin{max-width:none}
+  .yz-gorsel-sutun{margin-top:26px}
 }
 /* ⚠ ARA CTA'YI TAM GENİŞLİĞE TAŞIMA DENENDİ, GERİ ALINDI (ölçüldü).
    İlk sürüm negatif kenar boşluğuyla bandı .wrap dolgusunun dışına
@@ -815,14 +822,16 @@
   <section class="sec" style="padding-top:0">
     <div class="wrap">
       <article class="yz-govde">
-      <h2>E-Ticaret SEO Nedir, Sıralamayı Üreten Mekanizma Nasıl Çalışır?</h2>
+
+            <section class="yz-bolum ikili">
+        <div class="yz-metin"><h2>E-Ticaret SEO Nedir, Sıralamayı Üreten Mekanizma Nasıl Çalışır?</h2>
       <div class="yz-cevap"><p>E-ticaret SEO, ürün ve kategori sayfalarının arama sonuçlarında üst sıralara çıkmasını sağlayan optimizasyon disiplinidir. Mekanizma üç dişliyle döner. Arama talebi sayfalara dağılır ve her sayfa tek niyete odaklanır. Otorite ise iç bağlantılarla doğru sayfalara akar. Profesyonel bir e-ticaret SEO hizmeti bu üç dişliyi aynı planda buluşturur.</p></div>
       <p>Pazarın ölçeği bu mekanizmayı her yıl daha kritik hâle getiriyor. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">ETBİS'in 2025 raporuna göre</a> Türkiye'de e-ticaret hacmi 4,5 trilyon TL'ye ulaştı; sektör artık GSYH'nin yüzde 6,9'unu oluşturuyor. Rekabet bu boyuttayken görünürlüğü tesadüfe bırakamazsınız. Mekanizma dört aşamalı bir zincir hâlinde işler:</p><ol><li>Talep analizi: ekip her kelimenin aranma hacmini ve niyetini çıkarır.</li><li>Sayfa eşleştirme: plan her arama niyetine tek sayfa atar. Geniş sorguyu kategori, spesifik sorguyu ürün karşılar.</li><li>Sinyal üretimi: başlık, açıklama ve içerik, sayfanın konusunu arama motoruna net biçimde anlatır.</li><li>Otorite dağıtımı: iç bağlantılar kazanılan gücü sıralanması istenen sayfalara taşır.</li></ol><p>Zincirin halkalarından biri koptuğunda diğerleri de güç kaybeder. Bütünlük, mekanizmanın ön koşuludur.</p>
       <h3>Arama Niyeti Katmanları Mekanizmanın Neresinde?</h3>
       <p>Arama niyeti, kullanıcının sorgusunun arkasında yatan amaçtır. "Deri ceket nasıl temizlenir" bilgi arar. "Kadın deri ceket" ürün keşfeder. "Deri ceket fiyatları" satın almaya yaklaşır. E-ticaret SEO hizmeti her niyet katmanına farklı bir sayfa türü atar. Rehber içerik, kategori sayfası ve ürün sayfası bu üçlünün karşılığıdır.</p>
-      <h2>Kategori Sayfaları Arama Talebini Nasıl Yakalar?</h2>
-      <div class="yz-cevap"><p>Kategori sayfası, tek bir ürünün karşılayamayacağı geniş aramaları toplayan vitrin sayfasıdır. Yüksek hacimli "spor ayakkabı" sorgusunu kategori üstlenir. Ürün sayfaları bu çatının altında spesifik talepleri karşılar. Doğru kurgulanmış hiyerarşi, arama talebi haritasıyla mağaza yapısını birebir örtüştürür. Bu eşleşme, mekanizmanın talep yakalama ayağını oluşturur.</p></div><figure class="yz-gor">
-        <div class="ciz-kutu" aria-hidden="true">
+      </div>
+        <figure class="yz-gorsel-sutun">
+          <div class="ciz-kutu" aria-hidden="true">
           <div class="ciz-cerceve">
             <div class="ciz-bar"><i></i><i></i><i></i><span>sıralamayı üreten mekanizma</span><b>ÜÇ DİŞLİ</b></div>
             <div class="ciz-svg">
@@ -846,31 +855,57 @@
             <div class="ciz-alt"><div class="ciz-cip"><u>TALEP</u><b data-sayac="3" data-birim=" katman">0 katman</b></div><div class="ciz-cip"><u>SAYFA</u><b data-sayac="2" data-birim=" tür">0 tür</b></div><div class="ciz-cip"><u>AKIŞ</u><b data-sayac="3" data-birim=" tık">0 tık</b></div></div>
           </div>
         </div>
-        <figcaption>Mekanizma üç dişliyle döner: arama talebi sayfalara dağılır, her sayfa tek niyete odaklanır, otorite iç bağlantılarla doğru sayfalara akar. Halkalardan biri koptuğunda diğerleri de güç kaybeder.</figcaption>
-      </figure>
-      
+          <figcaption>Mekanizma üç dişliyle döner: arama talebi sayfalara dağılır, her sayfa tek niyete odaklanır, otorite iç bağlantılarla doğru sayfalara akar. Halkalardan biri koptuğunda diğerleri de güç kaybeder.</figcaption>
+        </figure>
+      </section>
+      <section class="yz-bolum ikili ters">
+        <div class="yz-metin"><h2>Kategori Sayfaları Arama Talebini Nasıl Yakalar?</h2>
+      <div class="yz-cevap"><p>Kategori sayfası, tek bir ürünün karşılayamayacağı geniş aramaları toplayan vitrin sayfasıdır. Yüksek hacimli "spor ayakkabı" sorgusunu kategori üstlenir. Ürün sayfaları bu çatının altında spesifik talepleri karşılar. Doğru kurgulanmış hiyerarşi, arama talebi haritasıyla mağaza yapısını birebir örtüştürür. Bu eşleşme, mekanizmanın talep yakalama ayağını oluşturur.</p></div>
       <p>Talep tarafı Türkiye'de sürekli genişliyor. <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TÜİK'in güncel araştırmaları</a>, internetten alışveriş yapan kullanıcı oranının yıllar içinde istikrarlı biçimde yükseldiğini gösteriyor. Bu talebi yakalamanın yolu bellidir. Her popüler aramaya karşılık gelen bir kategori ya da alt kategori açarsınız. Filtre kombinasyonları da burada devreye girer. "Siyah deri ceket" yeterli aranma hacmine ulaştığında ekip o filtreyi kalıcı açılış sayfasına dönüştürür. Aldığınız SEO hizmeti, hangi kombinasyonun sayfa olmayı hak ettiğine arama verisiyle karar verir.</p>
       <h3>Kategori Açıklaması Hangi İşlevi Görür?</h3>
       <p>Kategori açıklaması, sayfaya özgün metin katmanı ekleyen kısa içeriktir. Ürün listesi tek başına arama motoruna az sinyal verir. 150-300 kelimelik özgün bir açıklama sayfanın konusunu netleştirir. Optimizasyon ekibi bu metinleri doldurma amaçlı değil, kullanıcı sorularına cevap verecek biçimde yazar.</p>
-      <h2>Ürün Sayfasında Sıralamayı Hangi Sinyaller Üretir?</h2>
-      <div class="yz-cevap"><p>Ürün sayfasını sıralatan üç ana sinyal vardır: özgün açıklama, yapılandırılmış veri ve kullanıcı etkileşimi. Üretici metnini kopyalayan binlerce siteden ayrışmak için açıklamanın size ait olması gerekir. E-ticaret SEO hizmeti bu üç sinyali her ürün şablonuna sistematik biçimde yerleştirir. Sinyaller birleştiğinde sayfa hem makineye hem alıcıya aynı hikâyeyi anlatır.</p></div><figure class="yz-gor sol">
-        <div class="cerceveli">
-          <b class="akv-rozet"><i></i>CANLI DÖNGÜ</b>
-          <video data-dongu muted loop playsinline preload="metadata" poster="../../../assets/modul-seo/e-ticaret-seo.jpg" aria-label="Ürün ve kategori sayfası optimizasyonunun iç mekanizmasını simgeleyen birbirine geçmiş çarklı soyut 3D illüstrasyon">
-            <source src="../../../assets/modul-seo/e-ticaret-seo.mp4" type="video/mp4">
-          </video>
+      </div>
+        <figure class="yz-gorsel-sutun">
+          <div class="ciz-kutu" aria-hidden="true">
+          <div class="ciz-cerceve">
+            <div class="ciz-bar"><i></i><i></i><i></i><span>talep haritası mağaza yapısına oturur</span><b>ÇATI</b></div>
+            <div class="ciz-svg">
+              <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect class="cz-cizgi" style="--u:330;--d:0.00s" x="148" y="26" width="134" height="38" rx="8"/>
+<rect class="cz-dolgu" style="--d:0.00s" x="148" y="26" width="134" height="38" rx="8"/>
+<text class="cz-etiket vurgu" style="--d:0.45s" x="215" y="50" text-anchor="middle">KATEGORİ</text>
+<path class="cz-cizgi" style="--u:40;--d:0.70s" d="M215 64 V92"/>
+<path class="cz-cizgi" style="--u:230;--d:0.95s" d="M74 92 H356"/>
+<path class="cz-cizgi" style="--u:40;--d:1.20s" d="M74 92 V118 M144 92 V118 M215 92 V118 M286 92 V118 M356 92 V118"/>
+<rect class="cz-cizgi" style="--u:200;--d:1.45s" x="46" y="118" width="56" height="60" rx="6"/>
+<rect class="cz-dolgu" style="--d:1.45s" x="46" y="118" width="56" height="60" rx="6"/>
+<rect class="cz-cizgi" style="--u:200;--d:1.62s" x="116" y="118" width="56" height="60" rx="6"/>
+<rect class="cz-dolgu" style="--d:1.62s" x="116" y="118" width="56" height="60" rx="6"/>
+<rect class="cz-cizgi" style="--u:200;--d:1.79s" x="187" y="118" width="56" height="60" rx="6"/>
+<rect class="cz-dolgu" style="--d:1.79s" x="187" y="118" width="56" height="60" rx="6"/>
+<rect class="cz-cizgi" style="--u:200;--d:1.96s" x="258" y="118" width="56" height="60" rx="6"/>
+<rect class="cz-dolgu" style="--d:1.96s" x="258" y="118" width="56" height="60" rx="6"/>
+<rect class="cz-cizgi" style="--u:200;--d:2.13s" x="328" y="118" width="56" height="60" rx="6"/>
+<rect class="cz-dolgu" style="--d:2.13s" x="328" y="118" width="56" height="60" rx="6"/>
+<path class="cz-sonradan" style="--d:2.40s" d="M46 196 H384"/>
+<text class="cz-etiket" style="--d:2.60s" x="215" y="208" text-anchor="middle">ÜRÜN SAYFALARI</text></svg>
+            </div>
+            <div class="ciz-alt"><div class="ciz-cip"><u>KATEGORİ</u><b data-sayac="1" data-birim="">0</b></div><div class="ciz-cip"><u>ALT KIRILIM</u><b data-sayac="5" data-birim="">0</b></div><div class="ciz-cip"><u>AÇIKLAMA</u><b data-sayac="300" data-birim=" kelime">0 kelime</b></div></div>
+          </div>
         </div>
-        <figcaption>Talep analizi, sayfa eşleştirme, sinyal üretimi ve otorite dağıtımı sürekli bakım ister; hizmet bu döngüyü kurar, ölçer ve raporlar.</figcaption>
-      </figure>
-      
+          <figcaption>Kategori sayfası, tek bir ürünün karşılayamayacağı geniş aramaları toplayan vitrindir. Ürün sayfaları bu çatının altında spesifik talebi karşılar; hiyerarşi talep haritasıyla birebir örtüşür.</figcaption>
+        </figure>
+      </section>
+      <section class="yz-bolum ikili">
+        <div class="yz-metin"><h2>Ürün Sayfasında Sıralamayı Hangi Sinyaller Üretir?</h2>
+      <div class="yz-cevap"><p>Ürün sayfasını sıralatan üç ana sinyal vardır: özgün açıklama, yapılandırılmış veri ve kullanıcı etkileşimi. Üretici metnini kopyalayan binlerce siteden ayrışmak için açıklamanın size ait olması gerekir. E-ticaret SEO hizmeti bu üç sinyali her ürün şablonuna sistematik biçimde yerleştirir. Sinyaller birleştiğinde sayfa hem makineye hem alıcıya aynı hikâyeyi anlatır.</p></div>
       <p>Özgün açıklamanın gücü kopya içerik filtresinden gelir. Aynı üretici metnini kullanan yüzlerce mağaza arasından arama motoru çoğunlukla en otoriter olanı seçer. Geri kalanlar görünmez kalır. Kendi ölçümleriniz, kullanım senaryolarınız ve gerçek fotoğraflarınızla yazılmış bir açıklama sizi bu filtreden çıkarır. E-ticaret SEO hizmetinin ürün tarafındaki ilk işi bu ayrışmayı kurmaktır. Yorumlar da benzer işlev görür. Her yeni değerlendirme sayfaya taze ve özgün metin ekler.</p>
       <h3>Yapılandırılmış Veri Nasıl Çalışır?</h3>
       <p>Yapılandırılmış veri, ürün bilgilerini arama motorunun okuyabileceği formatta etiketleyen kod katmanıdır. Bu etiketler fiyatı, stok durumunu ve değerlendirme puanını makineye iletir. Sayfanız böylece zengin sonuç gösterimlerine aday olur.</p>
       <h4>Zengin Sonuç ile Tıklama Döngüsü</h4>
       <p>Zengin sonuç, arama sayfasında yıldız puanı ve fiyat gibi ek bilgiler gösteren listelemedir. Dikkat çeken listeleme daha çok tıklama alır. Artan tıklama oranı sayfanın alaka sinyalini güçlendirir. Hizmet kapsamında kurulan bu döngü, kazanılan pozisyonu kendi kendini besleyen bir sürece çevirir.</p>
-      <h2>Site Mimarisi ve İç Bağlantı Akışı Neden Belirleyicidir?</h2>
-      <div class="yz-cevap"><p>İç bağlantı, sayfalar arasında otorite ve bağlam taşıyan köprüdür; site mimarisi bu köprülerin düzenidir. Ana sayfadan üç tıkla ulaşılamayan ürün, arama motorunun gözünde önemsiz kalır. Doğru hiyerarşide güç ana sayfadan kategorilere, oradan ürünlere kesintisiz akar. Akışı kesen kopuk sayfalar mekanizmanın en sık gözden kaçan zayıf halkasıdır.</p></div><figure class="yz-gor">
-        <div class="ciz-kutu" aria-hidden="true">
+      </div>
+        <figure class="yz-gorsel-sutun">
+          <div class="ciz-kutu" aria-hidden="true">
           <div class="ciz-cerceve">
             <div class="ciz-bar"><i></i><i></i><i></i><span>ürün sayfasını sıralatan sinyaller</span><b>ÜÇ SİNYAL</b></div>
             <div class="ciz-svg">
@@ -896,21 +931,19 @@
             <div class="ciz-alt"><div class="ciz-cip"><u>ÖZGÜN METİN</u><b data-sayac="1" data-birim="">0</b></div><div class="ciz-cip"><u>ŞEMA</u><b data-sayac="1" data-birim="">0</b></div><div class="ciz-cip"><u>ETKİLEŞİM</u><b data-sayac="1" data-birim="">0</b></div></div>
           </div>
         </div>
-        <figcaption>Ürün sayfasını sıralatan üç ana sinyal: özgün açıklama, yapılandırılmış veri ve kullanıcı etkileşimi. Sinyaller birleştiğinde sayfa hem makineye hem alıcıya aynı hikâyeyi anlatır.</figcaption>
-      </figure>
-      
+          <figcaption>Ürün sayfasını sıralatan üç ana sinyal: özgün açıklama, yapılandırılmış veri ve kullanıcı etkileşimi. Sinyaller birleştiğinde sayfa hem makineye hem alıcıya aynı hikâyeyi anlatır.</figcaption>
+        </figure>
+      </section>
+      <section class="yz-bolum ikili ters">
+        <div class="yz-metin"><h2>Site Mimarisi ve İç Bağlantı Akışı Neden Belirleyicidir?</h2>
+      <div class="yz-cevap"><p>İç bağlantı, sayfalar arasında otorite ve bağlam taşıyan köprüdür; site mimarisi bu köprülerin düzenidir. Ana sayfadan üç tıkla ulaşılamayan ürün, arama motorunun gözünde önemsiz kalır. Doğru hiyerarşide güç ana sayfadan kategorilere, oradan ürünlere kesintisiz akar. Akışı kesen kopuk sayfalar mekanizmanın en sık gözden kaçan zayıf halkasıdır.</p></div>
       <p>Bağlantı gücünün akışını somut bir örnekle düşünelim. Dış dünyadan en çok referans alan sayfa çoğu mağazada ana sayfadır. Menü, oradaki gücü ana kategorilere dağıtır. Kategori sayfası da listelediği ürünlere aktarır. Çapa metni bu aktarıma bağlam ekler. "Buraya tıklayın" yerine "erkek koşu ayakkabısı" yazan bağlantı, hedef sayfanın konusunu da bildirir. E-ticaret SEO hizmeti kapsamında ekibimiz bu akışı haritalar ve satış önceliğine göre yeniden yönlendirir. Tarama bütçesi, indeksleme ve hız denetimi ise ayrı bir <a href="../../teknik-seo/">teknik SEO</a> çalışmasının konusudur.</p>
       <h3>Üç Tık Kuralı Neyi Garanti Etmez?</h3>
       <p>Üç tık kuralı, her ürüne ana sayfadan en fazla üç adımda ulaşılmasını öngören mimari ilkedir. Kural erişilebilirliği sağlar; tek başına sıralama getirmez. Ulaşılabilir sayfanın bir de niyetle eşleşmesi ve özgün sinyal üretmesi gerekir.</p>
       <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      <h2>İçerik Katmanı Satış Sayfalarını Nasıl Güçlendirir?</h2>
-      <div class="yz-cevap"><p>Rehber ve blog içerikleri, bilgi arayan kullanıcıyı yakalayıp otoriteyi satış sayfalarına aktaran destek katmanıdır. "Hangi koşu ayakkabısı alınmalı" rehberi doğrudan satmaz. Kategoriye verdiği bağlantıyla hem ziyaretçi hem güç taşır. E-ticaret SEO hizmeti bu katmanı satış hunisinin üst adımı olarak planlar.</p></div>
-      <p>Anlam eşleşmesi bu katmanın görünmeyen motorudur. Arama motorları artık tek kelimeyi değil konu bütünlüğünü değerlendirir. Kategoriye bağlanan taban tipi rehberi, numara seçimi kılavuzu ve bakım yazısı bir bütün oluşturur. Bu bütün, mağazanın koşu ayakkabısı konusundaki uzmanlığını topluca kanıtlar. Konu haritasının kurgusunu <a href="../../seo-icerik/">içerik stratejisi</a> ekibimiz üstlenir. SEO hizmetini e-ticaret tarafında sonuca bağlayan da bu bütünlüktür. Site dışından gelen referansların etkisi ayrı bir yazının konusudur. Buradaki odak, tamamen kendi kontrolünüzdeki iç mekanizmadır.</p>
-      <h3>Anlam Eşleşmesi Nedir?</h3>
-      <p>Anlam eşleşmesi, sayfa içeriğinin arama sorgusunun ardındaki konuyla örtüşme derecesidir. Eş anlamlılar, ilgili kavramlar ve doğal sorular metne yayıldığında eşleşme güçlenir. Bu çalışma, örtüşmeyi hem kategori metinlerinde hem rehber içeriklerde bilinçli olarak kurar.</p>
-      <h2>Mağazanız İçin Profesyonel E-Ticaret SEO Desteği Alın</h2>
-      <div class="yz-cevap"><p>Mekanizmayı bilmek ile onu her gün işletmek arasındaki farkı profesyonel destek kapatır. Talep analizi, sayfa eşleştirme, sinyal üretimi ve otorite dağıtımı sürekli bakım ister. E-ticaret SEO hizmeti veren ekibimiz bu döngüyü sizin adınıza kurar, ölçer ve raporlar. Siz ürüne ve operasyona odaklanırken sıralama tarafı planlı ilerler.</p></div><figure class="yz-gor tam">
-        <div class="ciz-kutu" aria-hidden="true">
+      </div>
+        <figure class="yz-gorsel-sutun">
+          <div class="ciz-kutu" aria-hidden="true">
           <div class="ciz-cerceve">
             <div class="ciz-bar"><i></i><i></i><i></i><span>otorite ana sayfadan ürüne akar</span><b>AKIŞ</b></div>
             <div class="ciz-svg">
@@ -940,11 +973,34 @@
             <div class="ciz-alt"><div class="ciz-cip"><u>KAYNAK</u><b data-sayac="1" data-birim=" sayfa">0 sayfa</b></div><div class="ciz-cip"><u>KATEGORİ</u><b data-sayac="2" data-birim="">0</b></div><div class="ciz-cip"><u>ÜRÜN</u><b data-sayac="4" data-birim="">0</b></div></div>
           </div>
         </div>
-        <figcaption>Dış dünyadan en çok referans alan sayfa çoğu mağazada ana sayfadır. Menü o gücü kategorilere, kategori de listelediği ürünlere aktarır. Ana sayfadan üç tıkla ulaşılamayan ürün önemsiz kalır.</figcaption>
-      </figure>
-      
+          <figcaption>Dış dünyadan en çok referans alan sayfa çoğu mağazada ana sayfadır. Menü o gücü kategorilere, kategori de listelediği ürünlere aktarır. Ana sayfadan üç tıkla ulaşılamayan ürün önemsiz kalır.</figcaption>
+        </figure>
+      </section>
+      <section class="yz-bolum ikili">
+        <div class="yz-metin"><h2>İçerik Katmanı Satış Sayfalarını Nasıl Güçlendirir?</h2>
+      <div class="yz-cevap"><p>Rehber ve blog içerikleri, bilgi arayan kullanıcıyı yakalayıp otoriteyi satış sayfalarına aktaran destek katmanıdır. "Hangi koşu ayakkabısı alınmalı" rehberi doğrudan satmaz. Kategoriye verdiği bağlantıyla hem ziyaretçi hem güç taşır. E-ticaret SEO hizmeti bu katmanı satış hunisinin üst adımı olarak planlar.</p></div>
+      <p>Anlam eşleşmesi bu katmanın görünmeyen motorudur. Arama motorları artık tek kelimeyi değil konu bütünlüğünü değerlendirir. Kategoriye bağlanan taban tipi rehberi, numara seçimi kılavuzu ve bakım yazısı bir bütün oluşturur. Bu bütün, mağazanın koşu ayakkabısı konusundaki uzmanlığını topluca kanıtlar. Konu haritasının kurgusunu <a href="../../seo-icerik/">içerik stratejisi</a> ekibimiz üstlenir. SEO hizmetini e-ticaret tarafında sonuca bağlayan da bu bütünlüktür. Site dışından gelen referansların etkisi ayrı bir yazının konusudur. Buradaki odak, tamamen kendi kontrolünüzdeki iç mekanizmadır.</p>
+      <h3>Anlam Eşleşmesi Nedir?</h3>
+      <p>Anlam eşleşmesi, sayfa içeriğinin arama sorgusunun ardındaki konuyla örtüşme derecesidir. Eş anlamlılar, ilgili kavramlar ve doğal sorular metne yayıldığında eşleşme güçlenir. Bu çalışma, örtüşmeyi hem kategori metinlerinde hem rehber içeriklerde bilinçli olarak kurar.</p>
+      </div>
+        <figure class="yz-gorsel-sutun">
+          <div class="cerceveli">
+          <b class="akv-rozet"><i></i>CANLI DÖNGÜ</b>
+          <video data-dongu muted loop playsinline preload="metadata" poster="../../../assets/modul-seo/e-ticaret-seo.jpg" aria-label="Ürün ve kategori sayfası optimizasyonunun iç mekanizmasını simgeleyen birbirine geçmiş çarklı soyut 3D illüstrasyon">
+            <source src="../../../assets/modul-seo/e-ticaret-seo.mp4" type="video/mp4">
+          </video>
+        </div>
+          <figcaption>Talep analizi, sayfa eşleştirme, sinyal üretimi ve otorite dağıtımı sürekli bakım ister; hizmet bu döngüyü kurar, ölçer ve raporlar.</figcaption>
+        </figure>
+      </section>
+      <section class="yz-bolum">
+        <div class="yz-metin"><h2>Mağazanız İçin Profesyonel E-Ticaret SEO Desteği Alın</h2>
+      <div class="yz-cevap"><p>Mekanizmayı bilmek ile onu her gün işletmek arasındaki farkı profesyonel destek kapatır. Talep analizi, sayfa eşleştirme, sinyal üretimi ve otorite dağıtımı sürekli bakım ister. E-ticaret SEO hizmeti veren ekibimiz bu döngüyü sizin adınıza kurar, ölçer ve raporlar. Siz ürüne ve operasyona odaklanırken sıralama tarafı planlı ilerler.</p></div>
       <p>Çevrim içi mağazanızın mevcut yapısını inceleyip talep haritanızı çıkararak başlıyoruz. Kapsamın ayrıntılarını <a href="../../e-ticaret-seo/">e-ticaret SEO hizmeti</a> sayfamızda bulabilirsiniz. Kategori kurgusu, ürün şablonları ve içerik katmanı orada tek planda birleşir. Mağaza altyapınız yenilenecekse <a href="../../web-tasarim/">web tasarım ve yazılım</a> ekibimizle mimariyi en baştan sıralama dostu kuruyoruz. İlk görüşmede mevcut görünürlüğünüzü birlikte değerlendiriyor, önceliği en yüksek fırsatları netleştiriyoruz.</p>
-      <h2>Kategori Sayfası ile Ürün Sayfası Optimizasyonu Karşılaştırması</h2>
+      </div>
+      </section>
+      <section class="yz-bolum">
+        <div class="yz-metin"><h2>Kategori Sayfası ile Ürün Sayfası Optimizasyonu Karşılaştırması</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Boyut</th><th>Kategori Sayfası</th><th>Ürün Sayfası</th></tr></thead>
@@ -971,7 +1027,9 @@
       </div>
     </aside>
         <p>Sıralama şans değil mekanizma işidir. Talebi haritalayan, her niyete doğru sayfayı atayan ve gücü bilinçli dağıtan mağazalar öne çıkar. Hizmetin e-ticaret ayağında da mesele tek tek taktikler değil, bunları birbirine bağlayan düzendir. Bu düzeni kurmak için e-ticaret SEO hizmetimizle tanışın. Ürün ve kategori sayfalarınız aramalarda hak ettiği pozisyona yürüsün.</p>
-      </article>
+      </div>
+      </section>
+    </article>
     </div>
   </section>
 
