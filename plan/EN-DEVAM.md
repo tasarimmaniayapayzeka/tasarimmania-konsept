@@ -31,6 +31,7 @@ node plan/en-sayfa-uret.js <sayfa> --uygula
 node plan/en-ic-link.js --uygula                # iç bağlantıları İngilizceye çevir
 node plan/en-gorsel-ayir.js --uygula            # GÖRSELLERİ AYRI KOPYA + AYRI AD
 node plan/en-gorsel-desen-denetim.js            # karşılıksız blog görseli 0 olmalı
+node plan/en-blog-dizin-denetim.js              # /en/blog/ dizininde kırık 0 olmalı
 node plan/en-birim.js --uygula                  # sayaç birimi + ondalık ayırıcı
 node plan/en-hreflang.js --uygula               # karşılıklı hreflang
 node plan/en-sitemap.js 2026-09-07 --uygula     # sitemap'e ekle
@@ -64,7 +65,7 @@ Windows yoluna çevirir.
 
 ## 2. Terim sözlüğü — ZORUNLU
 
-Bu kararlar 60 sayfada uygulandı. Değiştirmeyin.
+Bu kararlar 62 sayfada uygulandı. Değiştirmeyin.
 
 ### Marka vaadi
 | Türkçe | İngilizce | Neden |
