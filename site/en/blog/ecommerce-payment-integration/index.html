@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- KONSEPT-NOINDEX -->
+<meta name="robots" content="noindex,nofollow">
+<title>E-Commerce Payment Integration: SSL, 3D Secure, Virtual POS</title>
+<meta name="description" content="How do you set up e-commerce payment integration? We walk through the SSL certificate, 3D Secure and virtual POS connection step by step, with a go-live checklist.">
+<link rel="canonical" href="https://www.tasarimmania.com/en/blog/ecommerce-payment-integration/">
+<link rel="alternate" hreflang="tr" href="https://www.tasarimmania.com/blog/odeme-guvenligi/">
+<link rel="alternate" hreflang="en" href="https://www.tasarimmania.com/en/blog/ecommerce-payment-integration/">
+<link rel="alternate" hreflang="x-default" href="https://www.tasarimmania.com/blog/odeme-guvenligi/">
+<link rel="alternate" type="application/rss+xml" title="TasarımMania Blog (RSS)" href="../../../blog/rss.xml">
+<link rel="alternate" type="application/atom+xml" title="TasarımMania Blog (Atom)" href="../../../blog/atom.xml">
+<meta name="author" content="İhsan Ar">
+<meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="theme-color" content="#0B0D12">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="E-Commerce Payment Integration: SSL, 3D Secure, Virtual POS">
+<meta property="og:description" content="How do you set up e-commerce payment integration? We walk through the SSL certificate, 3D Secure and virtual POS connection step by step, with a go-live checklist.">
+<meta property="og:url" content="https://www.tasarimmania.com/en/blog/ecommerce-payment-integration/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/en/blog/ecommerce-payment-integration/image/ecommerce-payment-integration-cover-1440.jpg">
+<meta property="og:image:width" content="1440">
+<meta property="og:image:height" content="810">
+<meta property="og:image:alt" content="Abstract 3D image with three transparent shields, representing the security layers of online payment collection">
+<meta property="article:published_time" content="2026-10-05">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/en/blog/ecommerce-payment-integration/image/ecommerce-payment-integration-cover-1440.jpg">
+<meta name="twitter:title" content="E-Commerce Payment Integration: SSL, 3D Secure, Virtual POS">
+<meta name="twitter:description" content="How do you set up e-commerce payment integration? We walk through the SSL certificate, 3D Secure and virtual POS connection step by step, with a go-live checklist.">
+<meta name="twitter:image:alt" content="Abstract 3D image with three transparent shields, representing the security layers of online payment collection">
+<link rel="icon" type="image/png" href="../../../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
+<link rel="stylesheet" href="../../../css/tm.css">
+<style>
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  max-height:calc(100dvh - 74px);overflow-y:auto;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(28px,4vw,52px)) 0 clamp(22px,3vw,34px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.14),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.wa{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:90;width:54px;height:54px;
+  border-radius:50%;background:#25D366;display:grid;place-items:center;
+  box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s;padding-block:7px}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+@media(max-width:960px){.ftr-ust{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.nav-links,.nav-tel{display:none}.burger{display:block}.ftr-ust{grid-template-columns:1fr}}
+/* --- blog yazısı: okuma düzeni --- */
+.yz-ust{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.yz-kat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acc);border:1px solid rgba(var(--acc-rgb),.4);border-radius:99px;padding:6px 13px}
+.yz-meta{font-family:var(--mono);font-size:11.4px;color:var(--muted)}
+.phd h1{font-size:clamp(28px,4.4vw,46px);letter-spacing:-.035em;line-height:1.16;margin-bottom:16px;max-width:22ch}
+.phd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18px);max-width:62ch;line-height:1.78}
+.yz-govde{max-width:760px}
+.yz-govde h2{font-size:clamp(21px,2.9vw,28px);letter-spacing:-.03em;line-height:1.25;margin:44px 0 0}
+.yz-govde h3{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;line-height:1.35;margin:30px 0 10px}
+.yz-govde h4{font-size:15.6px;letter-spacing:-.01em;margin:22px 0 8px;color:var(--fg-dim)}
+.yz-govde p{font-size:15.6px;color:var(--fg-dim);line-height:1.85;margin:0 0 16px}
+.yz-govde ul,.yz-govde ol{margin:0 0 18px;padding-left:0;list-style:none;display:grid;gap:10px}
+.yz-govde li{font-size:15.2px;color:var(--fg-dim);line-height:1.72;display:flex;gap:11px;align-items:flex-start}
+.yz-govde li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:10px}
+.yz-govde ol{counter-reset:s}
+.yz-govde ol li{counter-increment:s}
+.yz-govde ol li::before{content:counter(s);width:auto;height:auto;border-radius:0;background:none;
+  color:var(--acc);font-family:var(--mono);font-size:12px;margin-top:2px;min-width:16px}
+.yz-govde strong{color:var(--fg);font-weight:600}
+/* WCAG 2.5.8 - satir ici baglanti dokunma hedefi >=24px.
+   DIKKAT: padding'i AYRI bir .yz-govde p a kuralina koyma; .yz-govde a:not(.btn)
+   ozgullugu (0,2,1) onu (0,1,2) ezer ve 2px'te kalir. Degeri bu kuralin ICINDE tut. */
+.yz-govde a:not(.btn){color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.4);transition:text-decoration-color .25s;padding-block:4px}
+.yz-govde a:not(.btn):hover{text-decoration-color:var(--acc)}
+/* doğrudan cevap kutusu (snippet hedefi) */
+.yz-cevap{border-left:2px solid var(--acc);background:rgba(var(--acc-rgb),.05);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:16px 20px;margin:16px 0 22px}
+.yz-cevap p{margin:0;color:var(--fg);font-size:15.4px;line-height:1.75}
+/* karşılaştırma tablosu */
+.yz-tablo{margin:26px 0;border:1px solid var(--hair);border-radius:var(--r-md);overflow-x:auto}
+.yz-tablo table{width:100%;border-collapse:collapse;min-width:520px}
+.yz-tablo th{font-family:var(--mono);font-size:10.4px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--acc);text-align:left;padding:14px 16px;border-bottom:1px solid var(--hair);
+  background:rgba(var(--acc-rgb),.05);font-weight:500;white-space:nowrap}
+.yz-tablo td{font-size:13.8px;color:var(--fg-dim);padding:14px 16px;border-bottom:1px solid var(--hair);
+  line-height:1.6;vertical-align:top}
+.yz-tablo tr:last-child td{border-bottom:0}
+.yz-tablo td:first-child{color:var(--fg);font-weight:600}
+.yz-tablo-not{font-family:var(--mono);font-size:10.4px;color:var(--muted);margin:-16px 0 26px;
+  letter-spacing:.04em}
+/* SSS */
+.yz-sss{display:grid;gap:11px;max-width:760px}
+.yz-sss details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
+.yz-sss details[open]{border-color:var(--hair-strong)}
+.yz-sss summary{cursor:pointer;list-style:none;padding:17px 21px;font-size:15.2px;font-weight:600;
+  display:flex;align-items:center;gap:14px;line-height:1.4}
+.yz-sss summary::-webkit-details-marker{display:none}
+.yz-sss summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.yz-sss details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.yz-sss summary:hover{color:var(--acc)}
+.yz-sss p{padding:0 21px 19px;margin:0;font-size:14.4px;color:var(--muted);line-height:1.75}
+/* hizmet köprüsü */
+.yz-kopru{border:1px solid rgba(var(--acc-rgb),.32);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(var(--acc-rgb),.07),transparent);
+  padding:clamp(22px,3vw,32px);margin:36px 0;max-width:760px}
+.yz-kopru b{display:block;font-size:clamp(17px,2.2vw,21px);letter-spacing:-.02em;margin-bottom:9px}
+.yz-kopru p{font-size:14.6px;color:var(--fg-dim);line-height:1.72;margin:0 0 18px}
+.yz-kopru .btn{margin-right:10px}
+/* okuma ilerlemesi */
+.yz-cizgi{position:fixed;top:0;left:0;height:2px;background:var(--acc);z-index:101;width:0;
+  transition:width .1s linear}
+@media(max-width:760px){.yz-govde h2{margin-top:34px}}
+@media(prefers-reduced-motion:reduce){.yz-cizgi{display:none}}
+/* --- 1.2 eklentileri --- */
+.yz-kapak{margin:0 0 clamp(26px,4vw,44px)}
+.yz-kapak img,.yz-gorsel img{width:100%;height:auto;display:block;border-radius:14px;
+  border:1px solid var(--hair);background:#0d1017}
+.yz-kapak figcaption,.yz-gorsel figcaption{margin-top:11px;font-size:13.2px;line-height:1.55;
+  color:var(--muted);max-width:760px}
+.yz-gorsel{margin:clamp(26px,4vw,38px) 0}
+.yz-ai{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--fg-dim);opacity:.72;white-space:nowrap}
+.yz-govde ol{margin:16px 0 20px;padding-left:22px;display:grid;gap:10px}
+.yz-govde ol li{padding-left:4px}
+.yz-govde ol li::marker{color:var(--acc);font-family:var(--mono);font-weight:600}
+.yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
+  background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
+.yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+.yz-ilgili{margin:clamp(30px,4vw,44px) 0 0;padding-top:clamp(24px,3vw,32px);
+  border-top:1px solid var(--hair)}
+.yz-ilgili h2{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;margin:0 0 4px}
+.yz-ilgili .not{font-size:13.4px;color:var(--muted);margin:0 0 18px}
+.yz-ilgili ul{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  list-style:none;padding:0;margin:0}
+.yz-ilgili li{margin:0}
+.yz-ilgili a{display:flex;flex-direction:column;gap:5px;height:100%;
+  border:1px solid var(--hair);border-radius:var(--r-md);padding:14px 16px;
+  text-decoration:none;transition:border-color .25s,transform .25s;background:rgba(255,255,255,.012)}
+.yz-ilgili a:hover{border-color:rgba(var(--k,0,229,255),.5);transform:translateY(-2px)}
+.yz-ilgili .kat{font-family:var(--mono);font-size:9.4px;letter-spacing:.14em;
+  text-transform:uppercase;color:rgb(var(--k,0,229,255))}
+.yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
+@media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.tasarimmania.com/en/blog/ecommerce-payment-integration/#article",
+      "headline": "How Do You Set Up E-Commerce Payment Integration, Step by Step?",
+      "description": "How do you set up e-commerce payment integration? We walk through the SSL certificate, 3D Secure and virtual POS connection step by step, with a go-live checklist.",
+      "datePublished": "2026-10-05",
+      "dateModified": "2026-10-05",
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://www.tasarimmania.com/en/blog/ecommerce-payment-integration/",
+      "author": {
+        "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar"
+      },
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      },
+      "articleSection": "E-Commerce",
+      "wordCount": 1175,
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/odeme-guvenligi/gorsel/odeme-guvenligi-kapak-1440.jpg",
+        "width": 1440,
+        "height": 810,
+        "caption": "Abstract 3D image with three transparent shields, representing the security layers of online payment collection"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "3D Secure",
+          "description": "3D Secure is the additional security layer that verifies the cardholder through their bank during an online card transaction."
+        },
+        {
+          "@type": "Thing",
+          "name": "Virtual POS",
+          "description": "A virtual POS is the virtual terminal that lets a business take online card payments through a bank or payment institution."
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "Thing",
+          "name": "SSL certificate"
+        },
+        {
+          "@type": "Thing",
+          "name": "3D Secure"
+        },
+        {
+          "@type": "Thing",
+          "name": "Virtual POS"
+        },
+        {
+          "@type": "Thing",
+          "name": "Payment gateway"
+        },
+        {
+          "@type": "Thing",
+          "name": "Webhook verification"
+        },
+        {
+          "@type": "Thing",
+          "name": "PCI DSS"
+        },
+        {
+          "@type": "Thing",
+          "name": "Reconciliation report"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".ozet",
+          ".yz-cevap"
+        ]
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.tasarimmania.com/#kurulus",
+      "name": "TasarımMania",
+      "url": "https://www.tasarimmania.com/",
+      "telephone": "+905547916545",
+      "sameAs": [
+        "https://www.instagram.com/tasarimmaniaa/",
+        "https://www.facebook.com/tasarimmania/"
+      ],
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/logo/marka-yatay-optik.png",
+        "width": 435,
+        "height": 163
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+        "addressLocality": "Bakırköy",
+        "addressRegion": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "knowsAbout": [
+        "Web design and software development",
+        "Mobile app development",
+        "Digital marketing and performance advertising",
+        "Video production and commercial films",
+        "Search engine optimization",
+        "Graphic design and brand identity",
+        "E-commerce store setup",
+        "Social media management"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.tasarimmania.com/en/blog/ecommerce-payment-integration/#sss",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I apply for a virtual POS without an SSL certificate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Providers want a domain that is already live over HTTPS in the application file."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a payment integration take to set up?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If the paperwork is complete, approval of the application takes a few working days. On a shop running on an off-the-shelf platform, the technical connection usually fits into a week. If custom development is needed, it takes longer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it possible for me to switch 3D Secure off?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On consumer cards, not in practice. Providers may grant non-secure permission in a limited set of scenarios. In that case the shop carries the cost of any fraud claim, which is why we take that decision together with the business model."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I choose a bank virtual POS or a payment institution?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you work at high volume with a single bank, a direct bank connection makes sense. If you want to show instalment campaigns from several banks, a payment institution offering a single API shortens the setup."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does selling in instalments need an extra integration?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No extra connection is needed; the instalment table comes back from the same service. What you do need is to show that table in the order summary and price in the commission difference."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I store card details in my own database?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We advise against it. Holding card data on your server brings you into PCI DSS scope; it creates obligations for audit, network segmentation and penetration testing. At SME scale, that cost is rarely worth carrying. If you need recurring payments, use tokenization: the provider stores the card on its own side and returns you nothing but a key that can be used to make a transaction. That way the card number never enters your system at all, and your area of responsibility narrows if there is ever a breach. On new builds we choose this route by default."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is going live without a test environment risky?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Without test keys you cannot try refund, cancellation and error scenarios. An error that surfaces on the first real order costs you both the money and the customer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the same integration work in a mobile app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The same virtual POS definition is used; the flow differs. Inside the app you need to open the 3D verification screen in a secure browser component. Update the order status through the webhook, as before."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.tasarimmania.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.tasarimmania.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How Do You Set Up E-Commerce Payment Integration, Step by Step?",
+          "item": "https://www.tasarimmania.com/en/blog/ecommerce-payment-integration/"
+        }
+      ],
+      "@id": "https://www.tasarimmania.com/en/blog/ecommerce-payment-integration/#kirintili"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.tasarimmania.com/#site",
+      "url": "https://www.tasarimmania.com/",
+      "name": "TasarımMania",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.tasarimmania.com/en/blog/ecommerce-payment-integration/#sayfa",
+      "url": "https://www.tasarimmania.com/en/blog/ecommerce-payment-integration/",
+      "name": "E-Commerce Payment Integration: SSL, 3D Secure, Virtual POS",
+      "description": "How do you set up e-commerce payment integration? We walk through the SSL certificate, 3D Secure and virtual POS connection step by step, with a go-live checklist.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.tasarimmania.com/#site"
+      },
+      "breadcrumb": {
+        "@id": "https://www.tasarimmania.com/en/blog/ecommerce-payment-integration/#kirintili"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/odeme-guvenligi/gorsel/odeme-guvenligi-kapak-1440.jpg"
+      },
+      "mainEntity": {
+        "@id": "https://www.tasarimmania.com/en/blog/ecommerce-payment-integration/#article"
+      },
+      "dateModified": "2026-10-05"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar",
+      "name": "İhsan Ar",
+      "jobTitle": "Digital Marketing Specialist",
+      "url": "https://www.tasarimmania.com/hakkimizda/#kurucu",
+      "sameAs": [
+        "https://www.linkedin.com/in/ihsan-ar-47254548/",
+        "https://www.instagram.com/ihsanar86/"
+      ],
+      "worksFor": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body data-dal="web">
+
+<i class="yz-cizgi" data-ilerleme aria-hidden="true"></i>
+<a class="skip" href="#ana">Skip to content</a>
+
+<nav class="nav" data-nav aria-label="Main menu">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../../" aria-label="TasarımMania home">
+      <img src="../../../../assets/en/brand/tasarimmania-logo-horizontal.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async" fetchpriority="high">
+    </a>
+    <div class="nav-links">
+      <a href="../../services/">Services</a>
+      <a href="../../#isler">Work</a>
+      <a href="../../about/">Agency</a>
+      <a href="../" aria-current="page">Blog</a>
+      <a href="../../#surec">Process</a>
+      <a href="../../get-a-quote/">Get a Quote</a>
+      <a href="../../contact/">Contact</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../../services/">Services</a><a href="../../#isler">Work</a><a href="../../about/">Agency</a>
+  <a href="../">Blog</a><a href="../../#surec">Process</a><a href="../../get-a-quote/">Get a Quote</a><a href="../../contact/">Contact</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<!-- AYIRT EDİCİ EKSEN: ARAÇ — SSL, 3D Secure ve sanal POS entegrasyon araçlarının kurulumu; kullanıcı yolculuğu rotası ve tasarım maliyeti kardeş yazıların ekseni, altyapı seçim ölçütleri e-ticaret-yazilimi'nde.
+     Huni türü: BOFU · Küme: E-Commerce Deneyimi · Kardeşler (enjeksiyon turunda): e-ticaret-urun-fotograflari, e-ticaret-yazilimi, e-ticaret-web-tasarimi -->
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Location">
+        <a href="../../">Home</a><span aria-hidden="true">/</span>
+        <a href="../">Blog</a><span aria-hidden="true">/</span>
+        <span aria-current="page">How Do You Set Up E-Commerce Payment Integration, Step by Step?</span>
+      </nav>
+      <div class="yz-ust">
+        <span class="yz-kat">E-Commerce</span>
+        <span class="yz-meta">5 October 2026 · 7 min read</span>
+      </div>
+      <h1>How Do You Set Up E-Commerce Payment Integration, Step by Step?</h1>
+      <p class="ozet">The most fragile moment in online selling is the second the customer types in their card number. If the browser shows a warning, the basket closes. In this article we take on the three tools e-commerce payment integration requires: the SSL certificate, 3D Secure and the virtual POS connection. We set out the order of installation, the verification tests and the configuration mistakes we run into most often. Our aim is simple: know where to start the setup.</p>
+    </div>
+  </header>
+
+  <figure class="yz-kapak">
+    <div class="wrap">
+      <img src="./image/ecommerce-payment-integration-cover-1440.webp"
+           srcset="./image/ecommerce-payment-integration-cover-640.webp 640w, ./image/ecommerce-payment-integration-cover-960.webp 960w, ./image/ecommerce-payment-integration-cover-1440.webp 1440w, ./image/ecommerce-payment-integration-cover-1920.webp 1920w"
+           sizes="(max-width: 1200px) 100vw, 1160px"
+           alt="Abstract 3D image with three transparent shields, representing the security layers of online payment collection"
+           width="1920" height="1080" fetchpriority="high" decoding="async">
+      <figcaption>Encryption, authentication and collection: the three layers that guard the till. <span class="yz-ai">Image generated with AI.</span></figcaption>
+    </div>
+  </figure>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <article class="yz-govde">
+      <h2>What Exactly Does E-Commerce Payment Integration Cover?</h2>
+      <div class="yz-cevap"><p>E-commerce payment integration is the technical connection that carries card data between the shop software and the bank, built with the SSL, 3D Secure and virtual POS tools. There are three layers: transport security, authentication and collection. Each layer has its own tool and its own test method. If one layer is missing, the bank treats the transaction as risky.</p></div>
+      <p>Separating the layers in e-commerce payment integration separates responsibility too. The SSL certificate sits on your server. 3D Secure runs at the cardholder's bank. The virtual POS definition is opened by the bank or payment institution you have an agreement with. When something goes wrong, that separation tells you which door to knock on. So where should testing start? On all three the same day: the layers of an e-commerce payment integration only give a reliable answer when they are tried together. <a href="../../ecommerce-website/">In our e-commerce development service</a> we bring these three layers together in a single setup plan.</p>
+      <h3>Where do the virtual POS, the payment gateway and the bank come in?</h3>
+      <p>The virtual POS is the virtual card terminal the bank allocates to your business. The payment gateway is the software bridge that carries messages between the shop and that terminal. The customer enters their card, the bridge passes the request to the bank, and the bank returns an authorization response. In the integration, the collection line that connects the e-commerce shop to the bank has to run without a break across all three stops; if a single link goes, the transaction fails.</p>
+      <h2>How Is an SSL Certificate Installed Correctly?</h2>
+      <div class="yz-cevap"><p>A correct installation is three pieces of work: domain verification, loading the certificate chain in full, and redirecting all HTTP traffic to HTTPS. An SSL certificate is the digital identity that encrypts traffic between the browser and the server. If you don't set up the redirect, the payment page throws a mixed content warning. A customer who sees that warning does not type in their card details.</p></div>
+      <p>The job isn't finished once the certificate is installed. If an intermediate certificate is missing from the chain, a desktop browser will not show the problem while older Android devices throw an error. That is why we check the installation with an external testing tool and on a real handset, separately. We add the HSTS header too, so the browser only ever connects to the site with TLS encryption. The scale of online trade in Türkiye is growing fast: <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">the ETBİS 2025 report</a> — ETBİS is Türkiye's central e-commerce information system — puts the number of businesses trading online at 634,611. At that scale, e-commerce payment integration is not an optional extra.</p>
+      <h3>What is the difference between DV, OV and EV certificates?</h3>
+      <p>A DV certificate verifies domain ownership only and is issued within minutes. An OV certificate also checks the company registration. An EV certificate calls for the most detailed examination of all. The strength of the encryption is identical in all three; what differs is how thoroughly the identity is vetted. We recommend OV for corporate shops, because the details of the legal entity appear inside the certificate.</p>
+      <h2>Why Is 3D Secure Integration Indispensable?</h2>
+      <div class="yz-cevap"><p>In Türkiye, banks treat 3D Secure as effectively compulsory for online sales made with consumer cards. 3D Secure is the secure authentication layer that verifies the cardholder through their bank. If verification succeeds, liability for a fraud claim passes to the bank. The step most often skipped during setup is recalculating the signature on the verification response server-side.</p></div>
+      <p>The flow works like this: the customer enters their card details, the payment bridge redirects the request to the bank, and the bank asks for a one-time code or an in-app approval. The approval comes back to the shop as a signed message. If you confirm the order without verifying that message, you have left a door open. Have the signature checked by the server, not the browser. In the payment flow, that single rule cuts off fake approvals at source. <a href="../../custom-software-development/">On the custom software side</a> we gather that check into a single verification service.</p>
+      <h3>Why does the 3DS 2.0 flow put less strain on the customer?</h3>
+      <p>3DS 2.0 carries device and behavioural data to the bank during the transaction. If the bank judges the risk to be low, it asks the customer for no code at all; the transaction goes through quietly. We call that the frictionless flow. On attempts it finds risky, the verification screen appears as before. The result is clear: basket abandonment falls without security falling with it.</p>
+      <h4>In what situation is a non-secure transaction enabled?</h4>
+      <p>Non-secure is the transaction type taken without asking the cardholder to verify. On foreign cards or subscription renewals, some providers may grant limited permission. Responsibility stays entirely with the shop. Before opening that door, we assess your chargeback risk and your business model together.</p>
+      <h2>From the Virtual POS Application to the Live Environment</h2>
+      <div class="yz-cevap"><p>The process runs in two stages: approval of the paperwork and handover of the technical keys. A virtual POS application is a commercial contracting process signed with a bank or payment institution. The provider asks for the tax registration certificate, the signature circular, the site address and the distance selling agreement. It hands over the live key only after reviewing the content of the site.</p></div>
+      <p>The content of the site matters as much as the document file. If the distance selling agreement, the cancellation and returns conditions, the delivery time and the contact details are not visible on the page, the file comes back. On the technical side of the integration, the only difference between your e-commerce site's test environment and its live environment should be the key. Same code, same flow, different key. Making the key the only difference puts an end to go-live surprises.</p>
+      <h3>Which card scenarios do we try in the test environment?</h3>
+      <p>A successful charge, insufficient funds, an incorrect CVV, a cancelled 3D verification and a timeout. We try all five scenarios separately for every bank. If there is instalment selling, we check that the instalment table matches the order summary exactly. We don't skip the partial refund test; the most frequent complaint on the accounting side comes from there.</p>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
+      <h2>Which Tests Should You Run After the Integration?</h2>
+      <div class="yz-cevap"><p>Once you are live, three checks are essential: a low-value order on a real card, the refund flow, and the order notifications. Those three catch the silent faults, such as the payment appearing to succeed while no order is created. We repeat the tests daily through the first week. We log every error that comes up with a screenshot. That record speeds up the correspondence with the bank.</p></div>
+      <p>The silent fault is the most expensive failure in an e-commerce payment integration. The customer pays, the order doesn't appear in the list, and the call centre hears about it the next day. That is why we match the payment record against the order record in two separate places. A daily reconciliation report shows the transactions that don't line up at a glance. A well-built e-commerce payment integration tells you about the fault before the customer does. <a href="../../ecommerce-seo/">On the e-commerce SEO side</a> too, we count drop-offs at the payment step as lost conversion.</p>
+      <h3>Why are webhook and callback verification critical?</h3>
+      <p>The callback is the payment result coming back through the customer's browser. The webhook is the notification the provider sends straight to your server. If the customer closes the page early the callback is lost, while the webhook still arrives. That is why we tie order status to the webhook. We compare the signature and the amount of every incoming notification against the order record.</p>
+      <h2>Secure Payment Integration: A 7-Step Setup List</h2>
+      <div class="yz-cevap"><p>The order is this: SSL, legal pages, virtual POS application, test scenarios, 3D Secure signature verification, webhook connection, live transaction. When that order breaks down, the setup gets expensive. You can use the seven steps below as a checklist. Each step ends in a concrete output. You'll see the step you've missed as plainly as reading a table.</p></div>
+      <p>We drew the list from our own installations in the field.</p><ol><li>Install an SSL certificate on the domain and redirect all traffic to HTTPS.</li><li>Publish your distance selling, returns and privacy pages.</li><li>Submit your virtual POS application to a bank or payment institution.</li><li>Try the five card scenarios with the test keys.</li><li>Verify the signature on the 3D Secure response server-side.</li><li>Tie order status to the webhook notification.</li><li>Make a low-value real transaction with the live key, then refund it.</li></ol><p>If you have completed the seven steps, your e-commerce payment integration is ready to go live. If you'd like to run the setup with us, get in touch through the <a href="../../get-a-quote/">quote form</a> and we'll review your existing infrastructure and draw up a step list to fit your business.</p>
+      <h3>Which indicators do we watch in the first 30 days?</h3>
+      <p>Success rate per attempt, 3D verification completion rate, number of refunds and the reconciliation difference. We track those four indicators in a weekly table. If the success rate drops noticeably, we look first at a rule change on the bank's side. Then we open up the device breakdown; the problem usually clusters in a single family of devices.</p>
+      <figure class="yz-gorsel">
+        <img src="./image/ecommerce-payment-integration-body-960.webp"
+             srcset="./image/ecommerce-payment-integration-body-640.webp 640w, ./image/ecommerce-payment-integration-body-960.webp 960w, ./image/ecommerce-payment-integration-body-1440.webp 1440w, ./image/ecommerce-payment-integration-body-1920.webp 1920w"
+             sizes="(max-width: 760px) 100vw, 760px"
+             alt="Abstract 3D image with a beam of light passing through a keyhole, representing encrypted data transfer" width="1920" height="1080" loading="lazy" decoding="async">
+        <figcaption>Verifying the signed response message server-side closes the open door. <span class="yz-ai">Image generated with AI.</span></figcaption>
+      </figure>
+      <h2>Payment Integration Methods Compared</h2>
+      <div class="yz-tablo">
+        <table>
+          <thead><tr><th>Method</th><th>Setup burden</th><th>3D Secure</th><th>Card data</th><th>Suitable scenario</th></tr></thead>
+          <tbody>
+            <tr><td>Bank virtual POS</td><td>High</td><td>Managed by the shop</td><td>Passes through your server</td><td>High volume with a single bank</td></tr>
+            <tr><td>Payment institution</td><td>Medium</td><td>Managed by the provider</td><td>With the provider</td><td>Multi-bank instalments</td></tr>
+            <tr><td>Hosted payment page</td><td>Low</td><td>With the provider</td><td>Never touches it</td><td>A shop with no technical team</td></tr>
+            <tr><td>Wallet button</td><td>Low</td><td>In the wallet</td><td>In the wallet</td><td>Recurring mobile sales</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+        <aside class="yz-kopru" aria-label="Service bridge">
+          <b>Secure Payment Integration: A 7-Step Setup List</b>
+          <p>Let's work out the road map that suits your scope together; let's settle the steps and the timing.</p>
+          <a class="btn btn-p" href="../../get-a-quote/#web">Let's map the scope
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="../../ecommerce-website/">See the service page</a>
+        </aside>
+        <p>The payment step is your shop's till. We secure that till with three tools: SSL, 3D Secure and a correctly configured virtual POS. An e-commerce payment integration that puts the setup in order, brings discipline to the testing and automates the reconciliation lowers both basket abandonment and the operational load. Before you begin, let's go over your existing infrastructure together.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec ilgili-bolum" style="padding-top:0">
+    <div class="wrap">
+      <nav class="yz-ilgili rv" aria-labelledby="ilgili-baslik">
+        <h2 id="ilgili-baslik">Related guides</h2>
+        <p class="not">Other headings from the E-Commerce Experience cluster that round this piece out.</p>
+        <ul>
+          <li><a href="../../../blog/e-ticaret-urun-fotograflari/" style="--k:0,229,255"><span class="kat">E-Commerce</span><span class="bas">Do E-Commerce Product Images Really Affect Sales?</span></a></li>
+          <li><a href="../../../blog/e-ticaret-yazilimi/" style="--k:0,229,255"><span class="kat">E-Commerce</span><span class="bas">Choosing E-Commerce Software: Which Platform Suits Which Business?</span></a></li>
+          <li><a href="../../../blog/e-ticaret-web-tasarimi/" style="--k:0,229,255"><span class="kat">Web Design</span><span class="bas">E-Commerce Website Design: Ready-Made Theme or Custom Design?</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>FAQs</span>
+        <h2 data-kin>Frequently asked questions: e-commerce payment integration</h2>
+      </div>
+      <div class="yz-sss rv d1">
+        <details>
+          <summary>Can I apply for a virtual POS without an SSL certificate?</summary>
+          <p>No. Providers want a domain that is already live over HTTPS in the application file.</p>
+        </details>
+        <details>
+          <summary>How long does a payment integration take to set up?</summary>
+          <p>If the paperwork is complete, approval of the application takes a few working days. On a shop running on an off-the-shelf platform, the technical connection usually fits into a week. If custom development is needed, it takes longer.</p>
+        </details>
+        <details>
+          <summary>Is it possible for me to switch 3D Secure off?</summary>
+          <p>On consumer cards, not in practice. Providers may grant non-secure permission in a limited set of scenarios. In that case the shop carries the cost of any fraud claim, which is why we take that decision together with the business model.</p>
+        </details>
+        <details>
+          <summary>Should I choose a bank virtual POS or a payment institution?</summary>
+          <p>If you work at high volume with a single bank, a direct bank connection makes sense. If you want to show instalment campaigns from several banks, a payment institution offering a single API shortens the setup.</p>
+        </details>
+        <details>
+          <summary>Does selling in instalments need an extra integration?</summary>
+          <p>No extra connection is needed; the instalment table comes back from the same service. What you do need is to show that table in the order summary and price in the commission difference.</p>
+        </details>
+        <details>
+          <summary>Can I store card details in my own database?</summary>
+          <p>We advise against it. Holding card data on your server brings you into PCI DSS scope; it creates obligations for audit, network segmentation and penetration testing. At SME scale, that cost is rarely worth carrying. If you need recurring payments, use tokenization: the provider stores the card on its own side and returns you nothing but a key that can be used to make a transaction. That way the card number never enters your system at all, and your area of responsibility narrows if there is ever a breach. On new builds we choose this route by default.</p>
+        </details>
+        <details>
+          <summary>Is going live without a test environment risky?</summary>
+          <p>Yes. Without test keys you cannot try refund, cancellation and error scenarios. An error that surfaces on the first real order costs you both the money and the customer.</p>
+        </details>
+        <details>
+          <summary>Does the same integration work in a mobile app?</summary>
+          <p>The same virtual POS definition is used; the flow differs. Inside the app you need to open the 3D verification screen in a secure browser component. Update the order status through the webhook, as before.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../../../assets/en/brand/tasarimmania-logo-horizontal.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>An Istanbul-based 360° digital agency bringing web, mobile, advertising, video and SEO together under one roof.</p>
+      </div>
+      <div>
+        <h3>Modules</h3>
+        <ul>
+          <li><a href="../../services/">All services</a></li>
+          <li><a href="../../web-design/">Web &amp; Software</a></li>
+          <li><a href="../../mobile-app-development/">Mobile Apps</a></li>
+          <li><a href="../../digital-marketing/">Digital Marketing</a></li>
+          <li><a href="../../video-production/">Video Production</a></li>
+          <li><a href="../../seo/">SEO Services</a></li>
+          <li><a href="../../graphic-design/">Graphic Design</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../../contact/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../../contact/#ofis">Weekdays 09:00–19:00<br>Saturdays 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. All rights reserved.</span>
+      <span class="mono">FIVE MODULES · ONE PLACE</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../../../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+<script>
+"use strict";
+(function(){
+  var c = document.querySelector('[data-ilerleme]');
+  if (!c || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  function ciz(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    c.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', ciz, { passive: true });
+  ciz();
+})();
+</script>
