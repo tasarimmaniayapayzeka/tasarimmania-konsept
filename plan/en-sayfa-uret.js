@@ -129,10 +129,11 @@ if (cevirisiz.length) {
     if (n < s[0]) uyari.push(`${String(k.no).padStart(3)}. ${k.baglam}: ${n} karakter — KISA (alt sınır ${s[0]})`);
     if (n > s[1]) uyari.push(`${String(k.no).padStart(3)}. ${k.baglam}: ${n} karakter — UZUN (üst sınır ${s[1]})`);
   }
-  if (uyari.length) {
-    console.log(`\n  ⚠ META UZUNLUK — denetim bunları P3 yazacak (${uyari.length}):`);
-    uyari.forEach((u) => console.log(`     ${u}`));
-  }
+  /* ⚠ RAPORUN SONUNDA basılır, burada değil. Başta basılınca `tail` ile
+   * bakan gözden kaçırıyor — ölçüldü: /blog/e-ticaret-seo/ description
+   * 166 karakterdi, kilit yakaladı ama çıktının başında kaldığı için
+   * görülmedi ve sayfa iki kez üretildi. */
+  global.__metaUyari = uyari;
 }
 
 /* ═══ 1b. ÇAKIŞMA KİLİDİ ═══
@@ -481,6 +482,11 @@ if (kalan.size) [...kalan.entries()].slice(0, 12)
   .forEach(([t, n]) => console.log(`     ✗ ${n}× "${t.slice(0, 70)}"`));
 if (esnekEslesen) console.log(`\n  boşluk-esnek eşleşen  : ${esnekEslesen} (çok satırlı dizge)`);
 if (kacisliEslesen) console.log(`  JSON kaçışlı eşleşen  : ${kacisliEslesen} (şemadaki tırnak kaçışlı kopya)`);
+if (global.__metaUyari && global.__metaUyari.length) {
+  console.log(`
+  ⚠ META UZUNLUK — denetim bunları P3 yazacak (${global.__metaUyari.length}):`);
+  global.__metaUyari.forEach((u) => console.log(`     ${u}`));
+}
 
 if (UYGULA) {
   fs.mkdirSync(yeniDizin, { recursive: true });
