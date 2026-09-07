@@ -131,21 +131,59 @@ const istHtml = ICERIK.hero?.istatistik?.length
   : '';
 if (!ICERIK.hero?.istatistik?.length) rapor.push('⚠ istatistik şeridi KONMADI — yazıda dayanağı olan rakam yok, uydurulmadı');
 
-const heroHtml = `
-  <section class="sec bl" style="padding-top:0">
-    <div class="wrap">
+/* ⚠ HERO GÖVDENİN ÜSTÜNE EKLENMİYOR, MEVCUT BAŞLIK ALANININ YERİNE
+ *   GEÇİYOR. İlk sürüm hero'yu kapak fotoğrafının ARDINA koyuyordu; sayfa
+ *   açıldığında hâlâ eski düzen görünüyordu (kırıntı → küçük rozet → düz
+ *   beyaz h1 → paragraf → dev kapak fotoğrafı) ve referansa hiç
+ *   benzemiyordu. Kullanıcı ekran görüntüsüyle bunu gösterdi.
+ *   Şimdi <header class="phd"> İÇERİĞİ yeniden kuruluyor ve kapak
+ *   fotoğrafı KALDIRILIYOR — referansta fotoğraf değil arayüz maketi var.
+ *   Kırıntı (breadcrumb) korunuyor: BreadcrumbList şeması ona dayanıyor. */
+function heroKur(html) {
+  const hm = html.match(/(<header class="phd">[\s\S]*?<div class="wrap">)([\s\S]*?)(<\/div>\s*<\/header>)/);
+  if (!hm) { rapor.push('⚠ .phd başlık alanı bulunamadı — HERO KURULMADI'); return html; }
+  const eski = hm[2];
+  const crumb = (eski.match(/<nav class="crumb"[\s\S]*?<\/nav>/) || [''])[0];
+  const kat = (eski.match(/<span class="yz-kat">([\s\S]*?)<\/span>/) || ['', ''])[1];
+  const meta = (eski.match(/<span class="yz-meta">([\s\S]*?)<\/span>/) || ['', ''])[1];
+  const h1 = (eski.match(/<h1>([\s\S]*?)<\/h1>/) || ['', ''])[1];
+  const ozet = (eski.match(/<p class="ozet">([\s\S]*?)<\/p>/) || ['', ''])[1];
+
+  /* h1'in vurgulanacak parçası */
+  const v = ICERIK.hero.h1Vurgu;
+  const h1Html = v && h1.includes(v) ? h1.replace(v, `<em>${v}</em>`) : h1;
+  if (v && !h1.includes(v)) rapor.push(`⚠ h1 vurgu parçası başlıkta yok: "${v}"`);
+
+  const yeni = `
+      ${crumb}
       <div class="bl-hero">
         <div class="bl-hero-metin">
-          ${istHtml}
+          <div class="bl-rozet-satir">
+            <span class="bl-rozet">${ICERIK.hero.rozet || kat}</span>
+            <span class="bl-vaat">${ICERIK.hero.vaat}</span>
+          </div>
+          <h1>${h1Html}</h1>
+          <p class="ozet">${ozet}</p>
           <div class="bl-hero-btn">
             <a class="btn btn-p" href="../../teklif/">${ICERIK.hero.birincilDugme} <span aria-hidden="true">→</span></a>
             <a class="btn btn-g" href="../../e-ticaret-seo/">${ICERIK.hero.ikincilDugme}</a>
           </div>
+          ${istHtml}
+          <p class="yz-meta bl-meta">${meta}</p>
         </div>
         ${heroMaket ? `<figure class="bl-maket bl-hero-maket">${heroMaket}${ICERIK.hero.maket.aciklama ? `<figcaption>${ICERIK.hero.maket.aciklama}</figcaption>` : ''}</figure>` : ''}
       </div>
-    </div>
-  </section>`;
+    `;
+  rapor.push('hero: .phd başlık alanı referans düzenine göre YENİDEN KURULDU (rozet+vaat, vurgulu h1, iki düğme, istatistik, tarayıcı maketi)');
+  let y = html.replace(hm[0], hm[1].replace('class="phd"', 'class="phd bl"') + yeni + hm[3]);
+
+  /* kapak fotoğrafını kaldır — referansta fotoğraf yok, maket var */
+  const kapakM = y.match(/\s*<figure class="yz-kapak">[\s\S]*?<\/figure>/);
+  if (kapakM) { y = y.replace(kapakM[0], ''); rapor.push('kapak fotoğrafı kaldırıldı (yerini hero maketi aldı; og:image ve Article.image dosyaya işaret etmeye devam ediyor)'); }
+  else rapor.push('⚠ kapak figürü bulunamadı');
+  return y;
+}
+const heroHtml = '';
 
 /* ── gövdeyi değiştir ── */
 const yeniGovde = `
@@ -154,18 +192,44 @@ ${kartlar.join('\n')}
       </div>`;
 h = h.replace(gm[0], gm[1] + yeniGovde + '\n    ' + gm[3]);
 
-/* hero'yu kapak figürünün ardına koy */
-const kapak = h.match(/<figure class="yz-kapak">[\s\S]*?<\/figure>/);
-if (kapak) h = h.replace(kapak[0], kapak[0] + '\n' + heroHtml);
-else { h = h.replace('<section class="sec"', heroHtml + '\n  <section class="sec"'); rapor.push('⚠ kapak figürü yok — hero <section> öncesine kondu'); }
+/* hero: başlık alanının YERİNE geçer, kapak fotoğrafını kaldırır */
+h = heroKur(h);
+
+/* menüye yeşil birincil düğme — referansta logonun sağında duruyor */
+if (!h.includes('nav-cta')) {
+  const oncesi = h;
+  h = h.replace(/(\s*)<a class="nav-tel"/, `$1<a class="nav-cta" href="../../teklif/">${ICERIK.hero.menuDugme || 'Ücretsiz Analiz Al'}</a>$1<a class="nav-tel"`);
+  rapor.push(h === oncesi ? '⚠ menü düğmesi eklenemedi (.nav-tel çapası yok)' : 'menü: yeşil birincil düğme eklendi');
+}
 
 /* ── hero CSS ── */
 const HERO_CSS = `
-/* --- v2 hero: metin + tarayıcı maketi --- */
-.bl-hero{display:grid;gap:clamp(24px,3.4vw,44px)}
-@media(min-width:1000px){.bl-hero{grid-template-columns:minmax(0,1fr) minmax(0,560px);align-items:center}}
-.bl-hero-btn{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0 0}
+/* --- v2 hero: rozet+vaat, vurgulu h1, iki düğme, istatistik, maket --- */
+.phd.bl{padding-bottom:clamp(30px,4vw,52px)}
+.bl-hero{display:grid;gap:clamp(26px,3.4vw,48px);margin-top:22px}
+@media(min-width:1040px){.bl-hero{grid-template-columns:minmax(0,1fr) minmax(0,540px);align-items:center}}
+.bl-hero-metin{min-width:0}
+.bl-rozet-satir{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin-bottom:18px}
+.bl-rozet{display:inline-flex;align-items:center;height:32px;padding:0 16px;border-radius:99px;
+  border:1px solid rgba(var(--acc-rgb),.5);background:rgba(var(--acc-rgb),.08);
+  color:var(--acc);font-size:13px;font-weight:600;letter-spacing:-.01em}
+.bl-vaat{font-size:14.4px;color:var(--fg-dim);letter-spacing:-.01em}
+.phd.bl h1{font-size:clamp(30px,4.6vw,52px);letter-spacing:-.045em;line-height:1.1;
+  margin:0 0 20px;max-width:17ch}
+.phd.bl h1 em{font-style:normal;color:var(--acc)}
+.phd.bl .ozet{font-size:clamp(15px,1.8vw,17.4px);color:var(--fg-dim);line-height:1.76;max-width:56ch;margin:0}
+.bl-hero-btn{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 0}
+.bl-hero-btn .btn{height:52px;padding:0 26px;font-size:15px;border-radius:12px}
+.bl-meta{font-family:var(--mono);font-size:11.6px;color:var(--muted);margin:22px 0 0}
 .bl-hero-maket{margin:0}
+/* menüdeki birincil düğme — referansta yeşil dolu pill */
+.nav-cta{display:none}
+@media(min-width:761px){
+  .nav-cta{display:inline-flex;align-items:center;height:40px;padding:0 20px;border-radius:11px;
+    background:var(--acc);color:#06090D;font-size:13.6px;font-weight:600;letter-spacing:-.01em;
+    box-shadow:0 10px 26px -12px rgba(var(--acc-rgb),.8);transition:.25s var(--ease)}
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 16px 34px -12px rgba(var(--acc-rgb),.95)}
+}
 /* Okuma ölçüsü kartın İÇİNDE sınırlanıyor: tek sütunlu kartlarda metin
    66ch'i (≈ 62 karakter) aşmaz; iki sütunlularda zaten ızgara sınırlıyor. */
 .bl-kart .bl-metin{min-width:0}

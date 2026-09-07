@@ -460,11 +460,32 @@
   .mk-ok{animation:none;opacity:1}
 }
 
-/* --- v2 hero: metin + tarayıcı maketi --- */
-.bl-hero{display:grid;gap:clamp(24px,3.4vw,44px)}
-@media(min-width:1000px){.bl-hero{grid-template-columns:minmax(0,1fr) minmax(0,560px);align-items:center}}
-.bl-hero-btn{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0 0}
+/* --- v2 hero: rozet+vaat, vurgulu h1, iki düğme, istatistik, maket --- */
+.phd.bl{padding-bottom:clamp(30px,4vw,52px)}
+.bl-hero{display:grid;gap:clamp(26px,3.4vw,48px);margin-top:22px}
+@media(min-width:1040px){.bl-hero{grid-template-columns:minmax(0,1fr) minmax(0,540px);align-items:center}}
+.bl-hero-metin{min-width:0}
+.bl-rozet-satir{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin-bottom:18px}
+.bl-rozet{display:inline-flex;align-items:center;height:32px;padding:0 16px;border-radius:99px;
+  border:1px solid rgba(var(--acc-rgb),.5);background:rgba(var(--acc-rgb),.08);
+  color:var(--acc);font-size:13px;font-weight:600;letter-spacing:-.01em}
+.bl-vaat{font-size:14.4px;color:var(--fg-dim);letter-spacing:-.01em}
+.phd.bl h1{font-size:clamp(30px,4.6vw,52px);letter-spacing:-.045em;line-height:1.1;
+  margin:0 0 20px;max-width:17ch}
+.phd.bl h1 em{font-style:normal;color:var(--acc)}
+.phd.bl .ozet{font-size:clamp(15px,1.8vw,17.4px);color:var(--fg-dim);line-height:1.76;max-width:56ch;margin:0}
+.bl-hero-btn{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 0}
+.bl-hero-btn .btn{height:52px;padding:0 26px;font-size:15px;border-radius:12px}
+.bl-meta{font-family:var(--mono);font-size:11.6px;color:var(--muted);margin:22px 0 0}
 .bl-hero-maket{margin:0}
+/* menüdeki birincil düğme — referansta yeşil dolu pill */
+.nav-cta{display:none}
+@media(min-width:761px){
+  .nav-cta{display:inline-flex;align-items:center;height:40px;padding:0 20px;border-radius:11px;
+    background:var(--acc);color:#06090D;font-size:13.6px;font-weight:600;letter-spacing:-.01em;
+    box-shadow:0 10px 26px -12px rgba(var(--acc-rgb),.8);transition:.25s var(--ease)}
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 16px 34px -12px rgba(var(--acc-rgb),.95)}
+}
 /* Okuma ölçüsü kartın İÇİNDE sınırlanıyor: tek sütunlu kartlarda metin
    66ch'i (≈ 62 karakter) aşmaz; iki sütunlularda zaten ızgara sınırlıyor. */
 .bl-kart .bl-metin{min-width:0}
@@ -752,6 +773,7 @@
       <a href="../../teklif/">Teklif Al</a>
       <a href="../../iletisim/">İletişim</a>
     </div>
+    <a class="nav-cta" href="../../teklif/">Ücretsiz Analiz Al</a>
     <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
     <button class="burger" data-burger aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
@@ -766,42 +788,27 @@
      Huni türü: TOFU · Küme: SEO Çekirdek · Kardeşler (enjeksiyon turunda): yerel-seo, teknik-seo, off-page-seo -->
 <main id="ana">
 
-  <header class="phd">
+  <header class="phd bl">
     <div class="wrap">
       <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">E-Ticaret SEO Ürün ve Kategori Sayfalarını Nasıl Sıralatır?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Seo</span>
-        <span class="yz-meta">3 Eylül 2026 · 7 dakikalık okuma</span>
-      </div>
-      <h1>E-Ticaret SEO Ürün ve Kategori Sayfalarını Nasıl Sıralatır?</h1>
-      <p class="ozet">Çevrim içi mağazanız harika ürünler satıyor olabilir. Alıcı sizi arama sonuçlarında bulamıyorsa raflarınız görünmez demektir. E-ticaret SEO hizmeti, ürün ve kategori sayfalarınızın Google'da sıralanmasını sağlayan sistematik bir çalışmadır. Bu yazıda kurulum adımlarını ya da araç listelerini değil, sıralamayı üreten iç mekanizmayı anlatıyoruz. Talep haritası, sayfa hiyerarşisi, anlam eşleşmesi ve bağlantı akışı bu mekanizmanın parçalarıdır. Türkiye'de dijitalleşen işletme sayısı hızla artarken bu mekanizmayı kavrayan mağazalar bulunabilirlik yarışında öne geçiyor.</p>
-    </div>
-  </header>
-
-  <figure class="yz-kapak">
-    <div class="wrap">
-      <img src="./gorsel/e-ticaret-seo-kapak-1440.webp"
-           srcset="./gorsel/e-ticaret-seo-kapak-640.webp 640w, ./gorsel/e-ticaret-seo-kapak-960.webp 960w, ./gorsel/e-ticaret-seo-kapak-1440.webp 1440w, ./gorsel/e-ticaret-seo-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="E-ticaret SEO hizmetiyle ürün ve kategori sayfalarının sıralamada yükselişini simgeleyen soyut karanlık 3D görsel"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Sıralama bir merdiven değil, doğru kurulmuş bir mekanizmadır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec bl" style="padding-top:0">
-    <div class="wrap">
       <div class="bl-hero">
         <div class="bl-hero-metin">
-          <div class="bl-ist"><div><i></i><b>634.611</b><span>2025’te e-ticaret yapan işletme <br>(Ticaret Bakanlığı)</span></div><div><i></i><b>600.800</b><span>2024’teki sayı — bir yılda <br>33.811 işletme eklendi</span></div><div><i></i><b>3 tık</b><span>Ana sayfadan ürüne izin verilen <br>en fazla adım</span></div></div>
+          <div class="bl-rozet-satir">
+            <span class="bl-rozet">E-Ticaret</span>
+            <span class="bl-vaat">Daha fazla görünürlük, daha fazla satış</span>
+          </div>
+          <h1>E-Ticaret SEO <em>Ürün ve Kategori</em> Sayfalarını Nasıl Sıralatır?</h1>
+          <p class="ozet">Çevrim içi mağazanız harika ürünler satıyor olabilir. Alıcı sizi arama sonuçlarında bulamıyorsa raflarınız görünmez demektir. E-ticaret SEO hizmeti, ürün ve kategori sayfalarınızın Google'da sıralanmasını sağlayan sistematik bir çalışmadır. Bu yazıda kurulum adımlarını ya da araç listelerini değil, sıralamayı üreten iç mekanizmayı anlatıyoruz. Talep haritası, sayfa hiyerarşisi, anlam eşleşmesi ve bağlantı akışı bu mekanizmanın parçalarıdır. Türkiye'de dijitalleşen işletme sayısı hızla artarken bu mekanizmayı kavrayan mağazalar bulunabilirlik yarışında öne geçiyor.</p>
           <div class="bl-hero-btn">
             <a class="btn btn-p" href="../../teklif/">Ücretsiz SEO Analizi Al <span aria-hidden="true">→</span></a>
-            <a class="btn btn-g" href="../../e-ticaret-seo/">E-Ticaret SEO Hizmeti</a>
+            <a class="btn btn-g" href="../../e-ticaret-seo/">Hizmetlerimizi İncele</a>
           </div>
+          <div class="bl-ist"><div><i></i><b>634.611</b><span>2025’te e-ticaret yapan işletme <br>(Ticaret Bakanlığı)</span></div><div><i></i><b>600.800</b><span>2024’teki sayı — bir yılda <br>33.811 işletme eklendi</span></div><div><i></i><b>3 tık</b><span>Ana sayfadan ürüne izin verilen <br>en fazla adım</span></div></div>
+          <p class="yz-meta bl-meta">3 Eylül 2026 · 7 dakikalık okuma</p>
         </div>
         <figure class="bl-maket bl-hero-maket"><div class="mk">
         <div class="mk-bar"><i></i><i></i><i></i><u></u></div>
@@ -860,7 +867,7 @@
       </div><figcaption>Temsilî arayüz çizimi. Eğri, Ticaret Bakanlığı’nın açıkladığı işletme sayısı değişimini gösterir; mağaza performansı vaadi değildir.</figcaption></figure>
       </div>
     </div>
-  </section>
+  </header>
 
   <section class="sec" style="padding-top:0">
     <div class="wrap">

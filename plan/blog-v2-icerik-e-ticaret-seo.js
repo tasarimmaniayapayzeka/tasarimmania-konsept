@@ -19,8 +19,15 @@ const sahneBul = (capa) => SAHNE.sahneler.find((s) => s.capa.includes(capa));
 
 module.exports = {
   hero: {
+    /* referanstaki üst satır: kategori rozeti + tek cümlelik vaat */
+    rozet: 'E-Ticaret',
+    vaat: 'Daha fazla görünürlük, daha fazla satış',
+    /* h1'in yeşile boyanacak parçası — h1 metni DEĞİŞTİRİLMİYOR, yalnız
+       içindeki bu ifade <em> ile işaretleniyor (SEO başlığı korunuyor) */
+    h1Vurgu: 'Ürün ve Kategori',
+    menuDugme: 'Ücretsiz Analiz Al',
     birincilDugme: 'Ücretsiz SEO Analizi Al',
-    ikincilDugme: 'E-Ticaret SEO Hizmeti',
+    ikincilDugme: 'Hizmetlerimizi İncele',
     /* Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025 */
     istatistik: [
       { b: '634.611', a: '2025’te e-ticaret yapan işletme <br>(Ticaret Bakanlığı)' },
