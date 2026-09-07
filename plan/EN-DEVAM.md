@@ -1,6 +1,6 @@
 # İngilizce sürüm — devam notu
 
-**Son güncelleme:** 7 Eylül 2026 · **42 İngilizce sayfa canlı** (34 sayfa + 8 blog yazısı), 100 sayfa toplam
+**Son güncelleme:** 7 Eylül 2026 · **43 İngilizce sayfa canlı** (34 sayfa + 9 blog yazısı), 100 sayfa toplam
 
 Biten: `/en/` · `about` · `contact` · `services` · `blog` · `get-a-quote` ·
 `web-design` · `mobile-app-development` · `digital-marketing` · `seo` ·
@@ -56,12 +56,13 @@ Windows yoluna çevirir.
 | Blok sayımı | Blok sayfada tam 1 kez geçmiyorsa durur |
 | Yol maskesi | `href/src/srcset/url()` içine çeviri sızarsa durur |
 | Sözdizimi | Çeviri JS/JSON'u bozarsa **diske yazmaz** |
+| JSON tırnak kaçışı | Aynı metin hem şemada hem gövdede geçiyorsa şemadaki kopya \" ile kaçışlıdır; kaçışlı biçimle ikinci deneme yapılır *(ölçüldü: /blog/yerel-seo/)* |
 
 ---
 
 ## 2. Terim sözlüğü — ZORUNLU
 
-Bu kararlar 42 sayfada uygulandı. Değiştirmeyin.
+Bu kararlar 43 sayfada uygulandı. Değiştirmeyin.
 
 ### Marka vaadi
 | Türkçe | İngilizce | Neden |

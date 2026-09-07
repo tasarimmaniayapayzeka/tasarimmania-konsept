@@ -213,7 +213,7 @@ const sirali = [
   ...C.kayitlar.map((k) => ({ tip: 'kayit', metin: k.metin, k })),
   ...Object.entries(KABUK).map(([tr, en]) => ({ tip: 'kabuk', metin: tr, en })),
 ].sort((a, b) => b.metin.length - a.metin.length);
-let degisen = 0, esnekEslesen = 0, blokYuttu = 0, ortusen = 0;
+let degisen = 0, esnekEslesen = 0, kacisliEslesen = 0, blokYuttu = 0, ortusen = 0;
 const bulunamayan = []; const blokEksik = [];
 /* ⚠ DEĞİŞTİRME İŞLEVLE: İngilizce metinde "$&" ya da "$1" geçerse replace
    onu desen sanıp bozar; işlev biçimi bu yorumlamayı tamamen kapatır.
@@ -268,6 +268,19 @@ for (const g of sirali) {
      2 uzun paragraf). Boşluk-esnek desenle ikinci bir deneme yapılıyor. */
   const esnek = sinirli(k.metin, true);
   if (esnek.test(h)) { esnek.lastIndex = 0; h = h.replace(esnek, () => k.en); degisen++; esnekEslesen++; continue; }
+  /* ⚠ JSON-LD TIRNAK KAÇIŞI: aynı metin hem şemada hem gövdede geçiyorsa,
+     şemadaki kopya JSON dizgesi olduğu için çift tırnakları \" biçiminde
+     kaçışlıdır; gövdedeki kopya kaçışsızdır. Çıkarıcı ikisini de kaçışsız
+     verdiği için şema kopyası eşleşmiyordu — ölçüldü: /blog/yerel-seo/,
+     içinde "yakınımda" geçen SSS yanıtı. Kaçışlı biçimle ikinci deneme. */
+  if (k.metin.includes('"')) {
+    const kacisli = sinirli(k.metin.split('"').join('\\"'), false);
+    if (kacisli.test(h)) {
+      kacisli.lastIndex = 0;
+      h = h.replace(kacisli, () => k.en.split('"').join('\\"'));
+      degisen++; kacisliEslesen++; continue;
+    }
+  }
   /* 1) Bloğun yuttuğu kayıt — İngilizcesi sayfada olmak ZORUNDA. */
   if (blokYuttuSet.has(k.no)) {
     if (h.includes(k.en)) { blokYuttu++; continue; }
@@ -441,6 +454,7 @@ console.log(`  çevrilmemiş dizge     : ${kalan.size}`);
 if (kalan.size) [...kalan.entries()].slice(0, 12)
   .forEach(([t, n]) => console.log(`     ✗ ${n}× "${t.slice(0, 70)}"`));
 if (esnekEslesen) console.log(`\n  boşluk-esnek eşleşen  : ${esnekEslesen} (çok satırlı dizge)`);
+if (kacisliEslesen) console.log(`  JSON kaçışlı eşleşen  : ${kacisliEslesen} (şemadaki tırnak kaçışlı kopya)`);
 
 if (UYGULA) {
   fs.mkdirSync(yeniDizin, { recursive: true });
