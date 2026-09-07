@@ -223,48 +223,6 @@
   .cz-cizgi{stroke-dashoffset:0}
   .cz-dolgu,.cz-etiket,.cz-sonradan{opacity:1}
 }
-/* --- derinlemesine: iki kart + fiyat şeridi (yazı duvarı yerine) --- */
-.dtay-eb{display:inline-flex;margin-bottom:18px}
-.dtay{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.dtay-k{position:relative;border:1px solid var(--hair);border-radius:var(--r-lg);
-  padding:26px 24px;background:var(--panel);overflow:hidden;transition:.38s var(--ease)}
-.dtay-k:hover{border-color:var(--hair-strong);transform:translateY(-3px)}
-.dtay-k::after{content:"";position:absolute;right:-70px;top:-70px;width:180px;height:180px;border-radius:50%;
-  background:radial-gradient(circle,rgba(var(--acc-rgb),.12),transparent 70%);opacity:0;transition:.4s}
-.dtay-k:hover::after{opacity:1}
-.dtay-k > *{position:relative}
-.dtay-no{font-family:var(--mono);font-size:10.6px;letter-spacing:.15em;color:var(--acc);
-  display:block;margin-bottom:13px}
-.dtay-k h2{font-size:clamp(17px,2.1vw,21px);letter-spacing:-.025em;line-height:1.34;margin:0 0 14px}
-.dtay-k p{font-size:14.4px;color:var(--fg-dim);line-height:1.76;margin:0}
-.dtay-fiyat{margin-top:16px;border:1px solid rgba(var(--acc-rgb),.3);border-radius:var(--r-md);
-  background:rgba(var(--acc-rgb),.05);padding:15px 20px;display:flex;gap:13px;align-items:flex-start}
-.dtay-fiyat svg{width:17px;height:17px;flex:none;margin-top:2px;color:var(--acc)}
-.dtay-fiyat p{margin:0;font-size:13.8px;color:var(--fg-dim);line-height:1.65}
-.dtay-fiyat strong{color:var(--fg)}
-.dtay-fiyat a{color:var(--acc);text-decoration:underline;text-underline-offset:3px}
-/* --- fiyat şeridi: akışkan kenar ışığı + parıltı süpürmesi --- */
-@property --dfA{syntax:'<angle>';initial-value:0deg;inherits:false}
-.dtay-fiyat{position:relative;overflow:hidden;isolation:isolate}
-.dtay-fiyat::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1.5px;
-  background:conic-gradient(from var(--dfA),transparent 0 58%,
-    rgba(var(--acc-rgb),.25) 72%,rgba(var(--acc-rgb),.95) 82%,
-    rgba(var(--acc-rgb),.25) 92%,transparent 100%);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  mask-composite:exclude;
-  animation:dfDon 4.6s linear infinite;pointer-events:none;z-index:1}
-.dtay-fiyat::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
-  background:linear-gradient(105deg,transparent 42%,rgba(var(--acc-rgb),.09) 50%,transparent 58%);
-  transform:translateX(-130%);animation:dfParla 5.5s var(--ease) infinite}
-.dtay-fiyat svg{animation:dfIkon 2.2s ease-in-out infinite}
-@keyframes dfIkon{50%{opacity:.45;transform:translateY(2px) scale(.94)}}
-@media(prefers-reduced-motion:reduce){
-  .dtay-fiyat::before,.dtay-fiyat::after,.dtay-fiyat svg{animation:none}
-  .dtay-fiyat::after{display:none}
-}
-@media(max-width:880px){.dtay{grid-template-columns:1fr}}
 /* --- İLGİLİ: akan bağlantı haritası --- */
 .hrt{display:grid;grid-template-columns:200px 96px 1fr;align-items:center}
 .hrt-ben{border:1px solid rgba(var(--acc-rgb),.5);border-radius:14px;padding:20px 16px;
@@ -316,47 +274,6 @@
 @media(max-width:880px){.sd-cubuk{display:none}}
 @media(max-width:880px){.sd{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.sd-cevap{animation:none}.sd-cubuk{display:none}}
-/* --- AYRINTILAR v3: dikey adımlar + 3D döngü videosu --- */
-.akv{display:grid;grid-template-columns:1fr 1.06fr;gap:clamp(24px,3.4vw,48px);align-items:center}
-.akv-liste{list-style:none;margin:0;padding:0;display:grid;gap:0;position:relative}
-.akv-liste li{position:relative;display:flex;gap:16px;padding:18px 0}
-.akv-liste li + li{border-top:1px solid var(--hair)}
-.akv-no{flex:none;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
-  font-family:var(--mono);font-size:11px;color:var(--acc);letter-spacing:.06em;
-  border:1px solid rgba(var(--acc-rgb),.4);background:rgba(var(--acc-rgb),.07)}
-.akv-liste h3{font-size:15.4px;letter-spacing:-.02em;line-height:1.3;margin:0 0 6px;padding-top:8px}
-.akv-liste p{font-size:13.4px;color:var(--muted);line-height:1.7;margin:0}
-.akv-video{position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(var(--acc-rgb),.3);
-  box-shadow:0 34px 80px -30px rgba(0,0,0,.95),0 0 44px -12px rgba(var(--acc-rgb),.25);
-  background:var(--bg-2)}
-.akv-video video{display:block;width:100%;height:auto;aspect-ratio:16/9}
-.akv-video::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(120% 100% at 50% 0%,transparent 62%,rgba(11,13,18,.42) 100%)}
-.akv-rozet{position:absolute;left:14px;top:12px;z-index:2;display:inline-flex;align-items:center;gap:7px;
-  font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--fg-dim);
-  background:rgba(11,13,18,.72);border:1px solid var(--hair-strong);border-radius:99px;padding:5px 11px;
-  backdrop-filter:blur(6px)}
-.akv-rozet i{width:6px;height:6px;border-radius:50%;background:var(--acc);flex:none;
-  box-shadow:0 0 8px 1px rgba(var(--acc-rgb),.9);animation:akvNabiz 1.8s infinite}
-@keyframes akvNabiz{50%{opacity:.3}}
-@media(max-width:960px){.akv{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){.akv-rozet i{animation:none}}
-/* --- derinlemesine kartlarda iddia cümlesi + sakin gövde --- */
-.dtay-vurgu{display:block;font-size:15.2px;font-weight:600;color:var(--fg);
-  letter-spacing:-.015em;line-height:1.5;margin-bottom:9px}
-.dtay-k p{font-size:13.5px;color:var(--muted)}
-.dtay-devam{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
-.dtay-devam.acik{grid-template-rows:1fr}
-.dtay-devam > div{overflow:hidden}
-.dtay-devam p{font-size:13.5px;color:var(--muted);line-height:1.76;margin:12px 0 0}
-.dtay-more{display:inline-flex;align-items:center;gap:8px;margin-top:14px;cursor:pointer;
-  font-family:var(--mono);font-size:10.4px;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--acc);background:rgba(var(--acc-rgb),.06);border:1px solid rgba(var(--acc-rgb),.35);
-  border-radius:99px;padding:8px 15px;transition:.3s var(--ease)}
-.dtay-more:hover{background:rgba(var(--acc-rgb),.13);border-color:rgba(var(--acc-rgb),.6)}
-.dtay-more svg{width:11px;height:11px;transition:transform .4s var(--ease)}
-.dtay-more[aria-expanded="true"] svg{transform:rotate(180deg)}
-@media(prefers-reduced-motion:reduce){.dtay-devam{transition:none}.dtay-more svg{transition:none}}
 .yk{display:block;border:1px solid var(--hair);border-radius:var(--r-md);padding:15px 16px;
   background:var(--panel);transition:.3s var(--ease)}
 .yk:hover{border-color:var(--acc);transform:translateY(-2px)}
@@ -407,96 +324,154 @@
   .ara-cta-btn .btn{flex:1}
 }
 
-/* ===== BLOG GÖVDESİ — AKIŞKAN MİZANPAJ (plan/blog-paket-uygula.js) =====
+/* ===== v2 TASARIM DİLİ ===== */
 
-   ⚠ ÖLÇÜLEN KUSUR — "büyük görsel sola yaslı". 1440px ekranda:
-       .wrap        1240px  (93 → 1333)
-       .yz-govde     760px  (117 → 877)   ← margin:0, ORTALANMAMIŞ
-       kapak görsel 1192px  (117 → 1309)  ← metinden 432px GENİŞ
-     Sonuç: sağda 456px ölü alan, kapak ile metin sütunu aynı sol kenardan
-     başlayıp farklı yerde bitiyor. Göz basamak görüyor.
-
-   ⚠ İKİNCİ KUSUR — görseller sütunun TAMAMINI kaplayan bloktu (760px).
-     Metin görselin etrafından akmıyor, her görsel okumayı kesiyordu.
-
-   ÇÖZÜM: okuma sütunu ortalanır ve genişler; görseller KÜÇÜLÜR ve
-   dönüşümlü olarak sağa/sola yaslanır, metin etraflarından akar. */
-
-/* 1) GÖVDE ARTIK İKİ SÜTUN — kullanıcı kararı: soru panelindeki (.sd)
-      düzenin aynısı. Her h2 bölümü bir satır: bir yanda metin, öbür yanda
-      görsel; bölümden bölüme taraf DEĞİŞİYOR.
-      ⚠ YÜZEN (float) DÜZEN GERİ ALINDI. Metin görselin etrafından
-      akıyordu ama sarılan satırlar 48-56 karaktere düşüyor, paragraf
-      görselin altında birden 73 karaktere çıkıyordu — satır uzunluğu
-      paragraf içinde zıplıyor, göz her seferinde yeniden ayar yapıyor.
-      İki sütunda metin ölçüsü bölüm boyunca SABİT. */
+/* ⚠ İLK İŞ: OKUMA SÜTUNU SINIRINI KALDIR — ölçülmüş hata.
+   Sayfanın kendi CSS'inde .yz-govde{max-width:760px} var. v2 kartları o
+   kutunun içinde kalınca iki sütunlu ızgara sıkışıyordu:
+       760 − 80 (kart dolgusu) = 680
+       680 − 520 (maket) − 38 (boşluk) = 122  ← metin sütunu
+   Tarayıcıda ölçüldü: metin 120px, maket 520px. Metin dikey bir şerite
+   dönüşüyor, sayfa 16.862px'e uzuyordu. v2'de gövde tam genişlik olmalı;
+   okuma ölçüsü kartın İÇİNDE, .bl-metin üzerinden sınırlanıyor. */
 .yz-govde{max-width:none}
-.yz-bolum{margin:0 0 clamp(30px,4vw,52px)}
-.yz-bolum .yz-metin{max-width:720px}
-/* 2) Kapak metin sütunuyla aynı ölçüde — eskiden 1192px'di, metinden
-      432px genişti ve basamak yapıyordu. */
-.yz-kapak img,.yz-kapak figcaption{max-width:1188px;margin-inline:auto}
-
-/* 3) İKİ SÜTUN — .sd panelinin oranıyla aynı mantık: metin sütunu okuma
-      ölçüsünde sabitlenir, kalan alan görsele gider.
-      560px metin = ölçülen 73 karakter (rahat aralık 55-75). */
+.bl{--bl-r:26px}
+.bl-kart{position:relative;border:1px solid var(--hair);border-radius:var(--bl-r);
+  background:linear-gradient(180deg,rgba(255,255,255,.028),rgba(255,255,255,.012));
+  padding:clamp(22px,3vw,40px);margin:0 0 clamp(18px,2.4vw,26px);overflow:hidden;isolation:isolate}
+.bl-kart::before{content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;
+  background:radial-gradient(70% 100% at 12% 0%,rgba(var(--acc-rgb),.14),transparent 62%);opacity:.9}
+.bl-no{display:inline-flex;align-items:center;justify-content:center;min-width:52px;height:34px;
+  border:1px solid rgba(var(--acc-rgb),.45);border-radius:99px;padding:0 15px;
+  font-family:var(--mono);font-size:13px;font-weight:500;color:var(--acc);
+  background:rgba(var(--acc-rgb),.07);margin-bottom:16px}
+.bl-kart h2{font-size:clamp(22px,3vw,32px);letter-spacing:-.035em;line-height:1.2;margin:0 0 14px;max-width:20ch}
+.bl-kart h2 em{font-style:normal;color:var(--acc)}
+.bl-kart > p{font-size:clamp(14.6px,1.7vw,16px);color:var(--fg-dim);line-height:1.78;margin:0 0 18px;max-width:62ch}
+.bl-kart h3{font-size:clamp(16px,2vw,19px);letter-spacing:-.02em;line-height:1.34;margin:26px 0 10px}
+.bl-kart h4{font-size:15.2px;letter-spacing:-.01em;margin:20px 0 8px;color:var(--fg-dim)}
+.bl-ic{display:grid;gap:clamp(22px,3vw,38px)}
 @media(min-width:1000px){
-  .yz-bolum.ikili{display:grid;grid-template-columns:minmax(0,560px) 1fr;
-    gap:clamp(28px,3.4vw,48px);align-items:start}
-  .yz-bolum.ikili .yz-metin{max-width:none}
-  /* dönüşümlü taraf: tek bölümlerde görsel sağda, çiftlerde solda */
-  .yz-bolum.ikili.ters{grid-template-columns:1fr minmax(0,560px)}
-  .yz-bolum.ikili.ters .yz-gorsel-sutun{order:-1}
-  /* ⚠ GÖRSEL SÜTUNU SINIRLANDI — ölçüldü. 1fr bırakılınca 1440px'te
-     görsel 584px oluyordu, metin sütunundan (560px) GENİŞ. Kullanıcının
-     isteği "resimleri ebat olarak küçült" idi; görselin metni ezmesi o
-     isteğin tersi. 500px tavan: her zaman metinden dar kalıyor.
-     Sütun kendi tarafının DIŞ kenarına yaslanıyor — görsel sağdaysa
-     sağ kenara, soldaysa sol kenara; ortada kalan boşluk iki sütun
-     arasına gidiyor, kenarda ölü alan oluşmuyor. */
-  .yz-bolum.ikili .yz-gorsel-sutun{max-width:500px;justify-self:end;
-    position:sticky;top:calc(var(--nav-h) + 20px)}
-  .yz-bolum.ikili.ters .yz-gorsel-sutun{justify-self:start}
+  .bl-kart.ikili .bl-ic{grid-template-columns:minmax(0,1fr) minmax(0,520px);align-items:center}
+  .bl-kart.ikili.ters .bl-ic > .bl-maket{order:-1}
 }
-.yz-gorsel-sutun{margin:0}
-.yz-gorsel-sutun figcaption{margin-top:11px;font-size:12.8px;line-height:1.62;color:var(--muted)}
-/* Tablo, alıntı ve bant her zaman tam genişlik. */
-.yz-bolum .yz-tablo,.yz-bolum .yz-alinti,.yz-bolum .ara-cta{max-width:1188px}
 
-/* 4) Sahne kutusu: sabit yükseklik YOK, en-boy oranı var. Hero'da
-      240-330px'e kilitliydi; sütun içinde genişliğe göre esner. */
-.yz-gorsel-sutun .ciz-kutu{height:auto}
-.yz-gorsel-sutun .ciz-cerceve{aspect-ratio:430/300;height:auto}
-/* 5) Döngü videosu aynı sütunda — .akv ızgarası KULLANILMIYOR. */
-.yz-gorsel-sutun video,.yz-gorsel-sutun img{display:block;width:100%;height:auto;
-  border-radius:14px;border:1px solid rgba(var(--acc-rgb),.3);background:var(--bg-2)}
-.yz-gorsel-sutun .cerceveli{position:relative;border-radius:14px;overflow:hidden;
-  box-shadow:0 26px 60px -30px rgba(0,0,0,.9)}
-.yz-gorsel-sutun .akv-rozet{position:absolute;left:11px;top:10px;z-index:2}
+/* --- istatistik şeridi --- */
+.bl-ist{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:clamp(14px,2vw,26px);margin:22px 0 4px}
+.bl-ist > div{position:relative;padding-left:20px}
+.bl-ist > div + div{border-left:1px solid var(--hair);padding-left:clamp(18px,2vw,26px)}
+.bl-ist i{position:absolute;left:0;top:7px;width:10px;height:10px;border-radius:50%;
+  border:1.5px solid rgba(var(--acc-rgb),.6);background:rgba(var(--acc-rgb),.12)}
+.bl-ist b{display:block;font-size:clamp(19px,2.4vw,25px);color:var(--acc);letter-spacing:-.03em;line-height:1}
+.bl-ist span{display:block;margin-top:7px;font-size:12.8px;color:var(--muted);line-height:1.5}
+@media(max-width:640px){.bl-ist > div + div{border-left:0;padding-left:20px}}
 
-/* 6) 1000px ALTINDA TEK SÜTUN: görsel metnin altına iner. Eşik, iki
-      sütunun ikisinin de kendi işini görebildiği en dar nokta —
-      560px metin + 28px boşluk + görselin okunabilir en küçük hâli. */
-@media(max-width:999px){
-  .yz-bolum .yz-metin{max-width:none}
-  .yz-gorsel-sutun{margin-top:26px}
+/* --- yeşil daireli kontrol listesi --- */
+.bl-cek{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:12px}
+.bl-cek li{display:flex;gap:13px;align-items:flex-start;font-size:14.6px;line-height:1.62;color:var(--fg-dim)}
+.bl-cek li::before{content:"";flex:none;width:21px;height:21px;border-radius:50%;margin-top:1px;
+  background:var(--acc);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 100 20 10 10 0 000-20zm-1.3 14.3l-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7z'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 100 20 10 10 0 000-20zm-1.3 14.3l-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7z'/%3E%3C/svg%3E") center/contain no-repeat}
+
+/* --- maket ortak kabuk --- */
+.bl-maket{position:relative;min-width:0}
+.bl-maket figcaption{margin-top:12px;font-size:12.4px;line-height:1.6;color:var(--muted)}
+.mk{position:relative;border:1px solid var(--hair-strong);border-radius:16px;overflow:hidden;
+  background:linear-gradient(180deg,#12161F,#0C0F16);
+  box-shadow:0 30px 70px -34px rgba(0,0,0,.95),0 0 40px -18px rgba(var(--acc-rgb),.3)}
+.mk-bar{display:flex;align-items:center;gap:6px;padding:10px 13px;border-bottom:1px solid var(--hair)}
+.mk-bar i{width:8px;height:8px;border-radius:50%;background:#39404F}
+.mk-bar i:nth-child(1){background:#4A5262}
+.mk-bar u{margin-left:9px;flex:1;height:9px;border-radius:99px;background:rgba(255,255,255,.06);text-decoration:none}
+.mk-ic{padding:14px}
+
+/* satır iskeletleri (metin yerine) */
+.mk-satir{height:7px;border-radius:99px;background:rgba(255,255,255,.11)}
+.mk-satir.k{width:58%}.mk-satir.o{width:76%}.mk-satir.u{width:92%}
+.mk-satir.ac{background:rgba(var(--acc-rgb),.55)}
+
+/* ürün ızgarası */
+.mk-urunler{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:11px}
+.mk-urun{border:1px solid var(--hair);border-radius:10px;background:rgba(255,255,255,.03);padding:8px}
+.mk-gorsel{aspect-ratio:1;border-radius:7px;background:
+  radial-gradient(60% 50% at 50% 38%,rgba(255,255,255,.16),transparent 70%),rgba(255,255,255,.05);
+  display:grid;place-items:center}
+.mk-gorsel svg{width:74%;height:74%;opacity:.85}
+.mk-yildiz{display:flex;gap:2px;margin:8px 0 6px}
+.mk-yildiz i{width:8px;height:8px;background:#FFC53D;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z'/%3E%3C/svg%3E") center/contain no-repeat}
+.mk-yildiz i.bos{background:rgba(255,255,255,.18)}
+.mk-urun .mk-satir{margin-top:5px}
+
+/* arama çubuğu */
+.mk-arama{display:flex;align-items:center;gap:10px;margin-top:12px;padding:9px 9px 9px 13px;
+  border:1px solid rgba(var(--acc-rgb),.4);border-radius:99px;background:rgba(var(--acc-rgb),.05)}
+.mk-arama svg{width:14px;height:14px;flex:none;color:var(--muted)}
+.mk-arama u{flex:1;text-decoration:none;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mk-arama b{flex:none;width:28px;height:28px;border-radius:50%;background:var(--acc);display:grid;place-items:center}
+.mk-arama b svg{width:13px;height:13px;color:#06090D}
+
+/* yüzen ölçüm kartı + grafik */
+.mk-olcum{position:absolute;right:-6px;top:-14px;z-index:3;width:min(58%,232px);
+  border:1px solid rgba(var(--acc-rgb),.45);border-radius:13px;padding:11px 13px;
+  background:rgba(9,12,17,.94);backdrop-filter:blur(8px);
+  box-shadow:0 20px 44px -20px rgba(0,0,0,.95),0 0 26px -10px rgba(var(--acc-rgb),.45)}
+.mk-olcum u{display:block;text-decoration:none;font-size:11px;color:var(--fg-dim);letter-spacing:-.01em}
+.mk-olcum b{display:block;font-size:clamp(19px,2.6vw,25px);color:var(--acc);letter-spacing:-.035em;line-height:1.15;margin-top:3px}
+.mk-olcum span{display:block;font-size:10.4px;color:var(--muted);margin-top:1px}
+.mk-olcum svg{display:block;width:100%;height:38px;margin-top:7px;overflow:visible}
+.mk-cizgi{fill:none;stroke:var(--acc);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:260;stroke-dashoffset:260;animation:mkCiz 2.6s var(--ease) .3s forwards}
+.mk-ok{fill:var(--acc);opacity:0;animation:mkBelir .5s 2.4s forwards}
+@keyframes mkCiz{to{stroke-dashoffset:0}}
+@keyframes mkBelir{to{opacity:1}}
+
+/* el yazısı açıklama + kıvrık ok */
+.mk-not{position:absolute;right:2%;bottom:16%;z-index:3;width:min(42%,190px);pointer-events:none}
+.mk-not p{margin:0;font-family:ui-rounded,"Segoe Print","Bradley Hand",cursive;
+  font-size:13.4px;line-height:1.45;color:var(--fg);transform:rotate(-4deg)}
+.mk-not svg{position:absolute;left:-46px;top:8px;width:44px;height:46px;color:var(--acc);opacity:.9}
+@media(max-width:900px){.mk-not{display:none}}
+
+/* ürün detay maketi */
+.mk-detay{display:grid;grid-template-columns:54px minmax(0,1fr) minmax(0,1fr);gap:11px;align-items:start}
+.mk-kucuk{display:grid;gap:8px}
+.mk-kucuk .mk-gorsel{border:1px solid var(--hair);border-radius:8px}
+.mk-buyuk{border-radius:11px;background:
+  radial-gradient(62% 52% at 50% 40%,rgba(255,255,255,.2),transparent 72%),rgba(255,255,255,.06);
+  aspect-ratio:1;display:grid;place-items:center;border:1px solid var(--hair)}
+.mk-buyuk svg{width:78%;height:78%}
+.mk-bilgi{display:grid;gap:9px;align-content:start;padding-top:4px}
+.mk-sepet{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px;
+  height:34px;border-radius:9px;background:var(--acc);color:#06090D;font-size:12.6px;font-weight:600}
+.mk-sepet svg{width:14px;height:14px}
+.mk-kalp{width:34px;height:34px;border:1px solid var(--hair-strong);border-radius:9px;
+  display:grid;place-items:center;color:var(--muted)}
+.mk-kalp svg{width:15px;height:15px}
+.mk-alt{display:flex;gap:8px;margin-top:9px}
+.mk-alt .mk-sepet{flex:1;margin-top:0}
+@media(max-width:560px){.mk-detay{grid-template-columns:44px minmax(0,1fr)}.mk-bilgi{grid-column:1/-1}}
+
+@media(prefers-reduced-motion:reduce){
+  .mk-cizgi{animation:none;stroke-dashoffset:0}
+  .mk-ok{animation:none;opacity:1}
 }
-/* ⚠ ARA CTA'YI TAM GENİŞLİĞE TAŞIMA DENENDİ, GERİ ALINDI (ölçüldü).
-   İlk sürüm negatif kenar boşluğuyla bandı .wrap dolgusunun dışına
-   çekiyordu: margin-inline: calc(-1 * clamp(16px,3vw,32px)). Ama
-   .yz-govde 760px'e sınırlı, .wrap ise 1240px — ikisinin kenarı aynı
-   yerde değil, band 366px ekranda 411px'e taştı (45px yatay kaydırma).
-   width:100vw ile tam genişlik de yapılmadı: 100vw kaydırma çubuğunu
-   da sayar, masaüstünde aynı taşmayı geri getirir.
-   Karar: band okuma sütununda kalıyor. .ara-cta'nın kendi
-   overflow:hidden kuralı 3D süslemeleri zaten kırpıyor.
-   (Not: bu yorum CSS şablon dizgesinin İÇİNDE — ters tırnak kullanılamaz,
-    dizgeyi erkenden kapatır ve betik sözdizimi hatası verir. Ölçüldü.) */
-.yz-govde .ara-cta{border-radius:var(--r-lg)}
-/* soru paneli ve bağlantı haritası blog bölümlerinde */
-.yz-sd{margin-top:8px}
-.yz-hrt{margin-top:8px}
-@media(max-width:880px){.sd{grid-template-columns:1fr}.hrt{grid-template-columns:1fr}.hrt-svg{display:none}}
+
+/* --- v2 hero: metin + tarayıcı maketi --- */
+.bl-hero{display:grid;gap:clamp(24px,3.4vw,44px)}
+@media(min-width:1000px){.bl-hero{grid-template-columns:minmax(0,1fr) minmax(0,560px);align-items:center}}
+.bl-hero-btn{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0 0}
+.bl-hero-maket{margin:0}
+/* Okuma ölçüsü kartın İÇİNDE sınırlanıyor: tek sütunlu kartlarda metin
+   66ch'i (≈ 62 karakter) aşmaz; iki sütunlularda zaten ızgara sınırlıyor. */
+.bl-kart .bl-metin{min-width:0}
+.bl-kart:not(.ikili) .bl-metin{max-width:66ch}
+.bl-kart .bl-metin p{font-size:clamp(14.6px,1.7vw,16px);color:var(--fg-dim);line-height:1.78;margin:0 0 15px}
+.bl-kart .yz-cevap{margin:14px 0 18px}
+.bl-kart .yz-tablo,.bl-kart .yz-alinti{margin-top:18px}
 
 </style>
 <script type="application/ld+json">
@@ -756,9 +731,8 @@
 </script>
 </head>
 <body data-dal="seo">
-<div style="position:relative;z-index:120;background:#FFB020;color:#1a1200;
-  font:600 13px/1.45 var(--sans);padding:9px 16px;text-align:center;letter-spacing:-.01em">
-  ÖNİZLEME — yeni gövde paketi denemesi. Canlı sayfa: <a href="../e-ticaret-seo/" style="color:#1a1200;text-decoration:underline">/blog/e-ticaret-seo/</a>. Karar verilince bu kopya silinecek.
+<div style="position:relative;z-index:120;background:#FFB020;color:#1a1200;font:600 13px/1.45 var(--sans);padding:9px 16px;text-align:center">
+  ÖNİZLEME v2 — referans tasarıma göre. Canlı sayfa: <a href="../e-ticaret-seo/" style="color:#1a1200;text-decoration:underline">/blog/e-ticaret-seo/</a>
 </div>
 
 <i class="yz-cizgi" data-ilerleme aria-hidden="true"></i>
@@ -819,23 +793,97 @@
     </div>
   </figure>
 
+  <section class="sec bl" style="padding-top:0">
+    <div class="wrap">
+      <div class="bl-hero">
+        <div class="bl-hero-metin">
+          <div class="bl-ist"><div><i></i><b>634.611</b><span>2025’te e-ticaret yapan işletme <br>(Ticaret Bakanlığı)</span></div><div><i></i><b>600.800</b><span>2024’teki sayı — bir yılda <br>33.811 işletme eklendi</span></div><div><i></i><b>3 tık</b><span>Ana sayfadan ürüne izin verilen <br>en fazla adım</span></div></div>
+          <div class="bl-hero-btn">
+            <a class="btn btn-p" href="../../teklif/">Ücretsiz SEO Analizi Al <span aria-hidden="true">→</span></a>
+            <a class="btn btn-g" href="../../e-ticaret-seo/">E-Ticaret SEO Hizmeti</a>
+          </div>
+        </div>
+        <figure class="bl-maket bl-hero-maket"><div class="mk">
+        <div class="mk-bar"><i></i><i></i><i></i><u></u></div>
+        <div class="mk-ic">
+          <div class="mk-satir o"></div>
+          <div class="mk-urunler">
+            <div class="mk-urun">
+            <div class="mk-gorsel"><svg viewBox="0 0 64 40" fill="none" aria-hidden="true">
+  <path d="M6 30c0-6 1-11 3-14 1.5-2.3 4-3 5.8-1.6L20 18l5-3.5c1.6-1.1 3.7-.6 4.6 1.1l2 3.6c.7 1.2 1.9 2 3.3 2.2l16 2.3c4.4.6 7.6 3.5 7.6 6.9V32c0 1.7-1.4 3-3.1 3H9.1C7.4 35 6 33.7 6 32z" fill="currentColor" opacity=".82"/>
+  <path d="M6 31h51.5" stroke="#0B0D12" stroke-width="1.6"/>
+  <path d="M20 18l3.4 4.6M26 15.2l3.2 4.4" stroke="#0B0D12" stroke-width="1.3" opacity=".55"/>
+</svg></div>
+            <div class="mk-yildiz"><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="mk-satir u"></div><div class="mk-satir k"></div>
+          </div>
+            <div class="mk-urun">
+            <div class="mk-gorsel"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+  <path d="M24 8l8 7 8-7 9 4c3 1.3 5 4.3 5 7.6V56a2 2 0 01-2 2H12a2 2 0 01-2-2V19.6c0-3.3 2-6.3 5-7.6z" fill="currentColor" opacity=".8"/>
+  <path d="M32 15v43M24 8l8 7-4 6-6-9zM40 8l-8 7 4 6 6-9z" stroke="#0B0D12" stroke-width="1.6" stroke-linejoin="round"/>
+</svg></div>
+            <div class="mk-yildiz"><i></i><i></i><i></i><i></i><i class="bos"></i></div>
+            <div class="mk-satir u"></div><div class="mk-satir k"></div>
+          </div>
+            <div class="mk-urun">
+            <div class="mk-gorsel"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+  <path d="M12 40V32a20 20 0 0140 0v8" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+  <rect x="6" y="36" width="13" height="20" rx="5" fill="currentColor" opacity=".85"/>
+  <rect x="45" y="36" width="13" height="20" rx="5" fill="currentColor" opacity=".85"/>
+</svg></div>
+            <div class="mk-yildiz"><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="mk-satir u"></div><div class="mk-satir k"></div>
+          </div>
+          </div>
+          <div class="mk-arama">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6" stroke-linecap="round"/></svg>
+            <u>En iyi spor ayakkabı…</u>
+            <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+          </div>
+        </div>
+        <div class="mk-olcum">
+          <u>E-ticaret yapan işletme</u>
+          <b>+%5,6</b>
+          <span>2024 → 2025 · Ticaret Bakanlığı</span>
+          <svg viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true">
+            <path class="mk-cizgi" d="M2 36 L28 30 L52 33 L78 22 L104 25 L130 14 L156 17 L186 4"/>
+            <path class="mk-ok" d="M186 4 l-9 1.6 6 5.4z"/>
+          </svg>
+        </div>
+        <div class="mk-not">
+          <svg viewBox="0 0 44 46" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M42 4C26 6 10 16 6 34" stroke-linecap="round"/>
+            <path d="M4 42l1.5-9 8 4z" fill="currentColor" stroke="none"/>
+          </svg>
+          <p>Talep büyüyor, <br>görünürlük yarışı da</p>
+        </div>
+      </div><figcaption>Temsilî arayüz çizimi. Eğri, Ticaret Bakanlığı’nın açıkladığı işletme sayısı değişimini gösterir; mağaza performansı vaadi değildir.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
   <section class="sec" style="padding-top:0">
     <div class="wrap">
       <article class="yz-govde">
-
-            <section class="yz-bolum ikili">
-        <div class="yz-metin"><h2>E-Ticaret SEO Nedir, Sıralamayı Üreten Mekanizma Nasıl Çalışır?</h2>
+      <div class="bl">
+      <article class="bl-kart ikili">
+        <div class="bl-ic">
+          <div class="bl-metin">
+          <span class="bl-no">01</span>
+          <h2>E-Ticaret SEO Nedir, <em>Sıralamayı Üreten Mekanizma</em> Nasıl Çalışır?</h2>
+          
       <div class="yz-cevap"><p>E-ticaret SEO, ürün ve kategori sayfalarının arama sonuçlarında üst sıralara çıkmasını sağlayan optimizasyon disiplinidir. Mekanizma üç dişliyle döner. Arama talebi sayfalara dağılır ve her sayfa tek niyete odaklanır. Otorite ise iç bağlantılarla doğru sayfalara akar. Profesyonel bir e-ticaret SEO hizmeti bu üç dişliyi aynı planda buluşturur.</p></div>
       <p>Pazarın ölçeği bu mekanizmayı her yıl daha kritik hâle getiriyor. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">ETBİS'in 2025 raporuna göre</a> Türkiye'de e-ticaret hacmi 4,5 trilyon TL'ye ulaştı; sektör artık GSYH'nin yüzde 6,9'unu oluşturuyor. Rekabet bu boyuttayken görünürlüğü tesadüfe bırakamazsınız. Mekanizma dört aşamalı bir zincir hâlinde işler:</p><ol><li>Talep analizi: ekip her kelimenin aranma hacmini ve niyetini çıkarır.</li><li>Sayfa eşleştirme: plan her arama niyetine tek sayfa atar. Geniş sorguyu kategori, spesifik sorguyu ürün karşılar.</li><li>Sinyal üretimi: başlık, açıklama ve içerik, sayfanın konusunu arama motoruna net biçimde anlatır.</li><li>Otorite dağıtımı: iç bağlantılar kazanılan gücü sıralanması istenen sayfalara taşır.</li></ol><p>Zincirin halkalarından biri koptuğunda diğerleri de güç kaybeder. Bütünlük, mekanizmanın ön koşuludur.</p>
       <h3>Arama Niyeti Katmanları Mekanizmanın Neresinde?</h3>
       <p>Arama niyeti, kullanıcının sorgusunun arkasında yatan amaçtır. "Deri ceket nasıl temizlenir" bilgi arar. "Kadın deri ceket" ürün keşfeder. "Deri ceket fiyatları" satın almaya yaklaşır. E-ticaret SEO hizmeti her niyet katmanına farklı bir sayfa türü atar. Rehber içerik, kategori sayfası ve ürün sayfası bu üçlünün karşılığıdır.</p>
-      </div>
-        <figure class="yz-gorsel-sutun">
-          <div class="ciz-kutu" aria-hidden="true">
-          <div class="ciz-cerceve">
-            <div class="ciz-bar"><i></i><i></i><i></i><span>sıralamayı üreten mekanizma</span><b>ÜÇ DİŞLİ</b></div>
-            <div class="ciz-svg">
-              <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><circle class="cz-cizgi" style="--u:290;--d:0.00s" cx="108" cy="104" r="46"/>
+      
+          
+        </div>
+          <figure class="bl-maket">
+            <div class="mk">
+        <div class="mk-bar"><i></i><i></i><i></i><u></u></div>
+        <div class="ciz-svg" style="padding:14px">
+          <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><circle class="cz-cizgi" style="--u:290;--d:0.00s" cx="108" cy="104" r="46"/>
 <circle class="cz-dolgu" style="--d:0.00s" cx="108" cy="104" r="46"/>
 <circle class="cz-cizgi" style="--u:220;--d:0.50s" cx="215" cy="104" r="35"/>
 <circle class="cz-dolgu" style="--d:0.50s" cx="215" cy="104" r="35"/>
@@ -851,26 +899,31 @@
 <text class="cz-etiket" style="--d:2.75s" x="215" y="182" text-anchor="middle">SAYFA</text>
 <text class="cz-etiket" style="--d:2.90s" x="308" y="182" text-anchor="middle">OTORİTE</text>
 <text class="cz-etiket" style="--d:3.10s" x="215" y="34" text-anchor="middle">ÜÇÜ AYNI PLANDA BULUŞUR</text></svg>
-            </div>
-            <div class="ciz-alt"><div class="ciz-cip"><u>TALEP</u><b data-sayac="3" data-birim=" katman">0 katman</b></div><div class="ciz-cip"><u>SAYFA</u><b data-sayac="2" data-birim=" tür">0 tür</b></div><div class="ciz-cip"><u>AKIŞ</u><b data-sayac="3" data-birim=" tık">0 tık</b></div></div>
-          </div>
         </div>
-          <figcaption>Mekanizma üç dişliyle döner: arama talebi sayfalara dağılır, her sayfa tek niyete odaklanır, otorite iç bağlantılarla doğru sayfalara akar. Halkalardan biri koptuğunda diğerleri de güç kaybeder.</figcaption>
-        </figure>
-      </section>
-      <section class="yz-bolum ikili ters">
-        <div class="yz-metin"><h2>Kategori Sayfaları Arama Talebini Nasıl Yakalar?</h2>
+        <div class="ciz-alt"><div class="ciz-cip"><u>TALEP</u><b data-sayac="3" data-birim=" katman">0 katman</b></div><div class="ciz-cip"><u>SAYFA</u><b data-sayac="2" data-birim=" tür">0 tür</b></div><div class="ciz-cip"><u>AKIŞ</u><b data-sayac="3" data-birim=" tık">0 tık</b></div></div>
+      </div>
+            <figcaption>Mekanizma üç dişliyle döner: talep sayfalara dağılır, her sayfa tek niyete odaklanır, otorite iç bağlantılarla akar.</figcaption>
+          </figure>
+        </div>
+      </article>
+      <article class="bl-kart ikili ters">
+        <div class="bl-ic">
+          <div class="bl-metin">
+          <span class="bl-no">02</span>
+          <h2>Kategori Sayfaları <em>Arama Talebini</em> Nasıl Yakalar?</h2>
+          
       <div class="yz-cevap"><p>Kategori sayfası, tek bir ürünün karşılayamayacağı geniş aramaları toplayan vitrin sayfasıdır. Yüksek hacimli "spor ayakkabı" sorgusunu kategori üstlenir. Ürün sayfaları bu çatının altında spesifik talepleri karşılar. Doğru kurgulanmış hiyerarşi, arama talebi haritasıyla mağaza yapısını birebir örtüştürür. Bu eşleşme, mekanizmanın talep yakalama ayağını oluşturur.</p></div>
       <p>Talep tarafı Türkiye'de sürekli genişliyor. <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TÜİK'in güncel araştırmaları</a>, internetten alışveriş yapan kullanıcı oranının yıllar içinde istikrarlı biçimde yükseldiğini gösteriyor. Bu talebi yakalamanın yolu bellidir. Her popüler aramaya karşılık gelen bir kategori ya da alt kategori açarsınız. Filtre kombinasyonları da burada devreye girer. "Siyah deri ceket" yeterli aranma hacmine ulaştığında ekip o filtreyi kalıcı açılış sayfasına dönüştürür. Aldığınız SEO hizmeti, hangi kombinasyonun sayfa olmayı hak ettiğine arama verisiyle karar verir.</p>
       <h3>Kategori Açıklaması Hangi İşlevi Görür?</h3>
       <p>Kategori açıklaması, sayfaya özgün metin katmanı ekleyen kısa içeriktir. Ürün listesi tek başına arama motoruna az sinyal verir. 150-300 kelimelik özgün bir açıklama sayfanın konusunu netleştirir. Optimizasyon ekibi bu metinleri doldurma amaçlı değil, kullanıcı sorularına cevap verecek biçimde yazar.</p>
-      </div>
-        <figure class="yz-gorsel-sutun">
-          <div class="ciz-kutu" aria-hidden="true">
-          <div class="ciz-cerceve">
-            <div class="ciz-bar"><i></i><i></i><i></i><span>talep haritası mağaza yapısına oturur</span><b>ÇATI</b></div>
-            <div class="ciz-svg">
-              <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect class="cz-cizgi" style="--u:330;--d:0.00s" x="148" y="26" width="134" height="38" rx="8"/>
+      
+          <ul class="bl-cek"><li>Her popüler aramaya karşılık gelen kategori ya da alt kategori</li><li>Yeterli aranma hacmine ulaşan filtre kombinasyonu için kalıcı açılış sayfası</li><li>150-300 kelimelik, kullanıcı sorularına cevap veren özgün kategori açıklaması</li><li>Talebi olmayan kombinasyonların indekse açılmaması</li></ul>
+        </div>
+          <figure class="bl-maket">
+            <div class="mk">
+        <div class="mk-bar"><i></i><i></i><i></i><u></u></div>
+        <div class="ciz-svg" style="padding:14px">
+          <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect class="cz-cizgi" style="--u:330;--d:0.00s" x="148" y="26" width="134" height="38" rx="8"/>
 <rect class="cz-dolgu" style="--d:0.00s" x="148" y="26" width="134" height="38" rx="8"/>
 <text class="cz-etiket vurgu" style="--d:0.45s" x="215" y="50" text-anchor="middle">KATEGORİ</text>
 <path class="cz-cizgi" style="--u:40;--d:0.70s" d="M215 64 V92"/>
@@ -888,66 +941,91 @@
 <rect class="cz-dolgu" style="--d:2.13s" x="328" y="118" width="56" height="60" rx="6"/>
 <path class="cz-sonradan" style="--d:2.40s" d="M46 196 H384"/>
 <text class="cz-etiket" style="--d:2.60s" x="215" y="208" text-anchor="middle">ÜRÜN SAYFALARI</text></svg>
-            </div>
-            <div class="ciz-alt"><div class="ciz-cip"><u>KATEGORİ</u><b data-sayac="1" data-birim="">0</b></div><div class="ciz-cip"><u>ALT KIRILIM</u><b data-sayac="5" data-birim="">0</b></div><div class="ciz-cip"><u>AÇIKLAMA</u><b data-sayac="300" data-birim=" kelime">0 kelime</b></div></div>
-          </div>
         </div>
-          <figcaption>Kategori sayfası, tek bir ürünün karşılayamayacağı geniş aramaları toplayan vitrindir. Ürün sayfaları bu çatının altında spesifik talebi karşılar; hiyerarşi talep haritasıyla birebir örtüşür.</figcaption>
-        </figure>
-      </section>
-      <section class="yz-bolum ikili">
-        <div class="yz-metin"><h2>Ürün Sayfasında Sıralamayı Hangi Sinyaller Üretir?</h2>
+        <div class="ciz-alt"><div class="ciz-cip"><u>KATEGORİ</u><b data-sayac="1" data-birim="">0</b></div><div class="ciz-cip"><u>ALT KIRILIM</u><b data-sayac="5" data-birim="">0</b></div><div class="ciz-cip"><u>AÇIKLAMA</u><b data-sayac="300" data-birim=" kelime">0 kelime</b></div></div>
+      </div>
+            <figcaption>Geniş aramaları kategori üstlenir; ürün sayfaları o çatının altında spesifik talebi karşılar.</figcaption>
+          </figure>
+        </div>
+      </article>
+      <article class="bl-kart ikili">
+        <div class="bl-ic">
+          <div class="bl-metin">
+          <span class="bl-no">03</span>
+          <h2>Ürün Sayfasında Sıralamayı <em>Hangi Sinyaller</em> Üretir?</h2>
+          
       <div class="yz-cevap"><p>Ürün sayfasını sıralatan üç ana sinyal vardır: özgün açıklama, yapılandırılmış veri ve kullanıcı etkileşimi. Üretici metnini kopyalayan binlerce siteden ayrışmak için açıklamanın size ait olması gerekir. E-ticaret SEO hizmeti bu üç sinyali her ürün şablonuna sistematik biçimde yerleştirir. Sinyaller birleştiğinde sayfa hem makineye hem alıcıya aynı hikâyeyi anlatır.</p></div>
       <p>Özgün açıklamanın gücü kopya içerik filtresinden gelir. Aynı üretici metnini kullanan yüzlerce mağaza arasından arama motoru çoğunlukla en otoriter olanı seçer. Geri kalanlar görünmez kalır. Kendi ölçümleriniz, kullanım senaryolarınız ve gerçek fotoğraflarınızla yazılmış bir açıklama sizi bu filtreden çıkarır. E-ticaret SEO hizmetinin ürün tarafındaki ilk işi bu ayrışmayı kurmaktır. Yorumlar da benzer işlev görür. Her yeni değerlendirme sayfaya taze ve özgün metin ekler.</p>
       <h3>Yapılandırılmış Veri Nasıl Çalışır?</h3>
       <p>Yapılandırılmış veri, ürün bilgilerini arama motorunun okuyabileceği formatta etiketleyen kod katmanıdır. Bu etiketler fiyatı, stok durumunu ve değerlendirme puanını makineye iletir. Sayfanız böylece zengin sonuç gösterimlerine aday olur.</p>
       <h4>Zengin Sonuç ile Tıklama Döngüsü</h4>
       <p>Zengin sonuç, arama sayfasında yıldız puanı ve fiyat gibi ek bilgiler gösteren listelemedir. Dikkat çeken listeleme daha çok tıklama alır. Artan tıklama oranı sayfanın alaka sinyalini güçlendirir. Hizmet kapsamında kurulan bu döngü, kazanılan pozisyonu kendi kendini besleyen bir sürece çevirir.</p>
-      </div>
-        <figure class="yz-gorsel-sutun">
-          <div class="ciz-kutu" aria-hidden="true">
-          <div class="ciz-cerceve">
-            <div class="ciz-bar"><i></i><i></i><i></i><span>ürün sayfasını sıralatan sinyaller</span><b>ÜÇ SİNYAL</b></div>
-            <div class="ciz-svg">
-              <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect class="cz-cizgi" style="--u:300;--d:0.00s" x="26" y="46" width="104" height="118" rx="9"/>
-<rect class="cz-dolgu" style="--d:0.00s" x="26" y="46" width="104" height="118" rx="9"/>
-<path class="cz-cizgi" style="--u:180;--d:0.40s" d="M42 74 H114 M42 90 H100 M42 106 H108"/>
-<text class="cz-etiket vurgu" style="--d:0.90s" x="78" y="182" text-anchor="middle">ÜRÜN SAYFASI</text>
-<path class="cz-cizgi" style="--u:70;--d:1.20s" d="M130 78 H196"/>
-<path class="cz-cizgi" style="--u:70;--d:1.45s" d="M130 105 H196"/>
-<path class="cz-cizgi" style="--u:70;--d:1.70s" d="M130 132 H196"/>
-<rect class="cz-cizgi" style="--u:200;--d:1.95s" x="200" y="58" width="120" height="38" rx="7"/>
-<rect class="cz-dolgu" style="--d:1.95s" x="200" y="58" width="120" height="38" rx="7"/>
-<rect class="cz-cizgi" style="--u:200;--d:2.25s" x="200" y="104" width="120" height="38" rx="7"/>
-<rect class="cz-dolgu" style="--d:2.25s" x="200" y="104" width="120" height="38" rx="7"/>
-<rect class="cz-cizgi" style="--u:200;--d:2.55s" x="200" y="150" width="120" height="38" rx="7"/>
-<rect class="cz-dolgu" style="--d:2.55s" x="200" y="150" width="120" height="38" rx="7"/>
-<text class="cz-etiket" style="--d:2.85s" x="212" y="82">ÖZGÜN AÇIKLAMA</text>
-<text class="cz-etiket" style="--d:3.00s" x="212" y="128">YAPILANDIRILMIŞ VERİ</text>
-<text class="cz-etiket" style="--d:3.15s" x="212" y="174">KULLANICI ETKİLEŞİMİ</text>
-<path class="cz-sonradan" style="--d:3.40s" d="M330 77 C372 77 372 123 340 123 M330 123 H340 M330 169 C372 169 372 123 340 123"/>
-<text class="cz-etiket vurgu" style="--d:3.70s" x="392" y="127" text-anchor="middle">SIRA</text></svg>
+      
+          <ul class="bl-cek"><li>Üretici metnini kopyalamayan, kendi ölçümünüzle yazılmış özgün açıklama</li><li>Fiyat, stok ve değerlendirme puanını makineye ileten yapılandırılmış veri</li><li>Zengin sonuç gösterimine adaylık ve buradan gelen tıklama artışı</li><li>Her yeni değerlendirmeyle sayfaya eklenen taze ve özgün metin</li></ul>
+        </div>
+          <figure class="bl-maket">
+            <div class="mk">
+        <div class="mk-ic">
+          <div class="mk-detay">
+            <div class="mk-kucuk">
+              <div class="mk-gorsel"><svg viewBox="0 0 64 40" fill="none" aria-hidden="true">
+  <path d="M6 30c0-6 1-11 3-14 1.5-2.3 4-3 5.8-1.6L20 18l5-3.5c1.6-1.1 3.7-.6 4.6 1.1l2 3.6c.7 1.2 1.9 2 3.3 2.2l16 2.3c4.4.6 7.6 3.5 7.6 6.9V32c0 1.7-1.4 3-3.1 3H9.1C7.4 35 6 33.7 6 32z" fill="currentColor" opacity=".82"/>
+  <path d="M6 31h51.5" stroke="#0B0D12" stroke-width="1.6"/>
+  <path d="M20 18l3.4 4.6M26 15.2l3.2 4.4" stroke="#0B0D12" stroke-width="1.3" opacity=".55"/>
+</svg></div>
+              <div class="mk-gorsel"><svg viewBox="0 0 64 40" fill="none" aria-hidden="true">
+  <path d="M6 30c0-6 1-11 3-14 1.5-2.3 4-3 5.8-1.6L20 18l5-3.5c1.6-1.1 3.7-.6 4.6 1.1l2 3.6c.7 1.2 1.9 2 3.3 2.2l16 2.3c4.4.6 7.6 3.5 7.6 6.9V32c0 1.7-1.4 3-3.1 3H9.1C7.4 35 6 33.7 6 32z" fill="currentColor" opacity=".82"/>
+  <path d="M6 31h51.5" stroke="#0B0D12" stroke-width="1.6"/>
+  <path d="M20 18l3.4 4.6M26 15.2l3.2 4.4" stroke="#0B0D12" stroke-width="1.3" opacity=".55"/>
+</svg></div>
+              <div class="mk-gorsel"><svg viewBox="0 0 64 40" fill="none" aria-hidden="true">
+  <path d="M6 30c0-6 1-11 3-14 1.5-2.3 4-3 5.8-1.6L20 18l5-3.5c1.6-1.1 3.7-.6 4.6 1.1l2 3.6c.7 1.2 1.9 2 3.3 2.2l16 2.3c4.4.6 7.6 3.5 7.6 6.9V32c0 1.7-1.4 3-3.1 3H9.1C7.4 35 6 33.7 6 32z" fill="currentColor" opacity=".82"/>
+  <path d="M6 31h51.5" stroke="#0B0D12" stroke-width="1.6"/>
+  <path d="M20 18l3.4 4.6M26 15.2l3.2 4.4" stroke="#0B0D12" stroke-width="1.3" opacity=".55"/>
+</svg></div>
             </div>
-            <div class="ciz-alt"><div class="ciz-cip"><u>ÖZGÜN METİN</u><b data-sayac="1" data-birim="">0</b></div><div class="ciz-cip"><u>ŞEMA</u><b data-sayac="1" data-birim="">0</b></div><div class="ciz-cip"><u>ETKİLEŞİM</u><b data-sayac="1" data-birim="">0</b></div></div>
+            <div class="mk-buyuk"><svg viewBox="0 0 64 40" fill="none" aria-hidden="true">
+  <path d="M6 30c0-6 1-11 3-14 1.5-2.3 4-3 5.8-1.6L20 18l5-3.5c1.6-1.1 3.7-.6 4.6 1.1l2 3.6c.7 1.2 1.9 2 3.3 2.2l16 2.3c4.4.6 7.6 3.5 7.6 6.9V32c0 1.7-1.4 3-3.1 3H9.1C7.4 35 6 33.7 6 32z" fill="currentColor" opacity=".82"/>
+  <path d="M6 31h51.5" stroke="#0B0D12" stroke-width="1.6"/>
+  <path d="M20 18l3.4 4.6M26 15.2l3.2 4.4" stroke="#0B0D12" stroke-width="1.3" opacity=".55"/>
+</svg></div>
+            <div class="mk-bilgi">
+              <div class="mk-satir u"></div>
+              <div class="mk-satir o"></div>
+              <div class="mk-yildiz"><i></i><i></i><i></i><i></i><i class="bos"></i></div>
+              <div class="mk-satir ac" style="width:64%"></div>
+              <div class="mk-satir k"></div>
+              <div class="mk-alt">
+                <div class="mk-sepet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 002 1.6h7.7a2 2 0 002-1.5L21 8H6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="20" r="1.4" fill="currentColor"/><circle cx="18" cy="20" r="1.4" fill="currentColor"/></svg>Sepete Ekle</div>
+                <div class="mk-kalp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0112 8a4.4 4.4 0 017.5 2.4C19.5 15.3 12 20 12 20z" stroke-linejoin="round"/></svg></div>
+              </div>
+            </div>
           </div>
         </div>
-          <figcaption>Ürün sayfasını sıralatan üç ana sinyal: özgün açıklama, yapılandırılmış veri ve kullanıcı etkileşimi. Sinyaller birleştiğinde sayfa hem makineye hem alıcıya aynı hikâyeyi anlatır.</figcaption>
-        </figure>
-      </section>
-      <section class="yz-bolum ikili ters">
-        <div class="yz-metin"><h2>Site Mimarisi ve İç Bağlantı Akışı Neden Belirleyicidir?</h2>
+      </div>
+            <figcaption>Temsilî ürün sayfası çizimi: özgün açıklama, yapılandırılmış veri ve kullanıcı etkileşimi aynı şablonda buluşur.</figcaption>
+          </figure>
+        </div>
+      </article>
+      <article class="bl-kart ikili ters">
+        <div class="bl-ic">
+          <div class="bl-metin">
+          <span class="bl-no">04</span>
+          <h2>Site Mimarisi ve <em>İç Bağlantı Akışı</em> Neden Belirleyicidir?</h2>
+          
       <div class="yz-cevap"><p>İç bağlantı, sayfalar arasında otorite ve bağlam taşıyan köprüdür; site mimarisi bu köprülerin düzenidir. Ana sayfadan üç tıkla ulaşılamayan ürün, arama motorunun gözünde önemsiz kalır. Doğru hiyerarşide güç ana sayfadan kategorilere, oradan ürünlere kesintisiz akar. Akışı kesen kopuk sayfalar mekanizmanın en sık gözden kaçan zayıf halkasıdır.</p></div>
       <p>Bağlantı gücünün akışını somut bir örnekle düşünelim. Dış dünyadan en çok referans alan sayfa çoğu mağazada ana sayfadır. Menü, oradaki gücü ana kategorilere dağıtır. Kategori sayfası da listelediği ürünlere aktarır. Çapa metni bu aktarıma bağlam ekler. "Buraya tıklayın" yerine "erkek koşu ayakkabısı" yazan bağlantı, hedef sayfanın konusunu da bildirir. E-ticaret SEO hizmeti kapsamında ekibimiz bu akışı haritalar ve satış önceliğine göre yeniden yönlendirir. Tarama bütçesi, indeksleme ve hız denetimi ise ayrı bir <a href="../../teknik-seo/">teknik SEO</a> çalışmasının konusudur.</p>
       <h3>Üç Tık Kuralı Neyi Garanti Etmez?</h3>
       <p>Üç tık kuralı, her ürüne ana sayfadan en fazla üç adımda ulaşılmasını öngören mimari ilkedir. Kural erişilebilirliği sağlar; tek başına sıralama getirmez. Ulaşılabilir sayfanın bir de niyetle eşleşmesi ve özgün sinyal üretmesi gerekir.</p>
       <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      </div>
-        <figure class="yz-gorsel-sutun">
-          <div class="ciz-kutu" aria-hidden="true">
-          <div class="ciz-cerceve">
-            <div class="ciz-bar"><i></i><i></i><i></i><span>otorite ana sayfadan ürüne akar</span><b>AKIŞ</b></div>
-            <div class="ciz-svg">
-              <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect class="cz-cizgi" style="--u:210;--d:0.00s" x="18" y="86" width="82" height="40" rx="8"/>
+      
+          
+        </div>
+          <figure class="bl-maket">
+            <div class="mk">
+        <div class="mk-bar"><i></i><i></i><i></i><u></u></div>
+        <div class="ciz-svg" style="padding:14px">
+          <svg viewBox="0 0 430 210" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect class="cz-cizgi" style="--u:210;--d:0.00s" x="18" y="86" width="82" height="40" rx="8"/>
 <rect class="cz-dolgu" style="--d:0.00s" x="18" y="86" width="82" height="40" rx="8"/>
 <text class="cz-etiket vurgu" style="--d:0.40s" x="59" y="146" text-anchor="middle">ANA SAYFA</text>
 <rect class="cz-cizgi" style="--u:190;--d:0.80s" x="166" y="46" width="78" height="36" rx="7"/>
@@ -969,38 +1047,42 @@
 <path class="cz-cizgi" style="--u:90;--d:3.00s" d="M244 58 C282 58 282 44 312 44 M244 64 C282 64 282 82 312 82"/>
 <path class="cz-cizgi" style="--u:90;--d:3.25s" d="M244 140 C282 140 282 128 312 128 M244 146 C282 146 282 166 312 166"/>
 <text class="cz-etiket vurgu" style="--d:3.55s" x="344" y="200" text-anchor="middle">ÜRÜN SAYFALARI</text></svg>
-            </div>
-            <div class="ciz-alt"><div class="ciz-cip"><u>KAYNAK</u><b data-sayac="1" data-birim=" sayfa">0 sayfa</b></div><div class="ciz-cip"><u>KATEGORİ</u><b data-sayac="2" data-birim="">0</b></div><div class="ciz-cip"><u>ÜRÜN</u><b data-sayac="4" data-birim="">0</b></div></div>
-          </div>
         </div>
-          <figcaption>Dış dünyadan en çok referans alan sayfa çoğu mağazada ana sayfadır. Menü o gücü kategorilere, kategori de listelediği ürünlere aktarır. Ana sayfadan üç tıkla ulaşılamayan ürün önemsiz kalır.</figcaption>
-        </figure>
-      </section>
-      <section class="yz-bolum ikili">
-        <div class="yz-metin"><h2>İçerik Katmanı Satış Sayfalarını Nasıl Güçlendirir?</h2>
+        <div class="ciz-alt"><div class="ciz-cip"><u>KAYNAK</u><b data-sayac="1" data-birim=" sayfa">0 sayfa</b></div><div class="ciz-cip"><u>KATEGORİ</u><b data-sayac="2" data-birim="">0</b></div><div class="ciz-cip"><u>ÜRÜN</u><b data-sayac="4" data-birim="">0</b></div></div>
+      </div>
+            <figcaption>Güç ana sayfadan kategorilere, oradan ürünlere akar. Akışı kesen kopuk sayfa en sık gözden kaçan zayıf halkadır.</figcaption>
+          </figure>
+        </div>
+      </article>
+      <article class="bl-kart">
+        <div class="bl-metin">
+          <span class="bl-no">05</span>
+          <h2><em>İçerik Katmanı</em> Satış Sayfalarını Nasıl Güçlendirir?</h2>
+          
       <div class="yz-cevap"><p>Rehber ve blog içerikleri, bilgi arayan kullanıcıyı yakalayıp otoriteyi satış sayfalarına aktaran destek katmanıdır. "Hangi koşu ayakkabısı alınmalı" rehberi doğrudan satmaz. Kategoriye verdiği bağlantıyla hem ziyaretçi hem güç taşır. E-ticaret SEO hizmeti bu katmanı satış hunisinin üst adımı olarak planlar.</p></div>
       <p>Anlam eşleşmesi bu katmanın görünmeyen motorudur. Arama motorları artık tek kelimeyi değil konu bütünlüğünü değerlendirir. Kategoriye bağlanan taban tipi rehberi, numara seçimi kılavuzu ve bakım yazısı bir bütün oluşturur. Bu bütün, mağazanın koşu ayakkabısı konusundaki uzmanlığını topluca kanıtlar. Konu haritasının kurgusunu <a href="../../seo-icerik/">içerik stratejisi</a> ekibimiz üstlenir. SEO hizmetini e-ticaret tarafında sonuca bağlayan da bu bütünlüktür. Site dışından gelen referansların etkisi ayrı bir yazının konusudur. Buradaki odak, tamamen kendi kontrolünüzdeki iç mekanizmadır.</p>
       <h3>Anlam Eşleşmesi Nedir?</h3>
       <p>Anlam eşleşmesi, sayfa içeriğinin arama sorgusunun ardındaki konuyla örtüşme derecesidir. Eş anlamlılar, ilgili kavramlar ve doğal sorular metne yayıldığında eşleşme güçlenir. Bu çalışma, örtüşmeyi hem kategori metinlerinde hem rehber içeriklerde bilinçli olarak kurar.</p>
-      </div>
-        <figure class="yz-gorsel-sutun">
-          <div class="cerceveli">
-          <b class="akv-rozet"><i></i>CANLI DÖNGÜ</b>
-          <video data-dongu muted loop playsinline preload="metadata" poster="../../../assets/modul-seo/e-ticaret-seo.jpg" aria-label="Ürün ve kategori sayfası optimizasyonunun iç mekanizmasını simgeleyen birbirine geçmiş çarklı soyut 3D illüstrasyon">
-            <source src="../../../assets/modul-seo/e-ticaret-seo.mp4" type="video/mp4">
-          </video>
+      
+          
         </div>
-          <figcaption>Talep analizi, sayfa eşleştirme, sinyal üretimi ve otorite dağıtımı sürekli bakım ister; hizmet bu döngüyü kurar, ölçer ve raporlar.</figcaption>
-        </figure>
-      </section>
-      <section class="yz-bolum">
-        <div class="yz-metin"><h2>Mağazanız İçin Profesyonel E-Ticaret SEO Desteği Alın</h2>
+      </article>
+      <article class="bl-kart">
+        <div class="bl-metin">
+          <span class="bl-no">06</span>
+          <h2>Mağazanız İçin Profesyonel <em>E-Ticaret SEO Desteği</em> Alın</h2>
+          
       <div class="yz-cevap"><p>Mekanizmayı bilmek ile onu her gün işletmek arasındaki farkı profesyonel destek kapatır. Talep analizi, sayfa eşleştirme, sinyal üretimi ve otorite dağıtımı sürekli bakım ister. E-ticaret SEO hizmeti veren ekibimiz bu döngüyü sizin adınıza kurar, ölçer ve raporlar. Siz ürüne ve operasyona odaklanırken sıralama tarafı planlı ilerler.</p></div>
       <p>Çevrim içi mağazanızın mevcut yapısını inceleyip talep haritanızı çıkararak başlıyoruz. Kapsamın ayrıntılarını <a href="../../e-ticaret-seo/">e-ticaret SEO hizmeti</a> sayfamızda bulabilirsiniz. Kategori kurgusu, ürün şablonları ve içerik katmanı orada tek planda birleşir. Mağaza altyapınız yenilenecekse <a href="../../web-tasarim/">web tasarım ve yazılım</a> ekibimizle mimariyi en baştan sıralama dostu kuruyoruz. İlk görüşmede mevcut görünürlüğünüzü birlikte değerlendiriyor, önceliği en yüksek fırsatları netleştiriyoruz.</p>
-      </div>
-      </section>
-      <section class="yz-bolum">
-        <div class="yz-metin"><h2>Kategori Sayfası ile Ürün Sayfası Optimizasyonu Karşılaştırması</h2>
+      
+          
+        </div>
+      </article>
+      <article class="bl-kart">
+        <div class="bl-metin">
+          <span class="bl-no">07</span>
+          <h2>Kategori Sayfası ile Ürün Sayfası Optimizasyonu <em>Karşılaştırması</em></h2>
+          
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Boyut</th><th>Kategori Sayfası</th><th>Ürün Sayfası</th></tr></thead>
@@ -1027,8 +1109,11 @@
       </div>
     </aside>
         <p>Sıralama şans değil mekanizma işidir. Talebi haritalayan, her niyete doğru sayfayı atayan ve gücü bilinçli dağıtan mağazalar öne çıkar. Hizmetin e-ticaret ayağında da mesele tek tek taktikler değil, bunları birbirine bağlayan düzendir. Bu düzeni kurmak için e-ticaret SEO hizmetimizle tanışın. Ürün ve kategori sayfalarınız aramalarda hak ettiği pozisyona yürüsün.</p>
+      
+          
+        </div>
+      </article>
       </div>
-      </section>
     </article>
     </div>
   </section>
@@ -1144,43 +1229,10 @@ document.getElementById('yil').textContent = new Date().getFullYear();
 
 <script>
 "use strict";
-/* soru paneli */
-/* 6 sn'de bir kendisi döner; kullanıcı dokununca döngü KALICI durur.
-   Otomatik dönüş yalnız >=881px: dar ekranda okuma bölünmesin (mobil
-   denetim bulgusu). */
-(function(){
-  var kok = document.querySelector('[data-sd]');
-  if (!kok) return;
-  var sorular  = [].slice.call(kok.querySelectorAll('.sd-soru'));
-  var cevaplar = [].slice.call(kok.querySelectorAll('.sd-cevap'));
-  var cubuk = kok.querySelector('[data-sd-cubuk]');
-  var AZALT = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var aktif = 0, zaman = null, durdu = false;
-  function ciz(n){
-    aktif = n;
-    sorular.forEach(function(b,i){ b.classList.toggle('acik', i===n); b.setAttribute('aria-selected', i===n?'true':'false'); });
-    cevaplar.forEach(function(c,i){ c.classList.toggle('acik', i===n); });
-    if (cubuk && !AZALT && !durdu) { cubuk.classList.remove('akiyor'); void cubuk.offsetWidth; cubuk.classList.add('akiyor'); }
-  }
-  sorular.forEach(function(b,i){
-    b.addEventListener('click', function(){
-      durdu = true;
-      if (zaman) { clearInterval(zaman); zaman = null; }
-      if (cubuk) { cubuk.classList.remove('akiyor'); cubuk.style.width = '0'; }
-      ciz(i);
-    });
-  });
-  ciz(0);
-  if (!AZALT && window.matchMedia('(min-width: 881px)').matches) zaman = setInterval(function(){ if (!durdu) ciz((aktif+1) % sorular.length); }, 6000);
-})();
-</script>
-<script>
-"use strict";
-/* sahne sayaçları: 9 sn'lik çizim döngüsüyle senkron */
 (function(){
   var cipler = document.querySelectorAll('.ciz-cip [data-sayac]');
   if (!cipler.length) return;
-  function bicim(hedef, deger){ return (hedef % 1 === 0 ? Math.round(deger) : deger.toFixed(1).replace('.', ',')); }
+  function bicim(h, d){ return (h % 1 === 0 ? Math.round(d) : d.toFixed(1).replace('.', ',')); }
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     cipler.forEach(function(b){ b.textContent = bicim(parseFloat(b.dataset.sayac), parseFloat(b.dataset.sayac)) + b.dataset.birim; });
     return;
@@ -1188,10 +1240,8 @@ document.getElementById('yil').textContent = new Date().getFullYear();
   var DONGU = 9000, basla = performance.now();
   function kare(t){
     var oran = Math.min(1, Math.max(0, (((t - basla) % DONGU) - 1200) / 3800));
-    cipler.forEach(function(b){
-      var hedef = parseFloat(b.dataset.sayac);
-      b.textContent = bicim(hedef, hedef * oran) + b.dataset.birim;
-    });
+    cipler.forEach(function(b){ var hd = parseFloat(b.dataset.sayac);
+      b.textContent = bicim(hd, hd * oran) + b.dataset.birim; });
     requestAnimationFrame(kare);
   }
   requestAnimationFrame(kare);
