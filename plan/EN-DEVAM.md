@@ -1,6 +1,6 @@
 # İngilizce sürüm — devam notu
 
-**Son güncelleme:** 7 Eylül 2026 · **52 İngilizce sayfa canlı** (34 sayfa + 18 blog yazısı) · **SEO kümesi TAMAM (8/8)** · **E-Ticaret kümesi 4/6**
+**Son güncelleme:** 7 Eylül 2026 · **53 İngilizce sayfa canlı** (34 sayfa + 19 blog yazısı) · **SEO kümesi TAMAM (8/8)** · **E-Ticaret kümesi 5/6**
 
 Biten: `/en/` · `about` · `contact` · `services` · `blog` · `get-a-quote` ·
 `web-design` · `mobile-app-development` · `digital-marketing` · `seo` ·
@@ -30,6 +30,7 @@ node plan/en-sayfa-uret.js <sayfa> --kaynak-yaz # numara kilidi
 node plan/en-sayfa-uret.js <sayfa> --uygula
 node plan/en-ic-link.js --uygula                # iç bağlantıları İngilizceye çevir
 node plan/en-gorsel-ayir.js --uygula            # GÖRSELLERİ AYRI KOPYA + AYRI AD
+node plan/en-gorsel-desen-denetim.js            # karşılıksız blog görseli 0 olmalı
 node plan/en-birim.js --uygula                  # sayaç birimi + ondalık ayırıcı
 node plan/en-hreflang.js --uygula               # karşılıklı hreflang
 node plan/en-sitemap.js 2026-09-07 --uygula     # sitemap'e ekle
@@ -63,7 +64,7 @@ Windows yoluna çevirir.
 
 ## 2. Terim sözlüğü — ZORUNLU
 
-Bu kararlar 52 sayfada uygulandı. Değiştirmeyin.
+Bu kararlar 53 sayfada uygulandı. Değiştirmeyin.
 
 ### Marka vaadi
 | Türkçe | İngilizce | Neden |

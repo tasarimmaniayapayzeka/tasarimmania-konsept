@@ -40,8 +40,15 @@ for (const [tr, o] of Object.entries(HARITA.blog || {}))
   if (!tr.startsWith('_') && o && o.en) BLOG_EN.set(tr, o.en);
 
 /* Sözlük: site köküne göre mutlak yol → yeni mutlak yol */
+/* ⚠ 'blog_istisna' ÜÇÜNCÜ GRUP OLARAK EKLENDİ. Blog görselleri normalde
+ *   blogYeni() kuralıyla türetiliyor, sözlüğe yazılmıyor. Ölçüldü
+ *   (plan/en-gorsel-desen-denetim.js): 420 blog görselinin 410'u kurala
+ *   uyuyor, 10'u uymuyor ve hepsi TEK yazıda — /blog/e-ticaret-yazilimi/
+ *   (uc-yol-*, katalog-karmasikligi-*). Kural tutmayınca kilit "SÖZLÜKTE
+ *   YOK" deyip durdu; adlar elle bu gruba yazıldı. Grup adı ayrı tutuldu
+ *   ki istisnanın istisna olduğu görünsün. */
 const SOZLUK = new Map();
-for (const grup of ['icerik', 'marka'])
+for (const grup of ['icerik', 'marka', 'blog_istisna'])
   for (const [a, b] of Object.entries(AD[grup] || {}))
     if (!a.startsWith('_')) SOZLUK.set(a, b);
 
