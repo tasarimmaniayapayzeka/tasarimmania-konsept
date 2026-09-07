@@ -1,6 +1,6 @@
 # İngilizce sürüm — devam notu
 
-**Son güncelleme:** 7 Eylül 2026 · **37 İngilizce sayfa canlı** (34 sayfa + 3 blog yazısı), 100 sayfa toplam
+**Son güncelleme:** 7 Eylül 2026 · **38 İngilizce sayfa canlı** (34 sayfa + 4 blog yazısı), 100 sayfa toplam
 
 Biten: `/en/` · `about` · `contact` · `services` · `blog` · `get-a-quote` ·
 `web-design` · `mobile-app-development` · `digital-marketing` · `seo` ·
@@ -61,7 +61,7 @@ Windows yoluna çevirir.
 
 ## 2. Terim sözlüğü — ZORUNLU
 
-Bu kararlar 37 sayfada uygulandı. Değiştirmeyin.
+Bu kararlar 38 sayfada uygulandı. Değiştirmeyin.
 
 ### Marka vaadi
 | Türkçe | İngilizce | Neden |
