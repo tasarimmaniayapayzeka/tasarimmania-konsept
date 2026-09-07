@@ -26,7 +26,8 @@ const TR_HARF = /[çğıöşüÇĞİÖŞÜ]/;
 /* Bilerek Türkçe kalanlar. Sözlükteki "Çevrilmeyenler" başlığının karşılığı. */
 const MUAF = [
   /* marka / kurum / platform */
-  'TasarımMania', 'RTÜK', 'İleti Yönetim Sistemi', 'IdeaSoft', 'ikas', 'Yoast',
+  'TasarımMania', 'RTÜK', 'ETBİS', 'TÜİK', 'İleti Yönetim Sistemi',
+  'IdeaSoft', 'ikas', 'Yoast',
   /* yer adı — adres ve hizmet bölgesi */
   'Türkiye', 'İstanbul', 'Bakırköy', 'Küçükçekmece', 'Bahçelievler',
   'Özgürlük Meydanı',

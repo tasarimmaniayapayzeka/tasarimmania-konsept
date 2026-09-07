@@ -1,6 +1,6 @@
 # İngilizce sürüm — devam notu
 
-**Son güncelleme:** 7 Eylül 2026 · **39 İngilizce sayfa canlı** (34 sayfa + 5 blog yazısı), 100 sayfa toplam
+**Son güncelleme:** 7 Eylül 2026 · **40 İngilizce sayfa canlı** (34 sayfa + 6 blog yazısı), 100 sayfa toplam
 
 Biten: `/en/` · `about` · `contact` · `services` · `blog` · `get-a-quote` ·
 `web-design` · `mobile-app-development` · `digital-marketing` · `seo` ·
@@ -61,7 +61,7 @@ Windows yoluna çevirir.
 
 ## 2. Terim sözlüğü — ZORUNLU
 
-Bu kararlar 39 sayfada uygulandı. Değiştirmeyin.
+Bu kararlar 40 sayfada uygulandı. Değiştirmeyin.
 
 ### Marka vaadi
 | Türkçe | İngilizce | Neden |
@@ -117,9 +117,27 @@ Hizmetler→**Services** · Süreç→**Process** · İletişim→**Contact** ·
 
 ### Çevrilmeyenler
 Marka adları (müşteri logoları) · kişi adları · adres · telefon ·
-metro/Marmaray istasyon adları · **RTÜK** · **KVKK** *(kısaltma korunur,
-yanına açıklama eklenir)* · Sağlık Bakanlığı · platform adları ·
+metro/Marmaray istasyon adları · platform adları ·
 HTML etiket adları · schema.org tür adları · **HTML/CSS/JS yorumları**
+
+### Türk kurumları — TEK DESEN
+İngilizce okur hangi ülkenin kurumu olduğunu bilmiyor. Kural:
+**kısaltma korunur + ülke adı eklenir + kısa açıklama.** Uygulananlar:
+
+| Türkçe | İngilizce | Nerede |
+|---|---|---|
+| KVKK | KVKK, Türkiye's data protection law | blog/chatbot |
+| RTÜK | RTÜK's broadcasting principles | /video-produksiyon/, blog |
+| İleti Yönetim Sistemi | the İleti Yönetim Sistemi, Türkiye's message management system | /performans-pazarlama/ |
+| Telif Hakları Genel Müdürlüğü | Türkiye's Directorate General of Copyright | /reels-video/, blog |
+| ticaret.gov.tr bağlantısı | Türkiye's commercial advertising rules / legislation | 4 sayfa |
+| Ticaret Bakanlığı | Türkiye's Ministry of Trade | blog/teknik-seo |
+| ETBİS | ETBİS, Türkiye's e-commerce information system | blog/teknik-seo |
+| TÜİK | TurkStat *(kurumun kendi resmî İngilizce kısaltması)* | blog/teknik-seo |
+
+⚠ Eski sözlükte "Sağlık Bakanlığı Türkçe kalacak" yazıyordu; o satır bu
+desenden **önce** yazılmıştı ve kaldırıldı. Bakanlık adını Türkçe bırakmak
+İngilizce okur için anlamsız — desen yukarıdaki gibi.
 
 ### Temsilî değerler — site geneli tek
 `markaniz.com` → **yourbrand.com** · `rakip-a.com` → **competitor-a.com** ·
