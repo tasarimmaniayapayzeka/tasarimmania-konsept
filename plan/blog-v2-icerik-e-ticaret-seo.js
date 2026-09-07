@@ -45,6 +45,14 @@ module.exports = {
     },
   },
 
+  /* kapanış CTA — kısa, dev banner değil */
+  cta: {
+    baslik: 'E-Ticaret SEO ile büyümeye hazır mısınız?',
+    metin: 'Kapsamlı SEO analiziyle mağazanızın talep haritasını ve öncelikli fırsatlarını birlikte belirleyelim.',
+    dugme: 'Ücretsiz SEO Analizi Al',
+    href: '../../teklif/',
+  },
+
   /* başlıkta yeşile boyanacak parça */
   vurgular: {
     'E-Ticaret SEO Nedir, Sıralamayı Üreten Mekanizma Nasıl Çalışır?': 'Sıralamayı Üreten Mekanizma',
