@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- KONSEPT-NOINDEX -->
+<meta name="robots" content="noindex,nofollow">
+<title>React Native or Flutter? A Comparison | TasarımMania</title>
+<meta name="description" content="React Native or Flutter? We compare the two frameworks criterion by criterion — team language, interface look, package ecosystem and maintenance load.">
+<link rel="canonical" href="https://www.tasarimmania.com/en/blog/react-native-vs-flutter/">
+<link rel="alternate" hreflang="tr" href="https://www.tasarimmania.com/blog/react-native-mi-flutter-mi/">
+<link rel="alternate" hreflang="en" href="https://www.tasarimmania.com/en/blog/react-native-vs-flutter/">
+<link rel="alternate" hreflang="x-default" href="https://www.tasarimmania.com/blog/react-native-mi-flutter-mi/">
+<link rel="alternate" type="application/rss+xml" title="TasarımMania Blog (RSS)" href="../../../blog/rss.xml">
+<link rel="alternate" type="application/atom+xml" title="TasarımMania Blog (Atom)" href="../../../blog/atom.xml">
+<meta name="author" content="İhsan Ar">
+<!-- max-* AYRI etikette: noindex-uygula.js --ac robots etiketini birebir dizgeyle
+     arıyor; içine ekleme yapılırsa indekslemeyi açma betiği kırılır. -->
+<meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="theme-color" content="#0B0D12">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="React Native or Flutter? A Comparison | TasarımMania">
+<meta property="og:description" content="React Native or Flutter? We compare the two frameworks criterion by criterion — team language, interface look, package ecosystem and maintenance load.">
+<meta property="og:url" content="https://www.tasarimmania.com/en/blog/react-native-vs-flutter/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/en/blog/react-native-vs-flutter/image/react-native-vs-flutter-cover-1440.jpg">
+<meta property="og:image:width" content="1440">
+<meta property="og:image:height" content="810">
+<meta property="og:image:alt" content="Two illuminated columns rising from a shared base; the left one connected outwards at its edges, the right one closed in on itself">
+<meta property="article:published_time" content="2026-10-02T10:20:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="React Native or Flutter? A Comparison | TasarımMania">
+<meta name="twitter:description" content="React Native or Flutter? We compare the two frameworks criterion by criterion — team language, interface look, package ecosystem and maintenance load.">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/en/blog/react-native-vs-flutter/image/react-native-vs-flutter-cover-1440.jpg">
+<meta name="twitter:image:alt" content="Two illuminated columns rising from a shared base; the left one connected outwards at its edges, the right one closed in on itself">
+<link rel="icon" type="image/png" href="../../../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
+<link rel="stylesheet" href="../../../css/tm.css">
+<style>
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  max-height:calc(100dvh - 74px);overflow-y:auto;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(28px,4vw,52px)) 0 clamp(22px,3vw,34px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.14),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.wa{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:90;width:54px;height:54px;
+  border-radius:50%;background:#25D366;display:grid;place-items:center;
+  box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s;padding-block:7px}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+@media(max-width:960px){.ftr-ust{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.nav-links,.nav-tel{display:none}.burger{display:block}.ftr-ust{grid-template-columns:1fr}}
+/* --- blog yazısı: okuma düzeni --- */
+.yz-ust{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.yz-kat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acc);border:1px solid rgba(var(--acc-rgb),.4);border-radius:99px;padding:6px 13px}
+.yz-meta{font-family:var(--mono);font-size:11.4px;color:var(--muted)}
+.phd h1{font-size:clamp(28px,4.4vw,46px);letter-spacing:-.035em;line-height:1.16;margin-bottom:16px;max-width:22ch}
+.phd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18px);max-width:62ch;line-height:1.78}
+.yz-govde{max-width:760px}
+.yz-govde h2{font-size:clamp(21px,2.9vw,28px);letter-spacing:-.03em;line-height:1.25;margin:44px 0 0}
+.yz-govde h3{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;line-height:1.35;margin:30px 0 10px}
+.yz-govde h4{font-size:15.6px;letter-spacing:-.01em;margin:22px 0 8px;color:var(--fg-dim)}
+.yz-govde p{font-size:15.6px;color:var(--fg-dim);line-height:1.85;margin:0 0 16px}
+.yz-govde ul,.yz-govde ol{margin:0 0 18px;padding-left:0;list-style:none;display:grid;gap:10px}
+.yz-govde li{font-size:15.2px;color:var(--fg-dim);line-height:1.72;display:flex;gap:11px;align-items:flex-start}
+.yz-govde li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:10px}
+.yz-govde ol{counter-reset:s}
+.yz-govde ol li{counter-increment:s}
+.yz-govde ol li::before{content:counter(s);width:auto;height:auto;border-radius:0;background:none;
+  color:var(--acc);font-family:var(--mono);font-size:12px;margin-top:2px;min-width:16px}
+.yz-govde strong{color:var(--fg);font-weight:600}
+/* WCAG 2.5.8 - satir ici baglanti dokunma hedefi >=24px.
+   DIKKAT: padding'i AYRI bir .yz-govde p a kuralina koyma; .yz-govde a:not(.btn)
+   ozgullugu (0,2,1) onu (0,1,2) ezer ve 2px'te kalir. Degeri bu kuralin ICINDE tut. */
+.yz-govde a:not(.btn){color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.4);transition:text-decoration-color .25s;padding-block:4px}
+.yz-govde a:not(.btn):hover{text-decoration-color:var(--acc)}
+/* doğrudan cevap kutusu (snippet hedefi) */
+.yz-cevap{border-left:2px solid var(--acc);background:rgba(var(--acc-rgb),.05);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:16px 20px;margin:16px 0 22px}
+.yz-cevap p{margin:0;color:var(--fg);font-size:15.4px;line-height:1.75}
+/* karşılaştırma tablosu */
+.yz-tablo{margin:26px 0;border:1px solid var(--hair);border-radius:var(--r-md);overflow-x:auto}
+.yz-tablo table{width:100%;border-collapse:collapse;min-width:520px}
+.yz-tablo th{font-family:var(--mono);font-size:10.4px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--acc);text-align:left;padding:14px 16px;border-bottom:1px solid var(--hair);
+  background:rgba(var(--acc-rgb),.05);font-weight:500;white-space:nowrap}
+.yz-tablo td{font-size:13.8px;color:var(--fg-dim);padding:14px 16px;border-bottom:1px solid var(--hair);
+  line-height:1.6;vertical-align:top}
+.yz-tablo tr:last-child td{border-bottom:0}
+.yz-tablo td:first-child{color:var(--fg);font-weight:600}
+.yz-tablo-not{font-family:var(--mono);font-size:10.4px;color:var(--muted);margin:-16px 0 26px;
+  letter-spacing:.04em}
+/* SSS */
+.yz-sss{display:grid;gap:11px;max-width:760px}
+.yz-sss details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
+.yz-sss details[open]{border-color:var(--hair-strong)}
+.yz-sss summary{cursor:pointer;list-style:none;padding:17px 21px;font-size:15.2px;font-weight:600;
+  display:flex;align-items:center;gap:14px;line-height:1.4}
+.yz-sss summary::-webkit-details-marker{display:none}
+.yz-sss summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.yz-sss details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.yz-sss summary:hover{color:var(--acc)}
+.yz-sss p{padding:0 21px 19px;margin:0;font-size:14.4px;color:var(--muted);line-height:1.75}
+/* hizmet köprüsü */
+.yz-kopru{border:1px solid rgba(var(--acc-rgb),.32);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(var(--acc-rgb),.07),transparent);
+  padding:clamp(22px,3vw,32px);margin:36px 0;max-width:760px}
+.yz-kopru b{display:block;font-size:clamp(17px,2.2vw,21px);letter-spacing:-.02em;margin-bottom:9px}
+.yz-kopru p{font-size:14.6px;color:var(--fg-dim);line-height:1.72;margin:0 0 18px}
+.yz-kopru .btn{margin-right:10px}
+/* okuma ilerlemesi */
+.yz-cizgi{position:fixed;top:0;left:0;height:2px;background:var(--acc);z-index:101;width:0;
+  transition:width .1s linear}
+@media(max-width:760px){.yz-govde h2{margin-top:34px}}
+@media(prefers-reduced-motion:reduce){.yz-cizgi{display:none}}
+/* --- 1.2 eklentileri --- */
+.yz-kapak{margin:0 0 clamp(26px,4vw,44px)}
+.yz-kapak img,.yz-gorsel img{width:100%;height:auto;display:block;border-radius:14px;
+  border:1px solid var(--hair);background:#0d1017}
+.yz-kapak figcaption,.yz-gorsel figcaption{margin-top:11px;font-size:13.2px;line-height:1.55;
+  color:var(--muted);max-width:760px}
+.yz-gorsel{margin:clamp(26px,4vw,38px) 0}
+.yz-ai{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--fg-dim);opacity:.72;white-space:nowrap}
+.yz-govde ol{margin:16px 0 20px;padding-left:22px;display:grid;gap:10px}
+.yz-govde ol li{padding-left:4px}
+.yz-govde ol li::marker{color:var(--acc);font-family:var(--mono);font-weight:600}
+.yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
+  background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
+.yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.tasarimmania.com/en/blog/react-native-vs-flutter/#article",
+      "headline": "React Native or Flutter? A Single Codebase Comparison",
+      "description": "React Native or Flutter? We compare the two frameworks criterion by criterion — team language, interface look, package ecosystem and maintenance load.",
+      "datePublished": "2026-10-02T10:20:00",
+      "dateModified": "2026-10-02T10:20:00",
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://www.tasarimmania.com/en/blog/react-native-vs-flutter/",
+      "author": {
+        "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar"
+      },
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      },
+      "articleSection": "Mobile",
+      "wordCount": 1046,
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/react-native-mi-flutter-mi/gorsel/react-native-mi-flutter-mi-kapak-1440.jpg",
+        "width": 1440,
+        "height": 810,
+        "caption": "Two illuminated columns rising from a shared base; the left one connected outwards at its edges, the right one closed in on itself"
+      },
+      "about": [
+        "React Native",
+        "Flutter",
+        "Cross-platform geliştirme"
+      ],
+      "mentions": [
+        {
+          "@type": "Thing",
+          "name": "JavaScript"
+        },
+        {
+          "@type": "Thing",
+          "name": "Dart"
+        },
+        {
+          "@type": "Thing",
+          "name": "Design system"
+        },
+        {
+          "@type": "Thing",
+          "name": "Package management"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".ozet",
+          ".yz-cevap"
+        ]
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.tasarimmania.com/#kurulus",
+      "name": "TasarımMania",
+      "url": "https://www.tasarimmania.com/",
+      "telephone": "+905547916545",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/logo/marka-yatay-optik.png",
+        "width": 435,
+        "height": 163
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+        "addressLocality": "Bakırköy",
+        "addressRegion": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "knowsAbout": [
+        "Web design and software development",
+        "Mobile app development",
+        "Digital marketing and performance advertising",
+        "Video production and commercial films",
+        "Search engine optimization",
+        "Graphic design and brand identity",
+        "E-commerce store setup",
+        "Social media management"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.tasarimmania.com/en/blog/react-native-vs-flutter/#sss",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which runs faster, React Native or Flutter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In everyday use there is no difference a user would notice between the two. On work such as scrolling a list, filling in a form or displaying content, both frameworks run comfortably. The divergence begins on screens that call for heavy animation and continuous redrawing; there, the approach that draws with its own brush behaves more predictably. It wouldn't be right to decide on that difference without measuring it against your own heaviest screen. General claims about speed are usually repeated without ever being measured."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert one to the other later?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You would rewrite the interface code from scratch."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My website is written in React — is that an advantage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is, but don't overstate it. The components don't carry across directly; what carries across is the language, the habits around the tooling and part of the business logic. Even that makes a noticeable difference to the schedule."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which one also works on desktop and web?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both frameworks have a route in that direction. But if desktop and web are serious targets, don't promise anything without trying those platforms separately."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My designer wants a uniform look — which one suits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A framework that draws with its own brush meets that request directly. On the bridging route, getting the same result takes extra work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do I do if I can't find a package?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You write your own bridge. That is possible, but the bridge is now your maintenance load; factor that in when you take the decision."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which one do the big companies use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There are well-known products using both. But someone else's choice knows nothing about your team's language or your product's expectations of the interface."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I have in hand to decide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "What your team's language is, and whether the interface should resemble the device or the brand. Those two close most of the decision."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.tasarimmania.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.tasarimmania.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "React Native or Flutter? A Single Codebase Comparison",
+          "item": "https://www.tasarimmania.com/en/blog/react-native-vs-flutter/"
+        }
+      ],
+      "@id": "https://www.tasarimmania.com/en/blog/react-native-vs-flutter/#kirintili"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar",
+      "name": "İhsan Ar",
+      "jobTitle": "Digital Marketing Specialist",
+      "url": "https://www.tasarimmania.com/hakkimizda/#kurucu",
+      "sameAs": [
+        "https://www.linkedin.com/in/ihsan-ar-47254548/",
+        "https://www.instagram.com/ihsanar86/"
+      ],
+      "worksFor": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.tasarimmania.com/#site",
+      "url": "https://www.tasarimmania.com/",
+      "name": "TasarımMania",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.tasarimmania.com/en/blog/react-native-vs-flutter/#sayfa",
+      "url": "https://www.tasarimmania.com/en/blog/react-native-vs-flutter/",
+      "name": "React Native or Flutter? A Comparison | TasarımMania",
+      "description": "React Native or Flutter? We compare the two frameworks criterion by criterion — team language, interface look, package ecosystem and maintenance load.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.tasarimmania.com/#site"
+      },
+      "breadcrumb": {
+        "@id": "https://www.tasarimmania.com/en/blog/react-native-vs-flutter/#kirintili"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/react-native-mi-flutter-mi/gorsel/react-native-mi-flutter-mi-kapak-1440.jpg"
+      },
+      "mainEntity": {
+        "@id": "https://www.tasarimmania.com/en/blog/react-native-vs-flutter/#article"
+      },
+      "dateModified": "2026-10-02T10:20:00"
+    }
+  ]
+}
+</script>
+</head>
+<body data-dal="mobil">
+
+<i class="yz-cizgi" data-ilerleme aria-hidden="true"></i>
+<a class="skip" href="#ana">Skip to content</a>
+
+<nav class="nav" data-nav aria-label="Main menu">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../../" aria-label="TasarımMania home">
+      <img src="../../../../assets/en/brand/tasarimmania-logo-horizontal.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async" fetchpriority="high">
+    </a>
+    <div class="nav-links">
+      <a href="../../services/">Services</a>
+      <a href="../../#isler">Work</a>
+      <a href="../../about/">Agency</a>
+      <a href="../" aria-current="page">Blog</a>
+      <a href="../../get-a-quote/">Get a Quote</a>
+      <a href="../../contact/">Contact</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../../services/">Services</a><a href="../../#isler">Work</a><a href="../../about/">Agency</a>
+  <a href="../">Blog</a><a href="../../get-a-quote/">Get a Quote</a><a href="../../contact/">Contact</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<!-- AYIRT EDİCİ EKSEN: KARŞILAŞTIRMA — İki ÇATIYI kıyaslar. Native ile cross-platform MEKANİZMA farkı yazı 4'ün işidir; burada tekrarlanmaz, oraya link verilir. Maliyet yazı 1'in, takvim yazı 3'ün.
+     Huni türü: MOFU · Küme: mobil · Kardeşler (enjeksiyon turunda): uygulama-magaza-optimizasyonu -->
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Location">
+        <a href="../../">Home</a><span aria-hidden="true">/</span>
+        <a href="../">Blog</a><span aria-hidden="true">/</span>
+        <span>React Native or Flutter</span>
+      </nav>
+      <div class="yz-ust">
+        <span class="yz-kat">Mobile</span>
+        <span class="yz-meta">2 October 2026 · 7 min read</span>
+      </div>
+      <h1>React Native or Flutter? A Single Codebase Comparison</h1>
+      <p class="ozet">These two names come up side by side in most meetings, and the discussion quickly turns into taking sides. Yet both are mature, and both carry large products. The right question isn't which is better but which one fits your team and your product. In this article we compare them on four criteria. We aren't giving figures; the comparison runs on criteria.</p>
+    </div>
+  </header>
+
+  <figure class="yz-kapak">
+    <div class="wrap">
+      <img src="./image/react-native-vs-flutter-cover-1440.webp"
+           srcset="./image/react-native-vs-flutter-cover-640.webp 640w, ./image/react-native-vs-flutter-cover-960.webp 960w, ./image/react-native-vs-flutter-cover-1440.webp 1440w, ./image/react-native-vs-flutter-cover-1920.webp 1920w"
+           sizes="(max-width: 1200px) 100vw, 1160px"
+           alt="Two illuminated columns rising from a shared base; the left one connected outwards at its edges, the right one closed in on itself"
+           width="1920" height="1080" fetchpriority="high" decoding="async">
+      <figcaption>Two frameworks doing the same job by different routes: one connects outwards, the other stays within itself. <span class="yz-ai">Image generated with AI.</span></figcaption>
+    </div>
+  </figure>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <article class="yz-govde">
+      <h2>What Is the Fundamental Difference Between React Native and Flutter?</h2>
+      <div class="yz-cevap"><p>The difference gathers around who draws the screen. React Native bridges to the platform's own components; Flutter draws every pixel itself. The first feels familiar to the device, the second looks exactly the same on both platforms. They diverge on the language side too: one comes from the JavaScript family, the other uses Dart. You make the choice along those two axes.</p></div>
+      <p>We opened up the mechanical difference between a bridging framework and a self-drawing one in detail in the <a href="../native-vs-cross-platform/">native or cross-platform</a> article. We aren't repeating that mechanism here; we are looking at where the two frameworks diverge in practice.</p><p>We'll work through four criteria. The order matters: the first settles most of the decision on its own.</p><ol><li><strong>Team language</strong> — the developer experience you already have.</li><li><strong>Interface appearance</strong> — familiar to the device, or identical everywhere.</li><li><strong>Package ecosystem</strong> — abundance of choice versus tidiness.</li><li><strong>Maintenance load</strong> — how often version migrations come, and how painful they are.</li></ol>
+      <h3>If Both Do the Same Job, Why Is the Choice Hard?</h3>
+      <p>Because both of them work. The choice isn't a test of competence, it is a question of fit. Because React Native bridges to native components, the interface shows small differences from device to device; Flutter erases those differences entirely. Which of the two you want depends on your product.</p>
+      <h2>Which Language Does Your Team Command?</h2>
+      <div class="yz-cevap"><p>This question comes last on most lists, yet it is the most concrete criterion of all. A team writing JavaScript on the web side makes fast progress with React Native. For a team with Dart experience, or one you are hiring from scratch, Flutter puts nothing in the way. Setting off in a language you don't know grows both the schedule and the maintenance load.</p></div>
+      <p>If you already have a web product, the picture changes. The validation rules, the formatting helpers and part of the business logic are written in the same language. On the React Native side, carrying that experience across is relatively easy.</p><p>On a team built from scratch, the language becomes a preference rather than an obstacle. Learning Dart doesn't take an experienced developer weeks.</p><p>When you choose the team language, think about two years from now rather than today. Who will maintain the app, and which language is that person comfortable in? Keeping a framework standing after the team has dispersed is harder than setting it up. That is why we don't leave the decision to a single developer's preference; we invite the whole team to the table.</p>
+      <h3>What Does the Hiring Side Look Like?</h3>
+      <p>There is a pool of candidates on both sides; how easy the search is varies with your city and your salary. That is why we don't answer the question “which one has more developers” without measuring it. Looking at your own hiring history is more reliable than general claims.</p>
+      <h2>How Does the Interface Look on Each Route?</h2>
+      <div class="yz-cevap"><p>On the bridging route, when you press a button a real system button responds. On the self-drawing route, the same brush does the work on every platform. React Native sits closer to the first, Flutter to the second. If you want a uniform brand language, the second suits you. If the habits of the device matter, the first sits better.</p></div>
+      <p>The argument about how a screen looks is usually had over screenshots, yet the difference emerges in motion. Scroll deceleration, keyboard behaviour and the back gesture vary from device to device. A self-drawing framework imitates them itself; the imitation is good, but it isn't exact.</p><p>If you want heavy custom animation and brand-specific motion design, the self-drawing route leaves you more room.</p><p>Don't forget the accessibility side either. Screen reader support, text size settings and contrast come ready in platform components. On the self-drawing route you have to set those up separately; the framework helps, but the work stays with you. If you are building a public sector or enterprise product, this heading is not up for negotiation.</p>
+      <h3>On Which Side Is a Design System Easier to Build?</h3>
+      <p>If you are aiming for a uniform look, a self-drawing framework makes the job easier. On the route that leans on platform components, you have to try the same component separately on two devices.</p>
+      <h2>How Do the Package Ecosystem and the Maintenance Load Diverge?</h2>
+      <div class="yz-cevap"><p>There is a wide pool of packages on both sides, but they have different characters. The React Native ecosystem carries the accumulated work of the web world; choice is abundant and quality fluctuates. On the Flutter side, the ready-made libraries are tidier and relatively fewer in number. What determines the maintenance load isn't the number of packages but how regularly the ones you pick are maintained.</p></div>
+      <p>When we choose a package we look at three things: the date of the last update, the number of open issues and the number of maintainers. A package maintained by one person is a risk, however good it is. Those criteria work the same way on both sides.</p><p>Version migrations come into the picture too. A major release once a year is ordinary; the real question is how painful the migration is. The only honest way to measure that is to try it with your own dependency list. Both frameworks have a published release policy; <a href="https://reactnative.dev/" target="_blank" rel="noopener">the official framework documentation</a> announces the breaking changes.</p>
+      <h3>Are Fewer Packages Better, or More?</h3>
+      <p>Neither; the right package is better. Abundant choice creates decision fatigue, while narrow choice sometimes leads you to write your own bridge. On the native side, finding a ready-made solution for React Native is usually easy, but you then have to verify separately that what you found is maintained.</p><p>Keeping the dependency list short is a strategy in itself. Every ready-made library you add is a piece of work waiting for you at the next version migration. Five maintained packages beat twenty orphaned ones. Reviewing the list once a year is a good habit too.</p>
+      <blockquote class="yz-alinti"><p>&#8220;Both frameworks work. The question isn't which is better, but which one fits your team.&#8221;</p><cite>— TasarımMania architecture meeting note</cite></blockquote>
+      <h2>Which Product Should Choose Which Framework?</h2>
+      <div class="yz-cevap"><p>Three criteria settle it: team language, expectations of the interface, and the web codebase you already have. A team writing JavaScript and a wish for an interface familiar to the device strengthen the React Native side. A uniform brand language and heavy custom animation bring the Flutter side forward. If the three diverge, the team language carries the most weight.</p></div>
+      <p>There is a tendency by kind of product too. Enterprise dashboards, field applications and content products run comfortably on either side. On products with high visual ambition and dense motion design, the self-drawing framework comes forward.</p><p>Once the choice is settled, the schedule settles too; we set out the stages in the <a href="../mobile-app-development-process/">development process</a> article. And we opened up the effect on the budget, item by item, in the <a href="../mobile-app-development-cost/">app cost</a> article.</p><p>If there is no existing team, the picture gets simpler. If you are building from scratch, look at which of the two you find candidates for faster; measure that with your own hiring history. General claims about popularity may not hold in your city. The number you measure is always more accurate than the claim you read.</p>
+      <h2>Let's Make the Framework Choice Together</h2>
+      <div class="yz-cevap"><p>The choice isn't a purely technical preference. We weigh your team's language, your expectations of the interface and the web code you already have, together. What you are left with is not a brand name but the reasoning behind the choice. The difference between React Native and Flutter only takes on meaning through that reasoning. The wrong framework shows itself in the second release.</p></div>
+      <p>In the meeting we tick off the four criteria one by one and write down together which one carries the most weight. <a href="../../react-native-development/">Our single codebase service</a> or <a href="../../mobile-app-development/">our mobile app page</a> — both are open if you'd like to look through them.</p><p>We write the decision onto a single page: which criterion pointed which way, which one carried the most weight, and why. Six months on, when somebody asks, the answer is ready. Framework arguments come back around most often because the reasoning was never written down. A written rationale closes that argument once.</p>
+      <figure class="yz-gorsel">
+        <img src="./image/react-native-vs-flutter-body-960.webp"
+             srcset="./image/react-native-vs-flutter-body-640.webp 640w, ./image/react-native-vs-flutter-body-960.webp 960w, ./image/react-native-vs-flutter-body-1440.webp 1440w, ./image/react-native-vs-flutter-body-1920.webp 1920w"
+             sizes="(max-width: 760px) 100vw, 760px"
+             alt="Two grid surfaces side by side; the left one scattered and crowded, the right one ordered and sparse" width="1920" height="1080" loading="lazy" decoding="async">
+        <figcaption>The difference between abundance of choice and tidiness shows itself in the maintenance load. <span class="yz-ai">Image generated with AI.</span></figcaption>
+      </figure>
+      <h2>React Native and Flutter: a criterion-by-criterion comparison</h2>
+      <div class="yz-tablo">
+        <table>
+          <thead><tr><th>Criterion</th><th>React Native</th><th>Flutter</th></tr></thead>
+          <tbody>
+            <tr><td>Language</td><td>The JavaScript family</td><td>Dart</td></tr>
+            <tr><td>Interface component</td><td>A bridge to the platform's own element</td><td>Drawn with its own brush</td></tr>
+            <tr><td>Appearance across the two platforms</td><td>Small differences by device</td><td>Exactly the same</td></tr>
+            <tr><td>Package pool</td><td>Wide, with fluctuating quality</td><td>Tidier, fewer in number</td></tr>
+            <tr><td>Reuse of web code</td><td>Business logic carries across</td><td>No shared language</td></tr>
+            <tr><td>Heavy custom animation</td><td>Can be borderline</td><td>Leaves plenty of room</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+        <aside class="yz-kopru" aria-label="Service bridge">
+          <b>Let's make the framework choice together</b>
+          <p>Let's talk through your team's language, your expectations of the interface and the web code you already have; let's produce, together, the reasoning behind the choice rather than a brand name.</p>
+          <a class="btn btn-p" href="../../get-a-quote/#mobil">Let's map the scope
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="../../react-native-development/">See the service page</a>
+        </aside>
+        <p>The choice between React Native and Flutter isn't a contest of superiority, it is a question of fit. If the team language, the expectations of the interface and the web code you already have all point the same way, the decision states itself; if they diverge, the team language carries the most weight.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>FAQs</span>
+        <h2 data-kin>Frequently asked questions: choosing between React Native and Flutter</h2>
+      </div>
+      <div class="yz-sss rv d1">
+        <details>
+          <summary>Which runs faster, React Native or Flutter?</summary>
+          <p>In everyday use there is no difference a user would notice between the two. On work such as scrolling a list, filling in a form or displaying content, both frameworks run comfortably. The divergence begins on screens that call for heavy animation and continuous redrawing; there, the approach that draws with its own brush behaves more predictably. It wouldn't be right to decide on that difference without measuring it against your own heaviest screen. General claims about speed are usually repeated without ever being measured.</p>
+        </details>
+        <details>
+          <summary>Can I convert one to the other later?</summary>
+          <p>You would rewrite the interface code from scratch.</p>
+        </details>
+        <details>
+          <summary>My website is written in React — is that an advantage?</summary>
+          <p>It is, but don't overstate it. The components don't carry across directly; what carries across is the language, the habits around the tooling and part of the business logic. Even that makes a noticeable difference to the schedule.</p>
+        </details>
+        <details>
+          <summary>Which one also works on desktop and web?</summary>
+          <p>Both frameworks have a route in that direction. But if desktop and web are serious targets, don't promise anything without trying those platforms separately.</p>
+        </details>
+        <details>
+          <summary>My designer wants a uniform look — which one suits?</summary>
+          <p>A framework that draws with its own brush meets that request directly. On the bridging route, getting the same result takes extra work.</p>
+        </details>
+        <details>
+          <summary>What do I do if I can't find a package?</summary>
+          <p>You write your own bridge. That is possible, but the bridge is now your maintenance load; factor that in when you take the decision.</p>
+        </details>
+        <details>
+          <summary>Which one do the big companies use?</summary>
+          <p>There are well-known products using both. But someone else's choice knows nothing about your team's language or your product's expectations of the interface.</p>
+        </details>
+        <details>
+          <summary>What should I have in hand to decide?</summary>
+          <p>What your team's language is, and whether the interface should resemble the device or the brand. Those two close most of the decision.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../../../assets/en/brand/tasarimmania-logo-horizontal.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>An Istanbul-based 360° digital agency bringing web, mobile, advertising, video and SEO together under one roof.</p>
+      </div>
+      <div>
+        <h3>Modules</h3>
+        <ul>
+          <li><a href="../../services/">All services</a></li>
+          <li><a href="../../web-design/">Web &amp; Software</a></li>
+          <li><a href="../../mobile-app-development/">Mobile Apps</a></li>
+          <li><a href="../../digital-marketing/">Digital Marketing</a></li>
+          <li><a href="../../video-production/">Video Production</a></li>
+          <li><a href="../../seo/">SEO Services</a></li>
+          <li><a href="../../graphic-design/">Graphic Design</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../../contact/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../../contact/#ofis">Weekdays 09:00–19:00<br>Saturdays 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. All rights reserved.</span>
+      <span class="mono">FIVE MODULES · ONE PLACE</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../../../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+<script>
+"use strict";
+(function(){
+  var c = document.querySelector('[data-ilerleme]');
+  if (!c || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  function ciz(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    c.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', ciz, { passive: true });
+  ciz();
+})();
+</script>
