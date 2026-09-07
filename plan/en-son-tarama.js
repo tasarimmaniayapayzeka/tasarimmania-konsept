@@ -37,6 +37,10 @@ const MUAF = [
    * anlatıyor; örnekler çevrilirse pasaj anlamsız kalır (ekli hâl farkı ve
    * noktasız yazım ancak Türkçede görünür). */
   'çelik kapı fiyatları', 'çelik kapı fiyatı', 'ısıtıcı',
+  /* dil adı — /blog/hreflang-and-url-structure/ dil değiştiricide dil adının
+   * KENDİ DİLİNDE yazılması gerektiğini anlatıyor: 'Deutsch, English, Türkçe'.
+   * 'Turkish' yazmak cümlenin tezini çürütürdü. */
+  'Türkçe',
   /* müşteri markası — logo alt metni */
   'SKS İnşaat', 'Oba Diş Ağız ve Diş Sağlığı Polikliniği', 'Sevinç Kurs Merkezi',
 ];
