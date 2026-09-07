@@ -24,12 +24,10 @@ module.exports = {
     poster: '../../../assets/modul-seo/e-ticaret-seo.jpg',
   },
 
-  /* .akv adımları — yazının kendi anlattığı üç dişli */
-  akvAdimlari: [
-    { b: 'Talep haritası çıkarılır', p: 'Her aramanın hacmi ve arkasındaki niyet ölçülür. Bilgi arayan sorgu ile satın almaya yaklaşan sorgu ayrı sayfa türlerine düşer; hangi filtre kombinasyonunun kalıcı sayfa olmayı hak ettiğine arama verisi karar verir.' },
-    { b: 'Sayfa hiyerarşisi eşleştirilir', p: 'Talep haritası mağaza yapısıyla birebir örtüştürülür. Geniş aramaları kategori üstlenir, ürün sayfaları o çatının altında spesifik talebi karşılar. Örtüşmeyen her sayfa mekanizmada boşluk demektir.' },
-    { b: 'Otorite akışı yönlendirilir', p: 'İç bağlantı, gücü ana sayfadan kategorilere, oradan ürünlere taşır. Çapa metni bu aktarıma bağlam ekler. Akışı kesen kopuk sayfalar mekanizmanın en sık gözden kaçan zayıf halkasıdır.' },
-  ],
+  /* Döngü videosunun yerleşeceği çapa. Sahnelerle AYNI listeye girer;
+     taraf (sağ/sol) belge sırasına göre otomatik atanır. */
+  videoCapa: '<h2>Ürün Sayfasında Sıralamayı Hangi Sinyaller Üretir?</h2>',
+  videoAciklama: 'Talep analizi, sayfa eşleştirme, sinyal üretimi ve otorite dağıtımı sürekli bakım ister; hizmet bu döngüyü kurar, ölçer ve raporlar.',
 
   sahneler: [
     /* ── 1: üç dişli — mekanizmanın kendisi ── */
