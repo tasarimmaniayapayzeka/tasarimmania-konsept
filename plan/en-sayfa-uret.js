@@ -109,6 +109,32 @@ if (cevirisiz.length) {
   process.exit(1);
 }
 
+/* ═══ 1a. META UZUNLUK KİLİDİ ═══
+   ⚠ Denetim title>60 ve description<120 / >165 karakteri P3 olarak yazıyor.
+   Bu tuzak ÜÇ KEZ işledi (/en/blog/what-is-a-storyboard/,
+   /en/blog/how-long-backlinks-take/, /en/blog/seo-reporting-tools/) ve her
+   seferinde sayfa üretildikten SONRA yakalandı — yani çeviri iki kez
+   uygulandı. Artık üretimden ÖNCE söylüyoruz. Sert durdurma değil, uyarı:
+   Türkçesi zaten uzun olan sayfalar var, kararı çeviren verir. */
+{
+  const SINIR = { title: [0, 60], 'og:title': [0, 60], 'twitter:title': [0, 60],
+                  'meta description': [120, 165], 'og:description': [120, 165],
+                  'twitter:description': [120, 165] };
+  const uyari = [];
+  for (const k of C.kayitlar) {
+    if (k.tur !== 'meta') continue;
+    const s = SINIR[k.baglam];
+    if (!s) continue;
+    const n = String(k.en || '').length;
+    if (n < s[0]) uyari.push(`${String(k.no).padStart(3)}. ${k.baglam}: ${n} karakter — KISA (alt sınır ${s[0]})`);
+    if (n > s[1]) uyari.push(`${String(k.no).padStart(3)}. ${k.baglam}: ${n} karakter — UZUN (üst sınır ${s[1]})`);
+  }
+  if (uyari.length) {
+    console.log(`\n  ⚠ META UZUNLUK — denetim bunları P3 yazacak (${uyari.length}):`);
+    uyari.forEach((u) => console.log(`     ${u}`));
+  }
+}
+
 /* ═══ 1b. ÇAKIŞMA KİLİDİ ═══
    ⚠ ÖLÇÜLMÜŞ BOZULMA (7 Eyl 2026): "Rakamlarla / TasarımMania" başlığında
    İngilizce sözdizimi için sıra çevrilmiş, "TasarımMania" → "in numbers"
