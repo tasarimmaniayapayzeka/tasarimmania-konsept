@@ -238,11 +238,32 @@ olmayacak (`en-url-haritasi.json` → `blog._kural`). Başlıkların çevirisi
 - **`/referanslar/`** — Türkçesi de yazılmamış (müşteri izni bekliyor).
 - **`404.html`** — çevrilmedi.
 
-### İki açık kalem
-1. **Dil seçici YOK.** İngilizce sayfaya ancak adres yazarak girilir.
-   İngilizce sürüm bitince **tek geçişte** eklenecek — şimdi eklenirse
-   olmayan adrese işaret eder (hreflang'daki ilkenin aynısı).
-2. **`/en/blog/` öksüz** — İngilizce blog yazıları gelince kapanır.
+### İki açık kalem — İKİSİ DE KAPANDI
+1. ~~Dil seçici YOK.~~ **7 Eyl 2026: 154/154 sayfaya eklendi.**
+   Üretici `plan/dil-degistirici.js`, denetim `plan/dil-degistirici-denetim.js`.
+   Beklendiği gibi *tek geçişte* yapıldı: İngilizce sürüm bitmeden eklenseydi
+   olmayan adrese işaret ederdi (hreflang'daki ilkenin aynısı).
+   Denetim sonucu: kırık 0 · aynı dile giden 0 · gidiş-dönüş kapanmayan 0 ·
+   aynı hedefe giden birden çok 0 · `<html lang>` uyuşmayan 0.
+   Hedef her sayfanın **kendi karşılığı**, ana sayfa değil; adres kaynağı
+   `en-url-haritasi.json` — hreflang betiğiyle aynı, ikinci kopya türetilmedi.
+   CSS tek yerde: `site/css/tm.css` sonundaki `.dil` bloğu (154 satır içi
+   `<style>` bloğuna kopyalanmadı).
+2. ~~`/en/blog/` öksüz~~ — 42/42 yazı üretilince kapandı.
+
+### `/kvkk/` kararı — GDPR'a çevrilmedi
+Yukarıdaki "İngilizce sürümde karşılığı genel gizlilik politikasıdır" notu
+**yanlıştı, uygulanmadı.** TasarımMania İstanbul'da yerleşik Türk şirketi;
+işlediği veri, sayfanın dili ne olursa olsun 6698 sayılı KVKK'ya tabi.
+`/en/privacy-policy/` hukuki dayanağı KVKK olarak korur, yalnız İngilizce
+register kullanır. Gerekçenin tamamı `plan/en-ceviri-kvkk.json` → `_hukuki_karar`.
+**Açık kalem:** AB ziyaretçileri için ayrı GDPR beyanı — kullanıcı kararı.
+
+### `404.html` — bilinen açık
+Dil düğmesi kondu (EN hedefi `/en/` ana sayfa; GitHub Pages tek bir `/404.html`
+sunduğu için ayrı İngilizce 404 dosyası servis edilemez). **Sayfanın gövdesi
+hâlâ yalnız Türkçe** — İngilizce ziyaretçi kırık adrese düşerse Türkçe metin
+görür. Kapsam dışı bırakıldı, gizlenmiyor.
 
 ### Değişmeyen kurallar
 - **noindex açılmayacak** (89/89 sayfa + `robots.txt Disallow: /`).

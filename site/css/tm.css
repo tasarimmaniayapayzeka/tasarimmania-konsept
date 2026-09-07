@@ -217,3 +217,28 @@ ul{margin:0;padding:0;list-style:none}
 .t-link{padding-block:7px;margin-block:-7px}
 .sd-wa{padding-block:7px;margin-block:-7px}
 .dtay-fiyat a{padding-block:7px}
+
+/* ===== DİL DEĞİŞTİRİCİ (plan/dil-degistirici.js) ===== */
+/* Sayfanın kendi vurgu rengini alır (--acc, body[data-dal] ile değişir).
+   Dolu vurgu rengi BİLEREK kullanılmadı: menüdeki tek dolu öğe "Teklif Al"
+   birincil düğmesi kalsın, yardımcı denetim onunla yarışmasın. */
+.dil{display:inline-flex;align-items:center;flex:none;gap:2px;
+  font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.06em;
+  border:1px solid var(--hair);border-radius:999px;padding:3px;
+  background:rgba(255,255,255,.02)}
+/* ⚠ padding-block ÖLÇÜLEREK seçildi. İlk sürüm 5px'ti; tarayıcıda ölçünce
+   bağlantının dokunma hedefi 21px çıktı — hem WCAG 2.5.8'in 24px alt sınırının
+   hem de bu projenin mobil denetimde koyduğu 30-36px ölçütünün altında.
+   7px → 26px (imleç), kaba işaretleyicide 9px → 30px. */
+.dil span,.dil a{display:block;padding:7px 9px;border-radius:999px;line-height:1;
+  transition:color .25s var(--ease),background-color .25s var(--ease)}
+.dil span[aria-current]{color:var(--fg);background:rgba(255,255,255,.09)}
+/* --muted DEĞİL --fg-dim: #727D93 koyu zeminde 4,43:1 veriyor, 11,5px metin
+   için AA eşiği 4,5:1 — kıl payı altında kalıyordu. #A7B0C2 = 8,8:1. */
+.dil a{color:var(--fg-dim)}
+.dil a:hover{color:var(--acc);background:rgba(var(--acc-rgb),.12)}
+.dil a:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+/* Dar ekranda .nav-links/.nav-tel gizleniyor; dil düğmesi GİZLENMEZ:
+   yanlış dilde açılan ziyaretçi hamburgeri açmadan çıkabilmeli. */
+@media(pointer:coarse){.dil span,.dil a{padding-block:9px}}
+@media(max-width:420px){.dil{font-size:11px}.dil span,.dil a{padding-inline:8px}}
