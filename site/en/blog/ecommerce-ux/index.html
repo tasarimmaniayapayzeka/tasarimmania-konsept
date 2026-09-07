@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- KONSEPT-NOINDEX -->
+<meta name="robots" content="noindex,nofollow">
+<title>E-Commerce UX: Shorten the Route to the Basket</title>
+<meta name="description" content="How to shorten the e-commerce UX route: concrete suggestions that lift conversion on the home page, product page, basket and checkout steps, plus a 10-step list.">
+<link rel="canonical" href="https://www.tasarimmania.com/en/blog/ecommerce-ux/">
+<link rel="alternate" hreflang="tr" href="https://www.tasarimmania.com/blog/kullanici-deneyimi/">
+<link rel="alternate" hreflang="en" href="https://www.tasarimmania.com/en/blog/ecommerce-ux/">
+<link rel="alternate" hreflang="x-default" href="https://www.tasarimmania.com/blog/kullanici-deneyimi/">
+<link rel="alternate" type="application/rss+xml" title="TasarımMania Blog (RSS)" href="../../../blog/rss.xml">
+<link rel="alternate" type="application/atom+xml" title="TasarımMania Blog (Atom)" href="../../../blog/atom.xml">
+<meta name="author" content="İhsan Ar">
+<meta name="googlebot" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="theme-color" content="#0B0D12">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="TasarımMania">
+<meta property="og:title" content="E-Commerce UX: Shorten the Route to the Basket">
+<meta property="og:description" content="How to shorten the e-commerce UX route: concrete suggestions that lift conversion on the home page, product page, basket and checkout steps, plus a 10-step list.">
+<meta property="og:url" content="https://www.tasarimmania.com/en/blog/ecommerce-ux/">
+<meta property="og:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/en/blog/ecommerce-ux/image/ecommerce-ux-cover-1440.jpg">
+<meta property="og:image:width" content="1440">
+<meta property="og:image:height" content="810">
+<meta property="og:image:alt" content="Abstract 3D illustration on a shortening lit-path theme, representing the e-commerce UX route">
+<meta property="article:published_time" content="2026-09-17">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/en/blog/ecommerce-ux/image/ecommerce-ux-cover-1440.jpg">
+<meta name="twitter:title" content="E-Commerce UX: Shorten the Route to the Basket">
+<meta name="twitter:description" content="How to shorten the e-commerce UX route: concrete suggestions that lift conversion on the home page, product page, basket and checkout steps, plus a 10-step list.">
+<meta name="twitter:image:alt" content="Abstract 3D illustration on a shortening lit-path theme, representing the e-commerce UX route">
+<link rel="icon" type="image/png" href="../../../../assets/logo/marka-daire.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
+<link rel="stylesheet" href="../../../css/tm.css">
+<style>
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:.35s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,13,18,.82);backdrop-filter:blur(18px);border-bottom-color:var(--hair)}
+.nav-in{display:flex;align-items:center;gap:16px;height:74px}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--fg-dim);transition:color .25s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav-tel{font-family:var(--mono);font-size:13px;color:var(--fg-dim);border:1px solid var(--hair);
+  border-radius:999px;padding:9px 16px;transition:.25s}
+.nav-tel:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:9px;margin-left:auto}
+.burger span{display:block;width:22px;height:2px;background:var(--fg);margin:5px 0;border-radius:2px}
+.mobmenu{position:fixed;inset:74px 0 auto 0;z-index:99;background:rgba(11,13,18,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--hair);padding:26px 24px 32px;display:grid;gap:18px;
+  max-height:calc(100dvh - 74px);overflow-y:auto;
+  transform:translateY(-120%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobmenu.open{transform:none;visibility:visible}
+.mobmenu a{font-size:17px;font-weight:600}
+.phd{position:relative;overflow:hidden;isolation:isolate;
+  padding:calc(var(--nav-h) + clamp(28px,4vw,52px)) 0 clamp(22px,3vw,34px)}
+.phd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.14),transparent 62%)}
+.phd .crumb{margin-bottom:20px}
+.wa{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:90;width:54px;height:54px;
+  border-radius:50%;background:#25D366;display:grid;place-items:center;
+  box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px;fill:#fff}
+.ftr{border-top:1px solid var(--hair);padding:52px 0 40px;background:rgba(255,255,255,.012)}
+.ftr-ust{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;margin-bottom:36px}
+.ftr-ust img{height:47px;width:auto;margin-bottom:11px}
+.ftr-ust p{color:var(--muted);font-size:13.6px;max-width:320px}
+.ftr h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px;font-weight:500}
+.ftr ul{display:grid;gap:9px}
+.ftr ul a{font-size:13.8px;color:var(--fg-dim);transition:color .25s;padding-block:7px}
+.ftr ul a:hover{color:var(--acc)}
+.ftr-alt{border-top:1px solid var(--hair);padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
+@media(max-width:960px){.ftr-ust{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.nav-links,.nav-tel{display:none}.burger{display:block}.ftr-ust{grid-template-columns:1fr}}
+/* --- blog yazısı: okuma düzeni --- */
+.yz-ust{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.yz-kat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acc);border:1px solid rgba(var(--acc-rgb),.4);border-radius:99px;padding:6px 13px}
+.yz-meta{font-family:var(--mono);font-size:11.4px;color:var(--muted)}
+.phd h1{font-size:clamp(28px,4.4vw,46px);letter-spacing:-.035em;line-height:1.16;margin-bottom:16px;max-width:22ch}
+.phd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.8vw,18px);max-width:62ch;line-height:1.78}
+.yz-govde{max-width:760px}
+.yz-govde h2{font-size:clamp(21px,2.9vw,28px);letter-spacing:-.03em;line-height:1.25;margin:44px 0 0}
+.yz-govde h3{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;line-height:1.35;margin:30px 0 10px}
+.yz-govde h4{font-size:15.6px;letter-spacing:-.01em;margin:22px 0 8px;color:var(--fg-dim)}
+.yz-govde p{font-size:15.6px;color:var(--fg-dim);line-height:1.85;margin:0 0 16px}
+.yz-govde ul,.yz-govde ol{margin:0 0 18px;padding-left:0;list-style:none;display:grid;gap:10px}
+.yz-govde li{font-size:15.2px;color:var(--fg-dim);line-height:1.72;display:flex;gap:11px;align-items:flex-start}
+.yz-govde li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none;margin-top:10px}
+.yz-govde ol{counter-reset:s}
+.yz-govde ol li{counter-increment:s}
+.yz-govde ol li::before{content:counter(s);width:auto;height:auto;border-radius:0;background:none;
+  color:var(--acc);font-family:var(--mono);font-size:12px;margin-top:2px;min-width:16px}
+.yz-govde strong{color:var(--fg);font-weight:600}
+.yz-govde a:not(.btn){color:var(--acc);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--acc-rgb),.4);transition:text-decoration-color .25s;padding-block:4px}
+.yz-govde a:not(.btn):hover{text-decoration-color:var(--acc)}
+/* doğrudan cevap kutusu (snippet hedefi) */
+.yz-cevap{border-left:2px solid var(--acc);background:rgba(var(--acc-rgb),.05);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:16px 20px;margin:16px 0 22px}
+.yz-cevap p{margin:0;color:var(--fg);font-size:15.4px;line-height:1.75}
+/* karşılaştırma tablosu */
+.yz-tablo{margin:26px 0;border:1px solid var(--hair);border-radius:var(--r-md);overflow-x:auto}
+.yz-tablo table{width:100%;border-collapse:collapse;min-width:520px}
+.yz-tablo th{font-family:var(--mono);font-size:10.4px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--acc);text-align:left;padding:14px 16px;border-bottom:1px solid var(--hair);
+  background:rgba(var(--acc-rgb),.05);font-weight:500;white-space:nowrap}
+.yz-tablo td{font-size:13.8px;color:var(--fg-dim);padding:14px 16px;border-bottom:1px solid var(--hair);
+  line-height:1.6;vertical-align:top}
+.yz-tablo tr:last-child td{border-bottom:0}
+.yz-tablo td:first-child{color:var(--fg);font-weight:600}
+.yz-tablo-not{font-family:var(--mono);font-size:10.4px;color:var(--muted);margin:-16px 0 26px;
+  letter-spacing:.04em}
+/* SSS */
+.yz-sss{display:grid;gap:11px;max-width:760px}
+.yz-sss details{border:1px solid var(--hair);border-radius:var(--r-md);background:var(--panel);transition:border-color .3s}
+.yz-sss details[open]{border-color:var(--hair-strong)}
+.yz-sss summary{cursor:pointer;list-style:none;padding:17px 21px;font-size:15.2px;font-weight:600;
+  display:flex;align-items:center;gap:14px;line-height:1.4}
+.yz-sss summary::-webkit-details-marker{display:none}
+.yz-sss summary::after{content:"";width:9px;height:9px;margin-left:auto;flex:none;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.yz-sss details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.yz-sss summary:hover{color:var(--acc)}
+.yz-sss p{padding:0 21px 19px;margin:0;font-size:14.4px;color:var(--muted);line-height:1.75}
+/* hizmet köprüsü */
+.yz-kopru{border:1px solid rgba(var(--acc-rgb),.32);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(var(--acc-rgb),.07),transparent);
+  padding:clamp(22px,3vw,32px);margin:36px 0;max-width:760px}
+.yz-kopru b{display:block;font-size:clamp(17px,2.2vw,21px);letter-spacing:-.02em;margin-bottom:9px}
+.yz-kopru p{font-size:14.6px;color:var(--fg-dim);line-height:1.72;margin:0 0 18px}
+.yz-kopru .btn{margin-right:10px}
+/* okuma ilerlemesi */
+.yz-cizgi{position:fixed;top:0;left:0;height:2px;background:var(--acc);z-index:101;width:0;
+  transition:width .1s linear}
+@media(max-width:760px){.yz-govde h2{margin-top:34px}}
+@media(prefers-reduced-motion:reduce){.yz-cizgi{display:none}}
+/* --- 1.2 eklentileri --- */
+.yz-kapak{margin:0 0 clamp(26px,4vw,44px)}
+.yz-kapak img,.yz-gorsel img{width:100%;height:auto;display:block;border-radius:14px;
+  border:1px solid var(--hair);background:#0d1017}
+.yz-kapak figcaption,.yz-gorsel figcaption{margin-top:11px;font-size:13.2px;line-height:1.55;
+  color:var(--muted);max-width:760px}
+.yz-gorsel{margin:clamp(26px,4vw,38px) 0}
+.yz-ai{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--fg-dim);opacity:.72;white-space:nowrap}
+.yz-govde ol{margin:16px 0 20px;padding-left:22px;display:grid;gap:10px}
+.yz-govde ol li{padding-left:4px}
+.yz-govde ol li::marker{color:var(--acc);font-family:var(--mono);font-weight:600}
+.yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
+  background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
+.yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+.yz-ilgili{margin:clamp(30px,4vw,44px) 0 0;padding-top:clamp(24px,3vw,32px);
+  border-top:1px solid var(--hair)}
+.yz-ilgili h2{font-size:clamp(17px,2.1vw,20px);letter-spacing:-.02em;margin:0 0 4px}
+.yz-ilgili .not{font-size:13.4px;color:var(--muted);margin:0 0 18px}
+.yz-ilgili ul{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  list-style:none;padding:0;margin:0}
+.yz-ilgili li{margin:0}
+.yz-ilgili a{display:flex;flex-direction:column;gap:5px;height:100%;
+  border:1px solid var(--hair);border-radius:var(--r-md);padding:14px 16px;
+  text-decoration:none;transition:border-color .25s,transform .25s;background:rgba(255,255,255,.012)}
+.yz-ilgili a:hover{border-color:rgba(var(--k,0,229,255),.5);transform:translateY(-2px)}
+.yz-ilgili .kat{font-family:var(--mono);font-size:9.4px;letter-spacing:.14em;
+  text-transform:uppercase;color:rgb(var(--k,0,229,255))}
+.yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
+@media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.tasarimmania.com/en/blog/ecommerce-ux/#article",
+      "headline": "E-Commerce UX: How Do You Shorten the Route to the Basket?",
+      "description": "How to shorten the e-commerce UX route: concrete suggestions that lift conversion on the home page, product page, basket and checkout steps, plus a 10-step list.",
+      "datePublished": "2026-09-17",
+      "dateModified": "2026-09-17",
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://www.tasarimmania.com/en/blog/ecommerce-ux/",
+      "author": {
+        "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar"
+      },
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      },
+      "articleSection": "E-Commerce",
+      "wordCount": 1195,
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/kullanici-deneyimi/gorsel/kullanici-deneyimi-kapak-1440.jpg",
+        "width": 1440,
+        "height": 810,
+        "caption": "Abstract 3D illustration on a shortening lit-path theme, representing the e-commerce UX route"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "E-commerce user experience",
+          "description": "The whole body of interactions an online shop's visitor goes through, from arriving on the site to order confirmation."
+        },
+        {
+          "@type": "Thing",
+          "name": "User journey",
+          "description": "The ordered map of screens and decisions a visitor passes through on the way to their goal."
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "Thing",
+          "name": "user journey"
+        },
+        {
+          "@type": "Thing",
+          "name": "conversion rate"
+        },
+        {
+          "@type": "Thing",
+          "name": "basket abandonment rate"
+        },
+        {
+          "@type": "Thing",
+          "name": "on-site search"
+        },
+        {
+          "@type": "Thing",
+          "name": "guest checkout"
+        },
+        {
+          "@type": "Thing",
+          "name": "checkout flow"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".ozet",
+          ".yz-cevap"
+        ]
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.tasarimmania.com/#kurulus",
+      "name": "TasarımMania",
+      "url": "https://www.tasarimmania.com/",
+      "telephone": "+905547916545",
+      "sameAs": [
+        "https://www.instagram.com/tasarimmaniaa/",
+        "https://www.facebook.com/tasarimmania/"
+      ],
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/assets/logo/marka-yatay-optik.png",
+        "width": 435,
+        "height": 163
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Zeytinlik Mah. Pancar Sk. No:19-11",
+        "addressLocality": "Bakırköy",
+        "addressRegion": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "knowsAbout": [
+        "Web design and software development",
+        "Mobile app development",
+        "Digital marketing and performance advertising",
+        "Video production and commercial films",
+        "Search engine optimization",
+        "Graphic design and brand identity",
+        "E-commerce store setup",
+        "Social media management"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.tasarimmania.com/en/blog/ecommerce-ux/#sss",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many clicks should the route to the basket take at most?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no universal number; the practical target is at most three clicks from the home page to the product, and at most three steps from the product to order confirmation. Start by counting your own route."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does guest checkout reduce the number of registered accounts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It reduces them slightly in the short term; set against lost orders, that hardly matters. When you offer one-click account creation to the customer who has just completed an order, most of those registrations come back. And these members have already bought something — their value is proven."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long do user experience improvements take to show results?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Technical fixes such as button placement and form simplification start showing their effect the day they go live; a meaningful reading needs four weeks of data. With structural work such as menu architecture or a new search engine, the effect becomes clear in the second month, as visitors settle into the new layout. Be patient and don't decide on the strength of a single day's swing; leave big campaign periods out of the comparison, because discount traffic doesn't represent normal behaviour and will skew the reading."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which metric should I track first?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Basket abandonment rate; on its own it shows you where the losses are heaviest."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should the mobile and desktop routes be designed separately?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The route stays the same; the screen layout diverges. On mobile, thumb reach and easy forms take priority, while on desktop comparison and detailed inspection come to the fore. Test the two separately."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is site speed part of the user experience?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely; a page that loads slowly is a visitor lost at the very start of the route. Improving speed multiplies the effect of every step in this article."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it risky to make changes without A/B testing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On low-traffic sites, A/B testing may not produce a statistically meaningful result; a before-and-after comparison is enough. At higher traffic, confirming critical steps with a test is the safer route."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I put this list into practice without agency support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Items such as simplifying the menu, button wording and delivery information you can handle from your own admin panel. Items such as the search engine, single-page checkout and measurement setup call for development support."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.tasarimmania.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.tasarimmania.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "E-Commerce UX: How Do You Shorten the Route to the Basket?",
+          "item": "https://www.tasarimmania.com/en/blog/ecommerce-ux/"
+        }
+      ],
+      "@id": "https://www.tasarimmania.com/en/blog/ecommerce-ux/#kirintili"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.tasarimmania.com/#site",
+      "url": "https://www.tasarimmania.com/",
+      "name": "TasarımMania",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.tasarimmania.com/en/blog/ecommerce-ux/#sayfa",
+      "url": "https://www.tasarimmania.com/en/blog/ecommerce-ux/",
+      "name": "E-Commerce UX: Shorten the Route to the Basket",
+      "description": "How to shorten the e-commerce UX route: concrete suggestions that lift conversion on the home page, product page, basket and checkout steps, plus a 10-step list.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.tasarimmania.com/#site"
+      },
+      "breadcrumb": {
+        "@id": "https://www.tasarimmania.com/en/blog/ecommerce-ux/#kirintili"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://tasarimmaniayapayzeka.github.io/tasarimmania-konsept/site/blog/kullanici-deneyimi/gorsel/kullanici-deneyimi-kapak-1440.jpg"
+      },
+      "mainEntity": {
+        "@id": "https://www.tasarimmania.com/en/blog/ecommerce-ux/#article"
+      },
+      "dateModified": "2026-09-17"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.tasarimmania.com/hakkimizda/#ihsan-ar",
+      "name": "İhsan Ar",
+      "jobTitle": "Digital Marketing Specialist",
+      "url": "https://www.tasarimmania.com/hakkimizda/#kurucu",
+      "sameAs": [
+        "https://www.linkedin.com/in/ihsan-ar-47254548/",
+        "https://www.instagram.com/ihsanar86/"
+      ],
+      "worksFor": {
+        "@id": "https://www.tasarimmania.com/#kurulus"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body data-dal="web">
+
+<i class="yz-cizgi" data-ilerleme aria-hidden="true"></i>
+<a class="skip" href="#ana">Skip to content</a>
+
+<nav class="nav" data-nav aria-label="Main menu">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="../../" aria-label="TasarımMania home">
+      <img src="../../../../assets/en/brand/tasarimmania-logo-horizontal.png" alt="TasarımMania — Creative Agency" width="435" height="163" decoding="async" fetchpriority="high">
+    </a>
+    <div class="nav-links">
+      <a href="../../services/">Services</a>
+      <a href="../../#isler">Work</a>
+      <a href="../../about/">Agency</a>
+      <a href="../" aria-current="page">Blog</a>
+      <a href="../../#surec">Process</a>
+      <a href="../../get-a-quote/">Get a Quote</a>
+      <a href="../../contact/">Contact</a>
+    </div>
+    <a class="nav-tel" href="tel:+905547916545">0554 791 65 45</a>
+    <button class="burger" data-burger aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobmenu" data-mobmenu aria-hidden="true">
+  <a href="../../services/">Services</a><a href="../../#isler">Work</a><a href="../../about/">Agency</a>
+  <a href="../">Blog</a><a href="../../#surec">Process</a><a href="../../get-a-quote/">Get a Quote</a><a href="../../contact/">Contact</a>
+  <a href="tel:+905547916545">0554 791 65 45</a>
+</div>
+
+<!-- AYIRT EDİCİ EKSEN: ROTA — Ana sayfadan ödemeye user journey rotasının adım adım iyileştirilmesi; UX/user journey anlatımının kanonik yazısı budur — arayüz (UI) ilkeleri ui-tasarim-ilkeleri'nin, görsel sunum ve ödeme araçları diğer kardeşlerin ekseni.
+     Huni türü: BOFU · Küme: E-Commerce Deneyimi · Kardeşler (enjeksiyon turunda): odeme-guvenligi, e-ticaret-urun-fotograflari, ui-tasarim-ilkeleri -->
+<main id="ana">
+
+  <header class="phd">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Location">
+        <a href="../../">Home</a><span aria-hidden="true">/</span>
+        <a href="../">Blog</a><span aria-hidden="true">/</span>
+        <span aria-current="page">E-Commerce UX: How Do You Shorten the Route to the Basket?</span>
+      </nav>
+      <div class="yz-ust">
+        <span class="yz-kat">E-Commerce</span>
+        <span class="yz-meta">17 September 2026 · 7 min read</span>
+      </div>
+      <h1>E-Commerce UX: How Do You Shorten the Route to the Basket?</h1>
+      <p class="ozet">Opening an online shop in Türkiye has never been easier. What makes the difference now is the journey behind the shop window. E-commerce UX is the overall quality of the route a visitor takes from that first click to order confirmation. The longer the route, the more baskets are left half-finished; the shorter it gets, the higher the purchase rate climbs. In this article we take the road from home page to checkout stop by stop. At each step we suggest fixes you can actually apply. The goal is plain: fewer clicks, no moments of hesitation, and the customer brought to the finish by the shortest path.</p>
+    </div>
+  </header>
+
+  <figure class="yz-kapak">
+    <div class="wrap">
+      <img src="./image/ecommerce-ux-cover-1440.webp"
+           srcset="./image/ecommerce-ux-cover-640.webp 640w, ./image/ecommerce-ux-cover-960.webp 960w, ./image/ecommerce-ux-cover-1440.webp 1440w, ./image/ecommerce-ux-cover-1920.webp 1920w"
+           sizes="(max-width: 1200px) 100vw, 1160px"
+           alt="Abstract 3D illustration on a shortening lit-path theme, representing the e-commerce UX route"
+           width="1920" height="1080" fetchpriority="high" decoding="async">
+      <figcaption>The shorter the route to the basket, the higher the conversion: simplifying the route <span class="yz-ai">Image generated with AI.</span></figcaption>
+    </div>
+  </figure>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <article class="yz-govde">
+      <h2>What Is E-Commerce UX and How Does It Affect Sales?</h2>
+      <div class="yz-cevap"><p>E-commerce UX is the whole body of interactions a visitor goes through from arriving on the site to order confirmation. A fluent experience builds trust. Friction, on the other hand, grows the abandonment rate. Every unnecessary step on the route lowers the likelihood of a purchase by a measurable amount. That is why investing in the experience is a conversion lever that comes before the advertising budget.</p></div>
+      <p>The size of the market makes this a strategic matter. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">The Ministry of Trade's Outlook for E-Commerce in Türkiye 2025 report</a> shows our e-commerce volume has reached ₺4.5 trillion. That figure corresponds to 6.9% of gross domestic product. The competition is playing out among more than 634,000 businesses. As products grow more alike, e-commerce UX becomes the thing that genuinely sets one shop apart from another. The way to turn that picture into an opportunity is to build the journey more smoothly than your rivals do. The shopper's patience is limited. A visitor who can't find what they came for within seconds moves on to a competitor. In e-commerce, user experience is not an aesthetic preference; it is a revenue line.</p>
+      <h3>What Does the User Journey Route Actually Mean?</h3>
+      The route is the ordered map of screens and decisions a visitor passes through on the way to their goal. That map is called the user journey. A typical route has five stops: home page, category, product page, basket and checkout. At each stop we ask two questions: what is the customer trying to do here, and what is slowing them down? The answers to those two questions set the order of improvements on their own. Shortening the route is the most concrete gain this journey has to offer.
+      <h2>How Do the Steps from Home Page to Product Get Shorter?</h2>
+      <div class="yz-cevap"><p>The road from home page to product ends in three clicks at most. The tools for that are a simple menu, strong on-site search and a clear shop-window setup. A significant share of visitors head straight for the search box rather than browsing categories. Reducing menu depth and bringing popular categories forward speeds up product discovery noticeably.</p></div>
+      <p>Clutter in the shop window is the most common loss in the opening metres of the route. A home page focused on a single campaign guides far better than one where seven banners compete. <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TurkStat's latest research</a> — TurkStat is Türkiye's statistical institute — shows internet use spreading across every age group. Expectations of the online shopping experience are rising in step. There are three practical ways to strengthen that experience on an e-commerce home page. Give the hero area a single message and keep the menu to three levels at most. Make the search box visible on every screen. <a href="../../corporate-website/">Corporate web design</a> projects apply information architecture principles that work with the same clarity in online shops.</p>
+      <h3>Why Is On-Site Search the Short Cut on the Route?</h3>
+      On-site search is the shortest path there is: it skips the category tree and carries the visitor straight to the product. Aim for a box that tolerates typos and lists suggestions instantly. That setup turns a three- or four-click wander into a single step. Review the queries that return no results on a regular basis. That list reveals both missing products and wrong naming. Measuring the conversion rate of visitors who use search makes the return on the investment visible.
+      <h2>Why Does the Move from Product Page to Basket Break Down?</h2>
+      <div class="yz-cevap"><p>The main cause of the breakdown is missing information. Price, stock, delivery time and returns conditions should all be visible on a single screen. A visitor who can't find them cannot decide, and leaves the page. Whether the add-to-basket button is visible without scrolling has a direct effect on the transition rate. Every piece of information that reduces uncertainty shortens the step to the basket a little further.</p></div>
+      <p>The product page is the moment of decision in e-commerce UX; this is where the visitor either heads for the basket or closes the tab. Hiding the delivery charge until the checkout step is one of the most expensive mistakes there is; stock status, delivery date and returns window should sit right next to the button. On compulsory choices such as size and colour, show the error message beside the field itself; a warning thrown to the top of the page knocks the shopper off course.</p>
+      <h3>Three Details That Clarify the Add-to-Basket Step</h3>
+      First, the button text should name the action: "Add to Basket" always beats "Continue". Second, a visible confirmation should appear when the button is pressed. A visitor who can't be sure the item went in will either add it twice or abandon the process. Third, don't force the customer onto the basket page after adding. A continue-shopping option grows the average basket value.
+      <h4>The Thumb Zone on Mobile</h4>
+      The thumb zone is the lower third of a mobile screen, comfortably reached with one hand. Fixing the add-to-basket button in that zone is a low-cost adjustment that improves the transition on mobile. <a href="https://www.btk.gov.tr/" target="_blank" rel="noopener">BTK's published access statistics</a> — BTK is Türkiye's information and communication technologies authority — regularly set out how widespread mobile internet has become. Test your route on mobile first.
+      <h2>How Does the Route from Basket to Checkout Get Simpler?</h2>
+      <div class="yz-cevap"><p>Three tools simplify the route from basket to checkout: guest checkout, a single-page checkout flow, and nothing but compulsory form fields. A wall of forced registration is the biggest point of loss at this stage. Every adjustment that cuts the number of steps and fields pulls the completed-order rate up. A progress bar also shows the customer how much of the road is left.</p></div>
+      <p>The basket page isn't a waypoint, it's the table where the deal is signed; the total, the delivery charge and the delivery date should all be clear here. Offer guest checkout rather than imposing registration; on the form side, question every field — a page that asks for a fax number does nothing but lengthen the route. At the checkout step, remove the banners and campaign boxes that pull attention away; trust signals should be visible without interrupting the flow. These last two steps are where investment in e-commerce UX pays back fastest.</p>
+      <h3>Guest Checkout and Form Fields</h3>
+      Guest checkout is an accelerated payment option that lets someone place an order without creating an account. The golden rule for form fields is this: every field must correspond to something the order genuinely requires. Use autocomplete for the address and a masked input for the phone number. Have incorrect entries corrected instantly, beside the field itself. Every extra field on the payment form is a measurable risk of abandonment in e-commerce UX.
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
+      <h2>A 10-Step Action List for E-Commerce UX</h2>
+      <div class="yz-cevap"><p>To improve e-commerce UX, take the route in five stops. Then work through the ten steps below in order. The list is arranged to produce the highest impact for the lowest effort. As you complete each step, measure the change in the conversion funnel. An improvement that isn't measured never gets beyond assumption. Free analytics tools are enough for the measuring.</p></div>
+      <p>Think of the list as a sprint plan. Every item can be applied on its own.</p><ol><li>Reduce the hero area on the home page to a single message. Move secondary campaigns to sections further down.</li><li>Cut menu depth to three levels at most.</li><li>Make the search box visible on every screen. Add typo tolerance and instant suggestions.</li><li>Bring price, stock, delivery time and returns conditions together on one screen on the product page.</li><li>Fix the add-to-basket button in the thumb zone on mobile.</li><li>Show a visible confirmation after an item is added. Remove the forced redirect to the basket.</li><li>Share the delivery charge in the basket, with no surprises left for later.</li><li>Turn on guest checkout. Defer registration until after the order.</li><li>Cut the payment form back to compulsory fields. Add autocomplete.</li><li>Review the funnel report at the end of the month. Go back to the stop where the losses are heaviest.</li></ol><p>Ten steps turn the shopping experience from an abstract goal into a manageable work list. If you need technical support putting them in place, our <a href="../../ecommerce-website/">e-commerce site design and development</a> team will map out your route with you. On the side of growing qualified traffic, our <a href="../../seo/">SEO service</a> comes into play.</p>
+      <h3>Which Metrics Should You Track the Results With?</h3>
+      Four indicators are enough: add-to-basket rate, basket abandonment rate, checkout completion rate, and the number of clicks it takes to reach a product. Compare the metrics before and after the improvement. A four-week window reduces seasonal noise. That set of four keeps a steady finger on the pulse of the shop's experience.
+      <figure class="yz-gorsel">
+        <img src="./image/ecommerce-ux-body-960.webp"
+             srcset="./image/ecommerce-ux-body-640.webp 640w, ./image/ecommerce-ux-body-960.webp 960w, ./image/ecommerce-ux-body-1440.webp 1440w, ./image/ecommerce-ux-body-1920.webp 1920w"
+             sizes="(max-width: 760px) 100vw, 760px"
+             alt="An abstract sequence of doorways and a line of light representing the five-stop user journey from home page to checkout" width="1920" height="1080" loading="lazy" decoding="async">
+        <figcaption>Five stops, one smooth line: home page, category, product, basket and checkout <span class="yz-ai">Image generated with AI.</span></figcaption>
+      </figure>
+      <h2>The Long Route and the Shortened Route Compared</h2>
+      <div class="yz-tablo">
+        <table>
+          <thead><tr><th>Step in the Journey</th><th>Typical Long Route</th><th>Shortened Route</th></tr></thead>
+          <tbody>
+            <tr><td>Home</td><td>Hunting for direction amid a crowd of campaigns</td><td>A single shop-window message and a prominent search box</td></tr>
+            <tr><td>Category</td><td>Navigating a menu seven or eight levels deep</td><td>A simple menu that reaches the product in three clicks at most</td></tr>
+            <tr><td>Product page</td><td>Going back and forth between tabs because information is missing</td><td>Price, stock and delivery information gathered on one screen</td></tr>
+            <tr><td>Basket</td><td>A wall of forced registration</td><td>A guest checkout option</td></tr>
+            <tr><td>Checkout</td><td>A five-page form marathon</td><td>A short, autofilled form on a single page</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+        <aside class="yz-kopru" aria-label="Service bridge">
+          <b>A 10-Step Action List for E-Commerce UX</b>
+          <p>Let's work out the road map that suits your scope together; let's settle the steps and the timing.</p>
+          <a class="btn btn-p" href="../../get-a-quote/#web">Let's map the scope
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-g" href="../../ecommerce-website/">See the service page</a>
+        </aside>
+        <p>The shorter the route to the basket, the more you sell. The formula really is that plain. Review your route across the five stops and put the ten-step list on the calendar. Measure every change as you go. User experience isn't a one-off project; it is a maintenance discipline that asks for continuity. If you'd like to shorten your shop's route together, get in touch through our <a href="../../ecommerce-website/">e-commerce solutions</a> page. We map the journey on your existing site and report back on the points where you're losing people.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec ilgili-bolum" style="padding-top:0">
+    <div class="wrap">
+      <nav class="yz-ilgili rv" aria-labelledby="ilgili-baslik">
+        <h2 id="ilgili-baslik">Related guides</h2>
+        <p class="not">Other headings from the E-Commerce Experience cluster that round this piece out.</p>
+        <ul>
+          <li><a href="../../../blog/odeme-guvenligi/" style="--k:0,229,255"><span class="kat">E-Commerce</span><span class="bas">How Do You Set Up E-Commerce Payment Integration, Step by Step?</span></a></li>
+          <li><a href="../../../blog/e-ticaret-urun-fotograflari/" style="--k:0,229,255"><span class="kat">E-Commerce</span><span class="bas">Do E-Commerce Product Images Really Affect Sales?</span></a></li>
+          <li><a href="../../../blog/ui-tasarim-ilkeleri/" style="--k:0,229,255"><span class="kat">Web Design</span><span class="bas">Which Principles Does Interface Design Rest On?</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <section class="sec" id="sss" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow"><i></i>FAQs</span>
+        <h2 data-kin>Frequently asked questions: e-commerce UX</h2>
+      </div>
+      <div class="yz-sss rv d1">
+        <details>
+          <summary>How many clicks should the route to the basket take at most?</summary>
+          <p>There is no universal number; the practical target is at most three clicks from the home page to the product, and at most three steps from the product to order confirmation. Start by counting your own route.</p>
+        </details>
+        <details>
+          <summary>Does guest checkout reduce the number of registered accounts?</summary>
+          <p>It reduces them slightly in the short term; set against lost orders, that hardly matters. When you offer one-click account creation to the customer who has just completed an order, most of those registrations come back. And these members have already bought something — their value is proven.</p>
+        </details>
+        <details>
+          <summary>How long do user experience improvements take to show results?</summary>
+          <p>Technical fixes such as button placement and form simplification start showing their effect the day they go live; a meaningful reading needs four weeks of data. With structural work such as menu architecture or a new search engine, the effect becomes clear in the second month, as visitors settle into the new layout. Be patient and don't decide on the strength of a single day's swing; leave big campaign periods out of the comparison, because discount traffic doesn't represent normal behaviour and will skew the reading.</p>
+        </details>
+        <details>
+          <summary>Which metric should I track first?</summary>
+          <p>Basket abandonment rate; on its own it shows you where the losses are heaviest.</p>
+        </details>
+        <details>
+          <summary>Should the mobile and desktop routes be designed separately?</summary>
+          <p>The route stays the same; the screen layout diverges. On mobile, thumb reach and easy forms take priority, while on desktop comparison and detailed inspection come to the fore. Test the two separately.</p>
+        </details>
+        <details>
+          <summary>Is site speed part of the user experience?</summary>
+          <p>Absolutely; a page that loads slowly is a visitor lost at the very start of the route. Improving speed multiplies the effect of every step in this article.</p>
+        </details>
+        <details>
+          <summary>Is it risky to make changes without A/B testing?</summary>
+          <p>On low-traffic sites, A/B testing may not produce a statistically meaningful result; a before-and-after comparison is enough. At higher traffic, confirming critical steps with a test is the safer route.</p>
+        </details>
+        <details>
+          <summary>Can I put this list into practice without agency support?</summary>
+          <p>Items such as simplifying the menu, button wording and delivery information you can handle from your own admin panel. Items such as the search engine, single-page checkout and measurement setup call for development support.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-ust">
+      <div>
+        <img src="../../../../assets/en/brand/tasarimmania-logo-horizontal.png" alt="TasarımMania" width="435" height="163" loading="lazy">
+        <p>An Istanbul-based 360° digital agency bringing web, mobile, advertising, video and SEO together under one roof.</p>
+      </div>
+      <div>
+        <h3>Modules</h3>
+        <ul>
+          <li><a href="../../services/">All services</a></li>
+          <li><a href="../../web-design/">Web &amp; Software</a></li>
+          <li><a href="../../mobile-app-development/">Mobile Apps</a></li>
+          <li><a href="../../digital-marketing/">Digital Marketing</a></li>
+          <li><a href="../../video-production/">Video Production</a></li>
+          <li><a href="../../seo/">SEO Services</a></li>
+          <li><a href="../../graphic-design/">Graphic Design</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:+905547916545">0554 791 65 45</a></li>
+          <li><a href="https://wa.me/905547916545" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="../../contact/#ofis">Zeytinlik Mah. Pancar Sk.<br>No:19-11 Bakırköy / İstanbul</a></li>
+          <li><a href="../../contact/#ofis">Weekdays 09:00–19:00<br>Saturdays 10:00–16:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-alt">
+      <span>© <span id="yil">2026</span> TasarımMania. All rights reserved.</span>
+      <span class="mono">FIVE MODULES · ONE PLACE</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905547916545" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.34-.52.05-1.01.24-3.4-.7-2.87-1.13-4.7-4.06-4.84-4.25-.14-.19-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.37.26-.29.57-.36.76-.36l.55.01c.18 0 .42-.07.65.5.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.3-.29.47l-.44.51c-.14.14-.29.3-.12.58.16.29.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.29.14.45.12.62-.07.16-.19.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.66.78 1.94.92.29.14.48.22.55.34.07.12.07.68-.16 1.32z"/></svg>
+</a>
+
+<script src="../../../js/tm.js" defer></script>
+<script>
+"use strict";
+document.getElementById('yil').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+<script>
+"use strict";
+(function(){
+  var c = document.querySelector('[data-ilerleme]');
+  if (!c || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  function ciz(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    c.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', ciz, { passive: true });
+  ciz();
+})();
+</script>
