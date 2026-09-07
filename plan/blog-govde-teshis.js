@@ -9,8 +9,17 @@
  *   · kelime sayısı ve kaba sayfa yüksekliği
  *   · GÖRSEL sayısı ve kelime başına görsel aralığı
  *   · ÇIPLAK METİN DÜĞÜMÜ: <p> ile sarılmamış, doğrudan <article> altında
- *     duran metin blokları. Bunların paragraf boşluğu, satır uzunluğu ve
- *     anlamsal karşılığı YOK.
+ *     duran metin blokları.
+ *
+ *     ⚠⚠ BU BETİĞİN ÇIPLAK METİN SAYIMI ŞİŞİK — KULLANMAYIN.
+ *     Aşağıdaki BLOK deseni gövdeyi hem AÇILIŞ hem KAPANIŞ etiketinden
+ *     bölüyor. Bu yüzden <div class="yz-cevap"><p>METİN</p></div> içindeki
+ *     METİN, düzgünce <p> içinde olmasına rağmen "çıplak" sayılıyor.
+ *     Yazı başına 38 düğüm / gövdenin %95'i dedi; DOĞRUSU 4 düğüm / %13.
+ *     Yaklaşık 7 kat şişik. Doğru sayım: plan/ciplak-metin-olc.js
+ *     (dengeli kapanışla üst düzey blokları atlar).
+ *     Buradaki DİĞER ölçümler (görsel sayısı, görselsiz koşu) basit dizge
+ *     araması yaptığı için bu hatadan ETKİLENMİYOR.
  *   · görsel ARA mesafesi: iki görsel arası kaç kelime
  *   · ritim öğeleri: tablo, alıntı, liste, köprü kutusu, kart
  *

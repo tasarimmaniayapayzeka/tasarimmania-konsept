@@ -35,7 +35,7 @@ const OLCUM = [
   ['O tek görsel nerede?', '%87', 'gövde derinliğinde. En erken %83, en geç %90. Yani okur yazının neredeyse tamamını görselsiz okuyor.'],
   ['Tablo nerede?', '%87', 'Hizmet köprüsü %94. Görsel olan ne varsa yazının SONUNA yığılmış.'],
   ['İlk kırılıma kadar', '405 kelime', 'TR ortalaması. İngilizcede 597. En kötü yazıda 854 / 1.255 kelime kesintisiz metin.'],
-  ['Gövde metninin %95’i', '&lt;p&gt; DEĞİL', 'Yazı başına ortalama 38 çıplak metin düğümü — paragraf etiketi olmadan doğrudan &lt;article&gt; altında. Paragraf ritmi yok, anlamsal karşılığı yok.'],
+  ['Sarılmamış paragraf', 'ort. 4 · 17/42 yazıda', '&lt;p&gt; etiketi olmadan doğrudan &lt;article&gt; altında duran metin. Gövdenin %13’ü; 25/42 yazıda hiç yok, en kötüsünde 16. <b>DÜZELTİLDİ</b> — 348 paragraf sarıldı (plan/paragraf-sar.js), kalan 0.<br><br>⚠ Bu kutuda önce “gövdenin %95’i, yazı başına 38 düğüm” yazıyordu. Yanlıştı: ölçüm betiği gövdeyi hem açılış hem KAPANIŞ etiketinden bölüyor, bu yüzden düzgünce &lt;p&gt; içindeki metni de çıplak sayıyordu. Rakam ~7 kat şişikti.'],
   ['Tekrarlayan kalıp', '7 kez', 'h2 → cevap kutusu → metin duvarı. Her bölümde aynı şekil.'],
 ];
 
