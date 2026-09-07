@@ -52,24 +52,21 @@ body{--bg:#0A0E13}
 section.sec.bl-sec{padding:0 0 var(--bl-bosluk)}
 .bl-akis{padding-bottom:calc(var(--bl-bosluk) + 8px)}
 
-/* ═══ 2) KART GÖRÜNÜMÜNÜ AZALT ═══
-   Her bölüm ağır bir kutu değil. Üç seviye:
-     .bl-kart          → yalnız ince üst çizgi, zemin YOK  (varsayılan)
-     .bl-kart.yuzey    → çok hafif zemin farkı + ince kenarlık
-     .bl-kart.cerceve  → tam kart (yalnız vurgulanacak bölümde) */
-.bl-kart{position:relative;border-top:1px solid var(--bl-hat);
-  padding:clamp(22px,2.4vw,30px) 0 0;background:none;border-radius:0}
-.bl-kart:first-child{border-top:0;padding-top:0}
-.bl-kart.yuzey{background:var(--bl-kart);border:1px solid var(--bl-hat);
-  border-radius:var(--bl-r);padding:clamp(20px,2.4vw,30px)}
-.bl-kart.cerceve{background:linear-gradient(180deg,var(--bl-kart-2),var(--bl-kart));
-  border:1px solid var(--bl-hat);border-radius:var(--bl-r);padding:clamp(20px,2.4vw,30px)}
-/* neon/glow yok: eski sürümdeki radial vurgu katmanı kaldırıldı */
+/* ═══ 2) BÖLÜM KARTLARI — MAKETE BİREBİR (kullanıcı kararı, 7 Eyl) ═══
+   Maketteki gibi HER bölüm büyük yuvarlak koyu kart. Önceki "ince üst
+   çizgi" sadeleştirmesi kullanıcı tarafından REDDEDİLDİ; maket esas. */
+.bl-kart,.bl-kart.yuzey,.bl-kart.cerceve{position:relative;
+  background:linear-gradient(180deg,var(--bl-kart-2),var(--bl-kart));
+  border:1px solid var(--bl-hat);border-radius:24px;
+  padding:clamp(22px,3vw,36px)}
 
-/* ═══ 3) BÖLÜM BAŞLIĞI: numara + h2 aynı satırda ═══ */
-.bl-ust{display:flex;align-items:baseline;gap:14px;margin-bottom:10px}
-.bl-no{flex:none;font-family:var(--mono);font-size:12px;font-weight:500;
-  color:var(--acc);letter-spacing:.08em;opacity:.9}
+/* ═══ 3) BÖLÜM BAŞLIĞI — maketteki gibi: numara HAPI üstte, h2 altında ═══ */
+.bl-ust{display:block;margin-bottom:12px}
+.bl-no{display:inline-flex;align-items:center;justify-content:center;
+  min-width:52px;height:32px;padding:0 16px;margin-bottom:14px;
+  border:1px solid rgba(var(--acc-rgb),.5);border-radius:99px;
+  background:rgba(var(--acc-rgb),.07);
+  font-family:var(--mono);font-size:12.6px;font-weight:500;color:var(--acc)}
 .bl-kart h2{font-size:clamp(24px,2.5vw,30px);letter-spacing:-.03em;line-height:1.18;
   margin:0;color:var(--bl-bas);max-width:24ch}
 .bl-kart h2 em{font-style:normal;color:var(--acc)}
@@ -107,16 +104,15 @@ section.sec.bl-sec{padding:0 0 var(--bl-bosluk)}
   -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 100 20 10 10 0 000-20zm-1.3 14.3l-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7z'/%3E%3C/svg%3E") center/contain no-repeat;
   mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 100 20 10 10 0 000-20zm-1.3 14.3l-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7z'/%3E%3C/svg%3E") center/contain no-repeat}
 
-/* ═══ 7) İSTATİSTİK ŞERİDİ — sade, yeşil yalnız sayıda ═══ */
+/* ═══ 7) İSTATİSTİK ŞERİDİ — maketteki gibi: nokta + yeşil sayı + etiket,
+   dikey ayraç YOK ═══ */
 .bl-ist{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px);margin:24px 0 0}
-.bl-ist > div + div{border-left:1px solid var(--bl-hat);padding-left:clamp(16px,2vw,24px)}
+.bl-ist > div{position:relative;padding-left:19px}
+.bl-ist > div::before{content:"";position:absolute;left:0;top:6px;width:9px;height:9px;
+  border-radius:50%;border:1.5px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06)}
 .bl-ist b{display:block;font-size:clamp(20px,2vw,24px);color:var(--acc);letter-spacing:-.03em;line-height:1.05}
 .bl-ist span{display:block;margin-top:6px;font-size:12.6px;color:var(--bl-ikincil);line-height:1.45}
-@media(max-width:640px){
-  .bl-ist{grid-template-columns:1fr 1fr;gap:14px}
-  .bl-ist > div + div{border-left:0;padding-left:0}
-  .bl-ist > div:nth-child(2){border-left:1px solid var(--bl-hat);padding-left:14px}
-}
+@media(max-width:640px){.bl-ist{grid-template-columns:1fr 1fr;gap:14px}}
 
 /* ═══ 8) GÖRSEL KABI — tek sistem, sabit yükseklik YOK ═══ */
 .bl-maket{position:relative;min-width:0;margin:0}
@@ -130,12 +126,19 @@ section.sec.bl-sec{padding:0 0 var(--bl-bosluk)}
 .mk-satir{height:7px;border-radius:99px;background:rgba(255,255,255,.09)}
 .mk-satir.k{width:58%}.mk-satir.o{width:76%}.mk-satir.u{width:92%}
 .mk-satir.ac{background:rgba(var(--acc-rgb),.45)}
-.mk-urunler{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
-.mk-urun{border:1px solid var(--bl-hat);border-radius:9px;background:rgba(255,255,255,.02);padding:7px}
-.mk-gorsel{aspect-ratio:1;border-radius:6px;background:
-  radial-gradient(60% 50% at 50% 38%,rgba(255,255,255,.13),transparent 70%),rgba(255,255,255,.04);
-  display:grid;place-items:center;color:#C6CEDA}
-.mk-gorsel svg{width:72%;height:72%;opacity:.8}
+/* üst bant: solda iskelet + "Ürünler", sağda yeşil çerçeveli grafik kartı
+   — maketin dizilimi, position:absolute YOK */
+.mk-band{display:flex;align-items:stretch;gap:12px;margin-bottom:12px}
+.mk-band-sol{flex:1;min-width:0;display:grid;gap:12px;align-content:space-between;padding:4px 0 2px}
+.mk-etiket{margin:0;font-size:15px;font-weight:600;color:var(--bl-bas);letter-spacing:-.01em}
+.mk-urunler{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mk-urun{border:1px solid var(--bl-hat);border-radius:10px;background:rgba(255,255,255,.02);padding:7px}
+/* ⚠ ÜRÜN KUTULARI AÇIK ZEMİN — maketteki gibi. Ürün fotoğrafı hissi
+   koyu kutuda çıkmıyor; maket beyaz/gri kutu üstünde ürün gösteriyor. */
+.mk-gorsel{aspect-ratio:1;border-radius:7px;background:
+  linear-gradient(180deg,#F4F6F8,#DDE2E8);
+  display:grid;place-items:center;overflow:hidden}
+.mk-gorsel svg{width:86%;height:86%}
 .mk-yildiz{display:flex;gap:2px;margin:7px 0 5px}
 .mk-yildiz i{width:7px;height:7px;background:#C9A227;
   -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z'/%3E%3C/svg%3E") center/contain no-repeat;
@@ -150,33 +153,37 @@ section.sec.bl-sec{padding:0 0 var(--bl-bosluk)}
 .mk-arama b{flex:none;width:26px;height:26px;border-radius:50%;background:var(--acc);display:grid;place-items:center}
 .mk-arama b svg{width:12px;height:12px;color:#06090D}
 
-/* ⚠ YÜZEN ÖLÇÜM KARTI AKIŞA ALINDI. Brief: "ASLA position absolute ile
-   anlamsız konumlandırma". Eski sürümde kart maketin dışına taşıyordu ve
-   dar ekranda çakışıyordu. Artık maketin altında normal bir satır. */
-.mk-olcum{display:flex;align-items:center;gap:14px;padding:11px 13px;
-  border-top:1px solid var(--bl-hat);background:rgba(255,255,255,.015)}
-.mk-olcum div{min-width:0}
-.mk-olcum u{display:block;text-decoration:none;font-size:11px;color:var(--bl-ikincil)}
-.mk-olcum b{display:block;font-size:19px;color:var(--acc);letter-spacing:-.03em;line-height:1.2;margin-top:2px}
+/* ÖLÇÜM KARTI — maketteki gibi bantta sağda, yeşil çerçeveli "yüzen" kart
+   görünümü. Konum akışta (bant flex), absolute yok → çakışma da yok. */
+.mk-olcum{flex:none;width:min(56%,214px);border:1px solid rgba(var(--acc-rgb),.5);
+  border-radius:13px;padding:10px 13px;background:rgba(9,12,17,.92);
+  box-shadow:0 16px 36px -18px rgba(0,0,0,.9),0 0 22px -8px rgba(var(--acc-rgb),.4)}
+.mk-olcum u{display:block;text-decoration:none;font-size:11px;color:var(--bl-gov)}
+.mk-olcum b{display:block;font-size:clamp(19px,2vw,23px);color:var(--acc);letter-spacing:-.035em;line-height:1.12;margin-top:2px}
 .mk-olcum span{display:block;font-size:10.4px;color:var(--bl-ikincil);margin-top:1px}
-.mk-olcum svg{flex:1;min-width:0;height:34px;overflow:visible}
-.mk-cizgi{fill:none;stroke:var(--acc);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+.mk-olcum svg{display:block;width:100%;height:32px;margin-top:6px;overflow:visible}
+.mk-cizgi{fill:none;stroke:var(--acc);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
   stroke-dasharray:260;stroke-dashoffset:260;animation:mkCiz 2.4s var(--ease) .3s forwards}
 .mk-ok{fill:var(--acc);opacity:0;animation:mkBelir .5s 2.2s forwards}
 @keyframes mkCiz{to{stroke-dashoffset:0}}
 @keyframes mkBelir{to{opacity:1}}
-/* el yazısı not kaldırıldı: brief "premium editorial" istiyor, el yazısı
-   süsü o registerin dışında ve dar ekranda zaten gizleniyordu */
-.mk-not{display:none}
+/* EL YAZISI NOT — makette var, kullanıcı birebir istedi. Ürünlerle arama
+   çubuğu arasında sağa yaslı; kıvrık ok sola bakar. */
+.mk-not{display:flex;justify-content:flex-end;align-items:center;gap:10px;
+  margin:10px 2px 2px;pointer-events:none}
+.mk-not svg{flex:none;width:34px;height:36px;color:var(--acc);opacity:.9;transform:scaleX(-1) rotate(-14deg)}
+.mk-not p{margin:0;font-family:ui-rounded,"Segoe Print","Bradley Hand",cursive;
+  font-size:13px;line-height:1.4;color:var(--bl-bas);transform:rotate(-3deg);text-align:right}
 
 /* ürün detay maketi */
 .mk-detay{display:grid;grid-template-columns:48px minmax(0,1fr) minmax(0,1fr);gap:10px;align-items:start}
 .mk-kucuk{display:grid;gap:7px}
 .mk-kucuk .mk-gorsel{border:1px solid var(--bl-hat);border-radius:7px}
-.mk-buyuk{border-radius:10px;background:
-  radial-gradient(62% 52% at 50% 40%,rgba(255,255,255,.16),transparent 72%),rgba(255,255,255,.05);
-  aspect-ratio:1;display:grid;place-items:center;border:1px solid var(--bl-hat);color:#C6CEDA}
-.mk-buyuk svg{width:76%;height:76%}
+.mk-buyuk{border-radius:10px;background:linear-gradient(180deg,#F4F6F8,#DDE2E8);
+  aspect-ratio:1;display:grid;place-items:center;border:1px solid var(--bl-hat);overflow:hidden}
+.mk-buyuk svg{width:88%;height:88%}
+.mk-degeri{display:flex;align-items:center;gap:9px}
+.mk-degeri .mk-satir{margin:0}
 .mk-bilgi{display:grid;gap:8px;align-content:start;padding-top:3px}
 .mk-sepet{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:3px;
   height:32px;border-radius:8px;background:var(--acc);color:#06090D;font-size:12.2px;font-weight:600}

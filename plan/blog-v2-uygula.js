@@ -72,12 +72,16 @@ function heroKur(html) {
   const h1 = (eski.match(/<h1>([\s\S]*?)<\/h1>/) || ['', ''])[1];
   const ozet = (eski.match(/<p class="ozet">([\s\S]*?)<\/p>/) || ['', ''])[1];
 
-  /* H1'in yalnız 3-5 kelimesi vurgulu — brief maddesi */
+  /* MAKET BİREBİR (kullanıcı kararı, 7 Eyl): görünen H1 ve özet, maketin
+     pazarlama metni. <title>, meta description, og/twitter ve şemadaki
+     headline DEĞİŞMEDİ — arama sonucu eski başlıkla listelenmeye devam
+     eder; yalnız sayfada görünen başlık maketinki. */
+  const h1Kaynak = ICERIK.hero.h1Yeni || h1;
+  const ozetKaynak = ICERIK.hero.ozetYeni || ozet;
+  if (ICERIK.hero.h1Yeni) rapor.push('h1: maketin pazarlama cümlesi (title/şema headline korunuyor)');
   const v = ICERIK.hero.h1Vurgu;
-  const h1Html = v && h1.includes(v) ? h1.replace(v, `<em>${v}</em>`) : h1;
-  if (v && !h1.includes(v)) rapor.push(`⚠ h1 vurgu parçası bulunamadı: "${v}"`);
-  const vk = v ? v.split(/\s+/).length : 0;
-  if (vk > 5) rapor.push(`⚠ h1 vurgusu ${vk} kelime — brief 3-5 diyor`);
+  const h1Html = v && h1Kaynak.includes(v) ? h1Kaynak.replace(v, `<em>${v}</em>`) : h1Kaynak;
+  if (v && !h1Kaynak.includes(v)) rapor.push(`⚠ h1 vurgu parçası bulunamadı: "${v}"`);
 
   const ist = ICERIK.hero?.istatistik?.length
     ? `<div class="bl-ist">${ICERIK.hero.istatistik.map((s) => `<div><b>${s.b}</b><span>${s.a}</span></div>`).join('')}</div>` : '';
@@ -92,10 +96,10 @@ function heroKur(html) {
             <span class="bl-vaat">${ICERIK.hero.vaat}</span>
           </div>
           <h1>${h1Html}</h1>
-          <p class="ozet">${ozet}</p>
+          <p class="ozet">${ozetKaynak}</p>
           <div class="bl-hero-btn">
             <a class="btn btn-p" href="../../teklif/">${ICERIK.hero.birincilDugme} <span aria-hidden="true">→</span></a>
-            <a class="btn btn-g" href="../../e-ticaret-seo/">${ICERIK.hero.ikincilDugme}</a>
+            <a class="btn btn-g" href="../../e-ticaret-seo/">${ICERIK.hero.ikincilDugme} <span aria-hidden="true">↗</span></a>
           </div>
           ${ist}
           <p class="bl-meta">${meta}</p>

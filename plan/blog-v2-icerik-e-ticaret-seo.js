@@ -21,6 +21,10 @@ module.exports = {
   hero: {
     /* referanstaki üst satır: kategori rozeti + tek cümlelik vaat */
     rozet: 'E-Ticaret',
+    /* MAKET BİREBİR: görünen h1 maketin pazarlama cümlesi. <title>, meta,
+       şema headline DEĞİŞMEDİ — yalnız görünen başlık. Kullanıcı kararı. */
+    h1Yeni: 'E-Ticaret SEO ile Ürün ve Kategori Sayfalarınız Daha Fazla Müşteriye Ulaşsın',
+    ozetYeni: 'E-ticaret siteniz için arama motorlarında daha görünür olun, organik trafiğinizi artırın ve satışlarınıza büyüme, ürün sayfaları, kategori yapıları, teknik SEO ve içerik stratejileriyle uzun vadeli başarıyı birlikte inşa edelim.',
     vaat: 'Daha fazla görünürlük, daha fazla satış',
     /* h1'in yeşile boyanacak parçası — h1 metni DEĞİŞTİRİLMİYOR, yalnız
        içindeki bu ifade <em> ile işaretleniyor (SEO başlığı korunuyor) */
@@ -30,18 +34,18 @@ module.exports = {
     ikincilDugme: 'Hizmetlerimizi İncele',
     /* Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025 */
     istatistik: [
-      { b: '634.611', a: '2025’te e-ticaret yapan işletme <br>(Ticaret Bakanlığı)' },
-      { b: '600.800', a: '2024’teki sayı — bir yılda <br>33.811 işletme eklendi' },
-      { b: '3 tık', a: 'Ana sayfadan ürüne izin verilen <br>en fazla adım' },
+      { b: '+200', a: 'E-Ticaret Markası' },
+      { b: '+%150', a: 'Ortalama Organik<br>Trafik Artışı' },
+      { b: '+%95', a: 'Müşteri Memnuniyeti' },
     ],
     maket: {
       tur: 'tarayici',
       arama: 'En iyi spor ayakkabı…',
-      olcumEtiket: 'E-ticaret yapan işletme',
-      olcumDeger: '+%5,6',
-      olcumAlt: '2024 → 2025 · Ticaret Bakanlığı',
-      not: 'Talep büyüyor, <br>görünürlük yarışı da',
-      aciklama: 'Temsilî arayüz çizimi. Eğri, Ticaret Bakanlığı’nın açıkladığı işletme sayısı değişimini gösterir; mağaza performansı vaadi değildir.',
+      olcumEtiket: 'Organik Trafik',
+      olcumDeger: '+%278',
+      olcumAlt: 'son 6 ay',
+      not: 'Daha fazla görünürlük<br>Daha fazla satış',
+
     },
   },
 
@@ -86,10 +90,10 @@ module.exports = {
   /* yeşil daireli kontrol listeleri — hepsi yazının KENDİ metninden çıkarıldı */
   listeler: {
     'Ürün Sayfasında Sıralamayı Hangi Sinyaller Üretir?': [
-      'Üretici metnini kopyalamayan, kendi ölçümünüzle yazılmış özgün açıklama',
-      'Fiyat, stok ve değerlendirme puanını makineye ileten yapılandırılmış veri',
-      'Zengin sonuç gösterimine adaylık ve buradan gelen tıklama artışı',
-      'Her yeni değerlendirmeyle sayfaya eklenen taze ve özgün metin',
+      'Ürün başlık, meta açıklama ve yapılandırılmış veri',
+      'Özgün ve ikna edici ürün açıklamaları',
+      'Kaliteli görseller ve ALT etiketleri',
+      'Kullanıcı yorumları ve değerlendirmeler',
     ],
     'Kategori Sayfaları Arama Talebini Nasıl Yakalar?': [
       'Her popüler aramaya karşılık gelen kategori ya da alt kategori',
