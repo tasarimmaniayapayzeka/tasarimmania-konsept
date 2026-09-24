@@ -242,3 +242,72 @@ ul{margin:0;padding:0;list-style:none}
    yanlış dilde açılan ziyaretçi hamburgeri açmadan çıkabilmeli. */
 @media(pointer:coarse){.dil span,.dil a{padding-block:9px}}
 @media(max-width:420px){.dil{font-size:11px}.dil span,.dil a{padding-inline:8px}}
+
+/* ==========================================================================
+   OKUNURLUK TABANI (24 Eyl 2026, kullanıcı onayı)
+   Ölçüm: 375px'te 155 sayfada 4.306 metin 11px altındaydı (en küçük 6.8px).
+   Kurallar sayfa içi <style> bloklarında; buradaki `body` öneki özgüllüğü bir
+   adım artırır, sayfa kuralını ezer. Değer yalnızca YUKARI çekilir.
+   Taban: okunması / tıklanması gereken metin 12px, numara ve etiket 11px.
+   KAPSAM DIŞI (bilinçli): sahte arayüz canlandırmalarının içi (.h3-bar,
+   .ol-olay, .hb-cip, .hb-term, .yp, .ui-kart, .w-pill vb.) ve
+   blog/e-ticaret-seo-yeni (kullanıcının birebir şablonu).
+   ========================================================================== */
+/* 12px — tıklanan / okunması gereken metin */
+body .dtay-more,
+body .alt-git,
+body .h3-sekme button,
+body .bl-filtre button,
+body .bl-k .kat,
+body .bl-k .tarih,
+body .bl-k .oku,
+body .yz-ilgili .kat,
+body .msj-alan label,
+body .sah-tekrar,
+body .ekhiz .git,
+body .ekhiz .et,
+body .shr-not,
+body .fnote,
+body .knl-ne,
+body .adr-k h3,
+body .ct-item b,
+body .hiz-panel small,
+body .hiz-panel > .hiz-etiket,
+body .kps-k h3,
+body .krs-bas span,
+body .yz-tablo th,
+body .c-m span,
+body .ox-img .yz-ai,
+body .hrt-ben span,
+body .hrt-ben b,
+body .mod-etiket,
+body .pr-txt .pr-step,
+body table.cmp thead th,
+body .yazi th{font-size:12px}
+/* 11px — numara, rozet, etiket, açıklayıcı ipucu */
+body .c-cipler a span,
+body .c-bol-ust,
+body .sd-soru i,
+body .akis-no,
+body .dtay-no,
+body .alt-no,
+body .akv-rozet,
+body .etk-s .no,
+body .t-num,
+body .eyebrow,
+body .wk-tag,
+body .t-tags i,
+body .orb-bilgi .etk,
+body .sah-etk,
+body .sbl-k .fiy,
+body .sbl-k u,
+body .yk-bas,
+body .ol-not,
+body .hb-ipucu,
+body .ui-ipucu,
+body .osbar span,
+body .serp-kaydir,
+body .yazi-tablo-ipucu,
+body .cmp-ipucu{font-size:11px}
+@media(max-width:760px){body .org-et,body .org-bas{font-size:11px}}
+@media(max-width:560px){body .pr-dot b{font-size:11px}}
