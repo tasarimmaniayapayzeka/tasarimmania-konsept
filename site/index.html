@@ -1186,10 +1186,10 @@ footer{border-top:1px solid var(--hair);padding:56px 0 120px;background:rgba(255
       <p>Aşağıdaki göstergeler son 12 aylık çalışmalarımızın toplamıdır.</p>
     </div>
     <div class="nums" id="nums">
-      <div class="num rv"><b data-count="140" data-suffix="+">0</b><span>Yayına alınan proje</span></div>
-      <div class="num rv d1"><b data-count="38" data-suffix=" M₺">0</b><span>Yönetilen yıllık reklam bütçesi</span></div>
-      <div class="num rv d2"><b data-count="9" data-suffix="">0</b><span>Kampanya yürütülen ülke</span></div>
-      <div class="num rv d3"><b data-count="620" data-suffix="+">0</b><span>Üretilen video &amp; reels</span></div>
+      <div class="num rv"><b data-count="140" data-suffix="+">140+</b><span>Yayına alınan proje</span></div>
+      <div class="num rv d1"><b data-count="38" data-suffix=" M₺">38 M₺</b><span>Yönetilen yıllık reklam bütçesi</span></div>
+      <div class="num rv d2"><b data-count="9" data-suffix="">9</b><span>Kampanya yürütülen ülke</span></div>
+      <div class="num rv d3"><b data-count="620" data-suffix="+">620+</b><span>Üretilen video &amp; reels</span></div>
     </div>
   </div>
 </section>
@@ -2324,6 +2324,9 @@ var Motion = (function(){
   function fmt(n){
     return n.toLocaleString('tr-TR');
   }
+  // HTML gerçek değeri taşır (JS çalıştırmayan bot "0" görmesin); animasyon için sıfırlanır
+  if (!reduced) els.forEach(function(el){ el.textContent = fmt(0); });
+
   function run(el){
     var end = parseFloat(el.getAttribute('data-count')) || 0;
     var sfx = el.getAttribute('data-suffix') || '';

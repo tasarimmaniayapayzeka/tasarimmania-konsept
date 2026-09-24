@@ -18,10 +18,15 @@
     pay = pay == null ? 0.12 : pay;
     return r.top < h * (1 - pay) && r.bottom > h * pay;
   }
-  var sonKontrol = 0;
+  var sonKontrol = 0, artci = 0;
   function kontrol() {
     var simdi = Date.now();
-    if (simdi - sonKontrol < 90) return;
+    // Kısılan olay düşürülmez, sona ertelenir: hızlı kaydırmanın son ~90 ms'inde
+    // ekrana giren öğe, kullanıcı yeniden kaydırana kadar gizli kalıyordu.
+    if (simdi - sonKontrol < 90) {
+      if (!artci) artci = setTimeout(function () { artci = 0; kontrol(); }, 90 - (simdi - sonKontrol));
+      return;
+    }
     sonKontrol = simdi;
     for (var i = izlenen.length - 1; i >= 0; i--) {
       var it = izlenen[i], acik = gorunurMu(it.el, it.pay);
@@ -70,6 +75,9 @@
       return v.toLocaleString('tr-TR', { minimumFractionDigits: ondalik, maximumFractionDigits: ondalik });
     };
     if (AZALT || isNaN(hedef)) { el.textContent = bicim(hedef || 0); return; }
+    // HTML gerçek değeri taşır (JS çalıştırmayan tarayıcı/yapay zekâ botu "0" görmesin);
+    // animasyon için burada sıfırlanır.
+    el.textContent = bicim(0);
     izle(el, function (a) {
       if (!a) return;
       var t0 = null, sure = 1500;
