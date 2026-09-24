@@ -175,6 +175,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -465,78 +512,76 @@
 <!-- AYIRT EDİCİ EKSEN: ROTA — Google Haritalar ve konum bazlı aramalarda görünürlüğe giden kavramsal rota (İşletme Profili, NAP tutarlılığı); numaralı kurulum adım listesi verilmez, teknik denetim veya backlink konusuna girilmez.
      Huni türü: TOFU · Küme: SEO Çekirdek · Kardeşler (enjeksiyon turunda): teknik-seo, off-page-seo, seo-raporlama-araclari -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Yerel SEO Hizmeti ile Haritalarda Görünürlüğe Giden Rota</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Seo</span>
-        <span class="yz-meta">9 Eylül 2026 · 7 dakikalık okuma</span>
+          <h1>Yerel SEO Hizmeti ile Haritalarda Görünürlüğe Giden Rota</h1>
+          <p class="ozet">Telefonunu çıkaran bir müşteri "yakınımda kuaför" ya da "en yakın yetkili servis" diye aratır. Listede yoksanız o satış çoğu zaman sokağın karşısındaki rakibe gider. Hizmet olarak yerel SEO, işletmenizi Google Haritalar ve konum bazlı aramalarda görünür kılmaya odaklanan bir yaklaşımdır. Bu yazıda ajans olarak sizi kavramsal bir rotada gezdiriyoruz. İşletme Profili'nden NAP tutarlılığına, yorumlardan ücretsiz ön analize kadar her durağı tek tek anlatıyoruz.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/yerel-seo-kapak-1440.webp"
+           srcset="./gorsel/yerel-seo-kapak-640.webp 640w, ./gorsel/yerel-seo-kapak-960.webp 960w, ./gorsel/yerel-seo-kapak-1440.webp 1440w, ./gorsel/yerel-seo-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Koyu arka planda parlayan konum işaretleri ve harita üzerinde görünürlük rotasını simgeleyen soyut üç boyutlu illüstrasyon"
+           width="1920" height="1080" decoding="async"><figcaption>Yerel görünürlük tek hamle değil, duraklardan oluşan bir rotadır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> SEO</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>9 Eylül 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>7 başlık</b></div>
       </div>
-      <h1>Yerel SEO Hizmeti ile Haritalarda Görünürlüğe Giden Rota</h1>
-      <p class="ozet">Telefonunu çıkaran bir müşteri "yakınımda kuaför" ya da "en yakın yetkili servis" diye aratır. Listede yoksanız o satış çoğu zaman sokağın karşısındaki rakibe gider. Hizmet olarak yerel SEO, işletmenizi Google Haritalar ve konum bazlı aramalarda görünür kılmaya odaklanan bir yaklaşımdır. Bu yazıda ajans olarak sizi kavramsal bir rotada gezdiriyoruz. İşletme Profili'nden NAP tutarlılığına, yorumlardan ücretsiz ön analize kadar her durağı tek tek anlatıyoruz.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#yerel-seo-hizmeti-nedir-haritalarda-gorunurlugu-nasil-etkiler"><span>01</span>Yerel SEO Hizmeti Nedir, Haritalarda Görünürlüğü Nasıl Etkiler?</a><a href="#google-isletme-profili-rotanin-neresinde-duruyor"><span>02</span>Google İşletme Profili Rotanın Neresinde Duruyor?</a><a href="#nap-tutarliligi-neden-yerel-siralamanin-pusulasidir"><span>03</span>NAP Tutarlılığı Neden Yerel Sıralamanın Pusulasıdır?</a><a href="#konum-bazli-aramalarda-gorunurluk-rotasi-hangi-duraklardan-gecer"><span>04</span>Konum Bazlı Aramalarda Görünürlük Rotası Hangi Duraklardan Geçer?</a><a href="#yorumlar-ve-yerel-etkilesim-rotayi-nasil-hizlandirir"><span>05</span>Yorumlar ve Yerel Etkileşim Rotayı Nasıl Hızlandırır?</a><a href="#yerel-seo-hizmeti-icin-ucretsiz-on-analiz-talep-edin"><span>06</span>Yerel SEO Hizmeti İçin Ücretsiz Ön Analiz Talep Edin</a><a href="#gorunurluk-rotasinin-duraklari-sinyal-ve-katki-karsilastirmasi"><span>07</span>Görünürlük Rotasının Durakları: Sinyal ve Katkı Karşılaştırması</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/yerel-seo-kapak-1440.webp"
-           srcset="./gorsel/yerel-seo-kapak-640.webp 640w, ./gorsel/yerel-seo-kapak-960.webp 960w, ./gorsel/yerel-seo-kapak-1440.webp 1440w, ./gorsel/yerel-seo-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Koyu arka planda parlayan konum işaretleri ve harita üzerinde görünürlük rotasını simgeleyen soyut üç boyutlu illüstrasyon"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Yerel görünürlük tek hamle değil, duraklardan oluşan bir rotadır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Yerel SEO Hizmeti Nedir, Haritalarda Görünürlüğü Nasıl Etkiler?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 07</span></div><h2 id="yerel-seo-hizmeti-nedir-haritalarda-gorunurlugu-nasil-etkiler">Yerel SEO Hizmeti Nedir, Haritalarda Görünürlüğü Nasıl Etkiler?</h2>
       <div class="yz-cevap"><p>Yerel SEO hizmeti, işletmenizin Google Haritalar ve konum bazlı arama sonuçlarında üst sıralarda listelenmesini sağlayan çalışmaların bütünüdür. Amaç, çevrenizde arama yapan müşterinin karşısına doğru anda çıkmaktır. Görünürlük yükseldikçe telefon araması, yol tarifi talebi ve mağaza ziyareti de artar; rota tam bu üç sonuca çıkar.</p></div>
       <p>Yerel arama, sonuç sayfasının kullanıcının konumuna göre şekillendiği arama türüdür. Google bu sayfada üç ana sinyali tartar: alaka, mesafe ve bilinirlik. Alaka, işletmenizin sorguyla ne kadar örtüştüğünü anlatır. Mesafe kullanıcıya fiziksel yakınlığı, bilinirlik ise çevrimiçi itibarınızı gösterir. Türkiye'de dijital rekabet her yıl büyüyor. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">ETBİS'in 2025 raporuna</a> göre e-ticaret yapan işletme sayısı 634 bin 611'e ulaştı. E-ticaretin gayrisafi yurt içi hasıladaki payı ise yüzde 6,9'a çıktı. Fiziksel dükkânlar bu kalabalıkta fark edilmek istiyor. Bu yüzden yerel SEO hizmeti almayı pazarlama planının doğal parçası sayıyorlar. Haritada görünmeyen firma, alıcının zihninde de yer bulamıyor.</p>
       <h3>Konum Bazlı Arama Niyeti Neyi Anlatır?</h3>
-      <p>Konum bazlı arama, kullanıcının "yakınımda" gibi ifadelerle ya da hiç yazmadan, cihaz konumu üzerinden çevresindeki seçenekleri sorguladığı arama biçimidir. Bu sorguların niyeti nettir: kişi araştırma değil, ziyaret aşamasındadır. Örneğin akşam vakti yapılan "açık eczane" araması, dakikalar içinde sonuçlanacak bir ihtiyacı işaret eder. Doğru anda görünen işletme, harekete en yakın alıcıyı yakalar; bulunabilirlik burada doğrudan ciroya dokunur. Niyeti okuyan firma, reklam bütçesini değil rotasını büyütür.</p>
-      <h2>Google İşletme Profili Rotanın Neresinde Duruyor?</h2>
+      <p>Konum bazlı arama, kullanıcının "yakınımda" gibi ifadelerle ya da hiç yazmadan, cihaz konumu üzerinden çevresindeki seçenekleri sorguladığı arama biçimidir. Bu sorguların niyeti nettir: kişi araştırma değil, ziyaret aşamasındadır. Örneğin akşam vakti yapılan "açık eczane" araması, dakikalar içinde sonuçlanacak bir ihtiyacı işaret eder. Doğru anda görünen işletme, harekete en yakın alıcıyı yakalar; bulunabilirlik burada doğrudan ciroya dokunur. Niyeti okuyan firma, reklam bütçesini değil rotasını büyütür.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 07</span></div><h2 id="google-isletme-profili-rotanin-neresinde-duruyor">Google İşletme Profili Rotanın Neresinde Duruyor?</h2>
       <div class="yz-cevap"><p>Google İşletme Profili, yerel görünürlük rotasının başlangıç noktasıdır; haritadaki dijital vitrininiz burada kurulur. Kategori, çalışma saati, fotoğraf ve yorum alanları beslendikçe Google sizi doğru sorgularla eşleştirir. Bu hizmet kapsamında ilk incelenen varlık da her zaman bu profildir. Vitrin ne kadar doluysa eşleşme o kadar isabetlidir.</p></div>
       <p>Google İşletme Profili, firmanızın harita ve aramadaki resmî kimlik kartıdır; canlı bir varlık gibi ele alınır. Odak noktaları: kategori seçimi, güncel çalışma saatleri, gerçek mekân fotoğrafları ve yanıtlanmış kullanıcı soruları. Kart doldukça algoritmanın işi kolaylaşır, eşleşme isabeti yükselir. Profilden tıklayan kullanıcıyı karşılayan web sitesi de rotanın parçasıdır; mobil uyumlu ve hızlı açılan bir sayfa bu etkiyi kalıcılaştırır.</p>
       <h3>Profil Neden Tek Seferlik Kayıt Değildir?</h3>
-      <p>Profil, açılıp bırakılan bir ilan değil, düzenli beslenen bir vitrindir. Yeni fotoğraflar, güncel gönderiler ve değişen çalışma saatleri Google'a "bu işletme yaşıyor" sinyali verir. Ayda bir yapılan kısa bir kontrol bile profili diri tutmaya yeter. Sessiz kalan profil, zamanla harita paketindeki yerini daha etkileşimli rakiplere bırakır. Canlılık, bu duraktaki en değerli para birimidir.</p>
-      <h2>NAP Tutarlılığı Neden Yerel Sıralamanın Pusulasıdır?</h2>
+      <p>Profil, açılıp bırakılan bir ilan değil, düzenli beslenen bir vitrindir. Yeni fotoğraflar, güncel gönderiler ve değişen çalışma saatleri Google'a "bu işletme yaşıyor" sinyali verir. Ayda bir yapılan kısa bir kontrol bile profili diri tutmaya yeter. Sessiz kalan profil, zamanla harita paketindeki yerini daha etkileşimli rakiplere bırakır. Canlılık, bu duraktaki en değerli para birimidir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 07</span></div><h2 id="nap-tutarliligi-neden-yerel-siralamanin-pusulasidir">NAP Tutarlılığı Neden Yerel Sıralamanın Pusulasıdır?</h2>
       <div class="yz-cevap"><p>NAP tutarlılığı; işletme adı, adres ve telefon bilgisinin internetteki her kaynakta birebir aynı yazılmasıdır. Google farklı platformlardaki kayıtları karşılaştırıp firmanıza ne kadar güveneceğine karar verir. Tek bir rakam farkı bile bu güveni sarsabilir; pusula şaşarsa rota uzar ve haritadaki konumunuz hak ettiği sırada görünmez.</p></div>
       <p>Rehber siteleri, harita uygulamaları, sosyal profiller ve sektörel platformlar firmanız hakkında birer kayıt tutar; bu envanteri çıkarmak kritik bir iştir. Müşteriler artık telefon numarasını basılı rehberden değil, çevrim içi aramadan buluyor — bu alışkanlık dağınık kayıtlardaki her küçük ayrıntının önemini artırıyor. Tek harf farkı bile algoritmada iki ayrı işletme algısı yaratabilir. Tutarlılık, sıralamadan önce güvenin dilidir.</p>
       <h3>Tutarlılık Bozulduğunda Görünürlük Nasıl Etkilenir?</h3>
       <p>Çelişen kayıtlar Google'ın hangi bilgiye inanacağını belirsizleştirir. Belirsizlik, harita paketinde daha az gösterim olarak geri döner. Müşteri tarafında ise yanlış numara, kapıya gelmeyen ziyaretçi demektir; kaybın faturası çift yönlüdür. Görünürlük düşerken güven de sessizce erir.</p>
       <h4>Ad, Adres ve Telefonda Küçük Farkların Maliyeti</h4>
-      <p>"Cadde" ile "Cd.", eski numara ile yeni hat, şube adına eklenen gereksiz kelimeler; hepsi ayrı birer çelişki kaynağıdır. Bu çalışmada ilk iş, kayıtların tek listede toplanıp aynı biçime çekilmesidir. Pusula ancak o zaman kuzeyi gösterir; küçük farklar temizlendikçe harita sinyali netleşir.</p>
-      <h2>Konum Bazlı Aramalarda Görünürlük Rotası Hangi Duraklardan Geçer?</h2>
+      <p>"Cadde" ile "Cd.", eski numara ile yeni hat, şube adına eklenen gereksiz kelimeler; hepsi ayrı birer çelişki kaynağıdır. Bu çalışmada ilk iş, kayıtların tek listede toplanıp aynı biçime çekilmesidir. Pusula ancak o zaman kuzeyi gösterir; küçük farklar temizlendikçe harita sinyali netleşir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 07</span></div><h2 id="konum-bazli-aramalarda-gorunurluk-rotasi-hangi-duraklardan-gecer">Konum Bazlı Aramalarda Görünürlük Rotası Hangi Duraklardan Geçer?</h2>
       <div class="yz-cevap"><p>Görünürlük rotası dört durak geçer: kimlik, tutarlılık, içerik ve güven. Her durak bir öncekinin üzerine kurulur; biri zayıf kalırsa harita sıralaması dalgalanır. Yerel SEO hizmetini tek seferlik hamle değil, süreklilik isteyen bir yolculuk olarak kurguluyoruz. Rota netse ilerleme de ölçülebilir olur.</p></div>
       <p>Durakları kavramsal haritada sıralayalım:</p><ol><li>Kimlik: Eksiksiz ve doğru bir Google İşletme Profili</li><li>Tutarlılık: Her kaynakta hizalanmış NAP bilgisi</li><li>İçerik: Semt ve hizmet odaklı sayfalarla alaka sinyali</li><li>Güven: Yorumlar ve etkileşimle beslenen bilinirlik</li></ol><p>Bu sıralama bir kurulum talimatı değil, yol boyunca nerede olduğunuzu gösteren işaret levhalarıdır. Tarama ve site hızı gibi <a href="../../teknik-seo/">teknik SEO</a> denetimleri ile <a href="../../seo/">backlink çalışmaları</a> rotanın komşu yollarıdır. Her biri ayrı yazının konusudur. Yerel görünürlük çalışması, genel SEO omurgasıyla aynı hedefe farklı bir şeritten ilerler. Şeritler birbirini besler ama karışmaz.</p>
       <h3>Yerel İçerik Durağında Ne Üretilir?</h3>
       <p>Semt sayfaları, hizmet bölgesi anlatımları ve Türkçe sorulara birebir yanıt veren SSS blokları bu durağın ana üretimidir. İçerik, "nerede" sorusuna kendi sesinizle cevap verir. Konumla eşleşen sayfa, harita dışındaki organik sonuçlarda da bulunabilirlik kazandırır; tek metin iki kapıyı birden açar.</p>
-      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      <h2>Yorumlar ve Yerel Etkileşim Rotayı Nasıl Hızlandırır?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 07</span></div><h2 id="yorumlar-ve-yerel-etkilesim-rotayi-nasil-hizlandirir">Yorumlar ve Yerel Etkileşim Rotayı Nasıl Hızlandırır?</h2>
       <div class="yz-cevap"><p>Müşteri yorumları, bilinirlik sinyalini besleyen en güçlü etkileşim kaynağıdır. Düzenli gelen ve yanıtlanan yorumlar hem algoritmaya hem vitrine bakan alıcıya güven verir. Bu döngü, yerel görünürlük çalışmasının sürdürülebilir yakıtıdır; sessiz profil rotada yavaşlar. Etkileşim arttıkça harita sizi daha sık öne çıkarır.</p></div>
       <p>Yorum istemek çoğu firmaya zor gelir; oysa memnun müşteri, deneyimini paylaşmaya genellikle hazırdır. Yanıt kültürü de en az yorumun kendisi kadar önemlidir. Yerel SEO hizmetimiz yorum yönetimini rotanın vazgeçilmez şeridi olarak konumlar. Fotoğraflı ve ayrıntılı geri bildirimler haritadaki vitrini zenginleştirir. Kısa bir teşekkür bile döngüyü canlı tutar.</p>
       <h3>Olumsuz Yorum Rotadan Çıkarır mı?</h3>
-      <p>Tek başına çıkarmaz. Sakin ve çözüm odaklı bir yanıt, olumsuz deneyimi güven fırsatına çevirir. Google açısından da doğal bir yorum profili, kusursuz görünen tek tip övgüden daha inandırıcıdır. Burada kriz değil, iletişim yönetiyorsunuz; ton ve hız her şeyi belirler.</p>
-      <h2>Yerel SEO Hizmeti İçin Ücretsiz Ön Analiz Talep Edin</h2>
+      <p>Tek başına çıkarmaz. Sakin ve çözüm odaklı bir yanıt, olumsuz deneyimi güven fırsatına çevirir. Google açısından da doğal bir yorum profili, kusursuz görünen tek tip övgüden daha inandırıcıdır. Burada kriz değil, iletişim yönetiyorsunuz; ton ve hız her şeyi belirler.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 07</span></div><h2 id="yerel-seo-hizmeti-icin-ucretsiz-on-analiz-talep-edin">Yerel SEO Hizmeti İçin Ücretsiz Ön Analiz Talep Edin</h2>
       <div class="yz-cevap"><p>Ücretsiz ön analiz, yerel SEO hizmetine başlamadan önce haritadaki mevcut konumunuzu net bir fotoğrafla ortaya koyar. Profil doluluğunu, NAP kaynaklarını ve rakip yoğunluğunu inceleyip sade bir yol haritası sunuyoruz. Talep için tek form yeterli; karar tamamen size ait. Rota, ancak nereden başladığınızı bilirseniz çizilir.</p></div>
       <p>Ön analizde neye bakıyoruz? Profil doluluğu, bilgi tutarlılığı, yorum görünümü ve yerel sorgu potansiyeli dört ana başlığımız. Çıktı bir satış sunumu değil, durum fotoğrafıdır. Talebinizi <a href="../../yerel-seo/">yerel SEO hizmeti</a> sayfamızdan iletebilir, dilerseniz <a href="../../seo/">SEO çalışmalarımızın</a> genel çerçevesine de göz atabilirsiniz. Hedefimiz, bu çalışmanın firmanız için anlamlı olup olmadığını birlikte netleştirmek. Tablo uygun değilse bunu da açıkça söyleriz. İlk adım sizden, rota bizden.</p>
       <h3>Ön Analiz Sonrasında Süreç Nasıl İlerler?</h3>
       <p>Analiz raporunu birlikte değerlendiririz; hangi durağın öncelikli olduğunu veriler söyler. Devam kararı verirseniz aylık bir çalışma planı ve düzenli durum özeti sunarız. Raporu alıp kendi ekibinizle ilerlemeyi seçmeniz de mümkündür; bilgi sizde kalır, kapımız açık kalır.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/yerel-seo-govde-960.webp"
              srcset="./gorsel/yerel-seo-govde-640.webp 640w, ./gorsel/yerel-seo-govde-960.webp 960w, ./gorsel/yerel-seo-govde-1440.webp 1440w, ./gorsel/yerel-seo-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="NAP tutarlılığını simgeleyen, ışık çizgileriyle hizalanan soyut üç boyutlu pusula ve veri kartları illüstrasyonu" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Ad, adres ve telefon bilgisi her kaynakta hizalandığında rota netleşir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Görünürlük Rotasının Durakları: Sinyal ve Katkı Karşılaştırması</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 07</b><span>07 / 07</span></div><h2 id="gorunurluk-rotasinin-duraklari-sinyal-ve-katki-karsilastirmasi">Görünürlük Rotasının Durakları: Sinyal ve Katkı Karşılaştırması</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Rota Durağı</th><th>Temel Sinyal</th><th>Görünürlüğe Katkısı</th></tr></thead>
@@ -556,7 +601,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../yerel-seo/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Haritalarda görünürlük şansın değil, doğru çizilmiş bir rotanın sonucudur. İşletme Profili kimliği kurar, NAP tutarlılığı güveni sağlar, yerel içerik alakayı büyütür, yorumlar döngüyü hızlandırır. Haritada büyümek isteyen KOBİ'nin ilk adımı bellidir: mevcut durumu görmek. Ücretsiz ön analiz talebinizi bekliyoruz; rotayı birlikte çizelim.</p>
+        <p>Haritalarda görünürlük şansın değil, doğru çizilmiş bir rotanın sonucudur. İşletme Profili kimliği kurar, NAP tutarlılığı güveni sağlar, yerel içerik alakayı büyütür, yorumlar döngüyü hızlandırır. Haritada büyümek isteyen KOBİ'nin ilk adımı bellidir: mevcut durumu görmek. Ücretsiz ön analiz talebinizi bekliyoruz; rotayı birlikte çizelim.</p></section>
       </article>
     </div>
   </section>

@@ -175,6 +175,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -457,82 +504,80 @@
 <!-- AYIRT EDİCİ EKSEN: ZAMANLAMA — Gönderim zamanı, sıklık ve otomasyon akışlarının zamanlaması; reklam bütçesi veya metin yazımı ekseni değil.
      Huni türü: TOFU · Küme: Digital Marketing Performansı · Kardeşler (enjeksiyon turunda): google-ads-ve-ppc, reklam-metni-yazma, sosyal-medya-reklam-yonetimi -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Email Marketing Strategy: Is There a Right Time to Send?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Digital Marketing</span>
-        <span class="yz-meta">13 September 2026 · 7 min read</span>
+          <h1>Email Marketing Strategy: Is There a Right Time to Send?</h1>
+          <p class="ozet">Monday morning at 09:00, or Thursday evening at 21:00? That is the question we hear most often from SME managers. Rather than hunting for a single magic hour, we recommend building an email marketing strategy grounded in measurement; because the right moment varies with the sector, the audience and the kind of message. In this article we explain how to settle the send time, the sending frequency and the timing of automation flows using data. Planning the advertising budget and writing ad copy are subjects for separate articles; our focus here is timing alone. At the end of the article you'll also find a test arrangement you can apply to your own list straight away.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/email-marketing-strategy-cover-1440.webp"
+           srcset="./image/email-marketing-strategy-cover-640.webp 640w, ./image/email-marketing-strategy-cover-960.webp 960w, ./image/email-marketing-strategy-cover-1440.webp 1440w, ./image/email-marketing-strategy-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="A glowing ring of clock hours on a deep navy ground with glass envelope forms orbiting it — an abstract 3D illustration of the idea of email send timing"
+           width="1920" height="1080" decoding="async"><figcaption>There is no single magic send time; the right moment is hidden in your audience's rhythm. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Digital Marketing</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>13 September 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>Email Marketing Strategy: Is There a Right Time to Send?</h1>
-      <p class="ozet">Monday morning at 09:00, or Thursday evening at 21:00? That is the question we hear most often from SME managers. Rather than hunting for a single magic hour, we recommend building an email marketing strategy grounded in measurement; because the right moment varies with the sector, the audience and the kind of message. In this article we explain how to settle the send time, the sending frequency and the timing of automation flows using data. Planning the advertising budget and writing ad copy are subjects for separate articles; our focus here is timing alone. At the end of the article you'll also find a test arrangement you can apply to your own list straight away.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#what-is-an-email-marketing-strategy-and-why-is-timing-at-its-centre"><span>01</span>What Is an Email Marketing Strategy, and Why Is Timing at Its Centre?</a><a href="#is-there-a-single-send-time-that-suits-everyone"><span>02</span>Is There a Single Send Time That Suits Everyone?</a><a href="#how-should-the-sending-frequency-be-set"><span>03</span>How Should the Sending Frequency Be Set?</a><a href="#how-do-you-design-timing-in-automation-flows"><span>04</span>How Do You Design Timing in Automation Flows?</a><a href="#which-data-should-you-measure-timing-decisions-with"><span>05</span>Which Data Should You Measure Timing Decisions With?</a><a href="#email-marketing-strategy-let-s-build-it-together"><span>06</span>Email Marketing Strategy: Let's Build It Together</a><a href="#timing-compared-by-automation-flow"><span>07</span>Timing compared by automation flow</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/email-marketing-strategy-cover-1440.webp"
-           srcset="./image/email-marketing-strategy-cover-640.webp 640w, ./image/email-marketing-strategy-cover-960.webp 960w, ./image/email-marketing-strategy-cover-1440.webp 1440w, ./image/email-marketing-strategy-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="A glowing ring of clock hours on a deep navy ground with glass envelope forms orbiting it — an abstract 3D illustration of the idea of email send timing"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>There is no single magic send time; the right moment is hidden in your audience's rhythm. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>What Is an Email Marketing Strategy, and Why Is Timing at Its Centre?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="what-is-an-email-marketing-strategy-and-why-is-timing-at-its-centre">What Is an Email Marketing Strategy, and Why Is Timing at Its Centre?</h2>
       <div class="yz-cevap"><p>An email marketing strategy is the plan defining whom you will send what content to, when and how often. Timing is the leg of that plan most often neglected. The same content sent at the wrong hour is lost at the bottom of the inbox. A message that arrives at the right moment gets read, gets clicked and turns into a sale. You have to build your plan across the hour, day and lifecycle layers together.</p></div>
       <p>The number of businesses moving into a digital shop window in Türkiye is rising fast. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">The ETBİS 2025 report</a>— ETBİS is Türkiye's central e-commerce information system — shows the number of businesses trading online reaching 634,611. Being visible in a crowding inbox no longer ends with good content. You also have to knock at the right moment. <a href="../../digital-marketing/">In our digital marketing service</a> we therefore run the email channel on a timing calendar of its own.</p>
       <h3>The Three Layers of Timing: Hour, Day and Lifecycle</h3>
-      <p>The hour layer defines which part of the day you send in. The day layer sets the weekly rhythm. The lifecycle layer shows which stage the recipient is at. A new subscriber and a buyer who has been silent for months don't deserve the same calendar. A sound plan tests those three layers separately. It writes a different rule for each.</p>
-      <h2>Is There a Single Send Time That Suits Everyone?</h2>
+      <p>The hour layer defines which part of the day you send in. The day layer sets the weekly rhythm. The lifecycle layer shows which stage the recipient is at. A new subscriber and a buyer who has been silent for months don't deserve the same calendar. A sound plan tests those three layers separately. It writes a different rule for each.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="is-there-a-single-send-time-that-suits-everyone">Is There a Single Send Time That Suits Everyone?</h2>
       <div class="yz-cevap"><p>No; there is no single ideal send time that works across every sector. The right hour comes out of your own list's data. General research points to the weekday morning and midday range. Those findings are only a starting hypothesis. A simple two-week test of times produces a far more accurate compass for an email marketing strategy than any general table.</p></div>
       <p>Habits of internet use affect the hour directly. <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TurkStat's latest research</a> — TurkStat is Türkiye's statistical institute — sets out how household internet use has spread. As reading on mobile grows, evening slots gain value for B2C brands. On the email leg of your strategy you have to test tendencies of that kind against your own data.</p>
       <h3>Rhythms That Vary by Audience</h3>
       <p>B2B buyers are more active within working hours, mostly in the Tuesday-to-Thursday range. B2C subscribers, on the other hand, are more inclined to open a newsletter in the evening and at weekends. The rhythms of retail, education and services diverge from one another. Rather than leaning on a sector average, watch your own segment.</p>
       <h3>How Do You Set Up Your Own Time Test?</h3>
-      <p>You can set the test up in four steps:</p><ol><li>Split your list at random into two equal groups.</li><li>Send the same newsletter to the two groups at two different times.</li><li>Compare the open and click rates 48 hours later.</li><li>Race the winning time against a new alternative in the next round.</li></ol><p>At the end of four rounds you have a map of times specific to you. That map is far more valuable than general advice.</p>
-      <h2>How Should the Sending Frequency Be Set?</h2>
+      <p>You can set the test up in four steps:</p><ol><li>Split your list at random into two equal groups.</li><li>Send the same newsletter to the two groups at two different times.</li><li>Compare the open and click rates 48 hours later.</li><li>Race the winning time against a new alternative in the next round.</li></ol><p>At the end of four rounds you have a map of times specific to you. That map is far more valuable than general advice.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="how-should-the-sending-frequency-be-set">How Should the Sending Frequency Be Set?</h2>
       <div class="yz-cevap"><p>The sending frequency should be often enough for the subscriber to remember the brand and sparse enough that they don't tire of it. For SMEs, 2–4 newsletters a month is a balanced start. Holding the frequency steady is a safer route than occasional bursts of heavy campaigning. If your unsubscribe rate is rising, your tempo is more than your audience can carry.</p></div>
       <p>When we build an email marketing strategy we watch three signals on the frequency side. They are the unsubscribe rate, the complaint rate and how engagement moves over time. Reading the three together sets out the health of the list clearly. None of them is enough on its own.</p>
       <h3>Frequency Signals: What Should You Watch?</h3>
       <p>Three signals offer a practical compass. If your unsubscribe rate climbs noticeably from send to send, reduce the frequency. If the open rate falls on three sends in a row, change the hour and the mix of content. If spam complaints start trending upwards, review both your tempo and the source of your list. Tracking those signals in the same report every month lets you catch an adverse trend early.</p>
       <h4>Rhythm Signals for Staying Out of the Spam Folder</h4>
-      <p>Mail services reward regular sender behaviour. A sudden wave of sending after a long silence damages the sender reputation. That wave pushes messages into the promotions or spam tab. A steady frequency is therefore as important as the technical infrastructure.</p>
-      <h2>How Do You Design Timing in Automation Flows?</h2>
+      <p>Mail services reward regular sender behaviour. A sudden wave of sending after a long silence damages the sender reputation. That wave pushes messages into the promotions or spam tab. A steady frequency is therefore as important as the technical infrastructure.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="how-do-you-design-timing-in-automation-flows">How Do You Design Timing in Automation Flows?</h2>
       <div class="yz-cevap"><p>An automation flow is the part of an email marketing strategy that is triggered by a subscriber's behaviour and moves forward on predefined waiting periods. The welcome message should go out minutes after sign-up. The basket reminder comes into play within 1–24 hours, and the re-engagement message within a window of 60–90 days of silence. In automation, timing depends less on the clock than on the trigger.</p></div>
       <p>A campaign calendar runs at the hour you set. An automatic flow runs at the subscriber's hour. A strong email marketing strategy designs the two arrangements to complete one another.</p>
       <h3>Waiting Periods in the Welcome Series</h3>
       <p>The first message should go out immediately after sign-up. Interest is at its peak at that moment. Planning the second message for 2–3 days later and the third for a week on completes the series without wearing it out. Keeping each step focused on a single subject makes the recipient's decision easier.</p>
       <h3>Abandoned Basket and Re-engagement</h3>
       <p>On a basket reminder, sending the first message within 1–4 hours and the second the next day is a common and balanced arrangement. <a href="../../ecommerce-website/">The e-commerce platform</a> we build for brands lets us feed these flows directly from site data. The re-engagement flow reaches a buyer who has been silent for 60–90 days with a reminder. If no reply comes, cleaning the list protects the sender reputation.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>Which Data Should You Measure Timing Decisions With?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="which-data-should-you-measure-timing-decisions-with">Which Data Should You Measure Timing Decisions With?</h2>
       <div class="yz-cevap"><p>Measure timing decisions together with the open rate, the click rate, unsubscribes and conversion data. A single metric on its own misleads. The open rate offers a quick indicator for time tests. To see the effect on revenue, track clicks and conversions. A good email marketing strategy ties every timing decision to those metrics.</p></div>
       <p>On how widespread mobile access is, <a href="https://www.btk.gov.tr/" target="_blank" rel="noopener">the data published by BTK</a>— BTK is Türkiye's information and communication technologies authority — shows reading behaviour spread across devices. Examining the reports with a device breakdown is therefore important. For reading that breakdown we recommend a simple arrangement. Split your send report into two columns, desktop and mobile. On every time test, note the difference in opens and clicks between the two columns separately. On a mobile-led list, put the evening slots into the test plan; on a desktop-led list, working hours. That breakdown protects you from false generalisations when you interpret timing reports. We combine the timing findings with channel data in our <a href="../../performance-marketing/">performance marketing</a> reports, and we align the topic plan with our <a href="../../seo-content-strategy/">content strategy</a> team.</p>
       <h3>Open Rate, or Clicks?</h3>
-      <p>The open rate is the metric showing the percentage of recipients who viewed the email. Because of privacy measures it is no longer taken as definitive on its own. The click rate measures behaviour, conversion measures revenue. Teams that read the open rate and the clicks together in time tests take far more accurate decisions.</p>
-      <h2>Email Marketing Strategy: Let's Build It Together</h2>
+      <p>The open rate is the metric showing the percentage of recipients who viewed the email. Because of privacy measures it is no longer taken as definitive on its own. The click rate measures behaviour, conversion measures revenue. Teams that read the open rate and the clicks together in time tests take far more accurate decisions.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="email-marketing-strategy-let-s-build-it-together">Email Marketing Strategy: Let's Build It Together</h2>
       <div class="yz-cevap"><p>Working the arrangement out on your own by trial and error can take months. We bring the timing, frequency and automation process down to weeks with a measurement infrastructure. We examine your list, your sector and your existing send data and draw up a timing calendar specific to you. In the first meeting we read your current newsletter performance together and mark the areas of quick gain.</p></div>
       <p>An email marketing strategy isn't a one-off setup but a system under continuous measurement. At TasarımMania we run the list audit, the time tests, the flow setup and the monthly reporting in a single package. In the strategy, you see the reasoning behind every email decision taken, in the report.</p>
       <h3>What Awaits You at the First Step?</h3>
       <p>We start with a short discovery conversation. We listen to the size of your existing list, your sending history and your goals. Then we propose a two-week test plan. The email leg of your marketing arrangement is set on measurable ground by that work.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/email-marketing-strategy-body-960.webp"
              srcset="./image/email-marketing-strategy-body-640.webp 640w, ./image/email-marketing-strategy-body-960.webp 960w, ./image/email-marketing-strategy-body-1440.webp 1440w, ./image/email-marketing-strategy-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Glowing cyan nodes on a branching timeline against a dark ground — an abstract 3D image standing for the waiting periods in an email automation flow" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>In an automation flow, every node is tied to a trigger and a waiting period. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Timing compared by automation flow</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="timing-compared-by-automation-flow">Timing compared by automation flow</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Flow type</th><th>Trigger</th><th>First send</th><th>Follow-up interval</th></tr></thead>
@@ -553,7 +598,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../digital-marketing/">See the service page</a>
         </aside>
-        <p>There is no universal clock called the right send time; there is a right method. A timing arrangement that knows its audience, adjusts frequency to the signals and ties automation to triggers produces far more value from the same list. You can start today with a small time test and grow the results with us.</p>
+        <p>There is no universal clock called the right send time; there is a right method. A timing arrangement that knows its audience, adjusts frequency to the signals and ties automation to triggers produces far more value from the same list. You can start today with a small time test and grow the results with us.</p></section>
       </article>
     </div>
   </section>

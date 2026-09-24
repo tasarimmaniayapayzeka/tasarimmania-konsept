@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,72 +477,70 @@
 <!-- AYIRT EDİCİ EKSEN: ETKİ — Kurmanın NEYİ DEĞİŞTİRDİĞİNİ anlatır. Teknik kurulum and model seçimi kapsam dışıdır; hizmet sayfasına link verilir. Uydurma dönüşüm oranı YAZILMAZ.
      Huni türü: TOFU · Küme: web · Kardeşler (enjeksiyon turunda):  -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Website Chatbot</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Web Design</span>
-        <span class="yz-meta">22 October 2026 · 7 min read</span>
+          <h1>What Does Adding a Chatbot to Your Website Change?</h1>
+          <p class="ozet">Putting an assistant on the site is easy; getting it to work properly afterwards is hard. Most setups open with enthusiasm in the first month and are quietly switched off in the second. The reason is usually not the tool but the scope. In this piece we cover what it changes, where it should stop, and how you measure success. We're not giving figures like conversion rates; we don't write what we haven't measured.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/adding-a-chatbot-to-your-website-cover-1440.webp"
+           srcset="./image/adding-a-chatbot-to-your-website-cover-640.webp 640w, ./image/adding-a-chatbot-to-your-website-cover-960.webp 960w, ./image/adding-a-chatbot-to-your-website-cover-1440.webp 1440w, ./image/adding-a-chatbot-to-your-website-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Many dim dots scattered in the dark; only one is bright and connected to a lit path"
+           width="1920" height="1080" decoding="async"><figcaption>If the same question comes in dozens of times a day, writing the answer once is enough. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Web Design</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>22 October 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>What Does Adding a Chatbot to Your Website Change?</h1>
-      <p class="ozet">Putting an assistant on the site is easy; getting it to work properly afterwards is hard. Most setups open with enthusiasm in the first month and are quietly switched off in the second. The reason is usually not the tool but the scope. In this piece we cover what it changes, where it should stop, and how you measure success. We're not giving figures like conversion rates; we don't write what we haven't measured.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#what-does-setting-up-a-website-chatbot-change"><span>01</span>What Does Setting Up a Website Chatbot Change?</a><a href="#which-questions-should-it-answer"><span>02</span>Which Questions Should It Answer?</a><a href="#when-should-it-hand-over-to-a-human"><span>03</span>When Should It Hand Over to a Human?</a><a href="#how-do-you-build-the-knowledge-base"><span>04</span>How Do You Build the Knowledge Base?</a><a href="#how-do-you-measure-success"><span>05</span>How Do You Measure Success?</a><a href="#let-s-set-up-your-own-assistant-together"><span>06</span>Let's Set Up Your Own Assistant Together</a><a href="#what-a-site-assistant-solves-and-what-it-doesn-t"><span>07</span>What a site assistant solves, and what it doesn't</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/adding-a-chatbot-to-your-website-cover-1440.webp"
-           srcset="./image/adding-a-chatbot-to-your-website-cover-640.webp 640w, ./image/adding-a-chatbot-to-your-website-cover-960.webp 960w, ./image/adding-a-chatbot-to-your-website-cover-1440.webp 1440w, ./image/adding-a-chatbot-to-your-website-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Many dim dots scattered in the dark; only one is bright and connected to a lit path"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>If the same question comes in dozens of times a day, writing the answer once is enough. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>What Does Setting Up a Website Chatbot Change?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="what-does-setting-up-a-website-chatbot-change">What Does Setting Up a Website Chatbot Change?</h2>
       <div class="yz-cevap"><p>Three things: response time, the load of repeat questions, and the visitor's reason for staying on the page. When you set up a website chatbot, your team stops answering the same question ten times a day. The visitor gets the answer without waiting. The one thing that doesn't change is the damage done if you give out wrong information. That damage can outweigh the speed you gain.</p></div>
       <p>The most concrete gain is in the repeat questions. Opening hours, delivery times, service scope and pricing policy come round again every day; writing them once frees up the team's day.</p><p>The second gain is in timing. If a question that arrives at midnight waits until morning, the visitor has usually looked elsewhere in the meantime. A site assistant closes that gap.</p><p>Fewer people notice the third gain. The team stops repeating the same answer. The time left over goes to the questions that are genuinely new. The gain in productivity shows up not in a number but in where the attention goes.</p>
       <h3>Does Every Site Need One?</h3>
-      <p>No. On a site that takes a few questions a day, the setup and upkeep outweigh the gain. When you set up a chatbot, look at your website's real question volume; don't decide on a guess.</p>
-      <h2>Which Questions Should It Answer?</h2>
+      <p>No. On a site that takes a few questions a day, the setup and upkeep outweigh the gain. When you set up a chatbot, look at your website's real question volume; don't decide on a guess.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="which-questions-should-it-answer">Which Questions Should It Answer?</h2>
       <div class="yz-cevap"><p>Only the ones it knows. Headings with a clear answer — price range, opening hours, delivery time, service scope — are safe ground. If a website chatbot guesses at something it doesn't know, it has made a false promise on your brand's behalf. Narrowing the boundary is worth more than widening the scope. An assistant that says it doesn't know beats an assistant that invents.</p></div>
       <p>Set the answer boundary down in writing. Put on a list which headings are inside and which are outside; with no list, there is no boundary.</p><p>The four headings below sit in the safe zone on most sites.</p><ol><li><strong>Service scope</strong> — what you do and what you don't.</li><li><strong>Process and timing</strong> — how the work moves and how long it takes.</li><li><strong>Contact</strong> — who to reach, how, and at what hours.</li><li><strong>FAQs</strong> — answers already written on the site.</li></ol><p>Prepare a single answer for the questions that fall outside the boundary. Let the assistant say it doesn't know and point at the right door. That one sentence does far better work than an invented answer. And the visitor knows where to go.</p>
       <h3>Should It Answer the Price Question?</h3>
-      <p>Let it say whatever your policy is. If you give a clear range, the range; if it varies with scope, let it say so plainly. A vague answer pushes the visitor away from asking for a quote.</p>
-      <h2>When Should It Hand Over to a Human?</h2>
+      <p>Let it say whatever your policy is. If you give a clear range, the range; if it varies with scope, let it say so plainly. A vague answer pushes the visitor away from asking for a quote.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="when-should-it-hand-over-to-a-human">When Should It Hand Over to a Human?</h2>
       <div class="yz-cevap"><p>In three situations. When the question moves outside the scope, when the visitor insists on a human, and when the conversation stalls for the second time. Show the hand-over button on every screen. If a website chatbot locks the visitor in, it takes back far more than the time it saved. Setting the hand-over moment early is easier than rescuing the conversation. A visitor who gets stuck doesn't come back.</p></div>
       <p>Handing over to a human isn't a failure; it's part of the design. A visitor doesn't get angry at not getting an answer; they get angry at not finding a way out.</p><p>Pass the conversation history over with the hand-over. A visitor forced to explain the same thing a second time takes back far more than the time the assistant saved. We covered the relationship between user behaviour and interface decisions in the <a href="../ecommerce-ux/">user experience</a>  piece.</p>
       <h3>What Should Happen After the Hand-Over?</h3>
-      <p>Promise a response time. “As soon as possible” says nothing; “within two working days” sets the expectation. Don't write a time you can't keep; a broken promise is worse than no promise at all.</p>
-      <h2>How Do You Build the Knowledge Base?</h2>
+      <p>Promise a response time. “As soon as possible” says nothing; “within two working days” sets the expectation. Don't write a time you can't keep; a broken promise is worse than no promise at all.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="how-do-you-build-the-knowledge-base">How Do You Build the Knowledge Base?</h2>
       <div class="yz-cevap"><p>The source texts come out of your own site's pages. Service descriptions, frequently asked questions and pricing policy texts are the soundest source. When a website chatbot stays inside those texts, the risk of a wrong answer drops. Put updating the source on the calendar too; a text that goes stale means an answer that goes stale.</p></div>
       <p>Gathering the source texts brings you one more advantage: the pages that were written thinly come to light. Every question the assistant can't answer actually points at a heading missing from your site.</p><p>That's why we build the knowledge base not as a separate document outside the site but as an extension of the site's own content. When the content is updated, the answer is updated. We set out what that looks like on the interface side in the <a href="../ui-design-principles/">interface design principles</a>  piece.</p><p>Keep the source texts short and clear. Long pages heavy with marketing language make the assistant speak vaguely too. Writing what you do in plain sentences helps the visitor and the assistant alike. Chat logs are personal data; <a href="https://www.kvkk.gov.tr/" target="_blank" rel="noopener">KVKK's disclosure obligation</a> applies to chatbots too; KVKK is Türkiye's data protection law.</p>
       <h3>How Many Pages Is Enough?</h3>
       <p>A few right pages beat many scattered ones. On most sites the service pages and the FAQs make a sufficient start.</p>
-      <blockquote class="yz-alinti"><p>&#8220;A visitor doesn't get angry at not getting an answer; they get angry at not finding a way out. Show the hand-over door on every screen.&#8221;</p><cite>— TasarımMania assistant setup note</cite></blockquote>
-      <h2>How Do You Measure Success?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;A visitor doesn't get angry at not getting an answer; they get angry at not finding a way out. Show the hand-over door on every screen.&#8221;</p><cite>— TasarımMania assistant setup note</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="how-do-you-measure-success">How Do You Measure Success?</h2>
       <div class="yz-cevap"><p>Look at four numbers. The number of conversations, the hand-over rate, the number of unanswered questions, and the enquiries that come out of conversations. The last one matters most; the other three serve it. Measuring a website chatbot's success by conversation count misleads. Nobody comes to your site to talk to an assistant. People come to get something done.</p></div>
-      <p>The breakdown of unanswered questions is the most valuable output. That list gives you the route map for both the knowledge base and the site content; it's the one report worth reading every month.</p><p>Don't take the hand-over rate as good or bad on its own either. A high rate can mean the scope is too narrow; a very low one can suggest the assistant isn't letting the visitor go. Read both alongside the unanswered-question list.</p><p>Start measuring from the first month. The first week after setup is usually atypical; the team tries out its own assistant and the numbers inflate. The real trend settles from the second month. Early decisions usually turn out wrong.</p>
-      <h2>Let's Set Up Your Own Assistant Together</h2>
+      <p>The breakdown of unanswered questions is the most valuable output. That list gives you the route map for both the knowledge base and the site content; it's the one report worth reading every month.</p><p>Don't take the hand-over rate as good or bad on its own either. A high rate can mean the scope is too narrow; a very low one can suggest the assistant isn't letting the visitor go. Read both alongside the unanswered-question list.</p><p>Start measuring from the first month. The first week after setup is usually atypical; the team tries out its own assistant and the numbers inflate. The real trend settles from the second month. Early decisions usually turn out wrong.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="let-s-set-up-your-own-assistant-together">Let's Set Up Your Own Assistant Together</h2>
       <div class="yz-cevap"><p>Drawing the scope together is the quickest route. We talk through which questions it will answer, where it will hand over to a human, and what will feed the knowledge base. What you're left with isn't the name of a tool but a scope in writing. When a website chatbot is set up with that scope, it saves your team time instead of adding to their load. An assistant set up without a scope gets switched off in the second month.</p></div>
       <p>We'd suggest collecting questions for a week before the setup. Real questions always give a better starting point than an estimated scope. <a href="../../ai-services/">AI integration</a> and <a href="../../web-design/">web design and software</a> are the pages to look at next.</p><p>We build the chatbot not as a plugin on your website but as your content speaking. If the content is good the assistant is good; if the content has gaps, the assistant magnifies them.</p><p>While you're writing the scope, set a stopping criterion too. Decide at the outset which number you'd need to see after three months to carry on. Every tool set up without a criterion stays switched on for years because nobody can decide. The stopping criterion matters as much as the setup.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/adding-a-chatbot-to-your-website-body-960.webp"
              srcset="./image/adding-a-chatbot-to-your-website-body-640.webp 640w, ./image/adding-a-chatbot-to-your-website-body-960.webp 960w, ./image/adding-a-chatbot-to-your-website-body-1440.webp 1440w, ./image/adding-a-chatbot-to-your-website-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="A narrow corridor of light; in the middle of it a bright exit door opens to the side" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Don't hide the hand-over door; a visitor who gets stuck doesn't come back. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>What a site assistant solves, and what it doesn't</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="what-a-site-assistant-solves-and-what-it-doesn-t">What a site assistant solves, and what it doesn't</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Topic</th><th>Solves it?</th><th>Why</th></tr></thead>
@@ -517,7 +562,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../ai-services/">See the service page</a>
         </aside>
-        <p>Setting up a website chatbot isn't adding a feature to a site; it's giving your content a face that talks. Draw the scope in writing, keep the hand-over door open on every screen, and measure success not by conversation count but by the enquiries it produces.</p>
+        <p>Setting up a website chatbot isn't adding a feature to a site; it's giving your content a face that talks. Draw the scope in writing, keep the hand-over door open on every screen, and measure success not by conversation count but by the enquiries it produces.</p></section>
       </article>
     </div>
   </section>

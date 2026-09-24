@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -468,75 +515,73 @@
 <!-- AYIRT EDİCİ EKSEN: ZAMANLAMA — İçerik takvimi, yayın planı ve konu önceliklendirme zamanlamasının kavramsal anlatımı; anahtar kelime araştırma yöntemi anahtar-kelime-arastirmasi yazısının ekseni, burada tekrarlanmaz. Hub terimi ('İçerik Stratejisi') H1'de öncül olarak tekrarlanmaz.
      Huni türü: TOFU · Küme: İçerik Stratejisi · Kardeşler (enjeksiyon turunda): anahtar-kelime-arastirmasi, e-ticaret-seo, sosyal-medya-stratejileri -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">SEO İçerik Stratejisinde İçerik Takvimi Neden Belirleyicidir?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Seo</span>
-        <span class="yz-meta">19 Eylül 2026 · 7 dakikalık okuma</span>
+          <h1>SEO İçerik Stratejisinde İçerik Takvimi Neden Belirleyicidir?</h1>
+          <p class="ozet">Bir markanın arama sonuçlarındaki yeri, ne yazdığı kadar ne zaman yazdığıyla da şekillenir. Türkiye'de birçok KOBİ doğru konuları seçse bile yayın temposunu rastgele bıraktığı için emeğinin karşılığını göremiyor. Ajans olarak sahada net bir tablo görüyoruz: takvimi olan ekip, olmayan ekibi zamanla geçiyor. Bu yazıda SEO içerik stratejisi içinde zamanlamanın nasıl kurgulandığını, takvimin hangi kararları öne aldığını ve gözden geçirme ritminin neden ölçülebilir bir başlık olduğunu anlatıyoruz. Anahtar kelime seçim yöntemini ise ayrı bir yazıda ele alıyoruz.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/seo-icin-icerik-stratejileri-kapak-1440.webp"
+           srcset="./gorsel/seo-icin-icerik-stratejileri-kapak-640.webp 640w, ./gorsel/seo-icin-icerik-stratejileri-kapak-960.webp 960w, ./gorsel/seo-icin-icerik-stratejileri-kapak-1440.webp 1440w, ./gorsel/seo-icin-icerik-stratejileri-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="SEO içerik stratejisinde zamanlamayı temsil eden koyu zeminli soyut üç boyutlu takvim ızgarası görseli"
+           width="1920" height="1080" decoding="async"><figcaption>Yayın takvimi, içerik üretimini görünür ve ölçülebilir bir düzene bağlar. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> SEO</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>19 Eylül 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>6 başlık</b></div>
       </div>
-      <h1>SEO İçerik Stratejisinde İçerik Takvimi Neden Belirleyicidir?</h1>
-      <p class="ozet">Bir markanın arama sonuçlarındaki yeri, ne yazdığı kadar ne zaman yazdığıyla da şekillenir. Türkiye'de birçok KOBİ doğru konuları seçse bile yayın temposunu rastgele bıraktığı için emeğinin karşılığını göremiyor. Ajans olarak sahada net bir tablo görüyoruz: takvimi olan ekip, olmayan ekibi zamanla geçiyor. Bu yazıda SEO içerik stratejisi içinde zamanlamanın nasıl kurgulandığını, takvimin hangi kararları öne aldığını ve gözden geçirme ritminin neden ölçülebilir bir başlık olduğunu anlatıyoruz. Anahtar kelime seçim yöntemini ise ayrı bir yazıda ele alıyoruz.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#icerik-takvimi-neden-yalnizca-bir-tarih-listesi-degildir"><span>01</span>İçerik takvimi neden yalnızca bir tarih listesi değildir?</a><a href="#yayin-sikligi-ile-arama-gorunurlugu-arasinda-nasil-bir-bag-var"><span>02</span>Yayın sıklığı ile arama görünürlüğü arasında nasıl bir bağ var?</a><a href="#konu-onceliklendirmesinde-zamanlama-hiyerarsisi-nasil-kurulur"><span>03</span>Konu önceliklendirmesinde zamanlama hiyerarşisi nasıl kurulur?</a><a href="#takvimi-hangi-ritimde-gozden-gecirmeliyiz"><span>04</span>Takvimi hangi ritimde gözden geçirmeliyiz?</a><a href="#seo-icerik-stratejinizi-uzmanla-kurgulamaya-baslayin"><span>05</span>SEO İçerik Stratejinizi Uzmanla Kurgulamaya Başlayın</a><a href="#yayin-ritmi-modellerinin-karsilastirmasi"><span>06</span>Yayın Ritmi Modellerinin Karşılaştırması</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/seo-icin-icerik-stratejileri-kapak-1440.webp"
-           srcset="./gorsel/seo-icin-icerik-stratejileri-kapak-640.webp 640w, ./gorsel/seo-icin-icerik-stratejileri-kapak-960.webp 960w, ./gorsel/seo-icin-icerik-stratejileri-kapak-1440.webp 1440w, ./gorsel/seo-icin-icerik-stratejileri-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="SEO içerik stratejisinde zamanlamayı temsil eden koyu zeminli soyut üç boyutlu takvim ızgarası görseli"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Yayın takvimi, içerik üretimini görünür ve ölçülebilir bir düzene bağlar. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>İçerik takvimi neden yalnızca bir tarih listesi değildir?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 06</span></div><h2 id="icerik-takvimi-neden-yalnizca-bir-tarih-listesi-degildir">İçerik takvimi neden yalnızca bir tarih listesi değildir?</h2>
       <div class="yz-cevap"><p>Takvimin ilk işlevi tarih vermek değildir; her satırı bir arama talebine, bir hedef sayfaya ve bir ölçüm gününe bağlamaktır. İçerik takvimi, bu üç bağı önceden kuran planlama belgesidir. Bağ kurulmadığında üretim sürer, görünürlük ise yerinde sayar; ekip çok çalışır ama kazanç birikmez.</p></div>
       <p>Takvimin asıl işlevi, üretim disiplinini görünür kılmaktır. Ekipteki herkes önümüzdeki altı haftada hangi başlığın hangi sırayla çıkacağını tek ekrandan izler. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">Ticaret Bakanlığı'nın ETBİS verilerine</a> göre e-ticaret yapan işletme sayısı bir yılda 600 bin 800'den 634 bin 611'e çıktı; bu, aynı arama sonucu için yarışan marka sayısının da arttığı anlamına geliyor. Bu kalabalıkta plansız yayın yapan marka sıradanlaşıyor. SEO içerik stratejisi tam bu noktada takvimi bir yönetim aracına dönüştürür. Kurgunun nasıl işlediğini <a href="../../seo-icerik/">içerik stratejisi</a> sayfamızda adım adım aktarıyoruz.</p>
       <h3>Takvim hangi kararları önceden kilitler?</h3>
       <p>Stratejinin kilitlediği ilk karar, SEO odaklı konu sırasıdır. İkincisi, her içeriğin hangi hizmet sayfasına bağlanacağıdır. Üçüncüsü ise yayın gününün kendisidir. Bu üç karar haftalar öncesinden netleştiğinde ekip son dakika konu arayışına girmez. SEO içerik stratejisi, hizmet sayfası hedefleriyle birlikte okunmalıdır. Acele üretilen metin yerine olgunlaşmış metin yayına çıkar.</p>
       <h3>Hazırlık süresi neden takvimin bir parçasıdır?</h3>
-      <p>Bir içeriğin yayın tarihi kadar hazırlık penceresini de planlamak gerekir. SEO içerik stratejisinde araştırma, yazım, görsel ve son okuma aşamaları gerçek gün karşılığı ister. Takvimde yalnızca çıkış tarihi varsa ekip sürekli geriden gelir. Biz her satıra hazırlık başlangıcını da yazıyoruz. Böylece gecikme sürpriz olmaktan çıkıyor.</p>
-      <h2>Yayın sıklığı ile arama görünürlüğü arasında nasıl bir bağ var?</h2>
+      <p>Bir içeriğin yayın tarihi kadar hazırlık penceresini de planlamak gerekir. SEO içerik stratejisinde araştırma, yazım, görsel ve son okuma aşamaları gerçek gün karşılığı ister. Takvimde yalnızca çıkış tarihi varsa ekip sürekli geriden gelir. Biz her satıra hazırlık başlangıcını da yazıyoruz. Böylece gecikme sürpriz olmaktan çıkıyor.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 06</span></div><h2 id="yayin-sikligi-ile-arama-gorunurlugu-arasinda-nasil-bir-bag-var">Yayın sıklığı ile arama görünürlüğü arasında nasıl bir bağ var?</h2>
       <div class="yz-cevap"><p>Bu bağ dolaylı kurulur: çok yayımlamak kendiliğinden görünürlük getirmez. Yayın sıklığı, bir sitenin belirli bir dönemde kaç yeni içerik yayımladığını gösterir; belirleyici olan bu sayının sürdürülebilir bir ritme oturmasıdır. Yüksek hacimle başlayıp uzun süre susan marka, düşük ama kesintisiz tempoya göre birikimini kaybeder. Ritim, hacimden önce gelir.</p></div>
       <p>Organik erişim birikimli çalışır. Yayımladığınız her içerik, sonraki içeriğin zeminini hazırlar. Küçük ekiplerde gördüğümüz en yaygın hata, başlangıçta kapasitenin üzerinde söz vermektir. Yüksek tempoyla açılan takvim kısa sürede sessizliğe dönüşür. SEO içerik stratejisi kurarken önce ekibin gerçek kapasitesini ölçüyoruz. <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TÜİK'in yayımladığı hanehalkı bilişim teknolojileri istatistikleri</a> hanelerde internet kullanımının yaygınlığını ortaya koyuyor; arama talebi ise sezona göre dalgalandığı için takvim bu hareketi hesaba katmalı.</p>
       <h3>Dört yayın modelinden hangisi size uyar?</h3>
-      <p>İlk iki model çoğu ekipte işler. Haftalık ritim, her hafta tek içerik çıkarmayı hedefler ve alışkanlık kurmayı kolaylaştırır. Aylık blok modelinde üretim tek haftada toplanır, yayın dört haftaya yayılır; ajans tarafında çoğu KOBİ için bu modeli öneriyoruz. Çeyreklik kampanya modelini yalnızca talebi tamamen sezona bağlı işletmelere açıyoruz, çünkü aradaki sessizlik birikimi kesiyor. Karma model, yeni içerikle güncellemeyi aynı ayda birleştirir.</p>
-      <h2>Konu önceliklendirmesinde zamanlama hiyerarşisi nasıl kurulur?</h2>
+      <p>İlk iki model çoğu ekipte işler. Haftalık ritim, her hafta tek içerik çıkarmayı hedefler ve alışkanlık kurmayı kolaylaştırır. Aylık blok modelinde üretim tek haftada toplanır, yayın dört haftaya yayılır; ajans tarafında çoğu KOBİ için bu modeli öneriyoruz. Çeyreklik kampanya modelini yalnızca talebi tamamen sezona bağlı işletmelere açıyoruz, çünkü aradaki sessizlik birikimi kesiyor. Karma model, yeni içerikle güncellemeyi aynı ayda birleştirir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 06</span></div><h2 id="konu-onceliklendirmesinde-zamanlama-hiyerarsisi-nasil-kurulur">Konu önceliklendirmesinde zamanlama hiyerarşisi nasıl kurulur?</h2>
       <div class="yz-cevap"><p>Sıralamayı belirleyen ölçüt ilgi çekicilik değil, ticari yakınlık ve hazırlık maliyetidir. Konu önceliklendirmesi, hangi başlığın önce hangi başlığın sonra yayımlanacağını belirleyen sıralama kararıdır. Gelir getiren hizmete en yakın konular takvimin ilk çeyreğine yerleşir; genel bilgilendirme içerikleri sonraki aylara kalır. Bu sıra, bütçenin geri dönüş hızını etkiler.</p></div>
       <p>Sıralamayı üç adımlı bir düzenle kuruyoruz.</p><ol><li>Hizmet sayfalarını doğrudan destekleyen konuları ilk dört haftaya yerleştiriyoruz.</li><li>Sektörel soruları yanıtlayan tanıtıcı içerikler beşinci haftadan itibaren devreye giriyor.</li><li>Geniş kapsamlı rehberleri en az üç aylık bir birikim oluştuktan sonra yayımlıyoruz.</li></ol><p>Bu hiyerarşi, kısa vadeli talebi kaçırmadan uzun vadeli otoriteyi kurmayı sağlar. SEO içerik stratejisinde sıralama kararı, üretim kararından önce gelir. Satış takvimini de aynı masaya koyuyoruz; kampanya dönemleriyle çakışan başlıkları öne alıyoruz. Teknik altyapı hazır değilse sıralama kazancı sınırlı kalır; <a href="../../teknik-seo/">teknik SEO</a> kontrollerini aynı dönemde planlıyoruz.</p>
       <h3>Hangi konu ertelenmelidir?</h3>
       <p>SEO içerik stratejisinde erteleme kararı da en az yayın kararı kadar değerlidir. Hazırlığı uzun sürecek, görsel ve veri gerektiren kapsamlı dosyaları yoğun dönemlere koymuyoruz. Ekip kapasitesi düştüğünde takvim boş kalmasın diye yedek başlık havuzu tutuyoruz. Havuzda bekleyen hazır konular, çoğu gecikmeyi sessizce kapatır.</p>
       <h4>Tatil ve sezon aralıklarını takvime nasıl işleriz?</h4>
-      <p>Erteleme kararının aynası, öne çekme kararıdır. Sezon hareketleri arama talebini değiştirir; yılbaşı, bayram ve okul dönemleri için içerikleri en az dört hafta önce yayına alıyoruz. Arama motorunun sayfayı keşfetmesi zaman ister, kampanya günü yayımlanan içerik çoğu zaman geç kalır.</p>
-      <h2>Takvimi hangi ritimde gözden geçirmeliyiz?</h2>
+      <p>Erteleme kararının aynası, öne çekme kararıdır. Sezon hareketleri arama talebini değiştirir; yılbaşı, bayram ve okul dönemleri için içerikleri en az dört hafta önce yayına alıyoruz. Arama motorunun sayfayı keşfetmesi zaman ister, kampanya günü yayımlanan içerik çoğu zaman geç kalır.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 06</span></div><h2 id="takvimi-hangi-ritimde-gozden-gecirmeliyiz">Takvimi hangi ritimde gözden geçirmeliyiz?</h2>
       <div class="yz-cevap"><p>Aylık kontrol çoğu KOBİ'ye yeter; çeyreklik kontrol ise yön değişikliği için doğru aralıktır. Gözden geçirme, yayımlanan içeriğin performansına bakıp sonraki dönemi yeniden dizmektir. Haftalık takip genellikle erken sinyal üretir ve gereksiz müdahaleye yol açar. Bu yüzden ölçüm aralığını ekibin karar hızına göre seçiyoruz.</p></div>
       <p>Ölçüm aralığı kısaldıkça gürültü artar. Bir içeriğin arama sonuçlarında yerini bulması haftalar alabilir; yedinci günde verilen karar çoğu zaman hatalıdır. Aylık toplantıda üç soruyu yanıtlıyoruz: hangi içerik beklentiyi aştı, hangisi geride kaldı, hangi konu yeni talep gösterdi. Yanıtlar sonraki ayın satırlarını yeniden diziyor. SEO içerik stratejisi böylece dondurulmuş bir belge olmaktan çıkıyor. Performans verisini reklam tarafındaki sinyallerle birlikte okumak da işe yarar; <a href="../../dijital-pazarlama/">dijital pazarlama</a> ekibimizle aynı tabloya bakmayı tercih ediyoruz.</p>
       <h3>Eski içerikler takvimde nasıl yer bulur?</h3>
       <p>Güncelleme de bir yayın türüdür. Her ay takvimin bir satırını mevcut içeriklerin tazelenmesine ayırıyoruz. İçerik tazeleme, planlama masasında çoğu zaman hafife alınır. Bir yıl önce yazılan metnin verisi ve örnekleri eskimiş olabilir. Tazeleme çoğu zaman yeni bir metin yazmaktan daha az emek ister.</p>
-      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      <h2>SEO İçerik Stratejinizi Uzmanla Kurgulamaya Başlayın</h2>
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 06</span></div><h2 id="seo-icerik-stratejinizi-uzmanla-kurgulamaya-baslayin">SEO İçerik Stratejinizi Uzmanla Kurgulamaya Başlayın</h2>
       <div class="yz-cevap"><p>Çalışmaya kapasite ölçümüyle başlıyoruz: ekibinizin ayda kaç içerik üretebildiğini ve hangi hizmetin öncelikli olduğunu birlikte çıkarıyoruz. Ardından hedef sayfa haritasını kuruyor, üç aylık bir yayın planı hazırlıyor, her satırı sorumlusuyla eşleştiriyoruz. Bu üç adım, SEO içerik stratejisinin iskeletini kuruyor; kurulum genellikle iki hafta sürer.</p></div>
       <p>Sahada gördüğümüz en sık tablo şu: içerik var, sıra yok. Kurumsal blogda onlarca yazı duruyor ama hiçbiri bir hizmet sayfasını beslemiyor. Böyle bir arşivi sıfırdan yazmaya gerek kalmadan yeniden dizmek mümkün. Yayın planınızı mevcut varlıklarınız üzerine kurmak, hem bütçeyi hem zamanı koruyor. Markanızın yayın takvimini birlikte çıkarmak isterseniz <a href="../../teklif/">teklif formumuzu</a> doldurmanız yeterli. Ölçmeden söz vermiyoruz; planı verinin gösterdiği yerden kuruyoruz.</p>
       <h3>İlk üç ayda neye bakmalısınız?</h3>
       <p>Stratejinin ilk çeyreğinde SEO sıralamasına değil, üretim istikrarına bakın. Planlanan içeriklerin kaçı zamanında yayımlandı, hangi satır kaydı, neden kaydı? Bu sorular takvimin gerçekçi olup olmadığını gösterir. Trafik eğrisi ilk çeyrekte okunabilir hale gelmeyebilir. Erken panik, iyi kurulmuş planları bozan en büyük etkendir.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/seo-icin-icerik-stratejileri-govde-960.webp"
              srcset="./gorsel/seo-icin-icerik-stratejileri-govde-640.webp 640w, ./gorsel/seo-icin-icerik-stratejileri-govde-960.webp 960w, ./gorsel/seo-icin-icerik-stratejileri-govde-1440.webp 1440w, ./gorsel/seo-icin-icerik-stratejileri-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="İçerik takvimi haftalarını temsil eden ışıklı blokların zaman çizgisi üzerinde sıralandığı soyut üç boyutlu görsel" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Konu önceliklendirmesi, takvimin ilk haftalarına hangi içeriğin yerleşeceğini belirler. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Yayın Ritmi Modellerinin Karşılaştırması</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 06</span></div><h2 id="yayin-ritmi-modellerinin-karsilastirmasi">Yayın Ritmi Modellerinin Karşılaştırması</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Model</th><th>Yayın Temposu</th><th>Uygun Ekip Yapısı</th><th>Öne Çıkan Riski</th></tr></thead>
@@ -556,7 +601,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../seo-icerik/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Zamanlama, içerik üretiminin görünmeyen kaldıracıdır. Aynı bütçe ve aynı ekiple çalışan iki markadan takvimi olanı, sahada gördüğümüz kadarıyla zamanla öne geçiyor. Kurumsal bir SEO içerik stratejisinde önce ritmi, sonra hacmi konuşuyoruz. Yayın planınızı gözden geçirmek ya da sıfırdan kurmak için bize yazabilirsiniz. İlk adım, önümüzdeki üç ayın satırlarını birlikte doldurmak olacak. Takvim hazır olduğunda üretim tartışması yerini ölçüm tartışmasına bırakır.</p>
+        <p>Zamanlama, içerik üretiminin görünmeyen kaldıracıdır. Aynı bütçe ve aynı ekiple çalışan iki markadan takvimi olanı, sahada gördüğümüz kadarıyla zamanla öne geçiyor. Kurumsal bir SEO içerik stratejisinde önce ritmi, sonra hacmi konuşuyoruz. Yayın planınızı gözden geçirmek ya da sıfırdan kurmak için bize yazabilirsiniz. İlk adım, önümüzdeki üç ayın satırlarını birlikte doldurmak olacak. Takvim hazır olduğunda üretim tartışması yerini ölçüm tartışmasına bırakır.</p></section>
       </article>
     </div>
   </section>

@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -468,79 +515,77 @@
 <!-- AYIRT EDİCİ EKSEN: SÜRE — Backlink etkisinin oluşma süresi ve beklenti yönetimi; otorite kazanımının zaman çizgisi anlatılır, teknik denetim veya araçlara girilmez.
      Huni türü: TOFU · Küme: SEO Çekirdek · Kardeşler (enjeksiyon turunda): seo-raporlama-araclari, seo-ve-web-tasarim, yerel-seo -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">How Long Does Backlink Work Take to Affect Rankings?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">SEO</span>
-        <span class="yz-meta">29 September 2026 · 7 min read</span>
+          <h1>How Long Does Backlink Work Take to Affect Rankings?</h1>
+          <p class="ozet">A link has gone live, so why is the ranking still the same? We hear that question from a lot of SME managers every month. A search engine doesn't change position the moment it sees a new reference; first it discovers the link, then it weighs it, and only then does it trust it. In this piece we build a realistic timeline for backlink work. Our aim is to put the expectation in the right place, not to give you a technical audit checklist or a tool setup guide.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/how-long-backlinks-take-cover-1440.webp"
+           srcset="./image/how-long-backlinks-take-cover-640.webp 640w, ./image/how-long-backlinks-take-cover-960.webp 960w, ./image/how-long-backlinks-take-cover-1440.webp 1440w, ./image/how-long-backlinks-take-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Abstract dark-toned 3D image representing the accumulation of authority over the course of backlink work"
+           width="1920" height="1080" decoding="async"><figcaption>Authority rises not through a single link but through steady accumulation spread over months. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> SEO</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>29 September 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>6 sections</b></div>
       </div>
-      <h1>How Long Does Backlink Work Take to Affect Rankings?</h1>
-      <p class="ozet">A link has gone live, so why is the ranking still the same? We hear that question from a lot of SME managers every month. A search engine doesn't change position the moment it sees a new reference; first it discovers the link, then it weighs it, and only then does it trust it. In this piece we build a realistic timeline for backlink work. Our aim is to put the expectation in the right place, not to give you a technical audit checklist or a tool setup guide.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#when-do-the-results-of-backlink-work-become-visible"><span>01</span>When Do the Results of Backlink Work Become Visible?</a><a href="#which-stages-does-gaining-authority-go-through"><span>02</span>Which Stages Does Gaining Authority Go Through?</a><a href="#what-is-realistic-to-expect-in-the-first-90-days"><span>03</span>What Is Realistic to Expect in the First 90 Days?</a><a href="#the-four-factors-that-lengthen-the-period"><span>04</span>The Four Factors That Lengthen the Period</a><a href="#take-your-backlink-work-forward-with-a-specialist-team"><span>05</span>Take Your Backlink Work Forward with a Specialist Team</a><a href="#the-timeline-of-backlink-effect-what-to-expect-in-which-period"><span>06</span>The Timeline of Backlink Effect: What to Expect in Which Period</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/how-long-backlinks-take-cover-1440.webp"
-           srcset="./image/how-long-backlinks-take-cover-640.webp 640w, ./image/how-long-backlinks-take-cover-960.webp 960w, ./image/how-long-backlinks-take-cover-1440.webp 1440w, ./image/how-long-backlinks-take-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Abstract dark-toned 3D image representing the accumulation of authority over the course of backlink work"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Authority rises not through a single link but through steady accumulation spread over months. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>When Do the Results of Backlink Work Become Visible?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 06</span></div><h2 id="when-do-the-results-of-backlink-work-become-visible">When Do the Results of Backlink Work Become Visible?</h2>
       <div class="yz-cevap"><p>On most projects we see the first reflection of new links in long-tail phrases between 8 and 16 weeks; the change on the main phrase comes later. That range is the sum of three separate delays: crawling, assessment and competition. If the sector is saturated, the period lengthens. If the domain is young, the first stirring can take until the second month. We build the expectation on those three items.</p></div>
       <p>A backlink is a reference link given to your page from another site, which the search engine follows. The engine crawls first, then measures the source's trustworthiness, and only at the end passes on the effect. Backlink work is the total duration of those three steps.</p><p>What sets the speed isn't impatience but a steady publishing pace. Taking thirty links at once produces slower results than taking two links a week. <a href="../../seo/">our SEO services</a> tie that pace to a schedule.</p>
       <h3>Why Does the Discovery Stage Ask You to Wait?</h3>
       <p>A link doesn't land on the engine's radar the day it goes live. How often the source page is crawled is what decides it. On news sites publishing live, discovery often happens within a few days. In a rarely updated directory, the same link stays invisible for weeks. The liveliness of the source is the first item on a backlink work schedule.</p>
       <h3>Which Signal Does the First Movement Start With?</h3>
-      <p>The first signal appears not in the ranking but in the crawling behaviour. The engine starts visiting the target page more often. After that, small jumps appear in long-tail phrases. The change of position on the main phrase comes last of all. That order shows the backlink profile is maturing.</p>
-      <h2>Which Stages Does Gaining Authority Go Through?</h2>
+      <p>The first signal appears not in the ranking but in the crawling behaviour. The engine starts visiting the target page more often. After that, small jumps appear in long-tail phrases. The change of position on the main phrase comes last of all. That order shows the backlink profile is maturing.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 06</span></div><h2 id="which-stages-does-gaining-authority-go-through">Which Stages Does Gaining Authority Go Through?</h2>
       <div class="yz-cevap"><p>Gaining authority proceeds in four stages: discovery, validation, weighting and settling. Those four spread across five bands in the schedule, and we can't skip any of them. Discovery is measured in days, validation in weeks, settling in months. Backlink work doesn't produce a lasting position until it has completed all four stages. The order of the stages doesn't change from project to project either.</p></div>
       <p>Authority is the degree to which a domain is considered trustworthy on its own subject. That degree doesn't change with a single link; backlink work builds authority through accumulation. We divide the schedule into five bands, and each band has its own expectation.</p><ol><li><strong>0–2 weeks:</strong> discovery of the link and its entry into the index</li><li><strong>3–6 weeks:</strong> weighing the subject fit of the source site</li><li><strong>7–12 weeks:</strong> the authority contribution being written into the target page</li><li><strong>3–6 months:</strong> the position losing its volatility and settling</li><li><strong>6–12 months:</strong> the accumulation spreading across the whole domain</li></ol><p>Once the bands are clear the argument gets shorter; we know in advance what backlink work will bring in which month.</p>
       <h3>Why Does the Age of a Link Matter?</h3>
       <p>A new link doesn't carry the same weight as a six-month-old one. Over time the source page picks up traffic and gathers its own references. As the source strengthens, so does the outbound link it gives. So the real contribution of a reference built today shows up next quarter. Teams that squeeze the measurement into the first month look at a curve that hasn't matured yet and cancel a sound plan.</p>
       <h3>A One-Off Push, or a Steady Pace?</h3>
-      <p>Large piles of links gathered in a short time mostly create a fluctuation and then pull back. A steady pace carries the curve slowly upwards. Six to ten quality links a month is a sustainable band for most SME sites. On the projects where we went above that band it wasn't the speed that rose but the volatility; that's why we keep the pace constant.</p>
-      <h2>What Is Realistic to Expect in the First 90 Days?</h2>
+      <p>Large piles of links gathered in a short time mostly create a fluctuation and then pull back. A steady pace carries the curve slowly upwards. Six to ten quality links a month is a sustainable band for most SME sites. On the projects where we went above that band it wasn't the speed that rose but the volatility; that's why we keep the pace constant.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 06</span></div><h2 id="what-is-realistic-to-expect-in-the-first-90-days">What Is Realistic to Expect in the First 90 Days?</h2>
       <div class="yz-cevap"><p>The first 90 days are a period of foundations, not rankings. In those three months we expect the links to enter the index, brand searches to rise, and the first movements in long-tail phrases. A lasting jump on the main phrase usually comes after the fourth month. An early decision wastes the budget of well-planned backlink work.</p></div>
       <p>A three-month window shows the direction of the investment, not its return. If the direction is right, the curve looks upwards even if slowly. The number of businesses moving to digital channels grows every year; <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">the ETBİS report</a>  sets that picture out — ETBİS is Türkiye's e-commerce information system.</p><p>If the target page's subject is weak, the incoming authority can't hold on. That's why we build the <a href="../../seo-content-strategy/">content strategy</a> and the link schedule at the same table.</p>
       <h3>Which Indicator Are We Watching in the 90-Day Window?</h3>
       <p>A single number makes you ask the wrong question for three months. We watch the proportion of links entering the index, the number of referring domains and the target page's impression curve together. If all three stay flat, we review the plan. If two are stirring, the backlink work is on track.</p>
       <h4>Why Does Brand Search Give an Early Warning?</h4>
-      <p>The search volume for your brand name is the earliest herald of the visibility the links create. As your name appears on new sources, curious users search directly. Brand searches start rising weeks before the rankings do.</p>
-      <h2>The Four Factors That Lengthen the Period</h2>
+      <p>The search volume for your brand name is the earliest herald of the visibility the links create. As your name appears on new sources, curious users search directly. Brand searches start rising weeks before the rankings do.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 06</span></div><h2 id="the-four-factors-that-lengthen-the-period">The Four Factors That Lengthen the Period</h2>
       <div class="yz-cevap"><p>The factors that lengthen the period start with sector competition, the technical state of the target page, the subject fit of the link source and gaps in the publishing pace. When all four come together, the expected period lengthens noticeably. In a low-competition niche market, on the other hand, the result can show at the eighth week. We measure those four items in the first week and build the schedule from them.</p></div>
       <p>The first factor is competition, that is, the number of quality pages fighting for the same phrase. As the number grows, each link's share shrinks.</p><p>The second factor is the technical state of the target page. If the server is slow or the redirects are broken, the incoming authority disperses before it reaches the target. <a href="../../technical-seo/">Technical SEO</a> — without putting that side right, the budget set aside for backlink work drains away.</p><p>The fourth factor is gaps in the publishing pace. On schedules that run two months of links then a month of silence, the engine weighs the source again, and the momentum gained is broken there. We've given the third factor, source fit, its own heading below.</p>
       <h3>How Does Competitive Intensity Multiply the Period?</h3>
       <p>In fields such as finance, health and law, the sites on the first page have been accumulating links for years. Catching that accumulation asks for quarters, not months. At a small service business the picture reverses; even fifteen quality external links make a difference. We build the estimate from sector data; that's why backlink work isn't sold on a fixed schedule.</p>
       <h3>Why Does Source Fit Shorten the Period?</h3>
       <p>The third factor is source fit. The engine processes a reference from a site whose subject overlaps with yours more quickly. For a brand selling furniture, a link from an interior design blog is worth many times a general directory entry. If the fit is high, the validation stage gets shorter. When we choose link sources, we draw a subject map first.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>Take Your Backlink Work Forward with a Specialist Team</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 06</span></div><h2 id="take-your-backlink-work-forward-with-a-specialist-team">Take Your Backlink Work Forward with a Specialist Team</h2>
       <div class="yz-cevap"><p>When link planning, schedule discipline and source selection run together, the period gets shorter. Our team gathers those three items into a single plan and leaves a measurable report every month. We make the expectation clear on day one; we share in writing what you'll see in which month. You don't meet a surprise over the course of backlink work.</p></div>
       <p>Backlink work calls for a shared schedule between the agency and the brand. We approve the source list together and set the publishing order together. That way you know in advance how many links come into play in which week.</p><p>The biggest enemy of the timeline is uncertainty. Let's measure your project's level of competition and draw up a realistic timeline; <a href="../../get-a-quote/">the quote form</a> is all you need to fill in.</p>
       <h3>How Do We Build the Schedule Together?</h3>
       <p>In the first week we measure the competition, and in the second we present the source list. Once approval comes through, the planned backlink list goes live. At the end of every month we share on a single page which link entered the index and which phrase stirred.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/how-long-backlinks-take-body-960.webp"
              srcset="./image/how-long-backlinks-take-body-640.webp 640w, ./image/how-long-backlinks-take-body-960.webp 960w, ./image/how-long-backlinks-take-body-1440.webp 1440w, ./image/how-long-backlinks-take-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Abstract 3D flow image representing the timeline of backlink effect stretching from weeks to months" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Because the discovery, validation and settling stages each wait on the last, the effect emerges in steps rather than all at once. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>The Timeline of Backlink Effect: What to Expect in Which Period</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 06</span></div><h2 id="the-timeline-of-backlink-effect-what-to-expect-in-which-period">The Timeline of Backlink Effect: What to Expect in Which Period</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Period</th><th>What the engine is doing</th><th>Signal you see</th><th>Recommended decision</th></tr></thead>
@@ -561,7 +606,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../seo/">See the service page</a>
         </aside>
-        <p>A ranking changes not the moment a link goes live but the moment the engine trusts that link. That trust spreads over months, not weeks. Plan your external link programme as a quarterly investment rather than a short-term campaign. When the right sources, a steady pace and patience come together, the curve turns upwards. And we follow that schedule on your behalf.</p>
+        <p>A ranking changes not the moment a link goes live but the moment the engine trusts that link. That trust spreads over months, not weeks. Plan your external link programme as a quarterly investment rather than a short-term campaign. When the right sources, a steady pace and patience come together, the curve turns upwards. And we follow that schedule on your behalf.</p></section>
       </article>
     </div>
   </section>

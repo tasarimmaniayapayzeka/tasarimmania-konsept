@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,72 +477,70 @@
 <!-- AYIRT EDİCİ EKSEN: SINIR — Nerede işe yaradığını ve NEREDE YARAMADIĞINI anlatır. Adım adım üretim rotası yazı 14'ün işidir. Burada 'nasıl yapılır' anlatılmaz, sınır çizilir.
      Huni türü: TOFU · Küme: video · Kardeşler (enjeksiyon turunda): kamerasiz-urun-videosu -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Yapay Zeka Video</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Video</span>
-        <span class="yz-meta">18 Ekim 2026 · 7 dakikalık okuma</span>
+          <h1>Yapay Zeka ile Video Üretimi Nerede İşe Yarar, Nerede Yaramaz?</h1>
+          <p class="ozet">Bu araçlar iki uçta tartışılıyor: ya her şeyi çözecek ya da hiçbir işe yaramayacak. Gerçek ikisinin arasında ve sınırı oldukça belirgin. Bu yazıda nerede zaman kazandırdığını, nerede risk ürettiğini tek tek yazıyoruz. Aşağıdaki ayrım ürünün sahnedeki rolüne dayanıyor; araç adı ya da model karşılaştırması yapmıyoruz.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/yapay-zeka-ile-video-uretimi-kapak-1440.webp"
+           srcset="./gorsel/yapay-zeka-ile-video-uretimi-kapak-640.webp 640w, ./gorsel/yapay-zeka-ile-video-uretimi-kapak-960.webp 960w, ./gorsel/yapay-zeka-ile-video-uretimi-kapak-1440.webp 1440w, ./gorsel/yapay-zeka-ile-video-uretimi-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Bir yanı net çizgilerle çizilmiş, öbür yanı dağılıp parçacıklara ayrılan tek bir ışıklı biçim"
+           width="1920" height="1080" decoding="async"><figcaption>Aynı araç bir tarafta keskin, öbür tarafta belirsiz sonuç verir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Video</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>18 Ekim 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>7 başlık</b></div>
       </div>
-      <h1>Yapay Zeka ile Video Üretimi Nerede İşe Yarar, Nerede Yaramaz?</h1>
-      <p class="ozet">Bu araçlar iki uçta tartışılıyor: ya her şeyi çözecek ya da hiçbir işe yaramayacak. Gerçek ikisinin arasında ve sınırı oldukça belirgin. Bu yazıda nerede zaman kazandırdığını, nerede risk ürettiğini tek tek yazıyoruz. Aşağıdaki ayrım ürünün sahnedeki rolüne dayanıyor; araç adı ya da model karşılaştırması yapmıyoruz.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#yapay-zeka-video-uretimi-nerede-ise-yarar"><span>01</span>Yapay Zeka Video Üretimi Nerede İşe Yarar?</a><a href="#yapay-zeka-nerede-yetersiz-kalir"><span>02</span>Yapay Zeka Nerede Yetersiz Kalır?</a><a href="#urun-gercekligi-neden-sorun-cikarir"><span>03</span>Ürün Gerçekliği Neden Sorun Çıkarır?</a><a href="#hukuki-ve-marka-riskleri-neler"><span>04</span>Hukuki ve Marka Riskleri Neler?</a><a href="#hangi-iste-hangi-yolu-secersiniz"><span>05</span>Hangi İşte Hangi Yolu Seçersiniz?</a><a href="#sinirlari-birlikte-cizelim"><span>06</span>Sınırları Birlikte Çizelim</a><a href="#hangi-is-hangi-yolla-yurur"><span>07</span>Hangi iş hangi yolla yürür</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/yapay-zeka-ile-video-uretimi-kapak-1440.webp"
-           srcset="./gorsel/yapay-zeka-ile-video-uretimi-kapak-640.webp 640w, ./gorsel/yapay-zeka-ile-video-uretimi-kapak-960.webp 960w, ./gorsel/yapay-zeka-ile-video-uretimi-kapak-1440.webp 1440w, ./gorsel/yapay-zeka-ile-video-uretimi-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Bir yanı net çizgilerle çizilmiş, öbür yanı dağılıp parçacıklara ayrılan tek bir ışıklı biçim"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Aynı araç bir tarafta keskin, öbür tarafta belirsiz sonuç verir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Yapay Zeka Video Üretimi Nerede İşe Yarar?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 07</span></div><h2 id="yapay-zeka-video-uretimi-nerede-ise-yarar">Yapay Zeka Video Üretimi Nerede İşe Yarar?</h2>
       <div class="yz-cevap"><p>Üç yerde net biçimde işe yarar. Fikir aşamasında görsel taslak üretir. Arka plan gibi ikincil öğeleri hazırlar ve hazır çekimden mecra sürümleri çoğaltır. Yapay zeka video araçları burada zaman kazandırır. Ana kahraman ürünün kendisiyse tablo değişir; orada gerçek çekim hâlâ öndedir.</p></div>
       <p>En güvenli kullanım fikir aşamasıdır. Bir sahneyi anlatmak yerine göstermek, onay turlarını kısaltır. Bu taslaklar yayına çıkmaz; yalnız ekip içinde ortak bir resim kurar.</p><p>Aşağıdaki dört iş, üretken araçların rahat çalıştığı alanlardır.</p><ol><li><strong>Taslak kareler</strong> — fikir aşamasında ortak dil.</li><li><strong>Fon ve doku</strong> — sahnenin ikincil öğeleri.</li><li><strong>Mecra sürümleri</strong> — hazır çekimden oran ve süre türetme.</li><li><strong>Soyut anlatım</strong> — ürün sahnede yoksa.</li></ol><p>Mecra sürümü türetmek de güvenli bir kullanım. Elinizde gerçek bir çekim varsa, onu farklı oranlara taşırken fon genişletmek işe yarar. Ürünü zaten kamerayla kaydettiğiniz için sapma riski doğmaz. Fon genişletmek, sıfırdan sahne kurmaktan hem hızlı hem güvenlidir.</p>
       <h3>Taslak Kareler Yayına Çıkabilir mi?</h3>
-      <p>Çıkmaması daha güvenli. Taslağın işi bir kararı hızlandırmaktır, bir ürünü tanıtmak değil. Video üretiminde yapay zeka en çok bu ara adımda kazandırır; çıktı olarak değil, araç olarak.</p>
-      <h2>Yapay Zeka Nerede Yetersiz Kalır?</h2>
+      <p>Çıkmaması daha güvenli. Taslağın işi bir kararı hızlandırmaktır, bir ürünü tanıtmak değil. Video üretiminde yapay zeka en çok bu ara adımda kazandırır; çıktı olarak değil, araç olarak.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 07</span></div><h2 id="yapay-zeka-nerede-yetersiz-kalir">Yapay Zeka Nerede Yetersiz Kalır?</h2>
       <div class="yz-cevap"><p>Ürünün kendisini göstermesi gerektiğinde yetersiz kalır. Model gerçek ürününüzü bilmez; benzerini üretir, aynısını değil. Etiket, doku, renk tonu ve oran küçük ama görünür farklarla kayar. Yapay zeka video üretimi bu noktada bir tanıtım aracı olmaktan çıkıp bir risk hâline gelir. Müşteri eline aldığında farkı görür.</p></div>
       <p>Fark çoğu zaman ilk bakışta belli olmaz. Ambalajdaki yazı okunaksız çıkar, dikiş yönü değişir, düğme sayısı tutmaz. Bunlar ekranda küçük görünür ama ürünü elinde tutan kişi için büyüktür.</p><p>El ve yüz de hâlâ zorlanılan alanlardır. Ürünü tutan bir el karede yanlış çıktığında izleyicinin dikkati anlatıdan kopar; kazandığınız zaman orada geri gider.</p><p>Bir başka sınır da metin. Ekranda okunacak bir yazı varsa, üretilen karede harfler çoğu zaman bozulur. Marka adının doğru yazılması gereken her sahnede bu riski hesaba katın. Logoyu üretilen kareye sonradan bindirmek daha güvenli bir yoldur.</p>
       <h3>Referans Görsel Vermek Çözer mi?</h3>
-      <p>Farkı azaltır ama tümüyle kapatmaz. Örnek kare vermek renk ve biçim tutarlılığını belirgin biçimde iyileştirir. Yine de yazı, doku ve küçük ayrıntılarda sapma olasılığı sürer.</p>
-      <h2>Ürün Gerçekliği Neden Sorun Çıkarır?</h2>
+      <p>Farkı azaltır ama tümüyle kapatmaz. Örnek kare vermek renk ve biçim tutarlılığını belirgin biçimde iyileştirir. Yine de yazı, doku ve küçük ayrıntılarda sapma olasılığı sürer.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 07</span></div><h2 id="urun-gercekligi-neden-sorun-cikarir">Ürün Gerçekliği Neden Sorun Çıkarır?</h2>
       <div class="yz-cevap"><p>Tutarlılık en zorlandığı yerdir. Aynı ürünü iki ayrı karede birebir aynı üretmek zordur. Logo kayar, dikiş değişir, ambalaj yazısı bozulur. Referans görsel vermek farkı azaltır ama sıfırlamaz. Yapay zeka video ile üretilen bir üründe müşteri, aldığı şeyi göremeyebilir. Beklentiyle gelen ürün arasındaki fark, güveni doğrudan yıpratır.</p></div>
       <p>Kare bütünlüğü bir videoda fotoğraftan daha kritiktir. Tek karede fark edilmeyen bir sapma, hareket eden bir görüntüde göze çarpar; izleyici neyin yanlış olduğunu söyleyemese de bir şeyin tutmadığını sezer.</p><p>Bu yüzden ürün ana kahramansa kamera çekimini öneririz. Çekim yerini nasıl seçtiğimizi <a href="../urun-videosu-studyo-mu-mekan-mi/">stüdyo mu mekân mı</a> yazısında anlattık.</p>
       <h3>Hareket Tutarlılığı Neden Daha Zor?</h3>
-      <p>Tek karede tutan bir ayrıntı, saniyede yirmi dört karede tutmayabilir. Ürünün üzerindeki yazı kareden kareye titrer, gölge yön değiştirir. Videonun her karesini yapay zekaya bırakmak, bu titremeyi kabul etmek demektir.</p>
-      <h2>Hukuki ve Marka Riskleri Neler?</h2>
+      <p>Tek karede tutan bir ayrıntı, saniyede yirmi dört karede tutmayabilir. Ürünün üzerindeki yazı kareden kareye titrer, gölge yön değiştirir. Videonun her karesini yapay zekaya bırakmak, bu titremeyi kabul etmek demektir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 07</span></div><h2 id="hukuki-ve-marka-riskleri-neler">Hukuki ve Marka Riskleri Neler?</h2>
       <div class="yz-cevap"><p>Üç başlık dikkat ister: kullandığınız aracın lisans şartları, gerçek kişilere benzeyen yüzler ve reklam mevzuatı. Ürünü olduğundan farklı gösteren bir görüntü yanıltıcı reklam sayılabilir. Yapay zeka video kullandığınızda bunu izleyiciye belirtmek hem dürüst hem güvenlidir. Biz kendi görsellerimizde de bu notu düşüyoruz.</p></div>
       <p>Lisans şartlarını satın almadan önce okuyun. Bazı araçlar ticari kullanıma izin verirken bazıları sınır koyar; sınırı bilmeden yayınlanan bir video sonradan kaldırılmak zorunda kalabilir.</p><p>Yüz konusunda daha da dikkatli olun. Gerçek bir kişiye benzeyen üretilmiş bir yüz, izin sorunu doğurur. Kimliği belirsiz siluetler ya da tümüyle soyut anlatım bu riski ortadan kaldırır.</p><p>Ekip içi kullanımla yayın arasında da bir çizgi çekin. Taslak karelerde kimse lisans sormaz; yayına çıkan bir görüntüde ise herkes sorar. Aynı aracın iki kullanımı arasındaki fark budur. Bu sahneler de reklamdır; <a href="https://ticaret.gov.tr/tuketici/ticari-reklamlar" target="_blank" rel="noopener">ticari reklam kuralları</a> yanıltıcı gösterimi yasaklar.</p>
       <h3>Kullandığımızı Belirtmeli miyiz?</h3>
       <p>Belirtmek her zaman daha sağlamdır. Kısa bir not, izleyicinin sonradan fark etmesinden doğacak güven kaybını baştan engeller.</p>
-      <blockquote class="yz-alinti"><p>&#8220;Model gerçek ürününüzü bilmez. Benzerini üretir, aynısını değil; aradaki fark ekranda küçük, müşterinin elinde büyüktür.&#8221;</p><cite>— TasarımMania prodüksiyon notu</cite></blockquote>
-      <h2>Hangi İşte Hangi Yolu Seçersiniz?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;Model gerçek ürününüzü bilmez. Benzerini üretir, aynısını değil; aradaki fark ekranda küçük, müşterinin elinde büyüktür.&#8221;</p><cite>— TasarımMania prodüksiyon notu</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 07</span></div><h2 id="hangi-iste-hangi-yolu-secersiniz">Hangi İşte Hangi Yolu Seçersiniz?</h2>
       <div class="yz-cevap"><p>Ürün ana kahramansa gerçek çekimi seçin. Sahnede yalnız yer alıyorsa ya da anlatım soyutsa üretim araçları rahatça devreye girer. Karma yol da vardır: ürünü çekip arka planı üretmek çoğu işte en dengeli çözümdür. Yapay zeka video kararı ürünün sahnedeki rolüne bağlıdır.</p></div>
-      <p>Karma yol pratikte en çok işe yarayan yaklaşımdır. Ürünü kontrollü bir kurulumda çekersiniz; fonu, ortamı ve atmosferi üretirsiniz. Böylece ürün gerçek kalır, sahne masrafı düşer.</p><p>Mecra sürümleri de bu mantıkla üretilir. Elinizdeki çekimden farklı oranlar türetmek, sıfırdan sahne üretmekten hem hızlı hem güvenlidir; oran listesini <a href="../e-ticaret-urun-videosu-formatlari/">ürün videosu formatları</a> yazısında çıkardık.</p><p>Karma yolda tek cümlelik bir kural işe yarar. Ürün karede net görünüyorsa kamerayla çekin, arka planda kalıyorsa üretin. Bu kural çoğu tartışmayı kapatır. Sınır belirsiz kaldığında ekip her karede yeniden tartışır. Kuralı sözleşmeye yazmak da aynı işi görür; sözlü mutabakat üçüncü haftada unutulur.</p>
-      <h2>Sınırları Birlikte Çizelim</h2>
+      <p>Karma yol pratikte en çok işe yarayan yaklaşımdır. Ürünü kontrollü bir kurulumda çekersiniz; fonu, ortamı ve atmosferi üretirsiniz. Böylece ürün gerçek kalır, sahne masrafı düşer.</p><p>Mecra sürümleri de bu mantıkla üretilir. Elinizdeki çekimden farklı oranlar türetmek, sıfırdan sahne üretmekten hem hızlı hem güvenlidir; oran listesini <a href="../e-ticaret-urun-videosu-formatlari/">ürün videosu formatları</a> yazısında çıkardık.</p><p>Karma yolda tek cümlelik bir kural işe yarar. Ürün karede net görünüyorsa kamerayla çekin, arka planda kalıyorsa üretin. Bu kural çoğu tartışmayı kapatır. Sınır belirsiz kaldığında ekip her karede yeniden tartışır. Kuralı sözleşmeye yazmak da aynı işi görür; sözlü mutabakat üçüncü haftada unutulur.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 07</span></div><h2 id="sinirlari-birlikte-cizelim">Sınırları Birlikte Çizelim</h2>
       <div class="yz-cevap"><p>Sınırı birlikte çizmek en hızlı yoldur. Ürününüzün sahnedeki rolünü, yayın mecralarını ve marka risk eşiğinizi konuşuyoruz. Elinizde bir araç adı değil, hangi karenin nasıl üretileceğinin planı kalıyor. Yapay zeka video araçlarını nerede kullanıp nerede kullanmayacağımızı baştan yazıyoruz. Sınır yazılı olduğunda tartışma da bitiyor.</p></div>
       <p>Plan çıkarken bütçe tarafını da aynı masada konuşuruz; hangi kalemin ne kadar hareket ettiğini <a href="../reklam-filmi-fiyat-kalemleri/">fiyat kalemleri</a> yazısında açtık. <a href="../../ai-video-produksiyon/">Yapay zeka destekli prodüksiyon</a> ve <a href="../../video-produksiyon/">video prodüksiyon</a> sayfalarımızı inceleyebilirsiniz.</p><p>Sınırı yazarken üç satır yeter: hangi kareleri kamerayla çekeceğimiz, hangilerini üreteceğimiz ve hangi durumda ekibin yeniden soracağı. Bu üç satır proje boyunca hakem görevi görür. Yazılı olmayan sınır, ilk sıkışıklıkta esner.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/yapay-zeka-ile-video-uretimi-govde-960.webp"
              srcset="./gorsel/yapay-zeka-ile-video-uretimi-govde-640.webp 640w, ./gorsel/yapay-zeka-ile-video-uretimi-govde-960.webp 960w, ./gorsel/yapay-zeka-ile-video-uretimi-govde-1440.webp 1440w, ./gorsel/yapay-zeka-ile-video-uretimi-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Yan yana duran, birbirine çok benzeyen ama küçük ayrıntılarda ayrışan iki ışıklı biçim" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Benzeri üretilir, aynısı değil: fark küçük ama müşterinin gözünden kaçmaz. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Hangi iş hangi yolla yürür</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 07</b><span>07 / 07</span></div><h2 id="hangi-is-hangi-yolla-yurur">Hangi iş hangi yolla yürür</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>İş</th><th>Üretken araçlar</th><th>Kamera çekimi</th></tr></thead>
@@ -517,7 +562,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../ai-video-produksiyon/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Yapay zeka video araçları bir yerde ciddi zaman kazandırıyor, başka bir yerde ciddi risk üretiyor. Ayrım noktası ürünün sahnedeki rolü: kahramansa kamerayı seçin, dekorsa üretmekte sakınca yok. Sınırı baştan yazmak, sonradan yapılan pahalı düzeltmeleri engeller.</p>
+        <p>Yapay zeka video araçları bir yerde ciddi zaman kazandırıyor, başka bir yerde ciddi risk üretiyor. Ayrım noktası ürünün sahnedeki rolü: kahramansa kamerayı seçin, dekorsa üretmekte sakınca yok. Sınırı baştan yazmak, sonradan yapılan pahalı düzeltmeleri engeller.</p></section>
       </article>
     </div>
   </section>

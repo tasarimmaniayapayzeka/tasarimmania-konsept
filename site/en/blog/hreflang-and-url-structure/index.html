@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -472,86 +519,84 @@
 <!-- AYIRT EDİCİ EKSEN: ROTA — ccTLD / alt dizin / hreflang kurulum rotası ve teknik yapı seçimi; çiftin diğer yarısı (cok-dilli-destek) ticari fayda ve dönüşüm ÖLÇÜM'üne ayrıldı, teknik kurulum yalnız burada.
      Huni türü: BOFU · Küme: Çok Dilli SEO · Kardeşler (enjeksiyon turunda): e-ticaret-sitelerinde-cok-dilli-destek, e-ticaret-seo, teknik-seo -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Multilingual SEO and International Setup: A Guide to hreflang and URL Structure</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">SEO</span>
-        <span class="yz-meta">25 September 2026 · 7 min read</span>
+          <h1>Multilingual SEO and International Setup: A Guide to hreflang and URL Structure</h1>
+          <p class="ozet">Multilingual SEO starts not with translating the site but with building the address architecture. At SMEs opening up abroad the picture is usually the same: the agency translates the site, puts two flags in the menu, and the team waits for results. Google, meanwhile, can't read from that setup which page to show to which market. The decision is in fact taken across three layers: the domain structure, the language-region tags and the settings on the server side. In this guide we open the route up step by step, from the choice of domain to the hreflang lines. What you're left with at the end is a concrete checklist you can hand to your team.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/hreflang-and-url-structure-cover-1440.webp"
+           srcset="./image/hreflang-and-url-structure-cover-640.webp 640w, ./image/hreflang-and-url-structure-cover-960.webp 960w, ./image/hreflang-and-url-structure-cover-1440.webp 1440w, ./image/hreflang-and-url-structure-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Abstract glass globe image separating into language layers, representing a multilingual SEO setup"
+           width="1920" height="1080" decoding="async"><figcaption>An international SEO setup starts with a single site being separated correctly into language and country layers. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> SEO</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>25 September 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>Multilingual SEO and International Setup: A Guide to hreflang and URL Structure</h1>
-      <p class="ozet">Multilingual SEO starts not with translating the site but with building the address architecture. At SMEs opening up abroad the picture is usually the same: the agency translates the site, puts two flags in the menu, and the team waits for results. Google, meanwhile, can't read from that setup which page to show to which market. The decision is in fact taken across three layers: the domain structure, the language-region tags and the settings on the server side. In this guide we open the route up step by step, from the choice of domain to the hreflang lines. What you're left with at the end is a concrete checklist you can hand to your team.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#what-is-multilingual-seo-and-how-does-it-differ-from-an-international-setup"><span>01</span>What Is Multilingual SEO, and How Does It Differ from an International Setup?</a><a href="#cctld-or-subdirectory-which-url-structure-should-we-choose"><span>02</span>ccTLD or Subdirectory: Which URL Structure Should We Choose?</a><a href="#how-are-hreflang-tags-set-up"><span>03</span>How Are hreflang Tags Set Up?</a><a href="#how-is-the-technical-foundation-built-on-language-versions"><span>04</span>How Is the Technical Foundation Built on Language Versions?</a><a href="#which-mistakes-break-visibility-in-an-international-seo-setup"><span>05</span>Which Mistakes Break Visibility in an International SEO Setup?</a><a href="#the-multilingual-seo-setup-an-eight-step-checklist"><span>06</span>The Multilingual SEO Setup: An Eight-Step Checklist</a><a href="#cctld-subdirectory-and-subdomain-url-structures-compared"><span>07</span>ccTLD, Subdirectory and Subdomain: URL Structures Compared</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/hreflang-and-url-structure-cover-1440.webp"
-           srcset="./image/hreflang-and-url-structure-cover-640.webp 640w, ./image/hreflang-and-url-structure-cover-960.webp 960w, ./image/hreflang-and-url-structure-cover-1440.webp 1440w, ./image/hreflang-and-url-structure-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Abstract glass globe image separating into language layers, representing a multilingual SEO setup"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>An international SEO setup starts with a single site being separated correctly into language and country layers. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>What Is Multilingual SEO, and How Does It Differ from an International Setup?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="what-is-multilingual-seo-and-how-does-it-differ-from-an-international-setup">What Is Multilingual SEO, and How Does It Differ from an International Setup?</h2>
       <div class="yz-cevap"><p>Multilingual SEO is the setup that introduces the different language versions of the same content to search engines separately. International SEO, meanwhile, manages the country target as well as the language. A single German version added to your Turkish site is a multilingual setup. Separating that same German content for Germany and Austria is a move to a multi-regional structure. The two layers run into each other on most projects.</p></div>
       <p>The language target sets which language the content will be read in. The country target defines whose currency and whose legislation you're speaking in. An English page can reach both London and Dubai. Teams that don't make that distinction rebuild the architecture. As the number of businesses opening up abroad widens, so does the cost of that distinction; <a href="https://ticaret.gov.tr/duyurular/turkiyede-e-ticaretin-gorunumu-raporu-yayinlandi-06-05-2025" target="_blank" rel="noopener">in the Ministry of Trade's announcement</a>  the table shared shows the expansion in businesses' online presence. <a href="../../multilingual-seo/">Multilingual SEO</a> — building the language-country mapping on that side from day one removes the cost of moving later.</p>
       <h3>Why isn't translation enough on its own?</h3>
       <p>Translation carries the text, not the signal. A search engine reads which country a page belongs to from the tag. With no marker, two language versions look like copies of each other.</p>
       <h3>Which decision does the setup start with?</h3>
-      <p>In multilingual SEO work, the order puts the setup before the writing. First write down which markets you'll enter, which languages you'll sell in, and who will manage it. Making the domain decision before those three answers are clear is premature.</p>
-      <h2>ccTLD or Subdirectory: Which URL Structure Should We Choose?</h2>
+      <p>In multilingual SEO work, the order puts the setup before the writing. First write down which markets you'll enter, which languages you'll sell in, and who will manage it. Making the domain decision before those three answers are clear is premature.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="cctld-or-subdirectory-which-url-structure-should-we-choose">ccTLD or Subdirectory: Which URL Structure Should We Choose?</h2>
       <div class="yz-cevap"><p>For SMEs working to a limited budget, the subdirectory structure is the safest start. The authority of a single domain spreads across every language. A ccTLD makes sense if you're running a separate team and a separate brand in the target country. A subdomain is the third option; management is comfortable, the transfer of authority weak. The setup and maintenance loads of the three structures differ markedly.</p></div>
       <p>The decision looks at three variables: budget, team and the number of target markets. Three separate ccTLDs in three languages means three separate sites. As the number of markets grows, the address architecture decision comes up sooner; <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">the Ministry of Trade's 2025 report</a>  sets out the rise in the number of businesses trading online in figures. When you're running an SEO setup multilingually, changing the address architecture afterwards brings redirect chains and index fluctuation. The server and redirect audit is carried out by the <a href="../../technical-seo/">technical SEO</a> team.</p>
       <h3>What does a subdirectory structure make easier?</h3>
       <p>One server, one certificate, one analytics property. Adding a new language mostly finishes within the same day on a single platform; on separate ccTLDs the same job takes markedly longer. Every external link you receive carries the main domain's strength to all the versions.</p>
       <h3>When is a ccTLD the right decision?</h3>
-      <p>If you have a physical office, a local team and a separate pricing policy in the target country, a ccTLD pays off. A user reads a .de extension as a local brand. But you build the authority from scratch for every country.</p>
-      <h2>How Are hreflang Tags Set Up?</h2>
+      <p>If you have a physical office, a local team and a separate pricing policy in the target country, a ccTLD pays off. A user reads a .de extension as a local brand. But you build the authority from scratch for every country.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="how-are-hreflang-tags-set-up">How Are hreflang Tags Set Up?</h2>
       <div class="yz-cevap"><p>hreflang is the tag that tells a search engine which language and country a page was prepared for. The setup proceeds by one of three routes: the page head section, the XML sitemap or the HTTP header. That language-region marker forms the backbone of a multilingual SEO setup. Every version points both at all the other versions and at itself.</p></div>
       <p>The ISO 639-1 standard applies to the language code and ISO 3166-1 alpha-2 to the country code. Example lines: tr, de-AT, en-GB. If it stays unclear which version should be shown, add the <code>x-default</code> line. On catalogues of thousands of pages, the sitemap method prevents the head bloating. A wrong region code takes that leg of the multilingual structure out of service on the SEO side.</p>
       <h3>Why is reciprocal verification essential?</h3>
       <p>hreflang doesn't work one-way. If the Turkish page points at the German version, the German page has to point back at the Turkish one. Google ignores lines left one-sided. A missing return link is the most common setup mistake in the field.</p>
       <h4>What happens if hreflang and canonical clash?</h4>
-      <p>Every language version should be self-canonical. On setups that make the German page canonical to the Turkish version, the German address drops out of the index. The rule is simple: canonical points at the page, hreflang maps the versions.</p>
-      <h2>How Is the Technical Foundation Built on Language Versions?</h2>
+      <p>Every language version should be self-canonical. On setups that make the German page canonical to the Turkish version, the German address drops out of the index. The rule is simple: canonical points at the page, hreflang maps the versions.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="how-is-the-technical-foundation-built-on-language-versions">How Is the Technical Foundation Built on Language Versions?</h2>
       <div class="yz-cevap"><p>Every language version should have its own crawlable address, its own sitemap file and its own internal link network. The language switcher should work in a way that leaves the choice to the user. A forced IP-based redirect locks the crawler into the wrong version. The server's location, meanwhile, isn't a decisive signal on its own. Those three decisions sit in the same technical scheme.</p></div>
       <p>Every language version opening from its own address is the invisible half of the setup. Structures that change language on the same URL with a cookie show the crawler only one version. <a href="../../ecommerce-website/">E-commerce platform</a> — keeping the language versions manageable from the admin panel on that side makes the job easier.</p>
       <h3>What should the language switcher be like?</h3>
       <p>A flag icon says country, not language; which flag will you use for English? Write the language name in its own language: Deutsch, English, Türkçe. The links should be real a href elements, not buried in a JavaScript menu.</p>
       <h3>What do you gain by splitting the sitemap by language?</h3>
       <p>A separate sitemap file for each language shows a problem in the version it belongs to. Gather the files under a sitemap index and submit them in a single line. For teams running multilingual SEO, that separation simplifies the daily check.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>Which Mistakes Break Visibility in an International SEO Setup?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="which-mistakes-break-visibility-in-an-international-seo-setup">Which Mistakes Break Visibility in an International SEO Setup?</h2>
       <div class="yz-cevap"><p>Five mistakes break most setups: a missing return link, a wrong region code, a forced IP redirect, a copied canonical and a muddled sitemap. All five are solved at low cost before launch. Left until after launch, recovery takes markedly longer. That's why you open the checklist before you publish.</p></div>
       <p>The common source of the mistakes is haste; as the number of markets grows, the complexity multiplies. Teams that don't take these decisions at the same table do the same job twice.</p>
       <h3>Is the duplicate content risk real?</h3>
       <p>In a multilingual SEO structure, versions in different languages aren't counted as copies of each other. The risk starts with different country versions of the same language. Publishing exactly the same Turkish text for Türkiye and Germany is an example. With no tag, Google makes its own choice.</p>
       <h3>Does machine translation break the setup?</h3>
-      <p>Raw machine output misses sector terminology; the user leaves the page without finding the equivalent they were looking for. Use the translation as a base text and have a local editor do a final read.</p>
-      <h2>The Multilingual SEO Setup: An Eight-Step Checklist</h2>
+      <p>Raw machine output misses sector terminology; the user leaves the page without finding the equivalent they were looking for. Use the translation as a base text and have a local editor do a final read.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="the-multilingual-seo-setup-an-eight-step-checklist">The Multilingual SEO Setup: An Eight-Step Checklist</h2>
       <div class="yz-cevap"><p>The eight steps below are the order of work covering the first stage of a multilingual SEO setup. The sequence follows the technical dependency between the steps. Proceeding without skipping steps removes the cost of moving later. Leave a concrete output at the end of every step; the checklist then stays auditable and responsibility doesn't scatter.</p></div>
       <ol><li>Write down the target markets and languages; name someone responsible for each market.</li><li>Choose the URL structure: subdirectory, ccTLD or subdomain.</li><li>List the language and region codes to the ISO standard.</li><li>Set the hreflang lines up through the head, the sitemap or the HTTP header.</li><li>Test the reciprocal verification; every version should point at the others and at itself.</li><li>Point each language's canonical tag at its own address.</li><li>Separate the sitemap files by language and gather them in an index file.</li><li>Build the language switcher with real links and switch the forced redirect off.</li></ol><p>Let's work out your setup plan together: <a href="../../get-a-quote/">our quote form</a> — share your market list through it. We build the route around your brand's growth timetable.</p>
       <h3>Who should manage the setup?</h3>
       <p>Name a single owner. When the tag, sitemap and redirect decisions scatter, nobody sees the whole picture. On the agency side, we take that role on.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/hreflang-and-url-structure-body-960.webp"
              srcset="./image/hreflang-and-url-structure-body-640.webp 640w, ./image/hreflang-and-url-structure-body-960.webp 960w, ./image/hreflang-and-url-structure-body-1440.webp 1440w, ./image/hreflang-and-url-structure-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Abstract branching directory structure representing the ccTLD, subdirectory and subdomain routes" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>The URL structure decision proceeds by one of three routes; all three end up in a single setup plan. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>ccTLD, Subdirectory and Subdomain: URL Structures Compared</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="cctld-subdirectory-and-subdomain-url-structures-compared">ccTLD, Subdirectory and Subdomain: URL Structures Compared</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Criterion</th><th>ccTLD (site.de)</th><th>Subdirectory (site.com/de/)</th><th>Subdomain (de.site.com)</th></tr></thead>
@@ -572,7 +617,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../multilingual-seo/">See the service page</a>
         </aside>
-        <p>International growth starts not with a translation budget but with setup decisions. If you get the domain structure, the hreflang lines and the sitemap layout right on day one, you won't do the same job twice. Share your market list; let's settle together which route suits your brand.</p>
+        <p>International growth starts not with a translation budget but with setup decisions. If you get the domain structure, the hreflang lines and the sitemap layout right on day one, you won't do the same job twice. Share your market list; let's settle together which route suits your brand.</p></section>
       </article>
     </div>
   </section>

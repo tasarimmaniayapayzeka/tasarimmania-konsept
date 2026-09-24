@@ -175,6 +175,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -465,76 +512,74 @@
 <!-- AYIRT EDİCİ EKSEN: MEKANİZMA — Ürün ve kategori sayfası optimizasyonunun çalışma mantığı; sıralamayı üreten iç mekanizma anlatılır, kurulum adımları veya araç listesi verilmez. Fayda/görünüm anlatımı seo-ve-web-tasarim'ın ekseni.
      Huni türü: TOFU · Küme: SEO Çekirdek · Kardeşler (enjeksiyon turunda): yerel-seo, teknik-seo, off-page-seo -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">How Does E-Commerce SEO Rank Product and Category Pages?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">SEO</span>
-        <span class="yz-meta">3 September 2026 · 7 min read</span>
+          <h1>How Does E-Commerce SEO Rank Product and Category Pages?</h1>
+          <p class="ozet">Your online store may sell excellent products. If the buyer can't find you in the search results, your shelves are invisible. An e-commerce SEO service is systematic work that gets your product and category pages ranking on Google. In this piece we set out not the setup steps or the tool lists but the internal mechanism that produces the ranking. The demand map, the page hierarchy, the semantic match and the link flow are the parts of that mechanism. As the number of businesses going digital in Türkiye rises fast, the stores that grasp this mechanism pull ahead in the race to be found.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/ecommerce-seo-product-pages-cover-1440.webp"
+           srcset="./image/ecommerce-seo-product-pages-cover-640.webp 640w, ./image/ecommerce-seo-product-pages-cover-960.webp 960w, ./image/ecommerce-seo-product-pages-cover-1440.webp 1440w, ./image/ecommerce-seo-product-pages-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Abstract dark 3D image symbolising product and category pages rising in the rankings through an e-commerce SEO service"
+           width="1920" height="1080" decoding="async"><figcaption>A ranking isn't a staircase but a well-built mechanism. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> SEO</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>3 September 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>How Does E-Commerce SEO Rank Product and Category Pages?</h1>
-      <p class="ozet">Your online store may sell excellent products. If the buyer can't find you in the search results, your shelves are invisible. An e-commerce SEO service is systematic work that gets your product and category pages ranking on Google. In this piece we set out not the setup steps or the tool lists but the internal mechanism that produces the ranking. The demand map, the page hierarchy, the semantic match and the link flow are the parts of that mechanism. As the number of businesses going digital in Türkiye rises fast, the stores that grasp this mechanism pull ahead in the race to be found.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#what-is-e-commerce-seo-and-how-does-the-mechanism-that-produces-rankings-work"><span>01</span>What Is E-Commerce SEO, and How Does the Mechanism That Produces Rankings Work?</a><a href="#how-do-category-pages-catch-search-demand"><span>02</span>How Do Category Pages Catch Search Demand?</a><a href="#which-signals-produce-rankings-on-a-product-page"><span>03</span>Which Signals Produce Rankings on a Product Page?</a><a href="#why-are-site-architecture-and-internal-link-flow-decisive"><span>04</span>Why Are Site Architecture and Internal Link Flow Decisive?</a><a href="#how-does-the-content-layer-strengthen-the-sales-pages"><span>05</span>How Does the Content Layer Strengthen the Sales Pages?</a><a href="#get-professional-e-commerce-seo-support-for-your-store"><span>06</span>Get Professional E-Commerce SEO Support for Your Store</a><a href="#category-page-and-product-page-optimization-compared"><span>07</span>Category Page and Product Page Optimization Compared</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/ecommerce-seo-product-pages-cover-1440.webp"
-           srcset="./image/ecommerce-seo-product-pages-cover-640.webp 640w, ./image/ecommerce-seo-product-pages-cover-960.webp 960w, ./image/ecommerce-seo-product-pages-cover-1440.webp 1440w, ./image/ecommerce-seo-product-pages-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Abstract dark 3D image symbolising product and category pages rising in the rankings through an e-commerce SEO service"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>A ranking isn't a staircase but a well-built mechanism. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>What Is E-Commerce SEO, and How Does the Mechanism That Produces Rankings Work?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="what-is-e-commerce-seo-and-how-does-the-mechanism-that-produces-rankings-work">What Is E-Commerce SEO, and How Does the Mechanism That Produces Rankings Work?</h2>
       <div class="yz-cevap"><p>E-commerce SEO is the optimization discipline that gets product and category pages to the top of the search results. The mechanism turns on three cogs. Search demand is distributed across the pages, and every page focuses on a single intent. Authority, meanwhile, flows to the right pages through internal links. A professional e-commerce SEO service brings those three cogs together in one plan.</p></div>
       <p>The scale of the market makes that mechanism more critical every year. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">According to ETBİS's 2025 report</a>  — ETBİS is Türkiye's e-commerce information system — e-commerce volume in Türkiye reached ₺4.5 trillion; the sector now makes up 6.9% of GDP. With competition at that size, you can't leave visibility to chance. The mechanism works as a chain of four stages:</p><ol><li>Demand analysis: the team works out the search volume and the intent behind every keyword.</li><li>Page matching: the plan assigns one page to each search intent. A category meets a broad query, a product a specific one.</li><li>Signal production: the title, the description and the content tell the search engine clearly what the page is about.</li><li>Authority distribution: internal links carry the strength gained to the pages you want to rank.</li></ol><p>When one link in the chain breaks, the others lose strength too. Wholeness is the mechanism's precondition.</p>
       <h3>Where Do the Search Intent Layers Sit in the Mechanism?</h3>
-      <p>Search intent is the purpose behind the user's query. “How do you clean a leather jacket” is looking for information. “Women's leather jacket” is discovering products. “Leather jacket prices” is closer to buying. An e-commerce SEO service assigns a different type of page to each intent layer. Guide content, category page and product page are the three that correspond to them.</p>
-      <h2>How Do Category Pages Catch Search Demand?</h2>
+      <p>Search intent is the purpose behind the user's query. “How do you clean a leather jacket” is looking for information. “Women's leather jacket” is discovering products. “Leather jacket prices” is closer to buying. An e-commerce SEO service assigns a different type of page to each intent layer. Guide content, category page and product page are the three that correspond to them.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="how-do-category-pages-catch-search-demand">How Do Category Pages Catch Search Demand?</h2>
       <div class="yz-cevap"><p>A category page is the shopfront page gathering the broad searches a single product can't meet. The high-volume query “trainers” is taken on by the category. Product pages meet specific demands beneath that roof. A well-built hierarchy maps the store's structure onto the search demand map exactly. That match forms the demand-catching leg of the mechanism.</p></div>
       <p>The demand side keeps widening in Türkiye. <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TurkStat's latest research</a> — TurkStat is Türkiye's statistical institute — shows the share of users shopping online rising steadily over the years. The way to catch that demand is clear. You open a category or subcategory corresponding to every popular search. Filter combinations come into play here too. When “black leather jacket” reaches sufficient search volume, the team turns that filter into a permanent landing page. The SEO service you take on decides which combination deserves to be a page using search data.</p>
       <h3>What Function Does the Category Description Serve?</h3>
-      <p>A category description is short content adding a layer of original text to the page. A product list on its own gives the search engine little signal. An original description of 150 to 300 words makes the page's subject clear. The optimization team writes those texts not to fill space but to answer users' questions.</p>
-      <h2>Which Signals Produce Rankings on a Product Page?</h2>
+      <p>A category description is short content adding a layer of original text to the page. A product list on its own gives the search engine little signal. An original description of 150 to 300 words makes the page's subject clear. The optimization team writes those texts not to fill space but to answer users' questions.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="which-signals-produce-rankings-on-a-product-page">Which Signals Produce Rankings on a Product Page?</h2>
       <div class="yz-cevap"><p>There are three main signals that rank a product page: an original description, structured data and user engagement. To stand apart from the thousands of sites copying the manufacturer's text, the description has to be yours. An e-commerce SEO service places those three signals systematically into every product template. When the signals come together, the page tells the same story to the machine and to the buyer.</p></div>
       <p>The power of an original description comes from the duplicate content filter. Among hundreds of stores using the same manufacturer's text, the search engine mostly picks the most authoritative one. The rest stay invisible. A description written with your own measurements, your usage scenarios and your real photographs takes you out of that filter. The first job of an e-commerce SEO service on the product side is to establish that separation. Reviews do a similar job. Every new rating adds fresh, original text to the page.</p>
       <h3>How Does Structured Data Work?</h3>
       <p>Structured data is a layer of code that labels product details in a format the search engine can read. Those labels convey the price, the stock status and the rating to the machine. Your page then becomes a candidate for rich results.</p>
       <h4>Rich Results and the Click Loop</h4>
-      <p>A rich result is a listing that shows extra details such as a star rating and a price on the search page. A listing that catches the eye gets more clicks. A rising click-through rate strengthens the page's relevance signal. Set up within the service, that loop turns the position you've earned into a self-feeding process.</p>
-      <h2>Why Are Site Architecture and Internal Link Flow Decisive?</h2>
+      <p>A rich result is a listing that shows extra details such as a star rating and a price on the search page. A listing that catches the eye gets more clicks. A rising click-through rate strengthens the page's relevance signal. Set up within the service, that loop turns the position you've earned into a self-feeding process.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="why-are-site-architecture-and-internal-link-flow-decisive">Why Are Site Architecture and Internal Link Flow Decisive?</h2>
       <div class="yz-cevap"><p>An internal link is the bridge carrying authority and context between pages; the site architecture is the order of those bridges. A product you can't reach in three clicks from the homepage stays unimportant in the search engine's eyes. In a correct hierarchy, strength flows unbroken from the homepage to the categories and from there to the products. Disconnected pages that break the flow are the mechanism's most commonly missed weak link.</p></div>
       <p>Let's think about the flow of link strength with a concrete example. The page taking the most references from the outside world is the homepage in most stores. The menu distributes that strength to the main categories. The category page passes it on to the products it lists. The anchor text adds context to that transfer. A link reading “men's running shoes” rather than “click here” also announces the subject of the target page. Within an e-commerce SEO service our team maps that flow and redirects it by sales priority. Crawl budget, indexing and the speed audit, meanwhile, are the subject of separate <a href="../../technical-seo/">technical SEO</a> work.</p>
       <h3>What Does the Three-Click Rule Not Guarantee?</h3>
       <p>The three-click rule is the architectural principle that every product should be reachable from the homepage in at most three steps. The rule provides accessibility; it doesn't bring rankings on its own. An accessible page also has to match the intent and produce original signals.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>How Does the Content Layer Strengthen the Sales Pages?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="how-does-the-content-layer-strengthen-the-sales-pages">How Does the Content Layer Strengthen the Sales Pages?</h2>
       <div class="yz-cevap"><p>Guides and blog posts are the supporting layer that catches the user looking for information and passes authority to the sales pages. A guide on “which running shoes should you buy” doesn't sell directly. Through the link it gives to a category it carries both the visitor and the strength. An e-commerce SEO service plans that layer as the upper step of the sales funnel.</p></div>
       <p>Semantic match is the invisible engine of that layer. Search engines now assess not a single word but the wholeness of a subject. A guide to sole types, a guide to choosing a size and a care article all linking to the category form a whole. That whole proves the store's expertise on running shoes collectively. The structure of the topic map is taken on by our <a href="../../seo-content-strategy/">content strategy</a> team. And that wholeness is what carries the SEO service through to results on the e-commerce side. The effect of references from outside the site is the subject of a separate piece. The focus here is entirely on the internal mechanism under your own control.</p>
       <h3>What Is Semantic Match?</h3>
-      <p>Semantic match is the degree to which the page content overlaps with the subject behind the search query. When synonyms, related concepts and natural questions are spread through the text, the match strengthens. This work builds that overlap deliberately, both in the category texts and in the guide content.</p>
-      <h2>Get Professional E-Commerce SEO Support for Your Store</h2>
+      <p>Semantic match is the degree to which the page content overlaps with the subject behind the search query. When synonyms, related concepts and natural questions are spread through the text, the match strengthens. This work builds that overlap deliberately, both in the category texts and in the guide content.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="get-professional-e-commerce-seo-support-for-your-store">Get Professional E-Commerce SEO Support for Your Store</h2>
       <div class="yz-cevap"><p>Professional support closes the gap between knowing the mechanism and running it every day. Demand analysis, page matching, signal production and authority distribution all ask for continuous maintenance. Our team, which provides an e-commerce SEO service, builds, measures and reports that loop on your behalf. While you focus on the product and the operation, the ranking side moves forward to a plan.</p></div>
       <p>We start by looking at your online store's current structure and working out your demand map. You can find the details of the scope on our <a href="../../ecommerce-seo/">e-commerce SEO service</a> page. The category structure, the product templates and the content layer come together in one plan there. If your store platform is being rebuilt, we set the architecture up ranking-friendly from the start with our <a href="../../web-design/">web design and software</a> team. At the first meeting we assess your current visibility together and settle the highest-priority opportunities.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/ecommerce-seo-product-pages-body-960.webp"
              srcset="./image/ecommerce-seo-product-pages-body-640.webp 640w, ./image/ecommerce-seo-product-pages-body-960.webp 960w, ./image/ecommerce-seo-product-pages-body-1440.webp 1440w, ./image/ecommerce-seo-product-pages-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Abstract 3D illustration of interlocking gears symbolising the internal mechanism of product and category page optimization" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Demand analysis, page matching, signal production and authority distribution work as a single set of gears. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Category Page and Product Page Optimization Compared</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="category-page-and-product-page-optimization-compared">Category Page and Product Page Optimization Compared</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Dimension</th><th>Category page</th><th>Product page</th></tr></thead>
@@ -555,7 +600,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../ecommerce-seo/">See the service page</a>
         </aside>
-        <p>Ranking is a matter of mechanism, not luck. The stores that map demand, assign the right page to each intent and distribute strength deliberately are the ones that come forward. On the e-commerce side of the service too, the point isn't individual tactics but the order that ties them together. Get to know our e-commerce SEO service to build that order. Let your product and category pages walk to the position they deserve in search.</p>
+        <p>Ranking is a matter of mechanism, not luck. The stores that map demand, assign the right page to each intent and distribute strength deliberately are the ones that come forward. On the e-commerce side of the service too, the point isn't individual tactics but the order that ties them together. Get to know our e-commerce SEO service to build that order. Let your product and category pages walk to the position they deserve in search.</p></section>
       </article>
     </div>
   </section>

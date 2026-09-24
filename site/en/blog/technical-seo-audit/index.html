@@ -175,6 +175,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -465,75 +512,73 @@
 <!-- AYIRT EDİCİ EKSEN: ÖLÇÜM — Tarama, indeksleme, site hızı ve Core Web Vitals denetiminin ölçtüğü bulgular; CWV metriklerinin tanımı, eşikleri ve denetimdeki tespiti YALNIZ bu yazıda işlenir. Tasarım kararlarının bu metriklere etkisi seo-ve-web-tasarim'ın, raporlama araç kurulumu seo-raporlama-araclari'nın ekseni.
      Huni türü: TOFU · Küme: SEO Çekirdek · Kardeşler (enjeksiyon turunda): off-page-seo, seo-raporlama-araclari, seo-ve-web-tasarim -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">What Does a Technical SEO Audit Uncover on Your Site?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">SEO</span>
-        <span class="yz-meta">15 September 2026 · 7 min read</span>
+          <h1>What Does a Technical SEO Audit Uncover on Your Site?</h1>
+          <p class="ozet">Your site may not be showing up where it deserves to in the search results. The reason is usually not the content but technical problems that have never been measured. A technical SEO audit measures crawling, indexing, speed and Core Web Vitals performance with concrete metrics. In this piece we set out step by step which finding the audit measures against which threshold. Our aim is to offer measurement, not guesswork. A technical claim not backed by a figure can't be a sound basis for your investment decision. We take the measurement logic, the thresholds and the business impact of the findings through an SME's eyes.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/technical-seo-audit-cover-1440.webp"
+           srcset="./image/technical-seo-audit-cover-640.webp 640w, ./image/technical-seo-audit-cover-960.webp 960w, ./image/technical-seo-audit-cover-1440.webp 1440w, ./image/technical-seo-audit-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Abstract 3D illustration on a magnifying-glass theme, representing a technical SEO audit examining hidden problems in the layers of a site's infrastructure"
+           width="1920" height="1080" decoding="async"><figcaption>A technical audit brings the problems in a site's invisible layers to the surface. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> SEO</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>15 September 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>6 sections</b></div>
       </div>
-      <h1>What Does a Technical SEO Audit Uncover on Your Site?</h1>
-      <p class="ozet">Your site may not be showing up where it deserves to in the search results. The reason is usually not the content but technical problems that have never been measured. A technical SEO audit measures crawling, indexing, speed and Core Web Vitals performance with concrete metrics. In this piece we set out step by step which finding the audit measures against which threshold. Our aim is to offer measurement, not guesswork. A technical claim not backed by a figure can't be a sound basis for your investment decision. We take the measurement logic, the thresholds and the business impact of the findings through an SME's eyes.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#what-is-a-technical-seo-audit-and-what-does-it-measure"><span>01</span>What Is a Technical SEO Audit and What Does It Measure?</a><a href="#which-problems-does-the-crawling-and-indexing-audit-uncover"><span>02</span>Which Problems Does the Crawling and Indexing Audit Uncover?</a><a href="#how-are-the-core-web-vitals-thresholds-read-in-an-audit"><span>03</span>How Are the Core Web Vitals Thresholds Read in an Audit?</a><a href="#how-do-site-speed-findings-affect-business-results"><span>04</span>How Do Site Speed Findings Affect Business Results?</a><a href="#ask-for-a-free-technical-seo-preliminary-audit-for-your-site"><span>05</span>Ask for a Free Technical SEO Preliminary Audit for Your Site</a><a href="#the-areas-measured-in-a-technical-seo-audit-and-the-healthy-thresholds"><span>06</span>The Areas Measured in a Technical SEO Audit and the Healthy Thresholds</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/technical-seo-audit-cover-1440.webp"
-           srcset="./image/technical-seo-audit-cover-640.webp 640w, ./image/technical-seo-audit-cover-960.webp 960w, ./image/technical-seo-audit-cover-1440.webp 1440w, ./image/technical-seo-audit-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Abstract 3D illustration on a magnifying-glass theme, representing a technical SEO audit examining hidden problems in the layers of a site's infrastructure"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>A technical audit brings the problems in a site's invisible layers to the surface. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>What Is a Technical SEO Audit and What Does It Measure?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 06</span></div><h2 id="what-is-a-technical-seo-audit-and-what-does-it-measure">What Is a Technical SEO Audit and What Does It Measure?</h2>
       <div class="yz-cevap"><p>A technical SEO audit identifies, with metrics, the obstacles a search engine runs into on your site. At the end of the review you have clear numbers in hand. How many pages did the bot crawl, how many entered the index, which page was left slow? The report answers those questions one by one with a figure. That's how you point your budget at the most critical problem. You decide on measured data rather than guesswork.</p></div>
       <p>The technical side of the audit photographs your site's infrastructure, not its visible surface. In the review we take on the robots.txt file, the XML sitemap and the redirect chains. We measure the canonical tags and the server response times with the same care. We tie every finding to a number: the count of broken links, the length of the chains, the number of pages left out of the index.</p><p>This measurement-led approach forms the basis of <a href="../../technical-seo/">our technical SEO service</a> . When the audit is done you have a technical priority list in hand. The list shows which problem is blocking how much traffic. For the strategy as a whole, you can look at <a href="../../seo/">our SEO services page</a> .</p>
       <h3>The Audit's Four Areas of Measurement</h3>
-      <p>A full technical SEO audit measures four areas: crawlability, indexability, site speed and Core Web Vitals. Crawlability quantifies bots' access to pages, indexability their acceptance into the index. Speed measures loading time, and Core Web Vitals the real user experience. Read together, the four produce the site's technical health report.</p>
-      <h2>Which Problems Does the Crawling and Indexing Audit Uncover?</h2>
+      <p>A full technical SEO audit measures four areas: crawlability, indexability, site speed and Core Web Vitals. Crawlability quantifies bots' access to pages, indexability their acceptance into the index. Speed measures loading time, and Core Web Vitals the real user experience. Read together, the four produce the site's technical health report.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 06</span></div><h2 id="which-problems-does-the-crawling-and-indexing-audit-uncover">Which Problems Does the Crawling and Indexing Audit Uncover?</h2>
       <div class="yz-cevap"><p>The crawling and indexing audit uncovers the pages bots can't reach and the content that doesn't enter the index. Redirect chains and duplicate pages also become visible at this stage. We express the findings as numbers. How many pages met an obstacle, how many addresses redirect in a chain, how much content was left out of the index? Only with those numbers do you read the size of the problem correctly.</p></div>
       <p>At the crawl stage, the search engine bot discovers your pages by following links. The audit lists the obstacles in the way of that discovery one by one. The examples are familiar: sections accidentally closed off by robots.txt, and long redirect chains. Orphan pages that receive no internal links at all, and broken links returning 404, go on the list too. On the indexing side we examine whether the page the bot crawled is accepted into the index. A technical SEO audit scores those two stages separately. Whether the problem sits in the crawl layer or the index layer separates out clearly.</p><p>Duplicate content, a faulty canonical tag and empty category pages lower the quality of the index. The number of businesses with a digital shopfront in Türkiye is rising fast. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">According to ETBİS's 2025 report</a>  — ETBİS is Türkiye's e-commerce information system — the number of businesses trading online reached 634,611. With competition growing at that scale, every page missing from the index is a shelf left to your competitor.</p>
       <h3>How Is Crawl Budget Measured?</h3>
       <p>Crawl budget is the amount of resource a search engine allocates to moving around your site in a given period. In the audit we compare the server log records with the crawl statistics. That's how we see whether the bot is spending its time on error pages or on important content. Wasted budget can point to serious loss of visibility even on medium-sized sites.</p>
       <h3>What Do the Gaps in Index Coverage Tell You?</h3>
-      <p>The index coverage measurement compares the number of pages submitted with the number of pages that entered the index. The difference between them is one of the audit's most revealing findings. We separate that difference by cause: duplicate content, weak page quality or a server error. That separation also decides which team the fix work runs with.</p>
-      <h2>How Are the Core Web Vitals Thresholds Read in an Audit?</h2>
+      <p>The index coverage measurement compares the number of pages submitted with the number of pages that entered the index. The difference between them is one of the audit's most revealing findings. We separate that difference by cause: duplicate content, weak page quality or a server error. That separation also decides which team the fix work runs with.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 06</span></div><h2 id="how-are-the-core-web-vitals-thresholds-read-in-an-audit">How Are the Core Web Vitals Thresholds Read in an Audit?</h2>
       <div class="yz-cevap"><p>Core Web Vitals is three metrics measuring loading, interaction and visual stability. The metrics are called LCP, INP and CLS. In the audit we classify every page group against those three thresholds. We identify the templates that exceed them. We order the fix priority by the volume of traffic affected. The result is a page-level improvement map.</p></div>
       <p>The definition of each metric and the healthy threshold Google publishes are clear:</p><ul><li><strong>LCP (Largest Contentful Paint):</strong> the time the largest content element on the page takes to appear on screen. Under 2.5 seconds is considered good.</li><li><strong>INP (Interaction to Next Paint):</strong> the time the screen takes to respond to a user interaction. We aim for under 200 milliseconds.</li><li><strong>CLS (Cumulative Layout Shift):</strong> the amount elements shift during loading. Under 0.1 is considered stable.</li></ul><p>A technical SEO audit applies these thresholds to template groups rather than to individual pages. A problem in one product template affects hundreds of pages using that template at once.</p>
       <h3>Which User Experience Do the Metrics Represent?</h3>
       <p>LCP represents how quickly the page appears. INP shows how fast it responds to a tap, and CLS whether the content stays where it is. Your visitor lives those three feelings within seconds. The metrics only turn that experience into a number.</p>
       <h4>The Difference Between Field Data and Lab Data</h4>
-      <p>Field data is measurement gathered from real visitors' devices. Lab data we produce in a controlled test environment. In the audit we assess the two together. Field data proves the problem exists; lab measurement helps find the root cause. Looking at only one produces an incomplete diagnosis.</p>
-      <h2>How Do Site Speed Findings Affect Business Results?</h2>
+      <p>Field data is measurement gathered from real visitors' devices. Lab data we produce in a controlled test environment. In the audit we assess the two together. Field data proves the problem exists; lab measurement helps find the root cause. Looking at only one produces an incomplete diagnosis.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 06</span></div><h2 id="how-do-site-speed-findings-affect-business-results">How Do Site Speed Findings Affect Business Results?</h2>
       <div class="yz-cevap"><p>Site speed findings show the root cause of slowness through measurement. The report measures the server response, the image sizes and the script load separately. A page that opens late raises the likelihood of the visitor leaving the site. The same delay also lowers the efficiency of your ad spend. That's why speed data is a commercial indicator in its own right.</p></div>
       <p>The speed, or performance, audit measures three layers: the server's first response, the downloading of the resources and the browser's rendering of the page. Separating the layers turns a vague complaint into a fixable finding. The sentence “the site is slow” becomes the finding “the server is sending the first byte late”. The speed layer of a technical SEO audit shows exactly where the loss occurs.</p><p><a href="https://ticaret.gov.tr/duyurular/turkiyede-e-ticaretin-gorunumu-raporu-yayinlandi-06-05-2025" target="_blank" rel="noopener">According to the report announced by Türkiye's Ministry of Trade</a> , e-commerce volume passed ₺3 trillion in 2024. The same announcement puts that volume's share of gross domestic product at 6.5%. <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TurkStat's latest research</a>  — TurkStat is Türkiye's statistical institute — also shows internet use spreading further every year. With the market growing at that scale, a site that opens late sends its customer to a competitor.</p>
       <h3>The Three Findings That Stand Out in a Speed Audit</h3>
       <p>Three findings stand out most often in audits: large uncompressed images, static files served without caching, and scripts that block the main thread. All three can be measured, and fixed without touching the content. Image compression alone can visibly shorten the loading time. The report estimates the expected gain by page group.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>Ask for a Free Technical SEO Preliminary Audit for Your Site</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 06</span></div><h2 id="ask-for-a-free-technical-seo-preliminary-audit-for-your-site">Ask for a Free Technical SEO Preliminary Audit for Your Site</h2>
       <div class="yz-cevap"><p>The free preliminary audit sets out, in summary, your site's crawling, indexing and Core Web Vitals position. Before moving to a full report, you see which area holds a problem and how big it is. This first step suits SMEs that want to measure before deciding. The opening review gives you a concrete first photograph.</p></div>
       <p>The process runs in three steps:</p><ol><li>You send us your site address; no panel access or installation is needed for the preliminary audit.</li><li>Our team prepares a summary list of findings covering the crawl, index and Core Web Vitals measurements.</li><li>We go through the findings together and propose a prioritised route map.</li></ol><p>If you'd like to turn the technical SEO audit into regular maintenance, you can look at the scope of <a href="../../technical-seo/">our technical SEO service</a> . If the infrastructure needs renewing, <a href="../../web-design/">our web design team</a> joins the process. We keep the summary document short and write it in language that needs no technical background.</p>
       <h3>What Happens After the Preliminary Audit?</h3>
       <p>The output of the preliminary audit is a short summary showing the problem areas and the estimated size of their effect. You have concrete data in hand before setting aside resource for a technical SEO review. The decision to carry on is entirely yours. The summary stays with you with no commitment attached.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/technical-seo-audit-body-960.webp"
              srcset="./image/technical-seo-audit-body-640.webp 640w, ./image/technical-seo-audit-body-960.webp 960w, ./image/technical-seo-audit-body-1440.webp 1440w, ./image/technical-seo-audit-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Abstract 3D data-flow illustration with indicator rings, representing the measurement of site speed and Core Web Vitals" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>The Core Web Vitals thresholds quantify the user experience through three separate indicators. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>The Areas Measured in a Technical SEO Audit and the Healthy Thresholds</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 06</span></div><h2 id="the-areas-measured-in-a-technical-seo-audit-and-the-healthy-thresholds">The Areas Measured in a Technical SEO Audit and the Healthy Thresholds</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Audit area</th><th>Metric measured</th><th>Healthy threshold (Google's recommendation)</th><th>Typical finding</th></tr></thead>
@@ -554,7 +599,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../technical-seo/">See the service page</a>
         </aside>
-        <p>A technical SEO audit rescues visibility problems from guesswork and turns them into numbers. Crawl obstacles, index gaps and speed findings come together in a single report. Once the report is clear, the direction of the investment is clear too. An audited site raises the efficiency of every marketing channel. You can send us your request for a free preliminary audit today.</p>
+        <p>A technical SEO audit rescues visibility problems from guesswork and turns them into numbers. Crawl obstacles, index gaps and speed findings come together in a single report. Once the report is clear, the direction of the investment is clear too. An audited site raises the efficiency of every marketing channel. You can send us your request for a free preliminary audit today.</p></section>
       </article>
     </div>
   </section>

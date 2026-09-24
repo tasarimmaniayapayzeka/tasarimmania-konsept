@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -468,45 +515,43 @@
 <!-- AYIRT EDİCİ EKSEN: GÖRÜNÜM — Mikro ve makro influencer'ın erişim/etkileşim profil görünümü kıyası; bütçe ekseni google-ads yazısında, raporlama metrikleri kardeş yazıda.
      Huni türü: MOFU · Küme: Digital Marketing Performansı · Kardeşler (enjeksiyon turunda): sosyal-medya-raporlama, e-posta-pazarlama, google-ads-ve-ppc -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Through an Influencer Marketing Agency's Eyes: Micro or Macro?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Social Media</span>
-        <span class="yz-meta">11 October 2026 · 7 min read</span>
+          <h1>Through an Influencer Marketing Agency's Eyes: Micro or Macro?</h1>
+          <p class="ozet">Looking for a name to collaborate with on social media, most SMEs get stuck on the same question: a micro name with a narrow audience, or a macro name with a wide one? In this article we compare how the two profiles look. We look at how breadth of reach and depth of engagement differ on screen. Our aim isn't a theoretical debate but a way of seeing that is useful at the moment of choosing. As an influencer marketing agency, we set out the visual and behavioural signals we follow when building a shortlist, in a plain framework.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/micro-vs-macro-influencers-cover-1440.webp"
+           srcset="./image/micro-vs-macro-influencers-cover-640.webp 640w, ./image/micro-vs-macro-influencers-cover-960.webp 960w, ./image/micro-vs-macro-influencers-cover-1440.webp 1440w, ./image/micro-vs-macro-influencers-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Abstract clusters of spheres representing micro and macro influencer audiences"
+           width="1920" height="1080" decoding="async"><figcaption>Wide, scattered reach and a narrow, dense community, in the same frame. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Social Media</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>11 October 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>6 sections</b></div>
       </div>
-      <h1>Through an Influencer Marketing Agency's Eyes: Micro or Macro?</h1>
-      <p class="ozet">Looking for a name to collaborate with on social media, most SMEs get stuck on the same question: a micro name with a narrow audience, or a macro name with a wide one? In this article we compare how the two profiles look. We look at how breadth of reach and depth of engagement differ on screen. Our aim isn't a theoretical debate but a way of seeing that is useful at the moment of choosing. As an influencer marketing agency, we set out the visual and behavioural signals we follow when building a shortlist, in a plain framework.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#what-is-the-difference-in-appearance-between-a-micro-and-a-macro-influencer"><span>01</span>What is the difference in appearance between a micro and a macro influencer?</a><a href="#which-comes-forward-breadth-of-reach-or-depth-of-engagement"><span>02</span>Which comes forward: breadth of reach, or depth of engagement?</a><a href="#in-which-situation-do-you-choose-micro-and-in-which-macro"><span>03</span>In which situation do you choose micro, and in which macro?</a><a href="#signals-to-look-for-when-choosing-an-influencer-marketing-agency"><span>04</span>Signals to look for when choosing an influencer marketing agency</a><a href="#can-micro-and-macro-names-be-combined-in-the-same-campaign"><span>05</span>Can micro and macro names be combined in the same campaign?</a><a href="#micro-and-macro-influencer-comparison-table"><span>06</span>Micro and Macro Influencer Comparison Table</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/micro-vs-macro-influencers-cover-1440.webp"
-           srcset="./image/micro-vs-macro-influencers-cover-640.webp 640w, ./image/micro-vs-macro-influencers-cover-960.webp 960w, ./image/micro-vs-macro-influencers-cover-1440.webp 1440w, ./image/micro-vs-macro-influencers-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Abstract clusters of spheres representing micro and macro influencer audiences"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Wide, scattered reach and a narrow, dense community, in the same frame. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>What is the difference in appearance between a micro and a macro influencer?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 06</span></div><h2 id="what-is-the-difference-in-appearance-between-a-micro-and-a-macro-influencer">What is the difference in appearance between a micro and a macro influencer?</h2>
       <div class="yz-cevap"><p>A micro influencer speaks in depth to a narrow field of interest; a macro influencer offers visibility spread across a wide section of people. The difference isn't only the follower count. The language of the profile, the tempo of the content, the character of the comments section and the closeness the audience builds with the brand turn into an entirely different picture on the two sides. And the choice comes out of that picture.</p></div>
       <p>We read the difference in appearance across two layers. The first layer is the profile's own aesthetic: how often it posts, its choice of framing, its use of fixed formats. The second layer is the audience's behaviour. Who writes the comments, what do they ask, does curiosity show in the sentences? An influencer marketing agency's first job is to note those two layers separately. A choice made on the follower count alone will mislead you. We use the same distinction on the social media management side too.</p>
       <h3>How a micro influencer's profile looks</h3>
       <p>A micro influencer is a content creator reaching between a few thousand and a few tens of thousands of followers within a narrow field of interest. The feed is mostly locked onto a single subject. The framing is plain, the language warm, the scale of production domestic. The followers know one another; the comments read like conversation. A brand collaboration doesn't look foreign in that feed — it moves along as a continuation of the daily posts.</p>
       <h3>How a macro influencer's profile looks</h3>
-      <p>A macro influencer is a widely recognised figure addressing an audience of hundreds of thousands. Several themes sit side by side in the feed. The production quality is high and the proportion of branded content is noticeable. In a crowded comments section it is an anonymous audience that speaks, rather than familiar faces. The line between branded content and organic posts doesn't escape the viewer's eye.</p>
-      <h2>Which comes forward: breadth of reach, or depth of engagement?</h2>
+      <p>A macro influencer is a widely recognised figure addressing an audience of hundreds of thousands. Several themes sit side by side in the feed. The production quality is high and the proportion of branded content is noticeable. In a crowded comments section it is an anonymous audience that speaks, rather than familiar faces. The line between branded content and organic posts doesn't escape the viewer's eye.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 06</span></div><h2 id="which-comes-forward-breadth-of-reach-or-depth-of-engagement">Which comes forward: breadth of reach, or depth of engagement?</h2>
       <div class="yz-cevap"><p>Breadth of reach creates recognition; depth of engagement persuades. Macro names show the brand to a great many people. Micro names reach fewer, but the interest that comes back is warmer and more talkative. The right choice depends on whether the campaign wants to introduce something or to break down hesitation.</p></div>
       <p>The number of businesses with a digital shop window in Türkiye is rising fast. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">The ETBİS 2025 report</a> — ETBİS is Türkiye's central e-commerce information system — points to 634,611 e-commerce businesses. As the number of competitors rises, so does the value of the right voice. In a crowding market, what makes the difference is the right profile carrying the right message. Agency-supported influencer marketing is exactly that job of matching. Experienced influencer marketing agencies base the decision not on the follower count but on the fit with the audience.</p>
       <h3>What wide reach contributes to brand visibility</h3>
@@ -514,35 +559,35 @@
       <h3>The persuasive power of a narrow but deep community</h3>
       <p>In narrow communities the follower sees the content creator as a friend. A recommendation leaves the impression not of an advertisement but of an experience being passed on. Because a name speaking to a niche audience looks like someone genuinely using the product, hesitations are resolved easily. In small communities the comments are often written right at the threshold of a decision.</p>
       <h4>What does the comments section look like?</h4>
-      <p>The comments section is the profile's X-ray. On micro accounts, questions about size, use and durability line up. On large accounts, short expressions of approval and emoji predominate. That difference in appearance tells you from the start what to expect from a collaboration.</p>
-      <h2>In which situation do you choose micro, and in which macro?</h2>
+      <p>The comments section is the profile's X-ray. On micro accounts, questions about size, use and durability line up. On large accounts, short expressions of approval and emoji predominate. That difference in appearance tells you from the start what to expect from a collaboration.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 06</span></div><h2 id="in-which-situation-do-you-choose-micro-and-in-which-macro">In which situation do you choose micro, and in which macro?</h2>
       <div class="yz-cevap"><p>If your product needs explaining, we lean towards the micro side; if it needs recognition, towards the macro. Services that call for technical explanation find a better response in a narrow audience. Everyday products addressing a wide consumer base, on the other hand, benefit from the visibility of large accounts. The decision takes shape according to how hard the product is to explain. And a proper middle way between the two is perfectly possible.</p></div>
       <p>Tying the selection process to a written flow reduces the influence of personal taste. As an influencer marketing agency, we run that choice in five steps:</p><ol><li>We write the campaign's aim in a single sentence.</li><li>We list the subjects the target audience follows.</li><li>We sift the candidate profiles for niche fit and for the language of their content.</li><li>We set up a small-scale trial collaboration with at least three candidates.</li><li>We multiply the format that works through <a href="../../short-form-video/">social video and Reels</a> production.</li></ol>
       <h3>The need for visibility at a product launch</h3>
       <p>At a launch, the first goal is to be noticed. If awareness of the category is low, a name with wide reach opens the door. The micro wave that follows shows the curious person what the product looks like in daily life. Planning the two waves within the same week stops the curiosity going cold.</p>
       <h3>Refreshing trust at an established brand</h3>
-      <p>Known brands look less for visibility than for currency. Niche accounts do a better job here. Names from different professions showing the same product within their own routines keep the brand fresh. Long-running collaborations leave a more familiar impression than one-off posts.</p>
-      <h2>Signals to look for when choosing an influencer marketing agency</h2>
+      <p>Known brands look less for visibility than for currency. Niche accounts do a better job here. Names from different professions showing the same product within their own routines keep the brand fresh. Long-running collaborations leave a more familiar impression than one-off posts.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 06</span></div><h2 id="signals-to-look-for-when-choosing-an-influencer-marketing-agency">Signals to look for when choosing an influencer marketing agency</h2>
       <div class="yz-cevap"><p>Look not at the agency's own presentation but at the variety of profiles it works with. A strong influencer marketing agency doesn't arrive with a list of names squeezed into a single category. It suggests creators who catch your brand voice without imitating it, shares the brief in writing, and defines the content approval flow from the very start. A pitch that shows no concrete examples is selling you nothing but a cover page.</p></div>
       <p>We talk about where the audience is from data, not from guesswork. <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TurkStat's latest research</a> — TurkStat is Türkiye's statistical institute — shows internet use spreading at household level. That is why an influencer marketing agency's role cannot be limited to recommending a single platform. Relationships without a clear approval flow seize up at the first crisis. To extend the life of the content, a re-run plan on the <a href="../../meta-ads/">Meta Ads</a> side comes onto the table too. We build the budget side together with the performance marketing team. This calendar has to talk to the rest of your digital marketing plan.</p>
       <h3>The sector depth of the portfolio</h3>
       <p>On the marketing side an influencer portfolio may be long; what matters is its depth. How many collaborations have been done in your sector, which formats have been tried, which tone held? If those questions get no answer with a concrete example, the list is nothing but a shop window.</p>
       <h3>How the content's language fits the brand voice</h3>
       <p>The brand voice is the fixed character that sets your organisation's tone of speech. An influencer marketing agency should take that tone as its reference when suggesting candidates. A playful account struggles to speak for a serious financial brand. The fit of tone determines whether the viewer counts the content as an advertisement or as a recommendation.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>Can micro and macro names be combined in the same campaign?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 06</span></div><h2 id="can-micro-and-macro-names-be-combined-in-the-same-campaign">Can micro and macro names be combined in the same campaign?</h2>
       <div class="yz-cevap"><p>They can — the two profiles cover each other's gaps. The macro name builds the campaign's roof and announces it to a wide public. The micro names localise the same message within their own communities. Thanks to the layered structure the brand is both visible to the crowd and familiar within small circles. When the roles are clearly separated, neither side puts the other in the shade.</p></div>
       <p>We run the content calendar from a single centre. Even when the agency has a list of influencers ready, we rebuild the calendar around the brand. The main message stays fixed while the way of telling it changes from profile to profile. Without that flexibility, the collaborations end up looking like copies of one another. Repeating a single voice makes the viewer weary. An experienced influencer marketing agency treats being able to have the same brief spoken in different voices as a fundamental measure. If you'd like to build the calendar together, reach us through our <a href="../../contact/">contact</a> page.</p>
       <h3>The layered structure of appearances</h3>
       <p>The layered structure has three rings: announcement, experience and reminder. A name with a wide audience takes on the announcement. Niche accounts carry the telling of the experience. Short videos close the reminder ring.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/micro-vs-macro-influencers-body-960.webp"
              srcset="./image/micro-vs-macro-influencers-body-640.webp 640w, ./image/micro-vs-macro-influencers-body-960.webp 960w, ./image/micro-vs-macro-influencers-body-1440.webp 1440w, ./image/micro-vs-macro-influencers-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="An abstract glass-panel image comparing breadth of reach with depth of engagement" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Depth or breadth? The choice of profile becomes clear along those two axes. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Micro and Macro Influencer Comparison Table</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 06</span></div><h2 id="micro-and-macro-influencer-comparison-table">Micro and Macro Influencer Comparison Table</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Appearance Criterion</th><th>Micro Influencer</th><th>Macro Influencer</th></tr></thead>
@@ -564,7 +609,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../social-media-management/">See the service page</a>
         </aside>
-        <p>The micro–macro distinction isn't a contest of superiority, it's a choice of appearance. If your product needs explaining you turn to narrow, warm communities; if it needs recognition, to a wide audience. Building the two together is the most balanced route for most SMEs. Don't rush the decision; a small trial is always a good idea. If you'd like to draw up the list of profiles that suits your brand, write to us through <a href="../../get-a-quote/">our quote form</a> and we'll share our influencer marketing agency experience with you throughout the process.</p>
+        <p>The micro–macro distinction isn't a contest of superiority, it's a choice of appearance. If your product needs explaining you turn to narrow, warm communities; if it needs recognition, to a wide audience. Building the two together is the most balanced route for most SMEs. Don't rush the decision; a small trial is always a good idea. If you'd like to draw up the list of profiles that suits your brand, write to us through <a href="../../get-a-quote/">our quote form</a> and we'll share our influencer marketing agency experience with you throughout the process.</p></section>
       </article>
     </div>
   </section>

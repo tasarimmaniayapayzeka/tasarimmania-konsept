@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,72 +477,70 @@
 <!-- AYIRT EDİCİ EKSEN: MEKANİZMA — İki mimarinin NASIL çalıştığını anlatır. Maliyet yazı 1'in, karar soruları yazı 2'nin, takvim yazı 3'ün işidir. React Native ile Flutter KIYASI yazı 5'e aittir; burada çatı adları karşılaştırılmaz.
      Huni türü: MOFU · Küme: mobil · Kardeşler (enjeksiyon turunda): react-native-mi-flutter-mi, uygulama-magaza-optimizasyonu -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Native or Cross-Platform</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Mobile</span>
-        <span class="yz-meta">30 September 2026 · 7 min read</span>
+          <h1>Native or Cross-Platform? Choosing an App Architecture</h1>
+          <p class="ozet">This argument usually turns into a battle of brands and the real question gets lost. Yet the choice is not a matter of fashion but of mechanism. The difference between the two routes lies in who draws the screen and who reaches the hardware. In this article we open the mechanism up, then set out which product should take which route. We aren't comparing framework names; that is a separate subject.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/native-vs-cross-platform-cover-1440.webp"
+           srcset="./image/native-vs-cross-platform-cover-640.webp 640w, ./image/native-vs-cross-platform-cover-960.webp 960w, ./image/native-vs-cross-platform-cover-1440.webp 1440w, ./image/native-vs-cross-platform-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Lines spreading from a single light source into two separate frames; the two frames on the right like mirror images"
+           width="1920" height="1080" decoding="async"><figcaption>From one source to two platforms: what makes the difference is what the layer in between does. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Mobile</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>30 September 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>Native or Cross-Platform? Choosing an App Architecture</h1>
-      <p class="ozet">This argument usually turns into a battle of brands and the real question gets lost. Yet the choice is not a matter of fashion but of mechanism. The difference between the two routes lies in who draws the screen and who reaches the hardware. In this article we open the mechanism up, then set out which product should take which route. We aren't comparing framework names; that is a separate subject.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#what-does-native-app-mean-and-how-does-it-differ-from-cross-platform"><span>01</span>What Does Native App Mean, and How Does It Differ from Cross-Platform?</a><a href="#how-does-a-single-codebase-draw-the-screen"><span>02</span>How Does a Single Codebase Draw the Screen?</a><a href="#at-which-point-does-hardware-access-diverge"><span>03</span>At Which Point Does Hardware Access Diverge?</a><a href="#where-is-the-performance-difference-really-felt"><span>04</span>Where Is the Performance Difference Really Felt?</a><a href="#which-product-should-take-which-route"><span>05</span>Which Product Should Take Which Route?</a><a href="#let-s-choose-your-architecture-together"><span>06</span>Let's Choose Your Architecture Together</a><a href="#native-versus-a-single-codebase-which-wins-on-which-criterion"><span>07</span>Native versus a single codebase: which wins on which criterion</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/native-vs-cross-platform-cover-1440.webp"
-           srcset="./image/native-vs-cross-platform-cover-640.webp 640w, ./image/native-vs-cross-platform-cover-960.webp 960w, ./image/native-vs-cross-platform-cover-1440.webp 1440w, ./image/native-vs-cross-platform-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Lines spreading from a single light source into two separate frames; the two frames on the right like mirror images"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>From one source to two platforms: what makes the difference is what the layer in between does. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>What Does Native App Mean, and How Does It Differ from Cross-Platform?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="what-does-native-app-mean-and-how-does-it-differ-from-cross-platform">What Does Native App Mean, and How Does It Differ from Cross-Platform?</h2>
       <div class="yz-cevap"><p>The distinction isn't in the language, it is in the mechanism. A native app is built with the platform's own language and its own tools; Swift does the job on iOS, Kotlin on Android. Cross-platform, on the other hand, reaches two platforms from a single source. The distinction lies not in the language but in who draws the screen and who reaches the hardware. A team that understands the mechanism picks the right route easily.</p></div>
       <p>Names are confusing; mechanisms aren't. On the native code route your app uses the operating system's components directly. On the single codebase route a layer comes in between, and that layer translates for both sides.</p><p>The existence of that layer is neither good nor bad in itself. What it gains you and what it delays varies with the kind of product.</p><p>The two routes diverge at three points. The sequence below also forms the backbone of this article.</p><ol><li><strong>Who draws the screen</strong> — the platform's own element, or the framework's brush.</li><li><strong>Who reaches the hardware</strong> — directly, or through an intermediate layer.</li><li><strong>Where performance diverges</strong> — in the everyday flow, or in heavy graphics.</li></ol><p>Weigh all three together and the decision shows itself. The native app argument reaches a dead end when those three questions are skipped and brand names are set racing instead.</p>
       <h3>Is the Same App Written Twice?</h3>
-      <p>On the native code route, yes — two separate projects run. The screen design and the server side are shared, but you write the interface code twice. On a single codebase we write the shared work once and keep only the platform-specific pieces apart. Native code may still be needed on the app side, but its scope is narrow.</p>
-      <h2>How Does a Single Codebase Draw the Screen?</h2>
+      <p>On the native code route, yes — two separate projects run. The screen design and the server side are shared, but you write the interface code twice. On a single codebase we write the shared work once and keep only the platform-specific pieces apart. Native code may still be needed on the app side, but its scope is narrow.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="how-does-a-single-codebase-draw-the-screen">How Does a Single Codebase Draw the Screen?</h2>
       <div class="yz-cevap"><p>There are two approaches. Some frameworks bridge to the platform's own component; others draw every pixel themselves. The bridging route gives a native look. The self-drawing route produces exactly the same result on both platforms. That choice directly determines which device the app will feel familiar on. On the native app side there is no such choice; the component is native already.</p></div>
       <p>With the bridging approach, when you press a button a real system button responds. The user finds their device familiar, but the two platforms don't look identical. With the self-drawing approach the interface elements are painted with the framework's own brush; they look the same everywhere and fully native nowhere.</p><p>If you want the brand experience to be uniform, the second route suits you. If you want to lean on the habits of the device, the first sits better.</p><p>That choice carries a price on the maintenance side too. When a platform refreshes its interface, a bridging framework picks the change up on its own. On a self-drawing framework, you are the one chasing the current look. How far the app leans on native components determines how long that chase runs. Platform expectations are documented; <a href="https://developer.apple.com/design/human-interface-guidelines/" target="_blank" rel="noopener">Apple's Human Interface Guidelines</a> and Material Design describe different behaviour.</p>
       <h3>Does the User See That Difference?</h3>
-      <p>Most users can't put a name to it, but they sense it. Scroll deceleration, keyboard behaviour and the back gesture vary from device to device. These are small details; stacked on top of one another, they make a product feel foreign.</p>
-      <h2>At Which Point Does Hardware Access Diverge?</h2>
+      <p>Most users can't put a name to it, but they sense it. Scroll deceleration, keyboard behaviour and the back gesture vary from device to device. These are small details; stacked on top of one another, they make a product feel foreign.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="at-which-point-does-hardware-access-diverge">At Which Point Does Hardware Access Diverge?</h2>
       <div class="yz-cevap"><p>Capabilities such as the camera, sensors and background location work on both routes. The difference shows up not in the speed but the moment a new capability arrives. When a platform announces a new feature, a native app uses it on day one. On the cross-platform side, you wait for the bridge to be updated. That wait is usually measured in weeks.</p></div>
       <p>For common capabilities, ready-made intermediate layers exist and work well. The trouble comes with the uncommon: a new sensor, a new payment method, a new security flow. At that point you either write the bridge yourself or you wait.</p><p>If your product sits at the edge of the hardware, that wait may not be acceptable. We handle hardware requirements separately <a href="../../ios-android-app-development/">on the iOS and Android sides</a> of the build.</p>
       <h3>Could We Write the Bridge Ourselves?</h3>
-      <p>You could, and sometimes that is the right thing to do. But that bridge is now your maintenance load. The simplicity of a single codebase shrinks a little with every bridge you write yourself.</p>
-      <h2>Where Is the Performance Difference Really Felt?</h2>
+      <p>You could, and sometimes that is the right thing to do. But that bridge is now your maintenance load. The simplicity of a single codebase shrinks a little with every bridge you write yourself.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="where-is-the-performance-difference-really-felt">Where Is the Performance Difference Really Felt?</h2>
       <div class="yz-cevap"><p>On everyday lists and forms, the difference is invisible. The divergence begins with heavy graphics, continuous animation and intensive data processing. Games, live drawing over maps and video editing fall into that group. For an ordinary catalogue or order flow, a native app isn't essential. The measure is not speed but the kind of work.</p></div>
       <p>The performance argument usually stays abstract, because nobody says which kind of work they mean. Test your product with this question: how many times a second does a new frame have to be drawn on the screen? If the answer is “rarely”, the architecture cannot be chosen on performance.</p><p>The app's launch time and install size come into the picture too. Both are silent causes of user loss; we took up their effect on the budget separately in the <a href="../mobile-app-development-cost/">app cost</a> article.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The question isn't which technology is better. Does your product sit at the edge of the hardware, or does it stay on top of the screen?&#8221;</p><cite>— TasarımMania architecture meeting note</cite></blockquote>
-      <h2>Which Product Should Take Which Route?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The question isn't which technology is better. Does your product sit at the edge of the hardware, or does it stay on top of the screen?&#8221;</p><cite>— TasarımMania architecture meeting note</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="which-product-should-take-which-route">Which Product Should Take Which Route?</h2>
       <div class="yz-cevap"><p>Three questions are enough. How close does the product get to the hardware, are both platforms needed at once, and which language does the team command? If the hardware runs deep and one platform is enough, the native app wins. If two stores are essential and the hardware stays ordinary, the single codebase comes forward. The decision depends on the kind of product, not on fashion.</p></div>
       <p>Most lists skip the team's competence, yet it is the most concrete measure of all. If you have an experienced native code team, moving to a single codebase gains you no speed. The reverse holds too.</p><p>We listed the questions that clarify the decision in the <a href="../questions-before-building-an-app/">questions to ask before commissioning an app</a> article. Once the choice is settled, the schedule settles too; we set out the stages in the <a href="../mobile-app-development-process/">development process</a> article.</p>
       <h3>Is It Possible to Change Route Later?</h3>
-      <p>It is, but it isn't cheap. You rewrite the interface code from scratch; the server side and the design remain. That is why taking the decision early comes markedly cheaper than taking it late. Bolting native pieces on and off afterwards creates the same burden.</p>
-      <h2>Let's Choose Your Architecture Together</h2>
+      <p>It is, but it isn't cheap. You rewrite the interface code from scratch; the server side and the design remain. That is why taking the decision early comes markedly cheaper than taking it late. Bolting native pieces on and off afterwards creates the same burden.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="let-s-choose-your-architecture-together">Let's Choose Your Architecture Together</h2>
       <div class="yz-cevap"><p>The architecture decision isn't a purely technical preference. We talk through your product's hardware needs, its platform expectations and your team's competence together. What you are left with is not the name of a technology but the reasoning behind the choice. The difference between a native app and a single codebase only takes on meaning through that reasoning. The wrong architecture shows itself six months later.</p></div>
       <p>In the meeting we tick off three criteria one by one: depth of hardware, platform requirement and team. If all three point the same way, the decision is clear. If they diverge, we weigh up together which one carries the most weight. <a href="../../react-native-development/">The single codebase approach</a> is explained separately on the service page.</p><p>Putting the decision in writing is part of the job too. Note in a single sentence which criterion carried the most weight. Then, six months later, when the question “why did we choose a native app?” comes up, you won't have to go hunting for the answer. Native app or single codebase, a decision with its reasoning in writing is a defensible one.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/native-vs-cross-platform-body-960.webp"
              srcset="./image/native-vs-cross-platform-body-640.webp 640w, ./image/native-vs-cross-platform-body-960.webp 960w, ./image/native-vs-cross-platform-body-1440.webp 1440w, ./image/native-vs-cross-platform-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Two vertical surfaces side by side; the left one joined straight to the ground, the right one joined through a thin layer in between" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>On the right-hand route a layer sits in between; what changes isn't the speed but how long it takes to reach a new capability. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Native versus a single codebase: which wins on which criterion</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="native-versus-a-single-codebase-which-wins-on-which-criterion">Native versus a single codebase: which wins on which criterion</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Criterion</th><th>Native app</th><th>Single codebase</th></tr></thead>
@@ -516,7 +561,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../ios-android-app-development/">See the service page</a>
         </aside>
-        <p>The choice between a native app and a single codebase isn't a contest of superiority, it is a choice of mechanism. If the depth of hardware, the platform requirement and the team's competence all point the same way, the decision states itself.</p>
+        <p>The choice between a native app and a single codebase isn't a contest of superiority, it is a choice of mechanism. If the depth of hardware, the platform requirement and the team's competence all point the same way, the decision states itself.</p></section>
       </article>
     </div>
   </section>

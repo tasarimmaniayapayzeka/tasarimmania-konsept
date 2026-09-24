@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -468,45 +515,43 @@
 <!-- AYIRT EDİCİ EKSEN: GÖRÜNÜM — Yerleşim, görsel ağırlığı ve mobil kırılım gibi tasarım kararlarının arama görünürlüğüne etkisi; CWV metriklerinin tanımı/eşiği ve denetim tespiti YALNIZ teknik-seo'da — her metrik anışında oraya link verilir, metrik anlatımına girilmez. Backlink süresi off-page yazısında.
      Huni türü: TOFU · Küme: SEO Çekirdek · Kardeşler (enjeksiyon turunda): e-ticaret-seo, yerel-seo, teknik-seo -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">How Does SEO-Friendly Web Design Affect Search Visibility?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Web Design</span>
-        <span class="yz-meta">17 October 2026 · 7 min read</span>
+          <h1>How Does SEO-Friendly Web Design Affect Search Visibility?</h1>
+          <p class="ozet">Showing up in the search results isn't a question of text alone. The moment a visitor lands on a page they make a decision: stay, or go back. The design largely makes that decision for them. SEO-friendly web design is the approach that brings the structure a search engine understands together with the order a person understands. On SME projects we build those two sides at the same table. Through this piece we'll talk about layout, visual weight and mobile breakpoint decisions.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/seo-friendly-web-design-cover-1440.webp"
+           srcset="./image/seo-friendly-web-design-cover-640.webp 640w, ./image/seo-friendly-web-design-cover-960.webp 960w, ./image/seo-friendly-web-design-cover-1440.webp 1440w, ./image/seo-friendly-web-design-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="3D image of abstract glass panels moving into a hierarchical order on a dark background"
+           width="1920" height="1080" decoding="async"><figcaption>Design decisions set the order in which the content is seen. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Web Design</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>17 October 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>6 sections</b></div>
       </div>
-      <h1>How Does SEO-Friendly Web Design Affect Search Visibility?</h1>
-      <p class="ozet">Showing up in the search results isn't a question of text alone. The moment a visitor lands on a page they make a decision: stay, or go back. The design largely makes that decision for them. SEO-friendly web design is the approach that brings the structure a search engine understands together with the order a person understands. On SME projects we build those two sides at the same table. Through this piece we'll talk about layout, visual weight and mobile breakpoint decisions.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#which-design-decisions-touch-the-rankings"><span>01</span>Which Design Decisions Touch the Rankings?</a><a href="#what-does-page-layout-mean-in-search"><span>02</span>What Does Page Layout Mean in Search?</a><a href="#does-visual-weight-affect-rankings"><span>03</span>Does Visual Weight Affect Rankings?</a><a href="#what-do-we-watch-at-the-mobile-breakpoints"><span>04</span>What Do We Watch at the Mobile Breakpoints?</a><a href="#get-a-quote-for-seo-friendly-web-design"><span>05</span>Get a Quote for SEO-Friendly Web Design</a><a href="#what-design-decisions-mean-for-visibility-and-experience"><span>06</span>What Design Decisions Mean for Visibility and Experience</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/seo-friendly-web-design-cover-1440.webp"
-           srcset="./image/seo-friendly-web-design-cover-640.webp 640w, ./image/seo-friendly-web-design-cover-960.webp 960w, ./image/seo-friendly-web-design-cover-1440.webp 1440w, ./image/seo-friendly-web-design-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="3D image of abstract glass panels moving into a hierarchical order on a dark background"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Design decisions set the order in which the content is seen. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Which Design Decisions Touch the Rankings?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 06</span></div><h2 id="which-design-decisions-touch-the-rankings">Which Design Decisions Touch the Rankings?</h2>
       <div class="yz-cevap"><p>Design decisions affect search visibility indirectly, but powerfully. The search engine reads the content; the visitor reads the layout. When the two contradict each other, the ranking drops. The layout, the heading order and the use of white space set how much of the content actually gets seen. That's why we take the design and the content decisions in the same meeting.</p></div>
       <p>A page's value lies in the text for the search engine, and in the first glance for the visitor. SEO-friendly web design brings those two values together in one structure. The menu gets simpler, the headings fall into order, and the important content moves up. That's why we talk about the SEO side of the design at the first draft.</p><p>We handle measurement topics such as crawling and indexing separately; that side falls within the scope of our <a href="../../technical-seo/">technical SEO</a> work.</p><p>SEO-friendly web design starts from this fact: the visitor doesn't read the page, they scan it. Their eye stops on headings, buttons and bold phrases. When the design makes that scanning habit easier, the content gets the attention it deserves. Otherwise even well-written text goes to waste.</p>
       <h3>The story the design tells the search engine</h3>
       <p>A search engine doesn't feel the appearance of a page directly. It still draws a meaning from the heading order, the link structure and the order of the content. A tidy interface presents the subject with a clear hierarchy. A scattered one weakens the signal.</p>
       <h3>The link between user behaviour and design</h3>
-      <p>If a visitor can't find what they're after, they go back. That return is a behaviour showing the page didn't meet the question. A well-built layout carries the answer to the first screen. Time on page lengthens, and the page holds its place in the search results. Where the answer sits is as decisive as the answer itself.</p>
-      <h2>What Does Page Layout Mean in Search?</h2>
+      <p>If a visitor can't find what they're after, they go back. That return is a behaviour showing the page didn't meet the question. A well-built layout carries the answer to the first screen. Time on page lengthens, and the page holds its place in the search results. Where the answer sits is as decisive as the answer itself.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 06</span></div><h2 id="what-does-page-layout-mean-in-search">What Does Page Layout Mean in Search?</h2>
       <div class="yz-cevap"><p>Page layout is the order that sets in which sequence and with what weight the content is presented. On the search side, that order raises the clarity of the subject. On the visitor side, it shortens the decision time. A design that pushes an important heading down can make even strong text invisible. The layout drawing doesn't start before the content plan is ready.</p></div>
       <p>The mistake we see most often on corporate pages is every section being designed with equal weight. On a page like that, no message stands out. Yet SEO alignment in web design starts with making the priority visible. And we set the order of priority by the first question the client asks.</p><p>We pick a single main message. We put it on the first screen. <a href="../../corporate-website/">Corporate website</a> projects end that sequence just above the form; the visitor has the answer to their question before they reach the quote step.</p>
       <h3>Heading hierarchy and reading order</h3>
@@ -514,8 +559,8 @@
       <h4>What should be visible on the first screen?</h4>
       <p>The first screen is the area visible when the page opens, without scrolling. We put three things there: what we do, who it helps, and a link to act on. The rest goes below. That simplicity speeds up both reading and conversion.</p>
       <h3>Why is white space content?</h3>
-      <p>White space isn't decoration. The breathing room between two sections sets the reading order. On cramped pages the headings blur into each other and the reader doesn't know where to stop. We open the gaps between sections to a fixed measure, so every heading owns its own text.</p>
-      <h2>Does Visual Weight Affect Rankings?</h2>
+      <p>White space isn't decoration. The breathing room between two sections sets the reading order. On cramped pages the headings blur into each other and the reader doesn't know where to stop. We open the gaps between sections to a fixed measure, so every heading owns its own text.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 06</span></div><h2 id="does-visual-weight-affect-rankings">Does Visual Weight Affect Rankings?</h2>
       <div class="yz-cevap"><p>Yes, visual weight affects rankings. Enormous cover images push the text down. The visitor sees the message late and runs out of patience early. When we position an image as part of the story rather than as decoration, both readability and visibility gain. An image doesn't replace the text; it supports it. We make that distinction section by section.</p></div>
       <p>The number of businesses trading online in Türkiye went from over 600,000 to 634,000 in a year. That growth is set out by <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">the Ministry of Trade's data</a> . As competition grows, visual language alone isn't enough.</p><p>Every image should answer a question. Is it showing the product, explaining the process, or building trust? If there's no answer, we remove the image. In SEO-friendly web design decisions, white space does as much work as an image; when we take a box out, we make room for text. We place the images that remain at the right size, with page speed in mind.</p>
       <h3>Visual density and the balance with content</h3>
@@ -523,28 +568,28 @@
       <h3>Colour and contrast decisions</h3>
       <p>Light grey text on grey looks elegant and can't be read on a phone in daylight. The first of the SEO-friendly web design decisions is legibility; the colour palette doesn't drop below that limit. We keep the brand colours and leave the body text in a dark tone.</p>
       <h3>What do we put in place of an image?</h3>
-      <p>When a section is left without an image, we don't go looking for decoration. Most of the time a short three-item list or a clear subheading does the same job. Those are read, and they reach the search engine as text. We use a cover image only where it can explain the subject at a glance.</p>
-      <h2>What Do We Watch at the Mobile Breakpoints?</h2>
+      <p>When a section is left without an image, we don't go looking for decoration. Most of the time a short three-item list or a clear subheading does the same job. Those are read, and they reach the search engine as text. We use a cover image only where it can explain the subject at a glance.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 06</span></div><h2 id="what-do-we-watch-at-the-mobile-breakpoints">What Do We Watch at the Mobile Breakpoints?</h2>
       <div class="yz-cevap"><p>Our first rule at the mobile breakpoint is simple: content isn't lost, it's only rearranged. The breakpoint is the threshold at which the design is rearranged according to the width of the screen. A layout that looks fine on a desktop can become unreadable on a narrow screen. That's why we start the design from the phone screen. We settle the breakpoints before coding begins. That way surprise corrections disappear.</p></div>
       <p>Three things break on a narrow screen: the menu, the tables and the multi-column sections. Our checklist is short and numerical.</p><ol><li>Touch targets should be at least 44 pixels high.</li><li>Body text shouldn't drop below 16 pixels.</li><li>The main call-to-action button should be visible on the first scroll.</li><li>No section should produce horizontal scrolling.</li></ol><p>We follow the public data on how widespread mobile use is through <a href="https://www.btk.gov.tr/" target="_blank" rel="noopener">BTK's publications</a>  — BTK is Türkiye's information and communication technologies authority. That's why we draw the wireframe at the narrow screen width first and then open it out to the desktop. When the order is reversed, menus overflow and tables scroll sideways.</p><p>We handle the mobile equivalent of the interface decisions with the same logic in <a href="../../app-ui-ux-design/">our UI/UX work</a> . We put the breakpoint thresholds in writing at the start of the project.</p>
       <h3>Touch targets and thumb clearance</h3>
       <p>On a phone there is no clicking, there is tapping. When small links are lined up next to each other, the finger finds the wrong target. We enlarge the buttons and put space between them. The complaint about mis-taps doesn't come in after that adjustment.</p>
       <h3>The principle of content parity</h3>
       <p>The mobile version should carry the same information as the desktop. In a search-friendly design approach that equality isn't up for negotiation. Some agencies hide sections on a narrow screen; we don't hide them, we fold them. The visitor opens them if they want to and moves on if they don't. That way the story the page tells stays whole on every device.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>Get a Quote for SEO-Friendly Web Design</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 06</span></div><h2 id="get-a-quote-for-seo-friendly-web-design">Get a Quote for SEO-Friendly Web Design</h2>
       <div class="yz-cevap"><p>We start the quote process with a discovery meeting and put the layout wireframe to you for approval. The goal, the content inventory and the competitor pages come to the table on day one. Once approval comes through, the design and the coding move forward. We share the reasoning behind every decision in writing. That way the budget rests on a plan rather than a guess. If you have an existing site, we look at that too.</p></div>
       <p>The success of a design project is measured not on delivery day but in the third month. That's why we stay with you after launch as well. In the first months we follow visitor behaviour and suggest small corrections to the layout.</p><p>If you want to grow your site's search visibility, <a href="../../get-a-quote/">the quote form</a> is all you need to fill in. Our aim isn't a short-term jump but lasting organic visibility. We look at your existing pages and draw up a concrete route map under the layout, visual weight and mobile breakpoint headings.</p>
       <h3>How does the process work?</h3>
       <p>The work runs in four steps: discovery, wireframe, design, launch. In discovery we work out the target audience and the competitor pages. In the wireframe we draw the layout. In design we build the visual language. At launch we bring the measurement setup into play. We take your approval at the end of every step.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/seo-friendly-web-design-body-960.webp"
              srcset="./image/seo-friendly-web-design-body-640.webp 640w, ./image/seo-friendly-web-design-body-960.webp 960w, ./image/seo-friendly-web-design-body-1440.webp 1440w, ./image/seo-friendly-web-design-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Abstract 3D column image showing a desktop layout stacking vertically on a narrow screen" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>At the mobile breakpoint the content isn't lost; it's only reordered. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>What Design Decisions Mean for Visibility and Experience</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 06</span></div><h2 id="what-design-decisions-mean-for-visibility-and-experience">What Design Decisions Mean for Visibility and Experience</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Design decision</th><th>Effect on visibility</th><th>Effect on the user</th></tr></thead>
@@ -564,7 +609,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../technical-seo/">See the service page</a>
         </aside>
-        <p>Visibility doesn't come from a single intervention. When you build the layout, visual weight and mobile breakpoint decisions together, the site becomes both readable and findable. For companies doing big work with a small team, that order is a significant gain. We start measuring from the first month and share the findings with you in figures. When you're ready, let's set up the design table together.</p>
+        <p>Visibility doesn't come from a single intervention. When you build the layout, visual weight and mobile breakpoint decisions together, the site becomes both readable and findable. For companies doing big work with a small team, that order is a significant gain. We start measuring from the first month and share the findings with you in figures. When you're ready, let's set up the design table together.</p></section>
       </article>
     </div>
   </section>

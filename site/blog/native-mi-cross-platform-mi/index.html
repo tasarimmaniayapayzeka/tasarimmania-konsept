@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,72 +477,70 @@
 <!-- AYIRT EDİCİ EKSEN: MEKANİZMA — İki mimarinin NASIL çalıştığını anlatır. Maliyet yazı 1'in, karar soruları yazı 2'nin, takvim yazı 3'ün işidir. React Native ile Flutter KIYASI yazı 5'e aittir; burada çatı adları karşılaştırılmaz.
      Huni türü: MOFU · Küme: mobil · Kardeşler (enjeksiyon turunda): react-native-mi-flutter-mi, uygulama-magaza-optimizasyonu -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Native mi, Cross-Platform mı</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Mobil</span>
-        <span class="yz-meta">30 Eylül 2026 · 7 dakikalık okuma</span>
+          <h1>Native mi Cross-Platform mı? Uygulama Mimarisi Seçimi</h1>
+          <p class="ozet">Bu tartışma çoğu zaman marka savaşına dönüşür ve gerçek soru kaybolur. Oysa seçim bir moda tercihi değil, mekanizma tercihidir. İki yol arasındaki fark, ekranı kimin çizdiği ve donanıma kimin eriştiğinde saklıdır. Bu yazıda mekanizmayı açıyor, sonra hangi ürünün hangi yolu seçmesi gerektiğini anlatıyoruz. Çatı adlarını karşılaştırmıyoruz; o ayrı bir konu.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/native-mi-cross-platform-mi-kapak-1440.webp"
+           srcset="./gorsel/native-mi-cross-platform-mi-kapak-640.webp 640w, ./gorsel/native-mi-cross-platform-mi-kapak-960.webp 960w, ./gorsel/native-mi-cross-platform-mi-kapak-1440.webp 1440w, ./gorsel/native-mi-cross-platform-mi-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Tek bir ışık kaynağından çıkıp iki ayrı çerçeveye dağılan çizgiler; sağdaki iki çerçeve ayna görüntüsü gibi"
+           width="1920" height="1080" decoding="async"><figcaption>Tek kaynaktan iki platforma: farkı yaratan şey, aradaki katmanın ne yaptığıdır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Mobil</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>30 Eylül 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>7 başlık</b></div>
       </div>
-      <h1>Native mi Cross-Platform mı? Uygulama Mimarisi Seçimi</h1>
-      <p class="ozet">Bu tartışma çoğu zaman marka savaşına dönüşür ve gerçek soru kaybolur. Oysa seçim bir moda tercihi değil, mekanizma tercihidir. İki yol arasındaki fark, ekranı kimin çizdiği ve donanıma kimin eriştiğinde saklıdır. Bu yazıda mekanizmayı açıyor, sonra hangi ürünün hangi yolu seçmesi gerektiğini anlatıyoruz. Çatı adlarını karşılaştırmıyoruz; o ayrı bir konu.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#native-uygulama-ne-demek-cross-platform-dan-nasil-ayrilir"><span>01</span>Native Uygulama Ne Demek, Cross-Platform'dan Nasıl Ayrılır?</a><a href="#tek-kod-tabani-ekrani-nasil-ciziyor"><span>02</span>Tek Kod Tabanı Ekranı Nasıl Çiziyor?</a><a href="#donanima-erisim-hangi-noktada-ayrisir"><span>03</span>Donanıma Erişim Hangi Noktada Ayrışır?</a><a href="#performans-farki-nerede-gercekten-hissedilir"><span>04</span>Performans Farkı Nerede Gerçekten Hissedilir?</a><a href="#hangi-urun-hangi-yolu-secmeli"><span>05</span>Hangi Ürün Hangi Yolu Seçmeli?</a><a href="#mimarinizi-birlikte-secelim"><span>06</span>Mimarinizi Birlikte Seçelim</a><a href="#native-ile-tek-kod-tabani-hangi-olcutte-hangisi"><span>07</span>Native ile tek kod tabanı: hangi ölçütte hangisi</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/native-mi-cross-platform-mi-kapak-1440.webp"
-           srcset="./gorsel/native-mi-cross-platform-mi-kapak-640.webp 640w, ./gorsel/native-mi-cross-platform-mi-kapak-960.webp 960w, ./gorsel/native-mi-cross-platform-mi-kapak-1440.webp 1440w, ./gorsel/native-mi-cross-platform-mi-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Tek bir ışık kaynağından çıkıp iki ayrı çerçeveye dağılan çizgiler; sağdaki iki çerçeve ayna görüntüsü gibi"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Tek kaynaktan iki platforma: farkı yaratan şey, aradaki katmanın ne yaptığıdır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Native Uygulama Ne Demek, Cross-Platform'dan Nasıl Ayrılır?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 07</span></div><h2 id="native-uygulama-ne-demek-cross-platform-dan-nasil-ayrilir">Native Uygulama Ne Demek, Cross-Platform'dan Nasıl Ayrılır?</h2>
       <div class="yz-cevap"><p>Ayrım dilde değil, mekanizmada. Native uygulama platformun kendi diliyle ve kendi araçlarıyla çıkar; iOS'ta Swift, Android'de Kotlin iş görür. Cross-platform ise tek kaynaktan iki platforma çıkar. Ayrım dilde değil, ekranı kimin çizdiğinde ve donanıma kimin eriştiğindedir. Mekanizmayı anlayan ekip doğru yolu kolay seçer.</p></div>
       <p>Adlar kafa karıştırır, mekanizma karıştırmaz. Yerli kod yolunda uygulamanız işletim sisteminin bileşenlerini doğrudan kullanır. Tek kod tabanı yolunda ise araya bir katman girer ve o katman iki tarafa tercüme eder.</p><p>Bu katmanın varlığı tek başına iyi ya da kötü değildir. Ne kazandırdığı ve ne geciktirdiği, ürünün cinsine göre değişir.</p><p>İki yol üç noktada ayrışır. Aşağıdaki sıra, bu yazının da omurgasını kurar.</p><ol><li><strong>Ekranı kim çiziyor</strong> — platformun kendi öğesi mi, çatının fırçası mı.</li><li><strong>Donanıma kim erişiyor</strong> — doğrudan mı, ara katman üzerinden mi.</li><li><strong>Performans nerede ayrışıyor</strong> — günlük akışta mı, ağır grafikte mi.</li></ol><p>Üçünü birlikte tarttığınızda karar kendini gösterir. Native uygulama tartışması, bu üç soruyu atlayıp marka adı yarıştırınca çıkmaza girer.</p>
       <h3>Aynı Uygulama İki Kez mi Yazılıyor?</h3>
-      <p>Yerli kod yolunda evet, iki ayrı proje yürür. Ekran tasarımı ve sunucu tarafı ortaktır ama arayüz kodunu iki kez yazarsınız. Tek kod tabanında ortak işi bir kez yazarız; yalnız platforma özgü parçaları ayrı tutarız. Uygulama tarafında native kod yine de gerekebilir, ama kapsamı dardır.</p>
-      <h2>Tek Kod Tabanı Ekranı Nasıl Çiziyor?</h2>
+      <p>Yerli kod yolunda evet, iki ayrı proje yürür. Ekran tasarımı ve sunucu tarafı ortaktır ama arayüz kodunu iki kez yazarsınız. Tek kod tabanında ortak işi bir kez yazarız; yalnız platforma özgü parçaları ayrı tutarız. Uygulama tarafında native kod yine de gerekebilir, ama kapsamı dardır.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 07</span></div><h2 id="tek-kod-tabani-ekrani-nasil-ciziyor">Tek Kod Tabanı Ekranı Nasıl Çiziyor?</h2>
       <div class="yz-cevap"><p>İki yaklaşım var. Kimi çatılar platformun kendi bileşenine köprü kurar, kimi de her pikseli kendi çizer. Köprü kuran yol yerli görünüm verir. Kendi çizen yol iki platformda birebir aynı sonucu üretir. Bu tercih, uygulamanın hangi cihazda tanıdık hissettireceğini doğrudan belirler. Native uygulama tarafında böyle bir tercih yoktur; bileşen zaten yerlidir.</p></div>
       <p>Köprü kuran yaklaşımda düğmeye bastığınızda gerçek bir sistem düğmesi tepki verir. Kullanıcı cihazını tanıdık bulur, ama iki platform birbirinin aynı görünmez. Kendi çizen yaklaşımda ise arayüz öğeleri çatının kendi fırçasıyla çizilir; her yerde aynı görünür, hiçbir yerde tam yerli hissettirmez.</p><p>Marka deneyimi tek tip olsun istiyorsanız ikinci yol işinize gelir. Cihaz alışkanlığına yaslanmak istiyorsanız birincisi daha iyi oturur.</p><p>Bu tercihin bakım tarafında da bir bedeli var. Platform arayüzünü yenilediğinde köprü kuran çatı yeniliği kendiliğinden alır. Kendi çizen çatıda ise güncel görünümü siz kovalarsınız. Uygulamanın native bileşenlere ne kadar yaslandığı, bu kovalamacanın uzunluğunu belirler. Platform beklentileri belgelidir; <a href="https://developer.apple.com/design/human-interface-guidelines/" target="_blank" rel="noopener">Apple’ın arayüz kılavuzu</a> ile Material Design farklı davranış tarif eder.</p>
       <h3>Kullanıcı Bu Farkı Görür mü?</h3>
-      <p>Çoğu kullanıcı adını koyamaz ama farkı sezer. Kaydırma sönümlemesi, klavye davranışı ve geri hareketi cihazdan cihaza değişir. Bunlar küçük ayrıntılardır; üst üste bindiklerinde ürünü yabancı hissettirirler.</p>
-      <h2>Donanıma Erişim Hangi Noktada Ayrışır?</h2>
+      <p>Çoğu kullanıcı adını koyamaz ama farkı sezer. Kaydırma sönümlemesi, klavye davranışı ve geri hareketi cihazdan cihaza değişir. Bunlar küçük ayrıntılardır; üst üste bindiklerinde ürünü yabancı hissettirirler.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 07</span></div><h2 id="donanima-erisim-hangi-noktada-ayrisir">Donanıma Erişim Hangi Noktada Ayrışır?</h2>
       <div class="yz-cevap"><p>Kamera, sensör ve arka plan konumu gibi yetenekler her iki yolda da çalışır. Fark hızda değil, yeni bir yetenek çıktığında ortaya çıkar. Platform yeni bir özellik duyurduğunda native uygulama onu ilk gün kullanır. Cross-platform tarafta ise köprünün güncellenmesini beklersiniz. Bekleme süresi genelde haftalarla ölçülür.</p></div>
       <p>Yaygın yetenekler için hazır ara katmanlar mevcuttur ve iyi çalışır. Sorun, yaygın olmayanda çıkar: yeni bir sensör, yeni bir ödeme yöntemi, yeni bir güvenlik akışı. O noktada ya köprüyü siz yazarsınız ya da beklersiniz.</p><p>Ürününüz donanımın ucuna oturuyorsa bu bekleme kabul edilebilir olmayabilir. Donanım ihtiyaçlarını <a href="../../ios-android-uygulama/">iOS ve Android tarafında</a> ayrı ayrı ele alıyoruz.</p>
       <h3>Köprüyü Kendimiz Yazabilir miyiz?</h3>
-      <p>Yazabilirsiniz ve bazen doğru olan budur. Ancak o köprü artık sizin bakım yükünüzdür. Tek kod tabanının sadeliği, kendi yazdığınız her köprüyle biraz daha azalır.</p>
-      <h2>Performans Farkı Nerede Gerçekten Hissedilir?</h2>
+      <p>Yazabilirsiniz ve bazen doğru olan budur. Ancak o köprü artık sizin bakım yükünüzdür. Tek kod tabanının sadeliği, kendi yazdığınız her köprüyle biraz daha azalır.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 07</span></div><h2 id="performans-farki-nerede-gercekten-hissedilir">Performans Farkı Nerede Gerçekten Hissedilir?</h2>
       <div class="yz-cevap"><p>Günlük listelerde ve formlarda fark görünmez. Ayrışma ağır grafik, sürekli animasyon ve yoğun veri işlemede başlar. Oyun, harita üstü canlı çizim ve video düzenleme bu gruba girer. Sıradan bir katalog ya da sipariş akışı için native uygulama şart değildir. Ölçüt hız değil, işin cinsidir.</p></div>
       <p>Performans tartışması genelde soyut kalır, çünkü kimse hangi işten söz ettiğini söylemez. Ürününüzü şu soruyla sınayın: ekranda saniyede kaç kez yeni bir kare çizilmesi gerekiyor? Yanıt “nadiren” ise mimari seçimi performans üzerinden yapılamaz.</p><p>Uygulamanın açılış süresi ve kurulum boyutu da tabloya girer. İkisi de kullanıcı kaybının sessiz nedenleridir; bütçeye etkisini <a href="../mobil-uygulama-gelistirme-maliyeti/">uygulama maliyeti</a> yazısında ayrıca ele aldık.</p>
-      <blockquote class="yz-alinti"><p>&#8220;Soru hangi teknolojinin daha iyi olduğu değil. Ürününüz donanımın ucuna mı oturuyor, yoksa ekranın üstünde mi kalıyor?&#8221;</p><cite>— TasarımMania mimari görüşmesi notu</cite></blockquote>
-      <h2>Hangi Ürün Hangi Yolu Seçmeli?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;Soru hangi teknolojinin daha iyi olduğu değil. Ürününüz donanımın ucuna mı oturuyor, yoksa ekranın üstünde mi kalıyor?&#8221;</p><cite>— TasarımMania mimari görüşmesi notu</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 07</span></div><h2 id="hangi-urun-hangi-yolu-secmeli">Hangi Ürün Hangi Yolu Seçmeli?</h2>
       <div class="yz-cevap"><p>Üç soru yeter. Ürün donanıma ne kadar yaklaşıyor, iki platform aynı anda mı gerekiyor, ekip hangi dile hâkim? Donanım derinse ve tek platform yeterse native uygulama kazanır. İki mağaza şartsa ve donanım sıradan kalıyorsa tek kod tabanı öne geçer. Karar ürünün cinsine bağlıdır, modaya değil.</p></div>
       <p>Ekip yetkinliğini çoğu liste atlar, oysa en somut ölçüt odur. Elinizde deneyimli bir yerli kod ekibi varsa tek kod tabanına geçmek hız kazandırmaz. Tersi de doğrudur.</p><p>Kararı hangi soruların netleştirdiğini <a href="../mobil-uygulama-yaptirma-sorulari/">uygulama yaptırma soruları</a> yazısında sıralamıştık. Seçim netleştikten sonra takvim de netleşir; aşamaları <a href="../mobil-uygulama-gelistirme-sureci/">geliştirme süreci</a> yazısında anlattık.</p>
       <h3>Sonradan Yol Değiştirmek Mümkün mü?</h3>
-      <p>Mümkün ama ucuz değil. Arayüz kodunu baştan yazarsınız; sunucu tarafı ve tasarım kalır. Bu yüzden kararı erken vermek, geç vermekten belirgin biçimde ucuza gelir. Uygulamanın native parçalarını sonradan söküp takmak da aynı yükü doğurur.</p>
-      <h2>Mimarinizi Birlikte Seçelim</h2>
+      <p>Mümkün ama ucuz değil. Arayüz kodunu baştan yazarsınız; sunucu tarafı ve tasarım kalır. Bu yüzden kararı erken vermek, geç vermekten belirgin biçimde ucuza gelir. Uygulamanın native parçalarını sonradan söküp takmak da aynı yükü doğurur.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 07</span></div><h2 id="mimarinizi-birlikte-secelim">Mimarinizi Birlikte Seçelim</h2>
       <div class="yz-cevap"><p>Mimari kararı tek başına teknik bir tercih değildir. Ürününüzün donanım ihtiyacını, platform beklentisini ve ekibinizin yetkinliğini birlikte konuşuyoruz. Elinizde bir teknoloji adı değil, seçimin gerekçesi kalıyor. Native uygulama ile tek kod tabanı arasındaki fark o gerekçeyle anlam kazanır. Yanlış mimari, altı ay sonra kendini gösterir.</p></div>
       <p>Görüşmede üç ölçütü tek tek işaretleriz: donanım derinliği, platform şartı ve ekip. Üçü aynı yönü gösteriyorsa karar nettir. Ayrışıyorlarsa hangisinin ağır bastığını birlikte tartarız. <a href="../../react-native/">Tek kod tabanı yaklaşımını</a> hizmet sayfasında ayrıca anlattık.</p><p>Kararı yazıya dökmek de işin parçası. Hangi ölçütün ağır bastığını bir cümleyle not edin. Altı ay sonra “neden native uygulama seçmiştik” sorusu geldiğinde yanıtı aramak zorunda kalmazsınız. Native uygulama ya da tek kod tabanı, gerekçesi yazılı olduğunda savunulabilir bir karardır.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/native-mi-cross-platform-mi-govde-960.webp"
              srcset="./gorsel/native-mi-cross-platform-mi-govde-640.webp 640w, ./gorsel/native-mi-cross-platform-mi-govde-960.webp 960w, ./gorsel/native-mi-cross-platform-mi-govde-1440.webp 1440w, ./gorsel/native-mi-cross-platform-mi-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Yan yana iki dikey yüzey; soldaki doğrudan zemine bağlı, sağdaki araya giren ince bir katmanla bağlı" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Sağdaki yolda araya bir katman girer; hız değil, yeni yeteneğe erişim süresi değişir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Native ile tek kod tabanı: hangi ölçütte hangisi</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 07</b><span>07 / 07</span></div><h2 id="native-ile-tek-kod-tabani-hangi-olcutte-hangisi">Native ile tek kod tabanı: hangi ölçütte hangisi</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Ölçüt</th><th>Native uygulama</th><th>Tek kod tabanı</th></tr></thead>
@@ -516,7 +561,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../ios-android-uygulama/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Native uygulama ile tek kod tabanı arasındaki seçim bir üstünlük yarışı değil, mekanizma tercihidir. Donanım derinliği, platform şartı ve ekip yetkinliği aynı yönü gösteriyorsa karar zaten kendini söyler.</p>
+        <p>Native uygulama ile tek kod tabanı arasındaki seçim bir üstünlük yarışı değil, mekanizma tercihidir. Donanım derinliği, platform şartı ve ekip yetkinliği aynı yönü gösteriyorsa karar zaten kendini söyler.</p></section>
       </article>
     </div>
   </section>

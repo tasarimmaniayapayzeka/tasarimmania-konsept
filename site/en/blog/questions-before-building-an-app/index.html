@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,74 +477,72 @@
 <!-- AYIRT EDİCİ EKSEN: KARAR — Yaptırma kararının kendisini sorgular. Maliyet kalemleri yazı 1'in, süreç aşamaları yazı 3'ün, mimari seçimi yazı 4'ün işidir. Burada FİYAT ve AŞAMA anlatılmaz.
      Huni türü: TOFU · Küme: mobil · Kardeşler (enjeksiyon turunda): mobil-uygulama-gelistirme-sureci, native-mi-cross-platform-mi, react-native-mi-flutter-mi -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Commissioning Questions</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Mobile</span>
-        <span class="yz-meta">26 September 2026 · 7 min read</span>
+          <h1>Which Questions Do You Ask Before Commissioning a Mobile App?</h1>
+          <p class="ozet">Most projects begin with the wrong question: what will it cost? Yet the price isn't settled until the scope is. The right order is to answer the questions that describe the product first. In this article we open up, in sequence, the questions you need to put on the table before ordering a piece of mobile software. The questions are short; their answers set the direction of your project.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/questions-before-building-an-app-cover-1440.webp"
+           srcset="./image/questions-before-building-an-app-cover-640.webp 640w, ./image/questions-before-building-an-app-cover-960.webp 960w, ./image/questions-before-building-an-app-cover-1440.webp 1440w, ./image/questions-before-building-an-app-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="A lit fork in the road on a dark ground; one branch woven with sparse nodes, the other with dense ones"
+           width="1920" height="1080" decoding="async"><figcaption>The decision point comes before any screen is drawn; everything after is a continuation of that fork. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Mobile</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>26 September 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>Which Questions Do You Ask Before Commissioning a Mobile App?</h1>
-      <p class="ozet">Most projects begin with the wrong question: what will it cost? Yet the price isn't settled until the scope is. The right order is to answer the questions that describe the product first. In this article we open up, in sequence, the questions you need to put on the table before ordering a piece of mobile software. The questions are short; their answers set the direction of your project.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#which-question-comes-before-the-decision-to-commission-an-app"><span>01</span>Which Question Comes Before the Decision to Commission an App?</a><a href="#how-often-will-your-user-open-the-app"><span>02</span>How Often Will Your User Open the App?</a><a href="#does-this-job-call-for-an-app-or-a-mobile-site"><span>03</span>Does This Job Call for an App or a Mobile Site?</a><a href="#where-will-the-data-sit-and-who-will-own-the-code"><span>04</span>Where Will the Data Sit, and Who Will Own the Code?</a><a href="#which-five-questions-should-you-ask-the-agency"><span>05</span>Which Five Questions Should You Ask the Agency?</a><a href="#let-s-answer-your-questions-together"><span>06</span>Let's Answer Your Questions Together</a><a href="#app-or-mobile-site-the-four-criteria"><span>07</span>App or mobile site? The four criteria</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/questions-before-building-an-app-cover-1440.webp"
-           srcset="./image/questions-before-building-an-app-cover-640.webp 640w, ./image/questions-before-building-an-app-cover-960.webp 960w, ./image/questions-before-building-an-app-cover-1440.webp 1440w, ./image/questions-before-building-an-app-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="A lit fork in the road on a dark ground; one branch woven with sparse nodes, the other with dense ones"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>The decision point comes before any screen is drawn; everything after is a continuation of that fork. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Which Question Comes Before the Decision to Commission an App?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="which-question-comes-before-the-decision-to-commission-an-app">Which Question Comes Before the Decision to Commission an App?</h2>
       <div class="yz-cevap"><p>One question comes before everything else: which problem are you solving? If the answer won't fit into a single sentence, neither will the scope. The screen list, the technology and the budget all come after that sentence. The most expensive mistake in commissioning an app is starting to draw screens before defining the problem. Those screens end up in the bin.</p></div>
       <p>Most meetings open with a list of screens. But a list is a solution, and nobody says which problem the solution belongs to. We don't talk about screens in the first session. We ask this: how does this work run today, and where does it get stuck?</p><p>Once the answer becomes concrete, the scope narrows of its own accord. If the problem your app solves fits into a single sentence, the brief fits onto a single page.</p><p>Who answers that question matters too. When the decision is taken by the person who does the work in the field, the product comes out closer to reality. Apps described only around the management table tend to fill up with screens nobody opens. Invite at least one user to the first session.</p>
       <h3>The Practical Way to Get the Problem Down to One Sentence</h3>
-      <p>Fit the sentence into this template: <em>“[who], [in what situation], cannot do [what].”</em> If the template won't fill, the problem isn't defined yet. Teams that come to a commissioning meeting with that sentence end up with a markedly narrower scope than those who don't.</p>
-      <h2>How Often Will Your User Open the App?</h2>
+      <p>Fit the sentence into this template: <em>“[who], [in what situation], cannot do [what].”</em> If the template won't fill, the problem isn't defined yet. Teams that come to a commissioning meeting with that sentence end up with a markedly narrower scope than those who don't.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="how-often-will-your-user-open-the-app">How Often Will Your User Open the App?</h2>
       <div class="yz-cevap"><p>Frequency is the sharpest measure of whether an app is needed at all. A product that gets opened several times a week deserves one. For a transaction carried out three times a year, a mobile-friendly page will do. Take the decision to commission an app on that behavioural data, not on feeling. If you don't have the data, gather it first.</p></div>
       <p>The interval between uses determines whether the product stays on the home screen. Nobody makes room for an icon they will open twice a year. How often your existing site is visited is a good indicator here; the repeat rate there gives you the real answer.</p><p>Without measurement you guess, and guessing gets expensive. Even a simple month of logging firms the decision up. We took up the relationship between user behaviour and interface decisions separately in the <a href="../ecommerce-ux/">user experience</a> article.</p><p>When you measure frequency, don't look at a single number. How long it takes the same user to come back tells you more than total visits. A product a hundred people visited once and one ten people visited ten times each look the same in the table, yet as a case for commissioning an app they are diametrically opposed.</p>
       <h3>Does a Low Frequency Kill the App Idea?</h3>
-      <p>No, but it changes the order. Build the mobile-friendly flow first, then watch the data. If the frequency rises, your case for commissioning an app is no longer a guess but a measurement.</p>
-      <h2>Does This Job Call for an App or a Mobile Site?</h2>
+      <p>No, but it changes the order. Build the mobile-friendly flow first, then watch the data. If the frequency rises, your case for commissioning an app is no longer a guess but a measurement.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="does-this-job-call-for-an-app-or-a-mobile-site">Does This Job Call for an App or a Mobile Site?</h2>
       <div class="yz-cevap"><p>Four criteria settle the decision: frequency of use, the need for notifications, offline working and hardware access. If even one of them is essential, an app starts to make sense. If none of them applies, a mobile-friendly site does the same job for less. Test the wish to commission an app against those four criteria, not against fashion.</p></div>
       <p>The browser has come a long way in recent years. Camera, location and offline caching now work on the web side too. But sending an instant alert, tracking location in the background and appearing on the store shelf are still an app's work.</p><p>Making that distinction early protects the budget. We opened up which items move the cost, item by item, in the <a href="../mobile-app-development-cost/">app cost</a> article. And we set out the stages and the schedule in the <a href="../mobile-app-development-process/">development process</a> article.</p><p>Test the four criteria one by one, not as a block. Most teams stop at the sentence “let's send notifications” and ask nothing further. Yet if an email or a text message does the same job, the need for notifications alone is not a case for commissioning an app.</p>
       <h3>When Does the Single Codebase Question Come Up?</h3>
-      <p>After the decision to build an app is settled. The choice of architecture is a separate discussion; we explained <a href="../../react-native-development/">the single codebase approach</a> on the service page. We opened up the difference in mechanism in the <a href="../native-vs-cross-platform/">native or cross-platform</a> article. Don't disturb the order of decisions: the rationale first, the technology second.</p>
-      <h2>Where Will the Data Sit, and Who Will Own the Code?</h2>
+      <p>After the decision to build an app is settled. The choice of architecture is a separate discussion; we explained <a href="../../react-native-development/">the single codebase approach</a> on the service page. We opened up the difference in mechanism in the <a href="../native-vs-cross-platform/">native or cross-platform</a> article. Don't disturb the order of decisions: the rationale first, the technology second.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="where-will-the-data-sit-and-who-will-own-the-code">Where Will the Data Sit, and Who Will Own the Code?</h2>
       <div class="yz-cevap"><p>Look for two lines in the contract: ownership of the source code, and where the data will be held. Without those two lines, the product isn't yours. The store accounts should be opened in your own name too, not the agency's. Not asking about these in a commissioning meeting is the most expensive silence there is. Put the handover term in writing from the start.</p></div>
       <p>This heading looks legal rather than technical, yet both lead to the same door. Whoever holds the software holds the product's future. When you want to change agency, these lines are what save you.</p><p>Set three things up in your own name: the store developer accounts, the domain and the cloud account. Let the development team join those as guests, not as owners.</p><p>Where the data sits is a separate question. If you process personal data, the server's country, the retention period and the deletion procedure should all be written into the contract. Adding those lines later, on a product already live, is both expensive and slow. If the app collects personal data, the <a href="https://www.kvkk.gov.tr/" target="_blank" rel="noopener">data controller obligations under KVKK</a> — KVKK is Türkiye's personal data protection law — should be written into the contract from the outset.</p>
       <h3>How Is the Handover Made Painless?</h3>
       <p>Let repository access, environment variables and the setup document be shared from day one. The decision to commission ties down not the app's last day but its first; the handover is discussed when it begins, not when it ends.</p>
-      <blockquote class="yz-alinti"><p>&#8220;A list of screens is a solution. Order it without writing down which problem it belongs to and you buy the solution while leaving the problem at home.&#8221;</p><cite>— TasarımMania scoping meeting note</cite></blockquote>
-      <h2>Which Five Questions Should You Ask the Agency?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;A list of screens is a solution. Order it without writing down which problem it belongs to and you buy the solution while leaving the problem at home.&#8221;</p><cite>— TasarımMania scoping meeting note</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="which-five-questions-should-you-ask-the-agency">Which Five Questions Should You Ask the Agency?</h2>
       <div class="yz-cevap"><p>Five questions reveal an agency's real capacity. Have you released a similar product in the stores? Who draws the error states? How do maintenance and code handover work? Ask for the answers in writing. A commissioning meeting isn't an exam, it's a rehearsal for working together. If your questions don't get clear answers, the problem isn't at your end.</p></div>
       <p>What a team can do is shown less by its portfolio than by the answers it gives to your questions. Ask the five below in order and take notes on the answers.</p><ol><li><strong>Release experience</strong> — in which stores have you released a similar product?</li><li><strong>Error states</strong> — who draws the empty list, the broken connection and the timeout?</li><li><strong>Maintenance</strong> — how does the process work when a new operating system version comes out?</li><li><strong>Handover</strong> — how do the source code and the accounts pass to us?</li><li><strong>Communication</strong> — who reports weekly progress, and in what form?</li></ol><p>If the answers stay verbal they get forgotten. Ask for them in writing; let them go into the annex of the quote.</p>
       <h3>Why Isn't the Portfolio Enough on Its Own?</h3>
-      <p>The work in the window appears finished; how it got finished doesn't. Whether an app released two years ago is still standing today tells you more. Look it up in the store and check the date of the last update. Glance at the reviews too: whether the faults users reported were answered tells you more honestly about a team's maintenance habits than any portfolio.</p>
-      <h2>Let's Answer Your Questions Together</h2>
+      <p>The work in the window appears finished; how it got finished doesn't. Whether an app released two years ago is still standing today tells you more. Look it up in the store and check the date of the last update. Glance at the reviews too: whether the faults users reported were answered tells you more honestly about a team's maintenance habits than any portfolio.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="let-s-answer-your-questions-together">Let's Answer Your Questions Together</h2>
       <div class="yz-cevap"><p>You don't have to answer most of these questions on your own. In the meeting we talk through the problem, the user and the frequency of use together. What you are left with is not a list of screens but the rationale for a decision. Take the decision to commission an app on that rationale and you won't have to turn back later. The first three months spent on the wrong product never come back, whatever the budget.</p></div>
       <p>You leave the scoping session with a single page in hand: the problem, the user, the frequency, the four criteria and the handover terms. <a href="../../mobile-app-development/">Our mobile app service</a> page is always open if you'd like to look through it. Putting the rationale for your app in writing before you commission it makes every decision that follows easier.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/questions-before-building-an-app-body-960.webp"
              srcset="./image/questions-before-building-an-app-body-640.webp 640w, ./image/questions-before-building-an-app-body-960.webp 960w, ./image/questions-before-building-an-app-body-1440.webp 1440w, ./image/questions-before-building-an-app-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Concentric rings of light, each narrower than the last, with the innermost the brightest point" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Each question narrows the scope a little further; the innermost ring is the real work itself. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>App or mobile site? The four criteria</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="app-or-mobile-site-the-four-criteria">App or mobile site? The four criteria</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Criterion</th><th>An app is needed</th><th>A mobile site will do</th></tr></thead>
@@ -518,7 +563,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../mobile-app-development/">See the service page</a>
         </aside>
-        <p>The decision to commission an app begins with a question, not with technology. Once you put the problem, the user, the frequency and the handover terms in writing, every remaining decision gets easier on its own.</p>
+        <p>The decision to commission an app begins with a question, not with technology. Once you put the problem, the user, the frequency and the handover terms in writing, every remaining decision gets easier on its own.</p></section>
       </article>
     </div>
   </section>

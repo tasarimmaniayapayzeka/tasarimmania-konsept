@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -464,79 +511,77 @@
 <!-- AYIRT EDİCİ EKSEN: MEKANİZMA — Başlık-açıklama-CTA formülünün işleyişi ve yazım adımları (mecra-bağımsız); bütçe/maliyet ekseni google-ads-ve-ppc yazısına ayrılmıştır.
      Huni türü: BOFU · Küme: Dijital Pazarlama Performansı · Kardeşler (enjeksiyon turunda): sosyal-medya-stratejileri, sosyal-medya-reklam-yonetimi, influencer-pazarlama -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Google Ads Reklam Metni Nasıl Yazılır? 9 Adımlık Formül</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Dijital Pazarlama</span>
-        <span class="yz-meta">21 Ekim 2026 · 7 dakikalık okuma</span>
+          <h1>Google Ads Reklam Metni Nasıl Yazılır? 9 Adımlık Formül</h1>
+          <p class="ozet"><p>Arama sonuçlarında sizi bir metin temsil eder. Üç satır, birkaç saniye ve tek karar. Türkiye'de dijital vitrin kuran işletme sayısı her yıl büyüyor; arama ağı açık artırmasındaki rakip sayısı hakkında ise kamuya açık veri yok. Bu kalabalıkta Google Ads reklam metni, teklifinizin görünen tek yüzüdür. Ajans olarak her kampanyada aynı iskeleti kuruyor ve sonucu panelde ölçüyoruz. Yöntem karmaşık değil; uygulaması disiplin ister. O iskeleti bu yazıda adım adım açıyoruz.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/reklam-metni-yazma-kapak-1440.webp"
+           srcset="./gorsel/reklam-metni-yazma-kapak-640.webp 640w, ./gorsel/reklam-metni-yazma-kapak-960.webp 960w, ./gorsel/reklam-metni-yazma-kapak-1440.webp 1440w, ./gorsel/reklam-metni-yazma-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Reklam metninin başlık, açıklama ve görünen yol bileşenlerini temsil eden soyut cam paneller"
+           width="1920" height="1080" decoding="async"><figcaption>Başlık, açıklama ve görünen yol tek bir vaadi birlikte kurar. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Dijital Pazarlama</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>21 Ekim 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>6 başlık</b></div>
       </div>
-      <h1>Google Ads Reklam Metni Nasıl Yazılır? 9 Adımlık Formül</h1>
-      <p class="ozet"><p>Arama sonuçlarında sizi bir metin temsil eder. Üç satır, birkaç saniye ve tek karar. Türkiye'de dijital vitrin kuran işletme sayısı her yıl büyüyor; arama ağı açık artırmasındaki rakip sayısı hakkında ise kamuya açık veri yok. Bu kalabalıkta Google Ads reklam metni, teklifinizin görünen tek yüzüdür. Ajans olarak her kampanyada aynı iskeleti kuruyor ve sonucu panelde ölçüyoruz. Yöntem karmaşık değil; uygulaması disiplin ister. O iskeleti bu yazıda adım adım açıyoruz.</p></p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#google-ads-reklam-metni-hangi-parcalardan-olusur"><span>01</span>Google Ads reklam metni hangi parçalardan oluşur?</a><a href="#basliklari-hangi-sirayla-yazmaliyiz"><span>02</span>Başlıkları hangi sırayla yazmalıyız?</a><a href="#aciklama-satiri-ve-cagri-cumlesi-nasil-kurulur"><span>03</span>Açıklama satırı ve çağrı cümlesi nasıl kurulur?</a><a href="#yazdigimiz-metnin-ise-yaradigini-nasil-anlariz"><span>04</span>Yazdığımız metnin işe yaradığını nasıl anlarız?</a><a href="#yayin-oncesi-hangi-9-adimi-uygulamaliyiz"><span>05</span>Yayın öncesi hangi 9 adımı uygulamalıyız?</a><a href="#zayif-metin-ile-guclu-metin-bilesen-karsilastirmasi"><span>06</span>Zayıf Metin ile Güçlü Metin: Bileşen Karşılaştırması</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/reklam-metni-yazma-kapak-1440.webp"
-           srcset="./gorsel/reklam-metni-yazma-kapak-640.webp 640w, ./gorsel/reklam-metni-yazma-kapak-960.webp 960w, ./gorsel/reklam-metni-yazma-kapak-1440.webp 1440w, ./gorsel/reklam-metni-yazma-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Reklam metninin başlık, açıklama ve görünen yol bileşenlerini temsil eden soyut cam paneller"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Başlık, açıklama ve görünen yol tek bir vaadi birlikte kurar. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Google Ads reklam metni hangi parçalardan oluşur?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 06</span></div><h2 id="google-ads-reklam-metni-hangi-parcalardan-olusur">Google Ads reklam metni hangi parçalardan oluşur?</h2>
       <div class="yz-cevap"><p>Bir arama reklamı üç parçadan oluşur: başlık, açıklama ve görünen yol. Google'ın şartnamesinde başlıklar 30, açıklamalar 90 karakterle sınırlıdır. Sistem bu parçaları sorguya göre birleştirir. Siz cümle değil, birbiriyle uyumlu yapı taşları yazarsınız. Kullanıcı tek bir bütün görür; üreten taraf parçaları ayrı ayrı hazırlar.</p></div>
       <p>Google'ın duyarlı arama reklamı şartnamesine göre 15 başlık ve 4 açıklama alanı vardır. Google bu havuzdan sorguya en uygun eşleşmeyi kurar. Her manşet kendi başına anlamlı olmalıdır. Havuzu birbirinin kopyası ifadelerle doldurmak, sistemin seçim alanını daraltır.</p><p>Dijital kanala geçen işletme sayısı büyüyor: <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">Ticaret Bakanlığı ETBİS raporuna</a> göre e-ticaret yapan işletme sayısı 2024'te 600 bin 800 iken 2025'te 634 bin 611'e çıktı. Bu büyümenin açık artırmaya yansımasını ölçen kamuya açık veri yok; sonuç sayfasındaki ilk ayrım noktası metindir. Güçlü bir Google Ads reklam metni, birbirinin yerine geçebilen parçalarla kurulur. <a href="../../google-ads/">Google Ads yönetimi</a> çalışmalarımızda ilk denetlediğimiz alan bu havuzdur.</p>
       <h3>Başlık, açıklama ve görünen yol ne işe yarar?</h3>
       <p>Başlık dikkati durdurur ve sorguyla eşleşmeyi kanıtlar. Açıklama, teklifin içeriğini ve şartlarını netleştirir. Görünen yol ise kullanıcının hangi sayfaya gideceğini önceden söyler. Üçü birlikte tek bir vaat oluşturur. Biri eksik kaldığında tıklama niyeti kırılır.</p>
       <h3>Reklam metni Google Ads tarafında neden cümle sayılmaz?</h3>
-      <p>Metin havuzu, sabit bir paragraf gibi çalışmaz. Sistem başlıkları farklı sıralarla eşler; kimi gösterimde ikisini, kimi gösterimde üçünü ekrana taşır. Her parça bağlamsız okunduğunda da anlam taşımalıdır. Birbirine bağımlı cümleler kurarsanız kombinasyon bozulur. Bu mantıkla havuzu parça parça yazarsınız.</p>
-      <h2>Başlıkları hangi sırayla yazmalıyız?</h2>
+      <p>Metin havuzu, sabit bir paragraf gibi çalışmaz. Sistem başlıkları farklı sıralarla eşler; kimi gösterimde ikisini, kimi gösterimde üçünü ekrana taşır. Her parça bağlamsız okunduğunda da anlam taşımalıdır. Birbirine bağımlı cümleler kurarsanız kombinasyon bozulur. Bu mantıkla havuzu parça parça yazarsınız.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 06</span></div><h2 id="basliklari-hangi-sirayla-yazmaliyiz">Başlıkları hangi sırayla yazmalıyız?</h2>
       <div class="yz-cevap"><p>Önce eşleşmeyi, sonra faydayı, en sonda ayrımı yazın. İlk başlık kullanıcının sorgusunu birebir yansıtır. İkincisi somut faydayı verir. Üçüncüsü sizi rakipten ayıran kanıtı taşır. Sıralama, kullanıcının okuma davranışıyla birebir örtüşür. Bu düzende kurulan Google Ads reklam metni, kullanıcının sorularını tıklamadan önce yanıtlar.</p></div>
       <p>Eşleşme başlığı, kullanıcının yazdığı ifadeyi neredeyse aynen içerir. Bu tekrar, sayfanın doğru yerde durduğunu saniyeler içinde doğrular. Fayda başlığı sonucu söyler: teslim süresi, kapsam ya da uzmanlık alanı. Ayrım başlığı kanıt ister. Katmanların sırası, kullanıcının soru sırasıyla örtüşür: doğru yerde miyim, ne kazanırım, neden siz? Her soruya ayrı bir başlık ayırın.</p><p>Bir bilgiyi başlığa sığdıramıyorsanız açıklamaya taşıyın. Karakter sınırını zorlayan kısaltmalar okunurluğu düşürür. <a href="../../performans-pazarlama/">Performans pazarlaması</a> ekibimiz her kampanyada bu katmanları ayrı ayrı sınar.</p>
       <h3>Eşleşme başlığı nasıl kurulur?</h3>
       <p>Hedef sorguyu bir kenara yazın. Ana ifadeyi bozmadan 30 karaktere sığdırın. Marka adını buraya sıkıştırmayın; markanın yeri başka bir alandır. Kullanıcı kendi kelimesini gördüğünde okumayı sürdürür. Kısaltma yapmanız gerekirse ana ifadeye değil, çevresindeki kelimelere dokunun.</p>
       <h3>Fayda ile ayrım başlığı nerede ayrışır?</h3>
-      <p>Fayda, kullanıcının kazandığı sonucu anlatır. Ayrım ise o sonucu neden sizden alacağını gösterir. İkisini tek satırda birleştirirseniz mesaj bulanıklaşır. Sayı, süre veya belge; ayrım başlığında somut bir dayanak arayın. Kanıtı bulamıyorsanız o alanı boş bırakmak, içi boş bir övgü yazmaktan iyidir.</p>
-      <h2>Açıklama satırı ve çağrı cümlesi nasıl kurulur?</h2>
+      <p>Fayda, kullanıcının kazandığı sonucu anlatır. Ayrım ise o sonucu neden sizden alacağını gösterir. İkisini tek satırda birleştirirseniz mesaj bulanıklaşır. Sayı, süre veya belge; ayrım başlığında somut bir dayanak arayın. Kanıtı bulamıyorsanız o alanı boş bırakmak, içi boş bir övgü yazmaktan iyidir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 06</span></div><h2 id="aciklama-satiri-ve-cagri-cumlesi-nasil-kurulur">Açıklama satırı ve çağrı cümlesi nasıl kurulur?</h2>
       <div class="yz-cevap"><p>İtirazı karşılamayan bir açıklama satırı tıklamayı ziyan eder. İlk yarıda tereddüdü giderin, ikinci yarıda tek bir eylem isteyin. Harekete geçirici mesaj tek fiil taşır; ölçtüğünüz eylemi adıyla yazın. Belirsiz davetler kararı erteletir, çünkü ilan metninde eylemi tarif eden tek yer bu satırdır.</p></div>
       <p>Açıklamada boş sıfattan kaçının. "Kaliteli hizmet" ifadesi hiçbir soruyu yanıtlamaz; "48 saatte kurulum" yanıtlar. Somut veri, güven eşiğini metnin kendi içinde kurar. Çağrıyı sona koyun ve tek eylem bırakın.</p><p>İkinci açıklama alanını da doldurun. Sistem her gösterimde iki alanı birden ekrana taşımaz; alan boş kalırsa seçenek havuzu da daralır. Türkçede karakter sınırı daha çabuk dolar, çünkü ekler kelimeyi uzatır ve aynı anlam için daha fazla harf gerekir. Bu yüzden cümleyi kısaltmak yerine bilgiyi seçin; gerisini açılış sayfasına bırakın.</p><p>Google Ads reklam metni panelde tek başına yaşamaz; açılış sayfası aynı sözü tekrarlamalıdır. Söz ile sayfa çeliştiğinde kullanıcı geri döner. <a href="../../kurumsal-web-sitesi/">Kurumsal web sitesi</a> tarafındaki manşet, reklamdaki vaadi birebir karşılamalıdır.</p>
       <h3>Açıklama satırında hangi bilgi önceliklidir?</h3>
       <p>Satış görüşmelerinde en sık duyduğunuz itirazı listeleyin. Süre, kapsam ve şart soruları başı çeker. En sık geleni açıklamanın ilk yarısına koyun. Listeyi kısa tutun; kalan sorular zaten açılış sayfasının işidir.</p>
       <h4>Çağrı cümlesinde tek fiil kuralı</h4>
-      <p>İki farklı eylem isteyen metin kararı erteletir. "Hemen arayın ve formu doldurun" cümlesi kullanıcıyı ikiye böler. Tek fiil seçin. Hangi eylemi ölçüyorsanız onu yazın.</p>
-      <h2>Yazdığımız metnin işe yaradığını nasıl anlarız?</h2>
+      <p>İki farklı eylem isteyen metin kararı erteletir. "Hemen arayın ve formu doldurun" cümlesi kullanıcıyı ikiye böler. Tek fiil seçin. Hangi eylemi ölçüyorsanız onu yazın.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 06</span></div><h2 id="yazdigimiz-metnin-ise-yaradigini-nasil-anlariz">Yazdığımız metnin işe yaradığını nasıl anlarız?</h2>
       <div class="yz-cevap"><p>Metnin işe yarayıp yaramadığını üç yerde görürsünüz. Tıklama oranı başlığın sorguyla eşleşmesini, dönüşüm oranı vaadin sayfayla tutarlılığını, arama terimleri raporu ise hangi sorgunun metni tetiklediğini gösterir. Sinyalleri bu sırayla okuyun; önce eşleşmeyi, sonra vaadi düzeltin. Ölçüm, bir sonraki sürümün ilk adımıdır.</p></div>
       <p>Test döngüsünü sabit tutun. Bir sürümü belirlediğiniz süre boyunca çalıştırın, sonra yalnızca tek bir başlığı değiştirin. Arama terimleri raporu, hangi sorgunun hangi metni tetiklediğini gösterir. Bu rapor, yeni eşleşme başlıklarının ham maddesidir.</p><p>Ölçmeden yazılan Google Ads reklam metni, tahmine dayanır. Panelde gördüğünüz sayılar, sorunun metnin hangi bölümünde olduğunu adres gösterir. Kazanan sürümü hemen sabitlemeyin; aynı metni farklı reklam gruplarında da sınayın. Kullanıcı davranışı yıldan yıla değişir; geçen sezonun kazanan metnini bu sezon yeniden ölçün.</p>
       <h3>Hangi sinyaller metin sorununa işaret eder?</h3>
       <p>Gösterim çok, tıklama az ise sorun başlıktadır. Tıklama çok, form yok ise sorun vaat ile sayfa arasındadır. Alakasız arama terimleri, eşleşme başlığının yanlış kelimeyi çektiğini söyler.</p>
       <h3>Varyantları nasıl karşılaştırırız?</h3>
       <p>İki sürümü aynı reklam grubunda çalıştırın. Değişkeni tek tutun: sadece fayda başlığı ya da sadece çağrı cümlesi. Sonucu tabloya yazın. Kazanan sürümün metni, bir sonraki Google Ads denemesinin temeli olur. Karşılaştırmayı tarih ve değişken sütunlarıyla kaydedin.</p>
-      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      <h2>Yayın öncesi hangi 9 adımı uygulamalıyız?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 06</span></div><h2 id="yayin-oncesi-hangi-9-adimi-uygulamaliyiz">Yayın öncesi hangi 9 adımı uygulamalıyız?</h2>
       <div class="yz-cevap"><p>Google Ads reklam metni denetimi dokuz adımdır: sorguyu sabitleyin, eşleşme başlığını kurun, faydayı sayıyla söyleyin ve kanıtı ekleyin. Sıra önemlidir; eşleşmeden başlar, kanıtla sürer, tek çağrıyla biter. Bir adımı atlarsanız sonraki adımın çıktısı da bozulur. Listeyi yazım anında değil, yayın öncesinde uygulayın.</p></div>
       <p>Google Ads tarafında reklam metni yazmak, tek oturumda biten bir iş değildir. Şu sırayı takip edin:</p><ol><li>Hedef sorguyu tek satırda sabitleyin.</li><li>Eşleşme başlığını sorgudaki ana ifadeyle kurun.</li><li>Fayda başlığında sonucu sayı veya süreyle söyleyin.</li><li>Ayrım başlığına belge, kapsam ya da uzmanlık kanıtı koyun.</li><li>Başlık havuzunu çeşitlendirin ve tekrar eden varyantları ayıklayın.</li><li>Açıklamanın ilk yarısında en sık gelen itirazı karşılayın.</li><li>İkinci yarıda tek fiilli bir çağrı cümlesi bırakın.</li><li>Görünen yolu açılış sayfasının vaadiyle hizalayın.</li><li>Arama terimleri raporunu okuyun ve tek değişken değiştirin.</li></ol>
       <h3>Listeyi kim ve ne zaman uygular?</h3>
       <p>Metni yazan kişi ile denetleyen kişi farklı olsun. Yazan taraf kendi cümlesine körleşir. Yayın öncesi on dakikalık bir okuma, yanlış eşleşmeyi baştan keser. Denetleyen kişi maddeleri sırayla işaretlesin.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/reklam-metni-yazma-govde-960.webp"
              srcset="./gorsel/reklam-metni-yazma-govde-640.webp 640w, ./gorsel/reklam-metni-yazma-govde-960.webp 960w, ./gorsel/reklam-metni-yazma-govde-1440.webp 1440w, ./gorsel/reklam-metni-yazma-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Dokuz adımlık reklam metni kontrol listesini temsil eden yükselen soyut küpler" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Kontrol listesi, metni yayına almadan önceki son denetimdir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Zayıf Metin ile Güçlü Metin: Bileşen Karşılaştırması</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 06</span></div><h2 id="zayif-metin-ile-guclu-metin-bilesen-karsilastirmasi">Zayıf Metin ile Güçlü Metin: Bileşen Karşılaştırması</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Bileşen</th><th>Zayıf yaklaşım</th><th>Güçlü yaklaşım</th><th>Okunacak sinyal</th></tr></thead>
@@ -557,7 +602,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../google-ads/">Hizmet sayfasını gör</a>
         </aside>
-        <p><p>Reklam metni yazmak yaratıcı bir sıçrama değil, tekrarlanabilir bir üretim hattıdır. Eşleşmeyi kurarsınız, faydayı sayıyla söylersiniz, kanıtı eklersiniz ve tek bir çağrı bırakırsınız. Ölçüm sizi düzeltir. Hattı bir kez kurduğunuzda her yeni kampanya aynı iskeletle başlar. Kendi Google Ads reklam metni havuzunuzu bu iskeletle kurmak isterseniz <a href="../../teklif/">teklif formundan</a> bize yazın; mevcut metinlerinizi birlikte gözden geçirelim.</p></p>
+        <p><p>Reklam metni yazmak yaratıcı bir sıçrama değil, tekrarlanabilir bir üretim hattıdır. Eşleşmeyi kurarsınız, faydayı sayıyla söylersiniz, kanıtı eklersiniz ve tek bir çağrı bırakırsınız. Ölçüm sizi düzeltir. Hattı bir kez kurduğunuzda her yeni kampanya aynı iskeletle başlar. Kendi Google Ads reklam metni havuzunuzu bu iskeletle kurmak isterseniz <a href="../../teklif/">teklif formundan</a> bize yazın; mevcut metinlerinizi birlikte gözden geçirelim.</p></p></section>
       </article>
     </div>
   </section>

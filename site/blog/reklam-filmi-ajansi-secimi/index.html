@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,72 +477,70 @@
 <!-- AYIRT EDİCİ EKSEN: SEÇİM — Ajans/ekip seçme ölçütlerini anlatır. Aşama sırası yazı 7'nin, fiyat kalemleri yazı 8'in, storyboard yazı 9'un işidir. Burada süreç ve fiyat yeniden anlatılmaz.
      Huni türü: TOFU · Küme: video · Kardeşler (enjeksiyon turunda):  -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Ajans Seçimi</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Video</span>
-        <span class="yz-meta">12 Ekim 2026 · 7 dakikalık okuma</span>
+          <h1>Reklam Filmi Ajansı Seçerken Nelere Bakılır?</h1>
+          <p class="ozet">Elinizde beş farklı teklif var ve hepsi kendi işini iyi anlatıyor. Seçim çoğu zaman en güzel vitrine ya da en düşük rakama göre yapılıyor; ikisi de zayıf ölçüttür. Aşağıda beş başlık var. Bunlar bir prodüksiyon şirketinin gerçek kapasitesini, bitmiş işlerinden daha iyi gösterir.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/reklam-filmi-ajansi-secimi-kapak-1440.webp"
+           srcset="./gorsel/reklam-filmi-ajansi-secimi-kapak-640.webp 640w, ./gorsel/reklam-filmi-ajansi-secimi-kapak-960.webp 960w, ./gorsel/reklam-filmi-ajansi-secimi-kapak-1440.webp 1440w, ./gorsel/reklam-filmi-ajansi-secimi-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Yan yana duran birbirinin aynı ışıklı kapı çerçeveleri; yalnız en sağdakinin ardında aydınlık bir koridor görünüyor"
+           width="1920" height="1080" decoding="async"><figcaption>Dışarıdan hepsi benzer görünür; farkı ardındaki işleyiş yaratır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Video</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>12 Ekim 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>7 başlık</b></div>
       </div>
-      <h1>Reklam Filmi Ajansı Seçerken Nelere Bakılır?</h1>
-      <p class="ozet">Elinizde beş farklı teklif var ve hepsi kendi işini iyi anlatıyor. Seçim çoğu zaman en güzel vitrine ya da en düşük rakama göre yapılıyor; ikisi de zayıf ölçüttür. Aşağıda beş başlık var. Bunlar bir prodüksiyon şirketinin gerçek kapasitesini, bitmiş işlerinden daha iyi gösterir.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#reklam-filmi-ajansi-secerken-neye-bakmalisiniz"><span>01</span>Reklam Filmi Ajansı Seçerken Neye Bakmalısınız?</a><a href="#portfoy-neyi-gosterir-neyi-gizler"><span>02</span>Portföy Neyi Gösterir, Neyi Gizler?</a><a href="#ekip-kimlerden-olusuyor"><span>03</span>Ekip Kimlerden Oluşuyor?</a><a href="#teklifi-nasil-okumalisiniz"><span>04</span>Teklifi Nasıl Okumalısınız?</a><a href="#hangi-uyari-isaretlerini-ciddiye-almalisiniz"><span>05</span>Hangi Uyarı İşaretlerini Ciddiye Almalısınız?</a><a href="#gorusmeye-birlikte-hazirlanalim"><span>06</span>Görüşmeye Birlikte Hazırlanalım</a><a href="#sorular-ve-iyi-yanitin-nasil-gorundugu"><span>07</span>Sorular ve iyi yanıtın nasıl göründüğü</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/reklam-filmi-ajansi-secimi-kapak-1440.webp"
-           srcset="./gorsel/reklam-filmi-ajansi-secimi-kapak-640.webp 640w, ./gorsel/reklam-filmi-ajansi-secimi-kapak-960.webp 960w, ./gorsel/reklam-filmi-ajansi-secimi-kapak-1440.webp 1440w, ./gorsel/reklam-filmi-ajansi-secimi-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Yan yana duran birbirinin aynı ışıklı kapı çerçeveleri; yalnız en sağdakinin ardında aydınlık bir koridor görünüyor"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Dışarıdan hepsi benzer görünür; farkı ardındaki işleyiş yaratır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Reklam Filmi Ajansı Seçerken Neye Bakmalısınız?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 07</span></div><h2 id="reklam-filmi-ajansi-secerken-neye-bakmalisiniz">Reklam Filmi Ajansı Seçerken Neye Bakmalısınız?</h2>
       <div class="yz-cevap"><p>Beş başlığa bakın. Benzer iş yapmışlar mı, ekip kimlerden oluşuyor, teklif kalem kalem mi? Revizyon ve devir şartları nasıl yazılmış? Reklam filmi ajansı seçerken portföyün güzelliği değil, sorularınıza verdiği yanıtın netliği yol gösterir. Vitrin bitmiş işi gösterir; nasıl bittiğini göstermez.</p></div>
       <p>İyi bir ekip zor soruları sever, çünkü yanıtı vardır. Kaçamak yanıt aldığınız her başlık, ilerideki bir tartışmanın habercisidir.</p><p>Aşağıdaki beş başlığı sırayla sorun ve yanıtları not alın.</p><ol><li><strong>Benzer iş</strong> — sizinkine yakın kapsamda ne yaptılar?</li><li><strong>Ekip</strong> — yönetmen, görüntü yönetmeni ve kurgucu kim?</li><li><strong>Teklif</strong> — kalemler ayrı ayrı yazılı mı?</li><li><strong>Revizyon</strong> — kaç tur dahil, fazlası ne oluyor?</li><li><strong>Teslim ve devir</strong> — ham görüntüler kimde kalıyor?</li></ol><p>Bu beş başlığı sorarken not tutun. Görüşmeler birbirine karışır ve iki gün sonra hangi ekibin ne dediğini hatırlamazsınız. Yanıtları aynı tabloya yazmak, karar anında en çok işe yarayan hazırlıktır.</p>
       <h3>Büyük Ajans mı, Küçük Ekip mi?</h3>
-      <p>Ölçek tek başına bir ölçüt değildir. Büyük yapılar geniş kadro ve süreç güvencesi verir; küçük ekipler daha yakın ilgi ve hızlı karar sunar. Ajans seçerken reklam filminizin hangisine ihtiyaç duyduğuna bakın, kartvizite değil.</p>
-      <h2>Portföy Neyi Gösterir, Neyi Gizler?</h2>
+      <p>Ölçek tek başına bir ölçüt değildir. Büyük yapılar geniş kadro ve süreç güvencesi verir; küçük ekipler daha yakın ilgi ve hızlı karar sunar. Ajans seçerken reklam filminizin hangisine ihtiyaç duyduğuna bakın, kartvizite değil.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 07</span></div><h2 id="portfoy-neyi-gosterir-neyi-gizler">Portföy Neyi Gösterir, Neyi Gizler?</h2>
       <div class="yz-cevap"><p>Vitrin yeteneği gösterir, işleyişi gizler. Vitrindeki film bütçesini, süresini ve kaç turda çıktığını anlatmaz. Bu yüzden beğendiğiniz işin kapsamını sorun. Kaç gün çekildi, kaç kişi çalıştı, kaç revizyon döndü? Reklam filmi ajansı bu soruları rahatça yanıtlıyorsa iyi işarettir. Kaçamak yanıt da kendi başına bir bilgidir.</p></div>
       <p>Vitrindeki işlerin hangisinde ne yapıldığını da sorun. Bazı işlerde ekip yalnız kurguyu üstlenmiş, çekimi başkası yapmış olabilir. Bu kötü değildir ama bilmeniz gerekir.</p><p>Geçmiş müşteriyle konuşmak da en dürüst yoldur. İki soru yeter: takvim tuttu mu, sürpriz kalem çıktı mı? Aşamaların nasıl ilerlediğini <a href="../reklam-filmi-cekim-asamalari/">çekim aşamaları</a> yazısında anlatmıştık.</p><p>Vitrinde görmediğiniz işleri de sorun. Her ekibin yayınlanmamış ya da onay bekleyen işleri vardır. Bunlar çoğu zaman daha güncel bir resim verir. Bir de yarım kalan projeleri sorun. Yanıt vermekte zorlanmayan bir ekip, sizinle de dürüst çalışır.</p>
       <h3>Sektör Deneyimi Şart mı?</h3>
-      <p>Yardımcı olur ama şart değil. Sizin sektörünüzde iş yapmış bir ekip terimleri hızlı öğrenir; hiç yapmamış bir ekip ise taze bir bakış getirebilir. Asıl belirleyici olan, benzer kapsamda iş çıkarmış olmasıdır.</p>
-      <h2>Ekip Kimlerden Oluşuyor?</h2>
+      <p>Yardımcı olur ama şart değil. Sizin sektörünüzde iş yapmış bir ekip terimleri hızlı öğrenir; hiç yapmamış bir ekip ise taze bir bakış getirebilir. Asıl belirleyici olan, benzer kapsamda iş çıkarmış olmasıdır.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 07</span></div><h2 id="ekip-kimlerden-olusuyor">Ekip Kimlerden Oluşuyor?</h2>
       <div class="yz-cevap"><p>Görüşmeye gelen kişiyle işi yapacak kişi aynı olmayabilir. Yönetmen, görüntü yönetmeni ve kurgucunun kim olduğunu sorun; bunlar işin kalitesini doğrudan belirler. Bazı ekipler her işte dışarıdan çalışır, bu kötü değildir. Kötü olan, kimin çalışacağını sözleşme imzalanana kadar bilmemektir. Adları teklife yazdırmak bu belirsizliği kapatır.</p></div>
       <p>İşin başındaki kişi filmin tonunu belirler. Aynı senaryo iki farklı yönetmenle iki farklı film olur; bu yüzden onun daha önce ne yaptığına bakmak, şirketin geneline bakmaktan daha bilgilendiricidir.</p><p>Kurgucuyu da atlamayın. Ritim kurguda doğar ve çoğu filmin başarısı orada belirlenir. Ajansın reklam işlerinde hangi kurgucuyla çalıştığını sormak sıra dışı bir soru değildir.</p>
       <h3>Dışarıdan Çalışmak Sorun mu?</h3>
-      <p>Sorun değil, belirsizlik sorundur. Sektörde çoğu ekip proje bazlı çalışır ve bu esneklik kalite getirir. Sizin bilmeniz gereken tek şey, kimin geleceği ve o kişinin daha önce ne yaptığıdır.</p>
-      <h2>Teklifi Nasıl Okumalısınız?</h2>
+      <p>Sorun değil, belirsizlik sorundur. Sektörde çoğu ekip proje bazlı çalışır ve bu esneklik kalite getirir. Sizin bilmeniz gereken tek şey, kimin geleceği ve o kişinin daha önce ne yaptığıdır.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 07</span></div><h2 id="teklifi-nasil-okumalisiniz">Teklifi Nasıl Okumalısınız?</h2>
       <div class="yz-cevap"><p>Toplam rakama değil, kalem adlarına bakın. Çekim günü, ekip, oyuncu hakları, mekân ve kurgu sonrası ayrı ayrı yazılı mı? Yazılı değilse o kalem ya kapsam dışıdır ya da sonradan tartışma çıkarır. Reklam filmi ajansı teklifini kalem kalem veriyorsa karşılaştırma da mümkün olur.</p></div>
       <p>İki fiyat belgesini yan yana koyarken önce kapsamları eşitleyin. Biri üç mecra sürümü içeriyor, diğeri bir tane içeriyorsa rakamları karşılaştırmanın anlamı yoktur.</p><p>Hangi kalemin bütçeyi ne kadar hareket ettirdiğini <a href="../reklam-filmi-fiyat-kalemleri/">fiyat kalemleri</a> yazısında tek tek açtık. Reklam filmi ajansı tekliflerini o listeyle okumak, farkın nereden doğduğunu hızla gösterir.</p><p>Ödeme planını da teklifte arayın. Peşinat, çekim öncesi ve teslim sonrası olmak üzere üçe bölünmesi yaygındır. Tümünü peşin isteyen ya da hiçbir peşinat almayan bir yapı, ikisi de farklı yönlerden risk taşır.</p>
       <h3>Ham Görüntüler Kimde Kalır?</h3>
       <p>Sözleşmede yazmıyorsa çoğu zaman ekipte kalır. İleride farklı bir kurgu isterseniz bu satır işinize yarar; baştan konuşmak sonradan pazarlık etmekten kolaydır.</p>
-      <blockquote class="yz-alinti"><p>&#8220;Bir ekibin kapasitesini portföyü değil, sorularınıza verdiği yanıt gösterir. Vitrin bitmiş işi gösterir; nasıl bittiğini göstermez.&#8221;</p><cite>— TasarımMania görüşme notu</cite></blockquote>
-      <h2>Hangi Uyarı İşaretlerini Ciddiye Almalısınız?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;Bir ekibin kapasitesini portföyü değil, sorularınıza verdiği yanıt gösterir. Vitrin bitmiş işi gösterir; nasıl bittiğini göstermez.&#8221;</p><cite>— TasarımMania görüşme notu</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 07</span></div><h2 id="hangi-uyari-isaretlerini-ciddiye-almalisiniz">Hangi Uyarı İşaretlerini Ciddiye Almalısınız?</h2>
       <div class="yz-cevap"><p>Dört işaret dikkat ister. Kapsam sormadan fiyat veren, sınırsız revizyon vaat eden ve referans vermekten kaçınan ekipler risk taşır. Sözleşmesizlik de dördüncüsüdür; konuşulup yazılmayan her şey ilk anlaşmazlıkta buharlaşır. Reklam filmi ajansı ne kadar sempatik olursa olsun, yazılı olmayan söz sayılmaz.</p></div>
-      <p>Kapsam sormadan verilen fiyat en yanıltıcı olanıdır. Düşük görünür, sonra her ek istek yeni bir kalem doğurur ve toplam yukarı çıkar. İyi bir ekip önce soru sorar, sonra rakam söyler.</p><p>Sınırsız revizyon vaadi de benzer biçimde çalışır. Ya fiyata baştan gömülüdür ya da bir noktada tartışma çıkar. Hazırlığın turları nasıl azalttığını <a href="../storyboard-nedir/">storyboard</a> yazısında anlatmıştık.</p><p>Bir işaret daha var: iletişimin kimde olduğu. Tek bir muhatap varsa süreç hızlı yürür. Her soruya farklı kişiden yanıt geliyorsa, o dağınıklık üretime de yansır. İlk görüşmede bunu fark etmek kolaydır. Vaadin kendisi de denetlenir; <a href="https://ticaret.gov.tr/tuketici/ticari-reklamlar" target="_blank" rel="noopener">ticari reklam kuralları</a> abartılı iddiayı marka sahibine fatura eder.</p>
-      <h2>Görüşmeye Birlikte Hazırlanalım</h2>
+      <p>Kapsam sormadan verilen fiyat en yanıltıcı olanıdır. Düşük görünür, sonra her ek istek yeni bir kalem doğurur ve toplam yukarı çıkar. İyi bir ekip önce soru sorar, sonra rakam söyler.</p><p>Sınırsız revizyon vaadi de benzer biçimde çalışır. Ya fiyata baştan gömülüdür ya da bir noktada tartışma çıkar. Hazırlığın turları nasıl azalttığını <a href="../storyboard-nedir/">storyboard</a> yazısında anlatmıştık.</p><p>Bir işaret daha var: iletişimin kimde olduğu. Tek bir muhatap varsa süreç hızlı yürür. Her soruya farklı kişiden yanıt geliyorsa, o dağınıklık üretime de yansır. İlk görüşmede bunu fark etmek kolaydır. Vaadin kendisi de denetlenir; <a href="https://ticaret.gov.tr/tuketici/ticari-reklamlar" target="_blank" rel="noopener">ticari reklam kuralları</a> abartılı iddiayı marka sahibine fatura eder.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 07</span></div><h2 id="gorusmeye-birlikte-hazirlanalim">Görüşmeye Birlikte Hazırlanalım</h2>
       <div class="yz-cevap"><p>Hazırlıklı gelmek iki tarafı da hızlandırır. Elinizde sorunun tanımı, hedef kitle ve yayın planı varsa ilk oturumda kapsam çıkar. Biz de kalemleri açık yazar, kimin çalışacağını baştan söyleriz. Reklam filmi ajansı ile çalışmak bir alışveriş değil, ortak bir üretim işidir.</p></div>
       <p>İlk oturumdan çıkarken elinizde tek sayfa olur: sorun, hedef kitle, mecra planı ve kapsam taslağı. <a href="../../video-produksiyon/">Video prodüksiyon sayfamızı</a> ve <a href="../../reklam-filmi/">reklam filmi hizmetimizi</a> inceleyebilirsiniz.</p><p>Kararı verirken üç ekibi aynı tabloda karşılaştırın. Kapsam, ekip ve devir şartları yan yana durduğunda tercih genelde kendini gösterir. Rakam o tablonun yalnız bir sütunudur. Diğer sütunlar boşsa rakamın anlamı da kalmaz.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/reklam-filmi-ajansi-secimi-govde-960.webp"
              srcset="./gorsel/reklam-filmi-ajansi-secimi-govde-640.webp 640w, ./gorsel/reklam-filmi-ajansi-secimi-govde-960.webp 960w, ./gorsel/reklam-filmi-ajansi-secimi-govde-1440.webp 1440w, ./gorsel/reklam-filmi-ajansi-secimi-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Parlak bir yüzeyin arkasında kalan sönük ve dağınık iskelet yapı" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Vitrin bitmiş işi gösterir; nasıl bittiğini göstermez. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Sorular ve iyi yanıtın nasıl göründüğü</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 07</b><span>07 / 07</span></div><h2 id="sorular-ve-iyi-yanitin-nasil-gorundugu">Sorular ve iyi yanıtın nasıl göründüğü</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Soru</th><th>İyi yanıt</th><th>Uyarı işareti</th></tr></thead>
@@ -517,7 +562,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../video-produksiyon/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Reklam filmi ajansı seçimi bir vitrin karşılaştırması değil, bir işleyiş karşılaştırmasıdır. Sorularınıza net yanıt veren, kalemleri açık yazan ve kimin çalışacağını baştan söyleyen ekip; en güzel portföye sahip olandan daha güvenli bir tercihtir.</p>
+        <p>Reklam filmi ajansı seçimi bir vitrin karşılaştırması değil, bir işleyiş karşılaştırmasıdır. Sorularınıza net yanıt veren, kalemleri açık yazan ve kimin çalışacağını baştan söyleyen ekip; en güzel portföye sahip olandan daha güvenli bir tercihtir.</p></section>
       </article>
     </div>
   </section>

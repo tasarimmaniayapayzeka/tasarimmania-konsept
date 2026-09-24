@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -468,45 +515,43 @@
 <!-- AYIRT EDİCİ EKSEN: GÖRÜNÜM — Mikro ve makro influencer'ın erişim/etkileşim profil görünümü kıyası; bütçe ekseni google-ads yazısında, raporlama metrikleri kardeş yazıda.
      Huni türü: MOFU · Küme: Dijital Pazarlama Performansı · Kardeşler (enjeksiyon turunda): sosyal-medya-raporlama, e-posta-pazarlama, google-ads-ve-ppc -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Influencer Pazarlama Ajansı Gözüyle: Mikro mu, Makro mu?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Sosyal Medya</span>
-        <span class="yz-meta">11 Ekim 2026 · 7 dakikalık okuma</span>
+          <h1>Influencer Pazarlama Ajansı Gözüyle: Mikro mu, Makro mu?</h1>
+          <p class="ozet">Sosyal medyada iş birliği yapacak isim ararken çoğu KOBİ aynı soruda takılır: dar kitleli bir mikro isim mi, geniş kitleli bir makro isim mi? Bu yazıda iki profilin görünümünü karşılaştırıyoruz. Erişim genişliği ile etkileşim yoğunluğu ekranda nasıl farklılaşır, ona bakıyoruz. Amacımız teorik bir tartışma değil, seçim anında işe yarayan bir bakış sunmak. Bir influencer pazarlama ajansı olarak aday listesi kurarken izlediğimiz görsel ve davranışsal sinyalleri sade bir çerçevede aktarıyoruz.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/influencer-pazarlama-kapak-1440.webp"
+           srcset="./gorsel/influencer-pazarlama-kapak-640.webp 640w, ./gorsel/influencer-pazarlama-kapak-960.webp 960w, ./gorsel/influencer-pazarlama-kapak-1440.webp 1440w, ./gorsel/influencer-pazarlama-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Mikro ve makro influencer kitlelerini temsil eden soyut küre kümeleri"
+           width="1920" height="1080" decoding="async"><figcaption>Geniş ve dağınık erişim ile dar ve yoğun topluluk, aynı karede. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Sosyal Medya</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>11 Ekim 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>6 başlık</b></div>
       </div>
-      <h1>Influencer Pazarlama Ajansı Gözüyle: Mikro mu, Makro mu?</h1>
-      <p class="ozet">Sosyal medyada iş birliği yapacak isim ararken çoğu KOBİ aynı soruda takılır: dar kitleli bir mikro isim mi, geniş kitleli bir makro isim mi? Bu yazıda iki profilin görünümünü karşılaştırıyoruz. Erişim genişliği ile etkileşim yoğunluğu ekranda nasıl farklılaşır, ona bakıyoruz. Amacımız teorik bir tartışma değil, seçim anında işe yarayan bir bakış sunmak. Bir influencer pazarlama ajansı olarak aday listesi kurarken izlediğimiz görsel ve davranışsal sinyalleri sade bir çerçevede aktarıyoruz.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#mikro-ve-makro-influencer-arasindaki-gorunum-farki-nedir"><span>01</span>Mikro ve makro influencer arasındaki görünüm farkı nedir?</a><a href="#erisim-genisligi-mi-etkilesim-yogunlugu-mu-one-cikar"><span>02</span>Erişim genişliği mi, etkileşim yoğunluğu mu öne çıkar?</a><a href="#hangi-durumda-mikro-hangi-durumda-makro-influencer-secilir"><span>03</span>Hangi durumda mikro, hangi durumda makro influencer seçilir?</a><a href="#influencer-pazarlama-ajansi-seciminde-bakilacak-gorunum-sinyalleri"><span>04</span>Influencer pazarlama ajansı seçiminde bakılacak görünüm sinyalleri</a><a href="#mikro-ve-makro-isimler-ayni-kampanyada-birlesir-mi"><span>05</span>Mikro ve makro isimler aynı kampanyada birleşir mi?</a><a href="#mikro-ve-makro-influencer-karsilastirma-tablosu"><span>06</span>Mikro ve Makro Influencer Karşılaştırma Tablosu</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/influencer-pazarlama-kapak-1440.webp"
-           srcset="./gorsel/influencer-pazarlama-kapak-640.webp 640w, ./gorsel/influencer-pazarlama-kapak-960.webp 960w, ./gorsel/influencer-pazarlama-kapak-1440.webp 1440w, ./gorsel/influencer-pazarlama-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Mikro ve makro influencer kitlelerini temsil eden soyut küre kümeleri"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Geniş ve dağınık erişim ile dar ve yoğun topluluk, aynı karede. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Mikro ve makro influencer arasındaki görünüm farkı nedir?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 06</span></div><h2 id="mikro-ve-makro-influencer-arasindaki-gorunum-farki-nedir">Mikro ve makro influencer arasındaki görünüm farkı nedir?</h2>
       <div class="yz-cevap"><p>Mikro influencer dar bir ilgi alanına derinlemesine seslenir, makro influencer geniş kesime yayılan görünürlük sunar. Fark yalnızca takipçi sayısı değildir. Profilin dili, içerik temposu, yorum bölümünün karakteri ve kitlenin markayla kurduğu yakınlık iki tarafta bambaşka bir tabloya dönüşür. Seçim de bu tablodan çıkar.</p></div>
       <p>Görünüm farkını iki katmanda okuruz. Birinci katman profilin kendi estetiğidir: paylaşım sıklığı, kadraj tercihi, sabit format kullanımı. İkinci katman kitlenin davranışıdır. Kimler yorum yazıyor, hangi soruları soruyor, merak cümlelere yansıyor mu? Bir influencer pazarlama ajansının ilk işi bu iki katmanı ayrı ayrı not almaktır. Yalnızca takipçi sayısına bakan seçim sizi yanıltır. Sosyal medya yönetimi tarafında da aynı ayrımı kullanırız.</p>
       <h3>Mikro influencer profilinin görünümü</h3>
       <p>Mikro influencer, dar bir ilgi alanında birkaç bin ile birkaç on bin takipçiye ulaşan içerik üreticisidir. Profil akışı çoğunlukla tek konuya kilitlenir. Kadrajlar sade, dil samimi, üretim ölçeği ev düzeyindedir. Takipçiler birbirini tanır; yorumlar sohbete benzer. Marka iş birliği bu akışta yabancı durmaz, günlük paylaşımın devamı gibi ilerler.</p>
       <h3>Makro influencer profilinin görünümü</h3>
-      <p>Makro influencer, yüz binleri aşan takipçi kitlesine seslenen ve geniş kesimce tanınan fenomendir. Akışta birden çok tema yan yana durur. Prodüksiyon kalitesi yüksek, markalı içerik oranı belirgindir. Kalabalık yorum bölümünde tanıdık yüzler yerine anonim kitle konuşur. Markalı içerik ile organik paylaşım arasındaki sınır izleyicinin gözünden kaçmaz.</p>
-      <h2>Erişim genişliği mi, etkileşim yoğunluğu mu öne çıkar?</h2>
+      <p>Makro influencer, yüz binleri aşan takipçi kitlesine seslenen ve geniş kesimce tanınan fenomendir. Akışta birden çok tema yan yana durur. Prodüksiyon kalitesi yüksek, markalı içerik oranı belirgindir. Kalabalık yorum bölümünde tanıdık yüzler yerine anonim kitle konuşur. Markalı içerik ile organik paylaşım arasındaki sınır izleyicinin gözünden kaçmaz.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 06</span></div><h2 id="erisim-genisligi-mi-etkilesim-yogunlugu-mu-one-cikar">Erişim genişliği mi, etkileşim yoğunluğu mu öne çıkar?</h2>
       <div class="yz-cevap"><p>Erişim genişliği tanınırlık yaratır, etkileşim yoğunluğu ise ikna eder. Makro isimler markayı çok sayıda kişiye gösterir. Mikro isimler daha az kişiye ulaşır; buna karşılık gelen ilgi daha sıcak ve daha konuşkandır. Doğru tercih, kampanyanın tanıtmak mı yoksa tereddüt kırmak mı istediğine bağlıdır.</p></div>
       <p>Türkiye'de dijital vitrini olan işletme sayısı hızla artıyor. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">ETBİS 2025 raporu</a> 634.611 e-ticaret işletmesine işaret ediyor. Rakip sayısı arttıkça doğru sesin değeri de yükseliyor. Kalabalıklaşan pazarda fark yaratan şey, doğru profilin doğru mesajı taşımasıdır. Ajans destekli influencer pazarlaması tam olarak bu eşleştirme işidir. Deneyimli influencer pazarlama ajansları kararı takipçi sayısına değil kitle uyumuna dayandırır.</p>
       <h3>Geniş erişimin marka görünürlüğüne katkısı</h3>
@@ -514,35 +559,35 @@
       <h3>Dar ama derin topluluğun ikna gücü</h3>
       <p>Dar topluluklarda takipçi, içerik üreticisini arkadaş gibi görür. Tavsiye bir reklam değil, deneyim aktarımı izlenimi bırakır. Niş kitleye seslenen isim ürünü gerçekten kullanan bir kişi gibi göründüğü için tereddütleri kolay çözer. Küçük topluluklarda yorumlar çoğu zaman karar eşiğinde yazılır.</p>
       <h4>Yorum bölümü neye benziyor?</h4>
-      <p>Yorum bölümü profilin röntgenidir. Mikro hesaplarda beden, kullanım ve dayanıklılık soruları sıralanır. Büyük hesaplarda kısa beğeni ifadeleri ile emojiler ağır basar. Bu görünüm farkı, iş birliğinden ne bekleyeceğinizi baştan söyler.</p>
-      <h2>Hangi durumda mikro, hangi durumda makro influencer seçilir?</h2>
+      <p>Yorum bölümü profilin röntgenidir. Mikro hesaplarda beden, kullanım ve dayanıklılık soruları sıralanır. Büyük hesaplarda kısa beğeni ifadeleri ile emojiler ağır basar. Bu görünüm farkı, iş birliğinden ne bekleyeceğinizi baştan söyler.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 06</span></div><h2 id="hangi-durumda-mikro-hangi-durumda-makro-influencer-secilir">Hangi durumda mikro, hangi durumda makro influencer seçilir?</h2>
       <div class="yz-cevap"><p>Ürününüz açıklama gerektiriyorsa mikro tarafa, tanınırlık gerektiriyorsa makro tarafa yaklaşırız. Teknik anlatım isteyen hizmetler dar kitlede daha iyi karşılık bulur. Geniş tüketici kitlesine hitap eden gündelik ürünler ise büyük hesapların görünürlüğünden yararlanır. Karar, ürünün anlatılma zorluğuna göre şekillenir. İkisi arasında doğru bir orta yol kurmak da mümkündür.</p></div>
       <p>Seçim sürecini yazılı bir akışa bağlamak, kişisel beğeninin etkisini azaltır. Bir influencer pazarlama ajansı olarak bu seçimi beş adımda yürütürüz:</p><ol><li>Kampanyanın amacını tek cümlede yazarız.</li><li>Hedef kitlenin hangi konuları takip ettiğini listeleriz.</li><li>Aday profilleri niş uyumu ve içerik dili açısından ayıklarız.</li><li>En az üç adayla küçük ölçekli bir deneme iş birliği kurgularız.</li><li>Tutan formatı <a href="../../reels-video/">sosyal video ve Reels</a> üretimiyle çoğaltırız.</li></ol>
       <h3>Yeni ürün lansmanında görünüm ihtiyacı</h3>
       <p>Lansmanda ilk hedef fark edilmektir. Kategori bilinirliği düşükse geniş erişimli bir isim kapıyı açar. Peşinden gelen mikro dalga, merak eden kişiye ürünün gündelik hayattaki halini gösterir. İki dalgayı aynı hafta içinde planlamak merakın soğumasını önler.</p>
       <h3>Yerleşik markada güven tazeleme</h3>
-      <p>Bilinen markalar görünürlükten çok güncellik arar. Burada niş hesaplar daha iyi iş çıkarır. Farklı meslek gruplarından isimler aynı ürünü kendi rutinleri içinde göstererek markayı taze tutar. Uzun süreli iş birlikleri tek seferlik paylaşımlardan daha tanıdık bir izlenim bırakır.</p>
-      <h2>Influencer pazarlama ajansı seçiminde bakılacak görünüm sinyalleri</h2>
+      <p>Bilinen markalar görünürlükten çok güncellik arar. Burada niş hesaplar daha iyi iş çıkarır. Farklı meslek gruplarından isimler aynı ürünü kendi rutinleri içinde göstererek markayı taze tutar. Uzun süreli iş birlikleri tek seferlik paylaşımlardan daha tanıdık bir izlenim bırakır.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 06</span></div><h2 id="influencer-pazarlama-ajansi-seciminde-bakilacak-gorunum-sinyalleri">Influencer pazarlama ajansı seçiminde bakılacak görünüm sinyalleri</h2>
       <div class="yz-cevap"><p>Ajansın kendi tanıtımına değil, çalıştığı profillerin çeşitliliğine bakın. Güçlü bir influencer pazarlama ajansı tek kategoriye sıkışmış isim listesiyle gelmez. Marka sesinizi taklit etmeden yakalayan üreticiler önerir, brief'i yazılı paylaşır, içerik onay akışını en baştan tanımlar. Somut örnek göstermeyen bir sunum size yalnızca kapak sayfası satar.</p></div>
       <p>Kitlenin nerede olduğunu tahminle değil veriyle konuşuruz. <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TÜİK'in güncel araştırmaları</a> internet kullanımının hane düzeyinde yaygınlaştığını gösteriyor. Bu yüzden bir influencer pazarlama ajansının rolü tek platform önerisiyle sınırlı kalamaz. Onay akışı net olmayan ilişkiler ilk krizde tıkanır. İçeriğin ömrünü uzatmak için <a href="../../meta-reklam/">Meta Ads</a> tarafında yeniden yayın planı da masaya gelir. Bütçe tarafını performans pazarlaması ekibiyle birlikte kurarız. Dijital pazarlama planınızın geri kalanıyla bu takvim konuşmalıdır.</p>
       <h3>Portföyün sektörel derinliği</h3>
       <p>Pazarlama tarafında influencer portföyü uzun olabilir; belirleyici olan derinliktir. Sizin sektörünüzde kaç iş birliği yapılmış, hangi formatlar denenmiş, hangi ton tutmuş? Bu sorulara somut örnekle cevap gelmiyorsa liste yalnızca bir vitrindir.</p>
       <h3>İçerik dilinin marka sesiyle uyumu</h3>
       <p>Marka sesi, kurumunuzun konuşma tonunu belirleyen sabit karakterdir. Bir influencer pazarlama ajansı aday önerirken bu tonu referans almalıdır. Şakacı bir hesap, ciddi bir finans markasını anlatırken zorlanır. Ton uyumu izleyicinin içeriği reklam mı tavsiye mi saydığını belirler.</p>
-      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      <h2>Mikro ve makro isimler aynı kampanyada birleşir mi?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 06</span></div><h2 id="mikro-ve-makro-isimler-ayni-kampanyada-birlesir-mi">Mikro ve makro isimler aynı kampanyada birleşir mi?</h2>
       <div class="yz-cevap"><p>Evet, iki profil birbirinin eksiğini kapatır. Makro isim kampanyanın çatısını kurar ve geniş kesime duyurur. Mikro isimler aynı mesajı kendi topluluklarında yerelleştirir. Katmanlı kurgu sayesinde marka hem kalabalığa görünür hem de küçük çevrelerde tanıdık hale gelir. Roller net ayrıldığında iki taraf birbirini gölgede bırakmaz.</p></div>
       <p>İçerik takvimini tek merkezden yönetiriz. Ajans tarafında influencer listesi hazır dursa bile takvimi markaya göre yeniden kurarız. Ana mesaj sabit kalır, anlatım biçimi profilden profile değişir. Bu esneklik olmadan iş birlikleri birbirinin kopyası gibi görünür. Tek bir sesin tekrarı izleyicide bıkkınlık yaratır. Deneyimli bir influencer pazarlama ajansı, aynı brief'i farklı seslerle söyletebilmeyi temel ölçüt sayar. Takvimi birlikte kurmak isterseniz <a href="../../iletisim/">iletişim</a> sayfamızdan bize ulaşın.</p>
       <h3>Katmanlı görünüm kurgusu</h3>
       <p>Katmanlı kurgu üç halkadan oluşur: duyuru, deneyim ve hatırlatma. Duyuruyu geniş kitleli isim üstlenir. Deneyim anlatımını niş hesaplar taşır. Hatırlatma halkasını kısa videolar kapatır.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/influencer-pazarlama-govde-960.webp"
              srcset="./gorsel/influencer-pazarlama-govde-640.webp 640w, ./gorsel/influencer-pazarlama-govde-960.webp 960w, ./gorsel/influencer-pazarlama-govde-1440.webp 1440w, ./gorsel/influencer-pazarlama-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Erişim genişliği ile etkileşim yoğunluğunu karşılaştıran soyut cam panel görseli" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Derinlik mi, genişlik mi? Profil seçimi bu iki eksende netleşir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Mikro ve Makro Influencer Karşılaştırma Tablosu</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 06</span></div><h2 id="mikro-ve-makro-influencer-karsilastirma-tablosu">Mikro ve Makro Influencer Karşılaştırma Tablosu</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Görünüm Kriteri</th><th>Mikro Influencer</th><th>Makro Influencer</th></tr></thead>
@@ -564,7 +609,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../sosyal-medya/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Mikro ve makro ayrımı bir üstünlük yarışı değil, görünüm tercihidir. Ürününüz anlatım istiyorsa dar ve sıcak topluluklara, tanınırlık istiyorsa geniş kitleye yönelirsiniz. İkisini birlikte kurgulamak çoğu KOBİ için en dengeli yoldur. Kararı acele vermeyin; küçük bir deneme her zaman iyi fikirdir. Markanıza uygun profil listesini çıkarmak isterseniz <a href="../../teklif/">teklif formumuz</a> üzerinden bize yazın; influencer pazarlama ajansı deneyimimizi süreç boyunca paylaşırız.</p>
+        <p>Mikro ve makro ayrımı bir üstünlük yarışı değil, görünüm tercihidir. Ürününüz anlatım istiyorsa dar ve sıcak topluluklara, tanınırlık istiyorsa geniş kitleye yönelirsiniz. İkisini birlikte kurgulamak çoğu KOBİ için en dengeli yoldur. Kararı acele vermeyin; küçük bir deneme her zaman iyi fikirdir. Markanıza uygun profil listesini çıkarmak isterseniz <a href="../../teklif/">teklif formumuz</a> üzerinden bize yazın; influencer pazarlama ajansı deneyimimizi süreç boyunca paylaşırız.</p></section>
       </article>
     </div>
   </section>

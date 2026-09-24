@@ -176,6 +176,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -462,43 +509,41 @@
      Kardeş yazılar: kurulum/geçiş süreci (SÜRE), maliyet kalemleri (MEKANİZMA),
      pazaryeri entegrasyonu (ROTA-alt). Onların konusu burada TEKRARLANMAZ. -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Choosing E-Commerce Software: Which Platform Suits Which Business?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">E-Commerce</span>
-        <span class="yz-meta">1 September 2026 · 7 min read</span>
+          <h1>Choosing E-Commerce Software: Which Platform Suits Which Business?</h1>
+          <p class="ozet">The right e-commerce software varies from business to business, and it sets the next three years of your shop. The depth of your catalogue and the length of your integration list are what drive the decision. This article compares the ready-made package, the subscription system and bespoke development against concrete criteria.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/three-platform-options-1440.webp"
+           srcset="./image/three-platform-options-640.webp 640w, ./image/three-platform-options-960.webp 960w, ./image/three-platform-options-1440.webp 1440w, ./image/three-platform-options-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Three abstract structures of steadily rising complexity stand side by side; a simple cube, a layered grid and a tall frame represent the three options for e-commerce infrastructure."
+           width="1920" height="1080" decoding="async"><figcaption>Ready-made package, subscription system and bespoke development: the same job, with responsibility split differently. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> E-Commerce</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>1 September 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>Choosing E-Commerce Software: Which Platform Suits Which Business?</h1>
-      <p class="ozet">The right e-commerce software varies from business to business, and it sets the next three years of your shop. The depth of your catalogue and the length of your integration list are what drive the decision. This article compares the ready-made package, the subscription system and bespoke development against concrete criteria.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#ready-made-package-saas-platform-bespoke-what-does-each-one-mean"><span>01</span>Ready-Made Package, SaaS Platform, Bespoke: What Does Each One Mean?</a><a href="#five-concrete-criteria-for-choosing-e-commerce-software"><span>02</span>Five Concrete Criteria for Choosing E-Commerce Software</a><a href="#where-does-the-money-go-which-item-does-it-pile-up-in"><span>03</span>Where Does the Money Go? Which Item Does It Pile Up In?</a><a href="#after-how-many-products-and-variants-does-a-platform-struggle"><span>04</span>After How Many Products and Variants Does a Platform Struggle?</a><a href="#ownership-and-portability-whose-hands-is-the-data-in"><span>05</span>Ownership and Portability: Whose Hands Is the Data In?</a><a href="#which-way-does-your-integration-need-push-you"><span>06</span>Which Way Does Your Integration Need Push You?</a><a href="#ready-made-package-saas-platform-and-custom-software-compared"><span>07</span>Ready-Made Package, SaaS Platform and Custom Software Compared</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/three-platform-options-1440.webp"
-           srcset="./image/three-platform-options-640.webp 640w, ./image/three-platform-options-960.webp 960w, ./image/three-platform-options-1440.webp 1440w, ./image/three-platform-options-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Three abstract structures of steadily rising complexity stand side by side; a simple cube, a layered grid and a tall frame represent the three options for e-commerce infrastructure."
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Ready-made package, subscription system and bespoke development: the same job, with responsibility split differently. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Ready-Made Package, SaaS Platform, Bespoke: What Does Each One Mean?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="ready-made-package-saas-platform-bespoke-what-does-each-one-mean">Ready-Made Package, SaaS Platform, Bespoke: What Does Each One Mean?</h2>
       <div class="yz-cevap"><p>E-commerce software is the system that manages the product catalogue, the basket, payment and the order flow from a single panel. It comes to you in three forms: a ready-made package you install on your own server, a SaaS platform running on a monthly subscription, and bespoke development we write from scratch. All three do the same job; they distribute the responsibility differently. The real difference emerges in ownership.</p></div>
       <p>All three will open a shop; the parting of ways comes down to two questions: who does the updating, and where does the bill grow? Decide who is to hold control, and the online shop platform options narrow of their own accord.</p><p>The market isn't waiting: according to the Ministry of Trade's <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">ETBİS 2025 report</a> — ETBİS is Türkiye's central e-commerce information system — 634,611 businesses in Türkiye are trading online; volume has passed ₺4.5 trillion, and <a href="https://ticaret.gov.tr/duyurular/turkiyede-e-ticaretin-gorunumu-raporu-yayinlandi-06-05-2025" target="_blank" rel="noopener">by official figures</a> its share of GDP is 6.9%. In that crowd, the choice of software in e-commerce is a decision that is expensive to reverse: changing platform means migrating all your data all over again.</p><ul><li><strong>Ready-made package:</strong> You set the update schedule.</li><li><strong>SaaS platform:</strong> Version upgrades happen without anyone asking you.</li><li><strong>Bespoke development:</strong> Every request outside the scope is a new work order.</li></ul>
       <h3>What decides the route isn't the size of the brand</h3>
-      <p>It is the shape of the catalogue that drives the decision. A boutique with a single product group goes live quickly on a subscription system; a textile business with hundreds of variants is comfortable on a self-hosted platform. A manufacturer that needs dealer pricing and trade accounts drifts towards the bespoke side. In other words, the e-commerce software decision is taken by the shape of the catalogue, not by turnover.</p>
-      <h2>Five Concrete Criteria for Choosing E-Commerce Software</h2>
+      <p>It is the shape of the catalogue that drives the decision. A boutique with a single product group goes live quickly on a subscription system; a textile business with hundreds of variants is comfortable on a self-hosted platform. A manufacturer that needs dealer pricing and trade accounts drifts towards the bespoke side. In other words, the e-commerce software decision is taken by the shape of the catalogue, not by turnover.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="five-concrete-criteria-for-choosing-e-commerce-software">Five Concrete Criteria for Choosing E-Commerce Software</h2>
       <div class="yz-cevap"><p>Five criteria will clarify the choice: number of products, depth of variants, integration list, team capacity and data ownership. Once you answer those honestly, you'll eliminate two of the three options yourself. The right e-commerce software emerges where those five answers intersect. Do the scoring on paper, not on instinct.</p></div>
       <p>The order matters: catalogue complexity at the top, budget at the bottom. On the wrong platform a cheap start ends up expensive; if a piece of e-commerce software doesn't suit you, every new feature means more development.</p>
       <ol><li><strong>Number of products:</strong> Fifty products and fifty thousand products will not carry the same platform.</li><li><strong>Depth of variants:</strong> Size, colour, fabric, pack quantity. As the combinations grow, the panel slows down.</li><li><strong>Integration list:</strong> Accounting, delivery, marketplace, payment infrastructure. Write them all on one page.</li><li><strong>Team capacity:</strong> Who is going to do the updating? If your answer is "nobody", a subscription system makes sense.</li><li><strong>Data ownership:</strong> Can you export the customer and order data whenever you choose?</li></ol>
@@ -515,39 +560,39 @@
         </table>
       </div>
       <h4>Leave the budget until last</h4>
-      <p>Businesses that put the budget first pay a second time six months later. Settle the requirement first, then talk about the figure. In e-commerce, the software budget is set by the scope; the scope is not set by the budget. We explain how we work the scope out on our <a href="../../web-design/">web and software module page</a> of the site.</p>
-      <h2>Where Does the Money Go? Which Item Does It Pile Up In?</h2>
+      <p>Businesses that put the budget first pay a second time six months later. Settle the requirement first, then talk about the figure. In e-commerce, the software budget is set by the scope; the scope is not set by the budget. We explain how we work the scope out on our <a href="../../web-design/">web and software module page</a> of the site.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="where-does-the-money-go-which-item-does-it-pile-up-in">Where Does the Money Go? Which Item Does It Pile Up In?</h2>
       <div class="yz-cevap"><p>Spending piles up in three items: setup, monthly running costs and changes. On a subscription system the setup stays low and the monthly outgoing moves along at a fixed level. On a self-hosted platform the payment is spread across hosting and developer hours. The bill for a piece of e-commerce software is the sum of those three items. Ask about all three separately; only then will you see the total.</p></div>
       <p>The budget flows in one of two directions: into rent, or into property. On a subscription system what you pay covers the rent; stop the subscription and the shop stops with it. On a self-hosted platform the payment goes into code and design, and the files stay with you.</p><p>Factor the commission in as well: some providers take a share of turnover, and as turnover grows that item can overtake the fixed cost. You see the real cost of a piece of e-commerce software in the third year, not in the first month.</p><p><strong>The items nobody brings up in the first meeting:</strong></p><ul><li>Theme and plugin licences</li><li>Virtual POS integration, setting up the payment infrastructure</li><li>Annual security and update maintenance</li><li>Data migration and the URL redirect work</li></ul>
       <h3>Fixed cost or variable cost?</h3>
-      <p>A business with tight cash flow likes a fixed cost, and that is exactly what a subscription system gives. A growing brand prefers a variable cost, spending the money as the need arises.</p>
-      <h2>After How Many Products and Variants Does a Platform Struggle?</h2>
+      <p>A business with tight cash flow likes a fixed cost, and that is exactly what a subscription system gives. A growing brand prefers a variable cost, spending the money as the need arises.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="after-how-many-products-and-variants-does-a-platform-struggle">After How Many Products and Variants Does a Platform Struggle?</h2>
       <div class="yz-cevap"><p>The critical threshold isn't the number of products, it's the number of variant combinations. If you work with a few hundred products and simple variants, a subscription system will carry it comfortably. Once thousands of combinations come into play, a self-hosted platform or bespoke development is required. The e-commerce software you choose has to carry that load in the admin panel as well, not just in the shop window.</p></div>
       <p>Say you sell T-shirts: six sizes, eight colours, 48 combinations per style. At a hundred styles you are managing 4,800 rows in the panel.</p><p>With a simple catalogue the opposite holds. A producer selling thirty kinds of jam shouldn't be paying for an advanced variant engine. Paying every month for a piece of e-commerce software you don't use is waste.</p>
       <h3>The ability to work in bulk is decisive</h3>
       <p>If you are updating the price list by hand, the platform is wearing you out; look for bulk import and rule-based pricing. The real test: how many minutes does it take you to push a price rise through? That is where you get the measure of a piece of e-commerce software.</p>
       <h3>Marketplace selling changes the equation</h3>
-      <p>If you sell from the same stock onto marketplaces, synchronization is essential; a platform that doesn't hold a single stock pool will drag you into double-selling. Ask for that connection from day one.</p>
-      <h2>Ownership and Portability: Whose Hands Is the Data In?</h2>
+      <p>If you sell from the same stock onto marketplaces, synchronization is essential; a platform that doesn't hold a single stock pool will drag you into double-selling. Ask for that connection from day one.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="ownership-and-portability-whose-hands-is-the-data-in">Ownership and Portability: Whose Hands Is the Data In?</h2>
       <div class="yz-cevap"><p>Ownership is a question of whose hands the code and the data are in. On a self-hosted platform the files sit on your own server; you can move them any day you choose. On a subscription system the shop lives on the provider's infrastructure. With bespoke development, both the code and the data belong to you. When you are choosing e-commerce software, ask that question on the first day.</p></div>
       <p>Ask this in the sales meeting: if I wanted to leave tomorrow, what would I take with me? If the answer is vague, there is a lock-in risk. You ought to be able to download the product, customer and price data in a standard file; with a piece of e-commerce software, that shouldn't be a matter for negotiation.</p><p>Ownership isn't one single thing; the real distinction starts with the code. With open source you are using the licence of the core. With bespoke, the key to the repository stays with you; even if you change developer, the project stays with you.</p>
       <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
       <h3>Signs of lock-in</h3>
-      <ul><li>You can only see the data in the provider's panel.</li><li>The export file comes down with fields missing.</li><li>You open a support ticket for a small design change.</li><li>The contract is annual and the exit clause is unclear.</li></ul>
-      <h2>Which Way Does Your Integration Need Push You?</h2>
+      <ul><li>You can only see the data in the provider's panel.</li><li>The export file comes down with fields missing.</li><li>You open a support ticket for a small design change.</li><li>The contract is annual and the exit clause is unclear.</li></ul></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="which-way-does-your-integration-need-push-you">Which Way Does Your Integration Need Push You?</h2>
       <div class="yz-cevap"><p>Your list of connections hardens the decision. Delivery, payment infrastructure and accounting connections come ready in all three options. Once ERP, dealer price lists and warehouse management enter the picture, off-the-shelf solutions start to struggle. If you have a list like that, put bespoke development on the table; patching it on afterwards costs a great deal more.</p></div>
       <p>Split the list in two: the standard ones and the ones particular to you. A plugin solves the standard connections; that's a day's work. The bespoke connections carry your business rules — showing a dealer a different price, or reserving stock. If your list is long, choose the software you will use in e-commerce accordingly.</p><p>Dealer panels, ERP mapping and bespoke workflows are all covered on our <a href="../../custom-software-development/">custom software page</a> in detail. How the setup, payment and delivery integrations proceed you will find on our <a href="../../ecommerce-website/">e-commerce service page</a> as well. For the category and product page work that comes after launch, take a look at our e-commerce SEO page.</p>
       <h3>Virtual POS and payment infrastructure</h3>
       <p>The type of software doesn't change virtual POS support in e-commerce. The difference is this: how many banks you can connect at once, and whether adding a new bank is a setting or a piece of development. On a subscription system the provider sets the limit; with bespoke, you do.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/variant-complexity-960.webp"
              srcset="./image/variant-complexity-640.webp 640w, ./image/variant-complexity-960.webp 960w, ./image/variant-complexity-1440.webp 1440w, ./image/variant-complexity-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="A dense grid of small cubes branching outwards and multiplying; an abstract image conveying the growth of variant combinations."
              width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Variant combinations grow with a multiplier effect as the catalogue expands. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Ready-Made Package, SaaS Platform and Custom Software Compared</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="ready-made-package-saas-platform-and-custom-software-compared">Ready-Made Package, SaaS Platform and Custom Software Compared</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Criterion</th><th>Ready-Made Package (self-hosted)</th><th>SaaS Platform (subscription)</th><th>Custom Software (bespoke)</th></tr></thead>
@@ -572,7 +617,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../contact/">Get in touch</a>
         </aside>
-        <p>The decision comes down to three words: catalogue, integration, ownership. Write your answers under those headings and the right e-commerce software shows itself. If you don't know where to begin, start with our <a href="../../get-a-quote/">quote wizard</a> — in a few questions we work out your product count and your integration list, then put forward the e-commerce software option that suits you, with the reasoning behind it.</p>
+        <p>The decision comes down to three words: catalogue, integration, ownership. Write your answers under those headings and the right e-commerce software shows itself. If you don't know where to begin, start with our <a href="../../get-a-quote/">quote wizard</a> — in a few questions we work out your product count and your integration list, then put forward the e-commerce software option that suits you, with the reasoning behind it.</p></section>
       </article>
     </div>
   </section>

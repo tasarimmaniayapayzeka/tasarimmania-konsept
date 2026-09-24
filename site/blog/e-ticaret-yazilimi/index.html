@@ -176,6 +176,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -462,43 +509,41 @@
      Kardeş yazılar: kurulum/geçiş süreci (SÜRE), maliyet kalemleri (MEKANİZMA),
      pazaryeri entegrasyonu (ROTA-alt). Onların konusu burada TEKRARLANMAZ. -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">E-ticaret Yazılımı Seçimi: Hangi Altyapı Hangi İşletmeye Uygun?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">E-Ticaret</span>
-        <span class="yz-meta">1 Eylül 2026 · 7 dakikalık okuma</span>
+          <h1>E-ticaret Yazılımı Seçimi: Hangi Altyapı Hangi İşletmeye Uygun?</h1>
+          <p class="ozet">Doğru e-ticaret yazılımı işletmeden işletmeye değişir ve mağazanızın önümüzdeki üç yılını belirler. Katalog derinliğiniz ile entegrasyon listeniz kararı sürüklüyor. Bu yazı hazır paketi, abonelikli sistemi ve ısmarlama geliştirmeyi somut kriterlerle karşılaştırıyor.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/uc-yol-1440.webp"
+           srcset="./gorsel/uc-yol-640.webp 640w, ./gorsel/uc-yol-960.webp 960w, ./gorsel/uc-yol-1440.webp 1440w, ./gorsel/uc-yol-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Karmaşıklığı giderek artan üç soyut yapı yan yana duruyor; basit küp, katmanlı ızgara ve yüksek çerçeve, e-ticaret altyapısının üç seçeneğini temsil ediyor."
+           width="1920" height="1080" decoding="async"><figcaption>Hazır paket, abonelikli sistem ve ısmarlama geliştirme: aynı işi farklı sorumluluk dağılımıyla yapıyor. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> E-Ticaret</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>1 Eylül 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>7 başlık</b></div>
       </div>
-      <h1>E-ticaret Yazılımı Seçimi: Hangi Altyapı Hangi İşletmeye Uygun?</h1>
-      <p class="ozet">Doğru e-ticaret yazılımı işletmeden işletmeye değişir ve mağazanızın önümüzdeki üç yılını belirler. Katalog derinliğiniz ile entegrasyon listeniz kararı sürüklüyor. Bu yazı hazır paketi, abonelikli sistemi ve ısmarlama geliştirmeyi somut kriterlerle karşılaştırıyor.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#hazir-paket-saas-platform-ismarlama-hangisi-ne-demek"><span>01</span>Hazır Paket, SaaS Platform, Ismarlama: Hangisi Ne Demek?</a><a href="#e-ticaret-yazilimi-seciminde-bes-somut-kriter"><span>02</span>E-ticaret Yazılımı Seçiminde Beş Somut Kriter</a><a href="#maliyet-nereye-gidiyor-para-hangi-kalemde-birikiyor"><span>03</span>Maliyet Nereye Gidiyor? Para Hangi Kalemde Birikiyor?</a><a href="#kac-urun-ve-varyasyondan-sonra-altyapi-zorlanir"><span>04</span>Kaç Ürün ve Varyasyondan Sonra Altyapı Zorlanır?</a><a href="#sahiplik-ve-tasinabilirlik-veri-kimin-elinde-duruyor"><span>05</span>Sahiplik ve Taşınabilirlik: Veri Kimin Elinde Duruyor?</a><a href="#entegrasyon-ihtiyaci-sizi-hangi-tarafa-itiyor"><span>06</span>Entegrasyon İhtiyacı Sizi Hangi Tarafa İtiyor?</a><a href="#hazir-paket-saas-platform-ve-ozel-yazilim-karsilastirmasi"><span>07</span>Hazır Paket, SaaS Platform ve Özel Yazılım Karşılaştırması</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/uc-yol-1440.webp"
-           srcset="./gorsel/uc-yol-640.webp 640w, ./gorsel/uc-yol-960.webp 960w, ./gorsel/uc-yol-1440.webp 1440w, ./gorsel/uc-yol-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Karmaşıklığı giderek artan üç soyut yapı yan yana duruyor; basit küp, katmanlı ızgara ve yüksek çerçeve, e-ticaret altyapısının üç seçeneğini temsil ediyor."
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Hazır paket, abonelikli sistem ve ısmarlama geliştirme: aynı işi farklı sorumluluk dağılımıyla yapıyor. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Hazır Paket, SaaS Platform, Ismarlama: Hangisi Ne Demek?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 07</span></div><h2 id="hazir-paket-saas-platform-ismarlama-hangisi-ne-demek">Hazır Paket, SaaS Platform, Ismarlama: Hangisi Ne Demek?</h2>
       <div class="yz-cevap"><p>E-ticaret yazılımı, ürün kataloğunu, sepeti, ödemeyi ve sipariş akışını tek panelde yöneten sistemdir. Üç biçimde karşınıza çıkar: kendi sunucunuza kurduğunuz hazır paket, aylık abonelikle çalışan SaaS platform ve sıfırdan yazdığımız ısmarlama geliştirme. Üçü de aynı işi görür, sorumluluğu farklı dağıtır. Gerçek fark sahiplikte ortaya çıkar.</p></div>
       <p>Üçü de mağaza açar; ayrışma iki soruda: güncellemeyi kim yapıyor, fatura nerede büyüyor? Kontrolün kimde olacağına karar verin; online mağaza altyapısı seçeneği kendiliğinden daralır.</p><p>Pazar beklemiyor: Ticaret Bakanlığı'nın <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">ETBİS 2025 raporuna</a> göre Türkiye'de 634.611 işletme e-ticaret yapıyor; hacim 4,5 trilyon lirayı aştı, <a href="https://ticaret.gov.tr/duyurular/turkiyede-e-ticaretin-gorunumu-raporu-yayinlandi-06-05-2025" target="_blank" rel="noopener">resmî verilerle</a> GSYH payı %6,9. Bu kalabalıkta e-ticarette yazılım seçimi geri dönüşü pahalı bir karar: platform değiştirmek tüm veriyi yeniden taşımak demek.</p><ul><li><strong>Hazır paket:</strong> Güncelleme takvimini siz kurarsınız.</li><li><strong>SaaS platform:</strong> Sürüm yükseltmesi size sorulmaz.</li><li><strong>Ismarlama geliştirme:</strong> Kapsam dışı her istek yeni iş emri.</li></ul>
       <h3>Yolu belirleyen şey marka büyüklüğü değil</h3>
-      <p>Katalog yapısı kararı sürüklüyor. Tek ürün gruplu butik abonelikli sistemde hızla yayına çıkar; yüzlerce varyasyonlu tekstilci kurulum tabanlı altyapıda rahat eder. Bayi fiyatı ve cari hesap isteyen üretici ısmarlama tarafa kayar. Yani e-ticaret yazılımı kararını ciro değil, kataloğun şekli veriyor.</p>
-      <h2>E-ticaret Yazılımı Seçiminde Beş Somut Kriter</h2>
+      <p>Katalog yapısı kararı sürüklüyor. Tek ürün gruplu butik abonelikli sistemde hızla yayına çıkar; yüzlerce varyasyonlu tekstilci kurulum tabanlı altyapıda rahat eder. Bayi fiyatı ve cari hesap isteyen üretici ısmarlama tarafa kayar. Yani e-ticaret yazılımı kararını ciro değil, kataloğun şekli veriyor.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 07</span></div><h2 id="e-ticaret-yazilimi-seciminde-bes-somut-kriter">E-ticaret Yazılımı Seçiminde Beş Somut Kriter</h2>
       <div class="yz-cevap"><p>Seçimi beş kriter netleştirir: ürün sayısı, varyasyon derinliği, entegrasyon listesi, ekip kapasitesi ve veri sahipliği. Bu başlıklara dürüst cevap verdiğinizde üç seçenekten ikisini kendiniz elersiniz. Doğru e-ticaret yazılımı bu beş cevabın kesiştiği yerde çıkar. Puanlamayı kâğıt üstünde yapın, sezgiyle değil.</p></div>
       <p>Sıralama önemli: en üste katalog karmaşıklığı, en alta bütçe. Yanlış altyapıda ucuz başlangıç pahalı bitiyor; bir e-ticaret yazılımı size uymuyorsa her yeni özellik ek geliştirme demek.</p>
       <ol><li><strong>Ürün sayısı:</strong> Elli ürünle elli bin ürün aynı altyapıyı kaldırmaz.</li><li><strong>Varyasyon derinliği:</strong> Beden, renk, kumaş, paket adedi. Kombinasyon arttıkça panel yavaşlar.</li><li><strong>Entegrasyon listesi:</strong> Muhasebe, kargo, pazaryeri, ödeme altyapısı. Hepsini tek sayfaya yazın.</li><li><strong>Ekip kapasitesi:</strong> Güncellemeyi kim yapacak? Cevabınız "kimse" ise abonelikli sistem mantıklı.</li><li><strong>Veri sahipliği:</strong> Müşteri ve sipariş verisini dilediğiniz an dışa aktarabiliyor musunuz?</li></ol>
@@ -515,39 +560,39 @@
         </table>
       </div>
       <h4>Bütçeyi en sona bırakın</h4>
-      <p>Bütçeyi ilk sıraya koyan işletmeler altı ay sonra ikinci kez ödüyor. Önce ihtiyacı netleştirin, sonra rakamı konuşun. Yazılım bütçesini e-ticarette kapsam belirler; kapsamı bütçe değil. Kapsamı nasıl çıkardığımızı <a href="../../web-tasarim/">web ve yazılım modülü sayfamızda</a> anlatıyoruz.</p>
-      <h2>Maliyet Nereye Gidiyor? Para Hangi Kalemde Birikiyor?</h2>
+      <p>Bütçeyi ilk sıraya koyan işletmeler altı ay sonra ikinci kez ödüyor. Önce ihtiyacı netleştirin, sonra rakamı konuşun. Yazılım bütçesini e-ticarette kapsam belirler; kapsamı bütçe değil. Kapsamı nasıl çıkardığımızı <a href="../../web-tasarim/">web ve yazılım modülü sayfamızda</a> anlatıyoruz.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 07</span></div><h2 id="maliyet-nereye-gidiyor-para-hangi-kalemde-birikiyor">Maliyet Nereye Gidiyor? Para Hangi Kalemde Birikiyor?</h2>
       <div class="yz-cevap"><p>Harcama üç kalemde birikir: kurulum, aylık işletme ve değişiklik. Abonelikli sistemde kurulum düşük kalır, aylık gider sabit ilerler. Kurulum tabanlı altyapıda ödeme hosting ve geliştirici saatine dağılır. Bir e-ticaret yazılımının faturası bu üç kalemin toplamıdır. Üçünü ayrı ayrı sorun; toplamı ancak o zaman görürsünüz.</p></div>
       <p>Bütçe iki yöne akıyor: kiraya ya da mülke. Abonelikli sistemde ödediğiniz tutar kirayı karşılar; aboneliği durdurursanız mağaza da durur. Kurulum tabanlı altyapıda ödeme koda ve tasarıma gider, dosyalar sizde kalır.</p><p>Komisyonu da hesaba katın: bazı sağlayıcılar cirodan pay alıyor ve ciro büyüdükçe bu kalem sabit gideri geçebilir. Bir e-ticaret yazılımının gerçek maliyetini üçüncü yılda görürsünüz, ilk ayda değil.</p><p><strong>Kimsenin ilk toplantıda konuşmadığı kalemler:</strong></p><ul><li>Tema ve eklenti lisansları</li><li>Sanal pos entegrasyonu, ödeme altyapısı kurulumu</li><li>Yıllık güvenlik ve güncelleme bakımı</li><li>Veri taşıma, adres yönlendirme işi</li></ul>
       <h3>Sabit gider mi, değişken gider mi?</h3>
-      <p>Nakit akışı dar bir işletme sabit gideri sever; abonelikli sistem tam bunu verir. Büyüyen marka değişken gideri tercih eder, parayı ihtiyaç çıktıkça harcar.</p>
-      <h2>Kaç Ürün ve Varyasyondan Sonra Altyapı Zorlanır?</h2>
+      <p>Nakit akışı dar bir işletme sabit gideri sever; abonelikli sistem tam bunu verir. Büyüyen marka değişken gideri tercih eder, parayı ihtiyaç çıktıkça harcar.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 07</span></div><h2 id="kac-urun-ve-varyasyondan-sonra-altyapi-zorlanir">Kaç Ürün ve Varyasyondan Sonra Altyapı Zorlanır?</h2>
       <div class="yz-cevap"><p>Kritik eşik ürün adedi değil, varyasyon kombinasyonlarının sayısıdır. Birkaç yüz ürün ve basit varyasyonla çalışıyorsanız abonelikli sistem rahat taşır. Binlerce kombinasyon devreye girdiğinde kurulum tabanlı altyapı ya da ısmarlama geliştirme gerekir. Seçtiğiniz e-ticaret yazılımı bu yükü panelde de taşımalı, yalnız vitrinde değil.</p></div>
       <p>Tişört satıyorsunuz: altı beden, sekiz renk, modelden 48 kombinasyon. Yüz modelde panelde 4.800 satır yönetiyorsunuz.</p><p>Basit katalogda tersi geçerli. Otuz çeşit reçel satan üretici gelişmiş varyasyon motoruna para vermemeli. Kullanmadığınız bir e-ticaret yazılımı için her ay ödemek israftır.</p>
       <h3>Toplu işlem yeteneği belirleyici</h3>
       <p>Fiyat listesini elle güncelliyorsanız altyapı sizi yoruyor; toplu içe aktarma ve kural tabanlı fiyatlama arayın. Gerçek test: zam listesini kaç dakikada geçiriyorsunuz? Bir e-ticaret yazılımını burada tanırsınız.</p>
       <h3>Pazaryeri satışı denklemi değiştiriyor</h3>
-      <p>Aynı stoktan pazaryerlerine satıyorsanız senkronizasyon şart; tek stok havuzu tutmayan altyapı çift satışa sürükler. Bu bağlantıyı ilk günden isteyin.</p>
-      <h2>Sahiplik ve Taşınabilirlik: Veri Kimin Elinde Duruyor?</h2>
+      <p>Aynı stoktan pazaryerlerine satıyorsanız senkronizasyon şart; tek stok havuzu tutmayan altyapı çift satışa sürükler. Bu bağlantıyı ilk günden isteyin.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 07</span></div><h2 id="sahiplik-ve-tasinabilirlik-veri-kimin-elinde-duruyor">Sahiplik ve Taşınabilirlik: Veri Kimin Elinde Duruyor?</h2>
       <div class="yz-cevap"><p>Sahiplik, kodun ve verinin kimin elinde olduğudur. Kurulum tabanlı altyapıda dosyalar sizin sunucunuzda durur; istediğiniz gün taşırsınız. Abonelikli sistemde mağaza sağlayıcının altyapısında yaşar. Ismarlama geliştirmede hem kod hem veri size ait olur. Bir e-ticaret yazılımı seçerken bu soruyu ilk gün sorun.</p></div>
       <p>Satış görüşmesinde şunu sorun: yarın ayrılmak istesem neyi yanıma alırım? Cevap bulanıksa kilitlenme riski var. Ürün, müşteri ve fiyat verisini standart dosyada indirebilmelisiniz; bir e-ticaret yazılımında bu pazarlık konusu olmamalı.</p><p>Sahiplik tek parça değil; asıl ayrım kodda başlıyor. Açık kaynak çekirdeğin lisansını kullanıyorsunuz. Ismarlamada deponun anahtarı sizde durur; geliştiriciyi değiştirseniz bile proje sizinle kalır.</p>
       <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
       <h3>Kilitlenme belirtileri</h3>
-      <ul><li>Veriyi yalnızca sağlayıcının panelinde görüyorsunuz.</li><li>Dışa aktarma dosyası eksik alanlarla iniyor.</li><li>Küçük bir tasarım değişikliği için destek talebi açıyorsunuz.</li><li>Sözleşme yıllık, çıkış maddesi belirsiz.</li></ul>
-      <h2>Entegrasyon İhtiyacı Sizi Hangi Tarafa İtiyor?</h2>
+      <ul><li>Veriyi yalnızca sağlayıcının panelinde görüyorsunuz.</li><li>Dışa aktarma dosyası eksik alanlarla iniyor.</li><li>Küçük bir tasarım değişikliği için destek talebi açıyorsunuz.</li><li>Sözleşme yıllık, çıkış maddesi belirsiz.</li></ul></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 07</span></div><h2 id="entegrasyon-ihtiyaci-sizi-hangi-tarafa-itiyor">Entegrasyon İhtiyacı Sizi Hangi Tarafa İtiyor?</h2>
       <div class="yz-cevap"><p>Bağlantı listeniz kararı sertleştirir. Kargo, ödeme altyapısı ve muhasebe bağlantısı üç seçenekte de hazır gelir. ERP, bayi fiyat listesi ve depo yönetimi girdiğinde hazır çözümler zorlanır. Böyle bir listeniz varsa ısmarlama geliştirmeyi masaya koyun; sonradan yamamak çok daha pahalıya patlar.</p></div>
       <p>Listeyi ikiye ayırın: standart olanlar ve size özel olanlar. Eklenti standart bağlantıları çözer, bir günlük iştir. Özel bağlantılar sizin iş kurallarınızı taşır; bayiye farklı fiyat göstermek ya da stok rezervasyonu yapmak gibi. Listeniz uzunsa e-ticarette kullanacağınız yazılımı buna göre seçin.</p><p>Bayi paneli, ERP eşlemesi ve özel iş akışlarını <a href="../../ozel-yazilim/">özel yazılım sayfamızda</a> anlatıyoruz. Kurulum, ödeme ve kargo entegrasyonunun nasıl ilerlediğini <a href="../../e-ticaret/">e-ticaret hizmet sayfamızda</a> bulursunuz. Yayına çıktıktan sonraki kategori ve ürün sayfası çalışması için e-ticaret SEO sayfamıza göz atın.</p>
       <h3>Sanal pos ve ödeme altyapısı</h3>
       <p>Yazılımın türü e-ticarette sanal pos desteğini değiştirmiyor. Fark şurada: kaç bankayı aynı anda bağlayabildiğiniz ve yeni banka eklemenin ayar mı geliştirme mi olduğu. Abonelikli sistemde sınırı sağlayıcı, ısmarlamada siz koyarsınız.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/katalog-karmasikligi-960.webp"
              srcset="./gorsel/katalog-karmasikligi-640.webp 640w, ./gorsel/katalog-karmasikligi-960.webp 960w, ./gorsel/katalog-karmasikligi-1440.webp 1440w, ./gorsel/katalog-karmasikligi-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Küçük küplerden oluşan yoğun bir ızgaranın dışa doğru dallanarak çoğalması; artan varyasyon kombinasyonlarını anlatan soyut görsel."
              width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Varyasyon kombinasyonları katalog büyüdükçe çarpan etkisiyle artıyor. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Hazır Paket, SaaS Platform ve Özel Yazılım Karşılaştırması</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 07</b><span>07 / 07</span></div><h2 id="hazir-paket-saas-platform-ve-ozel-yazilim-karsilastirmasi">Hazır Paket, SaaS Platform ve Özel Yazılım Karşılaştırması</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Kriter</th><th>Hazır Paket (kurulum tabanlı)</th><th>SaaS Platform (abonelikli)</th><th>Özel Yazılım (ısmarlama)</th></tr></thead>
@@ -572,7 +617,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../iletisim/">Bize ulaşın</a>
         </aside>
-        <p>Karar üç kelimeye iniyor: katalog, entegrasyon, sahiplik. Bu başlıklara cevabınızı yazın; doğru e-ticaret yazılımı kendini gösterir. Nereden başlayacağınızı bilmiyorsanız <a href="../../teklif/">teklif sihirbazımızdan</a> geçin. Birkaç soruda ürün sayınızı ve entegrasyon listenizi çıkarıyoruz, size uygun e-ticaret yazılımı seçeneğini gerekçesiyle sunuyoruz.</p>
+        <p>Karar üç kelimeye iniyor: katalog, entegrasyon, sahiplik. Bu başlıklara cevabınızı yazın; doğru e-ticaret yazılımı kendini gösterir. Nereden başlayacağınızı bilmiyorsanız <a href="../../teklif/">teklif sihirbazımızdan</a> geçin. Birkaç soruda ürün sayınızı ve entegrasyon listenizi çıkarıyoruz, size uygun e-ticaret yazılımı seçeneğini gerekçesiyle sunuyoruz.</p></section>
       </article>
     </div>
   </section>

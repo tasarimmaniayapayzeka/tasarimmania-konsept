@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -468,73 +515,71 @@
 <!-- AYIRT EDİCİ EKSEN: ÖLÇÜM — Erişim, etkileşim ve dönüşüm metrik seti ile rapor okuma; strateji rotası ve reklam araç kıyası kardeş yazılara bırakılır.
      Huni türü: TOFU · Küme: Dijital Pazarlama Performansı · Kardeşler (enjeksiyon turunda): e-posta-pazarlama, google-ads-ve-ppc, reklam-metni-yazma -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Sosyal Medya Raporlama: Hangi Metrikleri İzlemeli?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Sosyal Medya</span>
-        <span class="yz-meta">19 Ekim 2026 · 7 dakikalık okuma</span>
+          <h1>Sosyal Medya Raporlama: Hangi Metrikleri İzlemeli?</h1>
+          <p class="ozet">Aylık sunumda beğeni sayısı büyük görünür, ciro tablosunda karşılığı çıkmaz. Bu boşluk, çoğu zaman yanlış metrik seçiminden doğar. Sosyal medya raporlama, kanal verisini iş kararına çeviren ölçüm disiplinidir. Doğru kurulduğunda hangi içeriğin para getirdiğini, hangisinin yalnızca gürültü ürettiğini gösterir. Yazının devamında erişim, etkileşim ve dönüşüm katmanlarını ayrı ayrı ele alıyoruz. Amacımız net: KOBİ karar vericisi raporu on dakikada okusun, aksiyon çıkarsın.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/sosyal-medya-raporlama-kapak-1440.webp"
+           srcset="./gorsel/sosyal-medya-raporlama-kapak-640.webp 640w, ./gorsel/sosyal-medya-raporlama-kapak-960.webp 960w, ./gorsel/sosyal-medya-raporlama-kapak-1440.webp 1440w, ./gorsel/sosyal-medya-raporlama-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Sosyal medya raporlama katmanları: erişim, etkileşim ve dönüşüm ölçütlerinin üst üste okunmasını anlatan soyut görsel"
+           width="1920" height="1080" decoding="async"><figcaption>Üç katmanlı ölçüm mantığı: erişim, etkileşim ve dönüşüm aynı sayfada okunur. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Sosyal Medya</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>19 Ekim 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>6 başlık</b></div>
       </div>
-      <h1>Sosyal Medya Raporlama: Hangi Metrikleri İzlemeli?</h1>
-      <p class="ozet">Aylık sunumda beğeni sayısı büyük görünür, ciro tablosunda karşılığı çıkmaz. Bu boşluk, çoğu zaman yanlış metrik seçiminden doğar. Sosyal medya raporlama, kanal verisini iş kararına çeviren ölçüm disiplinidir. Doğru kurulduğunda hangi içeriğin para getirdiğini, hangisinin yalnızca gürültü ürettiğini gösterir. Yazının devamında erişim, etkileşim ve dönüşüm katmanlarını ayrı ayrı ele alıyoruz. Amacımız net: KOBİ karar vericisi raporu on dakikada okusun, aksiyon çıkarsın.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#sosyal-medya-raporlama-neden-metrik-secimiyle-baslar"><span>01</span>Sosyal Medya Raporlama Neden Metrik Seçimiyle Başlar?</a><a href="#erisim-metrikleri-ne-anlatir-ne-anlatmaz"><span>02</span>Erişim Metrikleri Ne Anlatır, Ne Anlatmaz?</a><a href="#etkilesim-kalitesini-hangi-olcutlerle-degerlendirmeli"><span>03</span>Etkileşim Kalitesini Hangi Ölçütlerle Değerlendirmeli?</a><a href="#donusum-tarafinda-izlenecek-sayilar"><span>04</span>Dönüşüm Tarafında İzlenecek Sayılar</a><a href="#sosyal-medya-raporlamanizi-bize-emanet-edin"><span>05</span>Sosyal Medya Raporlamanızı Bize Emanet Edin</a><a href="#rapor-katmanlarina-gore-olcut-seti-ve-okuma-sikligi"><span>06</span>Rapor Katmanlarına Göre Ölçüt Seti ve Okuma Sıklığı</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/sosyal-medya-raporlama-kapak-1440.webp"
-           srcset="./gorsel/sosyal-medya-raporlama-kapak-640.webp 640w, ./gorsel/sosyal-medya-raporlama-kapak-960.webp 960w, ./gorsel/sosyal-medya-raporlama-kapak-1440.webp 1440w, ./gorsel/sosyal-medya-raporlama-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Sosyal medya raporlama katmanları: erişim, etkileşim ve dönüşüm ölçütlerinin üst üste okunmasını anlatan soyut görsel"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Üç katmanlı ölçüm mantığı: erişim, etkileşim ve dönüşüm aynı sayfada okunur. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Sosyal Medya Raporlama Neden Metrik Seçimiyle Başlar?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 06</span></div><h2 id="sosyal-medya-raporlama-neden-metrik-secimiyle-baslar">Sosyal Medya Raporlama Neden Metrik Seçimiyle Başlar?</h2>
       <div class="yz-cevap"><p>Sosyal medya raporlama, ölçülecek metrikleri iş hedefine bağlayarak başlar; hedefe bağlanmayan sayı rapora girmez. Bilinirlik hedefi erişimi, talep hedefi dönüşümü öne çıkarır. Metrik setini önce seçiyoruz, paneli sonra kuruyoruz. Bu sıra bozulduğunda rapor, araçların varsayılan ekranlarının kopyasına döner. Hedef cümlesini tek satırda yazmak seti daraltmanın en hızlı yoludur.</p></div>
       <p>Üç soruyla ilerliyoruz: Kime ulaştık? Ulaşan kişi ne yaptı? Yaptığı şey satışa dokundu mu? Her soru bir katmana denk gelir; katmanların her birinin kendi göstergesi vardır. Katman sırasını bozmuyoruz; erişimi görmeden etkileşimi, etkileşimi görmeden dönüşümü yorumlamıyoruz.</p><p>E-ticaret yapan işletme sayısı artıyor. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">Ticaret Bakanlığı ETBİS raporu</a> bu artışı rakamlarla ortaya koyuyor. Her yeni satış kanalı rapora yeni bir sütun ekler; bu yüzden sosyal medya raporlama setini panel kurmadan önce daraltıyoruz. <a href="../../performans-pazarlama/">Performans pazarlaması</a> tarafında kurduğumuz ölçüm mantığını organik kanallara da taşıyoruz.</p><p>Rapor sahibi belirsizse ölçüm de sahipsiz kalır. Her katmana tek bir sorumlu atıyoruz. Erişim tarafında içerik editörü, dönüşüm tarafında satış sorumlusu veriyi imzalar. Sütun sahibi, o sütunun hangi panelden geldiğini rapor altına tek satırla yazar.</p>
       <h3>Metrik ile gösterge arasındaki fark nedir?</h3>
-      <p>Metrik, tek başına sayılan ham değerdir. Gösterge ise metriği bir tabana oranlayan yorumlanabilir orandır. Görüntülenme bir metriktir; görüntülenme başına tıklama oranı göstergedir. Ham sayıların yanına daima bir ölçüt oranı koyuyoruz. Oran hesaplarken paydayı da yazıyoruz; paydası gizli kalan yüzde güven vermez.</p>
-      <h2>Erişim Metrikleri Ne Anlatır, Ne Anlatmaz?</h2>
+      <p>Metrik, tek başına sayılan ham değerdir. Gösterge ise metriği bir tabana oranlayan yorumlanabilir orandır. Görüntülenme bir metriktir; görüntülenme başına tıklama oranı göstergedir. Ham sayıların yanına daima bir ölçüt oranı koyuyoruz. Oran hesaplarken paydayı da yazıyoruz; paydası gizli kalan yüzde güven vermez.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 06</span></div><h2 id="erisim-metrikleri-ne-anlatir-ne-anlatmaz">Erişim Metrikleri Ne Anlatır, Ne Anlatmaz?</h2>
       <div class="yz-cevap"><p>Erişim metrikleri, içeriğin kaç farklı kişiye ulaştığını söyler; o kişilerin ne hissettiğini söylemez. Ulaşılan tekil kişi sayısı erişim, aynı kişiye tekrarlanan teşhirlerin toplamı gösterimdir. İkisini ayırmayan rapor kitleyi olduğundan geniş gösterir. Frekans değerini tabloya eklemek bu yanılgıyı kapatır. Sosyal medya raporlamada ilk düzeltme çoğunlukla buradadır.</p></div>
       <p>Erişim tablosunu üç adımda okuyoruz.</p><ol><li>Tekil erişim ile gösterimi ayrı sütunlarda görün; frekans değeri kendi taban çizginizin üzerine çıkıyorsa kitle daralmıştır.</li><li>Erişimin ne kadarının takipçi dışından geldiğine bakın; bu pay kendi üç aylık ortalamanızın altına inerse keşfedilme zayıflamıştır.</li><li>Haftalık erişim eğrisini yayın sayısıyla eşleştirin; yayın artarken erişim sabit kalıyorsa format yorulmuştur.</li></ol><p>Eşikler evrensel doğru değildir. Sektör, kitle büyüklüğü ve içerik türü değiştikçe bantlar kayar. Kendi tarihsel ortalamanızı çıkarmadan dışarıdan eşik ödünç almayın. Raporlamaya sosyal medya panelindeki her sayıyı taşımıyoruz; <a href="../../sosyal-medya/">sosyal medya yönetimi</a> ekibimiz ilk ay yalnızca taban çizgisini kurar. Taban çizgisi, kendi geçmiş performansınızdan çıkardığınız karşılaştırma referansıdır. Bu referansı panelin son doksan günlük erişim özetinden çıkarıyoruz; tekil erişim, gösterim ve frekans sütunlarını aynı ekrandan alıyoruz.</p>
       <h3>Erişim düşünce hemen içerik mi değiştirmeli?</h3>
-      <p>Erişim düşüşü tek başına kriz sinyali değildir. Yayın sıklığı azaldıysa gerileme beklenen sonuçtur. Kritik gösterge, yayın başına düşen ulaşılan tekil kişi sayısının yönüdür. Bu oran üç ölçüm döneminde üst üste geriliyorsa format değişikliği gündeme gelir. Tek haftalık dalgalanmaya bakarak rota değiştirmiyoruz.</p>
-      <h2>Etkileşim Kalitesini Hangi Ölçütlerle Değerlendirmeli?</h2>
+      <p>Erişim düşüşü tek başına kriz sinyali değildir. Yayın sıklığı azaldıysa gerileme beklenen sonuçtur. Kritik gösterge, yayın başına düşen ulaşılan tekil kişi sayısının yönüdür. Bu oran üç ölçüm döneminde üst üste geriliyorsa format değişikliği gündeme gelir. Tek haftalık dalgalanmaya bakarak rota değiştirmiyoruz.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 06</span></div><h2 id="etkilesim-kalitesini-hangi-olcutlerle-degerlendirmeli">Etkileşim Kalitesini Hangi Ölçütlerle Değerlendirmeli?</h2>
       <div class="yz-cevap"><p>Etkileşim kalitesi, erişime oranlanan anlamlı tepkilerin ortaya koyduğu bir niteliktir; toplam beğeni sayısı bunu anlatmaz. Kaydetme, paylaşma ve yorum, beğeniden ağır sinyallerdir. Bu üçü niyet taşır, beğeni ise refleks olabilir. Ölçütü oran biçiminde kurduğunuzda küçük hesaplar da büyükler kadar okunabilir. Üç sinyali de panelin içerik etkileşim ekranından ayrı ayrı alıyoruz.</p></div>
       <p>Etkileşim oranını erişime bölerek hesaplıyoruz. Takipçiye bölen yöntem, takipçisi şişmiş hesaplarda yanıltır. Kaydetme oranı ürün içeriklerinde, paylaşma oranı bilgi içeriklerinde öne çıkar. Yorum sayısını ise tek başına değil, yanıt süresiyle birlikte okuyoruz.</p><p>Format kırılımı da aynı tabloda durur. Video, karusel ve tek görsel satırlarını ayrı tutuyoruz. Ortalama tek satır, güçlü formatın etkisini zayıf formatın içinde eritir.</p><p>Kitlenin dijital alışkanlıklarını tahminle değil kamu verisiyle kontrol ediyoruz. <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TÜİK</a>, hanehalkı bilişim teknolojileri kullanım araştırmasını düzenli olarak yayımlar; internet ve sosyal ağ kullanımına dair sayıları kurumun kendi sayfasından doğrulayabilirsiniz. Ücretli tarafta <a href="../../meta-reklam/">Meta Ads</a> panelinden gelen erişimi, organik erişimle aynı performans tablosunda ama ayrı satırda gösteriyoruz.</p>
       <h3>Yorum sayısı mı, yorum tonu mu?</h3>
       <p>Yorum sayısı hacmi, yorum tonu ise niyeti gösterir. Elli olumlu yorumla elli şikâyet aynı hücrede toplanamaz. Ton etiketlemesini basit tutuyoruz: olumlu, nötr, sorun bildiren. Rapora eklenen bu tek sütun, müşteri hizmetleri ekibinin haftalık gündemini de belirler.</p>
       <h4>Negatif yorum da bir ölçüttür</h4>
-      <p>Şikâyet oranı, toplam yorum içinde sorun bildiren yorumların payıdır. Bu pay yükselirken satış sabit kalıyorsa, mesele üründe değil beklenti yönetimindedir. Tabloya tek satır eklemek yeterli olur. Yanıt süresini de aynı satırda tutuyoruz.</p>
-      <h2>Dönüşüm Tarafında İzlenecek Sayılar</h2>
+      <p>Şikâyet oranı, toplam yorum içinde sorun bildiren yorumların payıdır. Bu pay yükselirken satış sabit kalıyorsa, mesele üründe değil beklenti yönetimindedir. Tabloya tek satır eklemek yeterli olur. Yanıt süresini de aynı satırda tutuyoruz.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 06</span></div><h2 id="donusum-tarafinda-izlenecek-sayilar">Dönüşüm Tarafında İzlenecek Sayılar</h2>
       <div class="yz-cevap"><p>Dönüşüm katmanı, sosyal kanallardan gelen trafiğin iş sonucuna dönüşme oranını izler. Form, arama, sepet ve satış olaylarını ayrı ayrı etiketliyoruz. Kanal kırılımı olmadan bu sayılar anlam taşımaz. UTM etiketleri ile olay tanımları raporun omurgasını kurar. Etiketleme disiplini yoksa kazanım sütunu boş kalır.</p></div>
       <p>Dönüşüm sütununu üç etiket üzerine kuruyoruz: kaynak, ortam ve kampanya. Aynı içerik farklı kanallarda paylaşıldığında etiketler ayrışmalıdır. Ayrışmayan etiket, tüm trafiği tek torbaya atar ve tabloyu okunamaz hale getirir. Etiketli trafik sütununu web analitiği hesabından, satış sütununu ise sipariş panelinden alıyoruz.</p><p>Mikro dönüşümleri de rapora alıyoruz. Fiyat sayfası görüntüleme, katalog indirme ve WhatsApp tıklaması, satıştan önce gelen sinyallerdir. Uzun satış döngüsünde rapor ancak bu ara adımlarla anlam kazanır. Bütçe ve gönderim zamanlaması ayrı başlıklardır.</p><p>Kaynak adlarını sabitlemek şart. Kanalı bir ay "instagram", ertesi ay "ig" yazan ekip verisini böler. Etiket sözlüğünü tek dosyada tutuyoruz; her yeni kampanyada oradan kopyalıyoruz. Sözlükte her kanalı tek yazımla sabitliyoruz; sosyal medya raporlama böylece tutarlı kalır.</p>
       <h3>Atıf modeli neden fark yaratır?</h3>
       <p>Atıf modeli, bir kazanımı hangi temas noktasına yazacağınızı belirleyen kuraldır. Son tıklama modeli sosyal kanalları olduğundan küçük gösterir. Görüntülemeli atıf ise abartma riski taşır. İki modeli yan yana raporluyoruz; aradaki fark kanalın gerçek katkı bandını verir. Model tercihini rapor başına yazmak, aylar arasındaki kıyası güvenli hale getirir.</p>
-      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      <h2>Sosyal Medya Raporlamanızı Bize Emanet Edin</h2>
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 06</span></div><h2 id="sosyal-medya-raporlamanizi-bize-emanet-edin">Sosyal Medya Raporlamanızı Bize Emanet Edin</h2>
       <div class="yz-cevap"><p>Ölçüm altyapınızı devraldığımızda ilk işimiz mevcut panelleri ve etiketleri denetlemek oluyor. Eksikleri tamamlıyor, metrik setini hedeflerinize göre sadeleştiriyoruz. Sonraki adımda sosyal medya raporlamanızı tek sayfalık aylık şablona indiriyoruz. Ekibiniz raporu on dakikada okuyup karar çıkarabilir hale geliyor. Şeffaflık için ham veri dosyasını da her ay paylaşıyoruz.</p></div>
       <p>Çalışma düzenimiz sade. İlk hafta mevcut panelleri ve etiketleri denetliyoruz. İkinci hafta ölçüt setini hedeflerinizle eşleştiriyoruz. Üçüncü hafta tek sayfalık şablonu devreye alıyoruz. Dördüncü hafta ekibinize rapor okuma eğitimi veriyoruz.</p><p>Sosyal medya raporlama tablosuyla satış verisini aynı sayfada birleştiriyoruz. Rapor dilini de sadeleştiriyoruz: teknik kısaltma yerine iş sonucu yazıyoruz. Ölçüm altyapınızı birlikte kurmak isterseniz <a href="../../teklif/">teklif formumuzu</a> doldurmanız yeterli. İlk görüşmede mevcut raporunuzu açıp eksik sütunları çıkarıyoruz.</p>
       <h3>Devir sürecinde neler istiyoruz?</h3>
       <p>Panel erişimleri, geçmiş altı ayın ham verisi ve satış tarafındaki hedef tanımları yeterli. Erişim yoksa kendi hesaplarımızdan geçici bir taban çizgisi kurarız. Kurulum bittiğinde tüm panellerin sahipliği sizde kalır.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/sosyal-medya-raporlama-govde-960.webp"
              srcset="./gorsel/sosyal-medya-raporlama-govde-640.webp 640w, ./gorsel/sosyal-medya-raporlama-govde-960.webp 960w, ./gorsel/sosyal-medya-raporlama-govde-1440.webp 1440w, ./gorsel/sosyal-medya-raporlama-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Dağınık panel verisinin tek bir karar göstergesine indirgenmesini anlatan soyut raporlama görseli" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>İyi bir rapor sayıyı çoğaltmaz; karar için gereken tek göstergeye indirger. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Rapor Katmanlarına Göre Ölçüt Seti ve Okuma Sıklığı</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 06</span></div><h2 id="rapor-katmanlarina-gore-olcut-seti-ve-okuma-sikligi">Rapor Katmanlarına Göre Ölçüt Seti ve Okuma Sıklığı</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Katman</th><th>Öne Çıkan Ölçüt</th><th>Cevapladığı Soru</th><th>Önerilen Sıklık</th></tr></thead>
@@ -553,7 +598,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../performans-pazarlama/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Raporun amacı geçmişi anlatmak değil, gelecek ayın kararını kolaylaştırmaktır. Erişim kitleyi, etkileşim ilgiyi, dönüşüm ise iş sonucunu gösterir. Üç katmanı aynı sayfada okuyan ekip, bütçesini nereye kaydıracağını tartışmadan bilir. Raporlama disiplini sosyal medya ekibinde yerleştiğinde içerik üretimi de hızlanır; neyin işe yaradığı tartışmalı olmaktan çıkar. Kanal performans raporunuzu birlikte sadeleştirelim.</p>
+        <p>Raporun amacı geçmişi anlatmak değil, gelecek ayın kararını kolaylaştırmaktır. Erişim kitleyi, etkileşim ilgiyi, dönüşüm ise iş sonucunu gösterir. Üç katmanı aynı sayfada okuyan ekip, bütçesini nereye kaydıracağını tartışmadan bilir. Raporlama disiplini sosyal medya ekibinde yerleştiğinde içerik üretimi de hızlanır; neyin işe yaradığı tartışmalı olmaktan çıkar. Kanal performans raporunuzu birlikte sadeleştirelim.</p></section>
       </article>
     </div>
   </section>

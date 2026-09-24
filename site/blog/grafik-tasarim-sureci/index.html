@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -468,86 +515,84 @@
 <!-- AYIRT EDİCİ EKSEN: SÜRE — Brief'ten teslime aşamalar ve her aşamanın zaman çizelgesi; tür yelpazesi ve araç seçimi kardeş yazıların konusu.
      Huni türü: TOFU · Küme: Grafik Tasarım · Kardeşler (enjeksiyon turunda): grafik-tasarim-trendleri, grafik-tasarim-araclari, grafik-tasarim-turleri -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Grafik Tasarım Süreci Kaç Aşamada Tamamlanır?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Grafik Tasarım</span>
-        <span class="yz-meta">21 Eylül 2026 · 7 dakikalık okuma</span>
+          <h1>Grafik Tasarım Süreci Kaç Aşamada Tamamlanır?</h1>
+          <p class="ozet">Bir logo ya da katalog işine başlarken çoğu KOBİ yöneticisinin ilk sorusu aynı: bu iş ne zaman biter? Grafik tasarım süreci, ihtiyaç dokümanının toplanmasından son dosyanın matbaaya gitmesine kadar ilerleyen planlı bir akıştır. Ajans olarak takvimi işin başında paylaşırız. Bu yazıda her adımın tipik süresini, hangi kararların işi hızlandırdığını ve nerede beklemenin kaçınılmaz olduğunu açıklıyoruz. Hedefimiz basit: bütçenizi ve lansman tarihinizi aynı tabloda görmenizi sağlamak.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/grafik-tasarim-sureci-kapak-1440.webp"
+           srcset="./gorsel/grafik-tasarim-sureci-kapak-640.webp 640w, ./gorsel/grafik-tasarim-sureci-kapak-960.webp 960w, ./gorsel/grafik-tasarim-sureci-kapak-1440.webp 1440w, ./gorsel/grafik-tasarim-sureci-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Tasarım aşamalarını temsil eden yükselen cam basamaklar ve basamakları birleştiren ışıklı hat"
+           width="1920" height="1080" decoding="async"><figcaption>Her basamak bir aşama: brief'ten teslime uzanan süre planı. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Grafik Tasarım</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>21 Eylül 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>7 başlık</b></div>
       </div>
-      <h1>Grafik Tasarım Süreci Kaç Aşamada Tamamlanır?</h1>
-      <p class="ozet">Bir logo ya da katalog işine başlarken çoğu KOBİ yöneticisinin ilk sorusu aynı: bu iş ne zaman biter? Grafik tasarım süreci, ihtiyaç dokümanının toplanmasından son dosyanın matbaaya gitmesine kadar ilerleyen planlı bir akıştır. Ajans olarak takvimi işin başında paylaşırız. Bu yazıda her adımın tipik süresini, hangi kararların işi hızlandırdığını ve nerede beklemenin kaçınılmaz olduğunu açıklıyoruz. Hedefimiz basit: bütçenizi ve lansman tarihinizi aynı tabloda görmenizi sağlamak.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#grafik-tasarim-sureci-hangi-asamalardan-olusur"><span>01</span>Grafik Tasarım Süreci Hangi Aşamalardan Oluşur?</a><a href="#brief-asamasi-ne-kadar-surer"><span>02</span>Brief Aşaması Ne Kadar Sürer?</a><a href="#konsept-asamasinda-zaman-nasil-akar"><span>03</span>Konsept Aşamasında Zaman Nasıl Akar?</a><a href="#revizyon-turlari-takvimi-neden-uzatir"><span>04</span>Revizyon Turları Takvimi Neden Uzatır?</a><a href="#teslim-asamasi-kac-gun-alir"><span>05</span>Teslim Aşaması Kaç Gün Alır?</a><a href="#tasarim-surecinizi-profesyonel-ekiple-baslatin"><span>06</span>Tasarım Sürecinizi Profesyonel Ekiple Başlatın</a><a href="#asama-asama-sure-ve-sorumluluk-tablosu"><span>07</span>Aşama Aşama Süre ve Sorumluluk Tablosu</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/grafik-tasarim-sureci-kapak-1440.webp"
-           srcset="./gorsel/grafik-tasarim-sureci-kapak-640.webp 640w, ./gorsel/grafik-tasarim-sureci-kapak-960.webp 960w, ./gorsel/grafik-tasarim-sureci-kapak-1440.webp 1440w, ./gorsel/grafik-tasarim-sureci-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Tasarım aşamalarını temsil eden yükselen cam basamaklar ve basamakları birleştiren ışıklı hat"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Her basamak bir aşama: brief'ten teslime uzanan süre planı. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Grafik Tasarım Süreci Hangi Aşamalardan Oluşur?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 07</span></div><h2 id="grafik-tasarim-sureci-hangi-asamalardan-olusur">Grafik Tasarım Süreci Hangi Aşamalardan Oluşur?</h2>
       <div class="yz-cevap"><p>Grafik tasarım süreci beş aşamadan oluşur: brief, keşif, konsept, revizyon ve teslim. Küçük ölçekli bir işte bu akış on iş gününde biter. Kurumsal kimlik gibi kapsamlı projelerde altı haftaya uzar. Aşamaların sırası değişmez; yalnızca her adıma ayrılan gün sayısı işin hacmine göre kısalır ya da genişler. Takvimi bu beş başlık üzerinden kurmanızı öneririz.</p></div>
       <p>Aşama sayısı sabit olsa da her adımın yükü değişir. Grafik tasarım sürecinin iskeletini şu sırayla kurgularız:</p><ol><li><strong>Brief:</strong> hedef kitleyi, mesajı ve kısıtları yazıya dökeriz.</li><li><strong>Keşif:</strong> rakip görsellerini ve mevcut marka varlıklarınızı tararız.</li><li><strong>Konsept:</strong> iki ya da üç farklı yönü taslak hâlinde sunarız.</li><li><strong>Revizyon:</strong> seçtiğiniz yönü geri bildirimle olgunlaştırırız.</li><li><strong>Teslim:</strong> baskı ve dijital çıktıları formatlarız.</li></ol><p>Beş adımın tamamını <a href="../../grafik-tasarim/">grafik tasarım hizmetimiz</a> kapsamında tek takvimde yönetiriz.</p>
       <h3>Aşamalar Neden Atlanmaz?</h3>
       <p>Süreçte keşif atlanırsa grafik ekibi konsept sunumunda tıkanır. Ekip yönü ıskalar, müşteri de neyi beğenmediğini anlatamaz. Bu durumda iki hafta geri dönüş yaşarsınız. Kısa bir keşif turu, üç gün harcayıp on gün kazandırır.</p>
       <h3>Toplam Süre Neye Göre Değişir?</h3>
-      <p>İş hacmi, karar verici sayısı ve baskı ihtiyacı süreyi belirleyen üç değişkendir. Tek bir afiş bir haftada biter. Logo, kartvizit, ambalaj ve sosyal medya şablonlarını kapsayan bir paket ise altı haftayı bulur. Kapsamı baştan yazmak, takvimi de baştan sabitler.</p>
-      <h2>Brief Aşaması Ne Kadar Sürer?</h2>
+      <p>İş hacmi, karar verici sayısı ve baskı ihtiyacı süreyi belirleyen üç değişkendir. Tek bir afiş bir haftada biter. Logo, kartvizit, ambalaj ve sosyal medya şablonlarını kapsayan bir paket ise altı haftayı bulur. Kapsamı baştan yazmak, takvimi de baştan sabitler.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 07</span></div><h2 id="brief-asamasi-ne-kadar-surer">Brief Aşaması Ne Kadar Sürer?</h2>
       <div class="yz-cevap"><p>Brief iki ile beş iş günü arasında kapanır. Marka ekibiniz hedefleri, kullanım alanlarını ve onay verecek kişileri netleştirirse süre alt sınıra iner. Karar verici sayısı arttıkça toplantı takvimi genişler; ihtiyaç dokümanı bir haftayı bulur. Yazılı brief olmadan başlayan işler sonraki adımlarda iki katı zaman yakar.</p></div>
       <p>Brief, projenin hedefini ve sınırlarını tek belgede toplayan ihtiyaç dokümanıdır. İçinde marka vaadi, hedef kitle, kullanım mecraları ve teslim tarihi bulunur. Bu belgeyi biz doldurmayız; sizinle birlikte doldururuz. Grafik tasarım sürecinde ilk gün kaybı çoğunlukla burada başlar. Sosyal medya görselleri de kapsamdaysa sosyal medya yönetimi ekibimizi aynı toplantıya çağırırız. Tek oturumda verdiğiniz kararlar, sonraki üç haftanın ritmini belirler.</p>
       <h3>Brief'i Hızlandıran Üç Bilgi</h3>
       <p>Logo dosyalarınızın kaynak hâli, kurumsal renk kodlarınız ve rakip listeniz. Bu üç girdi hazırsa ilk toplantı doksan dakikada biter. Eksikse ekip veri toplamak için üç gün daha ister. Hazırlık, tasarım sürecinde en ucuz hızlanma yöntemidir.</p>
       <h4>Onay Zincirini Baştan Tanımlayın</h4>
-      <p>Kaç kişi onay verecek? Tek isim mi, komite mi? Onay zincirini brief gününde yazın. Üç kişilik komite, her revizyon turuna ortalama iki gün ekler.</p>
-      <h2>Konsept Aşamasında Zaman Nasıl Akar?</h2>
+      <p>Kaç kişi onay verecek? Tek isim mi, komite mi? Onay zincirini brief gününde yazın. Üç kişilik komite, her revizyon turuna ortalama iki gün ekler.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 07</span></div><h2 id="konsept-asamasinda-zaman-nasil-akar">Konsept Aşamasında Zaman Nasıl Akar?</h2>
       <div class="yz-cevap"><p>Ekip konsept aşamasında beş ile sekiz iş günü çalışır. İlk üç günde eskiz çıkarır, kalan günlerde iki güçlü yönü sunuma hazırlar. Sunum toplantısı yarım gün sürer. Geri bildirimi aynı hafta içinde alırsak akış hız kesmeden revizyona geçer. Bekleyen onay, takvimi bire bir uzatır.</p></div>
       <p>Konsept, markanın mesajını görsel bir yöne çeviren ilk somut öneridir. Grafik tasarım sürecinin en yaratıcı adımı burasıdır; tipografi, renk ve kompozisyon kararlarını birlikte test ederiz. Dijitalleşen işletme sayısı büyüdükçe görsel kimlik ihtiyacı da artıyor; <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">Ticaret Bakanlığı'nın e-ticaret görünüm raporu</a> bu genişlemeyi işletme sayısı üzerinden ortaya koyuyor. Sektöre dair genel veriler için <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TÜİK</a> yayınlarını da izleriz.</p>
       <h3>Kaç Konsept Sunmak Doğru?</h3>
       <p>İki ya da üç yön yeterlidir. Beş konsept, karar süresini uzatır ve ekibin odağını dağıtır. Sunumda her yönün hangi ihtiyaca cevap verdiğini tek cümleyle anlatırız. Böylece toplantı, beğeni tartışmasından çıkıp hedef konuşmasına döner.</p>
       <h3>Sunum Toplantısını Kim Yönetir?</h3>
-      <p>Toplantıyı tasarım ekibinin sorumlusu yönetir. Her yönü hedef, mesaj ve mecra açısından değerlendiririz. Karar aynı gün çıkarsa takvim bir gün öne kayar. Onay bir haftaya sarkarsa teslim tarihi de o kadar geriler.</p>
-      <h2>Revizyon Turları Takvimi Neden Uzatır?</h2>
+      <p>Toplantıyı tasarım ekibinin sorumlusu yönetir. Her yönü hedef, mesaj ve mecra açısından değerlendiririz. Karar aynı gün çıkarsa takvim bir gün öne kayar. Onay bir haftaya sarkarsa teslim tarihi de o kadar geriler.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 07</span></div><h2 id="revizyon-turlari-takvimi-neden-uzatir">Revizyon Turları Takvimi Neden Uzatır?</h2>
       <div class="yz-cevap"><p>Her revizyon turu ortalama iki ile dört iş günü ekler. Gecikmenin kaynağı çizim değil, geri bildirimin dağınık gelmesidir. Grafik tasarım süreci bu noktada en çok esner. Farklı kişilerden ayrı ayrı gelen notlar, ekibi aynı işi iki kez yapmaya iter. Toplu ve yazılı geri bildirim tur başına bir gün kazandırır.</p></div>
       <p>Revizyon, seçtiğiniz konseptin geri bildirimle keskinleştiği düzeltme turudur. Sözleşmede iki tur tanımlarız; üçüncü tur ek süre ve ek bütçe demektir. Notları tek dosyada toplamanızı isteriz. &#8220;Şurası biraz daha canlı olsun&#8221; yerine &#8220;ambalajda ürün adı uzaktan okunmuyor&#8221; gibi ölçülebilir cümleler işi hızlandırır. Ölçülebilir not, ekibe tek denemede doğru hamleyi yaptırır. Kurumsal sitenizde de aynı görseller yer alacaksa <a href="../../kurumsal-web-sitesi/">kurumsal web</a> ekibimizle notları ortak yürütürüz.</p>
       <h3>Revizyon Sayısını Sözleşmeye Yazın</h3>
       <p>Tur sayısı belirsizse takvim de belirsiz kalır. Biz teklifte tur sayısını, her turun süresini ve geri bildirim penceresini açıkça belirtiriz. Böylece lansman tarihini takvime güvenle yazarsınız.</p>
       <h3>Geri Bildirim Penceresi Nedir?</h3>
       <p>Geri bildirim penceresi, sunumdan sonra notları ilettiğiniz üç günlük süredir. Pencere kapanınca ekip yeni tura geçer. Notlar geç gelirse tur başlamaz ve takvim aynı oranda kayar. Bu kuralı en baştan konuşuruz.</p>
-      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      <h2>Teslim Aşaması Kaç Gün Alır?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 07</span></div><h2 id="teslim-asamasi-kac-gun-alir">Teslim Aşaması Kaç Gün Alır?</h2>
       <div class="yz-cevap"><p>Onaydan sonraki teslim adımı bir ile üç iş günü alır. Ekip tasarımı baskı ve dijital formatlara ayırır, renk profillerini denetler, kaynak dosyaları arşivler. Matbaa provası gerekiyorsa iki gün daha ekleriz. Yalnızca dijital kullanım varsa çıktı aktarımını aynı gün bitiririz. Bu adımda sürpriz istemeyiz.</p></div>
       <p>Teslim, onaylı tasarımın kullanıma hazır dosyalara dönüştüğü çıktı aktarımıdır. Size hem düzenlenebilir kaynak dosyayı hem de PDF, PNG ve vektör çıktıları veririz. Marka kılavuzu isterseniz iki gün daha ayırırız. Grafik tasarım sürecinin bu son adımı kısa görünür, oysa dosya düzeni ileride her yeni işin başlangıç hızını belirler. İyi kurulmuş bir arşiv, bir sonraki projenin brief süresini de kısaltır.</p>
       <h3>Arşiv Neden Önemlidir?</h3>
       <p>Altı ay sonra yeni bir afiş istediğinizde ekip sıfırdan başlamaz. Düzenli arşiv, süreyi benzer grafik işlerinde yarıya indirir. Dosyaları hem bizde hem sizde tutmanızı öneririz.</p>
       <h3>Baskıya Giden İşlerde Ek Süre</h3>
-      <p>Matbaa provası, işin gerçek kâğıtta nasıl göründüğünü gösteren fiziksel testtir. Prova iki gün, düzeltme bir gün alır. Baskı planınız varsa bu üç günü takvime en baştan yazın.</p>
-      <h2>Tasarım Sürecinizi Profesyonel Ekiple Başlatın</h2>
+      <p>Matbaa provası, işin gerçek kâğıtta nasıl göründüğünü gösteren fiziksel testtir. Prova iki gün, düzeltme bir gün alır. Baskı planınız varsa bu üç günü takvime en baştan yazın.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 07</span></div><h2 id="tasarim-surecinizi-profesyonel-ekiple-baslatin">Tasarım Sürecinizi Profesyonel Ekiple Başlatın</h2>
       <div class="yz-cevap"><p>Net takvim isteyen markalar işe teklif adımıyla başlar. Bize kapsamı ve hedef tarihinizi iletirseniz, iki iş günü içinde aşama aşama süre planı ve fiyat paylaşırız. Planda hangi günde ne olacağı yazar. Böylece lansmanınızı tahmine değil, tarihe dayandırırsınız. Süreyi birlikte kısaltmanın yollarını da anlatırız.</p></div>
       <p>Ajans olarak grafik tasarım sürecini tek sorumluyla yürütürüz; her adımda kiminle konuşacağınızı bilirsiniz. Kapsamı netleştirmek için kısa bir görüşme yeterli. <a href="../../teklif/">Teklif formunu</a> doldurup ihtiyacınızı iletebilir ya da doğrudan <a href="../../iletisim/">iletişim</a> sayfamızdan bize ulaşabilirsiniz. İlk toplantıda takvimi birlikte çıkarırız, sonra işe koyuluruz.</p>
       <h3>İlk Görüşmede Ne Konuşuruz?</h3>
       <p>Hedefinizi, teslim tarihinizi ve bütçe aralığınızı konuşuruz. Yirmi dakikalık bir görüşme, çoğu projenin kapsamını netleştirmeye yeter. Ardından aşama aşama süre planını yazılı gönderiyoruz. Planı onaylarsanız aynı hafta içinde brief toplantısına geçeriz.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/grafik-tasarim-sureci-govde-960.webp"
              srcset="./gorsel/grafik-tasarim-sureci-govde-640.webp 640w, ./gorsel/grafik-tasarim-sureci-govde-960.webp 960w, ./gorsel/grafik-tasarim-sureci-govde-1440.webp 1440w, ./gorsel/grafik-tasarim-sureci-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Beş halka kapıdan geçerek incelen şerit ile aşama aşama ilerleyen tasarım akışı" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Aşamalar ilerledikçe iş netleşir; revizyon turları şeridi keskinleştirir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Aşama Aşama Süre ve Sorumluluk Tablosu</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 07</b><span>07 / 07</span></div><h2 id="asama-asama-sure-ve-sorumluluk-tablosu">Aşama Aşama Süre ve Sorumluluk Tablosu</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Aşama</th><th>Tipik Süre</th><th>Sizden Beklenen</th><th>Gecikme Nedeni</th></tr></thead>
@@ -568,7 +613,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../grafik-tasarim/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Süreyi bilmek, projeyi yönetmenin yarısıdır. Brief'ten teslime kadar her adımın kaç gün süreceğini baştan görürseniz, lansman tarihinizi de sağlam kurarsınız. Grafik tasarım sürecinde en büyük hızlanma, hazırlıklı gelen markalarda oluşur. Dosyalarınızı toplayın, onay zincirinizi belirleyin, kararı verecek kişiyi netleştirin; gerisini birlikte planlarız. Takvim netse tasarım da netleşir.</p>
+        <p>Süreyi bilmek, projeyi yönetmenin yarısıdır. Brief'ten teslime kadar her adımın kaç gün süreceğini baştan görürseniz, lansman tarihinizi de sağlam kurarsınız. Grafik tasarım sürecinde en büyük hızlanma, hazırlıklı gelen markalarda oluşur. Dosyalarınızı toplayın, onay zincirinizi belirleyin, kararı verecek kişiyi netleştirin; gerisini birlikte planlarız. Takvim netse tasarım da netleşir.</p></section>
       </article>
     </div>
   </section>

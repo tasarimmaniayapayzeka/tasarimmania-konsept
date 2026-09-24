@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -472,38 +519,36 @@
 <!-- AYIRT EDİCİ EKSEN: MEKANİZMA — Hiyerarşi, tutarlılık, geri bildirim gibi görsel arayüz (UI) ilkelerinin karar mantığı; UX/kullanıcı yolculuğu anlatımı kanonik olarak kullanici-deneyimi yazısında — her UX anışında oraya link verilir, yolculuk anlatımına burada girilmez.
      Huni türü: TOFU · Küme: E-Commerce Deneyimi · Kardeşler (enjeksiyon turunda): e-ticaret-yazilimi, e-ticaret-web-tasarimi, kullanici-deneyimi -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Which Principles Does Interface Design Rest On?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Web Design</span>
-        <span class="yz-meta">15 October 2026 · 7 min read</span>
+          <h1>Which Principles Does Interface Design Rest On?</h1>
+          <p class="ozet">Interface design is not a matter of taste about where each element on the screen ought to sit. There is a logic of decision behind it. Which button grows, which text shrinks, what the system says when the user does something — all of it rests on principles. When we build the digital surfaces of SMEs, we put those principles on the table. A UI UX design service is exactly that: this set of visual decisions, brought under discipline. Below we open up the logic behind the principles.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/ui-design-principles-cover-1440.webp"
+           srcset="./image/ui-design-principles-cover-640.webp 640w, ./image/ui-design-principles-cover-960.webp 960w, ./image/ui-design-principles-cover-1440.webp 1440w, ./image/ui-design-principles-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="An abstract image on a dark ground made of glassy interface panels ordered from large to small, representing visual hierarchy"
+           width="1920" height="1080" decoding="async"><figcaption>Hierarchy separates the elements on a screen into layers by order of importance. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Web Design</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>15 October 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>Which Principles Does Interface Design Rest On?</h1>
-      <p class="ozet">Interface design is not a matter of taste about where each element on the screen ought to sit. There is a logic of decision behind it. Which button grows, which text shrinks, what the system says when the user does something — all of it rests on principles. When we build the digital surfaces of SMEs, we put those principles on the table. A UI UX design service is exactly that: this set of visual decisions, brought under discipline. Below we open up the logic behind the principles.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#what-are-the-core-principles-of-interface-design"><span>01</span>What Are the Core Principles of Interface Design?</a><a href="#how-does-visual-hierarchy-guide-the-user-s-eye"><span>02</span>How Does Visual Hierarchy Guide the User's Eye?</a><a href="#why-is-consistency-the-backbone-of-design-decisions"><span>03</span>Why Is Consistency the Backbone of Design Decisions?</a><a href="#the-feedback-and-accessibility-layer"><span>04</span>The Feedback and Accessibility Layer</a><a href="#how-do-we-turn-interface-principles-into-measurable-decisions"><span>05</span>How Do We Turn Interface Principles into Measurable Decisions?</a><a href="#talk-to-our-team-about-interface-design"><span>06</span>Talk to Our Team About Interface Design</a><a href="#interface-principles-decision-criteria-and-how-we-measure-them"><span>07</span>Interface Principles: Decision Criteria and How We Measure Them</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/ui-design-principles-cover-1440.webp"
-           srcset="./image/ui-design-principles-cover-640.webp 640w, ./image/ui-design-principles-cover-960.webp 960w, ./image/ui-design-principles-cover-1440.webp 1440w, ./image/ui-design-principles-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="An abstract image on a dark ground made of glassy interface panels ordered from large to small, representing visual hierarchy"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Hierarchy separates the elements on a screen into layers by order of importance. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>What Are the Core Principles of Interface Design?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="what-are-the-core-principles-of-interface-design">What Are the Core Principles of Interface Design?</h2>
       <div class="yz-cevap"><p>Interface design rests on five core principles: visual hierarchy, consistency, feedback, proximity and accessibility. Those principles are the rule set that determines the size, the colour and the position of every element on the screen. Behind decisions that look like aesthetic preferences lies a measurable rationale. A team that knows the principles takes the argument out of the realm of taste.</p></div>
       <p>The principles are not independent of one another. If the hierarchy is weak, consistency is no use either; the user doesn't know where to look. <a href="../../app-ui-ux-design/">In our UI UX design service</a> each principle is scored on its own row. That way rounds of revision proceed against defined criteria rather than personal taste.</p>
       <h3>What Is Visual Hierarchy?</h3>
@@ -511,47 +556,47 @@
       <h3>What Is Consistency?</h3>
       <p>A user who sees the same button in two different forms doesn't fully trust either of them. Consistency is the principle that ensures the same function is presented in the same visual language on every screen. Uniformity lowers the burden of learning; the pattern the user learns once is recognised on every page.</p>
       <h3>What Does the Proximity Principle Do?</h3>
-      <p>Elements placed close together form a single group in the user's mind. The proximity principle clusters related areas with space and separates the unrelated ones. The form label sticks to its own field, the help text to its own line. When the spacing falls apart, which box a label belongs to becomes unclear and the error rate rises. That is why we set the spacing steps before reaching for lines or frames.</p>
-      <h2>How Does Visual Hierarchy Guide the User's Eye?</h2>
+      <p>Elements placed close together form a single group in the user's mind. The proximity principle clusters related areas with space and separates the unrelated ones. The form label sticks to its own field, the help text to its own line. When the spacing falls apart, which box a label belongs to becomes unclear and the error rate rises. That is why we set the spacing steps before reaching for lines or frames.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="how-does-visual-hierarchy-guide-the-user-s-eye">How Does Visual Hierarchy Guide the User's Eye?</h2>
       <div class="yz-cevap"><p>The eye goes first to the largest and most contrasted element on the screen; hierarchy puts that reflex under the designer's control. If everything on the screen carries the same weight, nothing comes forward. The designer entrusts the primary action to a single element and lowers the tone of the secondary links. That separation is the visual counterpart of the decision.</p></div>
       <p>When we build the hierarchy we look at three settings: the typographic scale, the contrast ratio and the white space. In typography we follow the common scale convention and pick a ratio between 1.25 and 1.5; within that range the heading levels don't blur into one another. On contrast our own floor is clear: 4.5:1 on small text, 3:1 on text above 18pt. White space, meanwhile, does the grouping quietly.</p>
       <h3>How Is the Focal Point Decided?</h3>
       <p>In a UI UX design service we define a single primary action for every screen; the focal point is the strongest visual counterpart of that goal. Clicks scatter the moment a second button of equal weight is added. Simplicity here is a functional choice, not an aesthetic one.</p>
       <h3>How Do We Audit the Hierarchy?</h3>
-      <p>The greyscale test takes the eye's judgement out of play. In a UI UX design service we strip out the colours and look at the screen again; if the order of priority is still visible, the structure is sound. If it isn't, the size and spacing get reset.</p>
-      <h2>Why Is Consistency the Backbone of Design Decisions?</h2>
+      <p>The greyscale test takes the eye's judgement out of play. In a UI UX design service we strip out the colours and look at the screen again; if the order of priority is still visible, the structure is sound. If it isn't, the size and spacing get reset.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="why-is-consistency-the-backbone-of-design-decisions">Why Is Consistency the Backbone of Design Decisions?</h2>
       <div class="yz-cevap"><p>The user learns a pattern once; consistency is what keeps that pattern valid across every screen. The same action should sit in the same place, in the same form. When the pattern changes, the user has to learn it again. That burden pulls the error rate up. A component library is precisely what prevents it.</p></div>
       <p>We build consistency as a system, not a document. The rules on colour, typography, spacing and components are gathered in a single source. The number of businesses going digital in Türkiye is rising fast; <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">according to ETBİS data</a> — ETBİS is Türkiye's central e-commerce information system — the number of businesses trading online reached 634,611 in 2025. At that scale, the same interface pattern has to be repeated by different teams at different times. The error rate climbs whenever the same action sits somewhere different on every page.</p>
       <h3>What Does a Component Library Solve?</h3>
       <p>When a new page is opened the designer doesn't start from scratch, and the developer sees the same names. A component library is the structure that produces elements such as buttons, forms and cards from a single definition. Argument falls away and speed rises.</p>
       <h4>How Do Brand Identity and Interface Language Meet?</h4>
-      <p>Brand colours are not used verbatim in an interface. We balance the corporate palette with neutral tones as the screen requires. Identity decisions and interface decisions are matched at the same table. A UI and UX design service is the work of translating a brand's language into the language of the screen.</p>
-      <h2>The Feedback and Accessibility Layer</h2>
+      <p>Brand colours are not used verbatim in an interface. We balance the corporate palette with neutral tones as the screen requires. Identity decisions and interface decisions are matched at the same table. A UI and UX design service is the work of translating a brand's language into the language of the screen.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="the-feedback-and-accessibility-layer">The Feedback and Accessibility Layer</h2>
       <div class="yz-cevap"><p>Feedback is the principle that the system gives a visible response to everything the user does. When a button is pressed the state should change; when a form is submitted the result should be readable. An interface that stays silent pushes the user into repeating the same action. Accessibility, in turn, guarantees that those responses can be perceived by everyone. This layer is not up for negotiation.</p></div>
       <p>Accessibility is the design approach that makes an interface usable for people with different visual, auditory and motor abilities. We test the colour-blindness scenario against every palette decision in the UI layer of the service. Information must never be carried by colour alone; an icon, a piece of text or a position has to give a second signal. As the age range of the users widens, decisions about touch targets and point size get stricter.</p>
       <h3>How Fast Should the System's Response Be?</h3>
       <p>When a user presses a button they should see the change at once; the system response is the interval between the action and the change in the interface. On operations that take longer, a progress indicator comes into play. An empty waiting screen is a reason to leave.</p>
       <h3>How Should Error Messages Be Written?</h3>
       <p>A red warning on its own isn't enough. An error message should state the problem and the solution in the same sentence, showing the user which field to correct and how. Within a UI UX design service, microcopy is part of the design too.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>How Do We Turn Interface Principles into Measurable Decisions?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="how-do-we-turn-interface-principles-into-measurable-decisions">How Do We Turn Interface Principles into Measurable Decisions?</h2>
       <div class="yz-cevap"><p>To turn the principles into measurable decisions, we score every screen against a fixed checklist. Hierarchy, consistency, feedback and accessibility each score out of five. A screen that doesn't collect at least four points under all four headings doesn't go live. That keeps the number of revision rounds predictable.</p></div>
       <p>The order we follow while running a UI UX design service is this:</p><ol><li>We draw up the screen inventory and write down the single primary action for each screen.</li><li>We fix the typographic scale and the spacing steps at the very start.</li><li>We build the component library and align the naming with the development team.</li><li>We repeat the greyscale hierarchy test and the contrast audit on every screen.</li><li>We design the feedback states (empty, loading, error, success) one by one.</li></ol>
       <h3>The Measures of a Design System</h3>
-      <p>The number of components, the number of colour variables and the number of spacing steps are all kept deliberately limited. A design system is, after all, the body of rules that governs interface decisions from a single source; the wider the limits, the weaker the consistency. <a href="../../mobile-app-development/">Mobile app</a> projects narrow that limit further still.</p>
-      <h2>Talk to Our Team About Interface Design</h2>
+      <p>The number of components, the number of colour variables and the number of spacing steps are all kept deliberately limited. A design system is, after all, the body of rules that governs interface decisions from a single source; the wider the limits, the weaker the consistency. <a href="../../mobile-app-development/">Mobile app</a> projects narrow that limit further still.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="talk-to-our-team-about-interface-design">Talk to Our Team About Interface Design</h2>
       <div class="yz-cevap"><p>A short initial assessment is enough to apply the interface principles to your own screens. We examine your existing interface under the headings of hierarchy, consistency and feedback. We give you the resulting picture in a plain report. After that we settle the scope together. The decision is yours, the measurement is ours. The first conversation commits you to nothing; it can be a new project or a screen you already have.</p></div>
       <p>We don't think of the UI UX side of a design service as separate from the commercial goal of the work. As the number of businesses refreshing their digital surface rises, the competition concentrates on the same screens. It is the screen itself that makes the difference: a user who can't find what they came for doesn't hang about. You can look through the scope of our UI UX design service and fill in the <a href="../../get-a-quote/">quote form</a> as a next step. In the first meeting we open your screens together and show you which principle is falling short.</p>
       <h3>Which Projects Do We Work On?</h3>
       <p>Corporate sites, mobile apps and dashboard interfaces are our main areas of work. We apply the same set of principles on refresh projects too; <a href="../../corporate-website/">corporate website</a> projects are the most frequent example of that. Whether the scale is small or large, the checklist doesn't change.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/ui-design-principles-body-960.webp"
              srcset="./image/ui-design-principles-body-640.webp 640w, ./image/ui-design-principles-body-960.webp 960w, ./image/ui-design-principles-body-1440.webp 1440w, ./image/ui-design-principles-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="An abstract image on a dark ground made of interlocking cubes, representing the component library in a design system" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>A component library makes the same function repeatable in the same form on every screen. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Interface Principles: Decision Criteria and How We Measure Them</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="interface-principles-decision-criteria-and-how-we-measure-them">Interface Principles: Decision Criteria and How We Measure Them</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Principle</th><th>Decision question</th><th>How we measure it</th><th>Sign of weakness</th></tr></thead>
@@ -572,7 +617,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../app-ui-ux-design/">See the service page</a>
         </aside>
-        <p>In the hands of teams that know the principles, interface design stops being a guessing game. Hierarchy guides the eye, consistency lowers the burden of learning, feedback builds trust. When all three work at once, the screen explains itself. A well-run UI UX design service ties those three principles to documentation and to measurement. Let's see together which of them is coming up short on your screens.</p>
+        <p>In the hands of teams that know the principles, interface design stops being a guessing game. Hierarchy guides the eye, consistency lowers the burden of learning, feedback builds trust. When all three work at once, the screen explains itself. A well-run UI UX design service ties those three principles to documentation and to measurement. Let's see together which of them is coming up short on your screens.</p></section>
       </article>
     </div>
   </section>

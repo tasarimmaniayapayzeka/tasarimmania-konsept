@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -468,78 +515,76 @@
 <!-- AYIRT EDİCİ EKSEN: ARAÇ — SSL, 3D Secure ve sanal POS entegrasyon araçlarının kurulumu; kullanıcı yolculuğu rotası ve tasarım maliyeti kardeş yazıların ekseni, altyapı seçim ölçütleri e-ticaret-yazilimi'nde.
      Huni türü: BOFU · Küme: E-Commerce Deneyimi · Kardeşler (enjeksiyon turunda): e-ticaret-urun-fotograflari, e-ticaret-yazilimi, e-ticaret-web-tasarimi -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">How Do You Set Up E-Commerce Payment Integration, Step by Step?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">E-Commerce</span>
-        <span class="yz-meta">5 October 2026 · 7 min read</span>
+          <h1>How Do You Set Up E-Commerce Payment Integration, Step by Step?</h1>
+          <p class="ozet">The most fragile moment in online selling is the second the customer types in their card number. If the browser shows a warning, the basket closes. In this article we take on the three tools e-commerce payment integration requires: the SSL certificate, 3D Secure and the virtual POS connection. We set out the order of installation, the verification tests and the configuration mistakes we run into most often. Our aim is simple: know where to start the setup.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/ecommerce-payment-integration-cover-1440.webp"
+           srcset="./image/ecommerce-payment-integration-cover-640.webp 640w, ./image/ecommerce-payment-integration-cover-960.webp 960w, ./image/ecommerce-payment-integration-cover-1440.webp 1440w, ./image/ecommerce-payment-integration-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Abstract 3D image with three transparent shields, representing the security layers of online payment collection"
+           width="1920" height="1080" decoding="async"><figcaption>Encryption, authentication and collection: the three layers that guard the till. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> E-Commerce</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>5 October 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>How Do You Set Up E-Commerce Payment Integration, Step by Step?</h1>
-      <p class="ozet">The most fragile moment in online selling is the second the customer types in their card number. If the browser shows a warning, the basket closes. In this article we take on the three tools e-commerce payment integration requires: the SSL certificate, 3D Secure and the virtual POS connection. We set out the order of installation, the verification tests and the configuration mistakes we run into most often. Our aim is simple: know where to start the setup.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#what-exactly-does-e-commerce-payment-integration-cover"><span>01</span>What Exactly Does E-Commerce Payment Integration Cover?</a><a href="#how-is-an-ssl-certificate-installed-correctly"><span>02</span>How Is an SSL Certificate Installed Correctly?</a><a href="#why-is-3d-secure-integration-indispensable"><span>03</span>Why Is 3D Secure Integration Indispensable?</a><a href="#from-the-virtual-pos-application-to-the-live-environment"><span>04</span>From the Virtual POS Application to the Live Environment</a><a href="#which-tests-should-you-run-after-the-integration"><span>05</span>Which Tests Should You Run After the Integration?</a><a href="#secure-payment-integration-a-7-step-setup-list"><span>06</span>Secure Payment Integration: A 7-Step Setup List</a><a href="#payment-integration-methods-compared"><span>07</span>Payment Integration Methods Compared</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/ecommerce-payment-integration-cover-1440.webp"
-           srcset="./image/ecommerce-payment-integration-cover-640.webp 640w, ./image/ecommerce-payment-integration-cover-960.webp 960w, ./image/ecommerce-payment-integration-cover-1440.webp 1440w, ./image/ecommerce-payment-integration-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Abstract 3D image with three transparent shields, representing the security layers of online payment collection"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Encryption, authentication and collection: the three layers that guard the till. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>What Exactly Does E-Commerce Payment Integration Cover?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="what-exactly-does-e-commerce-payment-integration-cover">What Exactly Does E-Commerce Payment Integration Cover?</h2>
       <div class="yz-cevap"><p>E-commerce payment integration is the technical connection that carries card data between the shop software and the bank, built with the SSL, 3D Secure and virtual POS tools. There are three layers: transport security, authentication and collection. Each layer has its own tool and its own test method. If one layer is missing, the bank treats the transaction as risky.</p></div>
       <p>Separating the layers in e-commerce payment integration separates responsibility too. The SSL certificate sits on your server. 3D Secure runs at the cardholder's bank. The virtual POS definition is opened by the bank or payment institution you have an agreement with. When something goes wrong, that separation tells you which door to knock on. So where should testing start? On all three the same day: the layers of an e-commerce payment integration only give a reliable answer when they are tried together. <a href="../../ecommerce-website/">In our e-commerce development service</a> we bring these three layers together in a single setup plan.</p>
       <h3>Where do the virtual POS, the payment gateway and the bank come in?</h3>
-      <p>The virtual POS is the virtual card terminal the bank allocates to your business. The payment gateway is the software bridge that carries messages between the shop and that terminal. The customer enters their card, the bridge passes the request to the bank, and the bank returns an authorization response. In the integration, the collection line that connects the e-commerce shop to the bank has to run without a break across all three stops; if a single link goes, the transaction fails.</p>
-      <h2>How Is an SSL Certificate Installed Correctly?</h2>
+      <p>The virtual POS is the virtual card terminal the bank allocates to your business. The payment gateway is the software bridge that carries messages between the shop and that terminal. The customer enters their card, the bridge passes the request to the bank, and the bank returns an authorization response. In the integration, the collection line that connects the e-commerce shop to the bank has to run without a break across all three stops; if a single link goes, the transaction fails.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="how-is-an-ssl-certificate-installed-correctly">How Is an SSL Certificate Installed Correctly?</h2>
       <div class="yz-cevap"><p>A correct installation is three pieces of work: domain verification, loading the certificate chain in full, and redirecting all HTTP traffic to HTTPS. An SSL certificate is the digital identity that encrypts traffic between the browser and the server. If you don't set up the redirect, the payment page throws a mixed content warning. A customer who sees that warning does not type in their card details.</p></div>
       <p>The job isn't finished once the certificate is installed. If an intermediate certificate is missing from the chain, a desktop browser will not show the problem while older Android devices throw an error. That is why we check the installation with an external testing tool and on a real handset, separately. We add the HSTS header too, so the browser only ever connects to the site with TLS encryption. The scale of online trade in Türkiye is growing fast: <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">the ETBİS 2025 report</a> — ETBİS is Türkiye's central e-commerce information system — puts the number of businesses trading online at 634,611. At that scale, e-commerce payment integration is not an optional extra.</p>
       <h3>What is the difference between DV, OV and EV certificates?</h3>
-      <p>A DV certificate verifies domain ownership only and is issued within minutes. An OV certificate also checks the company registration. An EV certificate calls for the most detailed examination of all. The strength of the encryption is identical in all three; what differs is how thoroughly the identity is vetted. We recommend OV for corporate shops, because the details of the legal entity appear inside the certificate.</p>
-      <h2>Why Is 3D Secure Integration Indispensable?</h2>
+      <p>A DV certificate verifies domain ownership only and is issued within minutes. An OV certificate also checks the company registration. An EV certificate calls for the most detailed examination of all. The strength of the encryption is identical in all three; what differs is how thoroughly the identity is vetted. We recommend OV for corporate shops, because the details of the legal entity appear inside the certificate.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="why-is-3d-secure-integration-indispensable">Why Is 3D Secure Integration Indispensable?</h2>
       <div class="yz-cevap"><p>In Türkiye, banks treat 3D Secure as effectively compulsory for online sales made with consumer cards. 3D Secure is the secure authentication layer that verifies the cardholder through their bank. If verification succeeds, liability for a fraud claim passes to the bank. The step most often skipped during setup is recalculating the signature on the verification response server-side.</p></div>
       <p>The flow works like this: the customer enters their card details, the payment bridge redirects the request to the bank, and the bank asks for a one-time code or an in-app approval. The approval comes back to the shop as a signed message. If you confirm the order without verifying that message, you have left a door open. Have the signature checked by the server, not the browser. In the payment flow, that single rule cuts off fake approvals at source. <a href="../../custom-software-development/">On the custom software side</a> we gather that check into a single verification service.</p>
       <h3>Why does the 3DS 2.0 flow put less strain on the customer?</h3>
       <p>3DS 2.0 carries device and behavioural data to the bank during the transaction. If the bank judges the risk to be low, it asks the customer for no code at all; the transaction goes through quietly. We call that the frictionless flow. On attempts it finds risky, the verification screen appears as before. The result is clear: basket abandonment falls without security falling with it.</p>
       <h4>In what situation is a non-secure transaction enabled?</h4>
-      <p>Non-secure is the transaction type taken without asking the cardholder to verify. On foreign cards or subscription renewals, some providers may grant limited permission. Responsibility stays entirely with the shop. Before opening that door, we assess your chargeback risk and your business model together.</p>
-      <h2>From the Virtual POS Application to the Live Environment</h2>
+      <p>Non-secure is the transaction type taken without asking the cardholder to verify. On foreign cards or subscription renewals, some providers may grant limited permission. Responsibility stays entirely with the shop. Before opening that door, we assess your chargeback risk and your business model together.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="from-the-virtual-pos-application-to-the-live-environment">From the Virtual POS Application to the Live Environment</h2>
       <div class="yz-cevap"><p>The process runs in two stages: approval of the paperwork and handover of the technical keys. A virtual POS application is a commercial contracting process signed with a bank or payment institution. The provider asks for the tax registration certificate, the signature circular, the site address and the distance selling agreement. It hands over the live key only after reviewing the content of the site.</p></div>
       <p>The content of the site matters as much as the document file. If the distance selling agreement, the cancellation and returns conditions, the delivery time and the contact details are not visible on the page, the file comes back. On the technical side of the integration, the only difference between your e-commerce site's test environment and its live environment should be the key. Same code, same flow, different key. Making the key the only difference puts an end to go-live surprises.</p>
       <h3>Which card scenarios do we try in the test environment?</h3>
       <p>A successful charge, insufficient funds, an incorrect CVV, a cancelled 3D verification and a timeout. We try all five scenarios separately for every bank. If there is instalment selling, we check that the instalment table matches the order summary exactly. We don't skip the partial refund test; the most frequent complaint on the accounting side comes from there.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>Which Tests Should You Run After the Integration?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="which-tests-should-you-run-after-the-integration">Which Tests Should You Run After the Integration?</h2>
       <div class="yz-cevap"><p>Once you are live, three checks are essential: a low-value order on a real card, the refund flow, and the order notifications. Those three catch the silent faults, such as the payment appearing to succeed while no order is created. We repeat the tests daily through the first week. We log every error that comes up with a screenshot. That record speeds up the correspondence with the bank.</p></div>
       <p>The silent fault is the most expensive failure in an e-commerce payment integration. The customer pays, the order doesn't appear in the list, and the call centre hears about it the next day. That is why we match the payment record against the order record in two separate places. A daily reconciliation report shows the transactions that don't line up at a glance. A well-built e-commerce payment integration tells you about the fault before the customer does. <a href="../../ecommerce-seo/">On the e-commerce SEO side</a> too, we count drop-offs at the payment step as lost conversion.</p>
       <h3>Why are webhook and callback verification critical?</h3>
-      <p>The callback is the payment result coming back through the customer's browser. The webhook is the notification the provider sends straight to your server. If the customer closes the page early the callback is lost, while the webhook still arrives. That is why we tie order status to the webhook. We compare the signature and the amount of every incoming notification against the order record.</p>
-      <h2>Secure Payment Integration: A 7-Step Setup List</h2>
+      <p>The callback is the payment result coming back through the customer's browser. The webhook is the notification the provider sends straight to your server. If the customer closes the page early the callback is lost, while the webhook still arrives. That is why we tie order status to the webhook. We compare the signature and the amount of every incoming notification against the order record.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="secure-payment-integration-a-7-step-setup-list">Secure Payment Integration: A 7-Step Setup List</h2>
       <div class="yz-cevap"><p>The order is this: SSL, legal pages, virtual POS application, test scenarios, 3D Secure signature verification, webhook connection, live transaction. When that order breaks down, the setup gets expensive. You can use the seven steps below as a checklist. Each step ends in a concrete output. You'll see the step you've missed as plainly as reading a table.</p></div>
       <p>We drew the list from our own installations in the field.</p><ol><li>Install an SSL certificate on the domain and redirect all traffic to HTTPS.</li><li>Publish your distance selling, returns and privacy pages.</li><li>Submit your virtual POS application to a bank or payment institution.</li><li>Try the five card scenarios with the test keys.</li><li>Verify the signature on the 3D Secure response server-side.</li><li>Tie order status to the webhook notification.</li><li>Make a low-value real transaction with the live key, then refund it.</li></ol><p>If you have completed the seven steps, your e-commerce payment integration is ready to go live. If you'd like to run the setup with us, get in touch through the <a href="../../get-a-quote/">quote form</a> and we'll review your existing infrastructure and draw up a step list to fit your business.</p>
       <h3>Which indicators do we watch in the first 30 days?</h3>
       <p>Success rate per attempt, 3D verification completion rate, number of refunds and the reconciliation difference. We track those four indicators in a weekly table. If the success rate drops noticeably, we look first at a rule change on the bank's side. Then we open up the device breakdown; the problem usually clusters in a single family of devices.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/ecommerce-payment-integration-body-960.webp"
              srcset="./image/ecommerce-payment-integration-body-640.webp 640w, ./image/ecommerce-payment-integration-body-960.webp 960w, ./image/ecommerce-payment-integration-body-1440.webp 1440w, ./image/ecommerce-payment-integration-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Abstract 3D image with a beam of light passing through a keyhole, representing encrypted data transfer" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Verifying the signed response message server-side closes the open door. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Payment Integration Methods Compared</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="payment-integration-methods-compared">Payment Integration Methods Compared</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Method</th><th>Setup burden</th><th>3D Secure</th><th>Card data</th><th>Suitable scenario</th></tr></thead>
@@ -559,7 +604,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../ecommerce-website/">See the service page</a>
         </aside>
-        <p>The payment step is your shop's till. We secure that till with three tools: SSL, 3D Secure and a correctly configured virtual POS. An e-commerce payment integration that puts the setup in order, brings discipline to the testing and automates the reconciliation lowers both basket abandonment and the operational load. Before you begin, let's go over your existing infrastructure together.</p>
+        <p>The payment step is your shop's till. We secure that till with three tools: SSL, 3D Secure and a correctly configured virtual POS. An e-commerce payment integration that puts the setup in order, brings discipline to the testing and automates the reconciliation lowers both basket abandonment and the operational load. Before you begin, let's go over your existing infrastructure together.</p></section>
       </article>
     </div>
   </section>

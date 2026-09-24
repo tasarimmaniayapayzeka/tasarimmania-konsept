@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,72 +477,70 @@
 <!-- AYIRT EDİCİ EKSEN: SINIR — Nerede işe yaradığını and NEREDE YARAMADIĞINI anlatır. Adım adım üretim rotası yazı 14'ün işidir. Burada 'nasıl yapılır' anlatılmaz, sınır çizilir.
      Huni türü: TOFU · Küme: video · Kardeşler (enjeksiyon turunda): kamerasiz-urun-videosu -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>AI Video</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Video</span>
-        <span class="yz-meta">18 October 2026 · 7 min read</span>
+          <h1>Where Does AI Video Production Help, and Where Doesn't It?</h1>
+          <p class="ozet">These tools get argued about at two extremes: either they will solve everything or they are good for nothing. The truth sits between the two, and the line is fairly clear. In this article we write down, one by one, where they save time and where they create risk. The distinction below rests on the product's role in the scene; we aren't comparing tool names or models.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/ai-video-production-limits-cover-1440.webp"
+           srcset="./image/ai-video-production-limits-cover-640.webp 640w, ./image/ai-video-production-limits-cover-960.webp 960w, ./image/ai-video-production-limits-cover-1440.webp 1440w, ./image/ai-video-production-limits-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="A single illuminated form drawn in crisp lines on one side and dissolving into particles on the other"
+           width="1920" height="1080" decoding="async"><figcaption>The same tool gives a sharp result on one side and a blurred one on the other. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Video</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>18 October 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>Where Does AI Video Production Help, and Where Doesn't It?</h1>
-      <p class="ozet">These tools get argued about at two extremes: either they will solve everything or they are good for nothing. The truth sits between the two, and the line is fairly clear. In this article we write down, one by one, where they save time and where they create risk. The distinction below rests on the product's role in the scene; we aren't comparing tool names or models.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#where-does-ai-video-production-help"><span>01</span>Where Does AI Video Production Help?</a><a href="#where-does-ai-fall-short"><span>02</span>Where Does AI Fall Short?</a><a href="#why-does-product-accuracy-cause-trouble"><span>03</span>Why Does Product Accuracy Cause Trouble?</a><a href="#what-are-the-legal-and-brand-risks"><span>04</span>What Are the Legal and Brand Risks?</a><a href="#which-route-do-you-choose-for-which-job"><span>05</span>Which Route Do You Choose for Which Job?</a><a href="#let-s-draw-the-limits-together"><span>06</span>Let's Draw the Limits Together</a><a href="#which-job-runs-which-way"><span>07</span>Which job runs which way</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/ai-video-production-limits-cover-1440.webp"
-           srcset="./image/ai-video-production-limits-cover-640.webp 640w, ./image/ai-video-production-limits-cover-960.webp 960w, ./image/ai-video-production-limits-cover-1440.webp 1440w, ./image/ai-video-production-limits-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="A single illuminated form drawn in crisp lines on one side and dissolving into particles on the other"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>The same tool gives a sharp result on one side and a blurred one on the other. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Where Does AI Video Production Help?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="where-does-ai-video-production-help">Where Does AI Video Production Help?</h2>
       <div class="yz-cevap"><p>It clearly helps in three places. At the idea stage it produces a visual draft. It prepares secondary elements such as backgrounds, and it multiplies channel versions from existing footage. AI video tools save time here. If the product itself is the leading character, the picture changes; there, a real shoot is still ahead.</p></div>
       <p>The safest use is at the idea stage. Showing a scene rather than describing it shortens the rounds of approval. Those drafts never go live; they only build a shared picture inside the team.</p><p>The four jobs below are the areas where generative tools work comfortably.</p><ol><li><strong>Draft frames</strong> — a shared language at the idea stage.</li><li><strong>Backgrounds and texture</strong> — the secondary elements of the scene.</li><li><strong>Channel versions</strong> — deriving ratios and durations from existing footage.</li><li><strong>Abstract storytelling</strong> — when the product isn't in the scene.</li></ol><p>Deriving channel versions is a safe use too. If you have real footage in hand, extending the background while moving it to different ratios works well. Because you recorded the product with a camera in the first place, no risk of drift arises. Extending a background is both quicker and safer than building a scene from scratch.</p>
       <h3>Can Draft Frames Go Live?</h3>
-      <p>It is safer if they don't. A draft's job is to speed a decision up, not to present a product. In video production, AI earns you most at that intermediate step — as a tool, not as an output.</p>
-      <h2>Where Does AI Fall Short?</h2>
+      <p>It is safer if they don't. A draft's job is to speed a decision up, not to present a product. In video production, AI earns you most at that intermediate step — as a tool, not as an output.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="where-does-ai-fall-short">Where Does AI Fall Short?</h2>
       <div class="yz-cevap"><p>It falls short when it has to show the product itself. The model doesn't know your actual product; it generates something like it, not the same thing. Label, texture, colour tone and proportion drift by small but visible amounts. At that point AI video production stops being a promotional tool and becomes a risk. The customer sees the difference the moment they hold it.</p></div>
       <p>The difference usually isn't obvious at first glance. The type on the packaging comes out illegible, the direction of a seam changes, the number of buttons doesn't match. Those look small on screen but they are large for the person holding the product.</p><p>Hands and faces are still difficult areas too. When a hand holding the product comes out wrong in a frame, the viewer's attention breaks away from the story; the time you saved goes back there.</p><p>Another limit is type. If there is text meant to be read on screen, the letters in a generated frame usually break up. Allow for that risk in every scene where the brand name has to be spelled correctly. Overlaying the logo onto the generated frame afterwards is the safer route.</p>
       <h3>Does Supplying a Reference Image Solve It?</h3>
-      <p>It reduces the difference but doesn't close it entirely. Supplying a sample frame markedly improves consistency of colour and shape. Even so, the chance of drift in type, texture and small details remains.</p>
-      <h2>Why Does Product Accuracy Cause Trouble?</h2>
+      <p>It reduces the difference but doesn't close it entirely. Supplying a sample frame markedly improves consistency of colour and shape. Even so, the chance of drift in type, texture and small details remains.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="why-does-product-accuracy-cause-trouble">Why Does Product Accuracy Cause Trouble?</h2>
       <div class="yz-cevap"><p>Consistency is where it struggles most. Generating the same product identically in two separate frames is hard. The logo shifts, the seam changes, the type on the packaging breaks up. Supplying a reference image reduces the difference but doesn't zero it. On a product made with AI video, the customer may not be able to see what they are buying. The gap between the expectation and the product that arrives wears trust down directly.</p></div>
       <p>Frame-to-frame integrity is more critical in a video than in a photograph. A drift that goes unnoticed in a single frame stands out in a moving image; the viewer may not be able to say what is wrong, but they sense that something doesn't hold.</p><p>That is why, when the product is the leading character, we recommend a camera shoot. We explained how we choose the shooting location in the <a href="../product-video-studio-or-location/">studio or location</a> article.</p>
       <h3>Why Is Consistency of Movement Harder?</h3>
-      <p>A detail that holds in a single frame may not hold across twenty-four frames a second. The type on the product flickers from frame to frame, the shadow changes direction. Leaving every frame of a video to AI means accepting that flicker.</p>
-      <h2>What Are the Legal and Brand Risks?</h2>
+      <p>A detail that holds in a single frame may not hold across twenty-four frames a second. The type on the product flickers from frame to frame, the shadow changes direction. Leaving every frame of a video to AI means accepting that flicker.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="what-are-the-legal-and-brand-risks">What Are the Legal and Brand Risks?</h2>
       <div class="yz-cevap"><p>Three headings need attention: the licence terms of the tool you use, faces resembling real people, and advertising legislation. An image that shows the product as other than it is may count as misleading advertising. When you use AI video, telling the viewer so is both honest and safe. We add that note to our own images too.</p></div>
       <p>Read the licence terms before you buy. Some tools allow commercial use while others set limits; a video published without knowing the limit may have to be taken down later.</p><p>Be even more careful about faces. A generated face resembling a real person creates a permissions problem. Silhouettes with no identity, or wholly abstract storytelling, remove that risk.</p><p>Draw a line between internal use and publication as well. Nobody asks about licensing on a draft frame; on an image that goes live, everybody does. That is the difference between two uses of the same tool. These scenes are advertising too; <a href="https://ticaret.gov.tr/tuketici/ticari-reklamlar" target="_blank" rel="noopener">Türkiye's commercial advertising rules</a> prohibit misleading depiction.</p>
       <h3>Should We State That We Used It?</h3>
       <p>Stating it is always sounder. A short note heads off, from the start, the loss of trust that comes from a viewer noticing later.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The model doesn't know your actual product. It generates something like it, not the same thing; the difference is small on screen and large in the customer's hand.&#8221;</p><cite>— TasarımMania production note</cite></blockquote>
-      <h2>Which Route Do You Choose for Which Job?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The model doesn't know your actual product. It generates something like it, not the same thing; the difference is small on screen and large in the customer's hand.&#8221;</p><cite>— TasarımMania production note</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="which-route-do-you-choose-for-which-job">Which Route Do You Choose for Which Job?</h2>
       <div class="yz-cevap"><p>If the product is the leading character, choose the real shoot. If it merely appears in the scene, or the storytelling is abstract, generative tools step in comfortably. There is a hybrid route too: shooting the product and generating the background is the most balanced solution on most jobs. The AI video decision depends on the product's role in the scene.</p></div>
-      <p>In practice the hybrid route is the approach that works best. You shoot the product on a controlled setup and generate the background, the setting and the atmosphere. That way the product stays real and the cost of the scene falls.</p><p>Channel versions are produced on the same logic. Deriving different ratios from the footage you have is both quicker and safer than generating a scene from scratch; we drew up the list of ratios in the <a href="../product-video-formats/">product video formats</a> article.</p><p>On the hybrid route, a one-sentence rule helps. If the product is clearly visible in the frame, shoot it with a camera; if it stays in the background, generate it. That rule closes most of the argument. When the boundary stays vague, the team re-argues it on every frame. Writing the rule into the contract does the same job; a verbal agreement is forgotten by the third week.</p>
-      <h2>Let's Draw the Limits Together</h2>
+      <p>In practice the hybrid route is the approach that works best. You shoot the product on a controlled setup and generate the background, the setting and the atmosphere. That way the product stays real and the cost of the scene falls.</p><p>Channel versions are produced on the same logic. Deriving different ratios from the footage you have is both quicker and safer than generating a scene from scratch; we drew up the list of ratios in the <a href="../product-video-formats/">product video formats</a> article.</p><p>On the hybrid route, a one-sentence rule helps. If the product is clearly visible in the frame, shoot it with a camera; if it stays in the background, generate it. That rule closes most of the argument. When the boundary stays vague, the team re-argues it on every frame. Writing the rule into the contract does the same job; a verbal agreement is forgotten by the third week.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="let-s-draw-the-limits-together">Let's Draw the Limits Together</h2>
       <div class="yz-cevap"><p>Drawing the limit together is the fastest route. We talk through your product's role in the scene, your publishing channels and your brand's threshold for risk. What you are left with is not the name of a tool but a plan for how each frame will be produced. We write down from the start where we will use AI video tools and where we won't. Once the limit is in writing, the argument ends too.</p></div>
       <p>While the plan is being drawn up we discuss the budget side at the same table; we opened up how much each item moves in the <a href="../commercial-film-cost/">cost items</a> article. <a href="../../ai-video-production/">AI-assisted production</a> and <a href="../../video-production/">video production</a> — you can look through both pages.</p><p>Three lines are enough when you write the limit down: which frames we will shoot with a camera, which we will generate, and in which situation the team will ask again. Those three lines act as the arbiter for the whole project. A limit that isn't in writing bends at the first squeeze.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/ai-video-production-limits-body-960.webp"
              srcset="./image/ai-video-production-limits-body-640.webp 640w, ./image/ai-video-production-limits-body-960.webp 960w, ./image/ai-video-production-limits-body-1440.webp 1440w, ./image/ai-video-production-limits-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Two illuminated forms side by side, very alike but diverging in small details" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Something like it is generated, not the same thing: the difference is small but it doesn't escape the customer's eye. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Which job runs which way</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="which-job-runs-which-way">Which job runs which way</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Job</th><th>Generative tools</th><th>Camera shoot</th></tr></thead>
@@ -517,7 +562,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../ai-video-production/">See the service page</a>
         </aside>
-        <p>AI video tools save serious time in one place and create serious risk in another. The dividing line is the product's role in the scene: if it's the leading character, choose the camera; if it's scenery, there's no harm in generating it. Writing the limit down at the start prevents the expensive corrections that come later.</p>
+        <p>AI video tools save serious time in one place and create serious risk in another. The dividing line is the product's role in the scene: if it's the leading character, choose the camera; if it's scenery, there's no harm in generating it. Writing the limit down at the start prevents the expensive corrections that come later.</p></section>
       </article>
     </div>
   </section>

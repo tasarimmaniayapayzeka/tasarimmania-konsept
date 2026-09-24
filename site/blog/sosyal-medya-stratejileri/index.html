@@ -175,6 +175,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -457,45 +504,43 @@
 <!-- AYIRT EDİCİ EKSEN: ROTA — Markanın hedef kitlesine göre organik platform seçim ölçütleri ve strateji rotası; ücretli mecra/format kıyas tablosu sosyal-medya-reklam-yonetimi'nin, raporlama metrikleri sosyal-medya-raporlama'nın ekseni — bu yazıda mecra kıyas tablosuna girilmez, girişten reklam yazısına çapraz link verilir.
      Huni türü: TOFU · Küme: Dijital Pazarlama Performansı · Kardeşler (enjeksiyon turunda): sosyal-medya-reklam-yonetimi, influencer-pazarlama, sosyal-medya-raporlama -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Sosyal Medya Stratejisi Nedir? Platform Seçimi Neye Göre Yapılır?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Sosyal Medya</span>
-        <span class="yz-meta">7 Eylül 2026 · 7 dakikalık okuma</span>
+          <h1>Sosyal Medya Stratejisi Nedir? Platform Seçimi Neye Göre Yapılır?</h1>
+          <p class="ozet">Sosyal medya stratejisi, markanın kime, hangi platformda, hangi içerikle ve hangi hedefle konuşacağını belirleyen yazılı yol haritasıdır. Türkiye'de dijitalleşen işletme sayısı hızla artarken hesap açıp rastgele paylaşım yapmak sonuç üretmiyor. Bu rehberde KOBİ karar vericileri için organik platform seçim ölçütlerini ve strateji rotasını anlatıyoruz. Reklam mecralarının araç kıyası ile raporlama metrikleri ayrı yazıların konusu; buradaki odak, doğru rotayı çizmek. Stratejinizi kurarken hangi sorulara sırasıyla yanıt vermeniz gerektiğini bu yazıda bulacaksınız.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/sosyal-medya-stratejileri-kapak-1440.webp"
+           srcset="./gorsel/sosyal-medya-stratejileri-kapak-640.webp 640w, ./gorsel/sosyal-medya-stratejileri-kapak-960.webp 960w, ./gorsel/sosyal-medya-stratejileri-kapak-1440.webp 1440w, ./gorsel/sosyal-medya-stratejileri-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Sosyal medya stratejisinde platform seçimini simgeleyen, koyu zeminde platformlar arasında ilerleyen ışıklı rota çizgisi"
+           width="1920" height="1080" decoding="async"><figcaption>Strateji, markanın hangi platformda ilerleyeceğini belirleyen rotadır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Sosyal Medya</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>7 Eylül 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>6 başlık</b></div>
       </div>
-      <h1>Sosyal Medya Stratejisi Nedir? Platform Seçimi Neye Göre Yapılır?</h1>
-      <p class="ozet">Sosyal medya stratejisi, markanın kime, hangi platformda, hangi içerikle ve hangi hedefle konuşacağını belirleyen yazılı yol haritasıdır. Türkiye'de dijitalleşen işletme sayısı hızla artarken hesap açıp rastgele paylaşım yapmak sonuç üretmiyor. Bu rehberde KOBİ karar vericileri için organik platform seçim ölçütlerini ve strateji rotasını anlatıyoruz. Reklam mecralarının araç kıyası ile raporlama metrikleri ayrı yazıların konusu; buradaki odak, doğru rotayı çizmek. Stratejinizi kurarken hangi sorulara sırasıyla yanıt vermeniz gerektiğini bu yazıda bulacaksınız.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#sosyal-medya-stratejisi-nedir"><span>01</span>Sosyal Medya Stratejisi Nedir?</a><a href="#platform-secimi-neye-gore-yapilir"><span>02</span>Platform Seçimi Neye Göre Yapılır?</a><a href="#strateji-rotasi-nasil-kurulur"><span>03</span>Strateji Rotası Nasıl Kurulur?</a><a href="#kobi-leri-rotadan-cikaran-hatalar-nelerdir"><span>04</span>KOBİ'leri Rotadan Çıkaran Hatalar Nelerdir?</a><a href="#sosyal-medya-stratejinizi-uzman-ekiple-olusturun"><span>05</span>Sosyal Medya Stratejinizi Uzman Ekiple Oluşturun</a><a href="#isletme-tipine-gore-organik-rota-secim-olcutleri"><span>06</span>İşletme Tipine Göre Organik Rota Seçim Ölçütleri</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/sosyal-medya-stratejileri-kapak-1440.webp"
-           srcset="./gorsel/sosyal-medya-stratejileri-kapak-640.webp 640w, ./gorsel/sosyal-medya-stratejileri-kapak-960.webp 960w, ./gorsel/sosyal-medya-stratejileri-kapak-1440.webp 1440w, ./gorsel/sosyal-medya-stratejileri-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Sosyal medya stratejisinde platform seçimini simgeleyen, koyu zeminde platformlar arasında ilerleyen ışıklı rota çizgisi"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Strateji, markanın hangi platformda ilerleyeceğini belirleyen rotadır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Sosyal Medya Stratejisi Nedir?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 06</span></div><h2 id="sosyal-medya-stratejisi-nedir">Sosyal Medya Stratejisi Nedir?</h2>
       <div class="yz-cevap"><p>Sosyal medya stratejisi; hedef kitleyi, platform seçimini, içerik eksenini ve başarı ölçütlerini tek planda birleştiren yazılı karar çerçevesidir. İyi kurulmuş bir sosyal medya stratejisi hangi mecrada var olacağınızı ve orada neyi başarmak istediğinizi netleştirir. Yazılı bir plan sayesinde ekip aynı hedefe çalışır, üretim günlük kararlara savrulmaz.</p></div>
       <p>Stratejinin sosyal medyadaki karşılığı çoğu işletmede soyut kalır; pratikte beş sorunun yanıtıdır. Sorular şunlardır: Kime ulaşacağız, nerede olacağız, ne anlatacağız, ne sıklıkta üreteceğiz, başarıyı neyle ölçeceğiz? Bu yanıtlar yazıya dökülmediğinde hesap gündelik akışa teslim olur. Strateji kurmadan içerik üretmek, haritasız yola çıkmaya benzer: hareket vardır, yön yoktur.</p><p>Hedef kitlesi belirsiz bir markanın stratejisi de net olamaz. Alıcı kitlenizi yaş, ilgi ve satın alma davranışıyla tanımladığınızda platform ve içerik kararları sadeleşir. Netlik arttıkça üretim hızlanır, tartışma azalır. Bu sadelik, ekip içindeki onay süreçlerini de kısaltır.</p>
       <h3>Strateji ile İçerik Takvimi Aynı Şey mi?</h3>
       <p>İçerik takvimi, stratejinin uygulama aracıdır; stratejinin kendisi değildir. Takvim hangi gün ne paylaşılacağını söyler; strateji o paylaşımın hangi hedefe hizmet ettiğini tanımlar. Yayın planı olup hedefi olmayan hesaplar, düzenli üretime rağmen ilerlemeyi ölçemez.</p>
       <h3>Neden Tek Amaçla Başlamalısınız?</h3>
-      <p>Amaç; bilinirlik, talep toplama veya topluluk kurma gibi tek bir öncelik seçmektir. Tek öncelik hem içerik eksenini hem platform kararını sadeleştirir. Üç hedefi aynı anda kovalayan KOBİ'ler çoğu zaman hiçbirine ulaşamaz; kaynak sınırlıysa sıralama şarttır. Önceliği her çeyrek başında yeniden değerlendirmek yeterlidir.</p>
-      <h2>Platform Seçimi Neye Göre Yapılır?</h2>
+      <p>Amaç; bilinirlik, talep toplama veya topluluk kurma gibi tek bir öncelik seçmektir. Tek öncelik hem içerik eksenini hem platform kararını sadeleştirir. Üç hedefi aynı anda kovalayan KOBİ'ler çoğu zaman hiçbirine ulaşamaz; kaynak sınırlıysa sıralama şarttır. Önceliği her çeyrek başında yeniden değerlendirmek yeterlidir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 06</span></div><h2 id="platform-secimi-neye-gore-yapilir">Platform Seçimi Neye Göre Yapılır?</h2>
       <div class="yz-cevap"><p>Platform seçimi; kitlenizin hangi mecrada vakit geçirdiğine, içerik formatınıza ve ekibinizin üretim kapasitesine göre yapılır. Üç ölçüt birlikte değerlendirilir: kitle yoğunluğu, format uyumu ve üretimin sürdürülebilirliği. Tek ölçüt tek başına yeterli değildir. Sosyal medya stratejisinde soru "hangi platform popüler" değil, "kitlem nerede, orada üretebilir miyim" olmalıdır.</p></div>
       <p>Kitle yoğunluğu ilk kriterdir. B2B karar vericisi profesyonel ağlarda gezinir; genç tüketici kısa video mecralarında vakit geçirir. Yerel müşteri ise harita ve görsel keşif kanallarını kullanır. <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TÜİK'in güncel hanehalkı bilişim araştırmaları</a>, internet ve sosyal ağ kullanımının Türkiye'de yaygınlaştığını ortaya koyuyor; kitleniz zaten çevrimiçi, soru hangi kapıdan gireceğiniz. Dijitalleşme baskısı da büyüyor. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">Ticaret Bakanlığı'nın 2025 görünüm raporuna</a> göre e-ticaret yapan işletme sayısı 634 bin 611'e ulaştı. Rakipler dijital vitrine çıktıkça görünmez kalmak maliyet üretir.</p><p>İkinci ölçüt format uyumu, üçüncüsü kapasitedir. Ücretli mecra tarafını <a href="../../google-ads/">Google Ads yönetimi</a> gibi ayrı bir uzmanlık olarak ele alıyoruz; bu yazının rotası, stratejinin organik ayağıdır.</p>
       <h3>Hedef Kitle Analizi Nasıl Yapılır?</h3>
@@ -503,31 +548,31 @@
       <h4>Kitle Verisini Nereden Bulursunuz?</h4>
       <p>Hesap istatistikleri, site analitiği, müşteri görüşmeleri ve sektör raporları dört temel kaynaktır. Tahmin yerine bu dört kaynağı çaprazlamak, seçimi varsayımdan ölçüme taşır.</p>
       <h3>Format ve Kapasite Uyumu Neden Belirleyici?</h3>
-      <p>Video üretemeyen ekibin video mecrasında var olması sürdürülemez. Haftada üretebileceğiniz içerik adedini dürüstçe belirleyin; iki platformu iyi yönetmek, beş platformu boş bırakmaktan daha değerlidir.</p>
-      <h2>Strateji Rotası Nasıl Kurulur?</h2>
+      <p>Video üretemeyen ekibin video mecrasında var olması sürdürülemez. Haftada üretebileceğiniz içerik adedini dürüstçe belirleyin; iki platformu iyi yönetmek, beş platformu boş bırakmaktan daha değerlidir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 06</span></div><h2 id="strateji-rotasi-nasil-kurulur">Strateji Rotası Nasıl Kurulur?</h2>
       <div class="yz-cevap"><p>Strateji rotası; amaç, kitle, platform, içerik ekseni ve ölçüm düzeni adımlarının sırayla netleştirilmesiyle kurulur. Sıra önemlidir: sosyal medya stratejisinde platform kararı amaçtan önce verilirse rota tersine döner. Sosyal medya stratejisini bu beş adımlık iskelete oturtan markalar üretimi günlük ilhama bırakmaz; her içerik bir hedefe bağlanır.</p></div>
       <p>Sosyal medya stratejisi tek sayfaya sığacak kadar sade olmalıdır. Beş adımı şu sırayla tamamlayın:</p><ol><li>Amaç seçin: bilinirlik, talep veya topluluk; tek öncelik belirleyin.</li><li>Alıcı kitlenizi tanımlayın: yaş, konum, ilgi ve satın alma davranışı.</li><li>Platformları eleyin: kitle yoğunluğu, format uyumu ve kapasite ölçütleriyle en fazla iki-üç mecra seçin.</li><li>İçerik eksenini yazın: markanızın tekrar eden üç-beş konu başlığını sabitleyin.</li><li>Ölçüm düzenini kurun: ayda bir bakacağınız göstergeleri baştan belirleyin.</li></ol><p>Bu iskeleti <a href="../../sosyal-medya/">sosyal medya yönetimi</a> hizmetimizde ilk ay içinde yazılı dokümana çeviriyoruz.</p>
       <h3>90 Günlük Yol Haritası Neleri Kapsar?</h3>
-      <p>İlk 30 gün kurulum ve kitle doğrulama dönemidir. İkinci 30 gün içerik denemelerine, son 30 gün işe yarayan formata yoğunlaşmaya ayrılır. Doksan günün sonunda stratejiniz tahmine değil, kendi hesabınızdan gelen ölçülmüş veriye dayanır. Bu veri, ikinci çeyreğin planını şekillendirir.</p>
-      <h2>KOBİ'leri Rotadan Çıkaran Hatalar Nelerdir?</h2>
+      <p>İlk 30 gün kurulum ve kitle doğrulama dönemidir. İkinci 30 gün içerik denemelerine, son 30 gün işe yarayan formata yoğunlaşmaya ayrılır. Doksan günün sonunda stratejiniz tahmine değil, kendi hesabınızdan gelen ölçülmüş veriye dayanır. Bu veri, ikinci çeyreğin planını şekillendirir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 06</span></div><h2 id="kobi-leri-rotadan-cikaran-hatalar-nelerdir">KOBİ'leri Rotadan Çıkaran Hatalar Nelerdir?</h2>
       <div class="yz-cevap"><p>En yaygın hata, her platformda aynı anda var olmaya çalışıp hiçbirinde düzenli üretememektir. Kopya içerik dağıtımı ve amaçsız paylaşım, zayıf bir sosyal medya stratejisinin en sık görülen belirtileridir. Kaynağı sınırlı işletmede sosyal medya stratejisi neyi yapmayacağınızı da yazar; vazgeçilen platform, kazanılan derinliktir.</p></div>
       <p>Beş mecraya dağılan KOBİ her hesapta seyrelir; iki mecraya odaklanan rakibi derinleşir. İkinci tuzak, aynı görseli her kanala kopyalamaktır: Mecranın dili farklıdır, kitlesi farklı davranır. Üçüncü tuzak sabırsızlıktır; organik büyüme düzenli üretim ve zaman ister.</p><p>Kaynak tarafında gerçekçi eşikler koyun. Haftalık üretime ayrılan saat, aylık içerik adedi ve gözden geçirme ritmi baştan yazılmalıdır. Organik çalışmanın satışla bağını kurmak isteyen markalar için <a href="../../performans-pazarlama/">performans pazarlaması</a> hizmetimiz devreye girer; bu hizmet, kanal verilerini tek dönüşüm hunisinde birleştirir. Stratejiyi sosyal medyada ayakta tutan şey yetenek değil ritimdir. Ritim bozulduğunda algoritma değil, önce plan gözden geçirilmelidir.</p>
       <h3>Hangi Eşikler Gerçekçi?</h3>
       <p>Haftada 3-5 içerik, ayda 1 değerlendirme ve 90 günlük deneme, KOBİ ölçeğinde sürdürülebilir eşiklerdir. Eşik tutmuyorsa platform sayısını azaltın; ritmi bozmak yerine kapsamı daraltmak doğru tercihtir.</p>
-      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      <h2>Sosyal Medya Stratejinizi Uzman Ekiple Oluşturun</h2>
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 06</span></div><h2 id="sosyal-medya-stratejinizi-uzman-ekiple-olusturun">Sosyal Medya Stratejinizi Uzman Ekiple Oluşturun</h2>
       <div class="yz-cevap"><p>Uzman ekiple çalışmak, strateji kurulumunu deneme yanılmadan çıkarıp ölçüme dayandırır. Rota daha ilk aydan yazılı hale gelir. Ajans olarak kitle analizi, platform eleme ve içerik ekseni adımlarını sizinle birlikte tamamlıyoruz. Üretim ritmini ekibimiz üstlenir. Sosyal medya stratejiniz böylece kişiye değil sisteme bağlı çalışır.</p></div>
       <p>TasarımMania olarak "önce ölç, sonra üret" ilkesiyle çalışıyoruz. İlk görüşmede amacınızı ve alıcı kitlenizi birlikte netleştiriyoruz. Platform elemesini kitle yoğunluğu, format uyumu ve kapasite ölçütleriyle yapıyoruz. Kurulumun ardından içerik takvimi, üretim ve topluluk yönetimi tek ekipte toplanır; siz aylık strateji görüşmesiyle rotayı denetlersiniz.</p><p>Dilerseniz <a href="../../sosyal-medya/">sosyal medya yönetimi hizmetimizin</a> kapsamını inceleyebilir, işletmenize uygun kurguyu birlikte planlayabiliriz. Stratejinizi bir kez doğru kurduğunuzda her yeni içerik aynı hedefe tuğla ekler.</p>
       <h3>Birlikte Çalışma Süreci Nasıl İşliyor?</h3>
       <p>Süreç üç aşamada ilerler. Önce keşif görüşmesi ve kitle analizi yapılır; sonra strateji dokümanı ile takvim kurulur; son aşama aylık üretim ve raporlama ritmidir. İlk stratejik çıktıyı üç hafta içinde teslim ediyoruz.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/sosyal-medya-stratejileri-govde-960.webp"
              srcset="./gorsel/sosyal-medya-stratejileri-govde-640.webp 640w, ./gorsel/sosyal-medya-stratejileri-govde-960.webp 960w, ./gorsel/sosyal-medya-stratejileri-govde-1440.webp 1440w, ./gorsel/sosyal-medya-stratejileri-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Hedef kitle analiziyle platform kararını simgeleyen, dağınık küreleri tek yörüngeye hizalayan pusula kompozisyonu" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Doğru ölçütler, dağınık platform kararlarını tek rotaya hizalar. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>İşletme Tipine Göre Organik Rota Seçim Ölçütleri</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 06</span></div><h2 id="isletme-tipine-gore-organik-rota-secim-olcutleri">İşletme Tipine Göre Organik Rota Seçim Ölçütleri</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>İşletme tipi</th><th>Kitle davranışı</th><th>Öncelikli içerik türü</th><th>Organik rota yaklaşımı</th></tr></thead>
@@ -547,7 +592,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../sosyal-medya/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Doğru platformda, doğru kitleye, ölçülebilir hedefle konuşmak sosyal medyayı maliyet kaleminden büyüme kanalına çevirir. Rotanızı beş adımlı iskeletle çizin, doksan günlük veriyle doğrulayın ve ritmi koruyun. Stratejinizi bugün tek sayfalık bir dokümana dökmeniz, yarınki her içerik kararını kolaylaştırır.</p>
+        <p>Doğru platformda, doğru kitleye, ölçülebilir hedefle konuşmak sosyal medyayı maliyet kaleminden büyüme kanalına çevirir. Rotanızı beş adımlı iskeletle çizin, doksan günlük veriyle doğrulayın ve ritmi koruyun. Stratejinizi bugün tek sayfalık bir dokümana dökmeniz, yarınki her içerik kararını kolaylaştırır.</p></section>
       </article>
     </div>
   </section>

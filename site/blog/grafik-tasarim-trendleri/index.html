@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -464,45 +511,43 @@
 <!-- AYIRT EDİCİ EKSEN: ZAMANLAMA — Yıla göre trend değişimi ve markaların güncel kalma zamanlaması; süreç aşamaları ve program kıyası kardeş yazıların konusu.
      Huni türü: TOFU · Küme: Grafik Tasarım · Kardeşler (enjeksiyon turunda): grafik-tasarim-araclari, grafik-tasarim-turleri, grafik-tasarim-sureci -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">2026 Grafik Tasarım Trendleri: Bu Yıl Neler Değişti?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Grafik Tasarım</span>
-        <span class="yz-meta">7 Ekim 2026 · 7 dakikalık okuma</span>
+          <h1>2026 Grafik Tasarım Trendleri: Bu Yıl Neler Değişti?</h1>
+          <p class="ozet">Her ocak ayında aynı soru masamıza geliyor: görsel dilimiz eskidi mi? 2026'nın grafik tasarım trendleri bu soruyu daha da acil hale getirdi. Değişim artık yıllara değil, çeyreklere yayılıyor. Bu yazıda hangi eğilimin kalıcı olduğunu ve markanızın ne zaman harekete geçmesi gerektiğini anlatıyoruz. Odağımız zamanlama.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/grafik-tasarim-trendleri-kapak-1440.webp"
+           srcset="./gorsel/grafik-tasarim-trendleri-kapak-640.webp 640w, ./gorsel/grafik-tasarim-trendleri-kapak-960.webp 960w, ./gorsel/grafik-tasarim-trendleri-kapak-1440.webp 1440w, ./gorsel/grafik-tasarim-trendleri-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="2026 grafik tasarım trendleri için yıllık yenileme takvimini simgeleyen soyut kadran görseli"
+           width="1920" height="1080" decoding="async"><figcaption>Trendleri kovalamak yerine yıllık bir takvime bağlamak bütçeyi koruyor. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Grafik Tasarım</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>7 Ekim 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>7 başlık</b></div>
       </div>
-      <h1>2026 Grafik Tasarım Trendleri: Bu Yıl Neler Değişti?</h1>
-      <p class="ozet">Her ocak ayında aynı soru masamıza geliyor: görsel dilimiz eskidi mi? 2026'nın grafik tasarım trendleri bu soruyu daha da acil hale getirdi. Değişim artık yıllara değil, çeyreklere yayılıyor. Bu yazıda hangi eğilimin kalıcı olduğunu ve markanızın ne zaman harekete geçmesi gerektiğini anlatıyoruz. Odağımız zamanlama.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#trend-dongusu-neden-bu-kadar-kisaldi"><span>01</span>Trend döngüsü neden bu kadar kısaldı?</a><a href="#bu-yil-hangi-gorsel-yonelimler-one-cikiyor"><span>02</span>Bu yıl hangi görsel yönelimler öne çıkıyor?</a><a href="#markaniz-gorsel-dilini-ne-siklikla-gozden-gecirmeli"><span>03</span>Markanız görsel dilini ne sıklıkla gözden geçirmeli?</a><a href="#erken-uyum-mu-gecikmenin-faturasi-mi"><span>04</span>Erken uyum mu, gecikmenin faturası mı?</a><a href="#trend-guncellemesi-marka-tutarliligini-bozar-mi"><span>05</span>Trend güncellemesi marka tutarlılığını bozar mı?</a><a href="#markanizi-2026-trendlerine-tasiyacak-tasarim-destegi-alin"><span>06</span>Markanızı 2026 Trendlerine Taşıyacak Tasarım Desteği Alın</a><a href="#uyum-penceresine-gore-marka-davranisi-kontrol-ritmi-her-satirda-uc-ayda-bir-gozlem"><span>07</span>Uyum penceresine göre marka davranışı (kontrol ritmi her satırda üç ayda bir gözlem)</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/grafik-tasarim-trendleri-kapak-1440.webp"
-           srcset="./gorsel/grafik-tasarim-trendleri-kapak-640.webp 640w, ./gorsel/grafik-tasarim-trendleri-kapak-960.webp 960w, ./gorsel/grafik-tasarim-trendleri-kapak-1440.webp 1440w, ./gorsel/grafik-tasarim-trendleri-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="2026 grafik tasarım trendleri için yıllık yenileme takvimini simgeleyen soyut kadran görseli"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Trendleri kovalamak yerine yıllık bir takvime bağlamak bütçeyi koruyor. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Trend döngüsü neden bu kadar kısaldı?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 07</span></div><h2 id="trend-dongusu-neden-bu-kadar-kisaldi">Trend döngüsü neden bu kadar kısaldı?</h2>
       <div class="yz-cevap"><p>Döngü kısaldı; çünkü markalar aynı görseli onlarca ekran biçiminde yayımlıyor. Bir yıl önce taze duran palet, bugün rakip vitrininde standart görünüyor. Değişimi hızlandıran şey moda hevesi değil. Kendi proje takvimlerimizde gördüğümüz kadarıyla ekran sayısının ve platform biçimlerinin artması bu tempoyu belirliyor.</p></div>
       <p>Görsel dilin ömrü kısalıyor. Kurumsal kimliğin yıllarca dokunulmadan dayandığı dönem geride kaldı. Aynı marka bugün tek haftada üç ayrı format üretiyor; grafik tasarım trendleri bu hızda değişiyor.</p><p>Ekran alışkanlığı da denklemin parçası. Trendleri izlerken grafik ekibimiz bu doygunluk noktasını erken fark ediyor. Ekran arttıkça karşılaşma artıyor; dün taze duran biçim çabuk tanıdık geliyor.</p>
       <h3>Döngüyü hızlandıran üç etken</h3>
       <p>Grafik tasarım trendleri üç baskının kesiştiği yerde şekilleniyor. Birincisi platform biçimlerinin sık değişmesi; dünkü kapak ölçüsü bugün kırpılıyor. İkincisi üretim maliyetinin düşmesi, çünkü küçük ekipler bile haftada onlarca varyant çıkarıyor. Üçüncüsü taklidin hızlanması; beğenilen düzen kısa sürede rakip vitrininde beliriyor.</p>
       <h3>Trend mi, geçici heves mi?</h3>
-      <p>Kalıcı yönelim, birden fazla sektörde aynı anda görülen görsel eğilimdir. Heves ise tek platformda parlayıp sönen biçimdir. Ayırmak için basit bir eşik kullanıyoruz: bir biçim iki çeyrek üst üste farklı sektörlerde görünüyorsa yatırıma değer. Grafik tasarımda trend takibi böylece kumar olmaktan çıkıyor.</p>
-      <h2>Bu yıl hangi görsel yönelimler öne çıkıyor?</h2>
+      <p>Kalıcı yönelim, birden fazla sektörde aynı anda görülen görsel eğilimdir. Heves ise tek platformda parlayıp sönen biçimdir. Ayırmak için basit bir eşik kullanıyoruz: bir biçim iki çeyrek üst üste farklı sektörlerde görünüyorsa yatırıma değer. Grafik tasarımda trend takibi böylece kumar olmaktan çıkıyor.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 07</span></div><h2 id="bu-yil-hangi-gorsel-yonelimler-one-cikiyor">Bu yıl hangi görsel yönelimler öne çıkıyor?</h2>
       <div class="yz-cevap"><p>Öne çıkan yönelimler üç başlıkta toplanıyor: uyarlanabilir kimlikler, yüksek kontrastlı tipografi ve sade hareket. Üçü de aynı ihtiyaçtan doğuyor. Marka, farklı ekran biçimlerinde tanınırlığını yitirmeden görünmek istiyor. Üçü de iki çeyrekten uzun süredir tekrar ettiği için takvime alınmayı hak ediyor; süsleme geriliyor, okunabilirlik öne geçiyor.</p></div>
       <p>Grafik tasarım trendleri bu yıl sadeleşme ekseninde ilerliyor. Renk tarafında ton sayısı azalıyor, kontrast yükseliyor. Kimlik takvimini <a href="../../reels-video/">sosyal video ve Reels</a> üretimiyle birlikte kuran markalar bu uyumu daha kolay yakalıyor.</p><p>Yapay zekâ destekli görsel üretimi yaygınlaştıkça birbirine benzeyen kompozisyonlar çoğaldı. 2026'nın grafik tasarım trendleri bu yüzden daha çok görsel değil, daha ayırt edici görsel istiyor. Elle kurgulanmış detay yeniden değer kazandı.</p>
       <h3>Uyarlanabilir kimlikler</h3>
@@ -510,38 +555,38 @@
       <h3>Yüksek kontrastlı tipografi</h3>
       <p>Yazı karakteri seçimi bu yıl dekoratif olmaktan çıktı. Küçük ekranda okunmayan başlık, ne kadar zarif olursa olsun işe yaramıyor. Kalın ağırlıklar öne çıkıyor. Tipografi tarafındaki tasarım trendleri erişilebilirliğe kaydığı için yazı ailesi kararını sezon açılmadan bir çeyrek önce veriyoruz.</p>
       <h4>Kontrast kararını takvimin hangi durağında veriyoruz?</h4>
-      <p>Kontrast kararını nisan durağında, yani tekrar eden biçimleri not ettiğimiz turda alıyoruz. Ölçütümüz WCAG erişilebilirlik kılavuzunun AA eşiği; bunu her yenilemede taban kabul ediyoruz. Böylece temmuzdaki deneme kampanyasına okunabilirliği çözülmüş bir başlık düzeniyle giriyoruz.</p>
-      <h2>Markanız görsel dilini ne sıklıkla gözden geçirmeli?</h2>
+      <p>Kontrast kararını nisan durağında, yani tekrar eden biçimleri not ettiğimiz turda alıyoruz. Ölçütümüz WCAG erişilebilirlik kılavuzunun AA eşiği; bunu her yenilemede taban kabul ediyoruz. Böylece temmuzdaki deneme kampanyasına okunabilirliği çözülmüş bir başlık düzeniyle giriyoruz.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 07</span></div><h2 id="markaniz-gorsel-dilini-ne-siklikla-gozden-gecirmeli">Markanız görsel dilini ne sıklıkla gözden geçirmeli?</h2>
       <div class="yz-cevap"><p>Görsel dili yılda bir kez karara bağlayın, üç ayda bir izleyin. Çeyreklik izleme, sahadaki görselin yorulup yorulmadığını erken gösterir. Yıllık karar ise bütçeyi ve üretim takvimini koruyor. Bu ritim markayı hem savrulmaktan hem de geç kalmaktan kurtarıyor. Takvimi yazılı tutan ekipler ritmi çok daha kolay sürdürüyor.</p></div>
       <p>Sık yenileme pahalıdır, seyrek yenileme risklidir. Grafik tasarım trendleri karşısında panik kararı vermemenin yolu, ikisinin ortasında bir izleme takvimi kurmaktan geçiyor. Yıl içinde dört durak yetiyor:</p><ol><li><strong>Ocak:</strong> Geçen yılın görsellerini performansına göre ayıklayın.</li><li><strong>Nisan:</strong> Sektörünüzde tekrar eden biçimleri not edin.</li><li><strong>Temmuz:</strong> Küçük bir kampanyada yeni yönelimi deneyin.</li><li><strong>Ekim:</strong> Gelecek yılın kimlik kararını ve bütçesini kilitleyin.</li></ol>
       <h3>Çeyreklik izleme, yıllık karar</h3>
-      <p>İzleme ile karar birbirine karıştığında bütçe erir. Üç aylık turlarda yalnız veri topluyoruz: hangi görsel yoruldu, hangi biçim daha çok kaydedildi. Yıllık kararda ise tek seferde uyguluyoruz. Ekip her ay yeni bir görsel dil öğrenmek zorunda kalmıyor.</p>
-      <h2>Erken uyum mu, gecikmenin faturası mı?</h2>
+      <p>İzleme ile karar birbirine karıştığında bütçe erir. Üç aylık turlarda yalnız veri topluyoruz: hangi görsel yoruldu, hangi biçim daha çok kaydedildi. Yıllık kararda ise tek seferde uyguluyoruz. Ekip her ay yeni bir görsel dil öğrenmek zorunda kalmıyor.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 07</span></div><h2 id="erken-uyum-mu-gecikmenin-faturasi-mi">Erken uyum mu, gecikmenin faturası mı?</h2>
       <div class="yz-cevap"><p>Zamanında hareket eden marka ucuza konumlanır, geciken marka faizli öder. Bir yönelimi ilk yılında benimseyen işletme sınırlı bütçeyle öne çıkıyor. İki yıl bekleyen işletme ise hem taklit görünüyor hem de görsel arşivini tek seferde yenilemek zorunda kalıyor. Maliyet farkı tam burada doğuyor.</p></div>
       <p>Gecikmenin bedeli sessiz ilerler. Kimse size görselleriniz eskimiş demez; tıklama oranı yavaşça düşer, teklif talebi seyrelir. Grafik tasarım trendleri bu noktada estetik tartışması olmaktan çıkıp bütçe kalemine dönüşüyor. Türkiye'de dijital vitrini olan işletme sayısı ise büyümeyi sürdürüyor. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">Ticaret Bakanlığı'nın 2025 raporuna</a> göre 2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi. Vitrin kalabalıklaştıkça zamanlamanın ağırlığı artıyor.</p>
       <h3>Erken uyumun getirisi</h3>
       <p>Öne geçen marka, yönelimi kendi kimliğine göre eğip bükebiliyor. Geç kalan marka ise piyasada oturmuş kalıbı olduğu gibi almak zorunda. Birincisi özgün durur, ikincisi kopya.</p>
       <h3>Gecikmenin görünmeyen maliyeti</h3>
       <p>İki yıl ertelenen kimlik yenilemesi ucuzlamıyor; aksine büyüyor. Katalog, ambalaj, vitrin ve reklam görselleri aynı anda değişmek zorunda kalıyor. Trendlerin grafik tasarıma yansıması geriden takip edildiğinde harcama tek çeyreğe sıkışıyor.</p>
-      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      <h2>Trend güncellemesi marka tutarlılığını bozar mı?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 07</span></div><h2 id="trend-guncellemesi-marka-tutarliligini-bozar-mi">Trend güncellemesi marka tutarlılığını bozar mı?</h2>
       <div class="yz-cevap"><p>Bozmaz; çünkü güncellenen katman kimliğin kabuğudur, çekirdeği değil. Logo, ana renk ve marka sesi sabit kalır. Fotoğraf dili, düzen kuralları ve hareket biçimi ise yıl içinde esneyebilir. Bu ayrım korunduğunda müşteri sizi tanımaya devam ediyor. Tanınırlık kaybı da böylece önlenmiş oluyor.</p></div>
       <p>Tutarlılık, hiç değişmemek anlamına gelmiyor. Bir markanın tanınabilirliği üç sabit üzerinden yürüyor: ana renk, logo oranları ve konuşma tonu. Yıllık yenilemede bu üç sabite dokunmuyoruz. Yığılan işleri <a href="../../kurumsal-web-sitesi/">kurumsal web sitesi</a> planınızla birlikte dağıtmak da mümkün.</p><p>Ölçmeden karar vermemek de önemli. Grafik tasarım trendleri arasından hangisinin size uyduğunu yalnızca ölçüm gösteriyor. Yeni görsel dili tüm mecralara yaymadan önce sınırlı bütçeli bir testte deniyoruz. Kampanya ölçümünü performans pazarlaması tarafıyla kurduğumuzda hangi yönelimin işe yaradığı sayıyla görünüyor.</p>
       <h3>Çekirdek sabit, kabuk esnek</h3>
-      <p>Çekirdek, markanın yıllarca değişmeyen tanınırlık unsurlarıdır. Kabuk ise kampanya görselleri, düzen şablonları ve fotoğraf üslubudur. Grafik tasarım trendleri kabuğu ilgilendirir; çekirdeğe ancak nadiren dokunuyoruz.</p>
-      <h2>Markanızı 2026 Trendlerine Taşıyacak Tasarım Desteği Alın</h2>
+      <p>Çekirdek, markanın yıllarca değişmeyen tanınırlık unsurlarıdır. Kabuk ise kampanya görselleri, düzen şablonları ve fotoğraf üslubudur. Grafik tasarım trendleri kabuğu ilgilendirir; çekirdeğe ancak nadiren dokunuyoruz.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 07</span></div><h2 id="markanizi-2026-trendlerine-tasiyacak-tasarim-destegi-alin">Markanızı 2026 Trendlerine Taşıyacak Tasarım Desteği Alın</h2>
       <div class="yz-cevap"><p>Doğru zamanlama, doğru fikirden daha belirleyici olabiliyor. Markanızın görsel dili grafik tasarım trendleri içinde nerede duruyor, önce bunu ölçüyoruz. Ardından yenilemeyi tek seferde değil, takvime yayarak planlıyoruz. Bütçe dağılıyor, ekip de nefes alıyor. Tek oturumluk bir değerlendirme, çoğu markada başlangıç ayını netleştirmeye yetiyor.</p></div>
       <p>Görsel dilinizin bu yıl neresinde olduğunu birlikte görelim. <a href="../../grafik-tasarim/">Grafik tasarım</a> hizmetimizde kimlik yenilemesini yıllık takvime bağlıyoruz. Kampanya görselleri de aynı planın içine yerleşiyor.</p><p>Hangi ay başlamanız gerektiğini konuşmak isterseniz <a href="../../teklif/">teklif formunu</a> doldurun. Mevcut görsellerinize bakıp bir zamanlama önerisiyle dönüyoruz. Takvimi çıkarmak çoğu markada tek görüşmeyle başlıyor.</p>
       <h3>Başlamak için doğru ay hangisi?</h3>
       <p>Yoğun satış sezonunuzdan bir çeyrek önce başlamak en rahat pencereyi açıyor. Perakendede bu genellikle yaz sonu, hizmet sektöründe yıl başı oluyor. Sezon ortasında yapılan yenileme tempoyu kesiyor.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/grafik-tasarim-trendleri-govde-960.webp"
              srcset="./gorsel/grafik-tasarim-trendleri-govde-640.webp 640w, ./gorsel/grafik-tasarim-trendleri-govde-960.webp 960w, ./gorsel/grafik-tasarim-trendleri-govde-1440.webp 1440w, ./gorsel/grafik-tasarim-trendleri-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Marka kimliğinin farklı ekran oranlarına uyarlanmasını anlatan soyut cam panel görseli" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Uyarlanabilir kimlik, aynı markayı her ekran oranında tanınır kılıyor. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Uyum penceresine göre marka davranışı (kontrol ritmi her satırda üç ayda bir gözlem)</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 07</b><span>07 / 07</span></div><h2 id="uyum-penceresine-gore-marka-davranisi-kontrol-ritmi-her-satirda-uc-ayda-bir-gozlem">Uyum penceresine göre marka davranışı (kontrol ritmi her satırda üç ayda bir gözlem)</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Uyum penceresi</th><th>Marka davranışı</th><th>Görünen sonuç</th><th>Uygulama yükü</th></tr></thead>
@@ -561,7 +606,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../grafik-tasarim/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Trendleri kovalamak zorunda değilsiniz; onları takvime bağlamanız yeterli. Yılda bir karar, üç ayda bir gözlem ritmiyle ilerleyen markalar hem güncel kalıyor hem bütçesini koruyor. Görsel dilinizin bu yıl neresinde durduğunu birlikte ölçelim.</p>
+        <p>Trendleri kovalamak zorunda değilsiniz; onları takvime bağlamanız yeterli. Yılda bir karar, üç ayda bir gözlem ritmiyle ilerleyen markalar hem güncel kalıyor hem bütçesini koruyor. Görsel dilinizin bu yıl neresinde durduğunu birlikte ölçelim.</p></section>
       </article>
     </div>
   </section>

@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -468,79 +515,77 @@
 <!-- AYIRT EDİCİ EKSEN: MALIYET — Tıklama maliyeti, bütçe planı ve kanal başına maliyet kıyası; metin yazım tekniği reklam-metni-yazma yazısına bırakılır.
      Huni türü: MOFU · Küme: Digital Marketing Performansı · Kardeşler (enjeksiyon turunda): reklam-metni-yazma, sosyal-medya-stratejileri, sosyal-medya-raporlama -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Google Ads Management or Organic Growth? A Cost Comparison</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Digital Marketing</span>
-        <span class="yz-meta">23 September 2026 · 7 min read</span>
+          <h1>Google Ads Management or Organic Growth? A Cost Comparison</h1>
+          <p class="ozet">The question we hear most often in budget meetings is this: should the money go to advertising or to content? Both channels carry a price tag; one shows up on the invoice, the other in the calendar. Google Ads management brings traffic from day one, while organic growth advances by accumulation. In this article we put the cost per click, the monthly budget plan and the cost structure per channel side by side. Our aim isn't to impose a single right answer; it is to show which channel comes cheaper in which range of budget.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/google-ads-vs-organic-growth-cover-1440.webp"
+           srcset="./image/google-ads-vs-organic-growth-cover-640.webp 640w, ./image/google-ads-vs-organic-growth-cover-960.webp 960w, ./image/google-ads-vs-organic-growth-cover-1440.webp 1440w, ./image/google-ads-vs-organic-growth-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="An abstract 3D image showing the cost structure of Google Ads management against organic growth"
+           width="1920" height="1080" decoding="async"><figcaption>The advertising budget flows away fast; the organic investment accumulates slowly but lastingly. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Digital Marketing</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>23 September 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>6 sections</b></div>
       </div>
-      <h1>Google Ads Management or Organic Growth? A Cost Comparison</h1>
-      <p class="ozet">The question we hear most often in budget meetings is this: should the money go to advertising or to content? Both channels carry a price tag; one shows up on the invoice, the other in the calendar. Google Ads management brings traffic from day one, while organic growth advances by accumulation. In this article we put the cost per click, the monthly budget plan and the cost structure per channel side by side. Our aim isn't to impose a single right answer; it is to show which channel comes cheaper in which range of budget.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#how-is-a-google-ads-budget-planned"><span>01</span>How Is a Google Ads Budget Planned?</a><a href="#what-determines-the-cost-per-click"><span>02</span>What Determines the Cost per Click?</a><a href="#is-organic-growth-really-free"><span>03</span>Is Organic Growth Really Free?</a><a href="#the-cost-structure-of-google-ads-management-and-the-organic-channel"><span>04</span>The Cost Structure of Google Ads Management and the Organic Channel</a><a href="#in-which-budget-range-does-which-channel-come-ahead"><span>05</span>In Which Budget Range Does Which Channel Come Ahead?</a><a href="#google-ads-and-organic-channel-cost-comparison-table"><span>06</span>Google Ads and Organic Channel Cost Comparison Table</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/google-ads-vs-organic-growth-cover-1440.webp"
-           srcset="./image/google-ads-vs-organic-growth-cover-640.webp 640w, ./image/google-ads-vs-organic-growth-cover-960.webp 960w, ./image/google-ads-vs-organic-growth-cover-1440.webp 1440w, ./image/google-ads-vs-organic-growth-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="An abstract 3D image showing the cost structure of Google Ads management against organic growth"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>The advertising budget flows away fast; the organic investment accumulates slowly but lastingly. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>How Is a Google Ads Budget Planned?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 06</span></div><h2 id="how-is-a-google-ads-budget-planned">How Is a Google Ads Budget Planned?</h2>
       <div class="yz-cevap"><p>We build the budget plan by dividing the monthly ceiling by the daily cap and counting the test period as a separate item. We treat Google Ads management not as spending but as a measurable purchasing process. We settle the ceiling we can pay per conversion first, and narrow the keyword list to that ceiling.</p></div>
       <p>Cost per click is the variable amount you pay each time a user clicks your advertisement. That amount doesn't stay fixed; it moves even within the day. In Google Ads management we design the budget not as a single figure but as a range between a ceiling and a floor.</p><p>The number of businesses moving to a digital channel is rising. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">The Ministry of Trade's ETBİS report</a> — ETBİS is Türkiye's central e-commerce information system — puts the number of businesses trading online at 634,611. A significant proportion of them bid on the same searches; an account whose management isn't kept tight burns through its budget far faster than planned as competition on the Google side rises.</p><p>On a new account, our order for <a href="../../google-ads/">Google Ads management</a> runs like this:</p><ol><li>We write down the ceiling you can pay for one conversion.</li><li>We divide that ceiling by the estimated cost per click.</li><li>We multiply the resulting number of clicks by the monthly sales target.</li><li>We count the first 30 days as the learning phase and report the result separately.</li></ol>
       <h3>The difference between the daily cap and the monthly commitment</h3>
       <p>The daily cap is the average amount the system aims at for one day; the panel goes above that amount on busy days and holds the average by the end of the month. The monthly commitment, on the other hand, is your financial plan. Building the cash flow around that fluctuation prevents surprises.</p>
       <h3>A sensible floor for the test budget</h3>
-      <p>A very small test budget produces no data. The algorithm wants enough clicks and conversions to learn from. A business that closes the campaign in under four weeks throws away the price it paid for that learning.</p>
-      <h2>What Determines the Cost per Click?</h2>
+      <p>A very small test budget produces no data. The algorithm wants enough clicks and conversions to learn from. A business that closes the campaign in under four weeks throws away the price it paid for that learning.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 06</span></div><h2 id="what-determines-the-cost-per-click">What Determines the Cost per Click?</h2>
       <div class="yz-cevap"><p>Three factors determine the cost per click: competitors' bids, your account's quality score, and the commercial intent of the term being searched. Two businesses in the same sector pay very different amounts for the same keyword. As the quality score rises we hold the same position with a lower bid; that pulls the cost down. If the figures don't work, we change the target keyword.</p></div>
       <p>The quality score measures how far your advertisement and your landing page match the search intent. When the score falls, Google makes you pay more for the same position even if the account management is flawless. The craft of writing the copy is a separate subject; here we are looking only at its effect on cost.</p><p>Competition is fierce on keywords with high commercial intent. Searches containing price, order or appointment are expensive, because everyone wants to reach the same person. Within Google Ads management, the route that protects profitability isn't closing those expensive keywords down but raising the conversion rate.</p>
       <h3>How does competition in a sector push the cost up?</h3>
       <p>In fields such as insurance, law and private healthcare the customer value is high; high value brings high bids. In furniture or gifts the same budget buys far more clicks. Setting a budget without knowing the sector average is like looking for the target in the dark.</p>
       <h4>Match type erodes the budget quietly</h4>
-      <p>Broad match shows your advertisement on unrelated searches too. Clicks accumulate and no conversions come. We start with exact and phrase match and widen the negative keyword list every week.</p>
-      <h2>Is Organic Growth Really Free?</h2>
+      <p>Broad match shows your advertisement on unrelated searches too. Clicks accumulate and no conversions come. We start with exact and phrase match and widen the negative keyword list every week.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 06</span></div><h2 id="is-organic-growth-really-free">Is Organic Growth Really Free?</h2>
       <div class="yz-cevap"><p>No, organic growth has a cost too; it comes out as effort and time rather than as an invoice. Content production, technical infrastructure and the waiting period are all cost items. Rising in the search results takes months. Google Ads management buys that waiting period, while organic work turns it into accumulation.</p></div>
       <p>Organic growth is the investment in content and technical improvement made to earn free clicks from search engines. The return comes late. <a href="../../seo-content-strategy/">Content strategy</a> produces pages that carry on working for as long as they stay live.</p><p>Digital habits feed that item. The official measurements of household internet use are published by <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TurkStat</a> — TurkStat is Türkiye's statistical institute — and we read that source together with your own search data. As search volume grows, organic visibility sits in the column that pulls the unit cost down over the long run.</p>
       <h3>Time, the cost item that doesn't appear on the balance sheet</h3>
       <p>Three months of a content team's effort doesn't appear as a line in the budget. Even so, salaries, rehearsal and revision time are real money. When we work out the cost of organic work we convert that effort into an hourly figure and put it in the same table as the Google Ads management invoice.</p>
       <h3>How do you work out the hourly cost of producing content?</h3>
-      <p>We write down the research, writing, image and publishing times for a page separately. We multiply each step by the hourly cost of the person taking it on, and add the amounts up. Once we add the allowance for revisions, the real cost of producing a page emerges. The monthly organic cost is that figure multiplied by the number of pages.</p>
-      <h2>The Cost Structure of Google Ads Management and the Organic Channel</h2>
+      <p>We write down the research, writing, image and publishing times for a page separately. We multiply each step by the hourly cost of the person taking it on, and add the amounts up. Once we add the allowance for revisions, the real cost of producing a page emerges. The monthly organic cost is that figure multiplied by the number of pages.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 06</span></div><h2 id="the-cost-structure-of-google-ads-management-and-the-organic-channel">The Cost Structure of Google Ads Management and the Organic Channel</h2>
       <div class="yz-cevap"><p>Advertising has a variable cost; the organic channel works largely on a fixed cost. When you cut the budget, advertising traffic falls the same day; content already published carries on bringing visitors. That difference separates the two channels' risk profiles. Knowing in advance which item you would cut when cash gets tight makes life easier. The decision depends on your sector's cash cycle.</p></div>
       <p>The acquisition cost is the total amount spent to win a customer, divided by the number of customers won. On advertising that calculation is easy; the spend sits in the panel. On the organic channel you have to add up the content, design and technical hours.</p><p>Comparing the two channels without bringing them onto the same measure misleads. <a href="../../performance-marketing/">The performance marketing</a> work we do builds a measurement arrangement showing each channel's own acquisition cost separately. Without the same period and the same definition of conversion, the result won't be reliable.</p>
       <h3>The distinction between variable and fixed cost</h3>
       <p>A variable cost is the item that grows with volume; every new click is added to the invoice. A fixed cost is independent of volume. Whether a guide is read by a thousand people or ten thousand, the cost of producing it stays the same.</p>
       <h3>Which item does the agency management fee sit in?</h3>
       <p>Because the management fee doesn't rise with volume, it sits in the fixed item. Your advertising spend may go up while that line stays the same. That is why we don't distribute the fee per click; we add it to the monthly total cost. On small budgets that item weighs heavily in proportion.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>In Which Budget Range Does Which Channel Come Ahead?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 06</span></div><h2 id="in-which-budget-range-does-which-channel-come-ahead">In Which Budget Range Does Which Channel Come Ahead?</h2>
       <div class="yz-cevap"><p>On small and urgent budgets advertising comes ahead; on long-run plans the organic channel does. A business with a short cash cycle wants a quick return, and advertising provides it. A brand planning the year, on the other hand, invests in content to bring the unit cost down. For most SMEs the right answer is a balanced combination of the two. We set the balance according to the sector.</p></div>
       <p>When we take the decision we measure the cash footing first: how many weeks can the campaign stay standing? Then we look at whether the product margin can carry the cost per click. Finally we check whether the search volume is steady. If all three are positive, we open the advertising channel; if even one is weak, we strengthen the content and technical infrastructure first.</p><p>If you want to see in figures how much to set aside for which channel, send us your current spend and your target number of conversions. <a href="../../get-a-quote/">Through the quote form</a> it takes a few minutes to start, and we set out the cost of Google Ads management and the organic plan side by side.</p>
       <h3>What determines the weighting when you split the budget?</h3>
       <p>The first thing determining the weighting is the urgency of the sale. If urgency is high, we give the share to advertising. If the product margin is narrow, we grow the organic side and keep advertising on the most profitable keywords alone. As competition sharpens, the same result asks for a higher budget; at that point we narrow the keyword list.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/google-ads-vs-organic-growth-body-960.webp"
              srcset="./image/google-ads-vs-organic-growth-body-640.webp 640w, ./image/google-ads-vs-organic-growth-body-960.webp 960w, ./image/google-ads-vs-organic-growth-body-1440.webp 1440w, ./image/google-ads-vs-organic-growth-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="An abstract image of scales weighing advertising spend against investment in organic content" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>The channel decision becomes clear once you bring both channels' costs onto the same measure. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Google Ads and Organic Channel Cost Comparison Table</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 06</span></div><h2 id="google-ads-and-organic-channel-cost-comparison-table">Google Ads and Organic Channel Cost Comparison Table</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Cost item</th><th>Google Ads</th><th>Organic channel</th><th>Decision note</th></tr></thead>
@@ -562,7 +607,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../google-ads/">See the service page</a>
         </aside>
-        <p>The argument about cost ends not with one channel eliminating the other but with the roles becoming clear. Advertising catches today's demand; organic work lowers tomorrow's cost. Measure the two in a single table and the budget decision stops being guesswork. Share your figures and let's work out together which channel comes cheaper for you.</p>
+        <p>The argument about cost ends not with one channel eliminating the other but with the roles becoming clear. Advertising catches today's demand; organic work lowers tomorrow's cost. Measure the two in a single table and the budget decision stops being guesswork. Share your figures and let's work out together which channel comes cheaper for you.</p></section>
       </article>
     </div>
   </section>

@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,72 +477,70 @@
 <!-- AYIRT EDİCİ EKSEN: SÜRE — Aşamaları ve takvimi anlatır. Maliyet kalemleri yazı 1'in, karar soruları yazı 2'nin, mimari seçimi yazı 4'ün işidir. Burada FİYAT verilmez, KARAR SORULARI tekrarlanmaz.
      Huni türü: TOFU · Küme: mobil · Kardeşler (enjeksiyon turunda): native-mi-cross-platform-mi, react-native-mi-flutter-mi, uygulama-magaza-optimizasyonu -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Development Process</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Mobile</span>
-        <span class="yz-meta">28 September 2026 · 7 min read</span>
+          <h1>How Many Stages Does the Mobile App Development Process Have?</h1>
+          <p class="ozet">“When will it be finished?” usually comes up in the first meeting. An answer can be given, but it is a conditional one: the schedule depends not on the number of stages but on the speed of decisions. In this article we set out the five stages, the typical length of each, and what really moves the timeline. We aren't discussing price; here we take on only duration and sequence.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/mobile-app-development-process-cover-1440.webp"
+           srcset="./image/mobile-app-development-process-cover-640.webp 640w, ./image/mobile-app-development-process-cover-960.webp 960w, ./image/mobile-app-development-process-cover-1440.webp 1440w, ./image/mobile-app-development-process-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Long illuminated blocks stepping up by overlapping at their ends, each block sitting at a different depth"
+           width="1920" height="1080" decoding="async"><figcaption>The stages don't run in single file; they overlap at the edges. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Mobile</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>28 September 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>How Many Stages Does the Mobile App Development Process Have?</h1>
-      <p class="ozet">“When will it be finished?” usually comes up in the first meeting. An answer can be given, but it is a conditional one: the schedule depends not on the number of stages but on the speed of decisions. In this article we set out the five stages, the typical length of each, and what really moves the timeline. We aren't discussing price; here we take on only duration and sequence.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#how-many-stages-does-the-mobile-app-development-process-have"><span>01</span>How Many Stages Does the Mobile App Development Process Have?</a><a href="#how-long-does-the-discovery-and-scope-stage-take"><span>02</span>How Long Does the Discovery and Scope Stage Take?</a><a href="#what-gets-produced-in-the-design-stage"><span>03</span>What Gets Produced in the Design Stage?</a><a href="#how-do-the-development-and-testing-stages-proceed"><span>04</span>How Do the Development and Testing Stages Proceed?</a><a href="#why-does-the-store-release-take-longer-than-expected"><span>05</span>Why Does the Store Release Take Longer Than Expected?</a><a href="#let-s-work-out-your-schedule-together"><span>06</span>Let's Work Out Your Schedule Together</a><a href="#typical-length-per-stage-and-what-stretches-the-schedule"><span>07</span>Typical length per stage and what stretches the schedule</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/mobile-app-development-process-cover-1440.webp"
-           srcset="./image/mobile-app-development-process-cover-640.webp 640w, ./image/mobile-app-development-process-cover-960.webp 960w, ./image/mobile-app-development-process-cover-1440.webp 1440w, ./image/mobile-app-development-process-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Long illuminated blocks stepping up by overlapping at their ends, each block sitting at a different depth"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>The stages don't run in single file; they overlap at the edges. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>How Many Stages Does the Mobile App Development Process Have?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="how-many-stages-does-the-mobile-app-development-process-have">How Many Stages Does the Mobile App Development Process Have?</h2>
       <div class="yz-cevap"><p>There are five stages: discovery, design, development, testing and store release. The stages don't run in sequence but partly on top of one another. What sets the total schedule is not the number of stages but the number of decisions taken in each. The mobile app development process is stretched by indecision, not by scope. A single approval left waiting can eat two weeks.</p></div>
       <p>Thinking of the stages as a straight line is misleading. Development starts before the design is finished, and testing runs while development is still going. That overlap shortens the schedule, but on one condition: that decisions come out on time.</p><p>The sequence below is the order we run. Throughout the process, the development team and your side look at the same board.</p><ol><li><strong>Discovery</strong> — the problem, the user, the screen inventory.</li><li><strong>Design</strong> — the flow, the screens and the state designs.</li><li><strong>Development</strong> — building in two-week sprints.</li><li><strong>Testing</strong> — inside the sprints, not a separate block.</li><li><strong>Store release</strong> — review, with a margin for corrections.</li></ol>
       <h3>What Really Stretches the Schedule?</h3>
-      <p>Not the code — the decision left waiting. A screen waiting for approval can waste a two-week sprint all on its own. That is why we identify the person who will decide in the first session. A point of contact without authority is the most expensive source of delay in the development process.</p>
-      <h2>How Long Does the Discovery and Scope Stage Take?</h2>
+      <p>Not the code — the decision left waiting. A screen waiting for approval can waste a two-week sprint all on its own. That is why we identify the person who will decide in the first session. A point of contact without authority is the most expensive source of delay in the development process.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="how-long-does-the-discovery-and-scope-stage-take">How Long Does the Discovery and Scope Stage Take?</h2>
       <div class="yz-cevap"><p>This stage usually takes one to two weeks. In that time the problem definition, the user flow and the screen inventory come out. Short as it looks, this stage shortens all the ones that follow. Throughout the development process, this is the document we come back to most. Skip it and the design stage comfortably doubles.</p></div>
       <p>We don't draw screens in the discovery session. We talk about how the work runs today, where it gets stuck and who takes which decision. The output is a single page: the problem, the user, how often it is used, the screens you cannot do without, and the external services.</p><p>If you bring that page to the meeting yourself, the stage comes down to three days. We listed the questions that need answering one by one in the <a href="../questions-before-building-an-app/">questions to ask before commissioning an app</a> article.</p><p>People who want to shorten discovery usually try to skip it altogether. The result is always the same: the design stage is spent asking the questions discovery never asked. Trying to win time on the development side means losing it right at the start.</p>
       <h3>What Does the Discovery Output Look Like?</h3>
-      <p>Not a thick specification — a single page. Long documents don't get read, so they slow decisions down. A single page stays in everyone's head and becomes the shared language for the whole mobile app development process.</p>
-      <h2>What Gets Produced in the Design Stage?</h2>
+      <p>Not a thick specification — a single page. Long documents don't get read, so they slow decisions down. A single page stays in everyone's head and becomes the shared language for the whole mobile app development process.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="what-gets-produced-in-the-design-stage">What Gets Produced in the Design Stage?</h2>
       <div class="yz-cevap"><p>This stage gives three outputs: the flow diagram, the screen designs and the state designs. The third is forgotten in most quotes, yet it is the one that most determines the schedule. If the empty list, the broken connection and the timeout screens aren't drawn here, the work slides into development. Solving it there takes longer. The job of design isn't to make the screen prettier; it is to take the decision in advance.</p></div>
       <p>The typical length is two to four weeks. It stretches not as the number of screens grows but as the number of states grows. A product with ten screens but four states each takes longer than a twenty-screen catalogue.</p><p>We took up which principles interface decisions rest on in the <a href="../ui-design-principles/">interface design principles</a> article. When the design is finished, there should be no undrawn screen left for development.</p><p>Skipping the state designs hits the schedule in two places at once. First the developer makes an assumption, then you don't like the assumption. Having the development team design screens in the middle of the process makes for a route that is both slow and inconsistent.</p>
       <h3>How Many Rounds Do Approvals Run To?</h3>
-      <p>Two rounds is normal; a third round is a warning. If it is going round more than three times, the problem isn't in the design but in a decision left unmade at discovery. At that point we go back a step.</p>
-      <h2>How Do the Development and Testing Stages Proceed?</h2>
+      <p>Two rounds is normal; a third round is a warning. If it is going round more than three times, the problem isn't in the design but in a decision left unmade at discovery. At that point we go back a step.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="how-do-the-development-and-testing-stages-proceed">How Do the Development and Testing Stages Proceed?</h2>
       <div class="yz-cevap"><p>They proceed in sprints two weeks long. At the end of each sprint a working build reaches you and we take your comments. Testing isn't a separate stage; it sits inside every sprint. When the development process runs to that rhythm, surprises are spread through the middle rather than piling up at the end. A surprise saved for the end is always the more expensive one.</p></div>
       <p>At the end of every iteration we send a build you can install on your own device. Seeing it on screen is different from reading it in a document; your comments sharpen at that point too. The typical length runs from six to sixteen weeks depending on scope.</p><p>If work close to the hardware is needed, the schedule widens. We handle requirements such as the camera, sensors and background location separately <a href="../../ios-android-app-development/">on the iOS and Android sides</a> of the build. We weighed the choice of architecture up in the <a href="../native-vs-cross-platform/">native or cross-platform</a> article.</p>
       <h3>Why Isn't Testing a Separate Block?</h3>
-      <p>Testing left to the end gathers the faults at the most expensive moment. Spread through every sprint, a fault is fixed the day it appears. That arrangement is the habit that saves the most time within the mobile app development process.</p>
-      <h2>Why Does the Store Release Take Longer Than Expected?</h2>
+      <p>Testing left to the end gathers the faults at the most expensive moment. Spread through every sprint, a fault is fixed the day it appears. That arrangement is the habit that saves the most time within the mobile app development process.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="why-does-the-store-release-take-longer-than-expected">Why Does the Store Release Take Longer Than Expected?</h2>
       <div class="yz-cevap"><p>The review is not a technical exam, it is a rules check. Apple and Google look separately at the privacy policy, the permission rationales and the account deletion flow. Being rejected on the first submission is ordinary. That is why we put a week's margin for release into the development process schedule. Teams that leave no margin postpone the launch date twice.</p></div>
       <p>The release review usually takes a few days, but if a rejection comes back the clock starts again. The most frequent reasons for rejection are surprisingly simple: a missing privacy policy, a permission requested without a rationale, no route to deleting an account.</p><p>Prepare those as development begins and release day doesn't turn into a surprise. The store listing itself is a separate piece of work; the title, the images and the description have a direct effect on the download rate.</p><p>The two stores don't move to the same rhythm either. One may answer the same day while the other keeps you waiting several; that is why we talk about a release week rather than a single release date. Marking that week in the development process plan makes the launch communications easier too. Reasons for rejection aren't guesswork but written rules; the <a href="https://developer.apple.com/app-store/review/guidelines/" target="_blank" rel="noopener">App Store Review Guidelines</a> list them all.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The schedule isn't set by how fast the code gets written. A pending approval will stop even the fastest team for two weeks.&#8221;</p><cite>— TasarımMania project note</cite></blockquote>
-      <h2>Let's Work Out Your Schedule Together</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The schedule isn't set by how fast the code gets written. A pending approval will stop even the fastest team for two weeks.&#8221;</p><cite>— TasarımMania project note</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="let-s-work-out-your-schedule-together">Let's Work Out Your Schedule Together</h2>
       <div class="yz-cevap"><p>A schedule only becomes realistic the moment the scope is clear. In the meeting we write down the stages, the approval points and who decides when, together. What you are left with is not an estimated duration but a dated plan. When the mobile app development process is set up that way, the source of any delay is visible from the start. Delay usually comes not from the code but from an approval left waiting.</p></div>
       <p>While we draw up the plan we also discuss, at the same table, which item moves the budget; we opened the two up separately in the <a href="../mobile-app-development-cost/">app cost</a> article. <a href="../../mobile-app-development/">Our mobile app service</a> page is always open if you'd like to look through it.</p><p>When we draw up the plan we mark three dates. The day the discovery output is approved, the day the design is locked, and the day of the first submission to the store. If those three hold, the rest holds of its own accord. Within the mobile app development process, the date that slips most often is the second. When the design lock is late, everything slips with it. To protect that lock we tie the approval window to two working days. It looks like a small rule, but on its own it keeps the schedule standing.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/mobile-app-development-process-body-960.webp"
              srcset="./image/mobile-app-development-process-body-640.webp 640w, ./image/mobile-app-development-process-body-960.webp 960w, ./image/mobile-app-development-process-body-1440.webp 1440w, ./image/mobile-app-development-process-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="A closed ring of light with evenly spaced nodes around it; one side of the ring dim, the opposite side bright" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Every sprint leaves a working build behind; the product takes shape as the sprints accumulate. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Typical length per stage and what stretches the schedule</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="typical-length-per-stage-and-what-stretches-the-schedule">Typical length per stage and what stretches the schedule</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Stage</th><th>Typical length</th><th>What stretches it</th></tr></thead>
@@ -516,7 +561,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../mobile-app-development/">See the service page</a>
         </aside>
-        <p>The mobile app development process has five stages, but the schedule isn't set by the number of stages. How quickly decisions come out matters more than how fast the code gets written; the plan has to be built on that fact.</p>
+        <p>The mobile app development process has five stages, but the schedule isn't set by the number of stages. How quickly decisions come out matters more than how fast the code gets written; the plan has to be built on that fact.</p></section>
       </article>
     </div>
   </section>

@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,72 +477,70 @@
 <!-- AYIRT EDİCİ EKSEN: ROTA — Uygulanabilir yedi adımı verir. Yapay zekânın SINIRLARI yazı 13'ün işidir; burada yeniden tartışılmaz, oraya link verilir. Format listesi yazı 12'nin, çekim yeri yazı 11'in.
      Huni türü: BOFU · Küme: video · Kardeşler (enjeksiyon turunda):  -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Kamerasız Video</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Video</span>
-        <span class="yz-meta">20 Ekim 2026 · 7 dakikalık okuma</span>
+          <h1>Kamerasız Ürün Videosu Nasıl Üretilir? Adım Adım</h1>
+          <p class="ozet">Elinizde yüzlerce ürün fotoğrafı var ama video bütçeniz yok. Bu tablo küçük ekiplerde çok yaygın ve çözümü set kurmaktan geçmiyor. Aşağıda yedi adımlık bir rota var: kaynak toplamadan mecra sürümlerine kadar. Rotayı sırayla uygulayın; her adımın çıktısı bir sonrakinin girdisi oluyor.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/kamerasiz-urun-videosu-kapak-1440.webp"
+           srcset="./gorsel/kamerasiz-urun-videosu-kapak-640.webp 640w, ./gorsel/kamerasiz-urun-videosu-kapak-960.webp 960w, ./gorsel/kamerasiz-urun-videosu-kapak-1440.webp 1440w, ./gorsel/kamerasiz-urun-videosu-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Durağan bir kareden çıkıp yay çizerek uzaklaşan ışık izleri; kare hareketsiz, izler devinim hâlinde"
+           width="1920" height="1080" decoding="async"><figcaption>Durağan kareyi harekete geçirmek, sıfırdan sahne kurmaktan farklı bir iştir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Video</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>20 Ekim 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>7 başlık</b></div>
       </div>
-      <h1>Kamerasız Ürün Videosu Nasıl Üretilir? Adım Adım</h1>
-      <p class="ozet">Elinizde yüzlerce ürün fotoğrafı var ama video bütçeniz yok. Bu tablo küçük ekiplerde çok yaygın ve çözümü set kurmaktan geçmiyor. Aşağıda yedi adımlık bir rota var: kaynak toplamadan mecra sürümlerine kadar. Rotayı sırayla uygulayın; her adımın çıktısı bir sonrakinin girdisi oluyor.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#kamerasiz-video-uretimi-kimin-isine-yarar"><span>01</span>Kamerasız Video Üretimi Kimin İşine Yarar?</a><a href="#hangi-urunlerde-uygulanabilir"><span>02</span>Hangi Ürünlerde Uygulanabilir?</a><a href="#adim-adim-nasil-ilerlersiniz"><span>03</span>Adım Adım Nasıl İlerlersiniz?</a><a href="#kalite-kontrolunde-neye-bakarsiniz"><span>04</span>Kalite Kontrolünde Neye Bakarsınız?</a><a href="#hangi-durumda-vazgecmeli"><span>05</span>Hangi Durumda Vazgeçmeli?</a><a href="#ilk-videonuzu-birlikte-cikaralim"><span>06</span>İlk Videonuzu Birlikte Çıkaralım</a><a href="#adimlar-ciktilari-ve-en-sik-yapilan-hata"><span>07</span>Adımlar, çıktıları ve en sık yapılan hata</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/kamerasiz-urun-videosu-kapak-1440.webp"
-           srcset="./gorsel/kamerasiz-urun-videosu-kapak-640.webp 640w, ./gorsel/kamerasiz-urun-videosu-kapak-960.webp 960w, ./gorsel/kamerasiz-urun-videosu-kapak-1440.webp 1440w, ./gorsel/kamerasiz-urun-videosu-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Durağan bir kareden çıkıp yay çizerek uzaklaşan ışık izleri; kare hareketsiz, izler devinim hâlinde"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Durağan kareyi harekete geçirmek, sıfırdan sahne kurmaktan farklı bir iştir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Kamerasız Video Üretimi Kimin İşine Yarar?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 07</span></div><h2 id="kamerasiz-video-uretimi-kimin-isine-yarar">Kamerasız Video Üretimi Kimin İşine Yarar?</h2>
       <div class="yz-cevap"><p>Küçük ekipler ve geniş katalogu olan satıcılar için işe yarar. Elinizde ürün fotoğrafı varsa, kamerasız video üretimi o kareleri harekete geçirir. Set kurmadan, ekip toplamadan ve gün ayırmadan sonuç alırsınız. Karşılığında kontrolün bir kısmını bırakırsınız; sınırları bilmek şart. Bu yazı o sınırların içinde kalan yolu anlatıyor.</p></div>
       <p>Çekimsiz üretim bir kısayol değil, farklı bir yöntemdir. Kamera çekiminin yerini almaz; onun ulaşamadığı ölçeğe ulaşır. Otuz ürünlük bir katalogda tek tek çekim yapmak pahalıya gelirken, elinizdeki fotoğraflardan kısa videolar çıkarmak mümkün olur.</p><p>Nerede işe yaradığını ve nerede yetersiz kaldığını <a href="../yapay-zeka-ile-video-uretimi/">yapay zeka ile video üretimi</a> yazısında ayrıntısıyla tarttık. Burada sınırı yeniden tartışmıyor, sınırın içinde kalan rotayı veriyoruz.</p><p>Ölçek burada belirleyici. Üç ürünlük bir işte çekim yapmak daha hızlı olabilir; üç yüz ürünlük bir katalogda ise çekimsiz üretim tek gerçekçi yol hâline gelir. Kararı ürün sayısıyla birlikte verin.</p>
       <h3>Bunu Kendi Ekibim Yapabilir mi?</h3>
-      <p>Yapabilir. Rota öğrenildikten sonra ikinci tur belirgin biçimde hızlanır. Kamerasız video üretiminde zor olan araç kullanmak değil, hangi karenin kabul edilebilir olduğuna karar vermektir.</p>
-      <h2>Hangi Ürünlerde Uygulanabilir?</h2>
+      <p>Yapabilir. Rota öğrenildikten sonra ikinci tur belirgin biçimde hızlanır. Kamerasız video üretiminde zor olan araç kullanmak değil, hangi karenin kabul edilebilir olduğuna karar vermektir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 07</span></div><h2 id="hangi-urunlerde-uygulanabilir">Hangi Ürünlerde Uygulanabilir?</h2>
       <div class="yz-cevap"><p>Biçimi sabit, yüzeyi sade ve ayrıntısı az olan ürünlerde rahat çalışır. Ambalajlı gıda, kutulu elektronik ve basit ev eşyaları bu gruba girer. Kamerasız video, takı ve tekstil gibi doku taşıyan ürünlerde zorlanır. Ölçüt ürünün süslü olması değil, ayrıntısının satın alma kararını ne kadar belirlediğidir.</p></div>
       <p>Ambalajlı ürünler en kolay gruptur, çünkü biçim zaten sabittir. Kutunun üzerindeki yazıyı sonradan bindirdiğinizde metin bozulma riski de ortadan kalkar.</p><p>Doku taşıyan ürünlerde ise kamerasız video hızla sınırına ulaşır. Kumaşın örgüsü, derinin gözenekleri ve taşın parlaklığı her karede biraz değişir; müşteri bunu ekranda fark etmese de elinde fark eder.</p>
       <h3>Aynı Katalogda İki Yol Yürütebilir misiniz?</h3>
-      <p>Yürütebilirsiniz ve çoğu zaman doğrusu budur. Ambalajlı ürünleri çekimsiz üretirsiniz, doku taşıyanları kamerayla çekersiniz. Videoyu kamerasız çıkarmak katalogun tamamı için değil, uygun grup için bir çözümdür.</p>
-      <h2>Adım Adım Nasıl İlerlersiniz?</h2>
+      <p>Yürütebilirsiniz ve çoğu zaman doğrusu budur. Ambalajlı ürünleri çekimsiz üretirsiniz, doku taşıyanları kamerayla çekersiniz. Videoyu kamerasız çıkarmak katalogun tamamı için değil, uygun grup için bir çözümdür.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 07</span></div><h2 id="adim-adim-nasil-ilerlersiniz">Adım Adım Nasıl İlerlersiniz?</h2>
       <div class="yz-cevap"><p>Yedi adım var ve sırayla yürür. Önce kaynak görselleri toplar, sonra sahneyi kurarsınız. Hareketi ekler, sesi yerleştirir ve mecra sürümlerini çıkarırsınız. Kamerasız video üretiminde en çok atlanan adım kalite kontrolüdür. Adımları atlayan ekipler, düzeltmeyi en pahalı anda yapar. Sıra bozulduğunda tur sayısı hızla artar.</p></div>
       <p>Aşağıdaki sırayı bozmayın. Her adım bir öncekinin çıktısını kullanır.</p><ol><li><strong>Kaynak görselleri toplayın</strong> — en yüksek çözünürlüklü, temiz fonlu kareler.</li><li><strong>Ürünü fondan ayırın</strong> — kenarları temiz bir kesim yapın.</li><li><strong>Kurgu ortamını kurun</strong> — zemin, fon ve ışık yönünü belirleyin.</li><li><strong>Devinimi ekleyin</strong> — yavaş ve tek yönlü hareket en güvenlisidir.</li><li><strong>Metni sonradan bindirin</strong> — üretilen karede yazıya güvenmeyin.</li><li><strong>Gözle denetim yapın</strong> — kareleri gerçek ürünle yan yana koyun.</li><li><strong>Mecra sürümlerini çıkarın</strong> — oran ve süre listesine göre.</li></ol><p>Yedinci adımın listesini <a href="../e-ticaret-urun-videosu-formatlari/">ürün videosu formatları</a> yazısında çıkarmıştık. Video üretimini kamerasız yürütürken de aynı teslim listesi geçerlidir.</p><p>Adımları bir kontrol listesine dökün ve her üründe aynı listeyi kullanın. Ekipteki farklı kişiler aynı rotayı yürüttüğünde çıktı da tutarlı olur. Kamerasız video üretiminde tutarlılık, tek tek kalitelerden daha çok işe yarar.</p>
       <h3>Hangi Adım En Çok Zaman Alır?</h3>
-      <p>Genelde ikinci adım. Ürünü fondan temiz ayırmak, sonraki her adımın kalitesini belirler. Kenarları özensiz bir kesim, en iyi sahnede bile kendini belli eder.</p>
-      <h2>Kalite Kontrolünde Neye Bakarsınız?</h2>
+      <p>Genelde ikinci adım. Ürünü fondan temiz ayırmak, sonraki her adımın kalitesini belirler. Kenarları özensiz bir kesim, en iyi sahnede bile kendini belli eder.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 07</span></div><h2 id="kalite-kontrolunde-neye-bakarsiniz">Kalite Kontrolünde Neye Bakarsınız?</h2>
       <div class="yz-cevap"><p>Dört şeye bakın: ürünün biçimi, üzerindeki yazı, renk tonu ve hareketin doğallığı. Kareyi tek tek durdurup gerçek ürünle yan yana koyun. Kamerasız video çıktısında en sık kayan şey ambalaj yazısıdır. Şüphe duyduğunuz her kareyi baştan üretmek, yayınlayıp geri çekmekten ucuzdur. Bu karşılaştırmayı ürünü bilen biri yapmalı.</p></div>
       <p>Gözle denetim için basit bir yöntem yeter: videoyu durdurup ürün fotoğrafını yanına açın. Renk tonu ve oran farkı bu karşılaştırmada hemen görünür.</p><p>Hareketin doğallığı da ayrı bir başlıktır. Yavaş ve tek yönlü bir devinim güvenlidir; ani dönüşler ve yakın plan geçişler sapmayı büyütür. Şüpheye düştüğünüzde hareketi azaltın.</p><p>Denetimi yapan kişiyi de sabitleyin. Her turda başka biri bakarsa ölçüt kayar; aynı göz, aynı eşiği korur. Bu kişi tercihen ürünü elinde tutmuş olmalı.</p>
       <h3>Kaç Karede Bir Durmalı?</h3>
-      <p>Kısa videolarda saniyede bir durak yeterlidir. Ürünün döndüğü ya da yaklaştığı anlar ise kare kare kontrol ister; sapma çoğu zaman orada başlar.</p>
-      <h2>Hangi Durumda Vazgeçmeli?</h2>
+      <p>Kısa videolarda saniyede bir durak yeterlidir. Ürünün döndüğü ya da yaklaştığı anlar ise kare kare kontrol ister; sapma çoğu zaman orada başlar.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 07</span></div><h2 id="hangi-durumda-vazgecmeli">Hangi Durumda Vazgeçmeli?</h2>
       <div class="yz-cevap"><p>Ürün ayrıntısı satın alma kararını belirliyorsa vazgeçin. Takı, kumaş, gıda ambalajının içi ve teknik ürünlerin bağlantı noktaları bu gruba girer. Kamerasız video bu ürünlerde tanıtım değil, hayal kırıklığı üretir. Kararı zorlamak yerine kısa bir kamera çekimi planlamak daha ucuza gelir. Sınırı kabul etmek, sonradan özür dilemekten iyidir.</p></div>
       <p>Vazgeçmek tümüyle vazgeçmek anlamına gelmez. Ürünü kamerayla çekip sahneyi üretmek, iki yolun en dengeli birleşimidir; çekim yerini nasıl seçtiğimizi <a href="../urun-videosu-studyo-mu-mekan-mi/">stüdyo mu mekân mı</a> yazısında anlattık.</p><p>Kararı ürün grubuna göre verin, katalog geneline göre değil. Aynı katalogda bazı ürünler çekimsiz üretime uygunken bazıları kamera ister; ikisini ayırmak en verimli yoldur.</p><p>Ayırma kararını bir kez verip listeye yazın. Her yeni üründe baştan tartışmak zaman kaybıdır; grup kuralı bir kez kurulduğunda ekip kendi karar verir. Üretilen görüntü ürünü olduğundan farklı göstermemeli; <a href="https://ticaret.gov.tr/tuketici/ticari-reklamlar" target="_blank" rel="noopener">ticari reklam mevzuatı</a> bunu açıkça yasaklar.</p>
-      <blockquote class="yz-alinti"><p>&#8220;Zor olan araç kullanmak değil, hangi karenin kabul edilebilir olduğuna karar vermek. O kararı ürünü bilen kişi verir.&#8221;</p><cite>— TasarımMania prodüksiyon notu</cite></blockquote>
-      <h2>İlk Videonuzu Birlikte Çıkaralım</h2>
+      <blockquote class="yz-alinti"><p>&#8220;Zor olan araç kullanmak değil, hangi karenin kabul edilebilir olduğuna karar vermek. O kararı ürünü bilen kişi verir.&#8221;</p><cite>— TasarımMania prodüksiyon notu</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 07</span></div><h2 id="ilk-videonuzu-birlikte-cikaralim">İlk Videonuzu Birlikte Çıkaralım</h2>
       <div class="yz-cevap"><p>Birlikte çıkarmak en hızlı öğrenme yolu. Ürün listenizi, elinizdeki görselleri ve yayın mecralarınızı konuşuyoruz. Elinizde bir araç önerisi değil, uygulanabilir bir rota kalıyor. Kamerasız video üretimini kendi ekibinizle sürdürebilecek hâle gelmeniz de amacın parçası. Amaç şu: ilk turda birlikte, ikinci turda siz.</p></div>
       <p>İlk turda hangi ürünlerin bu yola uygun olduğunu birlikte ayırırız. <a href="../../ai-video-produksiyon/">Yapay zeka destekli prodüksiyon</a> ve <a href="../../urun-videosu/">ürün videosu</a> sayfalarımızı inceleyebilirsiniz.</p><p>Kamerasız video üretimini bir kerelik iş gibi değil, katalog büyüdükçe tekrarlanan bir tur gibi kurarız. Rota bir kez oturduğunda yeni ürün eklemek yalnız birkaç saat alır.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/kamerasiz-urun-videosu-govde-960.webp"
              srcset="./gorsel/kamerasiz-urun-videosu-govde-640.webp 640w, ./gorsel/kamerasiz-urun-videosu-govde-960.webp 960w, ./gorsel/kamerasiz-urun-videosu-govde-1440.webp 1440w, ./gorsel/kamerasiz-urun-videosu-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Soldan sağa yükselerek zincirlenen ışıklı halkalar; her halka bir sonrakine parlak bir düğümle bağlı" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Yedi adım sırayla yürür; atlanan her adım sonraki turda geri gelir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Adımlar, çıktıları ve en sık yapılan hata</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 07</b><span>07 / 07</span></div><h2 id="adimlar-ciktilari-ve-en-sik-yapilan-hata">Adımlar, çıktıları ve en sık yapılan hata</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Adım</th><th>Çıktısı</th><th>En sık hata</th></tr></thead>
@@ -518,7 +563,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../ai-video-produksiyon/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Kamerasız video üretimi elinizdeki fotoğrafları harekete geçiren yedi adımlık bir rotadır. Adımları sırayla uygulayın, altıncı adımı asla atlamayın ve ürün ayrıntısının satın alma kararını belirlediği yerlerde kameraya dönmekten çekinmeyin.</p>
+        <p>Kamerasız video üretimi elinizdeki fotoğrafları harekete geçiren yedi adımlık bir rotadır. Adımları sırayla uygulayın, altıncı adımı asla atlamayın ve ürün ayrıntısının satın alma kararını belirlediği yerlerde kameraya dönmekten çekinmeyin.</p></section>
       </article>
     </div>
   </section>

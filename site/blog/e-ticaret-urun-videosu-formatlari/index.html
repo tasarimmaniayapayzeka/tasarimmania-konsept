@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,72 +477,70 @@
 <!-- AYIRT EDİCİ EKSEN: FORMAT/ÖLÇÜ — En boy oranı, süre ve dosya ölçülerini anlatır. Çekim yeri yazı 11'in işidir. Mevcut 'E-Ticaret Ürün Görseli' yazısıyla komşu ama o DURAĞAN GÖRSEL; burada görselin satışa etkisi ANLATILMAZ, yalnız kardeş linki verilir (Madde 7).
      Huni türü: TOFU · Küme: video · Kardeşler (enjeksiyon turunda): kamerasiz-urun-videosu -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Video Formatları</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Video</span>
-        <span class="yz-meta">16 Ekim 2026 · 7 dakikalık okuma</span>
+          <h1>E-Ticaret Ürün Videosu Formatları ve Ölçüleri</h1>
+          <p class="ozet">Aynı videoyu her yere yükleyebileceğinizi düşünmek en pahalı varsayımdır. Bir mecrada kusursuz duran bir kare, diğerinde ürünü çerçeve dışında bırakır. Bu yazıda oranı, süreyi ve dosya ölçülerini mecra mecra açıyoruz. Amaç, teslim listesini çekimden önce çıkarmak; sonradan yapılan her kırpma bir kurgu turu demek.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/e-ticaret-urun-videosu-formatlari-kapak-1440.webp"
+           srcset="./gorsel/e-ticaret-urun-videosu-formatlari-kapak-640.webp 640w, ./gorsel/e-ticaret-urun-videosu-formatlari-kapak-960.webp 960w, ./gorsel/e-ticaret-urun-videosu-formatlari-kapak-1440.webp 1440w, ./gorsel/e-ticaret-urun-videosu-formatlari-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Ortak bir merkezden çıkıp farklı en boy oranlarındaki üç çerçeveye uzanan ışık çizgileri"
+           width="1920" height="1080" decoding="async"><figcaption>Tek çekim, üç ayrı çerçeve: oran değişince kompozisyon da değişir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Video</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>16 Ekim 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>7 başlık</b></div>
       </div>
-      <h1>E-Ticaret Ürün Videosu Formatları ve Ölçüleri</h1>
-      <p class="ozet">Aynı videoyu her yere yükleyebileceğinizi düşünmek en pahalı varsayımdır. Bir mecrada kusursuz duran bir kare, diğerinde ürünü çerçeve dışında bırakır. Bu yazıda oranı, süreyi ve dosya ölçülerini mecra mecra açıyoruz. Amaç, teslim listesini çekimden önce çıkarmak; sonradan yapılan her kırpma bir kurgu turu demek.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#urun-videosu-formatini-neye-gore-secersiniz"><span>01</span>Ürün Videosu Formatını Neye Göre Seçersiniz?</a><a href="#hangi-en-boy-orani-nerede-calisir"><span>02</span>Hangi En Boy Oranı Nerede Çalışır?</a><a href="#video-ne-kadar-surmeli"><span>03</span>Video Ne Kadar Sürmeli?</a><a href="#dosya-boyutu-ile-kaliteyi-nasil-dengelersiniz"><span>04</span>Dosya Boyutu ile Kaliteyi Nasıl Dengelersiniz?</a><a href="#pazaryerleri-hangi-sartlari-arar"><span>05</span>Pazaryerleri Hangi Şartları Arar?</a><a href="#format-planinizi-birlikte-cikaralim"><span>06</span>Format Planınızı Birlikte Çıkaralım</a><a href="#oran-kullanim-yeri-ve-dikkat-noktasi"><span>07</span>Oran, kullanım yeri ve dikkat noktası</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/e-ticaret-urun-videosu-formatlari-kapak-1440.webp"
-           srcset="./gorsel/e-ticaret-urun-videosu-formatlari-kapak-640.webp 640w, ./gorsel/e-ticaret-urun-videosu-formatlari-kapak-960.webp 960w, ./gorsel/e-ticaret-urun-videosu-formatlari-kapak-1440.webp 1440w, ./gorsel/e-ticaret-urun-videosu-formatlari-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Ortak bir merkezden çıkıp farklı en boy oranlarındaki üç çerçeveye uzanan ışık çizgileri"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Tek çekim, üç ayrı çerçeve: oran değişince kompozisyon da değişir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Ürün Videosu Formatını Neye Göre Seçersiniz?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 07</span></div><h2 id="urun-videosu-formatini-neye-gore-secersiniz">Ürün Videosu Formatını Neye Göre Seçersiniz?</h2>
       <div class="yz-cevap"><p>Üç şey belirler: nerede yayınlayacağınız, izleyicinin nasıl izlediği ve ürünün biçimi. Ürün videosu formatı bu üçünün kesişiminde çıkar, tek başına bir tercih değildir. Uzun bir ürün dikey çerçevede rahat durur; geniş bir masa yatay ister. Yayın yeri de oranı ve süreyi birlikte dayatır.</p></div>
       <p>Karar sırası önemlidir. Önce mecra listesini yazın, sonra oranları belirleyin, en son çekim planını kurun. Tersten giderseniz elinizdeki görüntüyü zorla kırpmak zorunda kalırsınız.</p><p>Aşağıdaki dört başlık her teslim listesinde bulunur.</p><ol><li><strong>En boy oranı</strong> — 16:9, 1:1 ve 9:16.</li><li><strong>Süre</strong> — mecraya göre saniyeler ya da dakika.</li><li><strong>Dosya boyutu</strong> — yükleme sınırı ve akış kalitesi.</li><li><strong>Altyazı</strong> — gömülü mü, ayrı dosya mı.</li></ol><p>Listeyi bir tabloya yazın ve ekiple paylaşın. Sözlü aktarılan teslim istekleri kaybolur; yazılı liste ise çekim gününde herkesin önünde durur.</p>
       <h3>Tek Sürüm Yeter mi?</h3>
-      <p>Kare oran bir orta yol sunar ve çoğu yerde kabul görür. Ancak dikey mecralarda ekranın büyük bölümünü boş bırakır. Format kararını ürün sayfanızın önceliği belirler; her yerde ortalama durmak, hiçbir yerde iyi durmamak anlamına gelebilir.</p>
-      <h2>Hangi En Boy Oranı Nerede Çalışır?</h2>
+      <p>Kare oran bir orta yol sunar ve çoğu yerde kabul görür. Ancak dikey mecralarda ekranın büyük bölümünü boş bırakır. Format kararını ürün sayfanızın önceliği belirler; her yerde ortalama durmak, hiçbir yerde iyi durmamak anlamına gelebilir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 07</span></div><h2 id="hangi-en-boy-orani-nerede-calisir">Hangi En Boy Oranı Nerede Çalışır?</h2>
       <div class="yz-cevap"><p>Üç oran işin tamamını kapsar. Yatay 16:9 ürün sayfası ve web için, kare 1:1 akış içeriği için, dikey 9:16 tam ekran mecralar için çalışır. Ürün videosu formatını seçerken hangisinin ana mecra olduğunu belirleyin. Ana mecra hangisiyse çekimi ona göre kurar, gerisini ondan türetiriz.</p></div>
       <p>Dikey çerçeve oranı en çok yanlış anlaşılan olanıdır. Yatay bir kareyi dikeye kırpmak, görüntünün yanlarını atmak demektir; ürün ortada değilse kadraj dışında kalır.</p><p>Bu yüzden çekim sırasında güvenli alan bırakırız. Ürünü ortaya yerleştirip kenarlarda boşluk tutmak, tek çekimden üç oran çıkarmayı mümkün kılar. Çekim yerinin bu karara etkisini <a href="../urun-videosu-studyo-mu-mekan-mi/">stüdyo mu mekân mı</a> yazısında ele almıştık.</p><p>Güvenli alan kuralı basittir. Kadrajın kenarlarında rahat bir boşluk bırakın; hem dikey kırpma hem de mecra arayüzlerinin bindirdiği düğmeler o boşluğu yer.</p>
       <h3>Tek Çekimden Üç Oran Çıkar mı?</h3>
-      <p>Çıkar, ama planlanmışsa. Geniş kadrajla çekip kırpmak işe yarar; yalnız netlik kaybını hesaba katmak gerekir. Planlanmamış bir çekimde aynı iş, ürünün yarısını kesmekle sonuçlanır.</p>
-      <h2>Video Ne Kadar Sürmeli?</h2>
+      <p>Çıkar, ama planlanmışsa. Geniş kadrajla çekip kırpmak işe yarar; yalnız netlik kaybını hesaba katmak gerekir. Planlanmamış bir çekimde aynı iş, ürünün yarısını kesmekle sonuçlanır.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 07</span></div><h2 id="video-ne-kadar-surmeli">Video Ne Kadar Sürmeli?</h2>
       <div class="yz-cevap"><p>Ürün sayfasında kısa tutun, akışta daha da kısa. Sayfada izleyici zaten ilgili olduğu için biraz daha uzun kalabilir; akışta ise ilk saniyeler her şeyi belirler. Ürün videosu formatı süreyi de kapsar, çünkü aynı hikâyenin kısa sürümü ayrı kurgulanır. Kısaltmak, hızlandırmak değildir.</p></div>
       <p>Kısa sürüm çıkarmak bir kesme işi değil, yeniden kurgu işidir. Otuz saniyelik bir anlatının altı saniyelik hâli, aynı planların hızlısı olmaz; hangi tek mesajın kalacağına karar vermek gerekir.</p><p>İlk saniyeye de ayrı çalışın. Akışta izleyici kaydırmadan önce yalnız o kadarını görür; ürünü ilk karede göstermek en güvenli yoldur.</p>
       <h3>Kısa Sürüm Neyi Atar?</h3>
-      <p>Bağlamı atar, ürünü tutar. Uzun sürümdeki hazırlık ve kullanım anlatısı kısa sürümde yer bulmaz; geriye tek bir vaat kalır. O vaadi seçmek, kısaltmanın asıl işidir.</p>
-      <h2>Dosya Boyutu ile Kaliteyi Nasıl Dengelersiniz?</h2>
+      <p>Bağlamı atar, ürünü tutar. Uzun sürümdeki hazırlık ve kullanım anlatısı kısa sürümde yer bulmaz; geriye tek bir vaat kalır. O vaadi seçmek, kısaltmanın asıl işidir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 07</span></div><h2 id="dosya-boyutu-ile-kaliteyi-nasil-dengelersiniz">Dosya Boyutu ile Kaliteyi Nasıl Dengelersiniz?</h2>
       <div class="yz-cevap"><p>Her mecra dosyayı yeniden sıkıştırır, bu yüzden yüklediğiniz dosya kaynak kalitesinde olmalı. Zaten çok kıstığınız bir dosyayı platform bir kez daha sıkıştırınca ürün detayı kaybolur. Ürün videosu formatını yazarken netliği ve kare hızını da ekleyin. Yükleme sınırını aşan dosyayı platform kendi kurallarına göre bozar.</p></div>
       <p>Kaynak dosyayı arşivde tutun. Bir yıl sonra yeni bir mecra çıktığında elinizde yüksek kaliteli bir kaynak yoksa, dar bir sürümden yeni oran üretmek zorunda kalırsınız; sonuç belirgin biçimde kötüleşir.</p><p>Renk ve parlaklık da mecradan mecraya değişir. Ürün sayfasında doğru görünen bir ton, karanlık arayüzlü bir uygulamada sönük durabilir; teslimden önce her mecrada gözle kontrol etmek gerekir.</p><p>Teslimde dosya adlandırması da işin parçası. Mecra, oran ve süre bilgisini ada yazarsanız yükleme günü kimse yanlış dosyayı seçmez. Otuz ürünlük bir katalogda bu alışkanlık saatler kazandırır.</p>
       <h3>Kare Hızı Fark Eder mi?</h3>
       <p>Çoğu ürün videosunda fark yaratmaz. Hızlı hareket ya da yavaşlatma varsa yüksek kare hızıyla çekmek gerekir; yoksa standart hız daha küçük dosya verir.</p>
-      <blockquote class="yz-alinti"><p>&#8220;Sonradan yapılan her kırpma bir kurgu turudur. Teslim listesini çekimden önce yazmak, o turu baştan siler.&#8221;</p><cite>— TasarımMania prodüksiyon notu</cite></blockquote>
-      <h2>Pazaryerleri Hangi Şartları Arar?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;Sonradan yapılan her kırpma bir kurgu turudur. Teslim listesini çekimden önce yazmak, o turu baştan siler.&#8221;</p><cite>— TasarımMania prodüksiyon notu</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 07</span></div><h2 id="pazaryerleri-hangi-sartlari-arar">Pazaryerleri Hangi Şartları Arar?</h2>
       <div class="yz-cevap"><p>Her satış platformunun kendi kuralları vardır ve bunlar zamanla değişir. Ortak eğilim şudur: temiz arka plan, ürünün net görünmesi, marka logosunun öne çıkmaması ve kısa süre. Ürün videosu formatını seçerken güncel şartları platformun kendi belgesinden okuyun. Kulaktan dolma ölçüler çoğu zaman eskimiştir.</p></div>
-      <p>Kuralları yükleme gününde değil, çekim planını kurarken okuyun. Sonradan öğrendiğiniz bir şart, elinizdeki görüntüyü işe yaramaz hâle getirebilir.</p><p>Ürün sayfası düzeninin bütünüyle ilişkisini <a href="../../e-ticaret/">e-ticaret hizmetimizde</a> ele alıyoruz. Durağan görsellerin kendi kuralları ise ayrı bir konudur; onu <a href="../e-ticaret-urun-fotograflari/">ürün görselleri</a> yazısında anlattık.</p><p>Kuralların değiştiğini de hesaba katın. Bir yıl önce hazırladığınız liste bugün eksik kalabilir; yılda bir kez gözden geçirmek yeterlidir. Değişikliği yakalamanın en kolay yolu, satıcı panelindeki duyuruları takip etmektir. Pazaryeri kuralları kadar mevzuat da bağlar; <a href="https://ticaret.gov.tr/tuketici/ticari-reklamlar" target="_blank" rel="noopener">ticari reklam kuralları</a> videodaki vaat için de geçerlidir.</p>
-      <h2>Format Planınızı Birlikte Çıkaralım</h2>
+      <p>Kuralları yükleme gününde değil, çekim planını kurarken okuyun. Sonradan öğrendiğiniz bir şart, elinizdeki görüntüyü işe yaramaz hâle getirebilir.</p><p>Ürün sayfası düzeninin bütünüyle ilişkisini <a href="../../e-ticaret/">e-ticaret hizmetimizde</a> ele alıyoruz. Durağan görsellerin kendi kuralları ise ayrı bir konudur; onu <a href="../e-ticaret-urun-fotograflari/">ürün görselleri</a> yazısında anlattık.</p><p>Kuralların değiştiğini de hesaba katın. Bir yıl önce hazırladığınız liste bugün eksik kalabilir; yılda bir kez gözden geçirmek yeterlidir. Değişikliği yakalamanın en kolay yolu, satıcı panelindeki duyuruları takip etmektir. Pazaryeri kuralları kadar mevzuat da bağlar; <a href="https://ticaret.gov.tr/tuketici/ticari-reklamlar" target="_blank" rel="noopener">ticari reklam kuralları</a> videodaki vaat için de geçerlidir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 07</span></div><h2 id="format-planinizi-birlikte-cikaralim">Format Planınızı Birlikte Çıkaralım</h2>
       <div class="yz-cevap"><p>Teslim listesini çekimden önce yazarız. Hangi mecralarda yayınlayacağınızı konuşuyor, her biri için oran, süre ve dosya ölçüsünü tek sayfada topluyoruz. Elinizde bir video değil, bir çıktı paketi kalıyor. Ürün videosu formatı bu listeyle belirlendiğinde sonradan kırpma ihtiyacı doğmuyor. Çekimi de o listeye göre kurarız.</p></div>
       <p>Liste hazırsa çekim planını da ona göre kurarız: güvenli alan, kadraj ve süre baştan belli olur. <a href="../../urun-videosu/">Ürün videosu hizmetimizi</a> inceleyebilirsiniz.</p><p>Formatları ürün grubuna göre de ayırırız. Aynı listeyi bütün katalog için kullanmak pratik durur; oysa büyük ve küçük ürünler farklı kadraj ve farklı süre ister. Kamera kurmadan üretim yolunu <a href="../kamerasiz-urun-videosu/">kamerasız ürün videosu</a> yazısında adım adım verdik.</p><p>Listeyi hazırlarken hangi mecranın gerçekten trafik getirdiğine de bakarız. Her mecraya sürüm üretmek kulağa eksiksiz gelir; oysa kimsenin izlemediği bir orana harcanan saat, başka bir yere gitmeliydi.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/e-ticaret-urun-videosu-formatlari-govde-960.webp"
              srcset="./gorsel/e-ticaret-urun-videosu-formatlari-govde-640.webp 640w, ./gorsel/e-ticaret-urun-videosu-formatlari-govde-960.webp 960w, ./gorsel/e-ticaret-urun-videosu-formatlari-govde-1440.webp 1440w, ./gorsel/e-ticaret-urun-videosu-formatlari-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Geniş bir çerçevenin içinde dar bir dikey alanı işaretleyen ışıklı kesim çizgisi" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Yatay çekilen kare dikeye kırpılınca ürün çoğu zaman dışarıda kalır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Oran, kullanım yeri ve dikkat noktası</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 07</b><span>07 / 07</span></div><h2 id="oran-kullanim-yeri-ve-dikkat-noktasi">Oran, kullanım yeri ve dikkat noktası</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>En boy oranı</th><th>Nerede çalışır</th><th>Dikkat</th></tr></thead>
@@ -517,7 +562,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../urun-videosu/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Ürün videosu formatı tek bir dosya değil, bir teslim listesidir. Oranı, süreyi ve dosya ölçüsünü çekimden önce yazdığınızda tek çekimden bütün mecralara çıkabilir; listeyi sonraya bırakırsanız her yeni mecra yeni bir kurgu turu ister.</p>
+        <p>Ürün videosu formatı tek bir dosya değil, bir teslim listesidir. Oranı, süreyi ve dosya ölçüsünü çekimden önce yazdığınızda tek çekimden bütün mecralara çıkabilir; listeyi sonraya bırakırsanız her yeni mecra yeni bir kurgu turu ister.</p></section>
       </article>
     </div>
   </section>

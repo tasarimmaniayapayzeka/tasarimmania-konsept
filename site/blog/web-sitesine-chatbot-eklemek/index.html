@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,72 +477,70 @@
 <!-- AYIRT EDİCİ EKSEN: ETKİ — Kurmanın NEYİ DEĞİŞTİRDİĞİNİ anlatır. Teknik kurulum ve model seçimi kapsam dışıdır; hizmet sayfasına link verilir. Uydurma dönüşüm oranı YAZILMAZ.
      Huni türü: TOFU · Küme: web · Kardeşler (enjeksiyon turunda):  -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Site Chatbotu</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Web Tasarım</span>
-        <span class="yz-meta">22 Ekim 2026 · 7 dakikalık okuma</span>
+          <h1>Web Sitesine Chatbot Eklemek Neyi Değiştirir?</h1>
+          <p class="ozet">Siteye bir asistan koymak kolay; koyduktan sonra doğru çalışmasını sağlamak zor. Çoğu kurulum ilk ayda heyecanla açılıyor, ikinci ayda sessizce kapatılıyor. Sebep genelde araç değil, kapsam. Bu yazıda neyi değiştirdiğini, nerede durması gerektiğini ve başarıyı nasıl ölçeceğinizi anlatıyoruz. Dönüşüm oranı gibi rakamlar vermiyoruz; ölçmediğimiz şeyi yazmıyoruz.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/web-sitesine-chatbot-eklemek-kapak-1440.webp"
+           srcset="./gorsel/web-sitesine-chatbot-eklemek-kapak-640.webp 640w, ./gorsel/web-sitesine-chatbot-eklemek-kapak-960.webp 960w, ./gorsel/web-sitesine-chatbot-eklemek-kapak-1440.webp 1440w, ./gorsel/web-sitesine-chatbot-eklemek-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Karanlıkta dağınık duran çok sayıda sönük nokta; yalnız bir tanesi parlak ve ışıklı bir yola bağlı"
+           width="1920" height="1080" decoding="async"><figcaption>Aynı soru günde onlarca kez geliyorsa, yanıtı bir kez yazmak yeter. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Web Tasarım</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>22 Ekim 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>7 başlık</b></div>
       </div>
-      <h1>Web Sitesine Chatbot Eklemek Neyi Değiştirir?</h1>
-      <p class="ozet">Siteye bir asistan koymak kolay; koyduktan sonra doğru çalışmasını sağlamak zor. Çoğu kurulum ilk ayda heyecanla açılıyor, ikinci ayda sessizce kapatılıyor. Sebep genelde araç değil, kapsam. Bu yazıda neyi değiştirdiğini, nerede durması gerektiğini ve başarıyı nasıl ölçeceğinizi anlatıyoruz. Dönüşüm oranı gibi rakamlar vermiyoruz; ölçmediğimiz şeyi yazmıyoruz.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#web-sitesi-chatbot-kurmak-neyi-degistirir"><span>01</span>Web Sitesi Chatbot Kurmak Neyi Değiştirir?</a><a href="#hangi-sorulari-yanitlamali"><span>02</span>Hangi Soruları Yanıtlamalı?</a><a href="#insana-ne-zaman-devretmeli"><span>03</span>İnsana Ne Zaman Devretmeli?</a><a href="#bilgi-tabanini-nasil-kurarsiniz"><span>04</span>Bilgi Tabanını Nasıl Kurarsınız?</a><a href="#basariyi-nasil-olcersiniz"><span>05</span>Başarıyı Nasıl Ölçersiniz?</a><a href="#kendi-asistaninizi-birlikte-kuralim"><span>06</span>Kendi Asistanınızı Birlikte Kuralım</a><a href="#site-asistani-neyi-cozer-neyi-cozmez"><span>07</span>Site asistanı neyi çözer, neyi çözmez</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/web-sitesine-chatbot-eklemek-kapak-1440.webp"
-           srcset="./gorsel/web-sitesine-chatbot-eklemek-kapak-640.webp 640w, ./gorsel/web-sitesine-chatbot-eklemek-kapak-960.webp 960w, ./gorsel/web-sitesine-chatbot-eklemek-kapak-1440.webp 1440w, ./gorsel/web-sitesine-chatbot-eklemek-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Karanlıkta dağınık duran çok sayıda sönük nokta; yalnız bir tanesi parlak ve ışıklı bir yola bağlı"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Aynı soru günde onlarca kez geliyorsa, yanıtı bir kez yazmak yeter. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Web Sitesi Chatbot Kurmak Neyi Değiştirir?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 07</span></div><h2 id="web-sitesi-chatbot-kurmak-neyi-degistirir">Web Sitesi Chatbot Kurmak Neyi Değiştirir?</h2>
       <div class="yz-cevap"><p>Üç şeyi değiştirir: yanıt süresini, tekrarlayan soruların yükünü ve ziyaretçinin sayfada kalma nedenini. Web sitesi chatbot kurduğunuzda ekibiniz aynı soruyu günde on kez yanıtlamaktan kurtulur. Ziyaretçi de yanıtı beklemeden alır. Değişmeyen tek şey, yanlış bilgi verirseniz doğacak zarardır. O zarar, kazandığınız hızdan büyük olabilir.</p></div>
       <p>En somut kazanç tekrarlayan sorularda. Çalışma saatleri, teslim süresi, hizmet kapsamı ve fiyat politikası gibi başlıklar her gün yeniden gelir; bunları bir kez yazmak ekibin gününü açar.</p><p>İkinci kazanç zamanlamada. Gece yarısı gelen bir soru sabaha kadar bekliyorsa, ziyaretçi çoğu zaman o arada başka yere bakar. Site asistanı bu boşluğu kapatır.</p><p>Üçüncü kazancı daha az kişi fark eder. Ekip aynı soruyu tekrarlamaktan kurtulur. Kalan zamanı gerçekten yeni olan sorulara ayırır. Verim artışı sayıda değil, ilginin nereye gittiğinde ortaya çıkar.</p>
       <h3>Her Siteye Gerekli mi?</h3>
-      <p>Gerekli değil. Günde birkaç soru alan bir sitede kurulum ve bakım yükü kazancı aşar. Chatbot kurarken web sitenizin gerçek soru hacmine bakın; tahminle karar vermeyin.</p>
-      <h2>Hangi Soruları Yanıtlamalı?</h2>
+      <p>Gerekli değil. Günde birkaç soru alan bir sitede kurulum ve bakım yükü kazancı aşar. Chatbot kurarken web sitenizin gerçek soru hacmine bakın; tahminle karar vermeyin.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 07</span></div><h2 id="hangi-sorulari-yanitlamali">Hangi Soruları Yanıtlamalı?</h2>
       <div class="yz-cevap"><p>Yalnız bildiği soruları. Fiyat aralığı, çalışma saatleri, teslim süresi ve hizmet kapsamı gibi net yanıtı olan başlıklar güvenlidir. Web sitesi chatbot bilmediği bir konuda tahmin yürütürse markanız adına yanlış söz vermiş olur. Sınırı daraltmak, kapsamı genişletmekten daha değerlidir. Bilmediğini söyleyen bir asistan, uyduran bir asistandan iyidir.</p></div>
       <p>Yanıt sınırını yazılı kurun. Hangi başlıkların içeride, hangilerinin dışarıda olduğunu bir listeye dökün; liste yoksa sınır da yoktur.</p><p>Aşağıdaki dört başlık çoğu sitede güvenli bölgededir.</p><ol><li><strong>Hizmet kapsamı</strong> — ne yapıyorsunuz, ne yapmıyorsunuz.</li><li><strong>Süreç ve süre</strong> — iş nasıl ilerliyor, ne kadar sürüyor.</li><li><strong>İletişim</strong> — kime, nasıl, hangi saatte ulaşılır.</li><li><strong>Sık sorulanlar</strong> — sitede zaten yazılı olan yanıtlar.</li></ol><p>Sınırın dışında kalan sorular için tek bir yanıt hazırlayın. Asistan bilmediğini söylesin ve doğru kapıyı göstersin. Bu tek cümle, uydurma bir yanıttan çok daha iyi iş görür. Ziyaretçi de nereye gideceğini bilir.</p>
       <h3>Fiyat Sorusuna Yanıt Vermeli mi?</h3>
-      <p>Politikanız neyse onu söylesin. Net bir aralık veriyorsanız aralığı, kapsama göre değişiyorsa bunu açıkça belirtsin. Belirsiz bir yanıt, ziyaretçiyi teklif istemekten uzaklaştırır.</p>
-      <h2>İnsana Ne Zaman Devretmeli?</h2>
+      <p>Politikanız neyse onu söylesin. Net bir aralık veriyorsanız aralığı, kapsama göre değişiyorsa bunu açıkça belirtsin. Belirsiz bir yanıt, ziyaretçiyi teklif istemekten uzaklaştırır.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 07</span></div><h2 id="insana-ne-zaman-devretmeli">İnsana Ne Zaman Devretmeli?</h2>
       <div class="yz-cevap"><p>Üç durumda devretmeli. Soru kapsam dışına çıktığında, ziyaretçi ısrarla insan istediğinde ve konuşma ikinci kez tıkandığında. Devir düğmesini her ekranda gösterin. Web sitesi chatbot ziyaretçiyi kilitlerse kazandırdığı zamanı fazlasıyla geri alır. Devir anını erken kurmak, konuşmayı kurtarmaktan kolaydır. Kilitlenmiş bir ziyaretçi geri gelmiyor.</p></div>
       <p>İnsana aktarma bir başarısızlık değil, tasarımın parçasıdır. Ziyaretçi yanıtı alamadığında öfkelenmez; çıkış bulamadığında öfkelenir.</p><p>Devir sırasında konuşma geçmişini de aktarın. Aynı şeyi ikinci kez anlatmak zorunda kalan ziyaretçi, asistanın kazandırdığı zamanı fazlasıyla geri alır. Kullanıcı davranışıyla arayüz kararları arasındaki ilişkiyi <a href="../kullanici-deneyimi/">kullanıcı deneyimi</a> yazısında ele almıştık.</p>
       <h3>Devir Sonrası Ne Olmalı?</h3>
-      <p>Yanıt süresi sözü verin. “En kısa sürede” demek bir şey söylemez; “iki iş günü içinde” demek beklentiyi kurar. Sözü tutamayacağınız bir süre yazmayın; tutulmayan söz, hiç söz vermemekten kötüdür.</p>
-      <h2>Bilgi Tabanını Nasıl Kurarsınız?</h2>
+      <p>Yanıt süresi sözü verin. “En kısa sürede” demek bir şey söylemez; “iki iş günü içinde” demek beklentiyi kurar. Sözü tutamayacağınız bir süre yazmayın; tutulmayan söz, hiç söz vermemekten kötüdür.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 07</span></div><h2 id="bilgi-tabanini-nasil-kurarsiniz">Bilgi Tabanını Nasıl Kurarsınız?</h2>
       <div class="yz-cevap"><p>Kaynak metinler sitenizin kendi sayfalarından çıkar. Hizmet açıklamaları, sık sorulan sorular ve fiyat politikası metinleri en sağlam kaynaktır. Web sitesi chatbot bu metinlerin dışına çıkmadığında yanlış yanıt riski düşer. Kaynağı güncellemeyi de takvime bağlayın; eskiyen bir metin, eskiyen bir yanıt demektir.</p></div>
       <p>Kaynak metinleri derlerken bir avantaj daha kazanırsınız: eksik yazılmış sayfalar ortaya çıkar. Asistanın yanıtlayamadığı her soru, aslında sitenizde eksik kalan bir başlığı işaret eder.</p><p>Bu yüzden bilgi tabanını sitenin dışında ayrı bir belge olarak değil, sitenin kendi içeriğinin uzantısı olarak kurarız. İçerik güncellendiğinde yanıt da güncellenir. Arayüz tarafındaki karşılığını <a href="../ui-tasarim-ilkeleri/">arayüz tasarımı ilkeleri</a> yazısında anlattık.</p><p>Kaynak metinleri kısa ve net tutun. Uzun, pazarlama dili ağır basan sayfalar asistanı da belirsiz konuşturur. Ne yaptığınızı düz cümlelerle yazmak hem ziyaretçiye hem asistana yarar. Sohbet kayıtları kişisel veridir; <a href="https://www.kvkk.gov.tr/" target="_blank" rel="noopener">KVKK’nın aydınlatma yükümlülüğü</a> chatbot için de geçerlidir.</p>
       <h3>Kaç Sayfa Yeter?</h3>
       <p>Az ama doğru sayfa, çok ama dağınık sayfadan iyidir. Hizmet sayfaları ve sık sorulanlar çoğu sitede yeterli bir başlangıç oluşturur.</p>
-      <blockquote class="yz-alinti"><p>&#8220;Ziyaretçi yanıtı alamadığında öfkelenmez; çıkış bulamadığında öfkelenir. Devir kapısını her ekranda gösterin.&#8221;</p><cite>— TasarımMania asistan kurulum notu</cite></blockquote>
-      <h2>Başarıyı Nasıl Ölçersiniz?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;Ziyaretçi yanıtı alamadığında öfkelenmez; çıkış bulamadığında öfkelenir. Devir kapısını her ekranda gösterin.&#8221;</p><cite>— TasarımMania asistan kurulum notu</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 07</span></div><h2 id="basariyi-nasil-olcersiniz">Başarıyı Nasıl Ölçersiniz?</h2>
       <div class="yz-cevap"><p>Dört sayıya bakın. Konuşma sayısı, insana devir oranı, yanıtsız kalan soru sayısı ve konuşmadan doğan talep. Sonuncusu en önemlisidir; diğer üçü ona hizmet eder. Web sitesi chatbot başarısını konuşma sayısıyla ölçmek yanıltır. Kimse bir asistanla konuşmak için sitenize gelmiyor. İnsanlar bir işi bitirmek için geliyor.</p></div>
-      <p>Yanıtsız kalan soruların dökümü en değerli çıktıdır. O liste hem bilgi tabanının hem site içeriğinin yol haritasını verir; her ay okunması gereken tek rapor odur.</p><p>Devir oranını da tek başına iyi ya da kötü saymayın. Yüksek devir, kapsamın dar olduğunu gösterebilir; çok düşük devir ise asistanın ziyaretçiyi bırakmadığına işaret edebilir. İkisini de yanıtsız soru listesiyle birlikte okuyun.</p><p>Ölçümü ilk aydan başlatın. Kurulumdan sonraki ilk hafta genelde atipiktir; ekip kendi asistanını dener, sayılar şişer. Gerçek eğilim ikinci aydan sonra oturur. Erken kararlar çoğu zaman yanlış çıkar.</p>
-      <h2>Kendi Asistanınızı Birlikte Kuralım</h2>
+      <p>Yanıtsız kalan soruların dökümü en değerli çıktıdır. O liste hem bilgi tabanının hem site içeriğinin yol haritasını verir; her ay okunması gereken tek rapor odur.</p><p>Devir oranını da tek başına iyi ya da kötü saymayın. Yüksek devir, kapsamın dar olduğunu gösterebilir; çok düşük devir ise asistanın ziyaretçiyi bırakmadığına işaret edebilir. İkisini de yanıtsız soru listesiyle birlikte okuyun.</p><p>Ölçümü ilk aydan başlatın. Kurulumdan sonraki ilk hafta genelde atipiktir; ekip kendi asistanını dener, sayılar şişer. Gerçek eğilim ikinci aydan sonra oturur. Erken kararlar çoğu zaman yanlış çıkar.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 07</span></div><h2 id="kendi-asistaninizi-birlikte-kuralim">Kendi Asistanınızı Birlikte Kuralım</h2>
       <div class="yz-cevap"><p>Kapsamı birlikte çizmek en hızlı yoldur. Hangi soruları yanıtlayacağını, nerede insana devredeceğini ve bilgi tabanını neyin besleyeceğini konuşuyoruz. Elinizde bir araç adı değil, yazılı bir kapsam kalıyor. Web sitesi chatbot bu kapsamla kurulduğunda ekibinize yük değil, zaman kazandırıyor. Kapsamsız kurulan asistan, ikinci ayda kapatılıyor.</p></div>
       <p>Kurulumdan önce bir hafta soru toplamanızı öneririz. Gerçek sorular, tahmini kapsamdan her zaman daha iyi bir başlangıç noktası verir. <a href="../../yapay-zeka/">Yapay zeka entegrasyonu</a> ve <a href="../../web-tasarim/">web tasarım ve yazılım</a> sayfalarımızı inceleyebilirsiniz.</p><p>Chatbotu web sitenizin bir eklentisi gibi değil, içeriğinizin konuşan hâli gibi kurgularız. İçerik iyiyse asistan da iyi olur; içerik eksikse asistan o eksiği büyüterek gösterir.</p><p>Kapsamı yazarken bir de kapatma ölçütü koyun. Üç ay sonra hangi sayıyı görürseniz devam edeceğinizi baştan belirleyin. Ölçütsüz kurulan her araç, kimse karar veremediği için yıllarca açık kalır. Kapatma ölçütü, kurulum kadar önemlidir.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/web-sitesine-chatbot-eklemek-govde-960.webp"
              srcset="./gorsel/web-sitesine-chatbot-eklemek-govde-640.webp 640w, ./gorsel/web-sitesine-chatbot-eklemek-govde-960.webp 960w, ./gorsel/web-sitesine-chatbot-eklemek-govde-1440.webp 1440w, ./gorsel/web-sitesine-chatbot-eklemek-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Dar bir ışık koridoru; koridorun ortasında yana açılan aydınlık bir çıkış kapısı var" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Devir kapısını gizlemeyin; kilitlenen ziyaretçi geri gelmiyor. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Site asistanı neyi çözer, neyi çözmez</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 07</b><span>07 / 07</span></div><h2 id="site-asistani-neyi-cozer-neyi-cozmez">Site asistanı neyi çözer, neyi çözmez</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Konu</th><th>Çözer mi?</th><th>Neden</th></tr></thead>
@@ -517,7 +562,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../yapay-zeka/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Web sitesi chatbot kurmak siteye bir özellik eklemek değil, içeriğinize konuşan bir yüz vermektir. Kapsamı yazılı çizin, insana devir kapısını her ekranda açık tutun ve başarıyı konuşma sayısıyla değil, doğan taleple ölçün.</p>
+        <p>Web sitesi chatbot kurmak siteye bir özellik eklemek değil, içeriğinize konuşan bir yüz vermektir. Kapsamı yazılı çizin, insana devir kapısını her ekranda açık tutun ve başarıyı konuşma sayısıyla değil, doğan taleple ölçün.</p></section>
       </article>
     </div>
   </section>

@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -468,86 +515,84 @@
 <!-- AYIRT EDİCİ EKSEN: SÜRE — Brief'ten teslime aşamalar ve her aşamanın zaman çizelgesi; tür yelpazesi ve araç seçimi kardeş yazıların konusu.
      Huni türü: TOFU · Küme: Graphic Design · Kardeşler (enjeksiyon turunda): grafik-tasarim-trendleri, grafik-tasarim-araclari, grafik-tasarim-turleri -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">How Many Stages Does the Graphic Design Process Take?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Graphic Design</span>
-        <span class="yz-meta">21 September 2026 · 7 min read</span>
+          <h1>How Many Stages Does the Graphic Design Process Take?</h1>
+          <p class="ozet">Starting a logo or a catalogue job, most SME managers ask the same question first: when will this be finished? The graphic design process is a planned flow running from gathering the requirements document to sending the final file to the printer. As an agency we share the schedule at the start of the job. In this article we explain the typical duration of each step, which decisions speed the work up, and where waiting is unavoidable. Our aim is simple: to let you see your budget and your launch date in the same table.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/graphic-design-process-cover-1440.webp"
+           srcset="./image/graphic-design-process-cover-640.webp 640w, ./image/graphic-design-process-cover-960.webp 960w, ./image/graphic-design-process-cover-1440.webp 1440w, ./image/graphic-design-process-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Rising glass steps representing the design stages, with a line of light joining them"
+           width="1920" height="1080" decoding="async"><figcaption>Each step is a stage: the timetable running from brief to delivery. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Graphic Design</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>21 September 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>How Many Stages Does the Graphic Design Process Take?</h1>
-      <p class="ozet">Starting a logo or a catalogue job, most SME managers ask the same question first: when will this be finished? The graphic design process is a planned flow running from gathering the requirements document to sending the final file to the printer. As an agency we share the schedule at the start of the job. In this article we explain the typical duration of each step, which decisions speed the work up, and where waiting is unavoidable. Our aim is simple: to let you see your budget and your launch date in the same table.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#which-stages-does-the-graphic-design-process-consist-of"><span>01</span>Which Stages Does the Graphic Design Process Consist Of?</a><a href="#how-long-does-the-brief-stage-take"><span>02</span>How Long Does the Brief Stage Take?</a><a href="#how-does-time-flow-in-the-concept-stage"><span>03</span>How Does Time Flow in the Concept Stage?</a><a href="#why-do-rounds-of-revisions-lengthen-the-schedule"><span>04</span>Why Do Rounds of Revisions Lengthen the Schedule?</a><a href="#how-many-days-does-the-delivery-stage-take"><span>05</span>How Many Days Does the Delivery Stage Take?</a><a href="#start-your-design-process-with-a-professional-team"><span>06</span>Start Your Design Process with a Professional Team</a><a href="#stage-by-stage-duration-and-responsibility-table"><span>07</span>Stage-by-stage duration and responsibility table</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/graphic-design-process-cover-1440.webp"
-           srcset="./image/graphic-design-process-cover-640.webp 640w, ./image/graphic-design-process-cover-960.webp 960w, ./image/graphic-design-process-cover-1440.webp 1440w, ./image/graphic-design-process-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Rising glass steps representing the design stages, with a line of light joining them"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Each step is a stage: the timetable running from brief to delivery. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Which Stages Does the Graphic Design Process Consist Of?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="which-stages-does-the-graphic-design-process-consist-of">Which Stages Does the Graphic Design Process Consist Of?</h2>
       <div class="yz-cevap"><p>The graphic design process consists of five stages: brief, discovery, concept, revision and delivery. On a small job that flow finishes in ten working days. On extensive projects such as a corporate identity it stretches to six weeks. The order of the stages doesn't change; only the number of days given to each step shortens or widens with the size of the job. We recommend building your schedule around those five headings.</p></div>
       <p>Even though the number of stages is fixed, the load on each step varies. We build the skeleton of the graphic design process in this order:</p><ol><li><strong>Brief:</strong> we put the target audience, the message and the constraints in writing.</li><li><strong>Discovery:</strong> we scan competitors' visuals and your existing brand assets.</li><li><strong>Concept:</strong> we present two or three different directions in draft.</li><li><strong>Revision:</strong> we mature the direction you chose through feedback.</li><li><strong>Delivery:</strong> we format the print and digital outputs.</li></ol><p>We manage all five steps on a single schedule as part of <a href="../../graphic-design/">our graphic design service</a> offering.</p>
       <h3>Why Aren't the Stages Skipped?</h3>
       <p>If discovery is skipped in the process, the design team gets stuck at the concept presentation. The team misses the direction, and the client can't explain what they dislike. In that situation you face a two-week turnaround. A short round of discovery spends three days and gains ten.</p>
       <h3>What Changes the Total Time?</h3>
-      <p>The size of the job, the number of decision-makers and the need for printing are the three variables setting the time. A single poster finishes in a week. A package covering a logo, business cards, packaging and social media templates, on the other hand, comes to six weeks. Writing the scope down at the start fixes the schedule at the start too.</p>
-      <h2>How Long Does the Brief Stage Take?</h2>
+      <p>The size of the job, the number of decision-makers and the need for printing are the three variables setting the time. A single poster finishes in a week. A package covering a logo, business cards, packaging and social media templates, on the other hand, comes to six weeks. Writing the scope down at the start fixes the schedule at the start too.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="how-long-does-the-brief-stage-take">How Long Does the Brief Stage Take?</h2>
       <div class="yz-cevap"><p>The brief closes within two to five working days. If your brand team settles the goals, the areas of use and the people who will give approval, the time drops to the lower bound. As the number of decision-makers rises, the diary of meetings widens and the requirements document takes a week. Jobs that start without a written brief burn twice the time at the steps that follow.</p></div>
       <p>The brief is the requirements document gathering the project's goal and its limits into a single file. It contains the brand promise, the target audience, the channels of use and the delivery date. We don't fill that document in ourselves; we fill it in with you. In the graphic design process the first loss of days usually starts here. If social media visuals are in scope too, we bring our social media management team into the same meeting. The decisions you take in a single sitting set the rhythm of the following three weeks.</p>
       <h3>Three Pieces of Information That Speed the Brief Up</h3>
       <p>The source versions of your logo files, your corporate colour codes and your list of competitors. With those three inputs ready, the first meeting finishes in ninety minutes. Without them, the team needs three more days to gather data. Preparation is the cheapest way of speeding a design process up.</p>
       <h4>Define the Approval Chain at the Start</h4>
-      <p>How many people will give approval? A single name, or a committee? Write the approval chain down on the day of the brief. A committee of three adds an average of two days to every round of revisions.</p>
-      <h2>How Does Time Flow in the Concept Stage?</h2>
+      <p>How many people will give approval? A single name, or a committee? Write the approval chain down on the day of the brief. A committee of three adds an average of two days to every round of revisions.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="how-does-time-flow-in-the-concept-stage">How Does Time Flow in the Concept Stage?</h2>
       <div class="yz-cevap"><p>The team works five to eight working days in the concept stage. In the first three days it produces sketches; in the remaining days it prepares two strong directions for presentation. The presentation meeting takes half a day. If we get the feedback within the same week, the flow moves into revision without losing pace. An approval left waiting extends the schedule day for day.</p></div>
       <p>The concept is the first concrete proposal turning the brand's message into a visual direction. This is the most creative step of the graphic design process; we test typography, colour and composition decisions together. As the number of businesses going digital grows, so does the need for a visual identity; <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">the Ministry of Trade's e-commerce outlook report</a> sets that expansion out through the number of businesses. For general data on the sector we also follow the publications of <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TurkStat</a> — Türkiye's statistical institute.</p>
       <h3>How Many Concepts Is It Right to Present?</h3>
       <p>Two or three directions are enough. Five concepts lengthen the time to a decision and scatter the team's focus. In the presentation we explain in a single sentence which need each direction answers. That way the meeting moves out of a discussion of taste and into a conversation about the goal.</p>
       <h3>Who Runs the Presentation Meeting?</h3>
-      <p>The meeting is run by the lead of the design team. We assess each direction in terms of the goal, the message and the channel. If the decision comes out the same day, the schedule moves forward by a day. If the approval drags into a week, the delivery date slips by as much.</p>
-      <h2>Why Do Rounds of Revisions Lengthen the Schedule?</h2>
+      <p>The meeting is run by the lead of the design team. We assess each direction in terms of the goal, the message and the channel. If the decision comes out the same day, the schedule moves forward by a day. If the approval drags into a week, the delivery date slips by as much.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="why-do-rounds-of-revisions-lengthen-the-schedule">Why Do Rounds of Revisions Lengthen the Schedule?</h2>
       <div class="yz-cevap"><p>Each round of revisions adds two to four working days on average. The source of the delay isn't the drawing but the feedback arriving piecemeal. This is where the graphic design process stretches most. Notes coming separately from different people push the team into doing the same work twice. Consolidated, written feedback gains a day per round.</p></div>
       <p>A revision is the round of correction in which the concept you chose is sharpened by feedback. In the contract we define two rounds; a third round means extra time and extra budget. We ask you to gather the notes into a single file. Instead of &#8220;make this bit a little livelier&#8221;, measurable sentences such as &#8220;the product name on the packaging can't be read from a distance&#8221; speed the work up. A measurable note lets the team make the right move at the first attempt. If the same visuals will appear on your corporate site too, we run the notes jointly with our <a href="../../corporate-website/">corporate web</a> team.</p>
       <h3>Write the Number of Revisions into the Contract</h3>
       <p>If the number of rounds is vague, the schedule stays vague too. In our quote we state the number of rounds, the duration of each round and the feedback window explicitly. That way you can write the launch date into the diary with confidence.</p>
       <h3>What Is the Feedback Window?</h3>
       <p>The feedback window is the three-day period after the presentation in which you send the notes. Once the window closes, the team moves to the next round. If the notes come late the round doesn't start and the schedule slips by the same amount. We discuss that rule right at the start.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>How Many Days Does the Delivery Stage Take?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="how-many-days-does-the-delivery-stage-take">How Many Days Does the Delivery Stage Take?</h2>
       <div class="yz-cevap"><p>The delivery step after approval takes one to three working days. The team separates the design into print and digital formats, checks the colour profiles and archives the source files. If a press proof is needed we add two more days. If the use is digital only, we finish the handover of files the same day. At this step we don't want surprises.</p></div>
       <p>Delivery is the handover of files in which the approved design turns into files ready for use. We give you both the editable source file and PDF, PNG and vector outputs. If you want brand guidelines, we set aside two more days. This last step of the graphic design process looks short, yet the order of the files determines the starting speed of every future job. A well-built archive also shortens the brief stage of the next project.</p>
       <h3>Why Does the Archive Matter?</h3>
       <p>When you want a new poster six months later, the team doesn't start from scratch. A tidy archive halves the time on similar graphic jobs. We recommend keeping the files both with us and with you.</p>
       <h3>Extra Time on Jobs Going to Print</h3>
-      <p>A press proof is the physical test showing how the job looks on the actual paper. The proof takes two days and the correction one. If you have a print plan, write those three days into the schedule from the very start.</p>
-      <h2>Start Your Design Process with a Professional Team</h2>
+      <p>A press proof is the physical test showing how the job looks on the actual paper. The proof takes two days and the correction one. If you have a print plan, write those three days into the schedule from the very start.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="start-your-design-process-with-a-professional-team">Start Your Design Process with a Professional Team</h2>
       <div class="yz-cevap"><p>Brands wanting a clear schedule start with the quotation step. Send us the scope and your target date and, within two working days, we share a stage-by-stage schedule and a price. The plan says what happens on which day. That way you base your launch on a date rather than a guess. We also explain the ways of shortening the time together.</p></div>
       <p>As an agency we run the graphic design process with a single point of responsibility; you always know who to speak to at each step. A short conversation is enough to settle the scope. <a href="../../get-a-quote/">The quote form</a> is there to fill in and send us your requirement, or you can reach us directly through our <a href="../../contact/">contact</a> page. In the first meeting we draw up the schedule together, and then we get to work.</p>
       <h3>What Do We Discuss in the First Meeting?</h3>
       <p>We discuss your goal, your delivery date and your budget range. A twenty-minute conversation is enough to settle the scope of most projects. After that we send the stage-by-stage schedule in writing. If you approve the plan, we move to the brief meeting within the same week.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/graphic-design-process-body-960.webp"
              srcset="./image/graphic-design-process-body-640.webp 640w, ./image/graphic-design-process-body-960.webp 960w, ./image/graphic-design-process-body-1440.webp 1440w, ./image/graphic-design-process-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="A design flow advancing stage by stage as a strip narrows while passing through five ring-shaped gateways" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>As the stages advance the work sharpens; the rounds of revision hone the strip. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Stage-by-stage duration and responsibility table</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="stage-by-stage-duration-and-responsibility-table">Stage-by-stage duration and responsibility table</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Stage</th><th>Typical duration</th><th>What we need from you</th><th>Cause of delay</th></tr></thead>
@@ -568,7 +613,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../graphic-design/">See the service page</a>
         </aside>
-        <p>Knowing the time is half of managing the project. See in advance how many days each step from brief to delivery will take and you set your launch date on firm ground. In the graphic design process the greatest gain in speed happens with brands that come prepared. Gather your files, settle your approval chain, decide who takes the decision; we'll plan the rest together. When the schedule is clear, the design gets clear too.</p>
+        <p>Knowing the time is half of managing the project. See in advance how many days each step from brief to delivery will take and you set your launch date on firm ground. In the graphic design process the greatest gain in speed happens with brands that come prepared. Gather your files, settle your approval chain, decide who takes the decision; we'll plan the rest together. When the schedule is clear, the design gets clear too.</p></section>
       </article>
     </div>
   </section>

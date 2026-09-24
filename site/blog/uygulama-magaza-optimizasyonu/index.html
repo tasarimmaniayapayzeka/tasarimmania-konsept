@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,72 +477,70 @@
 <!-- AYIRT EDİCİ EKSEN: ROTA — Uygulanabilir sekiz adımı verir. Maliyet yazı 1'in, karar soruları yazı 2'nin, takvim yazı 3'ün, mimari yazı 4-5'in işidir. Burada kod ve mimari konuşulmaz.
      Huni türü: BOFU · Küme: mobil · Kardeşler (enjeksiyon turunda):  -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Mağaza Optimizasyonu</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Mobil</span>
-        <span class="yz-meta">4 Ekim 2026 · 7 dakikalık okuma</span>
+          <h1>Uygulama Mağaza Optimizasyonu Nasıl Yapılır? 8 Adım</h1>
+          <p class="ozet">Uygulamayı yayınlamak işin yarısıdır. Diğer yarısı, mağaza rafında yüzlerce kare arasından seçilmektir. Bu işin adı uzun ama kapsamı nettir: sayfayı hem aramaya hem indirmeye göre düzenlemek. Aşağıda sekiz adımı sırayla veriyoruz. Kod yazmadan uygulanabilir; çoğu ekip ilk turu bir öğleden sonrada bitirir.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/uygulama-magaza-optimizasyonu-kapak-1440.webp"
+           srcset="./gorsel/uygulama-magaza-optimizasyonu-kapak-640.webp 640w, ./gorsel/uygulama-magaza-optimizasyonu-kapak-960.webp 960w, ./gorsel/uygulama-magaza-optimizasyonu-kapak-1440.webp 1440w, ./gorsel/uygulama-magaza-optimizasyonu-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Karanlıkta dizili çok sayıda küçük kare; ortadaki bir tanesi belirgin biçimde parlak"
+           width="1920" height="1080" decoding="async"><figcaption>Mağaza rafında görünmek, listedeki yüzlerce kareden biri olmaktan çıkmakla başlar. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Mobil</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>4 Ekim 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>7 başlık</b></div>
       </div>
-      <h1>Uygulama Mağaza Optimizasyonu Nasıl Yapılır? 8 Adım</h1>
-      <p class="ozet">Uygulamayı yayınlamak işin yarısıdır. Diğer yarısı, mağaza rafında yüzlerce kare arasından seçilmektir. Bu işin adı uzun ama kapsamı nettir: sayfayı hem aramaya hem indirmeye göre düzenlemek. Aşağıda sekiz adımı sırayla veriyoruz. Kod yazmadan uygulanabilir; çoğu ekip ilk turu bir öğleden sonrada bitirir.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#uygulama-magaza-optimizasyonu-nedir-neyi-degistirir"><span>01</span>Uygulama Mağaza Optimizasyonu Nedir, Neyi Değiştirir?</a><a href="#magaza-sayfasinda-hangi-alanlar-siralamayi-etkiler"><span>02</span>Mağaza Sayfasında Hangi Alanlar Sıralamayı Etkiler?</a><a href="#gorseller-indirme-oranini-nasil-degistirir"><span>03</span>Görseller İndirme Oranını Nasıl Değiştirir?</a><a href="#yorumlari-ve-puanlari-nasil-yonetirsiniz"><span>04</span>Yorumları ve Puanları Nasıl Yönetirsiniz?</a><a href="#sekiz-adimlik-uygulama-rotasi"><span>05</span>Sekiz Adımlık Uygulama Rotası</a><a href="#magaza-sayfanizi-birlikte-elden-gecirelim"><span>06</span>Mağaza Sayfanızı Birlikte Elden Geçirelim</a><a href="#iki-magazanin-ayristigi-alanlar"><span>07</span>İki mağazanın ayrıştığı alanlar</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/uygulama-magaza-optimizasyonu-kapak-1440.webp"
-           srcset="./gorsel/uygulama-magaza-optimizasyonu-kapak-640.webp 640w, ./gorsel/uygulama-magaza-optimizasyonu-kapak-960.webp 960w, ./gorsel/uygulama-magaza-optimizasyonu-kapak-1440.webp 1440w, ./gorsel/uygulama-magaza-optimizasyonu-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Karanlıkta dizili çok sayıda küçük kare; ortadaki bir tanesi belirgin biçimde parlak"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Mağaza rafında görünmek, listedeki yüzlerce kareden biri olmaktan çıkmakla başlar. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Uygulama Mağaza Optimizasyonu Nedir, Neyi Değiştirir?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 07</span></div><h2 id="uygulama-magaza-optimizasyonu-nedir-neyi-degistirir">Uygulama Mağaza Optimizasyonu Nedir, Neyi Değiştirir?</h2>
       <div class="yz-cevap"><p>Mağaza optimizasyonu, uygulamanızın App Store ve Google Play sayfasını arama ve dönüşüm için düzenleme işidir. İki şeyi birden etkiler: aramada kaçıncı sırada göründüğünüzü ve sayfayı görenlerin kaçının indirdiğini. İkincisini çoğu ekip tümüyle atlar. Oysa indirme oranı sıralamadan daha hızlı iyileşir. Üstelik kod değişikliği gerektirmez.</p></div>
       <p>İki ayrı kazanç kapısı var ve ikisi farklı çalışır. Sıralama, aramada bulunmanızı sağlar; indirme oranı ise bulunduktan sonra seçilmenizi. Ekiplerin çoğu yalnız birinciyle ilgilenir.</p><p>Mağaza sayfası çalışması bu yüzden iki koldan yürür. Metin tarafı aramayı, görsel tarafı kararı etkiler. İkisini ayrı ayrı ölçmezseniz hangisinin işe yaradığını göremezsiniz.</p><p>Bu iş çoğu ekipte kimsenin sahibi olmadığı bir alanda kalır. Geliştirici kod tarafına, pazarlamacı reklama bakar; mağaza sayfası ortada kalır. Oysa uygulama mağaza optimizasyonu haftada bir saatlik bir sahiplik ister, daha fazlasını değil.</p>
       <h3>Bu İş Ne Sıklıkla Tekrarlanmalı?</h3>
-      <p>Ayda bir kısa tur yeter. Uzun aralarla yapılan büyük değişiklikler, neyin işe yaradığını ölçmeyi imkânsız kılar. Küçük ve sık değişiklik, mağaza optimizasyonunu ölçülebilir bir işe çevirir.</p>
-      <h2>Mağaza Sayfasında Hangi Alanlar Sıralamayı Etkiler?</h2>
+      <p>Ayda bir kısa tur yeter. Uzun aralarla yapılan büyük değişiklikler, neyin işe yaradığını ölçmeyi imkânsız kılar. Küçük ve sık değişiklik, mağaza optimizasyonunu ölçülebilir bir işe çevirir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 07</span></div><h2 id="magaza-sayfasinda-hangi-alanlar-siralamayi-etkiler">Mağaza Sayfasında Hangi Alanlar Sıralamayı Etkiler?</h2>
       <div class="yz-cevap"><p>Üç alan ağır basar: başlık, alt başlık ve anahtar kelime kutusu. Google Play tarafında uzun açıklama da tarama kapsamına girer, App Store'da girmez. Bu farkı bilmeyen ekipler aynı metni iki mağazaya kopyalar. Mağaza optimizasyonu bu noktada iki ayrı iş olarak yürür, tek iş olarak değil.</p></div>
       <p>Başlık en değerli alandır ve yeri dardır. Marka adının yanına ürünün ne yaptığını söyleyen iki üç kelime koyun. “Uygulama” ya da “mobil” gibi genel sözcükler yer israfıdır.</p><p>Arama ifadelerini seçerken kendi tahminlerinize güvenmeyin. Kullanıcının hangi sözcükle aradığını ölçmenin yolunu <a href="../anahtar-kelime-arastirmasi/">anahtar kelime araştırması</a> yazısında anlattık. Optimizasyon çalışması mağaza tarafında da aynı disiplinle yürür.</p><p>Alt başlık ve kısa açıklama alanlarını da boş bırakmayın. İkisi de aramaya girer ve çoğu üründe eksik kalır. Rakip sayfalara bakmak da işe yarar; onların hangi ifadeleri seçtiği kendi listenize fikir katar. Mağaza optimizasyonu bir kopyalama işi değildir ama boşlukları görmenin en hızlı yoludur. Alan uzunlukları tahminle değil kuralla belli; <a href="https://developer.apple.com/app-store/product-page/" target="_blank" rel="noopener">App Store ürün sayfası kılavuzu</a> sınırları yazar.</p>
       <h3>Aynı Kelimeyi İki Alana Yazmalı mıyım?</h3>
-      <p>Hayır, tekrar yer kaybettirir. Başlıkta geçen bir sözcüğü anahtar kelime kutusuna yeniden yazmayın. Boşalan yeri başka bir arama ifadesiyle doldurmak, mağaza optimizasyonunun en ucuz kazancıdır.</p>
-      <h2>Görseller İndirme Oranını Nasıl Değiştirir?</h2>
+      <p>Hayır, tekrar yer kaybettirir. Başlıkta geçen bir sözcüğü anahtar kelime kutusuna yeniden yazmayın. Boşalan yeri başka bir arama ifadesiyle doldurmak, mağaza optimizasyonunun en ucuz kazancıdır.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 07</span></div><h2 id="gorseller-indirme-oranini-nasil-degistirir">Görseller İndirme Oranını Nasıl Değiştirir?</h2>
       <div class="yz-cevap"><p>İlk iki ekran görüntüsü kararı verir, çünkü kullanıcı listede yalnız onları görür. Kullanıcı metni okumadan görseli görür. Bu yüzden ilk kareye ürünün ne yaptığını yazarız, güzel bir ekran değil. Simge de aynı listede küçücük görünür; ayrıntı değil siluet çalışır. Mağaza optimizasyonunda en hızlı kazanç buradan gelir.</p></div>
       <p>Tanıtım karesi bir ekran görüntüsü değil, bir cümledir. Üstüne kısa bir başlık koyun ve o başlık bir yarar söylesin. Ekranın kendisi arka planda kalabilir; okunması gereken şey vaattir.</p><p>Uygulama ikonunu tasarlarken küçük boyutta deneyin. Masaüstünde güzel duran birçok simge, listede tanınmaz hâle gelir. Karanlık ve aydınlık temada ayrı ayrı bakmak da alışkanlık olmalı.</p><p>Karelerin sırasını da düşünün. En güçlü vaadi başa koyun, ikinciye onu tamamlayanı. Geri kalanlar sayfayı açan meraklı kullanıcı için kalsın.</p>
       <h3>Video Koymak Şart mı?</h3>
-      <p>Şart değil, ama akışı anlatması zor ürünlerde işe yarar. Videoyu ilk saniyeden anlaşılır kurun; kimse tanıtımı sonuna kadar izlemez.</p>
-      <h2>Yorumları ve Puanları Nasıl Yönetirsiniz?</h2>
+      <p>Şart değil, ama akışı anlatması zor ürünlerde işe yarar. Videoyu ilk saniyeden anlaşılır kurun; kimse tanıtımı sonuna kadar izlemez.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 07</span></div><h2 id="yorumlari-ve-puanlari-nasil-yonetirsiniz">Yorumları ve Puanları Nasıl Yönetirsiniz?</h2>
       <div class="yz-cevap"><p>Puan ortalaması sıralamayı da indirme kararını da etkiler. En etkili yol, yorumlara yanıt vermektir; yanıt gören olumsuz yorumların bir kısmı sonradan yumuşar. Puan istemeyi de doğru ana bağlayın: kullanıcı işini bitirdikten sonra sorun, uygulamayı açar açmaz değil. Zamanlama tek başına ortalamayı yükseltir.</p></div>
       <p>Yıldız ortalaması düşükse önce nedenini okuyun. Yorumların çoğu aynı üç sorunu işaret eder; o üçünü çözmek ortalamayı kendiliğinden toparlar. Yanıt yazarken savunmaya geçmeyin, ne yapacağınızı söyleyin.</p><p>Sürüm notlarını da boş geçmeyin. “Hata düzeltmeleri” yazan bir not kimseye bir şey anlatmaz. Neyi düzelttiğinizi yazmak, yorum bırakan kullanıcıya karşılık vermenin en ucuz yoludur.</p><p>Düşük puan veren kullanıcıya doğrudan ulaşmanın yolu yoktur, ama sürüm notu bir yanıt yeridir. Şikâyet konusu olan sorunu düzelttiğinizde bunu notta açıkça yazın. Bazı kullanıcılar geri dönüp puanını yükseltir; bu, mağaza optimizasyonunun en az görünen ama en kalıcı kazancıdır.</p>
-      <blockquote class="yz-alinti"><p>&#8220;Mağaza sayfası bir vitrin değil, bir eşiktir. Aramada bulunmak sizi kapıya getirir; içeri girmeye ilk iki kare ikna eder.&#8221;</p><cite>— TasarımMania uygulama pazarlaması notu</cite></blockquote>
-      <h2>Sekiz Adımlık Uygulama Rotası</h2>
+      <blockquote class="yz-alinti"><p>&#8220;Mağaza sayfası bir vitrin değil, bir eşiktir. Aramada bulunmak sizi kapıya getirir; içeri girmeye ilk iki kare ikna eder.&#8221;</p><cite>— TasarımMania uygulama pazarlaması notu</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 07</span></div><h2 id="sekiz-adimlik-uygulama-rotasi">Sekiz Adımlık Uygulama Rotası</h2>
       <div class="yz-cevap"><p>Rota sekiz adımdan oluşur ve sırayla yürür. Önce ölçüm, sonra metin, sonra görsel, en sonda yineleme gelir. Adımları atlayarak ilerleyen ekipler neyin işe yaradığını göremez. Uygulama mağaza optimizasyonu bir kerelik iş değil, ayda bir dönen kısa bir turdur. Turun uzunluğu bir saati geçmez.</p></div>
       <p>Aşağıdaki sırayı bozmayın. Her adım bir öncekinin çıktısını kullanır.</p><ol><li><strong>Mevcut durumu ölçün</strong> — gösterim, indirme ve oranı not edin.</li><li><strong>Arama ifadelerini toplayın</strong> — kendi tahmininizle değil, veriyle.</li><li><strong>Başlığı yeniden yazın</strong> — marka artı iki üç açıklayıcı kelime.</li><li><strong>Alt başlık ve anahtar kutusunu doldurun</strong> — tekrar etmeden.</li><li><strong>İlk iki kareyi değiştirin</strong> — her birine tek bir vaat yazın.</li><li><strong>Simgeyi küçük boyutta sınayın</strong> — siluet tanınıyor mu.</li><li><strong>Puan isteme anını taşıyın</strong> — işin bittiği ana bağlayın.</li><li><strong>Bir ay sonra ölçün</strong> — yalnız değiştirdiğiniz alana bakın.</li></ol><p>Sekizinci adım en çok atlanan adımdır. Ölçmeden yapılan değişiklik, iyileştirme değil tahmindir.</p>
       <h3>Aynı Anda Kaç Şeyi Değiştirmeli?</h3>
-      <p>Bir turda tek alan. Başlıkla görseli birlikte değiştirirseniz hangisinin işe yaradığını bilemezsiniz. Optimizasyonun ilk kuralı mağaza tarafında da aynıdır: tek değişken, tek ölçüm.</p>
-      <h2>Mağaza Sayfanızı Birlikte Elden Geçirelim</h2>
+      <p>Bir turda tek alan. Başlıkla görseli birlikte değiştirirseniz hangisinin işe yaradığını bilemezsiniz. Optimizasyonun ilk kuralı mağaza tarafında da aynıdır: tek değişken, tek ölçüm.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 07</span></div><h2 id="magaza-sayfanizi-birlikte-elden-gecirelim">Mağaza Sayfanızı Birlikte Elden Geçirelim</h2>
       <div class="yz-cevap"><p>Sayfanızı birlikte elden geçirelim. Başlığı, alt başlığı, ilk iki ekran görüntüsünü ve simgeyi tek oturumda gözden geçiriyoruz. Elinizde bir öneri listesi değil, sıraya konmuş bir iş listesi kalıyor. Mağaza optimizasyonu çoğu üründe kod yazmadan kazanç veren ilk yerdir. Başlamak için yeni sürüm beklemeniz de gerekmez.</p></div>
       <p>Yayın öncesi bir tur, yayın sonrası aylık turlar öneririz. Takvimi <a href="../mobil-uygulama-gelistirme-sureci/">geliştirme süreci</a> yazısında anlatmıştık; mağaza sayfası hazırlığı o takvimin son haftasına girer. <a href="../../aso/">Uygulama pazarlaması hizmetimizi</a> ve <a href="../../mobil-uygulama/">mobil uygulama sayfamızı</a> inceleyebilirsiniz. Bütçeyi hangi kalemlerin belirlediğini <a href="../mobil-uygulama-gelistirme-maliyeti/">uygulama maliyeti</a> yazısında açtık.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/uygulama-magaza-optimizasyonu-govde-960.webp"
              srcset="./gorsel/uygulama-magaza-optimizasyonu-govde-640.webp 640w, ./gorsel/uygulama-magaza-optimizasyonu-govde-960.webp 960w, ./gorsel/uygulama-magaza-optimizasyonu-govde-1440.webp 1440w, ./gorsel/uygulama-magaza-optimizasyonu-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Kendi ekseni etrafında dönerek yükselen ışıklı basamaklardan oluşan sarmal bir merdiven" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Sekiz adım bir kez değil, ayda bir dönen kısa bir tur olarak işler. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>İki mağazanın ayrıştığı alanlar</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 07</b><span>07 / 07</span></div><h2 id="iki-magazanin-ayristigi-alanlar">İki mağazanın ayrıştığı alanlar</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Alan</th><th>App Store</th><th>Google Play</th></tr></thead>
@@ -516,7 +561,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../aso/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Uygulama mağaza optimizasyonu kod yazmadan kazanç veren nadir işlerden biridir. Sekiz adımı sırayla yürütün, her turda tek alanı değiştirin ve bir ay sonra yalnız o alana bakın; ölçmediğiniz değişiklik iyileştirme sayılmaz.</p>
+        <p>Uygulama mağaza optimizasyonu kod yazmadan kazanç veren nadir işlerden biridir. Sekiz adımı sırayla yürütün, her turda tek alanı değiştirin ve bir ay sonra yalnız o alana bakın; ölçmediğiniz değişiklik iyileştirme sayılmaz.</p></section>
       </article>
     </div>
   </section>

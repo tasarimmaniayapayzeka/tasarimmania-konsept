@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,76 +477,74 @@
 <!-- AYIRT EDİCİ EKSEN: MALİYET — Fiyatı değil, fiyatı BELİRLEYEN kalemleri anlatır. Process anlatımı yazı 3'ün, teknoloji seçimi yazı 4'ün işidir.
      Huni türü: TOFU · Küme: mobil · Kardeşler (enjeksiyon turunda): mobil-uygulama-yaptirma-sorulari, mobil-uygulama-gelistirme-sureci, native-mi-cross-platform-mi -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>App Cost</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Mobile</span>
-        <span class="yz-meta">24 September 2026 · 7 min read</span>
+          <h1>What Makes Mobile App Development Cost Vary?</h1>
+          <p class="ozet">Almost everyone asking for a quote asks the same question: what will the app cost? The honest reply is that there is no single figure. The budget varies many times over depending on what the product does and in how many places it runs. In this article we aren't giving a price list; we are opening up, one by one, the items that move the budget. That way you can read for yourself where the difference between two quotes comes from.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/mobile-app-development-cost-cover-1440.webp"
+           srcset="./image/mobile-app-development-cost-cover-640.webp 640w, ./image/mobile-app-development-cost-cover-960.webp 960w, ./image/mobile-app-development-cost-cover-1440.webp 1440w, ./image/mobile-app-development-cost-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Five illuminated layers stacked one on another; the lower ones a sparse grid, the middle ones filled with a dense node texture"
+           width="1920" height="1080" decoding="async"><figcaption>An app budget comes not from a single surface but from layers stacked on top of one another. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Mobile</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>24 September 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>What Makes Mobile App Development Cost Vary?</h1>
-      <p class="ozet">Almost everyone asking for a quote asks the same question: what will the app cost? The honest reply is that there is no single figure. The budget varies many times over depending on what the product does and in how many places it runs. In this article we aren't giving a price list; we are opening up, one by one, the items that move the budget. That way you can read for yourself where the difference between two quotes comes from.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#which-items-determine-mobile-app-development-cost"><span>01</span>Which Items Determine Mobile App Development Cost?</a><a href="#one-platform-or-two-how-much-does-the-decision-affect-the-budget"><span>02</span>One Platform or Two? How Much Does the Decision Affect the Budget?</a><a href="#where-does-the-design-budget-swell-and-where-can-it-be-trimmed"><span>03</span>Where Does the Design Budget Swell, and Where Can It Be Trimmed?</a><a href="#why-is-post-launch-maintenance-part-of-the-budget"><span>04</span>Why Is Post-Launch Maintenance Part of the Budget?</a><a href="#where-does-the-difference-between-two-quotes-come-from"><span>05</span>Where Does the Difference Between Two Quotes Come From?</a><a href="#let-s-work-out-your-budget-alongside-the-scope"><span>06</span>Let's Work Out Your Budget Alongside the Scope</a><a href="#cost-items-and-their-effect-on-the-budget"><span>07</span>Cost items and their effect on the budget</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/mobile-app-development-cost-cover-1440.webp"
-           srcset="./image/mobile-app-development-cost-cover-640.webp 640w, ./image/mobile-app-development-cost-cover-960.webp 960w, ./image/mobile-app-development-cost-cover-1440.webp 1440w, ./image/mobile-app-development-cost-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Five illuminated layers stacked one on another; the lower ones a sparse grid, the middle ones filled with a dense node texture"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>An app budget comes not from a single surface but from layers stacked on top of one another. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Which Items Determine Mobile App Development Cost?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="which-items-determine-mobile-app-development-cost">Which Items Determine Mobile App Development Cost?</h2>
       <div class="yz-cevap"><p>Five items determine the budget: screens, platforms, integrations, design and maintenance. Any figure named before those five are settled is no more than a guess. Once you put the scope in writing, the quotes you get for the same job start to converge. You see the reason for the difference item by item. A mobile app development budget then stops being a matter for haggling.</p></div>
       <p>What sets the price of a product is not the developer's hourly rate but <strong>how many separate parts</strong> the work is made of. Picture a five-screen catalogue app. Then picture one that takes payments and tracks couriers. They come out of the same profession; they are not the same job.</p><p>The items below come up on every project. Which one weighs heaviest varies with the product. When you read mobile app development quotes, look for these five headings first. We set out the questions to bring to the meeting in the <a href="../questions-before-building-an-app/">questions to ask before commissioning an app</a> article.</p><ol><li><strong>Screen and state density</strong> — not how many screens, but how many states per screen.</li><li><strong>Number of platforms</strong> — one store or two.</li><li><strong>Depth of integration</strong> — payment, delivery, identity, maps.</li><li><strong>Originality of the design</strong> — off-the-shelf components or a brand language.</li><li><strong>Post-launch maintenance</strong> — a cost that runs for as long as the product lives.</li></ol>
       <h3>Why Isn't the Number of Screens a Sufficient Measure on Its Own?</h3>
       <p>Everyone starts by counting screens, because counting is easy. But a listing interface and one that shows a live location do not ask for the same effort. As our measure we use <em>the density of logic per screen</em> instead. We ask this: how many states are there in that interface, how many error states do we have to draw, what does the user see when no data arrives? The more answers there are, the higher the budget climbs. Even with the number of screens unchanged, those answers can double it.</p>
       <h3>How Does the Depth of Integration Move the Budget?</h3>
-      <p>Every point at which the app talks to the outside world creates a separate piece of work. Payment, delivery, e-invoicing, identity verification, maps, notifications: each arrives with rules of its own. Off-the-shelf services cover most of those connections. The real burden is created not by the service itself but by the <strong>error states</strong> around it. The question of what happens if a payment is left half-finished takes longer than the connection itself.</p>
-      <h2>One Platform or Two? How Much Does the Decision Affect the Budget?</h2>
+      <p>Every point at which the app talks to the outside world creates a separate piece of work. Payment, delivery, e-invoicing, identity verification, maps, notifications: each arrives with rules of its own. Off-the-shelf services cover most of those connections. The real burden is created not by the service itself but by the <strong>error states</strong> around it. The question of what happens if a payment is left half-finished takes longer than the connection itself.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="one-platform-or-two-how-much-does-the-decision-affect-the-budget">One Platform or Two? How Much Does the Decision Affect the Budget?</h2>
       <div class="yz-cevap"><p>Two platforms doesn't mean twice the work. When you choose a single codebase, the gap narrows markedly. Two things decide it: which device your users are on, and how close to the hardware you need to get. Needs such as the camera, sensors and background location change the picture. Without them, a single codebase protects your budget.</p></div>
       <p>Most projects want iOS and Android together. How that request lands on the budget is decided by the architecture you choose. Working with a single codebase, we do the shared work once. The platform-specific parts we write separately. On the native route, two teams build two separate products.</p><p>Asking this question early heads off expensive reversals later: does the app need to <a href="../../ios-android-app-development/">run close to the hardware</a> or not? If a camera, a sensor, background location or heavy graphics are involved, the answer usually comes out yes. If the mobile app being built doesn't carry those needs, a single codebase protects the budget.</p><p>What really swells a mobile app development budget is taking the decision late. Changing the architecture six months in costs more than writing for two platforms from the start.</p>
       <h3>When Does It Make Sense to Start with One Platform?</h3>
-      <p>If your user base is clearly concentrated on one side, start with one platform. Measure first, then widen; that order protects your budget. Internal corporate use, field team apps and dealer panels fall into this group. In those cases the device estate is already known.</p>
-      <h2>Where Does the Design Budget Swell, and Where Can It Be Trimmed?</h2>
+      <p>If your user base is clearly concentrated on one side, start with one platform. Measure first, then widen; that order protects your budget. Internal corporate use, field team apps and dealer panels fall into this group. In those cases the device estate is already known.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="where-does-the-design-budget-swell-and-where-can-it-be-trimmed">Where Does the Design Budget Swell, and Where Can It Be Trimmed?</h2>
       <div class="yz-cevap"><p>The cost is created not by drawing screens but by multiplying states. We draw the full, empty, loading and error state of every interface separately. Starting with an off-the-shelf component kit reduces that load; building the brand language entirely from scratch increases it. What decides the choice is the experience your app is claiming. On a shop-window job an off-the-shelf kit will do; when the experience itself is the product, an original language earns its keep.</p></div>
       <p>Unlike a web page, an app interface lives with <strong>states</strong> of its own. If the user is offline, what appears on the screen? If the list is empty, if the request times out, what does the user see? If you don't answer those questions at the design stage, the work slides into development. Solving it there costs more.</p><p>By the time you reach the development desk, half the decisions about a mobile app have already been taken in the design. We took up the effect of interface decisions on user behaviour separately in the <a href="../ui-design-principles/">interface design principles</a> article.</p>
       <h3>Is an Original Design Necessary on Every Project?</h3>
       <p>No. When the brand experience is itself the product, an original design turns into an investment. On internal tools, on the other hand, the platform's own components come cheaper and look familiar to the user. <a href="../../mobile-app-development/">In the scoping meeting</a> we make that distinction right at the start. In a mobile app development budget, design is the first item to be cut. And it is usually the wrong item.</p>
       <h4>The Return on Building a Design System</h4>
-      <p>Once you have defined the components, the screens that follow go faster. You feel the investment in the first months and see the return in the second release. If you are planning to grow the app, this is not the place to trim.</p>
-      <h2>Why Is Post-Launch Maintenance Part of the Budget?</h2>
+      <p>Once you have defined the components, the screens that follow go faster. You feel the investment in the first months and see the return in the second release. If you are planning to grow the app, this is not the place to trim.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="why-is-post-launch-maintenance-part-of-the-budget">Why Is Post-Launch Maintenance Part of the Budget?</h2>
       <div class="yz-cevap"><p>The work doesn't end when the app goes live. Operating systems put out a major release every year, and the stores set compliance rules of their own. Teams that set no maintenance item aside are left in the second year with a product that no longer works. That is why we write the ongoing cost into the budget from the start. A mobile app development decision covers not the product's first day but its lifetime.</p></div>
       <p>A website carries on opening even if it is never updated. Mobile software doesn't behave like that: store rules change, libraries age, certificates expire. For that reason we position maintenance not as an optional service but as the product's standing cost. We explained how the stages are sequenced in the <a href="../mobile-app-development-process/">development process</a> article.</p><p>Internet use on mobile devices is widespread in Türkiye. That reach pushes organisations to take continuity on the app side seriously. The current household ICT statistics are published regularly by <a href="https://www.tuik.gov.tr" target="_blank" rel="noopener">TurkStat</a> — TurkStat is Türkiye's statistical institute.</p>
       <h3>What Does the Maintenance Item Cover?</h3>
-      <p>Operating system compatibility, library updates, changes in store policy, crash tracking and small improvements. None of those headings means a new feature. They describe the maintenance that keeps the product standing. A new feature is a separate item and is discussed separately. Keeping that distinction in writing in the contract settles most of the arguments that come up in the second year before they start.</p>
-      <h2>Where Does the Difference Between Two Quotes Come From?</h2>
+      <p>Operating system compatibility, library updates, changes in store policy, crash tracking and small improvements. None of those headings means a new feature. They describe the maintenance that keeps the product standing. A new feature is a separate item and is discussed separately. Keeping that distinction in writing in the contract settles most of the arguments that come up in the second year before they start.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="where-does-the-difference-between-two-quotes-come-from">Where Does the Difference Between Two Quotes Come From?</h2>
       <div class="yz-cevap"><p>The difference is usually created by reading the scope differently. One side prices in the error states and the maintenance; the other costs only the happy path. Once you compare the items in writing, the gap shrinks fast. Only from that point on can the figures be discussed. Two teams looking at the same scope name two figures close to one another.</p></div>
       <p>When you put the quotes side by side, look at these three. Which platforms fall within the scope? How many screens and which states will be drawn? What period after launch is included? A price comparison made without levelling those three will mislead you.</p><p>If your app is going to share a back end with the web side, discuss the work on the <a href="../../custom-software-development/">custom software side</a> within the same budget as well. We ran a similar discussion about scope in the <a href="../choosing-an-ecommerce-platform/">choosing an e-commerce platform</a> article too. In a mobile app development quote, the least informative line is the total at the bottom. Look for the names of the items.</p>
-      <blockquote class="yz-alinti"><p>&#8220;Any figure you name before the scope is written down is an agreement in which each side is imagining a different job.&#8221;</p><cite>— TasarımMania scoping meeting note</cite></blockquote>
-      <h2>Let's Work Out Your Budget Alongside the Scope</h2>
+      <blockquote class="yz-alinti"><p>&#8220;Any figure you name before the scope is written down is an agreement in which each side is imagining a different job.&#8221;</p><cite>— TasarımMania scoping meeting note</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="let-s-work-out-your-budget-alongside-the-scope">Let's Work Out Your Budget Alongside the Scope</h2>
       <div class="yz-cevap"><p>A figure named before the scope is clear misleads both sides. We talk through your screen count, your connections and your platform requirement together. We set out in writing how much each item moves the budget. What you are left with is not a price but the reasoning behind the price. Taking a mobile app development decision on that reasoning reduces the surprises that come later.</p></div>
       <p>The document we leave you with at the end of the meeting isn't a list of figures. On the same page you also see what you would lose by trimming any given item. When the team building the mobile app defines it together with you, the margin for surprise gets smaller.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/mobile-app-development-cost-body-960.webp"
              srcset="./image/mobile-app-development-cost-body-640.webp 640w, ./image/mobile-app-development-cost-body-960.webp 960w, ./image/mobile-app-development-cost-body-1440.webp 1440w, ./image/mobile-app-development-cost-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Six upright panels of the same size side by side; the first three empty frames, the last three filled with dense texture, with scale notches beneath them" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>The same number of screens, a different density of states: that is what separates the costs. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Cost items and their effect on the budget</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="cost-items-and-their-effect-on-the-budget">Cost items and their effect on the budget</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Item</th><th>Effect on the budget</th><th>Can it be trimmed?</th></tr></thead>
@@ -520,7 +565,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../mobile-app-development/">See the service page</a>
         </aside>
-        <p>A mobile app development budget comes not from a single figure but from the sum of five items. The moment you put the scope in writing, you can both compare the quotes and see what you would lose by trimming any given item.</p>
+        <p>A mobile app development budget comes not from a single figure but from the sum of five items. The moment you put the scope in writing, you can both compare the quotes and see what you would lose by trimming any given item.</p></section>
       </article>
     </div>
   </section>

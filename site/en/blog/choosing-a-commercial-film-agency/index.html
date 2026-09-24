@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,72 +477,70 @@
 <!-- AYIRT EDİCİ EKSEN: SEÇİM — Agency/ekip seçme ölçütlerini anlatır. Aşama sırası yazı 7'nin, cost line items yazı 8'in, storyboard yazı 9'un işidir. Burada süreç and fiyat yeniden anlatılmaz.
      Huni türü: TOFU · Küme: video · Kardeşler (enjeksiyon turunda):  -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Choosing an Agency</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Video</span>
-        <span class="yz-meta">12 October 2026 · 7 min read</span>
+          <h1>What Should You Look for When Choosing a Commercial Film Agency?</h1>
+          <p class="ozet">You have five different quotes in hand and every one of them tells its own story well. The choice usually gets made on the prettiest showreel or the lowest figure; both are weak criteria. There are five headings below. They show a production company's real capacity better than its finished work does.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/choosing-a-commercial-film-agency-cover-1440.webp"
+           srcset="./image/choosing-a-commercial-film-agency-cover-640.webp 640w, ./image/choosing-a-commercial-film-agency-cover-960.webp 960w, ./image/choosing-a-commercial-film-agency-cover-1440.webp 1440w, ./image/choosing-a-commercial-film-agency-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Identical lit door frames standing side by side; only behind the one on the far right is a lit corridor visible"
+           width="1920" height="1080" decoding="async"><figcaption>From the outside they all look similar; the difference is made by the way they work. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Video</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>12 October 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>What Should You Look for When Choosing a Commercial Film Agency?</h1>
-      <p class="ozet">You have five different quotes in hand and every one of them tells its own story well. The choice usually gets made on the prettiest showreel or the lowest figure; both are weak criteria. There are five headings below. They show a production company's real capacity better than its finished work does.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#what-should-you-look-at-when-choosing-a-commercial-film-agency"><span>01</span>What Should You Look At When Choosing a Commercial Film Agency?</a><a href="#what-does-a-showreel-show-and-what-does-it-hide"><span>02</span>What Does a Showreel Show, and What Does It Hide?</a><a href="#who-is-on-the-team"><span>03</span>Who Is on the Team?</a><a href="#how-should-you-read-the-quote"><span>04</span>How Should You Read the Quote?</a><a href="#which-warning-signs-should-you-take-seriously"><span>05</span>Which Warning Signs Should You Take Seriously?</a><a href="#let-s-prepare-for-the-meeting-together"><span>06</span>Let's Prepare for the Meeting Together</a><a href="#the-questions-and-what-a-good-answer-looks-like"><span>07</span>The questions, and what a good answer looks like</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/choosing-a-commercial-film-agency-cover-1440.webp"
-           srcset="./image/choosing-a-commercial-film-agency-cover-640.webp 640w, ./image/choosing-a-commercial-film-agency-cover-960.webp 960w, ./image/choosing-a-commercial-film-agency-cover-1440.webp 1440w, ./image/choosing-a-commercial-film-agency-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Identical lit door frames standing side by side; only behind the one on the far right is a lit corridor visible"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>From the outside they all look similar; the difference is made by the way they work. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>What Should You Look At When Choosing a Commercial Film Agency?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="what-should-you-look-at-when-choosing-a-commercial-film-agency">What Should You Look At When Choosing a Commercial Film Agency?</h2>
       <div class="yz-cevap"><p>Look at five headings. Have they done similar work, who is on the team, is the quote itemised? How are the revision and handover terms written? When you're choosing a commercial film agency, what guides you isn't the beauty of the portfolio but how clearly they answer your questions. A showreel shows the finished work; it doesn't show how it got finished.</p></div>
       <p>A good team likes hard questions, because it has answers. Every heading you get an evasive answer on is a warning of an argument to come.</p><p>Ask the five headings below in order and write the answers down.</p><ol><li><strong>Similar work</strong> — what have they done at a scope close to yours?</li><li><strong>The team</strong> — who is the director, the director of photography and the editor?</li><li><strong>The quote</strong> — are the line items written out separately?</li><li><strong>Revisions</strong> — how many rounds are included, and what happens beyond that?</li><li><strong>Delivery and handover</strong> — who keeps the raw footage?</li></ol><p>Take notes while you ask those five. Meetings blur into each other and two days later you won't remember which team said what. Writing the answers into the same table is the preparation that helps most at the moment of decision.</p>
       <h3>A Large Agency, or a Small Team?</h3>
-      <p>Scale isn't a criterion on its own. Large outfits give you a broad roster and the assurance of process; small teams offer closer attention and quick decisions. When choosing an agency, look at which one your commercial needs, not at the business card.</p>
-      <h2>What Does a Showreel Show, and What Does It Hide?</h2>
+      <p>Scale isn't a criterion on its own. Large outfits give you a broad roster and the assurance of process; small teams offer closer attention and quick decisions. When choosing an agency, look at which one your commercial needs, not at the business card.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="what-does-a-showreel-show-and-what-does-it-hide">What Does a Showreel Show, and What Does It Hide?</h2>
       <div class="yz-cevap"><p>A showreel shows ability and hides the way of working. The film in the showreel doesn't tell you its budget, its timeline or how many rounds it took. So ask about the scope of the work you liked. How many days was it filmed over, how many people worked on it, how many revisions went round? If a commercial film agency answers those questions comfortably, that's a good sign. An evasive answer is information in itself.</p></div>
       <p>Ask what was actually done on each piece in the showreel, too. On some jobs the team may only have handled the edit while someone else filmed it. That isn't bad, but you need to know.</p><p>Talking to a past client is the most honest route too. Two questions are enough: did the schedule hold, and did a surprise line item appear? We set out how the stages run in the <a href="../commercial-film-production-stages/">production stages</a>  piece.</p><p>Ask about the work you don't see in the showreel as well. Every team has work that's unpublished or waiting for approval. Those often give a more current picture. Ask about the projects that were left unfinished too. A team that doesn't struggle to answer will be honest with you as well.</p>
       <h3>Is Sector Experience Essential?</h3>
-      <p>It helps, but it isn't essential. A team that has worked in your sector picks the terminology up quickly; one that never has may bring a fresh eye. What really decides it is whether they'and delivered work at a similar scope.</p>
-      <h2>Who Is on the Team?</h2>
+      <p>It helps, but it isn't essential. A team that has worked in your sector picks the terminology up quickly; one that never has may bring a fresh eye. What really decides it is whether they'and delivered work at a similar scope.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="who-is-on-the-team">Who Is on the Team?</h2>
       <div class="yz-cevap"><p>The person who comes to the meeting may not be the person who does the work. Ask who the director, the director of photography and the editor are; those three set the quality directly. Some teams bring in freelancers on every job, and that isn't bad. What is bad is not knowing who will be working until the contract is signed. Having the names written into the quote closes that uncertainty.</p></div>
       <p>The person leading the work sets the tone of the film. The same script becomes two different films with two different directors, so looking at what they have done before tells you more than looking at the company as a whole.</p><p>Don't skip the editor either. Rhythm is born in the edit, and most films' success is decided there. Asking which editor the agency works with on advertising jobs isn't an unusual question.</p>
       <h3>Is Bringing People In from Outside a Problem?</h3>
-      <p>It isn't a problem; uncertainty is. Most teams in this sector work project by project, and that flexibility brings quality. The only thing you need to know is who is coming and what they have done before.</p>
-      <h2>How Should You Read the Quote?</h2>
+      <p>It isn't a problem; uncertainty is. Most teams in this sector work project by project, and that flexibility brings quality. The only thing you need to know is who is coming and what they have done before.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="how-should-you-read-the-quote">How Should You Read the Quote?</h2>
       <div class="yz-cevap"><p>Look at the line item names, not the total. Are the shooting day, the crew, the performers' rights, the location and post-production each written out separately? If they aren't, that item is either out of scope or will cause an argument later. If a commercial film agency gives its quote item by item, comparison becomes possible too.</p></div>
       <p>When you put two price documents side by side, level the scopes first. If one includes three channel versions and the other includes one, comparing the figures has no meaning.</p><p>We opened up one by one how far each line item moves the budget in the <a href="../commercial-film-cost/">cost line items</a>  piece. Reading commercial film agency quotes against that list shows quickly where the difference comes from.</p><p>Look for the payment schedule in the quote as well. Splitting it three ways — a deposit, one before the shoot and one after delivery — is common. An outfit that asks for everything up front, or takes no deposit at all, carries risk from opposite directions.</p>
       <h3>Who Keeps the Raw Footage?</h3>
       <p>If it isn't written into the contract, it usually stays with the team. That line serves you if you want a different edit later; talking about it at the start is easier than negotiating afterwards.</p>
-      <blockquote class="yz-alinti"><p>&#8220;A team's capacity is shown not by its portfolio but by how it answers your questions. A showreel shows the finished work; it doesn't show how it got finished.&#8221;</p><cite>— TasarımMania meeting note</cite></blockquote>
-      <h2>Which Warning Signs Should You Take Seriously?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;A team's capacity is shown not by its portfolio but by how it answers your questions. A showreel shows the finished work; it doesn't show how it got finished.&#8221;</p><cite>— TasarımMania meeting note</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="which-warning-signs-should-you-take-seriously">Which Warning Signs Should You Take Seriously?</h2>
       <div class="yz-cevap"><p>Four signs deserve attention. Teams that quote a price without asking about scope, that promise unlimited revisions, and that avoid giving references all carry risk. Working without a contract is the fourth; everything discussed but not written down evaporates at the first disagreement. However likeable a commercial film agency is, a promise that isn't in writing doesn't count.</p></div>
-      <p>A price given without asking about scope is the most misleading of all. It looks low, and then every additional request creates a new line item and the total climbs. A good team asks questions first and says a figure second.</p><p>A promise of unlimited revisions works in a similar way. It's either built into the price from the start, or an argument comes up at some point. We set out how preparation cuts the number of rounds in the <a href="../what-is-a-storyboard/">storyboard</a>  piece.</p><p>There's one more sign: who holds the communication. If there's a single point of contact, the process moves quickly. If every question gets an answer from a different person, that scattering shows up in the production too. It's easy to spot at the first meeting. The claim itself is scrutinised as well; <a href="https://ticaret.gov.tr/tuketici/ticari-reklamlar" target="_blank" rel="noopener">Türkiye's commercial advertising rules</a> put the bill for an exaggerated claim on the brand owner.</p>
-      <h2>Let's Prepare for the Meeting Together</h2>
+      <p>A price given without asking about scope is the most misleading of all. It looks low, and then every additional request creates a new line item and the total climbs. A good team asks questions first and says a figure second.</p><p>A promise of unlimited revisions works in a similar way. It's either built into the price from the start, or an argument comes up at some point. We set out how preparation cuts the number of rounds in the <a href="../what-is-a-storyboard/">storyboard</a>  piece.</p><p>There's one more sign: who holds the communication. If there's a single point of contact, the process moves quickly. If every question gets an answer from a different person, that scattering shows up in the production too. It's easy to spot at the first meeting. The claim itself is scrutinised as well; <a href="https://ticaret.gov.tr/tuketici/ticari-reklamlar" target="_blank" rel="noopener">Türkiye's commercial advertising rules</a> put the bill for an exaggerated claim on the brand owner.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="let-s-prepare-for-the-meeting-together">Let's Prepare for the Meeting Together</h2>
       <div class="yz-cevap"><p>Coming prepared speeds both sides up. If you have the definition of the problem, the target audience and the publishing plan in hand, the scope comes out in the first session. We write the line items openly and say who will be working from the start. Working with a commercial film agency isn't a purchase; it's a joint production.</p></div>
       <p>You leave the first session with a single page: the problem, the target audience, the channel plan and a draft scope. <a href="../../video-production/">our video production page</a> and <a href="../../commercial-video-production/">our commercial film service</a> are worth a look.</p><p>When you make the decision, compare three teams in the same table. When scope, team and handover terms sit side by side, the choice usually shows itself. The figure is only one column of that table. If the other columns are empty, the figure means nothing either.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/choosing-a-commercial-film-agency-body-960.webp"
              srcset="./image/choosing-a-commercial-film-agency-body-640.webp 640w, ./image/choosing-a-commercial-film-agency-body-960.webp 960w, ./image/choosing-a-commercial-film-agency-body-1440.webp 1440w, ./image/choosing-a-commercial-film-agency-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="A dim, untidy skeleton structure left behind a bright surface" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>A showreel shows the finished work; it doesn't show how it got finished. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>The questions, and what a good answer looks like</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="the-questions-and-what-a-good-answer-looks-like">The questions, and what a good answer looks like</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Question</th><th>A good answer</th><th>Warning sign</th></tr></thead>
@@ -517,7 +562,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../video-production/">See the service page</a>
         </aside>
-        <p>Choosing a commercial film agency isn't a comparison of showreels but a comparison of ways of working. A team that answers your questions clearly, writes the line items openly and says from the start who will be working is a safer choice than the one with the prettiest portfolio.</p>
+        <p>Choosing a commercial film agency isn't a comparison of showreels but a comparison of ways of working. A team that answers your questions clearly, writes the line items openly and says from the start who will be working is a safer choice than the one with the prettiest portfolio.</p></section>
       </article>
     </div>
   </section>

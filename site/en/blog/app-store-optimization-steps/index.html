@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,72 +477,70 @@
 <!-- AYIRT EDİCİ EKSEN: ROTA — Uygulanabilir sekiz adımı verir. Maliyet yazı 1'in, karar soruları yazı 2'nin, takvim yazı 3'ün, mimari yazı 4-5'in işidir. Burada kod and mimari konuşulmaz.
      Huni türü: BOFU · Küme: mobil · Kardeşler (enjeksiyon turunda):  -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Store Optimization</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Mobile</span>
-        <span class="yz-meta">4 October 2026 · 7 min read</span>
+          <h1>How Do You Do App Store Optimization? 8 Steps</h1>
+          <p class="ozet">Publishing the app is half the job. The other half is being picked out from among hundreds of tiles on the store shelf. The name of that job is long but its scope is clear: arranging the listing for both search and installs. Below we give the eight steps in order. You can apply them without writing code; most teams finish the first round in an afternoon.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/app-store-optimization-steps-cover-1440.webp"
+           srcset="./image/app-store-optimization-steps-cover-640.webp 640w, ./image/app-store-optimization-steps-cover-960.webp 960w, ./image/app-store-optimization-steps-cover-1440.webp 1440w, ./image/app-store-optimization-steps-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="A great many small tiles arranged in the dark; one in the middle markedly brighter than the rest"
+           width="1920" height="1080" decoding="async"><figcaption>Being seen on the store shelf begins with ceasing to be one of hundreds of tiles in a list. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Mobile</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>4 October 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>How Do You Do App Store Optimization? 8 Steps</h1>
-      <p class="ozet">Publishing the app is half the job. The other half is being picked out from among hundreds of tiles on the store shelf. The name of that job is long but its scope is clear: arranging the listing for both search and installs. Below we give the eight steps in order. You can apply them without writing code; most teams finish the first round in an afternoon.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#what-is-app-store-optimization-and-what-does-it-change"><span>01</span>What Is App Store Optimization, and What Does It Change?</a><a href="#which-fields-on-the-listing-affect-ranking"><span>02</span>Which Fields on the Listing Affect Ranking?</a><a href="#how-do-the-images-change-the-download-rate"><span>03</span>How Do the Images Change the Download Rate?</a><a href="#how-do-you-manage-reviews-and-ratings"><span>04</span>How Do You Manage Reviews and Ratings?</a><a href="#the-eight-step-route"><span>05</span>The Eight-Step Route</a><a href="#let-s-go-over-your-store-listing-together"><span>06</span>Let's Go Over Your Store Listing Together</a><a href="#where-the-two-stores-differ"><span>07</span>Where the two stores differ</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/app-store-optimization-steps-cover-1440.webp"
-           srcset="./image/app-store-optimization-steps-cover-640.webp 640w, ./image/app-store-optimization-steps-cover-960.webp 960w, ./image/app-store-optimization-steps-cover-1440.webp 1440w, ./image/app-store-optimization-steps-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="A great many small tiles arranged in the dark; one in the middle markedly brighter than the rest"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Being seen on the store shelf begins with ceasing to be one of hundreds of tiles in a list. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>What Is App Store Optimization, and What Does It Change?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="what-is-app-store-optimization-and-what-does-it-change">What Is App Store Optimization, and What Does It Change?</h2>
       <div class="yz-cevap"><p>Store optimization is the work of arranging your app's App Store and Google Play listing for search and for conversion. It affects two things at once: where you appear in search, and what share of the people who see the listing go on to install. Most teams skip the second entirely. Yet the download rate improves faster than the ranking does. And it needs no change to the code.</p></div>
       <p>There are two separate doors to the gain, and they work differently. Ranking gets you found in search; the download rate gets you chosen once you have been found. Most teams concern themselves only with the first.</p><p>Work on the store listing therefore runs along two arms. The text side affects the search, the visual side affects the decision. Measure them separately or you won't see which one is doing the work.</p><p>On most teams this job ends up in an area nobody owns. The developer looks after the code, the marketer after the advertising; the store listing is left in between. Yet app store optimization asks for an hour of ownership a week, and no more.</p>
       <h3>How Often Should This Be Repeated?</h3>
-      <p>A short round once a month is enough. Big changes made at long intervals make it impossible to measure what worked. Small, frequent changes turn store optimization into something you can measure.</p>
-      <h2>Which Fields on the Listing Affect Ranking?</h2>
+      <p>A short round once a month is enough. Big changes made at long intervals make it impossible to measure what worked. Small, frequent changes turn store optimization into something you can measure.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="which-fields-on-the-listing-affect-ranking">Which Fields on the Listing Affect Ranking?</h2>
       <div class="yz-cevap"><p>Three fields carry the weight: the title, the subtitle and the keyword field. On the Google Play side the long description is indexed too, while on the App Store it isn't. Teams that don't know that difference copy the same text into both stores. At this point store optimization runs as two separate jobs, not one.</p></div>
       <p>The title is the most valuable field and the space is tight. Put two or three words next to the brand name saying what the product does. General words such as “App” or “mobile” are a waste of room.</p><p>When you pick your search terms, don't trust your own guesses. We explained how to measure which words the user actually searches with in the <a href="../keyword-research/">keyword research</a> article. The optimization work runs to the same discipline on the store side.</p><p>Don't leave the subtitle and short description fields empty either. Both are indexed, and on most products both are left incomplete. Looking at competitors' listings helps too; the phrases they have chosen will add ideas to your own list. Store optimization isn't a copying exercise, but it is the quickest way to see the gaps. The field lengths are set by rule rather than guesswork; the <a href="https://developer.apple.com/app-store/product-page/" target="_blank" rel="noopener">App Store product page guidelines</a> set out the limits.</p>
       <h3>Should I Put the Same Word in Two Fields?</h3>
-      <p>No — repetition loses you room. Don't write a word that already appears in the title into the keyword field again. Filling the space you free up with another search term is the cheapest gain in store optimization.</p>
-      <h2>How Do the Images Change the Download Rate?</h2>
+      <p>No — repetition loses you room. Don't write a word that already appears in the title into the keyword field again. Filling the space you free up with another search term is the cheapest gain in store optimization.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="how-do-the-images-change-the-download-rate">How Do the Images Change the Download Rate?</h2>
       <div class="yz-cevap"><p>The first two screenshots settle the decision, because those are the only ones the user sees in the listing. The user sees the image before reading the text. That is why we write what the product does onto the first shot, rather than showing a pretty screen. The icon appears tiny in that same list; what works is the silhouette, not the detail. The fastest gain in store optimization comes from here.</p></div>
       <p>A promo shot isn't a screenshot, it's a sentence. Put a short heading on top of it and let that heading state a benefit. The screen itself can stay in the background; what needs reading is the promise.</p><p>When you design the app icon, try it at small size. Many icons that look good on a desktop become unrecognisable in a listing. Looking at it in both dark and light themes should be a habit too.</p><p>Think about the order of the shots as well. Put the strongest promise first and the one that completes it second. Leave the rest for the curious user who opens the page.</p>
       <h3>Is a Video Essential?</h3>
-      <p>Not essential, but it helps on products whose flow is hard to describe. Set the video up so it makes sense from the first second; nobody watches a trailer to the end.</p>
-      <h2>How Do You Manage Reviews and Ratings?</h2>
+      <p>Not essential, but it helps on products whose flow is hard to describe. Set the video up so it makes sense from the first second; nobody watches a trailer to the end.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="how-do-you-manage-reviews-and-ratings">How Do You Manage Reviews and Ratings?</h2>
       <div class="yz-cevap"><p>The average rating affects both the ranking and the decision to install. The most effective move is replying to reviews; some negative reviews soften once they have had a reply. Tie the rating prompt to the right moment too: ask after the user has finished their task, not the instant they open the app. Timing alone lifts the average.</p></div>
       <p>If the star average is low, read the reason first. Most of the reviews will point at the same three problems; solving those three brings the average back on its own. When you write a reply, don't get defensive — say what you are going to do.</p><p>Don't skip the release notes either. A note that reads “bug fixes” tells nobody anything. Writing what you fixed is the cheapest way of answering the user who left a review.</p><p>There is no way of reaching a user who left a low rating directly, but a release note is a place to reply. When you have fixed the problem they complained about, say so plainly in the note. Some users come back and raise their rating; that is the least visible but most lasting gain in store optimization.</p>
-      <blockquote class="yz-alinti"><p>&#8220;A store listing isn't a shop window, it's a threshold. Being found in search brings you to the door; it's the first two shots that persuade anyone to come in.&#8221;</p><cite>— TasarımMania app marketing note</cite></blockquote>
-      <h2>The Eight-Step Route</h2>
+      <blockquote class="yz-alinti"><p>&#8220;A store listing isn't a shop window, it's a threshold. Being found in search brings you to the door; it's the first two shots that persuade anyone to come in.&#8221;</p><cite>— TasarımMania app marketing note</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="the-eight-step-route">The Eight-Step Route</h2>
       <div class="yz-cevap"><p>The route has eight steps and runs in order. Measurement first, then the text, then the images, and iteration last. Teams that skip steps can't see what worked. App store optimization isn't a one-off job but a short round that comes back once a month. The round takes no more than an hour.</p></div>
       <p>Don't disturb the order below. Each step uses the output of the one before it.</p><ol><li><strong>Measure where you are now</strong> — note the impressions, the downloads and the rate.</li><li><strong>Gather the search terms</strong> — from data, not from your own guesswork.</li><li><strong>Rewrite the title</strong> — the brand plus two or three descriptive words.</li><li><strong>Fill in the subtitle and the keyword field</strong> — without repeating yourself.</li><li><strong>Change the first two shots</strong> — write a single promise on each.</li><li><strong>Test the icon at small size</strong> — is the silhouette recognisable?</li><li><strong>Move the moment you ask for a rating</strong> — tie it to the moment the job is done.</li><li><strong>Measure a month later</strong> — look only at the field you changed.</li></ol><p>The eighth step is the one most often skipped. A change made without measurement is a guess, not an improvement.</p>
       <h3>How Many Things Should You Change at Once?</h3>
-      <p>One field per round. Change the title and the images together and you won't know which of them worked. The first rule of optimization is the same on the store side: one variable, one measurement.</p>
-      <h2>Let's Go Over Your Store Listing Together</h2>
+      <p>One field per round. Change the title and the images together and you won't know which of them worked. The first rule of optimization is the same on the store side: one variable, one measurement.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="let-s-go-over-your-store-listing-together">Let's Go Over Your Store Listing Together</h2>
       <div class="yz-cevap"><p>Let's go over your listing together. We review the title, the subtitle, the first two screenshots and the icon in a single session. What you are left with is not a list of suggestions but a work list put in order. On most products, store optimization is the first place that pays off without writing any code. And you don't have to wait for a new release to begin.</p></div>
       <p>We recommend one round before release and monthly rounds after it. We set the schedule out in the <a href="../mobile-app-development-process/">development process</a> article; preparing the store listing falls into the last week of that schedule. <a href="../../app-store-optimization/">Our app marketing service</a> and <a href="../../mobile-app-development/">our mobile app page</a> are both there to look through. We opened up which items determine the budget in the <a href="../mobile-app-development-cost/">app cost</a> article.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/app-store-optimization-steps-body-960.webp"
              srcset="./image/app-store-optimization-steps-body-640.webp 640w, ./image/app-store-optimization-steps-body-960.webp 960w, ./image/app-store-optimization-steps-body-1440.webp 1440w, ./image/app-store-optimization-steps-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="A spiral staircase of illuminated steps rising as it turns about its own axis" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>The eight steps work not as a one-off but as a short round that comes back once a month. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Where the two stores differ</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="where-the-two-stores-differ">Where the two stores differ</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Field</th><th>App Store</th><th>Google Play</th></tr></thead>
@@ -516,7 +561,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../app-store-optimization/">See the service page</a>
         </aside>
-        <p>App store optimization is one of the rare jobs that pays off without writing any code. Run the eight steps in order, change one field per round, and a month later look only at that field; a change you haven't measured doesn't count as an improvement.</p>
+        <p>App store optimization is one of the rare jobs that pays off without writing any code. Run the eight steps in order, change one field per round, and a month later look only at that field; a change you haven't measured doesn't count as an improvement.</p></section>
       </article>
     </div>
   </section>

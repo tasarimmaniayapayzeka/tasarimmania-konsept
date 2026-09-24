@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,72 +477,70 @@
 <!-- AYIRT EDİCİ EKSEN: ROTA — Uygulanabilir yedi adımı verir. Yapay zekânın SINIRLARI yazı 13'ün işidir; burada yeniden tartışılmaz, oraya link verilir. Format listesi yazı 12'nin, çekim yeri yazı 11'in.
      Huni türü: BOFU · Küme: video · Kardeşler (enjeksiyon turunda):  -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Camera-Free Video</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Video</span>
-        <span class="yz-meta">20 October 2026 · 7 min read</span>
+          <h1>How Do You Make a Product Video Without a Camera? Step by Step</h1>
+          <p class="ozet">You have hundreds of product photographs but no video budget. That picture is very common in small teams, and the answer to it doesn't run through building a set. Below is a seven-step route: from gathering sources through to the channel versions. Apply the route in order; the output of each step is the input to the next.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/product-video-without-a-camera-cover-1440.webp"
+           srcset="./image/product-video-without-a-camera-cover-640.webp 640w, ./image/product-video-without-a-camera-cover-960.webp 960w, ./image/product-video-without-a-camera-cover-1440.webp 1440w, ./image/product-video-without-a-camera-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Trails of light arcing away from a still frame; the frame motionless, the trails in motion"
+           width="1920" height="1080" decoding="async"><figcaption>Setting a still frame in motion is a different job from building a scene from scratch. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Video</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>20 October 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>How Do You Make a Product Video Without a Camera? Step by Step</h1>
-      <p class="ozet">You have hundreds of product photographs but no video budget. That picture is very common in small teams, and the answer to it doesn't run through building a set. Below is a seven-step route: from gathering sources through to the channel versions. Apply the route in order; the output of each step is the input to the next.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#who-does-camera-free-video-production-help"><span>01</span>Who Does Camera-Free Video Production Help?</a><a href="#which-products-does-it-work-on"><span>02</span>Which Products Does It Work On?</a><a href="#how-do-you-proceed-step-by-step"><span>03</span>How Do You Proceed, Step by Step?</a><a href="#what-do-you-look-at-in-the-quality-check"><span>04</span>What Do You Look at in the Quality Check?</a><a href="#when-should-you-give-up-on-it"><span>05</span>When Should You Give Up on It?</a><a href="#let-s-produce-your-first-video-together"><span>06</span>Let's Produce Your First Video Together</a><a href="#the-steps-their-outputs-and-the-most-common-mistake"><span>07</span>The steps, their outputs and the most common mistake</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/product-video-without-a-camera-cover-1440.webp"
-           srcset="./image/product-video-without-a-camera-cover-640.webp 640w, ./image/product-video-without-a-camera-cover-960.webp 960w, ./image/product-video-without-a-camera-cover-1440.webp 1440w, ./image/product-video-without-a-camera-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Trails of light arcing away from a still frame; the frame motionless, the trails in motion"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Setting a still frame in motion is a different job from building a scene from scratch. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Who Does Camera-Free Video Production Help?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="who-does-camera-free-video-production-help">Who Does Camera-Free Video Production Help?</h2>
       <div class="yz-cevap"><p>It helps small teams and sellers with a wide catalogue. If you have product photographs in hand, camera-free video production sets those frames in motion. You get a result without building a set, gathering a crew or setting a day aside. In return you give up some of the control; knowing the limits is essential. This article sets out the route that stays inside them.</p></div>
       <p>Production without a shoot isn't a short cut, it's a different method. It doesn't take the place of a camera shoot; it reaches a scale the shoot cannot. On a catalogue of thirty products, shooting each one comes expensive, while producing short videos from the photographs you already have becomes possible.</p><p>We weighed up in detail where it works and where it falls short in the <a href="../ai-video-production-limits/">AI video production</a> article. We aren't re-arguing the limit here; we are giving the route that stays inside it.</p><p>Scale is decisive here. On a three-product job, shooting may be quicker; on a catalogue of three hundred, production without a shoot becomes the only realistic route. Take the decision together with the number of products.</p>
       <h3>Can My Own Team Do This?</h3>
-      <p>They can. Once the route has been learnt, the second round speeds up markedly. In camera-free video production the hard part isn't using the tools, it's deciding which frame is acceptable.</p>
-      <h2>Which Products Does It Work On?</h2>
+      <p>They can. Once the route has been learnt, the second round speeds up markedly. In camera-free video production the hard part isn't using the tools, it's deciding which frame is acceptable.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="which-products-does-it-work-on">Which Products Does It Work On?</h2>
       <div class="yz-cevap"><p>It works comfortably on products with a fixed shape, a plain surface and little detail. Packaged food, boxed electronics and simple household items fall into that group. Camera-free video struggles with products that carry texture, such as jewellery and textiles. The measure isn't how ornate the product is but how far its detail determines the buying decision.</p></div>
       <p>Packaged products are the easiest group, because the shape is fixed already. Overlay the type on the box afterwards and the risk of the text breaking up disappears too.</p><p>On products that carry texture, camera-free video reaches its limit quickly. The weave of a fabric, the pores of a leather and the sheen of a stone shift a little in every frame; the customer may not notice on screen, but they notice in the hand.</p>
       <h3>Can You Run Both Routes on the Same Catalogue?</h3>
-      <p>You can, and it is usually the right thing to do. You produce the packaged products without a shoot and shoot the textured ones with a camera. Producing the video without a camera is a solution for the appropriate group, not for the whole catalogue.</p>
-      <h2>How Do You Proceed, Step by Step?</h2>
+      <p>You can, and it is usually the right thing to do. You produce the packaged products without a shoot and shoot the textured ones with a camera. Producing the video without a camera is a solution for the appropriate group, not for the whole catalogue.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="how-do-you-proceed-step-by-step">How Do You Proceed, Step by Step?</h2>
       <div class="yz-cevap"><p>There are seven steps and they run in order. First you gather the source images, then you build the scene. You add the motion, place the sound and produce the channel versions. In camera-free video production, the step skipped most often is the quality check. Teams that skip steps end up correcting at the most expensive moment. Break the order and the number of rounds climbs quickly.</p></div>
       <p>Don't disturb the order below. Each step uses the output of the one before it.</p><ol><li><strong>Gather the source images</strong> — the highest-resolution frames, with a clean background.</li><li><strong>Cut the product out from the background</strong> — make a cut-out with clean edges.</li><li><strong>Build the scene</strong> — decide the floor, the backdrop and the direction of the light.</li><li><strong>Add the motion</strong> — slow, single-direction movement is the safest.</li><li><strong>Overlay the text afterwards</strong> — don't trust type inside a generated frame.</li><li><strong>Do a visual check</strong> — put the frames side by side with the real product.</li><li><strong>Produce the channel versions</strong> — according to the ratio and duration list.</li></ol><p>We drew up the list for the seventh step in the <a href="../product-video-formats/">product video formats</a> article. The same delivery list applies when you run video production without a camera.</p><p>Put the steps into a checklist and use the same list on every product. When different people on the team run the same route, the output stays consistent too. In camera-free video production, consistency is worth more than individual brilliance.</p>
       <h3>Which Step Takes the Longest?</h3>
-      <p>Usually the second. Cutting the product cleanly out of the background determines the quality of every step that follows. A careless edge makes itself known even in the best scene.</p>
-      <h2>What Do You Look at in the Quality Check?</h2>
+      <p>Usually the second. Cutting the product cleanly out of the background determines the quality of every step that follows. A careless edge makes itself known even in the best scene.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="what-do-you-look-at-in-the-quality-check">What Do You Look at in the Quality Check?</h2>
       <div class="yz-cevap"><p>Look at four things: the shape of the product, the type printed on it, the colour tone and how natural the movement is. Stop on the frames one by one and put them side by side with the real product. The thing that most often drifts in a camera-free video is the type on the packaging. Regenerating every frame you doubt is cheaper than publishing and pulling it back. That comparison has to be made by someone who knows the product.</p></div>
       <p>A simple method is enough for the visual check: pause the video and open the product photograph beside it. Any difference in colour tone or proportion shows up immediately in that comparison.</p><p>How natural the movement is, is a heading of its own. Slow, single-direction motion is safe; sudden turns and close-up transitions grow the drift. When in doubt, reduce the movement.</p><p>Fix who does the checking, too. If somebody different looks each round, the standard shifts; the same eye holds the same threshold. That person should preferably have held the product in their hands.</p>
       <h3>How Often Should You Pause?</h3>
-      <p>On short videos, a pause every second is enough. The moments where the product turns or comes closer call for a frame-by-frame check; that is usually where the drift starts.</p>
-      <h2>When Should You Give Up on It?</h2>
+      <p>On short videos, a pause every second is enough. The moments where the product turns or comes closer call for a frame-by-frame check; that is usually where the drift starts.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="when-should-you-give-up-on-it">When Should You Give Up on It?</h2>
       <div class="yz-cevap"><p>Give up if the product's detail determines the buying decision. Jewellery, fabric, the inside of food packaging and the connection points of technical products fall into that group. On those products, camera-free video produces not a showcase but a disappointment. Rather than forcing the decision, planning a short camera shoot comes cheaper. Accepting the limit beats apologising later.</p></div>
       <p>Giving up doesn't mean giving up altogether. Shooting the product with a camera and generating the scene is the most balanced combination of the two routes; we explained how we choose the shooting location in the <a href="../product-video-studio-or-location/">studio or location</a> article.</p><p>Take the decision by product group, not across the whole catalogue. In the same catalogue some products suit production without a shoot while others ask for a camera; separating the two is the most efficient route.</p><p>Take the separation decision once and write it into the list. Debating it afresh on every new product is a waste of time; once the rule for the group is set, the team decides on its own. The generated image must not show the product as other than it is; <a href="https://ticaret.gov.tr/tuketici/ticari-reklamlar" target="_blank" rel="noopener">Türkiye's commercial advertising rules</a> prohibit that explicitly.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The hard part isn't using the tools, it's deciding which frame is acceptable. That decision is taken by someone who knows the product.&#8221;</p><cite>— TasarımMania production note</cite></blockquote>
-      <h2>Let's Produce Your First Video Together</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The hard part isn't using the tools, it's deciding which frame is acceptable. That decision is taken by someone who knows the product.&#8221;</p><cite>— TasarımMania production note</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="let-s-produce-your-first-video-together">Let's Produce Your First Video Together</h2>
       <div class="yz-cevap"><p>Producing it together is the fastest way to learn. We talk through your product list, the images you have and the channels you publish on. What you are left with is not a recommendation for a tool but a route you can actually run. Getting you to the point where you can carry on with camera-free video production using your own team is part of the aim too. The aim is this: the first round together, the second round yours.</p></div>
       <p>In the first round we work out together which products suit this route. <a href="../../ai-video-production/">AI-assisted production</a> and <a href="../../product-video-production/">product video</a> — you can look through both pages.</p><p>We set camera-free video production up not as a one-off job but as a round that repeats as the catalogue grows. Once the route has settled, adding a new product takes only a few hours.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/product-video-without-a-camera-body-960.webp"
              srcset="./image/product-video-without-a-camera-body-640.webp 640w, ./image/product-video-without-a-camera-body-960.webp 960w, ./image/product-video-without-a-camera-body-1440.webp 1440w, ./image/product-video-without-a-camera-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Illuminated rings chained left to right and rising; each ring joined to the next by a bright node" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>The seven steps run in order; every step you skip comes back in the next round. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>The steps, their outputs and the most common mistake</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="the-steps-their-outputs-and-the-most-common-mistake">The steps, their outputs and the most common mistake</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Step</th><th>Its output</th><th>Most common mistake</th></tr></thead>
@@ -518,7 +563,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../ai-video-production/">See the service page</a>
         </aside>
-        <p>Camera-free video production is a seven-step route that sets the photographs you already have in motion. Apply the steps in order, never skip the sixth, and don't hesitate to go back to a camera where the product's detail determines the buying decision.</p>
+        <p>Camera-free video production is a seven-step route that sets the photographs you already have in motion. Apply the steps in order, never skip the sixth, and don't hesitate to go back to a camera where the product's detail determines the buying decision.</p></section>
       </article>
     </div>
   </section>

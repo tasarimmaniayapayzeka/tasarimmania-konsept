@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -468,45 +515,43 @@
 <!-- AYIRT EDİCİ EKSEN: MEKANİZMA — Arama niyetini çözümleme ve kelime seçim mekanizması; çiftin diğer yarısı (icerik-stratejileri) takvim/planlama ZAMANLAMA'sına ayrıldı, yayın planına burada girilmez.
      Huni türü: TOFU · Küme: İçerik Stratejisi · Kardeşler (enjeksiyon turunda): seo-icin-icerik-stratejileri, seo-raporlama-araclari, google-ads-ve-ppc -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Anahtar Kelime Araştırması Neden İçeriğin Pusulasıdır?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Dijital Pazarlama</span>
-        <span class="yz-meta">3 Ekim 2026 · 7 dakikalık okuma</span>
+          <h1>Anahtar Kelime Araştırması Neden İçeriğin Pusulasıdır?</h1>
+          <p class="ozet">Bir sitenin trafiği neden yerinde sayar? Yanıt çoğu zaman teknik altyapıda değil, hedef aldığınız kelimelerde gizlidir. Türkiye'de birçok KOBİ kendi iç diliyle içerik üretir; müşteri ise arama kutusuna bambaşka bir ifade yazar. İki dil arasındaki mesafeyi kapatan yöntemin adı anahtar kelime araştırmasıdır. Bu yazıda mekanizmayı açıyoruz: talebi nasıl ölçeriz, niyeti nasıl okuruz.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/anahtar-kelime-arastirmasi-kapak-1440.webp"
+           srcset="./gorsel/anahtar-kelime-arastirmasi-kapak-640.webp 640w, ./gorsel/anahtar-kelime-arastirmasi-kapak-960.webp 960w, ./gorsel/anahtar-kelime-arastirmasi-kapak-1440.webp 1440w, ./gorsel/anahtar-kelime-arastirmasi-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Arama niyetine göre ayrışan kelime kümelerini temsil eden soyut koyu tonlu 3D kompozisyon"
+           width="1920" height="1080" decoding="async"><figcaption>Doğru kelime, içeriğin yönünü belirleyen pusuladır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Dijital Pazarlama</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>3 Ekim 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>6 başlık</b></div>
       </div>
-      <h1>Anahtar Kelime Araştırması Neden İçeriğin Pusulasıdır?</h1>
-      <p class="ozet">Bir sitenin trafiği neden yerinde sayar? Yanıt çoğu zaman teknik altyapıda değil, hedef aldığınız kelimelerde gizlidir. Türkiye'de birçok KOBİ kendi iç diliyle içerik üretir; müşteri ise arama kutusuna bambaşka bir ifade yazar. İki dil arasındaki mesafeyi kapatan yöntemin adı anahtar kelime araştırmasıdır. Bu yazıda mekanizmayı açıyoruz: talebi nasıl ölçeriz, niyeti nasıl okuruz.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#arama-talebini-olcmek-ne-anlama-gelir"><span>01</span>Arama Talebini Ölçmek Ne Anlama Gelir?</a><a href="#arama-niyetini-nasil-cozumleriz"><span>02</span>Arama Niyetini Nasıl Çözümleriz?</a><a href="#kelime-secim-mekanizmasi-havuzdan-oncelige"><span>03</span>Kelime Seçim Mekanizması: Havuzdan Önceliğe</a><a href="#uzun-kuyruk-kelimeler-neden-kobi-lere-yarar"><span>04</span>Uzun Kuyruk Kelimeler Neden KOBİ'lere Yarar?</a><a href="#anahtar-kelime-arastirmanizi-profesyonele-devredin"><span>05</span>Anahtar Kelime Araştırmanızı Profesyonele Devredin</a><a href="#sezgiyle-kelime-secimi-ile-veriye-dayali-secimin-karsilastirmasi"><span>06</span>Sezgiyle Kelime Seçimi ile Veriye Dayalı Seçimin Karşılaştırması</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/anahtar-kelime-arastirmasi-kapak-1440.webp"
-           srcset="./gorsel/anahtar-kelime-arastirmasi-kapak-640.webp 640w, ./gorsel/anahtar-kelime-arastirmasi-kapak-960.webp 960w, ./gorsel/anahtar-kelime-arastirmasi-kapak-1440.webp 1440w, ./gorsel/anahtar-kelime-arastirmasi-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Arama niyetine göre ayrışan kelime kümelerini temsil eden soyut koyu tonlu 3D kompozisyon"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Doğru kelime, içeriğin yönünü belirleyen pusuladır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Arama Talebini Ölçmek Ne Anlama Gelir?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 06</span></div><h2 id="arama-talebini-olcmek-ne-anlama-gelir">Arama Talebini Ölçmek Ne Anlama Gelir?</h2>
       <div class="yz-cevap"><p>Anahtar kelime araştırması, bir konunun arama motorlarında hangi ifadelerle ve ne sıklıkta sorulduğunu ölçen çalışmadır. Ölçüm aylık aranma sayısını, rekabet yoğunluğunu ve sorgunun arkasındaki amacı birlikte okur. Tek başına hacim yanıltıcıdır. Bu veriler yan yana geldiğinde net bir yön çıkar. Ölçüm, içerik üretiminin ilk adımıdır.</p></div>
       <p>Arama talebi, bir konuyu kaç kişinin hangi kelimeyle sorduğunu gösteren ölçülebilir bir sinyaldir. Sinyali okumayan site, kimsenin sormadığı sorulara cevap yazar. Siz "dermokozmetik set" dersiniz; müşteri "cilt bakım seti" yazar. İşte bu boşlukta durur kaybettiğiniz ziyaretçi. Anahtar kelime araştırması boşluğu ölçer ve kapatır.</p><p>Rekabet de her yıl sertleşiyor. Ticaret Bakanlığı'nın <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">ETBİS 2025 raporuna</a> göre e-ticaret yapan işletme sayısı 634.611'e ulaştı. Kelime seçimini şansa bırakan işletme bu kalabalıkta görünmez. <a href="../../seo/">SEO çalışmalarımızda</a> her projeye ölçümle başlıyoruz.</p>
       <h3>Kelimenin Ardındaki Talebi Kazanmak</h3>
       <p>Bir sayfa sıralandığında kelime kazanmazsınız; o kelimeyi yazan kişinin dikkatini kazanırsınız. "Klima" sorgusu ile "ofis için sessiz klima önerisi" sorgusu arasındaki fark, satın almaya kalan mesafedir. İlk sorgu merak taşır, ikincisi karar taşır.</p>
       <h3>Hacim, Zorluk ve Niyet Üçgeni</h3>
-      <p>Aylık aranma sayısı talebin büyüklüğünü, zorluk düzeyi rekabetin sertliğini, niyet ise sorgunun amacını gösterir. Verilerden biri eksik kalırsa karar sakatlanır. Yüksek hacimli ama amacı uyumsuz bir terim siteye trafik getirir, teklif getirmez. Peki amacı keskin, hacmi düşük bir terim ne yapar? Az ziyaretçi getirir; gelenlerin önemli bölümü teklif formuna kadar yürür.</p>
-      <h2>Arama Niyetini Nasıl Çözümleriz?</h2>
+      <p>Aylık aranma sayısı talebin büyüklüğünü, zorluk düzeyi rekabetin sertliğini, niyet ise sorgunun amacını gösterir. Verilerden biri eksik kalırsa karar sakatlanır. Yüksek hacimli ama amacı uyumsuz bir terim siteye trafik getirir, teklif getirmez. Peki amacı keskin, hacmi düşük bir terim ne yapar? Az ziyaretçi getirir; gelenlerin önemli bölümü teklif formuna kadar yürür.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 06</span></div><h2 id="arama-niyetini-nasil-cozumleriz">Arama Niyetini Nasıl Çözümleriz?</h2>
       <div class="yz-cevap"><p>Niyeti, bir sorgu için sıralanan sayfaların ortak biçimine bakarak okuruz. Arama niyeti, kullanıcının bir sorguyu yazarken ulaşmak istediği sonucun türünü tanımlayan kavramdır. Google'ın ilk sayfada listelediği içerik türü, o sorgunun beklentisini açık eder. Yöntem gözleme dayanır; tahmin devreye girmez. Panel yerine ekranı okuyarak da bu sonuca ulaşırsınız.</p></div>
       <p>Niyet çözümlemesi, kelime listesini işe yarar hâle getiren aşamadır. Aynı hacme sahip iki terim farklı amaç taşıdığı için farklı sayfalara gider. Bu aşamayı atlayan ekipler dönüşüm alamaz. Niyet katmanı olmadan yürütülen anahtar kelime araştırması yarım kalır.</p><p>Türkiye'de internet erişimi geniş bir tabana yayıldı; <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TÜİK'in hanehalkı bilişim teknolojileri kullanım araştırmaları</a> bu yaygınlığı düzenli ölçüyor. Kullanıcı profili genişledikçe aynı hizmeti anlatan ifadeler çeşitlenir. Kısa ve soru biçimli sorgular listenizde ayrı bir katman ister.</p>
       <h3>Dört Niyet Sınıfı</h3>
@@ -514,35 +559,35 @@
       <h3>Sonuç Sayfası En Güvenilir Kanıttır</h3>
       <p>Bir sorgunun amacını anlamanın en kestirme yolu, sonuç sayfasını okumaktır. İlk on sonucun sekizi liste yazısıysa o sorgu rehber ister. Ürün arayan kullanıcıyı ise kategori sayfalarıyla dolu bir ekran ele verir. Ekranın kendisi kanıttır; varsayıma gerek kalmaz.</p>
       <h4>Niyet Uyuşmazlığının Erken İşareti</h4>
-      <p>Sayfanız sıralanıyor, tıklama geliyor, oturum süresi ise saniyelerle ölçülüyorsa ortada bir uyuşmazlık vardır. Kullanıcı aradığını bulamamıştır. Aynı sinyali, ziyaretçinin ikinci bir arama için sonuç sayfasına dönmesinde de görürsünüz. Bu durumda sayfa türünü değiştirin; kelime yerinde kalabilir.</p>
-      <h2>Kelime Seçim Mekanizması: Havuzdan Önceliğe</h2>
+      <p>Sayfanız sıralanıyor, tıklama geliyor, oturum süresi ise saniyelerle ölçülüyorsa ortada bir uyuşmazlık vardır. Kullanıcı aradığını bulamamıştır. Aynı sinyali, ziyaretçinin ikinci bir arama için sonuç sayfasına dönmesinde de görürsünüz. Bu durumda sayfa türünü değiştirin; kelime yerinde kalabilir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 06</span></div><h2 id="kelime-secim-mekanizmasi-havuzdan-oncelige">Kelime Seçim Mekanizması: Havuzdan Önceliğe</h2>
       <div class="yz-cevap"><p>Anahtar kelime araştırması, geniş bir aday havuzunu iş değerine göre sıralanmış kısa bir listeye indirir. Havuzu genişletiriz, niyete göre etiketleriz, alakasız terimleri ayıklarız ve kalanları önceliklendiririz. Süreci baştan sona yazılı bir kriter yönetir. Her adımın çıktısı bir sonrakinin girdisidir. Kısalan liste, dağılan kaynağı toplar.</p></div>
       <p>Seçim geniş bir havuzla başlar, dar bir listeyle biter. Aradaki yol beş adımdan oluşur. Anahtar kelime araştırmasının kalbi bu elemedir.</p><ol><li><strong>Tohum terimleri çıkarın:</strong> hizmet adlarınız, ürün kategorileriniz ve müşterinizden gelen sorular ilk havuzu kurar.</li><li><strong>Havuzu genişletin:</strong> her tohum terim için eş anlamlıları, yerel kullanımları ve soru kalıplarını ekleyin.</li><li><strong>Niyete göre etiketleyin:</strong> her sorguya bilgi, gezinme, ticari veya işlem etiketi verin.</li><li><strong>Ayıklayın:</strong> hizmet bölgenizle uyuşmayan ve alakası zayıf terimleri listeden çıkarın.</li><li><strong>Önceliklendirin:</strong> kalan terimleri iş değeri ve ulaşılabilir rekabet düzeyine göre sıralayın.</li></ol><p>Bu mekanizmayı <a href="../../seo-icerik/">içerik stratejisi hizmetimizin</a> ilk fazında uyguluyoruz. Mağaza tarafında kategori ve filtre sayfaları da aynı elemeye girer; <a href="../../e-ticaret-seo/">e-ticaret SEO</a> tarafında liste, kategori ağacıyla şekillenir. İçerik takviminiz bu dosyadan doğar.</p>
       <h3>Havuzu Genişletme Aşaması</h3>
       <p>Araştırmanın başında anahtar kelime havuzu ne kadar genişse eleme o kadar isabetli olur. Bir üretici için "ofis koltuğu" tohumdan gelir; "bel destekli ofis koltuğu" ise gerçek talepten. Genişletme aşamasında hedefimiz çeşitliliktir; uzun ama tek renkli bir liste eleme masasında işe yaramaz.</p>
       <h3>Eleme Filtreleri</h3>
-      <p>Bir terimin listede kalabilmesi için hizmetinizle alakalı olması, ulaşılabilir bir rekabet düzeyinde durması ve karşılığında gerçek bir sayfa bulması gerekir. Karşılığı olmayan terim boş bir sayfa doğurur. Ayıklama listeyi kısaltır; asıl kazanç, kaynağınızın dağılmadan tek yöne akmasıdır.</p>
-      <h2>Uzun Kuyruk Kelimeler Neden KOBİ'lere Yarar?</h2>
+      <p>Bir terimin listede kalabilmesi için hizmetinizle alakalı olması, ulaşılabilir bir rekabet düzeyinde durması ve karşılığında gerçek bir sayfa bulması gerekir. Karşılığı olmayan terim boş bir sayfa doğurur. Ayıklama listeyi kısaltır; asıl kazanç, kaynağınızın dağılmadan tek yöne akmasıdır.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 06</span></div><h2 id="uzun-kuyruk-kelimeler-neden-kobi-lere-yarar">Uzun Kuyruk Kelimeler Neden KOBİ'lere Yarar?</h2>
       <div class="yz-cevap"><p>Rekabet seyrek olduğu için küçük siteler uzun kuyruk sorgularında çok daha hızlı sıralanır. Uzun kuyruk kelimeler, üç ya da daha fazla sözcükten oluşan, aranma sayısı düşük ama amacı belirgin sorgulardır. Kuyruk uzadıkça sorgu çeşidi artar; aynı talep daha çok ifadeye dağılır. Bu dağılım küçük siteye giriş kapısı açar.</p></div>
       <p>Genel terimlerde ilk sayfa, yıllardır yatırım yapan büyük markalarla doludur. KOBİ için orada yarışmak sabır sınavıdır. Uzun kuyruk ise henüz kalabalıklaşmamış bir alandır. "Vinç" sizi kalabalığa, "depo içi elektrikli vinç kiralama" doğru müşteriye götürür. Uzun kuyruk, anahtar kelime araştırmasında en verimli katmandır.</p><p>Pazarın büyüklüğünü kamu verisinden izleyebilirsiniz; <a href="https://ticaret.gov.tr/duyurular/turkiyede-e-ticaretin-gorunumu-raporu-yayinlandi-06-05-2025" target="_blank" rel="noopener">Ticaret Bakanlığı'nın e-ticaret görünümü duyurusu</a> işletme sayısını paylaşıyor. Kalabalıklaşan bir pazarda anahtar kelime araştırması, ayrışmanın en ucuz yoludur.</p>
       <h3>Rekabet Seyrelir, Dönüşüm Yükselir</h3>
       <p>Sorgu uzadıkça kullanıcının kafasındaki resim netleşir. Beş sözcüklü bir sorgu yazan kişi ne istediğini bilir ve teklif formuna bir adım daha yakındır. Peki genel bir terimden gelen ziyaretçi ne yapar? Çoğu zaman gezinir ve sayfayı kapatır.</p>
       <h3>Öbekleme ile Konu Otoritesi</h3>
       <p>Aynı amacı paylaşan sorguları tek sayfada toplama yöntemine öbekleme diyoruz. Yirmi ayrı sorgu için yirmi zayıf sayfa yerine üç güçlü sayfa kurarsınız. Kümeleme mantığı hem yamalı içerik yığınını önler hem de sayfalar arasındaki bağı sıkılaştırır. Konu otoritesi işte böyle birikir, sayfa sayfa.</p>
-      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      <h2>Anahtar Kelime Araştırmanızı Profesyonele Devredin</h2>
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 06</span></div><h2 id="anahtar-kelime-arastirmanizi-profesyonele-devredin">Anahtar Kelime Araştırmanızı Profesyonele Devredin</h2>
       <div class="yz-cevap"><p>Araştırmayı devretmek, kontrolü bırakmak anlamına gelmez; ölçüm yükünü uzman bir ekibe aktarmak demektir. Anahtar kelime araştırması, veri okumayı sektör bilgisiyle aynı masada birleştiren bir uzmanlık işidir. Ekibiniz kendi işini bilir, biz ise arama verisini okumayı biliriz. İkisi buluştuğunda liste hem gerçekçi hem uygulanabilir olur.</p></div>
       <p>Çoğu KOBİ'de pazarlama tek kişinin omzundadır; yüzlerce sorguyu etiketlemeye zaman kalmaz. Biz bu işi yapıya dönüştürüyoruz: havuzu kurar, etiketler ve öncelik listesini tek dosyada veririz.</p><p>Araştırmanın çıktısı, anahtar kelime haritasıdır; süslü bir tablo değildir. Kendi listenizi bizimkiyle karşılaştırmak isterseniz <a href="../../teklif/">teklif formundan</a> ulaşın. İlk değerlendirmeyi biz yaparız, kararı siz verirsiniz.</p>
       <h3>Bizimle Çalışınca Ne Değişir?</h3>
       <p>Anahtar kelime araştırması sonrası değişen ilk şey netliktir. Hangi sayfanın hangi sorgu için yazıldığını, hangi terimin neden elendiğini gerekçesiyle görürsünüz. Hız da artar; ekibiniz kelime tartışmasından çıkıp üretime döner. Liste ortak bir kritere dayandığı için tutarlılık kendiliğinden gelir.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/anahtar-kelime-arastirmasi-govde-960.webp"
              srcset="./gorsel/anahtar-kelime-arastirmasi-govde-640.webp 640w, ./gorsel/anahtar-kelime-arastirmasi-govde-960.webp 960w, ./gorsel/anahtar-kelime-arastirmasi-govde-1440.webp 1440w, ./gorsel/anahtar-kelime-arastirmasi-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Uzun kuyruk sorguların dar bir öncelik listesine indiği eleme hunisini simgeleyen soyut 3D görsel" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Geniş havuzdan öncelik listesine: kelime seçimi bir eleme mekanizmasıdır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Sezgiyle Kelime Seçimi ile Veriye Dayalı Seçimin Karşılaştırması</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 06</span></div><h2 id="sezgiyle-kelime-secimi-ile-veriye-dayali-secimin-karsilastirmasi">Sezgiyle Kelime Seçimi ile Veriye Dayalı Seçimin Karşılaştırması</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Ölçüt</th><th>Sezgiyle Seçim</th><th>Veriye Dayalı Seçim</th></tr></thead>
@@ -563,7 +608,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../seo-icerik/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Kelime listesi, içerik üretiminin pusulasıdır. Pusula yanlış kuzeyi gösterirse hızınız işe yaramaz. Talebi ölçün, amacı okuyun, elemeyi kriterle yapın. Bu üç adım sitenize gelen trafiğin niteliğini değiştirir.</p>
+        <p>Kelime listesi, içerik üretiminin pusulasıdır. Pusula yanlış kuzeyi gösterirse hızınız işe yaramaz. Talebi ölçün, amacı okuyun, elemeyi kriterle yapın. Bu üç adım sitenize gelen trafiğin niteliğini değiştirir.</p></section>
       </article>
     </div>
   </section>

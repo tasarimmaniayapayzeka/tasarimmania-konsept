@@ -175,6 +175,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -461,73 +508,71 @@
 <!-- AYIRT EDİCİ EKSEN: ROTA — Ana sayfadan ödemeye user journey rotasının adım adım iyileştirilmesi; UX/user journey anlatımının kanonik yazısı budur — arayüz (UI) ilkeleri ui-tasarim-ilkeleri'nin, görsel sunum ve ödeme araçları diğer kardeşlerin ekseni.
      Huni türü: BOFU · Küme: E-Commerce Deneyimi · Kardeşler (enjeksiyon turunda): odeme-guvenligi, e-ticaret-urun-fotograflari, ui-tasarim-ilkeleri -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">E-Commerce UX: How Do You Shorten the Route to the Basket?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">E-Commerce</span>
-        <span class="yz-meta">17 September 2026 · 7 min read</span>
+          <h1>E-Commerce UX: How Do You Shorten the Route to the Basket?</h1>
+          <p class="ozet">Opening an online shop in Türkiye has never been easier. What makes the difference now is the journey behind the shop window. E-commerce UX is the overall quality of the route a visitor takes from that first click to order confirmation. The longer the route, the more baskets are left half-finished; the shorter it gets, the higher the purchase rate climbs. In this article we take the road from home page to checkout stop by stop. At each step we suggest fixes you can actually apply. The goal is plain: fewer clicks, no moments of hesitation, and the customer brought to the finish by the shortest path.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/ecommerce-ux-cover-1440.webp"
+           srcset="./image/ecommerce-ux-cover-640.webp 640w, ./image/ecommerce-ux-cover-960.webp 960w, ./image/ecommerce-ux-cover-1440.webp 1440w, ./image/ecommerce-ux-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Abstract 3D illustration on a shortening lit-path theme, representing the e-commerce UX route"
+           width="1920" height="1080" decoding="async"><figcaption>The shorter the route to the basket, the higher the conversion: simplifying the route <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> E-Commerce</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>17 September 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>6 sections</b></div>
       </div>
-      <h1>E-Commerce UX: How Do You Shorten the Route to the Basket?</h1>
-      <p class="ozet">Opening an online shop in Türkiye has never been easier. What makes the difference now is the journey behind the shop window. E-commerce UX is the overall quality of the route a visitor takes from that first click to order confirmation. The longer the route, the more baskets are left half-finished; the shorter it gets, the higher the purchase rate climbs. In this article we take the road from home page to checkout stop by stop. At each step we suggest fixes you can actually apply. The goal is plain: fewer clicks, no moments of hesitation, and the customer brought to the finish by the shortest path.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#what-is-e-commerce-ux-and-how-does-it-affect-sales"><span>01</span>What Is E-Commerce UX and How Does It Affect Sales?</a><a href="#how-do-the-steps-from-home-page-to-product-get-shorter"><span>02</span>How Do the Steps from Home Page to Product Get Shorter?</a><a href="#why-does-the-move-from-product-page-to-basket-break-down"><span>03</span>Why Does the Move from Product Page to Basket Break Down?</a><a href="#how-does-the-route-from-basket-to-checkout-get-simpler"><span>04</span>How Does the Route from Basket to Checkout Get Simpler?</a><a href="#a-10-step-action-list-for-e-commerce-ux"><span>05</span>A 10-Step Action List for E-Commerce UX</a><a href="#the-long-route-and-the-shortened-route-compared"><span>06</span>The Long Route and the Shortened Route Compared</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/ecommerce-ux-cover-1440.webp"
-           srcset="./image/ecommerce-ux-cover-640.webp 640w, ./image/ecommerce-ux-cover-960.webp 960w, ./image/ecommerce-ux-cover-1440.webp 1440w, ./image/ecommerce-ux-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Abstract 3D illustration on a shortening lit-path theme, representing the e-commerce UX route"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>The shorter the route to the basket, the higher the conversion: simplifying the route <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>What Is E-Commerce UX and How Does It Affect Sales?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 06</span></div><h2 id="what-is-e-commerce-ux-and-how-does-it-affect-sales">What Is E-Commerce UX and How Does It Affect Sales?</h2>
       <div class="yz-cevap"><p>E-commerce UX is the whole body of interactions a visitor goes through from arriving on the site to order confirmation. A fluent experience builds trust. Friction, on the other hand, grows the abandonment rate. Every unnecessary step on the route lowers the likelihood of a purchase by a measurable amount. That is why investing in the experience is a conversion lever that comes before the advertising budget.</p></div>
       <p>The size of the market makes this a strategic matter. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">The Ministry of Trade's Outlook for E-Commerce in Türkiye 2025 report</a> shows our e-commerce volume has reached ₺4.5 trillion. That figure corresponds to 6.9% of gross domestic product. The competition is playing out among more than 634,000 businesses. As products grow more alike, e-commerce UX becomes the thing that genuinely sets one shop apart from another. The way to turn that picture into an opportunity is to build the journey more smoothly than your rivals do. The shopper's patience is limited. A visitor who can't find what they came for within seconds moves on to a competitor. In e-commerce, user experience is not an aesthetic preference; it is a revenue line.</p>
       <h3>What Does the User Journey Route Actually Mean?</h3>
-      <p>The route is the ordered map of screens and decisions a visitor passes through on the way to their goal. That map is called the user journey. A typical route has five stops: home page, category, product page, basket and checkout. At each stop we ask two questions: what is the customer trying to do here, and what is slowing them down? The answers to those two questions set the order of improvements on their own. Shortening the route is the most concrete gain this journey has to offer.</p>
-      <h2>How Do the Steps from Home Page to Product Get Shorter?</h2>
+      <p>The route is the ordered map of screens and decisions a visitor passes through on the way to their goal. That map is called the user journey. A typical route has five stops: home page, category, product page, basket and checkout. At each stop we ask two questions: what is the customer trying to do here, and what is slowing them down? The answers to those two questions set the order of improvements on their own. Shortening the route is the most concrete gain this journey has to offer.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 06</span></div><h2 id="how-do-the-steps-from-home-page-to-product-get-shorter">How Do the Steps from Home Page to Product Get Shorter?</h2>
       <div class="yz-cevap"><p>The road from home page to product ends in three clicks at most. The tools for that are a simple menu, strong on-site search and a clear shop-window setup. A significant share of visitors head straight for the search box rather than browsing categories. Reducing menu depth and bringing popular categories forward speeds up product discovery noticeably.</p></div>
       <p>Clutter in the shop window is the most common loss in the opening metres of the route. A home page focused on a single campaign guides far better than one where seven banners compete. <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TurkStat's latest research</a> — TurkStat is Türkiye's statistical institute — shows internet use spreading across every age group. Expectations of the online shopping experience are rising in step. There are three practical ways to strengthen that experience on an e-commerce home page. Give the hero area a single message and keep the menu to three levels at most. Make the search box visible on every screen. <a href="../../corporate-website/">Corporate web design</a> projects apply information architecture principles that work with the same clarity in online shops.</p>
       <h3>Why Is On-Site Search the Short Cut on the Route?</h3>
-      <p>On-site search is the shortest path there is: it skips the category tree and carries the visitor straight to the product. Aim for a box that tolerates typos and lists suggestions instantly. That setup turns a three- or four-click wander into a single step. Review the queries that return no results on a regular basis. That list reveals both missing products and wrong naming. Measuring the conversion rate of visitors who use search makes the return on the investment visible.</p>
-      <h2>Why Does the Move from Product Page to Basket Break Down?</h2>
+      <p>On-site search is the shortest path there is: it skips the category tree and carries the visitor straight to the product. Aim for a box that tolerates typos and lists suggestions instantly. That setup turns a three- or four-click wander into a single step. Review the queries that return no results on a regular basis. That list reveals both missing products and wrong naming. Measuring the conversion rate of visitors who use search makes the return on the investment visible.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 06</span></div><h2 id="why-does-the-move-from-product-page-to-basket-break-down">Why Does the Move from Product Page to Basket Break Down?</h2>
       <div class="yz-cevap"><p>The main cause of the breakdown is missing information. Price, stock, delivery time and returns conditions should all be visible on a single screen. A visitor who can't find them cannot decide, and leaves the page. Whether the add-to-basket button is visible without scrolling has a direct effect on the transition rate. Every piece of information that reduces uncertainty shortens the step to the basket a little further.</p></div>
       <p>The product page is the moment of decision in e-commerce UX; this is where the visitor either heads for the basket or closes the tab. Hiding the delivery charge until the checkout step is one of the most expensive mistakes there is; stock status, delivery date and returns window should sit right next to the button. On compulsory choices such as size and colour, show the error message beside the field itself; a warning thrown to the top of the page knocks the shopper off course.</p>
       <h3>Three Details That Clarify the Add-to-Basket Step</h3>
       <p>First, the button text should name the action: "Add to Basket" always beats "Continue". Second, a visible confirmation should appear when the button is pressed. A visitor who can't be sure the item went in will either add it twice or abandon the process. Third, don't force the customer onto the basket page after adding. A continue-shopping option grows the average basket value.</p>
       <h4>The Thumb Zone on Mobile</h4>
-      <p>The thumb zone is the lower third of a mobile screen, comfortably reached with one hand. Fixing the add-to-basket button in that zone is a low-cost adjustment that improves the transition on mobile. <a href="https://www.btk.gov.tr/" target="_blank" rel="noopener">BTK's published access statistics</a> — BTK is Türkiye's information and communication technologies authority — regularly set out how widespread mobile internet has become. Test your route on mobile first.</p>
-      <h2>How Does the Route from Basket to Checkout Get Simpler?</h2>
+      <p>The thumb zone is the lower third of a mobile screen, comfortably reached with one hand. Fixing the add-to-basket button in that zone is a low-cost adjustment that improves the transition on mobile. <a href="https://www.btk.gov.tr/" target="_blank" rel="noopener">BTK's published access statistics</a> — BTK is Türkiye's information and communication technologies authority — regularly set out how widespread mobile internet has become. Test your route on mobile first.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 06</span></div><h2 id="how-does-the-route-from-basket-to-checkout-get-simpler">How Does the Route from Basket to Checkout Get Simpler?</h2>
       <div class="yz-cevap"><p>Three tools simplify the route from basket to checkout: guest checkout, a single-page checkout flow, and nothing but compulsory form fields. A wall of forced registration is the biggest point of loss at this stage. Every adjustment that cuts the number of steps and fields pulls the completed-order rate up. A progress bar also shows the customer how much of the road is left.</p></div>
       <p>The basket page isn't a waypoint, it's the table where the deal is signed; the total, the delivery charge and the delivery date should all be clear here. Offer guest checkout rather than imposing registration; on the form side, question every field — a page that asks for a fax number does nothing but lengthen the route. At the checkout step, remove the banners and campaign boxes that pull attention away; trust signals should be visible without interrupting the flow. These last two steps are where investment in e-commerce UX pays back fastest.</p>
       <h3>Guest Checkout and Form Fields</h3>
       <p>Guest checkout is an accelerated payment option that lets someone place an order without creating an account. The golden rule for form fields is this: every field must correspond to something the order genuinely requires. Use autocomplete for the address and a masked input for the phone number. Have incorrect entries corrected instantly, beside the field itself. Every extra field on the payment form is a measurable risk of abandonment in e-commerce UX.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>A 10-Step Action List for E-Commerce UX</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 06</span></div><h2 id="a-10-step-action-list-for-e-commerce-ux">A 10-Step Action List for E-Commerce UX</h2>
       <div class="yz-cevap"><p>To improve e-commerce UX, take the route in five stops. Then work through the ten steps below in order. The list is arranged to produce the highest impact for the lowest effort. As you complete each step, measure the change in the conversion funnel. An improvement that isn't measured never gets beyond assumption. Free analytics tools are enough for the measuring.</p></div>
       <p>Think of the list as a sprint plan. Every item can be applied on its own.</p><ol><li>Reduce the hero area on the home page to a single message. Move secondary campaigns to sections further down.</li><li>Cut menu depth to three levels at most.</li><li>Make the search box visible on every screen. Add typo tolerance and instant suggestions.</li><li>Bring price, stock, delivery time and returns conditions together on one screen on the product page.</li><li>Fix the add-to-basket button in the thumb zone on mobile.</li><li>Show a visible confirmation after an item is added. Remove the forced redirect to the basket.</li><li>Share the delivery charge in the basket, with no surprises left for later.</li><li>Turn on guest checkout. Defer registration until after the order.</li><li>Cut the payment form back to compulsory fields. Add autocomplete.</li><li>Review the funnel report at the end of the month. Go back to the stop where the losses are heaviest.</li></ol><p>Ten steps turn the shopping experience from an abstract goal into a manageable work list. If you need technical support putting them in place, our <a href="../../ecommerce-website/">e-commerce site design and development</a> team will map out your route with you. On the side of growing qualified traffic, our <a href="../../seo/">SEO service</a> comes into play.</p>
       <h3>Which Metrics Should You Track the Results With?</h3>
       <p>Four indicators are enough: add-to-basket rate, basket abandonment rate, checkout completion rate, and the number of clicks it takes to reach a product. Compare the metrics before and after the improvement. A four-week window reduces seasonal noise. That set of four keeps a steady finger on the pulse of the shop's experience.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/ecommerce-ux-body-960.webp"
              srcset="./image/ecommerce-ux-body-640.webp 640w, ./image/ecommerce-ux-body-960.webp 960w, ./image/ecommerce-ux-body-1440.webp 1440w, ./image/ecommerce-ux-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="An abstract sequence of doorways and a line of light representing the five-stop user journey from home page to checkout" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Five stops, one smooth line: home page, category, product, basket and checkout <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>The Long Route and the Shortened Route Compared</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 06</span></div><h2 id="the-long-route-and-the-shortened-route-compared">The Long Route and the Shortened Route Compared</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Step in the Journey</th><th>Typical Long Route</th><th>Shortened Route</th></tr></thead>
@@ -548,7 +593,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../ecommerce-website/">See the service page</a>
         </aside>
-        <p>The shorter the route to the basket, the more you sell. The formula really is that plain. Review your route across the five stops and put the ten-step list on the calendar. Measure every change as you go. User experience isn't a one-off project; it is a maintenance discipline that asks for continuity. If you'd like to shorten your shop's route together, get in touch through our <a href="../../ecommerce-website/">e-commerce solutions</a> page. We map the journey on your existing site and report back on the points where you're losing people.</p>
+        <p>The shorter the route to the basket, the more you sell. The formula really is that plain. Review your route across the five stops and put the ten-step list on the calendar. Measure every change as you go. User experience isn't a one-off project; it is a maintenance discipline that asks for continuity. If you'd like to shorten your shop's route together, get in touch through our <a href="../../ecommerce-website/">e-commerce solutions</a> page. We map the journey on your existing site and report back on the points where you're losing people.</p></section>
       </article>
     </div>
   </section>

@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -468,45 +515,43 @@
 <!-- AYIRT EDİCİ EKSEN: ARAÇ — Search Console, GA4 ve rapor otomasyon araç setinin kurulumu; denetim bulguları teknik-seo yazısının ÖLÇÜM ekseninde, burada araç kurulumu anlatılır.
      Huni türü: BOFU · Küme: SEO Çekirdek · Kardeşler (enjeksiyon turunda): seo-ve-web-tasarim, e-ticaret-seo, yerel-seo -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Which Tools Should You Set Up for SEO Reporting, and How?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">SEO</span>
-        <span class="yz-meta">9 October 2026 · 7 min read</span>
+          <h1>Which Tools Should You Set Up for SEO Reporting, and How?</h1>
+          <p class="ozet">A screenshot of a ranking isn't a report on its own. The question you're asking is simple: which page earned what this month? Building the order that answers it starts with configuring the tools correctly. SEO reporting is Search Console, GA4 and an automation layer all working on the same definitions. In this piece we set out the setup order for those three layers, their critical settings, and the points that break the data when they're skipped.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/seo-reporting-tools-cover-1440.webp"
+           srcset="./image/seo-reporting-tools-cover-640.webp 640w, ./image/seo-reporting-tools-cover-960.webp 960w, ./image/seo-reporting-tools-cover-1440.webp 1440w, ./image/seo-reporting-tools-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Abstract image showing three measurement layers coming together in a single report"
+           width="1920" height="1080" decoding="async"><figcaption>When Search Console, GA4 and the automation layer meet in one order, the report produces decisions. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> SEO</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>9 October 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>Which Tools Should You Set Up for SEO Reporting, and How?</h1>
-      <p class="ozet">A screenshot of a ranking isn't a report on its own. The question you're asking is simple: which page earned what this month? Building the order that answers it starts with configuring the tools correctly. SEO reporting is Search Console, GA4 and an automation layer all working on the same definitions. In this piece we set out the setup order for those three layers, their critical settings, and the points that break the data when they're skipped.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#what-is-seo-reporting-and-what-does-it-measure"><span>01</span>What Is SEO Reporting and What Does It Measure?</a><a href="#how-do-you-set-search-console-up-correctly"><span>02</span>How Do You Set Search Console Up Correctly?</a><a href="#which-settings-are-essential-on-the-ga4-side"><span>03</span>Which Settings Are Essential on the GA4 Side?</a><a href="#how-does-the-automation-layer-take-over-the-monthly-report"><span>04</span>How Does the Automation Layer Take Over the Monthly Report?</a><a href="#how-do-setup-mistakes-break-the-report"><span>05</span>How Do Setup Mistakes Break the Report?</a><a href="#the-seo-reporting-order-a-six-step-tool-setup-list"><span>06</span>The SEO Reporting Order: A Six-Step Tool Setup List</a><a href="#setup-compared-by-layer"><span>07</span>Setup Compared by Layer</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/seo-reporting-tools-cover-1440.webp"
-           srcset="./image/seo-reporting-tools-cover-640.webp 640w, ./image/seo-reporting-tools-cover-960.webp 960w, ./image/seo-reporting-tools-cover-1440.webp 1440w, ./image/seo-reporting-tools-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Abstract image showing three measurement layers coming together in a single report"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>When Search Console, GA4 and the automation layer meet in one order, the report produces decisions. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>What Is SEO Reporting and What Does It Measure?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="what-is-seo-reporting-and-what-does-it-measure">What Is SEO Reporting and What Does It Measure?</h2>
       <div class="yz-cevap"><p>SEO reporting is the measurement process that gathers visibility and click data from organic search into a single order. The measurement covers the breakdown by query, page, device and conversion. The aim isn't to present a long list of metrics. The real job is showing which page produces revenue and which one burns budget for nothing. A wrong setup makes that distinction impossible from the outset.</p></div>
       <p>Data is never in short supply on an agency desk; what's in short supply is decisions. A report is the document that shortens the data enough to answer a single question.</p><p>The number of businesses moving to digital channels in Türkiye rises every year; <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">the Ministry of Trade's ETBİS bulletin</a>  sets that rise out in concrete numbers — ETBİS is Türkiye's e-commerce information system. As the competition hardens, managing on guesswork gets expensive. The reporting layer becomes the single source of truth for the SEO work.</p>
       <h3>Is a report the same thing as a dashboard?</h3>
       <p>A dashboard carries live data, a report carries the interpretation of a period. A healthy SEO reporting order sets both up together.</p>
       <h3>Which metrics produce decisions?</h3>
-      <p>The number of metrics that produce decisions is small. Clicks by page, average position, the number of conversions and organic sessions per conversion close most meetings. If you want to go deeper, the audit findings on the <a href="../../technical-seo/">technical SEO</a> side explain the reason behind those numbers.</p>
-      <h2>How Do You Set Search Console Up Correctly?</h2>
+      <p>The number of metrics that produce decisions is small. Clicks by page, average position, the number of conversions and organic sessions per conversion close most meetings. If you want to go deeper, the audit findings on the <a href="../../technical-seo/">technical SEO</a> side explain the reason behind those numbers.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="how-do-you-set-search-console-up-correctly">How Do You Set Search Console Up Correctly?</h2>
       <div class="yz-cevap"><p>Setting Search Console up starts with verification at domain level; a DNS record gathers all the subdomains into a single property. In SEO reporting terms, setting it up early is a direct gain. The accumulation of data starts on the day of setup; historical dates don't arrive later. That choice also prevents the www and non-www versions being reported separately.</p></div>
       <p>Postponing the setup is a direct loss of data. Search Console is the free tool that shows performance at query level. Finish the verification before you take a new site live.</p><p>Once the property is open, two jobs remain. Submit the sitemap and define the user permissions. If more than one team will read the report, everyone should connect to the same property with their own permission. Distributing the permissions correctly from the start also makes changing agency easier later.</p>
       <h3>DNS verification, or file upload?</h3>
@@ -514,42 +559,42 @@
       <h3>What do you look at when submitting a sitemap?</h3>
       <p>A sitemap lists the addresses you want in the index. The coverage report, meanwhile, tells you which page has been left out and why.</p>
       <h4>One property, or a second one?</h4>
-      <p>The domain property is your main source. Opening a second URL-prefix property for a blog or campaign subdomain lets you see that section in isolation.</p>
-      <h2>Which Settings Are Essential on the GA4 Side?</h2>
+      <p>The domain property is your main source. Opening a second URL-prefix property for a blog or campaign subdomain lets you see that section in isolation.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="which-settings-are-essential-on-the-ga4-side">Which Settings Are Essential on the GA4 Side?</h2>
       <div class="yz-cevap"><p>There are three essential settings on the GA4 side. You mark the conversion events, you filter internal traffic, and you set up the Search Console connection. Until those three are complete you can't work out what organic traffic is worth in money. The default setup only collects page views. A form submission, a phone tap and a quote request each need defining as a separate event.</p></div>
       <p>The setup wizard takes you quickly to the finish screen; the real work starts afterwards. GA4 is the measurement platform that records user behaviour on an event basis. When you add the tag you see the traffic; you don't see the business outcome.</p><p>The second critical point is internal traffic. Exclude office IP addresses and agency access. <a href="../../performance-marketing/">Performance marketing</a> — if that filter isn't in the table where you'll combine this with the ad data, the cost calculation inflates. Desktop and mobile visitors don't behave the same way when it comes to converting either; that's why keeping the device breakdown separate in SEO reporting is meaningful.</p>
       <h3>Who defines the conversion events?</h3>
       <p>The business draws up the list, the software team carries out the implementation. In an SEO reporting setup, that list is the only agenda item of the first meeting. Only the sales side knows which action means revenue.</p>
       <h3>What does the Search Console connection open up?</h3>
-      <p>Once the connection is made, query and behaviour data meet on the same screen; you read which search arrived at which page in a single report.</p>
-      <h2>How Does the Automation Layer Take Over the Monthly Report?</h2>
+      <p>Once the connection is made, query and behaviour data meet on the same screen; you read which search arrived at which page in a single report.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="how-does-the-automation-layer-take-over-the-monthly-report">How Does the Automation Layer Take Over the Monthly Report?</h2>
       <div class="yz-cevap"><p>The automation layer combines the data from the two tools in a single dashboard and removes the burden of preparing the monthly report by hand. Looker Studio is the visualisation application that does that combining for free. The setup that feeds SEO reporting is a one-off. You define the date comparison, the segment and the target line once. All that's left afterwards is writing the commentary.</p></div>
       <p>A document prepared by hand neither earns its keep nor keeps the definitions fixed. An automated dashboard fixes the definitions, and the comparison then means something.</p><p>A summary, a page breakdown and a conversion view are enough on most SEO reporting dashboards. On corporate projects we set that screen up within the scope of <a href="../../seo/">our SEO service</a> as the single source of truth we share with the client. Reporting discipline also makes visible where the SEO budget is going.</p>
       <h3>How is the Looker Studio connection set up?</h3>
       <p>You connect the GA4 and the Search Console property separately. Leaving the sources apart rather than producing blended metrics reduces misreading.</p>
       <h3>Do you need to archive the raw data?</h3>
       <p>You do. Interfaces put a limit on dates; the table you export doesn't. Downloading the monthly raw data into a spreadsheet lets you compare seasonality two years later.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>How Do Setup Mistakes Break the Report?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="how-do-setup-mistakes-break-the-report">How Do Setup Mistakes Break the Report?</h2>
       <div class="yz-cevap"><p>Setup mistakes break a report quietly; the screen looks like it's working but the numbers don't tell the truth. Unfiltered internal traffic, a duplicate tag, a missing subdomain property and the wrong time zone are the four most common mistakes. All four shift the monthly curve. Until an audit is done, none of them shows itself.</p></div>
       <p>A tag that fires twice makes the session and conversion counts look higher than they are. Theme updates are the most common source; the template adds the measurement code a second time.</p><p>A missing subdomain property works the other way. When a subdomain doesn't fall under the main property, the clicks from that section don't appear in the report. Before you close an SEO reporting setup, go through the subdomain list one by one. The time zone is a silent mistake too; if GA4 and the dashboard are on different zones, the month-end doesn't tally.</p>
       <h3>Why should internal traffic be filtered?</h3>
       <p>Checks made from the office imitate real demand and inflate the total on small sites. Once the filter comes into play, the number that drops is the correct one.</p>
       <h3>How do you reflect the data lag in the report?</h3>
-      <p>Search Console data completes with a lag of a few days. A document you pull on the first of the month shows the last days short. Moving the schedule to the fifth largely closes that deviation.</p>
-      <h2>The SEO Reporting Order: A Six-Step Tool Setup List</h2>
+      <p>Search Console data completes with a lag of a few days. A document you pull on the first of the month shows the last days short. Moving the schedule to the fifth largely closes that deviation.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="the-seo-reporting-order-a-six-step-tool-setup-list">The SEO Reporting Order: A Six-Step Tool Setup List</h2>
       <div class="yz-cevap"><p>Verification comes first, then measurement, and automation last. When you build the SEO reporting order in that sequence, your report fills itself by the end of the six steps. On our own projects the workload doesn't exceed two working days with one person. None of the steps asks for a paid tool; the free layer is more than enough to start with.</p></div>
       <ol><li><strong>Domain verification:</strong> Open the Search Console property with a DNS record and gather the subdomains under one roof.</li><li><strong>Sitemap:</strong> Submit the live addresses and read the coverage report in the first week.</li><li><strong>GA4 tag:</strong> Place the tag from a single point and finish the duplicate-firing check the same day.</li><li><strong>Conversion list:</strong> Mark the form, the phone call and the quote request each as an event.</li><li><strong>Filter and time zone:</strong> Exclude office and agency IP addresses, and fix the zone to a single value.</li><li><strong>Dashboard and rhythm:</strong> Combine the two sources in Looker Studio and share the document on the fifth of the month.</li></ol><p>You can carry this list out with your own team. If you'd like to hand the SEO reporting setup over to us, write through <a href="../../get-a-quote/">the quote form</a> ; we'll look at your current settings and work out what's missing.</p>
       <h3>What should you look at in the first 30 days?</h3>
       <p>Don't expect rankings in the first month. The only thing to look at is the integrity of the data. Are the conversion events landing, is there an unexpected error in the coverage report? The first gain is correct measurement itself.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/seo-reporting-tools-body-960.webp"
              srcset="./image/seo-reporting-tools-body-640.webp 640w, ./image/seo-reporting-tools-body-960.webp 960w, ./image/seo-reporting-tools-body-1440.webp 1440w, ./image/seo-reporting-tools-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Abstract dial image representing the alignment of setup settings" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Correctly configured settings align the numbers in the monthly report with reality. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Setup Compared by Layer</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="setup-compared-by-layer">Setup Compared by Layer</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Layer</th><th>Which question it answers</th><th>Typical workload (observed on our own projects)</th><th>What happens if it's skipped</th></tr></thead>
@@ -570,7 +615,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../seo/">See the service page</a>
         </aside>
-        <p>The measurement setup is the ground under every decision on the search side. When the tools are connected correctly, the discussion moves on from “have the rankings dropped” to “which page should we put budget behind”. A habit of regular SEO reporting leaves you with a comparable history six months later. Without that history you can't prove your claim to growth.</p>
+        <p>The measurement setup is the ground under every decision on the search side. When the tools are connected correctly, the discussion moves on from “have the rankings dropped” to “which page should we put budget behind”. A habit of regular SEO reporting leaves you with a comparable history six months later. Without that history you can't prove your claim to growth.</p></section>
       </article>
     </div>
   </section>

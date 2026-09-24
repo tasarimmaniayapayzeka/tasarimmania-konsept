@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,72 +477,70 @@
 <!-- AYIRT EDİCİ EKSEN: MALİYET — Fiyatı BELİRLEYEN kalemleri anlatır. Aşama sırası yazı 7'nin, storyboard yazı 9'un, choosing an agency yazı 10'un işidir. Rakam ya da fiyat aralığı VERİLMEZ.
      Huni türü: TOFU · Küme: video · Kardeşler (enjeksiyon turunda): storyboard-nedir, reklam-filmi-ajansi-secimi -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Commercial Film Cost</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Video</span>
-        <span class="yz-meta">8 October 2026 · 7 min read</span>
+          <h1>What Line Items Set the Price of a Commercial Film?</h1>
+          <p class="ozet">The question in the first meeting is always the same: what will this film cost? The honest answer is that no figure can be given until the scope is down in writing. There's no price list below; there are the line items that move the budget. Once you know them, you can read for yourself where the difference between two quotes comes from.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/commercial-film-cost-cover-1440.webp"
+           srcset="./image/commercial-film-cost-cover-640.webp 640w, ./image/commercial-film-cost-cover-960.webp 960w, ./image/commercial-film-cost-cover-1440.webp 1440w, ./image/commercial-film-cost-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Six lit columns of different heights rising from a common base; the tallest is the brightest"
+           width="1920" height="1080" decoding="async"><figcaption>A budget comes not from one figure but from six independent line items. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Video</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>8 October 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>What Line Items Set the Price of a Commercial Film?</h1>
-      <p class="ozet">The question in the first meeting is always the same: what will this film cost? The honest answer is that no figure can be given until the scope is down in writing. There's no price list below; there are the line items that move the budget. Once you know them, you can read for yourself where the difference between two quotes comes from.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#which-line-items-set-the-price-of-a-commercial-film"><span>01</span>Which Line Items Set the Price of a Commercial Film?</a><a href="#how-does-the-number-of-shooting-days-affect-the-budget"><span>02</span>How Does the Number of Shooting Days Affect the Budget?</a><a href="#why-are-the-cast-and-the-location-so-decisive"><span>03</span>Why Are the Cast and the Location So Decisive?</a><a href="#how-does-post-production-show-up-in-the-price"><span>04</span>How Does Post-Production Show Up in the Price?</a><a href="#if-you-have-to-narrow-the-budget-where-do-you-cut"><span>05</span>If You Have to Narrow the Budget, Where Do You Cut?</a><a href="#let-s-work-out-your-budget-alongside-the-scope"><span>06</span>Let's Work Out Your Budget Alongside the Scope</a><a href="#the-line-items-their-effect-on-the-budget-and-whether-they-can-be-cut"><span>07</span>The line items, their effect on the budget and whether they can be cut</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/commercial-film-cost-cover-1440.webp"
-           srcset="./image/commercial-film-cost-cover-640.webp 640w, ./image/commercial-film-cost-cover-960.webp 960w, ./image/commercial-film-cost-cover-1440.webp 1440w, ./image/commercial-film-cost-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Six lit columns of different heights rising from a common base; the tallest is the brightest"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>A budget comes not from one figure but from six independent line items. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Which Line Items Set the Price of a Commercial Film?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="which-line-items-set-the-price-of-a-commercial-film">Which Line Items Set the Price of a Commercial Film?</h2>
       <div class="yz-cevap"><p>Six do: the shooting day, the crew, the cast, the location, the equipment and post-production. Any figure given before those six are settled is a guess. What really grows the price of a commercial film isn't the number of shots but how many separate setups those shots need. Ten shots in one location come cheaper than three shots across three.</p></div>
       <p>When you read quotes, look for the line item names. The total is the least informative line on the page; it doesn't show what each item covers.</p><p>The six headings below come up on every project. Which one weighs heaviest depends on the kind of job.</p><ol><li><strong>Number of shooting days</strong> — not how many shots, but how many separate setups.</li><li><strong>Crew size</strong> — how many people spend the day on set.</li><li><strong>Cast</strong> — not the fee, but the usage period and the breadth of channels.</li><li><strong>Location</strong> — rent, permits, closure and transport.</li><li><strong>Equipment</strong> — camera, lighting, movement systems.</li><li><strong>Post-production</strong> — colour, sound, music, subtitles, channel versions.</li></ol>
       <h3>Why Isn't There a Ready-Made Price List?</h3>
-      <p>Because very different jobs live under the same heading. A product-led promotional film shot in one location doesn't carry the same line items as a job with a cast across three locations. Whoever shares a ready-made list has narrowed the scope on your behalf; and the difference surfaces after the contract is signed.</p>
-      <h2>How Does the Number of Shooting Days Affect the Budget?</h2>
+      <p>Because very different jobs live under the same heading. A product-led promotional film shot in one location doesn't carry the same line items as a job with a cast across three locations. Whoever shares a ready-made list has narrowed the scope on your behalf; and the difference surfaces after the contract is signed.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="how-does-the-number-of-shooting-days-affect-the-budget">How Does the Number of Shooting Days Affect the Budget?</h2>
       <div class="yz-cevap"><p>The number of days creates a direct multiplier. The crew, the equipment hire and the location fee are all calculated by the day; the second day costs almost as much as the first. That's why we try to fit the shot list into a single day. The decision that brings the price of a commercial film down fastest is reducing the number of setups. Fewer setups means a shorter day, and a shorter day means a smaller budget.</p></div>
       <p>Building a lighting setup takes hours. Five shots filmed under the same setup come far cheaper than five shots under five different ones. That's why we order the shot list by setup, not by the order of the story.</p><p>We set out how the stages work in the <a href="../commercial-film-production-stages/">production stages</a>  piece. Knowing early in the pricing conversation how many setups the advertising idea calls for brings the estimate closer to reality.</p>
       <h3>Is There Such a Thing as a Half Day?</h3>
-      <p>Equipment hire and crew day rates usually run on a full day. A half day only makes sense on very narrow jobs, and even then the preparation time stays the same.</p>
-      <h2>Why Are the Cast and the Location So Decisive?</h2>
+      <p>Equipment hire and crew day rates usually run on a full day. A half day only makes sense on very narrow jobs, and even then the preparation time stays the same.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="why-are-the-cast-and-the-location-so-decisive">Why Are the Cast and the Location So Decisive?</h2>
       <div class="yz-cevap"><p>The cast fee isn't a one-off; the usage period and the breadth of channels enter the price. A year of digital use and unlimited television use don't come to the same figure. The gap is substantial. On the location side, permits, closure and transport are the invisible line items. Both should be written into the contract.</p></div>
       <p>Two lines are what you look for in a performer's contract: on which channels, and for how long. If you want to republish the film two years later and that line isn't there, you're back at the negotiating table.</p><p>There's a similar situation on the location side. Closing a café for a shoot doesn't just mean rent; the trade the business loses that day enters the calculation too. Shooting in your own office removes that line item entirely.</p><p>The equipment line item swells with need as well. Camera and lighting are on every job. A dolly, a crane and a drone only go on the list if the shot calls for them. What really sets the price is which movement the advertising idea makes unavoidable, not the equipment itself.</p>
       <h3>An Agency Performer, or a Real Customer?</h3>
-      <p>Filming with someone who genuinely uses your product can be both cheaper and more convincing. But being at ease in front of a camera is a skill, and not every real customer carries it.</p>
-      <h2>How Does Post-Production Show Up in the Price?</h2>
+      <p>Filming with someone who genuinely uses your product can be both cheaper and more convincing. But being at ease in front of a camera is a skill, and not every real customer carries it.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="how-does-post-production-show-up-in-the-price">How Does Post-Production Show Up in the Price?</h2>
       <div class="yz-cevap"><p>The post-production line items are the ones most often skipped in a quote. Colour grade, voiceover, music licence and subtitles are each separate jobs. So is a separate version per channel. If animation or visual effects come in, the item grows fast. The price of a commercial film can quietly double in this section.</p></div>
       <p>Music is the item that surprises people most often. There's a large gap between a track from a stock library and an original composition; which channels and which period the licence covers is a separate heading again.</p><p>Channel versions also take longer than people assume. The vertical, square and horizontal cuts of the same story are each edited separately; the six-second version comes out harder than the thirty-second one.</p><p>Subtitles make more work than they look like too. Every channel wants a different format; burnt-in subtitles and subtitles delivered as a separate file are two entirely different workflows. On a multilingual delivery, multiply the number of items by the number of languages. Music and voiceover are copyright matters; <a href="https://www.telifhaklari.gov.tr/" target="_blank" rel="noopener">Türkiye's Directorate General of Copyright</a> sets out how usage permission works.</p>
       <h3>Are Revision Rounds Included in the Price?</h3>
       <p>It should be written into the contract. Two rounds is normal; a promise of unlimited revisions is either built into the price from the start or causes an argument later. Fixing the number of rounds puts both sides at ease.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The budget is set by the number of setups, not the number of shots. Ten frames filmed under the same light come cheaper than three frames under different light.&#8221;</p><cite>— TasarımMania production note</cite></blockquote>
-      <h2>If You Have to Narrow the Budget, Where Do You Cut?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The budget is set by the number of setups, not the number of shots. Ten frames filmed under the same light come cheaper than three frames under different light.&#8221;</p><cite>— TasarımMania production note</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="if-you-have-to-narrow-the-budget-where-do-you-cut">If You Have to Narrow the Budget, Where Do You Cut?</h2>
       <div class="yz-cevap"><p>What you cut isn't the number of shots but the variety of setups. Coming down to one location is the quickest route. Moving from a cast to product-led storytelling, and narrowing the number of channels, also work. Cutting the preparation, on the other hand, backfires. The most expensive way to bring the price of a commercial film down is to skip the preparation and decide on set.</p></div>
-      <p>When you make the decision to cut, write down what you're losing too. Coming down to one location protects the budget but narrows the story; product-led storytelling is cheap but weakens the emotional connection.</p><p>Planning the visual production from one place is another way to save. It's possible to take product photographs on the same shooting day; we covered the approach in the <a href="../ecommerce-product-images/">product photographs</a>  piece. We set out how to choose the team in the <a href="../choosing-a-commercial-film-agency/">choosing an agency</a>  piece.</p><p>Do the cutting round together with the agency. Deleting line items on your own usually deletes the wrong one. The team doing the work knows better which cut weakens the story and where.</p>
-      <h2>Let's Work Out Your Budget Alongside the Scope</h2>
+      <p>When you make the decision to cut, write down what you're losing too. Coming down to one location protects the budget but narrows the story; product-led storytelling is cheap but weakens the emotional connection.</p><p>Planning the visual production from one place is another way to save. It's possible to take product photographs on the same shooting day; we covered the approach in the <a href="../ecommerce-product-images/">product photographs</a>  piece. We set out how to choose the team in the <a href="../choosing-a-commercial-film-agency/">choosing an agency</a>  piece.</p><p>Do the cutting round together with the agency. Deleting line items on your own usually deletes the wrong one. The team doing the work knows better which cut weakens the story and where.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="let-s-work-out-your-budget-alongside-the-scope">Let's Work Out Your Budget Alongside the Scope</h2>
       <div class="yz-cevap"><p>A figure given before the scope is clear misleads both sides. How many shots, how many locations, and is there a cast? Which channels are we delivering to? We talk those through together. What you're left with isn't a figure but the reasoning behind it. We show in writing how far each line item moves the price of a commercial film.</p></div>
       <p>Your channel plan should come to this table too; where you'll publish sets both the duration and the ratio. We covered choosing the publishing channel in the <a href="../social-media-advertising-formats/">social media advertising</a>  piece. <a href="../../commercial-video-production/">our commercial film service</a> and <a href="../../video-production/">our video production page</a> are worth a look.</p><p>The document we leave you with at the end of the meeting isn't a list of figures. On the same page you'll also see what you lose if you cut each item. Talking about the price of a commercial film with that table turns the negotiation into a question of choice.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/commercial-film-cost-body-960.webp"
              srcset="./image/commercial-film-cost-body-640.webp 640w, ./image/commercial-film-cost-body-960.webp 960w, ./image/commercial-film-cost-body-1440.webp 1440w, ./image/commercial-film-cost-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Two groups of the same number of lit cubes; the ones on the left have merged into a single mass, the ones on the right stand apart with gaps between them" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>The same number of shots, a different number of setups: that's what separates the budgets. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>The line items, their effect on the budget and whether they can be cut</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="the-line-items-their-effect-on-the-budget-and-whether-they-can-be-cut">The line items, their effect on the budget and whether they can be cut</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Line item</th><th>Effect on the budget</th><th>Can it be cut?</th></tr></thead>
@@ -517,7 +562,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../commercial-video-production/">See the service page</a>
         </aside>
-        <p>The price of a commercial film comes not from a single figure but from the sum of six line items. The moment you put the scope in writing, you can both compare quotes and see from the outset what you lose if you cut each item.</p>
+        <p>The price of a commercial film comes not from a single figure but from the sum of six line items. The moment you put the scope in writing, you can both compare quotes and see from the outset what you lose if you cut each item.</p></section>
       </article>
     </div>
   </section>

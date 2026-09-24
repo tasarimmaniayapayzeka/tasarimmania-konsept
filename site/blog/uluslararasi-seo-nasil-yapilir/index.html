@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -472,86 +519,84 @@
 <!-- AYIRT EDİCİ EKSEN: ROTA — ccTLD / alt dizin / hreflang kurulum rotası ve teknik yapı seçimi; çiftin diğer yarısı (cok-dilli-destek) ticari fayda ve dönüşüm ÖLÇÜM'üne ayrıldı, teknik kurulum yalnız burada.
      Huni türü: BOFU · Küme: Çok Dilli SEO · Kardeşler (enjeksiyon turunda): e-ticaret-sitelerinde-cok-dilli-destek, e-ticaret-seo, teknik-seo -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Çok Dilli SEO ve Uluslararası Kurulum: hreflang ve URL Yapısı Rehberi</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Seo</span>
-        <span class="yz-meta">25 Eylül 2026 · 7 dakikalık okuma</span>
+          <h1>Çok Dilli SEO ve Uluslararası Kurulum: hreflang ve URL Yapısı Rehberi</h1>
+          <p class="ozet">Çok dilli SEO, siteyi çevirmekle değil adres mimarisini kurmakla başlar. Yurt dışına açılan KOBİ'lerde tablo çoğu zaman aynı: ajans siteyi çeviriyor, menüye iki bayrak koyuyor, ekip sonuç bekliyor. Google ise hangi sayfayı hangi pazara göstereceğini bu kurulumdan okuyamaz. Oysa karar üç katmanda veriliyor: alan adı yapısı, dil-bölge etiketleri ve sunucu tarafındaki ayarlar. Bu rehberde alan adı seçiminden hreflang satırlarına kadar rotayı adım adım açıyoruz. Sonunda ekibinize devredebileceğiniz somut bir uygulama listesi kalıyor.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/uluslararasi-seo-nasil-yapilir-kapak-1440.webp"
+           srcset="./gorsel/uluslararasi-seo-nasil-yapilir-kapak-640.webp 640w, ./gorsel/uluslararasi-seo-nasil-yapilir-kapak-960.webp 960w, ./gorsel/uluslararasi-seo-nasil-yapilir-kapak-1440.webp 1440w, ./gorsel/uluslararasi-seo-nasil-yapilir-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Çok dilli SEO kurulumunu temsil eden, dil katmanlarına ayrılan soyut cam küre görseli"
+           width="1920" height="1080" decoding="async"><figcaption>Uluslararası SEO kurulumu, tek bir sitenin dil ve ülke katmanlarına doğru şekilde ayrılmasıyla başlar. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> SEO</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>25 Eylül 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>7 başlık</b></div>
       </div>
-      <h1>Çok Dilli SEO ve Uluslararası Kurulum: hreflang ve URL Yapısı Rehberi</h1>
-      <p class="ozet">Çok dilli SEO, siteyi çevirmekle değil adres mimarisini kurmakla başlar. Yurt dışına açılan KOBİ'lerde tablo çoğu zaman aynı: ajans siteyi çeviriyor, menüye iki bayrak koyuyor, ekip sonuç bekliyor. Google ise hangi sayfayı hangi pazara göstereceğini bu kurulumdan okuyamaz. Oysa karar üç katmanda veriliyor: alan adı yapısı, dil-bölge etiketleri ve sunucu tarafındaki ayarlar. Bu rehberde alan adı seçiminden hreflang satırlarına kadar rotayı adım adım açıyoruz. Sonunda ekibinize devredebileceğiniz somut bir uygulama listesi kalıyor.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#cok-dilli-seo-nedir-uluslararasi-kurulumdan-farki-nedir"><span>01</span>Çok Dilli SEO Nedir, Uluslararası Kurulumdan Farkı Nedir?</a><a href="#cctld-mi-alt-dizin-mi-hangi-url-yapisini-secmeliyiz"><span>02</span>ccTLD mi Alt Dizin mi: Hangi URL Yapısını Seçmeliyiz?</a><a href="#hreflang-etiketleri-nasil-kurulur"><span>03</span>hreflang Etiketleri Nasıl Kurulur?</a><a href="#dil-surumlerinde-teknik-altyapi-nasil-kurgulanir"><span>04</span>Dil Sürümlerinde Teknik Altyapı Nasıl Kurgulanır?</a><a href="#uluslararasi-seo-kurulumunda-hangi-hatalar-gorunurlugu-bozar"><span>05</span>Uluslararası SEO Kurulumunda Hangi Hatalar Görünürlüğü Bozar?</a><a href="#cok-dilli-seo-kurulumu-8-adimlik-uygulama-listesi"><span>06</span>Çok Dilli SEO Kurulumu: 8 Adımlık Uygulama Listesi</a><a href="#cctld-alt-dizin-ve-alt-alan-adi-url-yapisi-karsilastirmasi"><span>07</span>ccTLD, Alt Dizin ve Alt Alan Adı: URL Yapısı Karşılaştırması</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/uluslararasi-seo-nasil-yapilir-kapak-1440.webp"
-           srcset="./gorsel/uluslararasi-seo-nasil-yapilir-kapak-640.webp 640w, ./gorsel/uluslararasi-seo-nasil-yapilir-kapak-960.webp 960w, ./gorsel/uluslararasi-seo-nasil-yapilir-kapak-1440.webp 1440w, ./gorsel/uluslararasi-seo-nasil-yapilir-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Çok dilli SEO kurulumunu temsil eden, dil katmanlarına ayrılan soyut cam küre görseli"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Uluslararası SEO kurulumu, tek bir sitenin dil ve ülke katmanlarına doğru şekilde ayrılmasıyla başlar. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Çok Dilli SEO Nedir, Uluslararası Kurulumdan Farkı Nedir?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 07</span></div><h2 id="cok-dilli-seo-nedir-uluslararasi-kurulumdan-farki-nedir">Çok Dilli SEO Nedir, Uluslararası Kurulumdan Farkı Nedir?</h2>
       <div class="yz-cevap"><p>Çok dilli SEO, aynı içeriğin farklı dil sürümlerini arama motorlarına ayrı ayrı tanıtan kurulumdur. Uluslararası SEO ise dile ek olarak ülke hedefini yönetir. Türkçe sitenize eklenen tek bir Almanca sürüm çok dilli kurulumdur. Aynı Almanca içeriği Almanya ve Avusturya için ayrıştırmak ise çok bölgeli kurguya geçiştir. İki katman çoğu projede iç içe ilerler.</p></div>
       <p>Dil hedefi, içeriğin hangi dilde okunacağını belirler. Ülke hedefi ise hangi pazarın parası ve mevzuatıyla konuştuğunuzu tanımlar. Bir İngilizce sayfa hem Londra'ya hem Dubai'ye ulaşabilir. Bu ayrımı yapmayan ekipler mimariyi baştan kurar. Yurt dışına açılan işletme sayısı genişledikçe bu ayrımın maliyeti de büyüyor; <a href="https://ticaret.gov.tr/duyurular/turkiyede-e-ticaretin-gorunumu-raporu-yayinlandi-06-05-2025" target="_blank" rel="noopener">Ticaret Bakanlığı duyurusunda</a> paylaşılan tablo işletmelerin çevrim içi varlığındaki genişlemeyi gösteriyor. <a href="../../cok-dilli-seo/">Çok dilli SEO</a> tarafındaki dil-ülke eşlemesini ilk günden kurmak, sonraki taşınma maliyetini ortadan kaldırır.</p>
       <h3>Çeviri tek başına neden yetmez?</h3>
       <p>Çeviri metni taşır, sinyali taşımaz. Arama motoru bir sayfanın hangi ülkeye ait olduğunu etiketten okur. İşaret yoksa iki dil sürümü birbirinin kopyası gibi görünür.</p>
       <h3>Kurulum hangi kararla başlar?</h3>
-      <p>Çok dilli SEO işinde sıra, içerik yazımından önce kurulumdadır. Önce hangi pazarlara gireceğinizi, hangi dillerde satacağınızı ve kimin yöneteceğini yazın. Bu üç yanıt netleşmeden alan adı kararı vermek erken olur.</p>
-      <h2>ccTLD mi Alt Dizin mi: Hangi URL Yapısını Seçmeliyiz?</h2>
+      <p>Çok dilli SEO işinde sıra, içerik yazımından önce kurulumdadır. Önce hangi pazarlara gireceğinizi, hangi dillerde satacağınızı ve kimin yöneteceğini yazın. Bu üç yanıt netleşmeden alan adı kararı vermek erken olur.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 07</span></div><h2 id="cctld-mi-alt-dizin-mi-hangi-url-yapisini-secmeliyiz">ccTLD mi Alt Dizin mi: Hangi URL Yapısını Seçmeliyiz?</h2>
       <div class="yz-cevap"><p>Sınırlı bütçeyle ilerleyen KOBİ'ler için alt dizin yapısı en güvenli başlangıçtır. Tek alan adının otoritesi bütün dillere yayılır. ccTLD, hedef ülkede ayrı ekip ve ayrı marka yönetiyorsanız anlam kazanır. Alt alan adı üçüncü seçenektir; yönetimi rahat, otorite aktarımı zayıftır. Üç yapının kurulum ve bakım yükü birbirinden belirgin biçimde ayrışır.</p></div>
       <p>Karar üç değişkene bakar: bütçe, ekip ve hedef pazar sayısı. Üç dilde üç ayrı ccTLD, üç ayrı site demektir. Pazar sayısı arttıkça adres mimarisi kararı daha erken gündeme gelir; <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">Ticaret Bakanlığı'nın 2025 raporu</a> e-ticaret yapan işletme sayısındaki artışı rakamlarla ortaya koyuyor. SEO kurulumunu çok dilli yürütürken adres mimarisini sonradan değiştirmek yönlendirme zinciri ve indeks dalgalanması getirir. Sunucu ve yönlendirme denetimini <a href="../../teknik-seo/">teknik SEO</a> ekibi yürütür.</p>
       <h3>Alt dizin yapısı neyi kolaylaştırır?</h3>
       <p>Tek sunucu, tek sertifika, tek analitik. Yeni bir dil eklemek tek altyapıda çoğunlukla aynı gün içinde biter; ayrı ccTLD'lerde aynı iş belirgin biçimde uzar. Aldığınız her dış bağlantı, ana alan adının gücünü bütün sürümlere taşır.</p>
       <h3>ccTLD ne zaman doğru karardır?</h3>
-      <p>Hedef ülkede fiziksel ofisiniz, yerel ekibiniz ve ayrı fiyat politikanız varsa ccTLD kazandırır. Kullanıcı .de uzantısını yerel bir marka gibi okur. Ancak her ülke için otoriteyi sıfırdan kurarsınız.</p>
-      <h2>hreflang Etiketleri Nasıl Kurulur?</h2>
+      <p>Hedef ülkede fiziksel ofisiniz, yerel ekibiniz ve ayrı fiyat politikanız varsa ccTLD kazandırır. Kullanıcı .de uzantısını yerel bir marka gibi okur. Ancak her ülke için otoriteyi sıfırdan kurarsınız.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 07</span></div><h2 id="hreflang-etiketleri-nasil-kurulur">hreflang Etiketleri Nasıl Kurulur?</h2>
       <div class="yz-cevap"><p>hreflang, bir sayfanın hangi dil ve ülke için hazırlandığını arama motoruna bildiren etikettir. Kurulum üç yoldan ilerler: sayfa head bölümü, XML sitemap ya da HTTP başlığı. Bu dil-bölge işareti, çok dilli SEO kurulumunun omurgasını oluşturur. Her sürüm hem diğer bütün sürümlere hem de kendine işaret eder.</p></div>
       <p>Dil kodunda ISO 639-1, ülke kodunda ISO 3166-1 alpha-2 standardı geçerlidir. Örnek satırlar: tr, de-AT, en-GB. Hangi sürümün gösterileceği belirsiz kalıyorsa <code>x-default</code> satırını ekleyin. Binlerce sayfalı kataloglarda sitemap yöntemi head şişmesini engeller. Yanlış bir bölge kodu, SEO tarafında çok dilli yapının o ayağını devre dışı bırakır.</p>
       <h3>Karşılıklı doğrulama neden zorunlu?</h3>
       <p>hreflang tek yönlü çalışmaz. Türkçe sayfa Almanca sürüme işaret ediyorsa, Almanca sayfa da Türkçeye geri işaret etmeli. Tek taraflı kalan satırları Google yok sayar. Eksik dönüş bağlantısı, sahadaki en yaygın kurulum hatasıdır.</p>
       <h4>hreflang ile canonical çakışırsa ne olur?</h4>
-      <p>Her dil sürümü kendi kendine canonical vermeli. Almanca sayfayı Türkçe sürüme canonical yapan kurulumlarda Almanca adres indeksten düşer. Kural basit: canonical sayfayı işaret eder, hreflang sürümleri eşler.</p>
-      <h2>Dil Sürümlerinde Teknik Altyapı Nasıl Kurgulanır?</h2>
+      <p>Her dil sürümü kendi kendine canonical vermeli. Almanca sayfayı Türkçe sürüme canonical yapan kurulumlarda Almanca adres indeksten düşer. Kural basit: canonical sayfayı işaret eder, hreflang sürümleri eşler.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 07</span></div><h2 id="dil-surumlerinde-teknik-altyapi-nasil-kurgulanir">Dil Sürümlerinde Teknik Altyapı Nasıl Kurgulanır?</h2>
       <div class="yz-cevap"><p>Her dil sürümünün kendi taranabilir adresi, kendi sitemap dosyası ve iç link ağı olmalı. Dil değiştirici, kullanıcıya seçim bırakan bir yapıda çalışmalı. IP tabanlı zorunlu yönlendirme, tarayıcıyı yanlış sürüme kilitler. Sunucu konumu ise tek başına belirleyici bir sinyal sayılmaz. Bu üç karar aynı teknik şemada durur.</p></div>
       <p>Her dil sürümünün kendi adresinden açılması, kurulumun görünmeyen yarısıdır. Aynı URL'de çerezle dil değiştiren yapılar tarayıcıya tek sürüm gösterir. <a href="../../e-ticaret/">E-ticaret altyapısı</a> tarafında dil sürümlerini panelden yönetilebilir tutmak işi kolaylaştırır.</p>
       <h3>Dil değiştirici nasıl olmalı?</h3>
       <p>Bayrak ikonu dili değil ülkeyi anlatır; İngilizce için hangi bayrağı koyacaksınız? Dil adını kendi dilinde yazın: Deutsch, English, Türkçe. Bağlantılar gerçek a href olmalı, JavaScript menüsüne gömülmemeli.</p>
       <h3>Sitemap'i dile göre bölmek ne kazandırır?</h3>
       <p>Her dil için ayrı sitemap dosyası, sorunu ait olduğu sürümde gösterir. Dosyaları bir sitemap index altında toplayıp tek satırla bildirin. Çok dilli SEO yürüten ekipler için bu ayrım günlük denetimi sadeleştirir.</p>
-      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      <h2>Uluslararası SEO Kurulumunda Hangi Hatalar Görünürlüğü Bozar?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 07</span></div><h2 id="uluslararasi-seo-kurulumunda-hangi-hatalar-gorunurlugu-bozar">Uluslararası SEO Kurulumunda Hangi Hatalar Görünürlüğü Bozar?</h2>
       <div class="yz-cevap"><p>Beş hata kurulumların çoğunu bozar: eksik dönüş bağlantısı, yanlış bölge kodu, zorunlu IP yönlendirmesi, kopyalanan canonical ve karışan sitemap. Beşi de yayın öncesinde düşük maliyetle çözülür. Yayın sonrasına kalırsa toparlanma belirgin biçimde uzar. Kontrol listesini bu yüzden yayından önce açın.</p></div>
       <p>Hataların ortak kaynağı acele; pazar sayısı büyüdükçe karmaşıklık katlanarak artar. Bu kararları aynı masada almayan ekipler aynı işi iki kez yapar.</p>
       <h3>Kopya içerik riski gerçek mi?</h3>
       <p>Çok dilli SEO kurgusunda farklı dillerdeki sürümler birbirinin kopyası sayılmaz. Risk, aynı dilin farklı ülke sürümlerinde başlar. Türkiye ve Almanya için birebir aynı Türkçe metni yayımlamak buna örnektir. Etiket yoksa Google kendi tercihini yapar.</p>
       <h3>Makine çevirisi kurulumu bozar mı?</h3>
-      <p>Ham makine çıktısı sektör terminolojisini kaçırır; kullanıcı aradığı karşılığı bulamadan sayfadan çıkar. Çeviriyi taban metin olarak kullanın, yerel bir editörle son okuma yapın.</p>
-      <h2>Çok Dilli SEO Kurulumu: 8 Adımlık Uygulama Listesi</h2>
+      <p>Ham makine çıktısı sektör terminolojisini kaçırır; kullanıcı aradığı karşılığı bulamadan sayfadan çıkar. Çeviriyi taban metin olarak kullanın, yerel bir editörle son okuma yapın.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 07</span></div><h2 id="cok-dilli-seo-kurulumu-8-adimlik-uygulama-listesi">Çok Dilli SEO Kurulumu: 8 Adımlık Uygulama Listesi</h2>
       <div class="yz-cevap"><p>Aşağıdaki sekiz adım, çok dilli SEO kurulumunun ilk aşamasını kapsayan uygulama sırasıdır. Sıralama, adımlar arasındaki teknik bağımlılığı izler. Adımları atlamadan ilerlemek, sonradan taşınma maliyetini ortadan kaldırır. Her adımın sonunda somut bir çıktı bırakın; kontrol listesi böylece denetlenebilir kalır ve sorumluluk dağılmaz.</p></div>
       <ol><li>Hedef pazarları ve dilleri yazın; her pazar için sorumlu bir isim belirleyin.</li><li>URL yapısını seçin: alt dizin, ccTLD veya alt alan adı.</li><li>Dil ve bölge kodlarını ISO standardına göre listeleyin.</li><li>hreflang satırlarını head, sitemap veya HTTP başlığından biriyle kurun.</li><li>Karşılıklı doğrulamayı test edin; her sürüm diğerlerine ve kendine işaret etsin.</li><li>Her dil için canonical etiketini kendi adresine bağlayın.</li><li>Sitemap dosyalarını dile göre ayırıp index dosyasında toplayın.</li><li>Dil değiştiriciyi gerçek bağlantılarla kurun, zorunlu yönlendirmeyi kapatın.</li></ol><p>Kurulum planınızı birlikte çıkaralım: <a href="../../teklif/">teklif formumuz</a> üzerinden pazar listenizi paylaşın. Rotayı markanızın büyüme takvimine göre kurgularız.</p>
       <h3>Kurulumu kim yönetmeli?</h3>
       <p>Tek kişilik bir sahip belirleyin. Etiket, sitemap ve yönlendirme kararları dağıldığında kimse tabloyu bütün görmez. Ajans tarafında bu rolü biz üstleniriz.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/uluslararasi-seo-nasil-yapilir-govde-960.webp"
              srcset="./gorsel/uluslararasi-seo-nasil-yapilir-govde-640.webp 640w, ./gorsel/uluslararasi-seo-nasil-yapilir-govde-960.webp 960w, ./gorsel/uluslararasi-seo-nasil-yapilir-govde-1440.webp 1440w, ./gorsel/uluslararasi-seo-nasil-yapilir-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="ccTLD, alt dizin ve alt alan adı rotalarını temsil eden soyut dallanan dizin yapısı" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>URL yapısı kararı üç rotadan biriyle ilerler; üçü de sonunda tek bir kurulum planında birleşir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>ccTLD, Alt Dizin ve Alt Alan Adı: URL Yapısı Karşılaştırması</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 07</b><span>07 / 07</span></div><h2 id="cctld-alt-dizin-ve-alt-alan-adi-url-yapisi-karsilastirmasi">ccTLD, Alt Dizin ve Alt Alan Adı: URL Yapısı Karşılaştırması</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Kriter</th><th>ccTLD (site.de)</th><th>Alt dizin (site.com/de/)</th><th>Alt alan adı (de.site.com)</th></tr></thead>
@@ -572,7 +617,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../cok-dilli-seo/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Uluslararası büyüme, çeviri bütçesiyle değil kurulum kararlarıyla başlar. Alan adı yapısını, hreflang satırlarını ve sitemap düzenini ilk günde doğru kurarsanız, aynı işi ikinci kez yapmazsınız. Pazar listenizi paylaşın; hangi rotanın markanıza uyduğunu birlikte netleştirelim.</p>
+        <p>Uluslararası büyüme, çeviri bütçesiyle değil kurulum kararlarıyla başlar. Alan adı yapısını, hreflang satırlarını ve sitemap düzenini ilk günde doğru kurarsanız, aynı işi ikinci kez yapmazsınız. Pazar listenizi paylaşın; hangi rotanın markanıza uyduğunu birlikte netleştirelim.</p></section>
       </article>
     </div>
   </section>

@@ -175,6 +175,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -465,43 +512,41 @@
 <!-- AYIRT EDİCİ EKSEN: GÖRÜNÜM — Logo, kurumsal kimlik, ambalaj gibi türlerin görsel çıktı yelpazesi; süreç ve araçlara girilmez, ne göreceğiniz anlatılır.
      Huni türü: TOFU · Küme: Graphic Design · Kardeşler (enjeksiyon turunda): grafik-tasarim-sureci, grafik-tasarim-trendleri, grafik-tasarim-araclari -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">What Does Corporate Graphic Design Cover?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Graphic Design</span>
-        <span class="yz-meta">5 September 2026 · 7 min read</span>
+          <h1>What Does Corporate Graphic Design Cover?</h1>
+          <p class="ozet">A brand's face takes shape afresh in every visual you come across. Corporate graphic design is the umbrella gathering all of those visuals under a single language. The number of businesses going digital in Türkiye is rising fast. The Ministry of Trade's <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">Outlook for E-Commerce in Türkiye 2025 report</a> puts the number of businesses trading online at 634,611. For SMEs wanting to stand apart by their visual language in that crowding shop window, getting to know the types of design is the first step. In this article we set out what you will see, from the logo to the packaging and from the catalogue to the social media image. We aren't going into software or stages of production.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/corporate-graphic-design-cover-1440.webp"
+           srcset="./image/corporate-graphic-design-cover-640.webp 640w, ./image/corporate-graphic-design-cover-960.webp 960w, ./image/corporate-graphic-design-cover-1440.webp 1440w, ./image/corporate-graphic-design-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Abstract 3D panels opened out on a dark ground, representing the range of corporate graphic design outputs"
+           width="1920" height="1080" decoding="async"><figcaption>The range of outputs in corporate graphic design: each panel represents a different touchpoint. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Graphic Design</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>5 September 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>What Does Corporate Graphic Design Cover?</h1>
-      <p class="ozet">A brand's face takes shape afresh in every visual you come across. Corporate graphic design is the umbrella gathering all of those visuals under a single language. The number of businesses going digital in Türkiye is rising fast. The Ministry of Trade's <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">Outlook for E-Commerce in Türkiye 2025 report</a> puts the number of businesses trading online at 634,611. For SMEs wanting to stand apart by their visual language in that crowding shop window, getting to know the types of design is the first step. In this article we set out what you will see, from the logo to the packaging and from the catalogue to the social media image. We aren't going into software or stages of production.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#what-is-corporate-graphic-design-and-which-outputs-does-it-cover"><span>01</span>What Is Corporate Graphic Design, and Which Outputs Does It Cover?</a><a href="#what-will-you-find-in-the-logo-and-identity-set"><span>02</span>What Will You Find in the Logo and Identity Set?</a><a href="#in-print-the-range-from-packaging-to-catalogue"><span>03</span>In Print: The Range from Packaging to Catalogue</a><a href="#which-types-of-design-will-you-see-on-screen"><span>04</span>Which Types of Design Will You See on Screen?</a><a href="#which-visual-output-answers-which-need"><span>05</span>Which Visual Output Answers Which Need?</a><a href="#let-s-plan-your-corporate-graphic-design-needs-together"><span>06</span>Let's Plan Your Corporate Graphic Design Needs Together</a><a href="#types-of-design-compared-by-where-they-appear"><span>07</span>Types of design compared by where they appear</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/corporate-graphic-design-cover-1440.webp"
-           srcset="./image/corporate-graphic-design-cover-640.webp 640w, ./image/corporate-graphic-design-cover-960.webp 960w, ./image/corporate-graphic-design-cover-1440.webp 1440w, ./image/corporate-graphic-design-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Abstract 3D panels opened out on a dark ground, representing the range of corporate graphic design outputs"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>The range of outputs in corporate graphic design: each panel represents a different touchpoint. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>What Is Corporate Graphic Design, and Which Outputs Does It Cover?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="what-is-corporate-graphic-design-and-which-outputs-does-it-cover">What Is Corporate Graphic Design, and Which Outputs Does It Cover?</h2>
       <div class="yz-cevap"><p>Corporate graphic design is the design discipline producing a brand's logo, identity set, print work and digital visuals. All of those outputs carry a shared visual language. Its scope isn't limited to a single logo. It contains a wide range of outputs running from the business card to the packaging and from the catalogue to the web banner. The aim is for the brand to appear with the same character at every touchpoint.</p></div>
       <p>A visual identity is the body of rules defining a brand through colour, typeface and form. The industry also calls that same whole the brand identity. On the SME side, the value of that whole shows up on the shelf and on the screen. A customer remembers a brand with a consistent appearance more easily. The corporate leg of graphic design is precisely the family of outputs producing that consistency.</p>
       <h3>Why Is the Range of Visual Outputs So Wide?</h3>
-      <p>Your customer meets the brand on different surfaces: a phone screen, a shop shelf, a trade fair stand, an invoice envelope. Each surface has its own size and light; each asks for its own output. That wide range of outputs isn't a luxury but the natural result of having touchpoints.</p>
-      <h2>What Will You Find in the Logo and Identity Set?</h2>
+      <p>Your customer meets the brand on different surfaces: a phone screen, a shop shelf, a trade fair stand, an invoice envelope. Each surface has its own size and light; each asks for its own output. That wide range of outputs isn't a luxury but the natural result of having touchpoints.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="what-will-you-find-in-the-logo-and-identity-set">What Will You Find in the Logo and Identity Set?</h2>
       <div class="yz-cevap"><p>The logo is the smallest but most visible output at the centre of the identity set. The business card, the letterhead, the email signature and the envelope surround it. Your brand then appears consistently, with the same face, everywhere. Planning that whole under a single roof gives a more consistent result than producing it piece by piece.</p></div>
       <p>The identity set is the family of concrete pieces running from your firm's official correspondence to the field team's staff badge. What matters is less the number of pieces than the kinship between them. The colour and the typeface stay shared across all of them. A small SME example makes it clear. A food wholesaler sends a proposal with an email signature in the morning. At midday they hand over a business card, and in the evening they arrive at the customer's door in a delivery vehicle. If those three touchpoints carry the same colours, the customer perceives a single brand. If the set is scattered, each contact leaves the impression of a different firm.</p>
       <h3>The Logo: The Brand's Smallest Stage</h3>
@@ -509,40 +554,40 @@
       <h3>Which Pieces Make Up the Identity Set?</h3>
       <p>A typical set contains a business card, letterhead, envelope, folder, email signature and presentation template. For teams working in the field, a staff badge and vehicle livery join the range too.</p>
       <h4>What Will You Find in the Brand Guidelines?</h4>
-      <p>Brand guidelines are the reference document gathering the rules for using the logo, the colour codes and the typefaces into a single file. For SMEs, even a short version largely protects consistency.</p>
-      <h2>In Print: The Range from Packaging to Catalogue</h2>
+      <p>Brand guidelines are the reference document gathering the rules for using the logo, the colour codes and the typefaces into a single file. For SMEs, even a short version largely protects consistency.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="in-print-the-range-from-packaging-to-catalogue">In Print: The Range from Packaging to Catalogue</h2>
       <div class="yz-cevap"><p>On the print side, packaging, labels, catalogues, brochures and trade fair materials are the most tangible outputs of corporate graphic design. Colours that look vivid on screen can change on paper; print work therefore asks for its own colour standard. Physical stages such as the shelf and the stand enter that list too, each expecting production at its own size.</p></div>
       <p>The advantage of a physical output is that it lasts. The image on a screen disappears; a catalogue sitting on a desk passes from hand to hand for days. On colour, the screen works with RGB light while the press works with CMYK ink. Because of that difference, an orange that looks lively on screen can come out flat on paper. The choice of paper changes the result too. Matt coated gives a calm, corporate feeling. Gloss coated brings colours forward, and kraft paper carries a natural character. Asking for a colour proof before printing solves at the desk the surprise you would otherwise have on the shelf.</p>
       <h3>How Does Packaging Design Look on the Shelf?</h3>
       <p>Packaging design is the visual surface introducing a product on the shelf within seconds. The industry also knows this type as pack design. The box, the label, the bag and the packing tape are all parts of the same family. Which box the eye goes to first among competing products determines the success of that output.</p>
       <h3>What Should You Expect from a Catalogue and a Brochure?</h3>
-      <p>A catalogue is the multi-page output describing your product family through page layout. A brochure — the short promotional booklet — is its version focused on a single subject. On both, the quality of the photography and the space on the page carry the look. In trade fair periods those two become your sales team's shop window on the table.</p>
-      <h2>Which Types of Design Will You See on Screen?</h2>
+      <p>A catalogue is the multi-page output describing your product family through page layout. A brochure — the short promotional booklet — is its version focused on a single subject. On both, the quality of the photography and the space on the page carry the look. In trade fair periods those two become your sales team's shop window on the table.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="which-types-of-design-will-you-see-on-screen">Which Types of Design Will You See on Screen?</h2>
       <div class="yz-cevap"><p>On the digital side, social media visuals, web banners, newsletter templates and advertising creatives form the backbone of the everyday appearance. A brand's face on screen now matters as much as a shop window. Every channel asks for its own dimensions; you cannot reach everywhere with a single visual, and each format is rebuilt at its own ratio.</p></div>
       <p><a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TurkStat</a>— TurkStat is Türkiye's statistical institute — and its latest research shows household internet use rising steadily over the years. The screen may be where many of your customers meet your brand for the first time. It is sensible to plan social media designs together with the <a href="../../social-media-management/">social media management</a> service. Site images, meanwhile, are best thought through together with the <a href="../../web-design/">web design and development</a> infrastructure; that protects the unity of the look.</p>
       <h3>What Is There in Social Media Visuals?</h3>
       <p>Post templates, story designs, cover images and profile elements are the members of this family. The logic of a template makes it clear at first glance that every post belongs to your brand. In design, a corporate graphic language makes recognition possible even for an eye scrolling quickly past.</p>
       <h3>Advertising Creatives and Banner Sets</h3>
       <p>We prepare digital advertising visuals as a set, with square, vertical and landscape versions. All of them are parts of a single campaign. Running the campaign design jointly with the <a href="../../digital-marketing/">digital marketing</a> team strengthens the link between the visual and the targeting.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>Which Visual Output Answers Which Need?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="which-visual-output-answers-which-need">Which Visual Output Answers Which Need?</h2>
       <div class="yz-cevap"><p>Your order of need takes shape according to the stage your brand is at. At a new founding the identity comes forward, at a product launch the packaging, and in a period of growth the digital set. Going in the wrong order splits the budget and breaks the appearance into pieces. The sequence below shows the order of need we meet most often at SMEs, through four typical scenarios.</p></div>
       <ol><li>A newly founded business: starts with the logo, the identity set and the brand guidelines.</li><li>A brand whose product is going onto the shelf: puts packaging and label design first.</li><li>A firm selling through dealers or B2B: turns to the catalogue and the promotional booklet.</li><li>A business growing in the digital channel: invests in social media templates and an advertising set.</li></ol> <p>Designing the corporate graphic design investment in that order lets each output sit on top of the one before it.</p>
       <h3>How Is the Look Protected When Needs Are Mixed?</h3>
-      <p>If you need several outputs at once, your anchor is the brand guidelines. With the guidelines ready, one team can produce the packaging and another the social media. The result still looks as though it comes from the same family. The graphic face of corporate communication stays standing through that shared reference.</p>
-      <h2>Let's Plan Your Corporate Graphic Design Needs Together</h2>
+      <p>If you need several outputs at once, your anchor is the brand guidelines. With the guidelines ready, one team can produce the packaging and another the social media. The result still looks as though it comes from the same family. The graphic face of corporate communication stays standing through that shared reference.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="let-s-plan-your-corporate-graphic-design-needs-together">Let's Plan Your Corporate Graphic Design Needs Together</h2>
       <div class="yz-cevap"><p>To draw up your map of needs, it is enough for us to go through your corporate graphic design inventory together. In that review we clarify the missing outputs and the order of priority. That conversation doesn't tie you to a package; it lets you see which type will genuinely contribute to your business. A corporate graphic design investment can also start in small steps, in the right order.</p></div>
       <p>At TasarımMania, in <a href="../../graphic-design/">our graphic design service</a> we produce every family of outputs listed in this article. Send us your existing visuals; we'll report which pieces are missing and which need refreshing. On this design investment we like to set measurable goals. We proceed with clear answers to the questions of how many outputs, which channel and which priority.</p>
       <h3>What Should You Prepare for the First Step?</h3>
       <p>The logo files you have, the colours you use and a list of your active sales channels are enough to begin. If your materials are scattered, don't worry; the scatter itself shows you the map of needs.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/corporate-graphic-design-body-960.webp"
              srcset="./image/corporate-graphic-design-body-640.webp 640w, ./image/corporate-graphic-design-body-960.webp 960w, ./image/corporate-graphic-design-body-1440.webp 1440w, ./image/corporate-graphic-design-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="An abstract 3D composition joining packaging, print and digital screen outputs with a single line of light" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>From print to screen, every output is a different scene in the same visual language. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Types of design compared by where they appear</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="types-of-design-compared-by-where-they-appear">Types of design compared by where they appear</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Type of design</th><th>Where you see it</th><th>Typical outputs</th></tr></thead>
@@ -564,7 +609,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../graphic-design/">See the service page</a>
         </aside>
-        <p>Knowing the range of visual outputs is the first condition of directing your budget to the right type. The logo, the identity set, the packaging, the catalogue and the digital visuals are all parts of that range. Each is your brand's face as it appears on a different stage. Corporate graphic design ties those stages to a single language. When you decide which stage to start from, you can use the sequence in this article as a road map.</p>
+        <p>Knowing the range of visual outputs is the first condition of directing your budget to the right type. The logo, the identity set, the packaging, the catalogue and the digital visuals are all parts of that range. Each is your brand's face as it appears on a different stage. Corporate graphic design ties those stages to a single language. When you decide which stage to start from, you can use the sequence in this article as a road map.</p></section>
       </article>
     </div>
   </section>

@@ -175,6 +175,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -465,73 +512,71 @@
 <!-- AYIRT EDİCİ EKSEN: MALIYET — Hazır tema ve özel e-ticaret sitesi tasarımının maliyet/değer kıyası; UX akışı ve ödeme altyapısı kardeş yazıların konusu, altyapı/platform seçim ölçütleri e-ticaret-yazilimi'nin ekseni — burada tekrarlanmaz.
      Huni türü: MOFU · Küme: E-Ticaret Deneyimi · Kardeşler (enjeksiyon turunda): kullanici-deneyimi, odeme-guvenligi, e-ticaret-urun-fotograflari -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">E-Ticaret Sitesi Tasarımı: Hazır Tema mı, Özel Tasarım mı?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Web Tasarım</span>
-        <span class="yz-meta">11 Eylül 2026 · 7 dakikalık okuma</span>
+          <h1>E-Ticaret Sitesi Tasarımı: Hazır Tema mı, Özel Tasarım mı?</h1>
+          <p class="ozet">Çevrimiçi mağaza açan her KOBİ aynı soruyla karşılaşır: hazır tema mı, özel tasarım mı? E-ticaret sitesi tasarımı bu anda görsel bir tercih olmaktan çıkar. Karar, yıllara yayılan bir maliyet planına dönüşür. Etiket fiyatı düşük görünen şablon, lisans ve eklenti giderleriyle zamanla kabarabilir. Özel e-ticaret sitesi tasarımı ise yüksek başlangıç bütçesini uzun vadede geri kazandırabilir. Bu yazıda iki yaklaşımı maliyet ve değer ekseninde kıyaslıyoruz. Kararınızı sayısal eşiklere bağlayan pratik bir çerçeve sunuyoruz.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/e-ticaret-web-tasarimi-kapak-1440.webp"
+           srcset="./gorsel/e-ticaret-web-tasarimi-kapak-640.webp 640w, ./gorsel/e-ticaret-web-tasarimi-kapak-960.webp 960w, ./gorsel/e-ticaret-web-tasarimi-kapak-1440.webp 1440w, ./gorsel/e-ticaret-web-tasarimi-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Hazır tema ve özel e-ticaret sitesi tasarımı seçimini simgeleyen, iki yola ayrılan soyut karanlık 3D illüstrasyon"
+           width="1920" height="1080" decoding="async"><figcaption>Aynı hedefe giden iki yol: standart kalıp ve markaya özel yapı, maliyet tablosunda farklı hikâyeler anlatır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Web Tasarım</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>11 Eylül 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>6 başlık</b></div>
       </div>
-      <h1>E-Ticaret Sitesi Tasarımı: Hazır Tema mı, Özel Tasarım mı?</h1>
-      <p class="ozet">Çevrimiçi mağaza açan her KOBİ aynı soruyla karşılaşır: hazır tema mı, özel tasarım mı? E-ticaret sitesi tasarımı bu anda görsel bir tercih olmaktan çıkar. Karar, yıllara yayılan bir maliyet planına dönüşür. Etiket fiyatı düşük görünen şablon, lisans ve eklenti giderleriyle zamanla kabarabilir. Özel e-ticaret sitesi tasarımı ise yüksek başlangıç bütçesini uzun vadede geri kazandırabilir. Bu yazıda iki yaklaşımı maliyet ve değer ekseninde kıyaslıyoruz. Kararınızı sayısal eşiklere bağlayan pratik bir çerçeve sunuyoruz.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#hazir-tema-ile-ozel-tasarim-arasindaki-temel-fark-nedir"><span>01</span>Hazır Tema ile Özel Tasarım Arasındaki Temel Fark Nedir?</a><a href="#hazir-temanin-gercek-maliyeti-ne-kadar"><span>02</span>Hazır Temanın Gerçek Maliyeti Ne Kadar?</a><a href="#ozel-e-ticaret-sitesi-tasarimi-hangi-durumda-mantikli-yatirimdir"><span>03</span>Özel E-Ticaret Sitesi Tasarımı Hangi Durumda Mantıklı Yatırımdır?</a><a href="#toplam-sahip-olma-maliyetini-nasil-hesaplarsiniz"><span>04</span>Toplam Sahip Olma Maliyetini Nasıl Hesaplarsınız?</a><a href="#karar-verirken-hangi-esiklere-bakmalisiniz"><span>05</span>Karar Verirken Hangi Eşiklere Bakmalısınız?</a><a href="#hazir-tema-ve-ozel-tasarim-karsilastirma-tablosu"><span>06</span>Hazır Tema ve Özel Tasarım Karşılaştırma Tablosu</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/e-ticaret-web-tasarimi-kapak-1440.webp"
-           srcset="./gorsel/e-ticaret-web-tasarimi-kapak-640.webp 640w, ./gorsel/e-ticaret-web-tasarimi-kapak-960.webp 960w, ./gorsel/e-ticaret-web-tasarimi-kapak-1440.webp 1440w, ./gorsel/e-ticaret-web-tasarimi-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Hazır tema ve özel e-ticaret sitesi tasarımı seçimini simgeleyen, iki yola ayrılan soyut karanlık 3D illüstrasyon"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Aynı hedefe giden iki yol: standart kalıp ve markaya özel yapı, maliyet tablosunda farklı hikâyeler anlatır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Hazır Tema ile Özel Tasarım Arasındaki Temel Fark Nedir?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 06</span></div><h2 id="hazir-tema-ile-ozel-tasarim-arasindaki-temel-fark-nedir">Hazır Tema ile Özel Tasarım Arasındaki Temel Fark Nedir?</h2>
       <div class="yz-cevap"><p>Hazır tema kiralanmış bir kalıptır, özel tasarım ise markanıza göre sıfırdan üretilen yapıdır. Fark, sahiplikte ve esneklikte ortaya çıkar. Şablonda binlerce mağazayla aynı iskeleti paylaşırsınız. Terzi işi projede kod, arayüz ve genişleme kararları tamamen size aittir. Sahiplik farkı, ileriki yıllarda ödeyeceğiniz her kalemi doğrudan etkiler.</p></div>
       <p>Hazır tema, çok sayıda mağazaya satılmak üzere üretilen paket arayüzdür. Özel tasarım, tek bir markanın hedefleri için sıfırdan kodlanan çözümdür. Kodun tüm hakları müşteriye aittir. Türkiye'de bu kararı veren işletme sayısı hızla artıyor. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">ETBİS 2025 raporuna</a> göre ülkemizde 634 bin 611 işletme e-ticaret yapıyor. Pazar kalabalıklaştıkça e-ticaret sitesi tasarımının farklılaştırıcı gücü, fiyat etiketinde görünmeyen bir değer kalemine dönüşüyor.</p>
       <h3>Maliyet Kıyası Neden Etiket Fiyatıyla Bitmez?</h3>
-      <p>Etiket fiyatı yalnızca kurulum gününü anlatır. Şablonun yıllık lisans yenilemesi ve ücretli eklentileri zamana yayılır. Uyumsuzluk çıkınca ödenen acil onarım bedelleri de listeyi kabartır. Özel projede bakım sözleşmesi tek ve öngörülebilir bir kalemdir. İki modeli sağlıklı kıyaslamanın yolu, üç ile beş yıllık toplam gideri aynı tabloya koymaktır. Değer, bu uzun pencerede netleşir.</p>
-      <h2>Hazır Temanın Gerçek Maliyeti Ne Kadar?</h2>
+      <p>Etiket fiyatı yalnızca kurulum gününü anlatır. Şablonun yıllık lisans yenilemesi ve ücretli eklentileri zamana yayılır. Uyumsuzluk çıkınca ödenen acil onarım bedelleri de listeyi kabartır. Özel projede bakım sözleşmesi tek ve öngörülebilir bir kalemdir. İki modeli sağlıklı kıyaslamanın yolu, üç ile beş yıllık toplam gideri aynı tabloya koymaktır. Değer, bu uzun pencerede netleşir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 06</span></div><h2 id="hazir-temanin-gercek-maliyeti-ne-kadar">Hazır Temanın Gerçek Maliyeti Ne Kadar?</h2>
       <div class="yz-cevap"><p>Gerçek maliyet, başlangıç ücretine eklenen lisans, eklenti ve uyarlama giderlerinin yıllar içinde katlanan toplamıdır. Şablonu markaya benzetmek için harcanan geliştirici saatleri çoğu bütçe planında hiç yer almaz. Görünmeyen kalemler toplandığında, ucuz sanılan seçenek orta vadede beklenenden pahalı çıkabilir. Bu yüzden hesabı ilk günün değil beş yılın rakamıyla kurmak gerekir.</p></div>
       <p>Şablon ekonomisinin cazibesi hızdır: birkaç gün içinde satışa başlayabilirsiniz. Bedeli ise standart kalıba bağlı kalmaktır. Markaya uyarlama isteği arttıkça geliştirici mesaisi büyür. Ucuz başlayan proje saat ücretleriyle şişer. Kullanmadığınız onlarca modülün kodu sitede yük olarak durur. Bu ağırlık hem hıza hem bakım giderine yansır. Benzer dengeyi <a href="../../kurumsal-web-sitesi/">kurumsal web sitesi</a> projelerinde de gözlemliyoruz. E-ticaret sitesi tasarımında uyarlama bedeli, şablon ücretinin birkaç katına ulaşabiliyor.</p>
       <h3>Şablonda Hangi Gider Kalemleri Gizlidir?</h3>
-      <p>Görsel kimliğinizi grafik tasarım ekibimizle netleştirdikten sonra, e-ticaret sitesi tasarımına şablonla başlayan işletmelerin en sık atladığı kalemler şunlardır:</p><ul><li>Yıllık tema lisansı ve güncelleme paketi</li><li>Ücretli eklenti abonelikleri ve sürüm yükseltmeleri</li><li>Uyarlama için ödenen geliştirici saatleri</li><li>Tema güncellemesi sonrası bozulan işlevlerin onarımı</li><li>Yavaşlayan sayfalar için performans iyileştirme bedeli</li></ul><p>Çoğu teklif dosyası, beş kalemin yıllık toplamını hiç gündeme getirmez.</p>
-      <h2>Özel E-Ticaret Sitesi Tasarımı Hangi Durumda Mantıklı Yatırımdır?</h2>
+      <p>Görsel kimliğinizi grafik tasarım ekibimizle netleştirdikten sonra, e-ticaret sitesi tasarımına şablonla başlayan işletmelerin en sık atladığı kalemler şunlardır:</p><ul><li>Yıllık tema lisansı ve güncelleme paketi</li><li>Ücretli eklenti abonelikleri ve sürüm yükseltmeleri</li><li>Uyarlama için ödenen geliştirici saatleri</li><li>Tema güncellemesi sonrası bozulan işlevlerin onarımı</li><li>Yavaşlayan sayfalar için performans iyileştirme bedeli</li></ul><p>Çoğu teklif dosyası, beş kalemin yıllık toplamını hiç gündeme getirmez.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 06</span></div><h2 id="ozel-e-ticaret-sitesi-tasarimi-hangi-durumda-mantikli-yatirimdir">Özel E-Ticaret Sitesi Tasarımı Hangi Durumda Mantıklı Yatırımdır?</h2>
       <div class="yz-cevap"><p>Özel tasarım; büyüyen, marka farkı arayan ve trafiği artan işletmeler için mantıklı bir yatırımdır. Başlangıç bedelini dönüşüm artışıyla geri kazandırır. Küçük ölçekte şablon yeterli olabilir. Ciro büyüdükçe esneklik ihtiyacı bütçeden daha belirleyici hâle gelir. Kararı beğeniyle değil ölçek verisiyle vermek gerekir.</p></div>
       <p>Özel e-ticaret sitesi tasarımı, her bileşenin iş modelinize göre kurgulandığı geliştirme sürecidir. Kapsam, arayüzden yönetim paneline kadar uzanır. <a href="https://ticaret.gov.tr/duyurular/turkiyede-e-ticaretin-gorunumu-raporu-yayinlandi-06-05-2025" target="_blank" rel="noopener">Ticaret Bakanlığı'nın görünüm raporuna</a> göre e-ticaret hacmi 2024'te 3 trilyon TL'yi aştı. Sektörün gayrisafi yurt içi hasıla payı da yüzde 6,5 oldu. Büyüyen pastada birbirine benzeyen mağazalar fiyat rekabetine sıkışıyor. Terzi işi bir yapı ise markanızı kalabalıktan ayırıyor. Kampanya dönemlerinde ihtiyaç duyduğunuz özel işlevleri eklenti avına çıkmadan geliştirebilirsiniz. Kapsamın tamamını <a href="../../e-ticaret/">e-ticaret çözümleri sayfamızda</a> bulabilirsiniz.</p>
       <h3>Yatırımın Geri Dönüşünü Ne Belirler?</h3>
-      <p>Geri dönüşü üç değişken belirler: dönüşüm oranı, sepet tutarı ve tekrar satın alma sıklığı. Tasarımı özenle kurgulanmış bir e-ticaret sitesi, aynı reklam bütçesiyle daha fazla sipariş üretebilir. Arama görünürlüğü de denklemin parçasıdır. <a href="../../teknik-seo/">teknik SEO hizmetimizle</a> desteklenen özgün kod yapısı, organik trafiği kalıcı maliyet avantajına çevirir.</p>
-      <h2>Toplam Sahip Olma Maliyetini Nasıl Hesaplarsınız?</h2>
+      <p>Geri dönüşü üç değişken belirler: dönüşüm oranı, sepet tutarı ve tekrar satın alma sıklığı. Tasarımı özenle kurgulanmış bir e-ticaret sitesi, aynı reklam bütçesiyle daha fazla sipariş üretebilir. Arama görünürlüğü de denklemin parçasıdır. <a href="../../teknik-seo/">teknik SEO hizmetimizle</a> desteklenen özgün kod yapısı, organik trafiği kalıcı maliyet avantajına çevirir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 06</span></div><h2 id="toplam-sahip-olma-maliyetini-nasil-hesaplarsiniz">Toplam Sahip Olma Maliyetini Nasıl Hesaplarsınız?</h2>
       <div class="yz-cevap"><p>Toplam sahip olma maliyeti; kurulum, lisans, bakım, uyarlama ve yenileme giderlerinin toplamıdır. Hesabı üç ile beş yıllık pencere üzerinden kurarsınız. Tek seferlik fiyat yerine bu toplamı kıyaslayan işletmeler iki modelin gerçek farkını görür. E-ticaret sitesi tasarımı bütçesini bu yöntemle kuran KOBİ'ler, kararını duygudan arındırır.</p></div>
       <p>Toplam sahip olma maliyeti (TCO) finansal bir ölçüttür. Sistemin satın alma anından devre dışı kalmasına kadar ürettiği bütün giderleri kapsar. Hesabı beş adımda kurabilirsiniz:</p><ol><li>Kurulum bedelini yazın: tema ücreti veya özel proje teklifi.</li><li>Yinelenen giderleri ekleyin: lisans, eklenti aboneliği, barındırma, bakım sözleşmesi.</li><li>Uyarlama mesaisini öngörün: yıllık geliştirici saati ile saat ücretini çarpın.</li><li>Yenileme döngüsünü hesaba katın: mevcut yapının kaç yılda bir baştan kurulacağını belirleyin.</li><li>İki senaryonun beş yıllık toplamını alt alta koyup kıyaslayın.</li></ol>
       <h3>Yinelenen Giderler Neden Belirleyicidir?</h3>
       <p>Yinelenen gider, tek seferlik bedelin aksine her yıl tekrar eden ödeme kalemidir. Kur hareketleri, döviz bazlı lisans ve eklenti aboneliklerini doğrudan sarsar. Bütçesini TL ile planlayan KOBİ'ler için bu oynaklık ciddi bir risktir. Sabit bakım sözleşmesi ise öngörülebilirlik sağlar.</p>
       <h4>Gizli Kalem: Yeniden Kurulum Maliyeti</h4>
       <p>Şablon siteler belirli bir noktadan sonra çoğunlukla yama kabul etmez. O noktada baştan kurulum gündeme gelir. Somut bir senaryo düşünün. Tema geliştiricisi bir gün güncelleme desteğini durdurur. Ödeme eklentisi yeni sürümle uyuşmaz ve sepet adımı hata verir. Tek çıkış yolu, ürün verisini taşıyıp mağazayı baştan kurmaktır. Bu taşınma; veri aktarımı, ekip eğitimi ve satış kaybı anlamına gelir. Özel yapıda ise mevcut kodu kademeli biçimde yenileyebilirsiniz. Tek başına bu fark bile beş yıllık maliyet dengesini değiştirebilir.</p>
-      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      <h2>Karar Verirken Hangi Eşiklere Bakmalısınız?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 06</span></div><h2 id="karar-verirken-hangi-esiklere-bakmalisiniz">Karar Verirken Hangi Eşiklere Bakmalısınız?</h2>
       <div class="yz-cevap"><p>Kararı; ürün sayısı, sipariş hacmi, kampanya yoğunluğu ve büyüme hedefi eşiklerine bakarak verin. Şablonla başlayıp belirli bir ölçekte özel yapıya geçmek de geçerli bir stratejidir. Önemli olan, geçiş anını tahminle değil maliyet verisiyle yakalamaktır. İşaretlerin en az ikisi sizde varsa özel çözümü ciddi biçimde değerlendirin.</p></div>
       <p>Eşik derken kastımız, tercihi kişisel beğeniden çıkarıp veriye bağlayan somut göstergelerdir. <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TÜİK'in güncel araştırmaları</a>, internetten alışverişin hanelerde yaygınlaşmayı sürdürdüğüne işaret ediyor. Talep tabanı genişledikçe siteniz ölçek sınavına daha erken giriyor. Şu göstergeleri izleyin:</p><ul><li>Ürün kataloğu birkaç yüz kalemi aşıyor ve varyasyon yönetimi şablonu zorluyor.</li><li>Kampanya günlerinde trafik olağan seviyenin katlarına çıkıyor.</li><li>Eklenti sayısı arttıkça sayfa hızı ve bakım gideri birlikte kötüleşiyor.</li><li>Markanız, rakiplerle aynı kalıpta görünmenin satış kaybettirdiği bir segmentte yarışıyor.</li></ul><p>E-ticaret sitenizin tasarımı bu eşiklerin gerisindeyse şablonla devam etmek bütçe açısından savunulabilir bir tercihtir.</p>
       <h3>Geçiş Stratejisi Nasıl Kurgulanır?</h3>
       <p>Geçiş stratejisini, şablon döneminde toplanan satış verisi üzerine kurarsınız. İlk aylarda hangi kategorilerin döndüğünü ve siparişlerin hangi cihazlardan geldiğini kaydedin. E-ticarette site tasarımı bu verilerle şekillendiğinde isabet oranı yükselir. Böylece özel e-ticaret sitesi tasarımına ayrılan bütçe tahmine değil ölçüme dayanır.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/e-ticaret-web-tasarimi-govde-960.webp"
              srcset="./gorsel/e-ticaret-web-tasarimi-govde-640.webp 640w, ./gorsel/e-ticaret-web-tasarimi-govde-960.webp 960w, ./gorsel/e-ticaret-web-tasarimi-govde-1440.webp 1440w, ./gorsel/e-ticaret-web-tasarimi-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="E-ticaret sitesi tasarımında beş yıllık toplam sahip olma maliyetini simgeleyen katmanlı soyut 3D maliyet merdiveni" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Toplam sahip olma maliyeti, kurulum gününde değil beş yıllık pencerede ölçüldüğünde gerçek dengeyi gösterir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Hazır Tema ve Özel Tasarım Karşılaştırma Tablosu</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 06</span></div><h2 id="hazir-tema-ve-ozel-tasarim-karsilastirma-tablosu">Hazır Tema ve Özel Tasarım Karşılaştırma Tablosu</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Kriter</th><th>Hazır Tema</th><th>Özel Tasarım</th></tr></thead>
@@ -554,7 +599,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../e-ticaret/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Hazır tema ile özel yapı tercihi, bugünkü bütçeyle gelecekteki büyüme arasındaki dengedir. Doğru ölçekte doğru modelle kurgulanan e-ticaret sitesi tasarımı, harcama kalemi olmaktan çıkar. Satış üreten bir varlığa dönüşür. TasarımMania olarak iki senaryoyu aynı toplam maliyet tablosunda hesaplıyoruz. Kararı sizin verilerinizle birlikte veriyoruz. E-ticaret sitesi tasarımınız için beş yıllık maliyet projeksiyonunu birlikte çıkarmak isterseniz <a href="../../site-bakim/">bakım ve destek</a> planımızla birlikte değerlendirelim.</p>
+        <p>Hazır tema ile özel yapı tercihi, bugünkü bütçeyle gelecekteki büyüme arasındaki dengedir. Doğru ölçekte doğru modelle kurgulanan e-ticaret sitesi tasarımı, harcama kalemi olmaktan çıkar. Satış üreten bir varlığa dönüşür. TasarımMania olarak iki senaryoyu aynı toplam maliyet tablosunda hesaplıyoruz. Kararı sizin verilerinizle birlikte veriyoruz. E-ticaret sitesi tasarımınız için beş yıllık maliyet projeksiyonunu birlikte çıkarmak isterseniz <a href="../../site-bakim/">bakım ve destek</a> planımızla birlikte değerlendirelim.</p></section>
       </article>
     </div>
   </section>

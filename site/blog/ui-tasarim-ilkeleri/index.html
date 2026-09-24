@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -472,38 +519,36 @@
 <!-- AYIRT EDİCİ EKSEN: MEKANİZMA — Hiyerarşi, tutarlılık, geri bildirim gibi görsel arayüz (UI) ilkelerinin karar mantığı; UX/kullanıcı yolculuğu anlatımı kanonik olarak kullanici-deneyimi yazısında — her UX anışında oraya link verilir, yolculuk anlatımına burada girilmez.
      Huni türü: TOFU · Küme: E-Ticaret Deneyimi · Kardeşler (enjeksiyon turunda): e-ticaret-yazilimi, e-ticaret-web-tasarimi, kullanici-deneyimi -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Arayüz Tasarımı Hangi İlkelere Dayanır?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Web Tasarım</span>
-        <span class="yz-meta">15 Ekim 2026 · 7 dakikalık okuma</span>
+          <h1>Arayüz Tasarımı Hangi İlkelere Dayanır?</h1>
+          <p class="ozet">Arayüz tasarımı, ekrandaki her öğenin nerede duracağına dair bir zevk meselesi değildir. Arkasında bir karar mantığı vardır. Hangi buton büyür, hangi metin küçülür, kullanıcı bir işlem yaptığında sistem ne söyler; bunların hepsi ilkelere dayanır. KOBİ'lerin dijital yüzeylerini kurarken bu ilkeleri masaya yatırıyoruz. Bir UI UX tasarım hizmeti, işte bu görsel karar setinin disipline edilmiş halidir. Aşağıda ilkelerin mantığını açıyoruz.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/ui-tasarim-ilkeleri-kapak-1440.webp"
+           srcset="./gorsel/ui-tasarim-ilkeleri-kapak-640.webp 640w, ./gorsel/ui-tasarim-ilkeleri-kapak-960.webp 960w, ./gorsel/ui-tasarim-ilkeleri-kapak-1440.webp 1440w, ./gorsel/ui-tasarim-ilkeleri-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Görsel hiyerarşiyi temsil eden, büyükten küçüğe sıralanmış camsı arayüz panellerinden oluşan koyu zeminli soyut görsel"
+           width="1920" height="1080" decoding="async"><figcaption>Hiyerarşi, ekrandaki öğeleri önem sırasına göre katmanlara ayırır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Web Tasarım</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>15 Ekim 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>7 başlık</b></div>
       </div>
-      <h1>Arayüz Tasarımı Hangi İlkelere Dayanır?</h1>
-      <p class="ozet">Arayüz tasarımı, ekrandaki her öğenin nerede duracağına dair bir zevk meselesi değildir. Arkasında bir karar mantığı vardır. Hangi buton büyür, hangi metin küçülür, kullanıcı bir işlem yaptığında sistem ne söyler; bunların hepsi ilkelere dayanır. KOBİ'lerin dijital yüzeylerini kurarken bu ilkeleri masaya yatırıyoruz. Bir UI UX tasarım hizmeti, işte bu görsel karar setinin disipline edilmiş halidir. Aşağıda ilkelerin mantığını açıyoruz.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#arayuz-tasariminin-temel-ilkeleri-nelerdir"><span>01</span>Arayüz Tasarımının Temel İlkeleri Nelerdir?</a><a href="#gorsel-hiyerarsi-kullanicinin-gozunu-nasil-yonlendirir"><span>02</span>Görsel Hiyerarşi Kullanıcının Gözünü Nasıl Yönlendirir?</a><a href="#tutarlilik-neden-tasarim-kararlarinin-omurgasidir"><span>03</span>Tutarlılık Neden Tasarım Kararlarının Omurgasıdır?</a><a href="#geri-bildirim-ve-erisilebilirlik-katmani"><span>04</span>Geri Bildirim ve Erişilebilirlik Katmanı</a><a href="#arayuz-ilkelerini-olculebilir-karara-nasil-donusturuyoruz"><span>05</span>Arayüz İlkelerini Ölçülebilir Karara Nasıl Dönüştürüyoruz?</a><a href="#arayuz-tasarimi-icin-ekibimizle-gorusun"><span>06</span>Arayüz Tasarımı İçin Ekibimizle Görüşün</a><a href="#arayuz-ilkeleri-karar-kriteri-ve-olcum-yontemi"><span>07</span>Arayüz İlkeleri: Karar Kriteri ve Ölçüm Yöntemi</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/ui-tasarim-ilkeleri-kapak-1440.webp"
-           srcset="./gorsel/ui-tasarim-ilkeleri-kapak-640.webp 640w, ./gorsel/ui-tasarim-ilkeleri-kapak-960.webp 960w, ./gorsel/ui-tasarim-ilkeleri-kapak-1440.webp 1440w, ./gorsel/ui-tasarim-ilkeleri-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Görsel hiyerarşiyi temsil eden, büyükten küçüğe sıralanmış camsı arayüz panellerinden oluşan koyu zeminli soyut görsel"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Hiyerarşi, ekrandaki öğeleri önem sırasına göre katmanlara ayırır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Arayüz Tasarımının Temel İlkeleri Nelerdir?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 07</span></div><h2 id="arayuz-tasariminin-temel-ilkeleri-nelerdir">Arayüz Tasarımının Temel İlkeleri Nelerdir?</h2>
       <div class="yz-cevap"><p>Arayüz tasarımı; görsel hiyerarşi, tutarlılık, geri bildirim, yakınlık ve erişilebilirlik olmak üzere beş temel ilkeye dayanır. Bu ilkeler, ekrandaki her öğenin boyutunu, rengini ve konumunu belirleyen kural setidir. Estetik tercih gibi görünen kararların arkasında ölçülebilir bir gerekçe bulunur. İlkeleri bilen ekip, tartışmayı zevkten çıkarır.</p></div>
       <p>İlkeler birbirinden bağımsız değildir. Hiyerarşi zayıfsa tutarlılık da işe yaramaz; kullanıcı neye bakacağını bilemez. <a href="../../uygulama-arayuz-tasarimi/">UI UX tasarım hizmeti</a> verirken her ilke ayrı bir satırda puan alır. Böylece revizyon turları kişisel beğeniye değil, tanımlı ölçütlere göre ilerler.</p>
       <h3>Görsel Hiyerarşi Nedir?</h3>
@@ -511,47 +556,47 @@
       <h3>Tutarlılık Nedir?</h3>
       <p>Aynı butonu iki farklı biçimde gören kullanıcı, ikisine de tam güvenmez. Tutarlılık, aynı işlevin her ekranda aynı görsel dille sunulmasını sağlayan ilkedir. Birörneklik, öğrenme yükünü düşürür; kullanıcı bir kez öğrendiği kalıbı her sayfada tanır.</p>
       <h3>Yakınlık İlkesi Ne İşe Yarar?</h3>
-      <p>Birbirine yakın duran öğeler, kullanıcının zihninde tek bir grup oluşturur. Yakınlık ilkesi de ilişkili alanları boşlukla kümeleyip ilişkisiz olanları ayırır. Form etiketi kendi alanına, yardım metni kendi satırına yapışır. Boşluk dağıldığında ise etiketin hangi kutuya ait olduğu belirsizleşir ve hata oranı artar. Bu yüzden boşluk basamaklarını çizgi ya da çerçeveden önce ayarlıyoruz.</p>
-      <h2>Görsel Hiyerarşi Kullanıcının Gözünü Nasıl Yönlendirir?</h2>
+      <p>Birbirine yakın duran öğeler, kullanıcının zihninde tek bir grup oluşturur. Yakınlık ilkesi de ilişkili alanları boşlukla kümeleyip ilişkisiz olanları ayırır. Form etiketi kendi alanına, yardım metni kendi satırına yapışır. Boşluk dağıldığında ise etiketin hangi kutuya ait olduğu belirsizleşir ve hata oranı artar. Bu yüzden boşluk basamaklarını çizgi ya da çerçeveden önce ayarlıyoruz.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 07</span></div><h2 id="gorsel-hiyerarsi-kullanicinin-gozunu-nasil-yonlendirir">Görsel Hiyerarşi Kullanıcının Gözünü Nasıl Yönlendirir?</h2>
       <div class="yz-cevap"><p>Göz, ekranda en büyük ve en kontrastlı öğeye önce gider; hiyerarşi bu refleksi tasarımcının kontrolüne verir. Ekranda her şey aynı ağırlıktaysa hiçbir şey öne çıkmaz. Tasarımcı, birincil eylemi tek bir öğeye emanet eder; ikincil bağlantıların tonunu düşürür. Bu ayrım, kararın görsel karşılığıdır.</p></div>
       <p>Hiyerarşiyi kurarken üç ayara bakıyoruz: tipografi ölçeği, kontrast oranı ve beyaz alan. Tipografide yaygın ölçek geleneğini izleyip 1,25 ile 1,5 arasında bir katsayı seçiyoruz; bu aralıkta başlık düzeyleri birbirine karışmaz. Kontrastta kendi alt sınırımız nettir: küçük metinde 4,5:1, 18 punto üzeri metinde 3:1. Beyaz alan ise gruplama işini sessizce yapar.</p>
       <h3>Odak Noktası Nasıl Belirlenir?</h3>
       <p>UI UX tasarım hizmetinde her ekran için tek bir birincil eylem tanımlarız; odak noktası da bu hedefin en güçlü görsel karşılığıdır. Dağılır tıklama, ikinci bir eşit ağırlıklı buton eklendiğinde. Sadelik burada estetik değil, işlevsel bir tercihtir.</p>
       <h3>Hiyerarşi Denetimini Nasıl Yapıyoruz?</h3>
-      <p>Gri tonlu test, göz kararını devre dışı bırakır. Bir UI UX tasarım hizmetinde renkleri kaldırıp ekrana yeniden bakarız; öncelik sırası hâlâ görünüyorsa yapı sağlamdır. Görünmüyorsa boyut ve boşluk yeniden ayarlanır.</p>
-      <h2>Tutarlılık Neden Tasarım Kararlarının Omurgasıdır?</h2>
+      <p>Gri tonlu test, göz kararını devre dışı bırakır. Bir UI UX tasarım hizmetinde renkleri kaldırıp ekrana yeniden bakarız; öncelik sırası hâlâ görünüyorsa yapı sağlamdır. Görünmüyorsa boyut ve boşluk yeniden ayarlanır.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 07</span></div><h2 id="tutarlilik-neden-tasarim-kararlarinin-omurgasidir">Tutarlılık Neden Tasarım Kararlarının Omurgasıdır?</h2>
       <div class="yz-cevap"><p>Kullanıcı bir kalıbı bir kez öğrenir; tutarlılık o kalıbın tüm ekranlarda geçerli kalmasını sağlar. Aynı işlem, aynı yerde, aynı biçimde durmalıdır. Kalıp değiştiğinde kullanıcı yeniden öğrenmek zorunda kalır. Bu yük, hata oranını yukarı çeker. Bileşen kütüphanesi tam da bunu önler.</p></div>
       <p>Tutarlılığı bir belge değil, bir sistem olarak kuruyoruz. Renk, tipografi, boşluk ve bileşen kuralları tek kaynakta toplanır. Türkiye'de dijitalleşen işletme sayısı hızla artıyor; <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">ETBİS verilerine göre</a> 2025'te e-ticaret yapan işletme sayısı 634.611'e ulaştı; bu ölçekte aynı arayüz kalıbını farklı ekiplerin farklı zamanlarda tekrarlaması gerekiyor. Yükselir hata oranı, aynı işlem her sayfada başka bir yerde durduğunda.</p>
       <h3>Bileşen Kütüphanesi Neyi Çözer?</h3>
       <p>Yeni bir sayfa açıldığında tasarımcı sıfırdan başlamaz, geliştirici de aynı adları görür. Bileşen kütüphanesi, buton, form ve kart gibi öğeleri tek bir tanımdan üreten yapıdır. Tartışma azalır, hız artar.</p>
       <h4>Marka Kimliği ile Arayüz Dili Nasıl Buluşur?</h4>
-      <p>Marka renkleri arayüzde birebir kullanılmaz. Kurumsal paleti ekran ihtiyacına göre nötr tonlarla dengeliyoruz. Kimlik kararlarıyla arayüz kararları aynı masada eşleşir. UI ve UX tasarımı hizmeti, marka dilini ekran diline çevirme işidir.</p>
-      <h2>Geri Bildirim ve Erişilebilirlik Katmanı</h2>
+      <p>Marka renkleri arayüzde birebir kullanılmaz. Kurumsal paleti ekran ihtiyacına göre nötr tonlarla dengeliyoruz. Kimlik kararlarıyla arayüz kararları aynı masada eşleşir. UI ve UX tasarımı hizmeti, marka dilini ekran diline çevirme işidir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 07</span></div><h2 id="geri-bildirim-ve-erisilebilirlik-katmani">Geri Bildirim ve Erişilebilirlik Katmanı</h2>
       <div class="yz-cevap"><p>Geri bildirim, kullanıcının yaptığı her işleme sistemin görünür bir yanıt vermesi ilkesidir. Buton basıldığında durum değişmeli, form gönderildiğinde sonuç okunmalıdır. Sessiz kalan arayüz, kullanıcıyı aynı işlemi tekrarlamaya iter. Erişilebilirlik ise bu yanıtların herkes tarafından algılanmasını güvence altına alır. Bu katman pazarlık konusu değildir.</p></div>
       <p>Erişilebilirlik, arayüzü farklı görme, işitme ve motor becerilere sahip kişiler için kullanılabilir kılan tasarım yaklaşımıdır. Renk körlüğü senaryosunu, hizmetin UI katmanındaki her palet kararında test ediyoruz. Bilgi yalnızca renkle taşınmamalı; simge, metin ya da konum ikinci bir işaret vermeli. Kullanıcı yaş aralığı genişledikçe dokunma alanı ve punto kararları sertleşir.</p>
       <h3>Sistem Yanıtı Ne Kadar Hızlı Olmalı?</h3>
       <p>Kullanıcı bir butona bastığında değişimi anında görmeli; sistem yanıtı, eylem ile arayüzdeki değişiklik arasındaki süredir. Uzun süren işlemlerde ilerleme göstergesi devreye girer. Boş bekleme ekranı, terk etme sebebidir.</p>
       <h3>Hata Mesajları Nasıl Yazılır?</h3>
       <p>Kırmızı bir uyarı tek başına yeterli değildir. Hata mesajı, sorunu ve çözümü aynı cümlede söylemeli; kullanıcıya hangi alanı nasıl düzelteceğini göstermelidir. Bir UI UX tasarım hizmeti kapsamında mikro metinler de tasarımın parçasıdır.</p>
-      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      <h2>Arayüz İlkelerini Ölçülebilir Karara Nasıl Dönüştürüyoruz?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 07</span></div><h2 id="arayuz-ilkelerini-olculebilir-karara-nasil-donusturuyoruz">Arayüz İlkelerini Ölçülebilir Karara Nasıl Dönüştürüyoruz?</h2>
       <div class="yz-cevap"><p>İlkeleri ölçülebilir karara dönüştürmek için her ekranı sabit bir kontrol listesiyle puanlıyoruz. Hiyerarşi, tutarlılık, geri bildirim ve erişilebilirlik başlıklarının her biri beş üzerinden puan alır. Dört başlıkta da en az dört puan toplamayan ekran yayına çıkmaz. Böylece revizyon turu sayısı öngörülebilir kalır.</p></div>
       <p>UI UX tasarım hizmeti yürütürken izlediğimiz sıra şudur:</p><ol><li>Ekran envanterini çıkarır, her ekranın tek birincil eylemini yazarız.</li><li>Tipografi ölçeğini ve boşluk basamaklarını en baştan sabitleriz.</li><li>Bileşen kütüphanesini kurup adlandırmayı geliştirici ekiple eşitleriz.</li><li>Gri tonlu hiyerarşi testini ve kontrast denetimini her ekranda tekrarlarız.</li><li>Geri bildirim durumlarını (boş, yükleniyor, hata, başarı) tek tek tasarlarız.</li></ol>
       <h3>Tasarım Sisteminin Ölçütleri</h3>
-      <p>Bileşen sayısı, renk değişkeni sayısı ve boşluk basamağı sayısı bilinçli olarak sınırlı kalır. Tasarım sistemi zaten arayüz kararlarını tek kaynaktan yöneten kural bütünüdür; sınır genişledikçe tutarlılık zayıflar. <a href="../../mobil-uygulama/">Mobil uygulama</a> projelerinde bu sınırı daha da daraltıyoruz.</p>
-      <h2>Arayüz Tasarımı İçin Ekibimizle Görüşün</h2>
+      <p>Bileşen sayısı, renk değişkeni sayısı ve boşluk basamağı sayısı bilinçli olarak sınırlı kalır. Tasarım sistemi zaten arayüz kararlarını tek kaynaktan yöneten kural bütünüdür; sınır genişledikçe tutarlılık zayıflar. <a href="../../mobil-uygulama/">Mobil uygulama</a> projelerinde bu sınırı daha da daraltıyoruz.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 07</span></div><h2 id="arayuz-tasarimi-icin-ekibimizle-gorusun">Arayüz Tasarımı İçin Ekibimizle Görüşün</h2>
       <div class="yz-cevap"><p>Arayüz ilkelerini kendi ekranlarınıza uygulamak için kısa bir ön değerlendirme yeterlidir. Mevcut arayüzünüzü hiyerarşi, tutarlılık ve geri bildirim başlıklarında inceliyoruz. Çıkan tabloyu size sade bir raporla veriyoruz. Sonrasında kapsamı birlikte belirliyoruz. Karar sizde, ölçüm bizde. İlk görüşme bağlayıcı değildir; yeni proje de mevcut ekran da olabilir.</p></div>
       <p>Tasarım hizmetinin UI UX tarafını, işin ticari hedefinden ayrı düşünmüyoruz. Dijital yüzeyini yenileyen işletme sayısı artarken rekabet aynı ekranlarda yoğunlaşıyor. Farkı ekranın kendisi yaratıyor: kullanıcı aradığını bulamadığı sayfada beklemez. UI UX tasarım hizmeti kapsamımızı inceleyip <a href="../../teklif/">teklif formunu</a> doldurabilirsiniz. İlk görüşmede ekranlarınızı birlikte açar, hangi ilkenin zayıf kaldığını gösteririz.</p>
       <h3>Hangi Projelerde Çalışıyoruz?</h3>
       <p>Kurumsal siteler, mobil uygulamalar ve panel arayüzleri ana çalışma alanlarımız. Yenileme işlerinde de aynı ilke setini uyguluyoruz; <a href="../../kurumsal-web-sitesi/">kurumsal web sitesi</a> projeleri bunun en sık örneği. Ölçek küçük olsun büyük olsun, kontrol listesi değişmiyor.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/ui-tasarim-ilkeleri-govde-960.webp"
              srcset="./gorsel/ui-tasarim-ilkeleri-govde-640.webp 640w, ./gorsel/ui-tasarim-ilkeleri-govde-960.webp 960w, ./gorsel/ui-tasarim-ilkeleri-govde-1440.webp 1440w, ./gorsel/ui-tasarim-ilkeleri-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Tasarım sistemindeki bileşen kütüphanesini temsil eden, birbirine kenetlenmiş küplerden oluşan koyu zeminli soyut görsel" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Bileşen kütüphanesi, aynı işlevi her ekranda aynı biçimde tekrarlanabilir kılar. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Arayüz İlkeleri: Karar Kriteri ve Ölçüm Yöntemi</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 07</b><span>07 / 07</span></div><h2 id="arayuz-ilkeleri-karar-kriteri-ve-olcum-yontemi">Arayüz İlkeleri: Karar Kriteri ve Ölçüm Yöntemi</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>İlke</th><th>Karar Sorusu</th><th>Ölçüm Yöntemi</th><th>Zayıflığın Belirtisi</th></tr></thead>
@@ -572,7 +617,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../uygulama-arayuz-tasarimi/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Arayüz tasarımı, ilkeleri bilen ekiplerin elinde tahmin oyunu olmaktan çıkar. Hiyerarşi gözü yönlendirir, tutarlılık öğrenme yükünü düşürür, geri bildirim güven kurar. Üçü birden çalıştığında ekran kendini anlatır. İyi kurgulanmış bir UI UX tasarım hizmeti, bu üç ilkeyi belgeye ve ölçüme bağlar. Sizin ekranlarınızda hangisinin zayıf kaldığını birlikte görelim.</p>
+        <p>Arayüz tasarımı, ilkeleri bilen ekiplerin elinde tahmin oyunu olmaktan çıkar. Hiyerarşi gözü yönlendirir, tutarlılık öğrenme yükünü düşürür, geri bildirim güven kurar. Üçü birden çalıştığında ekran kendini anlatır. İyi kurgulanmış bir UI UX tasarım hizmeti, bu üç ilkeyi belgeye ve ölçüme bağlar. Sizin ekranlarınızda hangisinin zayıf kaldığını birlikte görelim.</p></section>
       </article>
     </div>
   </section>

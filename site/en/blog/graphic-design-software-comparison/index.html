@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -468,45 +515,43 @@
 <!-- AYIRT EDİCİ EKSEN: ARAÇ — Photoshop, Illustrator, Figma, Canva gibi programların özellik and kullanım senaryosu kıyası; süreç aşamaları and trendler kardeş yazıların ekseni.
      Huni türü: MOFU · Küme: Graphic Design · Kardeşler (enjeksiyon turunda): grafik-tasarim-turleri, grafik-tasarim-sureci, grafik-tasarim-trendleri -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Graphic Design Software Compared: Which Suits Whom?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Graphic Design</span>
-        <span class="yz-meta">23 October 2026 · 7 min read</span>
+          <h1>Graphic Design Software Compared: Which Suits Whom?</h1>
+          <p class="ozet"><p>Who will produce your brand's visuals, and with which tool? That is a matter businesses working with an agency need to settle on day one. Choosing between graphic design software really means building a production line. Photoshop, Illustrator, Figma and Canva do not do the same job. In this article we compare the tools at the level of features and use cases. Our aim is to make the choice that fits your team's budget and workload easier.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/graphic-design-software-comparison-cover-1440.webp"
+           srcset="./image/graphic-design-software-comparison-cover-640.webp 640w, ./image/graphic-design-software-comparison-cover-960.webp 960w, ./image/graphic-design-software-comparison-cover-1440.webp 1440w, ./image/graphic-design-software-comparison-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Four abstract 3D tool forms representing the different production logics of graphic design software"
+           width="1920" height="1080" decoding="async"><figcaption>Every tool rests on a different logic of production; the choice comes out of the kind of work. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Graphic Design</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>23 October 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>6 sections</b></div>
       </div>
-      <h1>Graphic Design Software Compared: Which Suits Whom?</h1>
-      <p class="ozet"><p>Who will produce your brand's visuals, and with which tool? That is a matter businesses working with an agency need to settle on day one. Choosing between graphic design software really means building a production line. Photoshop, Illustrator, Figma and Canva do not do the same job. In this article we compare the tools at the level of features and use cases. Our aim is to make the choice that fits your team's budget and workload easier.</p></p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#what-is-the-fundamental-difference-between-design-applications"><span>01</span>What Is the Fundamental Difference Between Design Applications?</a><a href="#photoshop-or-illustrator-which-job-is-born-in-which-tool"><span>02</span>Photoshop or Illustrator: Which Job Is Born in Which Tool?</a><a href="#how-does-figma-change-teamwork"><span>03</span>How Does Figma Change Teamwork?</a><a href="#where-do-template-tools-like-canva-fall-short"><span>04</span>Where Do Template Tools Like Canva Fall Short?</a><a href="#choosing-tools-and-balancing-cost-for-sme-teams"><span>05</span>Choosing Tools and Balancing Cost for SME Teams</a><a href="#popular-graphic-design-software-comparison-table"><span>06</span>Popular Graphic Design Software Comparison Table</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/graphic-design-software-comparison-cover-1440.webp"
-           srcset="./image/graphic-design-software-comparison-cover-640.webp 640w, ./image/graphic-design-software-comparison-cover-960.webp 960w, ./image/graphic-design-software-comparison-cover-1440.webp 1440w, ./image/graphic-design-software-comparison-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Four abstract 3D tool forms representing the different production logics of graphic design software"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Every tool rests on a different logic of production; the choice comes out of the kind of work. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>What Is the Fundamental Difference Between Design Applications?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 06</span></div><h2 id="what-is-the-fundamental-difference-between-design-applications">What Is the Fundamental Difference Between Design Applications?</h2>
       <div class="yz-cevap"><p>Graphic design software solves four separate jobs: editing pixels, drawing vectors, designing interfaces and producing from templates. The difference lies not in the menus but in the logic of the output. Photoshop processes a photograph, Illustrator draws a form, Figma builds a screen, and Canva multiplies a ready-made skeleton within minutes. The right match comes out of the kind of work.</p></div>
       <p>Taking the decision on the tool by looking at a feature list is misleading. We make the choice on the output. A catalogue page, a mobile screen and a social post ask for different production lines. <a href="../../graphic-design/">In our graphic design services</a> we build a separate chain for each job; which stage the file turns into which format is clear from the start. Graphic design software is only one link in that chain. Teams try to gather all the graphic work into just one of these applications. Yet a sound arrangement stands on two or three tools handing files to one another. If print weighs heavier, the vector tool comes forward; if the screen does, the interface tool does.</p>
       <h3>What does the raster–vector distinction mean?</h3>
       <p>Raster is the file format storing an image on a grid of pixels. Vector defines the shape with mathematical curves. That distinction affects your budget directly. A logo enlarged in raster breaks up at the edges. In vector, the same logo goes onto a sign as readily as onto a business card. A tool's competence depends on which file format it focuses on.</p>
       <h3>Why does the choice of licensing model matter?</h3>
-      <p>The licensing model is the commercial framework setting a piece of software's monthly cost and the access within a team. Adobe's subscription runs per person, while Figma takes the number of seats as the basis and Canva a set of tiers starting from a free level. On a team of five, graphic design software forms a serious line in the annual budget. Read the clause on transferring seats before you sign.</p>
-      <h2>Photoshop or Illustrator: Which Job Is Born in Which Tool?</h2>
+      <p>The licensing model is the commercial framework setting a piece of software's monthly cost and the access within a team. Adobe's subscription runs per person, while Figma takes the number of seats as the basis and Canva a set of tiers starting from a free level. On a team of five, graphic design software forms a serious line in the annual budget. Read the clause on transferring seats before you sign.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 06</span></div><h2 id="photoshop-or-illustrator-which-job-is-born-in-which-tool">Photoshop or Illustrator: Which Job Is Born in Which Tool?</h2>
       <div class="yz-cevap"><p>Photoshop edits an existing image; Illustrator produces form from scratch. Photo retouching, banner composition and texture work are born in Photoshop. Logos, icon sets, packaging and signage are born in Illustrator. Teams that confuse the two come face to face with a resolution problem at the printing stage. Among graphic design software those two count as siblings, but their areas of duty are separate.</p></div>
       <p>The mistake we see most often in the field is this: the logo is drawn in Photoshop. The file looks good on screen. When the printer asks for a three-metre poster, the job starts again. A brand with no vector source pays the cost of redrawing on every new channel. That is the most expensive mismatch among graphic design software.</p>
       <h3>The photography and retouching scenario</h3>
@@ -514,33 +559,33 @@
       <h3>The logo and brand identity scenario</h3>
       <p>Brand identity work asks for sharpness independent of scale. That is why Illustrator continues to be the agency standard. Its Pathfinder tools, grid system and typographic control are a step ahead of its rivals. Colour is a heading of its own at the printer; converting the source file to CMYK and defining the corporate colour as a spot colour secures the delivery. CorelDRAW, meanwhile, remains strong in signage and textile workshops.</p>
       <h4>The delivery file checklist</h4>
-      <p>When you take delivery of a logo from your agency, ask for three files: the editable vector source, a PDF for print and an SVG for the web. Without those three in hand, your brand asset stays locked inside the tool.</p>
-      <h2>How Does Figma Change Teamwork?</h2>
+      <p>When you take delivery of a logo from your agency, ask for three files: the editable vector source, a PDF for print and an SVG for the web. Without those three in hand, your brand asset stays locked inside the tool.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 06</span></div><h2 id="how-does-figma-change-teamwork">How Does Figma Change Teamwork?</h2>
       <div class="yz-cevap"><p>Figma takes design out of the exchange of files and into a shared room in the browser. The designer, the developer and the marketing lead look at the same screen at the same time. Comments accumulate on top of the file and version confusion disappears. On web and mobile interface projects, that arrangement alone can remove a round of approval.</p></div>
       <p>When you renew a site or an app, the most expensive delay comes in the rounds of approval. A component library shortens that round. You change a button's colour centrally and a hundred screens update at once. Comments, approvals and revisions accumulate on the same link; email traffic falls. Developer mode closes the distance between design and code; because the developer reads the dimension, the colour and the spacing on the same screen, they ask the designer fewer questions. <a href="../../app-ui-ux-design/">On our app interface projects</a> and <a href="../../corporate-website/">our corporate website work</a> we run the approval flow with that structure. As a team grows, the graphic design software offering shared space comes forward.</p>
       <h3>Where is the limit of working in a browser?</h3>
-      <p>Figma's strength gathers in screen design; on the print side it doesn't offer the same ease. It doesn't meet printing requirements such as CMYK colour management and bleed. It struggles with high-resolution photo editing too. For teams outsourcing their printing, that limit isn't a problem. Companies producing their own catalogue should set aside a separate vector tool: finish the screen in Figma and prepare the print file there.</p>
-      <h2>Where Do Template Tools Like Canva Fall Short?</h2>
+      <p>Figma's strength gathers in screen design; on the print side it doesn't offer the same ease. It doesn't meet printing requirements such as CMYK colour management and bleed. It struggles with high-resolution photo editing too. For teams outsourcing their printing, that limit isn't a problem. Companies producing their own catalogue should set aside a separate vector tool: finish the screen in Figma and prepare the print file there.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 06</span></div><h2 id="where-do-template-tools-like-canva-fall-short">Where Do Template Tools Like Canva Fall Short?</h2>
       <div class="yz-cevap"><p>Canva is a cloud-based tool producing visuals quickly from ready-made templates. On social media posts, presentations and simple posters it does the job more than adequately. When an original brand language, complex print work or vector precision is needed, it hits a wall. Knowing the limit is far more useful than disparaging the tool. Set the expectation correctly and the result won't surprise you.</p></div>
       <p>The number of businesses selling online is rising fast. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">According to ETBİS data</a> — ETBİS is Türkiye's central e-commerce information system — the number of businesses trading online has reached 634,611. At that density, every brand puts out dozens of visuals a week. Template tools were born to carry that volume. But a template is a shared resource your competitor can reach too; you would struggle to tell two posts built on the same skeleton apart without the logos. Among the applications, template tools win on speed in graphic production and fall behind on distinction. Distinction for a brand comes only with original design.</p>
       <h3>The advantage of speed in producing social content</h3>
       <p>On a team putting out fifteen posts a week, the logic of templates works. Upload your corporate identity once and let the colours and typefaces come through automatically. On the social media management side we take that route for routine posts. The campaign visual is still drawn by a designer, because a template doesn't carry the brand voice. Separating routine from campaign protects both the speed and the brand's consistency.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>Choosing Tools and Balancing Cost for SME Teams</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 06</span></div><h2 id="choosing-tools-and-balancing-cost-for-sme-teams">Choosing Tools and Balancing Cost for SME Teams</h2>
       <div class="yz-cevap"><p>The choice becomes clear where team size and volume of production intersect. In a one-person marketing unit, two applications are enough. In a structure of five, a shared library becomes essential. If the annual licence you pay for graphic design software stays below the outsourcing invoice, producing in-house makes sense. Otherwise, going with an agency comes cheaper.</p></div>
       <p>When you discuss the budget, don't look at the subscription fee alone. The time it takes to learn is a cost item too. Introducing a tool to the team and migrating the old files takes time; that item doesn't show up in the licence fee but it does strain the schedule. On screen work Figma comes forward, on print work Illustrator does.</p>
       <h3>Matching by team size</h3>
       <p>On a one-person team, Canva and a single vector tool are enough. In a structure of three, Figma brings a shared space. On teams of more than five, the Adobe ecosystem starts to make sense as a full package. Before you buy, finish a real job on the trial version; take the decision from your own list.</p>
       <h3>Choosing a tool in five steps</h3>
       <ol><li>Sort the last three months' visuals by type.</li><li>If much of the work goes to print, put the vector tool at the top of the list.</li><li>Count how many people touch the same file.</li><li>Compare the monthly licence cost against the outsourcing invoice.</li><li>Try the tool you choose on a single campaign first, then roll it out.</li></ol>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/graphic-design-software-comparison-body-960.webp"
              srcset="./image/graphic-design-software-comparison-body-640.webp 640w, ./image/graphic-design-software-comparison-body-960.webp 960w, ./image/graphic-design-software-comparison-body-1440.webp 1440w, ./image/graphic-design-software-comparison-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="An abstract 3D image showing the transition from pixel cubes to a vector curve" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>The transition between pixel-based editing and vector drawing also sets the limit of the file's quality. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Popular Graphic Design Software Comparison Table</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 06</span></div><h2 id="popular-graphic-design-software-comparison-table">Popular Graphic Design Software Comparison Table</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Software</th><th>What it's strong at</th><th>Learning curve</th><th>Teamwork</th><th>Who it suits</th></tr></thead>
@@ -562,7 +607,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../graphic-design/">See the service page</a>
         </aside>
-        <p><p>The right tool is the application your team opens every day. Photoshop, Illustrator, Figma and Canva are different links in the same chain. Put the comparison table side by side with your own production list, then settle the budget. To plan your graphic design setup around your brand, you can fill in <a href="../../get-a-quote/">our quote form</a> whenever you're ready.</p></p>
+        <p><p>The right tool is the application your team opens every day. Photoshop, Illustrator, Figma and Canva are different links in the same chain. Put the comparison table side by side with your own production list, then settle the budget. To plan your graphic design setup around your brand, you can fill in <a href="../../get-a-quote/">our quote form</a> whenever you're ready.</p></p></section>
       </article>
     </div>
   </section>

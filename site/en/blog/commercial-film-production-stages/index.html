@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,72 +477,70 @@
 <!-- AYIRT EDİCİ EKSEN: SÜREÇ — Stage sırasını and takvimi anlatır. Fiyat kalemleri yazı 8'in, storyboard yazı 9'un, ajans seçimi yazı 10'un işidir. Burada FİYAT verilmez, storyboard DERİNLEMESİNE anlatılmaz.
      Huni türü: TOFU · Küme: video · Kardeşler (enjeksiyon turunda): reklam-filmi-fiyat-kalemleri, storyboard-nedir, reklam-filmi-ajansi-secimi -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Production Stages</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Video</span>
-        <span class="yz-meta">6 October 2026 · 7 min read</span>
+          <h1>What Stages Does a Commercial Film Shoot Go Through?</h1>
+          <p class="ozet">The work doesn't begin when the camera rolls; by then it should already be done. Decisions made on set cost many times more than decisions made at the desk. In this piece we go through the five stages in order: pre-production, the shoot, the edit, colour and sound, delivery. We give the typical length of each stage too. We're not talking about price; there's only sequence and timing here.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/commercial-film-production-stages-cover-1440.webp"
+           srcset="./image/commercial-film-production-stages-cover-640.webp 640w, ./image/commercial-film-production-stages-cover-960.webp 960w, ./image/commercial-film-production-stages-cover-1440.webp 1440w, ./image/commercial-film-production-stages-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Five lit frames lined up left to right in the dark; one of them is markedly bright, the ones at the edges are dim"
+           width="1920" height="1080" decoding="async"><figcaption>The shooting day is the middle of the process; what comes before and after takes longer. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Video</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>6 October 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>What Stages Does a Commercial Film Shoot Go Through?</h1>
-      <p class="ozet">The work doesn't begin when the camera rolls; by then it should already be done. Decisions made on set cost many times more than decisions made at the desk. In this piece we go through the five stages in order: pre-production, the shoot, the edit, colour and sound, delivery. We give the typical length of each stage too. We're not talking about price; there's only sequence and timing here.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#what-stages-does-a-commercial-film-shoot-go-through"><span>01</span>What Stages Does a Commercial Film Shoot Go Through?</a><a href="#what-does-the-team-settle-in-pre-production"><span>02</span>What Does the Team Settle in Pre-Production?</a><a href="#how-does-the-shooting-day-run"><span>03</span>How Does the Shooting Day Run?</a><a href="#how-long-do-the-edit-and-colour-stages-take"><span>04</span>How Long Do the Edit and Colour Stages Take?</a><a href="#what-do-we-check-before-delivery"><span>05</span>What Do We Check Before Delivery?</a><a href="#let-s-work-out-your-project-s-timeline-together"><span>06</span>Let's Work Out Your Project's Timeline Together</a><a href="#the-stages-their-outputs-and-the-critical-decisions"><span>07</span>The stages, their outputs and the critical decisions</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/commercial-film-production-stages-cover-1440.webp"
-           srcset="./image/commercial-film-production-stages-cover-640.webp 640w, ./image/commercial-film-production-stages-cover-960.webp 960w, ./image/commercial-film-production-stages-cover-1440.webp 1440w, ./image/commercial-film-production-stages-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Five lit frames lined up left to right in the dark; one of them is markedly bright, the ones at the edges are dim"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>The shooting day is the middle of the process; what comes before and after takes longer. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>What Stages Does a Commercial Film Shoot Go Through?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="what-stages-does-a-commercial-film-shoot-go-through">What Stages Does a Commercial Film Shoot Go Through?</h2>
       <div class="yz-cevap"><p>There are five stages: pre-production, the shoot, the edit, colour and sound, delivery. What sets the timeline isn't the number of stages but how tightly you keep the pre-production. A commercial film shoot takes a day, but the work that prepares that day takes weeks. Every decision made after the set is built is expensive.</p></div>
       <p>Thinking of the stages as a straight line misleads. The search for music starts in pre-production and carries on through the edit. The delivery formats, meanwhile, should be known while the script is being written; a channel learned about later throws the framing decisions away.</p><p>The order below is the one we run.</p><ol><li><strong>Pre-production</strong> — script, storyboard, location, cast, shot list.</li><li><strong>The shoot</strong> — building the set, getting the shots, safety takes.</li><li><strong>The edit</strong> — rough cut, revision rounds, fine cut.</li><li><strong>Colour and sound</strong> — colour grade, voiceover, music, mix.</li><li><strong>Delivery</strong> — ratio, duration and subtitle versions per channel.</li></ol>
       <h3>How Long Does It Take in Total?</h3>
-      <p>On a narrow job, four to six weeks is a reasonable target. Once a cast, several locations and special effects come in, it widens towards two months. How much of the commercial gets filmed on the shooting day sets that timeline directly.</p>
-      <h2>What Does the Team Settle in Pre-Production?</h2>
+      <p>On a narrow job, four to six weeks is a reasonable target. Once a cast, several locations and special effects come in, it widens towards two months. How much of the commercial gets filmed on the shooting day sets that timeline directly.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="what-does-the-team-settle-in-pre-production">What Does the Team Settle in Pre-Production?</h2>
       <div class="yz-cevap"><p>This stage puts everything on paper, from the script to the shot list. The location, the cast, the lighting plan and the shooting order are all settled here. A storyboard comes out of it too, so the frame can be argued about at the desk rather than on set. Going into a commercial film shoot unprepared is the most expensive way to save money. This stage takes two to four weeks.</p></div>
       <p>Pre-production work looks dull and is the first line item to be cut. Yet an hour on set is worth a day at the desk. Decisions taken while the crew, the cast and the location are all waiting at once come out both fast and bad.</p><p>The storyboard is the most visible output of this stage; we set out what it does in the <a href="../what-is-a-storyboard/">storyboard</a>  piece. It also helps to think about it alongside the message structure in the <a href="../writing-google-ads-copy/">writing ad copy</a>  piece; the picture and the copy settle at the same time. The channel rules have to be known before the shoot; <a href="https://www.rtuk.gov.tr/" target="_blank" rel="noopener">RTÜK's broadcasting principles</a> set limits on duration and content.</p>
       <h3>Why Does the Shot List Matter So Much?</h3>
-      <p>Because a set runs on the clock. The list shows which shot is filmed in which order, and it groups the lighting setups. A day without a list goes on building the same setup three times.</p>
-      <h2>How Does the Shooting Day Run?</h2>
+      <p>Because a set runs on the clock. The list shows which shot is filmed in which order, and it groups the lighting setups. A day without a list goes on building the same setup three times.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="how-does-the-shooting-day-run">How Does the Shooting Day Run?</h2>
       <div class="yz-cevap"><p>The day runs to the shot list, not to the order of the story. We take the shots that happen in the same place one after another, and then the lighting setup changes. On jobs with a cast, rehearsals finish in the morning. A commercial film shoot usually fits into a single day, but the day is never shorter than ten hours. Squeezing in too many shots drops the quality by the end of the day.</p></div>
       <p>The morning starts with the build, and the first shot usually lands towards midday. In the afternoon the pace picks up; the crew speeds up as it gets to know the setup. The last two hours are the most productive, which is why we don't put the difficult shots there.</p><p>Taking safety shots is part of the day too. A slightly wider and a slightly tighter version of the same shot make life easier in the edit. That few minutes of work saves you from going back for a reshoot.</p><p>The weather and the light shape the day as well. If you're working outdoors, the golden hours are short and expensive; we put those shots first. Deciding before the shoot which light the advertising idea will live in wins hours back during the day.</p>
       <h3>Why Is a Decision on Set Expensive?</h3>
-      <p>Because at that moment everyone is waiting. The crew, the equipment and the location all spend the same hour. A decision that takes five minutes at the desk costs fifty times more on set.</p>
-      <h2>How Long Do the Edit and Colour Stages Take?</h2>
+      <p>Because at that moment everyone is waiting. The crew, the equipment and the location all spend the same hour. A decision that takes five minutes at the desk costs fifty times more on set.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="how-long-do-the-edit-and-colour-stages-take">How Long Do the Edit and Colour Stages Take?</h2>
       <div class="yz-cevap"><p>The edit takes one to two weeks, revision rounds included. Colour and sound are a separate stage and usually take a few days. The music licence can drag on unexpectedly; we start that early. When a commercial film shoot ends, the work doesn't; the second half happens at the desk. Fixing the number of revisions in the contract puts both sides at ease.</p></div>
       <p>The first delivery is the rough cut and comes without music. Its purpose is to argue about the rhythm, not the beauty. Structural comments given at this stage are easy to apply; after the fine cut, the same comment costs far more.</p><p>The colour grade sets the brand's tone. The same footage gives a completely different feeling in a warm or a cool grade. On the sound side, we work the music, the voiceover and the effects mix separately.</p><p>Use a timecode when you give comments. “That scene is long” isn't enough. “Take two seconds off the shot at 00:12” shortens a round on its own. Scattered comments force the editor to guess, and a guess produces another round.</p>
       <h3>How Many Revision Rounds Are Normal?</h3>
       <p>Two rounds is normal. If a third round is going round, the problem isn't in the edit but in a decision left open in pre-production. At that point we take a step back and talk again about what we're trying to say.</p>
-      <blockquote class="yz-alinti"><p>&#8220;A decision that takes five minutes at the desk costs fifty times more on set. Pre-production isn't a cost line; it's the investment with the highest return.&#8221;</p><cite>— TasarımMania production note</cite></blockquote>
-      <h2>What Do We Check Before Delivery?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;A decision that takes five minutes at the desk costs fifty times more on set. Pre-production isn't a cost line; it's the investment with the highest return.&#8221;</p><cite>— TasarımMania production note</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="what-do-we-check-before-delivery">What Do We Check Before Delivery?</h2>
       <div class="yz-cevap"><p>The output isn't a single file. For every channel it will be published on, we produce a separate aspect ratio, a separate duration and separate subtitles. On channels watched without sound, subtitles are mandatory, not optional. The footage that comes out of a commercial film shoot is the same, but the delivery pack changes with the channel. Talking that pack through at the start prevents a re-edit later.</p></div>
-      <p>Vertical, square and horizontal ratios each want different framing. When a shot filmed horizontally is cropped to vertical, the product usually ends up outside the frame. That's why we need to know during the shoot which ratios will be required.</p><p>Duration changes with the channel too. The six-second and thirty-second versions of the same story are edited separately. We covered choosing the channel in the <a href="../social-media-advertising-formats/">social media advertising</a>  piece.</p><p>File naming is a small but critical detail as well. If you write the channel, the ratio and the duration into the name, nobody uploads the wrong file on publication day. That habit removes the most common mistake between an agency and a media team.</p>
-      <h2>Let's Work Out Your Project's Timeline Together</h2>
+      <p>Vertical, square and horizontal ratios each want different framing. When a shot filmed horizontally is cropped to vertical, the product usually ends up outside the frame. That's why we need to know during the shoot which ratios will be required.</p><p>Duration changes with the channel too. The six-second and thirty-second versions of the same story are edited separately. We covered choosing the channel in the <a href="../social-media-advertising-formats/">social media advertising</a>  piece.</p><p>File naming is a small but critical detail as well. If you write the channel, the ratio and the duration into the name, nobody uploads the wrong file on publication day. That habit removes the most common mistake between an agency and a media team.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="let-s-work-out-your-project-s-timeline-together">Let's Work Out Your Project's Timeline Together</h2>
       <div class="yz-cevap"><p>We work out the timeline alongside the scope. How many shots, how many locations, is there a cast, which channels are we delivering to: once those four are clear, the dates are clear too. What you're left with isn't an estimated duration but a stage-by-stage plan. Seeing that plan before you set aside a day for a commercial film shoot makes your job easier.</p></div>
       <p>Planning jointly with the other branches of visual production protects your budget too; we set out the approach to product images in the <a href="../ecommerce-product-images/">product photographs</a>  piece. <a href="../../commercial-video-production/">our commercial film service</a> and <a href="../../video-production/">our video production page</a> are worth a look. We opened up which line items move the budget in the <a href="../commercial-film-cost/">cost line items</a>  piece.</p><p>While we're drawing up the plan we mark three dates: storyboard sign-off, the shooting day and the first edit delivery. If those three hold, the rest holds by itself. The date that slips most often is the first; when storyboard sign-off is late, everything slips with it.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/commercial-film-production-stages-body-960.webp"
              srcset="./image/commercial-film-production-stages-body-640.webp 640w, ./image/commercial-film-production-stages-body-960.webp 960w, ./image/commercial-film-production-stages-body-1440.webp 1440w, ./image/commercial-film-production-stages-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Four separate frames arranged in steps, at the ends of four thin lines coming out of a single light source on the left" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>The same footage turns into a separate ratio and a separate duration for every channel. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>The stages, their outputs and the critical decisions</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="the-stages-their-outputs-and-the-critical-decisions">The stages, their outputs and the critical decisions</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Stage</th><th>Its output</th><th>The decision that costs dearly if it isn't made here</th></tr></thead>
@@ -516,7 +561,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../commercial-video-production/">See the service page</a>
         </aside>
-        <p>A commercial film shoot goes through five stages, and only one of them happens in front of a camera. What sets the timeline isn't the shooting day but the number of decisions closed in pre-production; every question left open on set grows both the time and the budget.</p>
+        <p>A commercial film shoot goes through five stages, and only one of them happens in front of a camera. What sets the timeline isn't the shooting day but the number of decisions closed in pre-production; every question left open on set grows both the time and the budget.</p></section>
       </article>
     </div>
   </section>

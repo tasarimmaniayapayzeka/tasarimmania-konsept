@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -468,45 +515,43 @@
 <!-- AYIRT EDİCİ EKSEN: GÖRÜNÜM — Görsel sunum kalitesinin (açı, ışık, bağlam) satın alma kararına görünür etkisi; UX rotası ve tasarım maliyeti kardeş yazıların ekseni.
      Huni türü: TOFU · Küme: E-Commerce Deneyimi · Kardeşler (enjeksiyon turunda): ui-tasarim-ilkeleri, e-ticaret-web-tasarimi, kullanici-deneyimi -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Do E-Commerce Product Images Really Affect Sales?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">E-Commerce</span>
-        <span class="yz-meta">27 September 2026 · 7 min read</span>
+          <h1>Do E-Commerce Product Images Really Affect Sales?</h1>
+          <p class="ozet">In a shop the customer picks the product up, turns it over, looks at the texture. On a screen there is no such option. The e-commerce product image is the only piece of evidence standing in for that moment of touch. As the number of businesses selling online in Türkiye grows, the same product turns up on dozens of pages. What makes the difference is usually not the price but the angle and the light that made it into the shot. When the product is identical, the presentation decides.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/ecommerce-product-images-cover-1440.webp"
+           srcset="./image/ecommerce-product-images-cover-640.webp 640w, ./image/ecommerce-product-images-cover-960.webp 960w, ./image/ecommerce-product-images-cover-1440.webp 1440w, ./image/ecommerce-product-images-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Three turquoise beams of light picking out a single object on a dark studio set"
+           width="1920" height="1080" decoding="async"><figcaption>The lighting setup is the first variable that determines texture and true colour in an e-commerce product image. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> E-Commerce</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>27 September 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>6 sections</b></div>
       </div>
-      <h1>Do E-Commerce Product Images Really Affect Sales?</h1>
-      <p class="ozet">In a shop the customer picks the product up, turns it over, looks at the texture. On a screen there is no such option. The e-commerce product image is the only piece of evidence standing in for that moment of touch. As the number of businesses selling online in Türkiye grows, the same product turns up on dozens of pages. What makes the difference is usually not the price but the angle and the light that made it into the shot. When the product is identical, the presentation decides.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#how-does-image-quality-change-the-buying-decision"><span>01</span>How Does Image Quality Change the Buying Decision?</a><a href="#what-do-angle-and-light-reveal-in-a-single-shot"><span>02</span>What Do Angle and Light Reveal in a Single Shot?</a><a href="#why-does-a-context-shot-make-a-product-easier-to-understand"><span>03</span>Why Does a Context Shot Make a Product Easier to Understand?</a><a href="#how-do-you-audit-the-images-you-already-have"><span>04</span>How Do You Audit the Images You Already Have?</a><a href="#refresh-your-product-images-with-a-professional-shoot"><span>05</span>Refresh Your Product Images with a Professional Shoot</a><a href="#shot-types-and-their-role-in-the-decision"><span>06</span>Shot Types and Their Role in the Decision</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/ecommerce-product-images-cover-1440.webp"
-           srcset="./image/ecommerce-product-images-cover-640.webp 640w, ./image/ecommerce-product-images-cover-960.webp 960w, ./image/ecommerce-product-images-cover-1440.webp 1440w, ./image/ecommerce-product-images-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Three turquoise beams of light picking out a single object on a dark studio set"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>The lighting setup is the first variable that determines texture and true colour in an e-commerce product image. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>How Does Image Quality Change the Buying Decision?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 06</span></div><h2 id="how-does-image-quality-change-the-buying-decision">How Does Image Quality Change the Buying Decision?</h2>
       <div class="yz-cevap"><p>Image quality lowers the sense of risk for a user who cannot handle the product, and it speeds the decision up. A clear angle, the right light and a familiar context answer the questions on the page itself. Someone whose questions have run out goes to the basket sooner. If the uncertainty carries on, the decision is postponed and the user moves to a competitor's tab. Quality here is not a matter of aesthetics but of information.</p></div>
       <p>The e-commerce product image is the visual evidence a user tries the product on in their mind with. In a shop that job is done by the sense of touch. On a screen the only evidence is the shot.</p><p>The number of businesses going digital in Türkiye is rising fast; <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">the Ministry of Trade's ETBİS report</a> — ETBİS is Türkiye's central e-commerce information system — sets out how far the market has widened. In a widening market, similar products compete in the same set of results; what tells them apart is, more often than not, the photograph.</p><p>On a listing page the elimination is over in seconds. If the lead shot is a weak e-commerce product image, the page never gets opened at all.</p>
       <h3>What does a customer who cannot touch look for?</h3>
       <p>The user looks for texture, size and true colour. If one of those three isn't in the shot, the question stays in their mind. Someone left with a question goes back to comparing. A weak e-commerce product image doesn't grow the product, it grows the doubt.</p>
       <h3>How does visual consistency build trust?</h3>
-      <p>A set shot under the same light brings the catalogue into a single brand language. If the customer can match what comes out of the box to what they saw on the page, disappointment falls. We don't make claims without measuring; track your reasons for return from your own dashboard. In e-commerce, product images are a brand's most visible signature.</p>
-      <h2>What Do Angle and Light Reveal in a Single Shot?</h2>
+      <p>A set shot under the same light brings the catalogue into a single brand language. If the customer can match what comes out of the box to what they saw on the page, disappointment falls. We don't make claims without measuring; track your reasons for return from your own dashboard. In e-commerce, product images are a brand's most visible signature.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 06</span></div><h2 id="what-do-angle-and-light-reveal-in-a-single-shot">What Do Angle and Light Reveal in a Single Shot?</h2>
       <div class="yz-cevap"><p>The angle reveals the product's character; the light reveals its texture and its true colour. The wrong angle hides the size, and hard light flattens the surface. In a correct setup, the weave of a fabric and the sheen of a metal read within the same shot. The user isn't left guessing at the product; they see it and decide. Together, those two variables form the backbone of a strong e-commerce product image.</p></div>
       <p>Shoot the same bag from overhead and from three-quarters; the two shots look like two different products. The angle is the camera position that decides which surface of the product comes forward. On a bag it is the internal volume; on a shoe it is the profile of the sole that settles the decision.</p><p>The light, meanwhile, is the guardian of colour fidelity. If a product that looks beige on the shelf drifts pink on screen, a return is already at the door. It is the light that closes the distance between the product out of the box and the photograph on the page.</p><p>The setup doesn't have to be complicated; a single softbox, one reflector and a fixed tripod will rescue most categories.</p>
       <h3>The choice of angle carries the product's character</h3>
@@ -514,37 +559,37 @@
       <h3>Light protects texture and colour</h3>
       <p>Soft light manages the shadow and keeps the texture standing. Hard light from above flattens the surface. A set with the colour calibration done properly also reduces the difference between screens. If you shoot the same product on two different days, write the lighting note down.</p>
       <h4>Is a white backdrop right for every product?</h4>
-      <p>A white backdrop is the standard on marketplaces; on your own site it isn't compulsory. On dark products the contrast drops and the edges disappear. A neutral grey or a textured surface gives a more legible result with those products.</p>
-      <h2>Why Does a Context Shot Make a Product Easier to Understand?</h2>
+      <p>A white backdrop is the standard on marketplaces; on your own site it isn't compulsory. On dark products the contrast drops and the edges disappear. A neutral grey or a textured surface gives a more legible result with those products.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 06</span></div><h2 id="why-does-a-context-shot-make-a-product-easier-to-understand">Why Does a Context Shot Make a Product Easier to Understand?</h2>
       <div class="yz-cevap"><p>A context shot shows the product in the setting it is used in, closing the questions of scale and purpose in a single frame. The studio shot introduces the product; the scene shot ties it to life. This is where the user answers the question "how will this look at my place". On its own, the studio shot falls short in most categories. When the two work together, the page gains its persuasive power.</p></div>
       <p>A desk lamp against an empty backdrop looks sizeless; the same lamp on a working desk gives away its dimensions at once. A context shot is the photograph you take in the product's real setting of use. The scene shouldn't be overstaged; fake décor sells the décor, not the product.</p><p>Read your mobile share from your own analytics rather than from general statistics; <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TurkStat</a> — TurkStat is Türkiye's statistical institute — measures household ICT usage regularly, while the breakdown of your own catalogue sits in your dashboard and nowhere else. On a small screen, the context shot is the fastest-read part of an e-commerce product image. The template needs to make room for that shot too; in the build of an e-commerce site, the order of the gallery has a direct effect on the decision.</p>
       <h3>How is a sense of scale built?</h3>
       <p>A familiar object, a human hand or a placement within a room conveys scale. A size table on its own isn't enough. The user reads the number, then sees the shot and is certain. In categories with no scale shot, size-related returns take first place.</p>
       <h3>How many different shots are needed?</h3>
-      <p>Five shots are enough for most catalogues: the main hero, a complementary angle, a macro detail, a scale reference and a scene of use. Raise the number in line with the product's complexity. That five-shot skeleton keeps e-commerce product images consistent with one another. Fix the order; let the same sequence repeat on every product.</p>
-      <h2>How Do You Audit the Images You Already Have?</h2>
+      <p>Five shots are enough for most catalogues: the main hero, a complementary angle, a macro detail, a scale reference and a scene of use. Raise the number in line with the product's complexity. That five-shot skeleton keeps e-commerce product images consistent with one another. Fix the order; let the same sequence repeat on every product.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 06</span></div><h2 id="how-do-you-audit-the-images-you-already-have">How Do You Audit the Images You Already Have?</h2>
       <div class="yz-cevap"><p>To audit your own catalogue, score the shot set of pages with high traffic but low conversion against fixed criteria. Number of angles, consistency of light, scale reference and detail shot — four headings will do the job. Put the low-scoring pages in the queue first. Looking at a table rather than an opinion moves the budget to the right place. A refresh that starts without measurement scatters the money.</p></div>
       <p>Open your catalogue; write out the shot count of the first twenty products side by side. An image audit is a short round of checks in which the existing shots are scored one by one. The list decides, not habit.</p><ol><li>List the 20 product pages with the highest traffic.</li><li>Write down the number and type of shots for each product.</li><li>Mark the pages with no scale reference.</li><li>Set aside the shots where you can see a colour shift.</li><li>Complete the missing shots in a single shooting day.</li></ol><p>Read the results category by category; put every low-scoring e-commerce product image on the refresh list. On the e-commerce SEO side, image naming and alternative text go onto the same list.</p>
       <h3>Which signals should we watch?</h3>
       <p>Product page conversion rate, add-to-basket rate and reason for return — three signals are enough. Record the four-week average before you make the change. Once the new set of e-commerce product images is live, measure the same window again. If there is a difference, the evidence is yours.</p>
       <h3>Who should run the audit?</h3>
       <p>Let the product manager and marketing run the scoring together, and bring the photographer into the list at the next step. Two pairs of eyes give a more accurate result than one person's habits. Keep the table in a shared file.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>Refresh Your Product Images with a Professional Shoot</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 06</span></div><h2 id="refresh-your-product-images-with-a-professional-shoot">Refresh Your Product Images with a Professional Shoot</h2>
       <div class="yz-cevap"><p>In a professional shoot, a category-specific angle list and a fixed lighting setup bring the catalogue into one language. We start the work with the pages that have high traffic but low conversion, and draw up the shot plan together with you. We produce every e-commerce product image to the same criteria. We measure the state you are in now, then compare what follows publication using conversion rate, add-to-basket rate and reason for return.</p></div>
       <p>The shooting plan is the production schedule that sets out which product is photographed with which shot set. Before the studio day we settle the products, the colour codes and the order of priority. In campaign periods we schedule the <a href="../../product-video-production/">product video</a> and the photo shoot on the same day; that way the preparation cost is shared.</p><p>Product images are the most reused production asset in e-commerce. Once the catalogue's language has settled, the same shots go into the ad set on the performance marketing side. <a href="../../graphic-design/">Graphic design</a> turns them into banners and social graphics. If you'd like to talk through the shot plan, filling in the <a href="../../get-a-quote/">quote form</a> is all it takes; for anything more detailed, the <a href="../../contact/">contact</a> page is open. We don't commit the whole budget in one go; we start with a pilot category.</p>
       <h3>Where do we start?</h3>
       <p>The first week produces the catalogue audit and the priority list; the second week settles the production plan and the backdrop decisions. The third week brings the studio day and delivery. In the fourth week we read the numbers together.</p>
       <h3>Which products should be brought forward?</h3>
       <p>Pages with high traffic but low conversion come first. New releases wait in second place. The classics that have sat with the same shot for years come third. Let potential set the priority, not turnover.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/ecommerce-product-images-body-960.webp"
              srcset="./image/ecommerce-product-images-body-640.webp 640w, ./image/ecommerce-product-images-body-960.webp 960w, ./image/ecommerce-product-images-body-1440.webp 1440w, ./image/ecommerce-product-images-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Five transparent panels arranged on a dark ground, showing the same form from different angles" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>A single form from five different angles: each shot closes a different question in the user's mind. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Shot Types and Their Role in the Decision</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 06</span></div><h2 id="shot-types-and-their-role-in-the-decision">Shot Types and Their Role in the Decision</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Shot type</th><th>What it tells the user</th><th>What happens when it is missing</th></tr></thead>
@@ -565,7 +610,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../product-video-production/">See the service page</a>
         </aside>
-        <p>Appearance is the one area in e-commerce with no room for negotiation. If your product is good, you have to show it in the shot; a weak shot makes even a good product look ordinary. Audit your catalogue over a weekend, starting with the twenty products that get the most traffic. Once the new set is live, you'll see the difference in your dashboard. That is precisely where the return on investing in e-commerce product images is read.</p>
+        <p>Appearance is the one area in e-commerce with no room for negotiation. If your product is good, you have to show it in the shot; a weak shot makes even a good product look ordinary. Audit your catalogue over a weekend, starting with the twenty products that get the most traffic. Once the new set is live, you'll see the difference in your dashboard. That is precisely where the return on investing in e-commerce product images is read.</p></section>
       </article>
     </div>
   </section>

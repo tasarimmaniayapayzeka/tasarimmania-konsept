@@ -175,6 +175,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -465,43 +512,41 @@
 <!-- AYIRT EDİCİ EKSEN: GÖRÜNÜM — Logo, kurumsal kimlik, ambalaj gibi türlerin görsel çıktı yelpazesi; süreç ve araçlara girilmez, ne göreceğiniz anlatılır.
      Huni türü: TOFU · Küme: Grafik Tasarım · Kardeşler (enjeksiyon turunda): grafik-tasarim-sureci, grafik-tasarim-trendleri, grafik-tasarim-araclari -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Kurumsal Grafik Tasarım Hangi Alanları Kapsar?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Grafik Tasarım</span>
-        <span class="yz-meta">5 Eylül 2026 · 7 dakikalık okuma</span>
+          <h1>Kurumsal Grafik Tasarım Hangi Alanları Kapsar?</h1>
+          <p class="ozet">Bir markanın yüzü, karşınıza çıkan her görselde yeniden şekillenir. Kurumsal grafik tasarım, bu görsellerin tamamını tek bir dil altında toplayan şemsiyedir. Türkiye'de dijitalleşen işletme sayısı hızla artıyor. Ticaret Bakanlığı'nın <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">Türkiye'de E-Ticaretin Görünümü 2025 raporuna</a> göre e-ticaret yapan işletme sayısı 634.611'e ulaştı. Kalabalıklaşan bu vitrinde görsel diliyle ayrışmak isteyen KOBİ'ler için tasarım türlerini tanımak ilk adımdır. Bu yazıda logodan ambalaja, katalogdan sosyal medya görseline kadar ne göreceğinizi anlatıyoruz. Programlara ve üretim aşamalarına girmiyoruz.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/grafik-tasarim-turleri-kapak-1440.webp"
+           srcset="./gorsel/grafik-tasarim-turleri-kapak-640.webp 640w, ./gorsel/grafik-tasarim-turleri-kapak-960.webp 960w, ./gorsel/grafik-tasarim-turleri-kapak-1440.webp 1440w, ./gorsel/grafik-tasarim-turleri-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Kurumsal grafik tasarım çıktı yelpazesini temsil eden koyu zeminde açılmış soyut 3D paneller"
+           width="1920" height="1080" decoding="async"><figcaption>Kurumsal grafik tasarımın çıktı yelpazesi: her panel farklı bir temas noktasını temsil eder. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Grafik Tasarım</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>5 Eylül 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>7 başlık</b></div>
       </div>
-      <h1>Kurumsal Grafik Tasarım Hangi Alanları Kapsar?</h1>
-      <p class="ozet">Bir markanın yüzü, karşınıza çıkan her görselde yeniden şekillenir. Kurumsal grafik tasarım, bu görsellerin tamamını tek bir dil altında toplayan şemsiyedir. Türkiye'de dijitalleşen işletme sayısı hızla artıyor. Ticaret Bakanlığı'nın <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">Türkiye'de E-Ticaretin Görünümü 2025 raporuna</a> göre e-ticaret yapan işletme sayısı 634.611'e ulaştı. Kalabalıklaşan bu vitrinde görsel diliyle ayrışmak isteyen KOBİ'ler için tasarım türlerini tanımak ilk adımdır. Bu yazıda logodan ambalaja, katalogdan sosyal medya görseline kadar ne göreceğinizi anlatıyoruz. Programlara ve üretim aşamalarına girmiyoruz.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#kurumsal-grafik-tasarim-nedir-hangi-ciktilari-kapsar"><span>01</span>Kurumsal Grafik Tasarım Nedir, Hangi Çıktıları Kapsar?</a><a href="#logo-ve-kimlik-setinde-karsiniza-neler-cikar"><span>02</span>Logo ve Kimlik Setinde Karşınıza Neler Çıkar?</a><a href="#baskida-gorunum-ambalajdan-kataloga-uzanan-yelpaze"><span>03</span>Baskıda Görünüm: Ambalajdan Kataloğa Uzanan Yelpaze</a><a href="#ekranda-hangi-tasarim-turlerini-gorursunuz"><span>04</span>Ekranda Hangi Tasarım Türlerini Görürsünüz?</a><a href="#hangi-gorsel-cikti-hangi-ihtiyaca-karsilik-gelir"><span>05</span>Hangi Görsel Çıktı Hangi İhtiyaca Karşılık Gelir?</a><a href="#kurumsal-grafik-tasarim-ihtiyacinizi-birlikte-planlayalim"><span>06</span>Kurumsal Grafik Tasarım İhtiyacınızı Birlikte Planlayalım</a><a href="#tasarim-turlerinin-gorunum-karsilastirmasi"><span>07</span>Tasarım Türlerinin Görünüm Karşılaştırması</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/grafik-tasarim-turleri-kapak-1440.webp"
-           srcset="./gorsel/grafik-tasarim-turleri-kapak-640.webp 640w, ./gorsel/grafik-tasarim-turleri-kapak-960.webp 960w, ./gorsel/grafik-tasarim-turleri-kapak-1440.webp 1440w, ./gorsel/grafik-tasarim-turleri-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Kurumsal grafik tasarım çıktı yelpazesini temsil eden koyu zeminde açılmış soyut 3D paneller"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Kurumsal grafik tasarımın çıktı yelpazesi: her panel farklı bir temas noktasını temsil eder. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Kurumsal Grafik Tasarım Nedir, Hangi Çıktıları Kapsar?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 07</span></div><h2 id="kurumsal-grafik-tasarim-nedir-hangi-ciktilari-kapsar">Kurumsal Grafik Tasarım Nedir, Hangi Çıktıları Kapsar?</h2>
       <div class="yz-cevap"><p>Kurumsal grafik tasarım, bir markanın logo, kimlik seti, baskı işleri ve dijital görsellerini üreten tasarım disiplinidir. Bu çıktıların tamamı ortak bir görsel dili taşır. Kapsamı tek bir logodan ibaret değildir. Kartvizitten ambalaja, katalogdan web bannerına uzanan geniş bir çıktı yelpazesini içerir. Amaç, markanın her temas noktasında aynı karakterle görünmesidir.</p></div>
       <p>Görsel kimlik, markayı renk, yazı karakteri ve biçim üzerinden tanımlayan kurallar bütünüdür. Sektör aynı bütünü marka kimliği adıyla da anar. KOBİ tarafında bu bütünün değeri rafta ve ekranda görünür. Müşteri, tutarlı görünüme sahip markayı daha kolay hatırlar. Grafik tasarımın kurumsal ayağı, işte bu tutarlılığı üreten çıktı ailesidir.</p>
       <h3>Görsel Çıktı Yelpazesi Neden Bu Kadar Geniş?</h3>
-      <p>Müşteriniz markayla farklı yüzeylerde karşılaşır: telefon ekranı, mağaza rafı, fuar standı, fatura zarfı. Her yüzeyin boyutu ve ışığı değişir; her yüzey kendi çıktısını ister. Bu geniş çıktı yelpazesi bir lüks değil, temas noktalarının doğal sonucudur.</p>
-      <h2>Logo ve Kimlik Setinde Karşınıza Neler Çıkar?</h2>
+      <p>Müşteriniz markayla farklı yüzeylerde karşılaşır: telefon ekranı, mağaza rafı, fuar standı, fatura zarfı. Her yüzeyin boyutu ve ışığı değişir; her yüzey kendi çıktısını ister. Bu geniş çıktı yelpazesi bir lüks değil, temas noktalarının doğal sonucudur.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 07</span></div><h2 id="logo-ve-kimlik-setinde-karsiniza-neler-cikar">Logo ve Kimlik Setinde Karşınıza Neler Çıkar?</h2>
       <div class="yz-cevap"><p>Logo, kimlik setinin merkezindeki en küçük ama en görünür çıktıdır. Kartvizit, antetli kağıt, e-posta imzası ve zarf onu çevreler. Markanız böylece her yerde tutarlı ve aynı yüzle görünür. Bu bütünlüğü tek çatı altında planlamak, parça parça üretimden daha tutarlı sonuç verir.</p></div>
       <p>Kimlik seti, işletmenizin resmi yazışmalarından saha ekibinin yaka kartına kadar uzanan somut parçalar ailesidir. Parçaların sayısından çok aralarındaki akrabalık önemlidir. Renk ve yazı karakteri hepsinde ortak kalır. Küçük bir KOBİ örneği bunu netleştirir. Bir gıda toptancısı sabah e-posta imzasıyla teklif gönderir. Öğlen kartvizit uzatır, akşam sevkiyat aracıyla müşteri kapısına gider. Üç temas noktası aynı renkleri taşıyorsa müşteri tek bir marka algılar. Set dağınıksa her temas ayrı bir firma izlenimi bırakır.</p>
       <h3>Logo: Markanın En Küçük Sahnesi</h3>
@@ -509,40 +554,40 @@
       <h3>Kimlik Setinde Hangi Parçalar Yer Alır?</h3>
       <p>Tipik bir sette kartvizit, antetli kağıt, zarf, dosya, e-posta imzası ve sunum şablonu bulunur. Sahada çalışan ekipler için personel kartı ile araç giydirme de yelpazeye eklenir.</p>
       <h4>Marka Kılavuzunda Ne Görürsünüz?</h4>
-      <p>Marka kılavuzu, logonun kullanım kurallarını, renk kodlarını ve yazı karakterlerini tek dosyada toplayan başvuru belgesidir. KOBİ'ler için kısa bir sürüm bile tutarlılığı büyük ölçüde korur.</p>
-      <h2>Baskıda Görünüm: Ambalajdan Kataloğa Uzanan Yelpaze</h2>
+      <p>Marka kılavuzu, logonun kullanım kurallarını, renk kodlarını ve yazı karakterlerini tek dosyada toplayan başvuru belgesidir. KOBİ'ler için kısa bir sürüm bile tutarlılığı büyük ölçüde korur.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 07</span></div><h2 id="baskida-gorunum-ambalajdan-kataloga-uzanan-yelpaze">Baskıda Görünüm: Ambalajdan Kataloğa Uzanan Yelpaze</h2>
       <div class="yz-cevap"><p>Baskı tarafında ambalaj, etiket, katalog, broşür ve fuar materyalleri kurumsal grafik tasarımın en elle tutulur çıktılarıdır. Ekranda parlak duran renkler kağıtta değişebilir; baskı işleri bu yüzden ayrı renk standardı ister. Raf ve stant gibi fiziksel sahneler de bu listeye girer, her biri kendi ölçüsünde üretim bekler.</p></div>
       <p>Fiziksel çıktının avantajı kalıcılığıdır. Ekrandaki görsel kaybolur; masada duran katalog günlerce elden ele dolaşır. Renk tarafında ekran RGB ışıkla, matbaa ise CMYK mürekkeple çalışır. Bu fark yüzünden ekranda canlı duran bir turuncu, kağıtta soluk çıkabilir. Kağıt seçimi de sonucu değiştirir. Mat kuşe sakin ve kurumsal bir his verir. Parlak kuşe renkleri öne çıkarır; kraft kağıt doğal bir karakter taşır. Baskı öncesi renk provası istemek, rafta yaşanacak sürprizi masada çözer.</p>
       <h3>Ambalaj Tasarımı Rafta Nasıl Görünür?</h3>
       <p>Ambalaj tasarımı, ürünü rafta saniyeler içinde tanıtan görsel yüzeydir. Sektör bu türü paket tasarımı adıyla da bilir. Kutu, etiket, poşet ve koli bandı aynı ailenin parçalarıdır. Rakip ürünlerin yanında gözün önce hangi kutuya gittiği, bu çıktının başarısını belirler.</p>
       <h3>Katalog ve Broşürde Ne Beklemelisiniz?</h3>
-      <p>Katalog, ürün ailenizi sayfa düzeniyle anlatan çok sayfalı çıktıdır. Broşür, yani tanıtım kitapçığı, tek konuya odaklanan kısa halidir. İkisinde de fotoğraf kalitesi ve sayfa boşlukları görünümü taşır. Fuar dönemlerinde bu ikili, satış ekibinizin masadaki vitrini olur.</p>
-      <h2>Ekranda Hangi Tasarım Türlerini Görürsünüz?</h2>
+      <p>Katalog, ürün ailenizi sayfa düzeniyle anlatan çok sayfalı çıktıdır. Broşür, yani tanıtım kitapçığı, tek konuya odaklanan kısa halidir. İkisinde de fotoğraf kalitesi ve sayfa boşlukları görünümü taşır. Fuar dönemlerinde bu ikili, satış ekibinizin masadaki vitrini olur.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 07</span></div><h2 id="ekranda-hangi-tasarim-turlerini-gorursunuz">Ekranda Hangi Tasarım Türlerini Görürsünüz?</h2>
       <div class="yz-cevap"><p>Dijital tarafta sosyal medya görselleri, web banner'ları, e-bülten şablonları ve reklam kreatifleri günlük görünümün omurgasını oluşturur. Markaların ekrandaki yüzü artık mağaza vitrini kadar önem taşıyor. Her kanal kendi ölçüsünü ister; tek görselle her yere yetişmek mümkün değildir, her format kendi oranında yeniden kurgulanır.</p></div>
       <p><a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TÜİK</a>'in güncel araştırmaları, hanehalkı internet kullanımının yıllar içinde istikrarlı biçimde arttığını gösteriyor. Ekran, birçok müşterinizin markanızla ilk karşılaştığı yer olabilir. Sosyal medya tasarımlarını <a href="../../sosyal-medya/">sosyal medya yönetimi</a> hizmetiyle birlikte planlamak yerinde olur. Site görsellerini ise <a href="../../web-tasarim/">web tasarım ve yazılım</a> altyapısıyla birlikte düşünmek görünüm bütünlüğünü korur.</p>
       <h3>Sosyal Medya Görsellerinde Neler Var?</h3>
       <p>Gönderi şablonları, hikaye tasarımları, kapak görselleri ve profil öğeleri bu ailenin üyeleridir. Şablon mantığı, her paylaşımın markanıza ait olduğunu ilk bakışta belli eder. Tasarımda kurumsal grafik dili, akışı hızla kaydıran bir göz için bile tanınmayı mümkün kılar.</p>
       <h3>Reklam Kreatifleri ve Banner Setleri</h3>
       <p>Dijital reklam görsellerini kare, dikey ve yatay sürümleriyle set halinde hazırlarız. Hepsi tek kampanyanın parçalarıdır. Kampanya kurgusunu <a href="../../dijital-pazarlama/">dijital pazarlama</a> ekibiyle ortak yürütmek, görsel ile hedefleme arasındaki bağı güçlendirir.</p>
-      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      <h2>Hangi Görsel Çıktı Hangi İhtiyaca Karşılık Gelir?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 07</span></div><h2 id="hangi-gorsel-cikti-hangi-ihtiyaca-karsilik-gelir">Hangi Görsel Çıktı Hangi İhtiyaca Karşılık Gelir?</h2>
       <div class="yz-cevap"><p>İhtiyaç sıranız markanızın bulunduğu aşamaya göre şekillenir. Yeni kuruluşta kimlik, ürün lansmanında ambalaj, büyüme döneminde dijital set öne çıkar. Yanlış sırayla ilerlemek bütçeyi böler ve görünümü parçalara ayırır. Aşağıdaki dizilim, KOBİ'lerde en sık karşılaştığımız ihtiyaç sırasını dört tipik senaryo üzerinden gösterir.</p></div>
       <ol><li>Yeni kurulan işletme: logo, kimlik seti ve marka kılavuzu ile başlar.</li><li>Ürünü rafa çıkacak marka: ambalaj ve etiket tasarımını önceliğe alır.</li><li>Bayilik veya B2B satış yapan firma: katalog ve tanıtım kitapçığına yönelir.</li><li>Dijital kanalda büyüyen işletme: sosyal medya şablonları ve reklam setine yatırım yapar.</li></ol> <p>Kurumsal grafik tasarım yatırımını bu sırayla kurgulamak, her çıktının bir öncekinin üzerine oturmasını sağlar.</p>
       <h3>Karma İhtiyaçlarda Görünüm Nasıl Korunur?</h3>
-      <p>Birden çok çıktıya aynı anda ihtiyaç duyuyorsanız çapanız marka kılavuzudur. Kılavuz hazırsa ambalajı bir ekip, sosyal medyayı başka bir ekip üretebilir. Sonuç yine aynı aileden görünür. Kurumsal iletişimin grafik yüzü, bu ortak referansla ayakta kalır.</p>
-      <h2>Kurumsal Grafik Tasarım İhtiyacınızı Birlikte Planlayalım</h2>
+      <p>Birden çok çıktıya aynı anda ihtiyaç duyuyorsanız çapanız marka kılavuzudur. Kılavuz hazırsa ambalajı bir ekip, sosyal medyayı başka bir ekip üretebilir. Sonuç yine aynı aileden görünür. Kurumsal iletişimin grafik yüzü, bu ortak referansla ayakta kalır.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 07</span></div><h2 id="kurumsal-grafik-tasarim-ihtiyacinizi-birlikte-planlayalim">Kurumsal Grafik Tasarım İhtiyacınızı Birlikte Planlayalım</h2>
       <div class="yz-cevap"><p>İhtiyaç haritanızı çıkarmak için kurumsal grafik tasarım envanterinizi birlikte gözden geçirmemiz yeterlidir. Bu incelemede eksik çıktıları ve öncelik sırasını netleştiririz. Bu görüşme sizi bir pakete bağlamaz; hangi türün işinize gerçekten katkı vereceğini görmenizi sağlar. Kurumsal grafik tasarım yatırımı, doğru sırayla küçük adımlarla da başlayabilir.</p></div>
       <p>TasarımMania olarak <a href="../../grafik-tasarim/">grafik tasarım hizmetimizde</a> bu yazıda saydığımız tüm çıktı ailelerini üretiyoruz. Mevcut görsellerinizi gönderin; hangi parçaların eksik olduğunu, hangilerinin yenilenmesi gerektiğini raporlayalım. Bu tasarım yatırımında ölçülebilir hedef koymayı severiz. Kaç çıktı, hangi kanal, hangi öncelik sorularının net yanıtlarıyla ilerleriz.</p>
       <h3>İlk Adım İçin Ne Hazırlamalısınız?</h3>
       <p>Elinizdeki logo dosyaları, kullandığınız renkler ve aktif satış kanallarınızın listesi başlangıç için yeterlidir. Malzemeniz dağınıksa dert etmeyin; dağınıklık, ihtiyaç haritasının kendisini gösterir.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/grafik-tasarim-turleri-govde-960.webp"
              srcset="./gorsel/grafik-tasarim-turleri-govde-640.webp 640w, ./gorsel/grafik-tasarim-turleri-govde-960.webp 960w, ./gorsel/grafik-tasarim-turleri-govde-1440.webp 1440w, ./gorsel/grafik-tasarim-turleri-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Ambalaj, baskı ve dijital ekran çıktılarını tek ışık hattıyla birleştiren soyut 3D kompozisyon" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Baskıdan ekrana tüm çıktılar aynı görsel dilin farklı sahneleridir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Tasarım Türlerinin Görünüm Karşılaştırması</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 07</b><span>07 / 07</span></div><h2 id="tasarim-turlerinin-gorunum-karsilastirmasi">Tasarım Türlerinin Görünüm Karşılaştırması</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Tasarım Türü</th><th>Nerede Görürsünüz</th><th>Tipik Çıktılar</th></tr></thead>
@@ -564,7 +609,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../grafik-tasarim/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Görsel çıktı yelpazesini tanımak, bütçenizi doğru türe yönlendirmenin ilk şartıdır. Logo, kimlik seti, ambalaj, katalog ve dijital görseller bu yelpazenin parçalarıdır. Her biri markanızın farklı bir sahnede görünen yüzüdür. Kurumsal grafik tasarım bu sahneleri tek dile bağlar. Hangi sahneden başlayacağınıza karar verirken bu yazıdaki dizilimi yol haritası olarak kullanabilirsiniz.</p>
+        <p>Görsel çıktı yelpazesini tanımak, bütçenizi doğru türe yönlendirmenin ilk şartıdır. Logo, kimlik seti, ambalaj, katalog ve dijital görseller bu yelpazenin parçalarıdır. Her biri markanızın farklı bir sahnede görünen yüzüdür. Kurumsal grafik tasarım bu sahneleri tek dile bağlar. Hangi sahneden başlayacağınıza karar verirken bu yazıdaki dizilimi yol haritası olarak kullanabilirsiniz.</p></section>
       </article>
     </div>
   </section>

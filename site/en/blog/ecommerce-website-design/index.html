@@ -175,6 +175,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -465,73 +512,71 @@
 <!-- AYIRT EDİCİ EKSEN: MALIYET — Ready-made theme ve özel e-ticaret sitesi tasarımının maliyet/değer kıyası; UX akışı ve ödeme altyapısı kardeş yazıların konusu, altyapı/platform seçim ölçütleri e-ticaret-yazilimi'nin ekseni — burada tekrarlanmaz.
      Huni türü: MOFU · Küme: E-Commerce Deneyimi · Kardeşler (enjeksiyon turunda): kullanici-deneyimi, odeme-guvenligi, e-ticaret-urun-fotograflari -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">E-Commerce Website Design: Ready-Made Theme or Custom Design?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Web Design</span>
-        <span class="yz-meta">11 September 2026 · 7 min read</span>
+          <h1>E-Commerce Website Design: Ready-Made Theme or Custom Design?</h1>
+          <p class="ozet">Every SME opening an online shop runs into the same question: ready-made theme or custom design? At that moment, e-commerce website design stops being a visual preference. The decision turns into a cost plan spread across years. The template with the low price tag can swell over time with licence and plugin charges. A custom e-commerce website design, on the other hand, can earn back a high opening budget over the long run. In this article we compare the two approaches along the axis of cost and value. We offer a practical framework that ties your decision to numerical thresholds.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/ecommerce-website-design-cover-1440.webp"
+           srcset="./image/ecommerce-website-design-cover-640.webp 640w, ./image/ecommerce-website-design-cover-960.webp 960w, ./image/ecommerce-website-design-cover-1440.webp 1440w, ./image/ecommerce-website-design-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="A dark, abstract 3D illustration of a road forking in two, standing for the choice between a ready-made theme and custom e-commerce website design"
+           width="1920" height="1080" decoding="async"><figcaption>Two roads to the same destination: the standard mould and the brand-specific build tell different stories in the cost table. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Web Design</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>11 September 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>6 sections</b></div>
       </div>
-      <h1>E-Commerce Website Design: Ready-Made Theme or Custom Design?</h1>
-      <p class="ozet">Every SME opening an online shop runs into the same question: ready-made theme or custom design? At that moment, e-commerce website design stops being a visual preference. The decision turns into a cost plan spread across years. The template with the low price tag can swell over time with licence and plugin charges. A custom e-commerce website design, on the other hand, can earn back a high opening budget over the long run. In this article we compare the two approaches along the axis of cost and value. We offer a practical framework that ties your decision to numerical thresholds.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#what-is-the-fundamental-difference-between-a-ready-made-theme-and-a-custom-design"><span>01</span>What Is the Fundamental Difference Between a Ready-Made Theme and a Custom Design?</a><a href="#what-does-a-ready-made-theme-really-cost"><span>02</span>What Does a Ready-Made Theme Really Cost?</a><a href="#when-is-a-custom-e-commerce-website-design-a-sensible-investment"><span>03</span>When Is a Custom E-Commerce Website Design a Sensible Investment?</a><a href="#how-do-you-calculate-total-cost-of-ownership"><span>04</span>How Do You Calculate Total Cost of Ownership?</a><a href="#which-thresholds-should-you-look-at-when-deciding"><span>05</span>Which Thresholds Should You Look at When Deciding?</a><a href="#ready-made-theme-and-custom-design-compared"><span>06</span>Ready-Made Theme and Custom Design Compared</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/ecommerce-website-design-cover-1440.webp"
-           srcset="./image/ecommerce-website-design-cover-640.webp 640w, ./image/ecommerce-website-design-cover-960.webp 960w, ./image/ecommerce-website-design-cover-1440.webp 1440w, ./image/ecommerce-website-design-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="A dark, abstract 3D illustration of a road forking in two, standing for the choice between a ready-made theme and custom e-commerce website design"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Two roads to the same destination: the standard mould and the brand-specific build tell different stories in the cost table. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>What Is the Fundamental Difference Between a Ready-Made Theme and a Custom Design?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 06</span></div><h2 id="what-is-the-fundamental-difference-between-a-ready-made-theme-and-a-custom-design">What Is the Fundamental Difference Between a Ready-Made Theme and a Custom Design?</h2>
       <div class="yz-cevap"><p>A ready-made theme is a rented mould; a custom design is a structure produced from scratch to fit your brand. The difference shows up in ownership and in flexibility. With a template you share the same skeleton with thousands of other shops. On a bespoke project the code, the interface and the decisions about expansion belong entirely to you. That difference in ownership has a direct bearing on every item you will pay for in the years ahead.</p></div>
       <p>A ready-made theme is a packaged interface produced to be sold to a great many shops. A custom design is a solution coded from scratch for the goals of a single brand. All rights to the code belong to the client. The number of businesses in Türkiye taking this decision is rising fast. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">The ETBİS 2025 report</a> — ETBİS is Türkiye's central e-commerce information system — puts the number of businesses trading online in the country at 634,611. As the market grows more crowded, the power of e-commerce website design to set you apart turns into a value item that never appears on the price tag.</p>
       <h3>Why Doesn't the Cost Comparison End at the Price Tag?</h3>
-      <p>The price tag only tells you about the day of installation. A template's annual licence renewal and its paid plugins are spread across time. The emergency repair bills paid when something turns out to be incompatible swell the list further. On a custom project the maintenance contract is a single, predictable item. The way to compare the two models soundly is to put the three- to five-year total spend in the same table. Value becomes clear over that longer window.</p>
-      <h2>What Does a Ready-Made Theme Really Cost?</h2>
+      <p>The price tag only tells you about the day of installation. A template's annual licence renewal and its paid plugins are spread across time. The emergency repair bills paid when something turns out to be incompatible swell the list further. On a custom project the maintenance contract is a single, predictable item. The way to compare the two models soundly is to put the three- to five-year total spend in the same table. Value becomes clear over that longer window.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 06</span></div><h2 id="what-does-a-ready-made-theme-really-cost">What Does a Ready-Made Theme Really Cost?</h2>
       <div class="yz-cevap"><p>The real cost is the compounding total, over the years, of the licence, plugin and customization charges added on top of the opening fee. The developer hours spent making a template resemble the brand hardly ever appear in a budget plan. Once the invisible items are added up, the option everyone took for cheap can turn out dearer than expected in the medium term. That is why the calculation has to be built on the five-year figure rather than day one's.</p></div>
       <p>The appeal of the template economy is speed: you can be selling within a few days. The price of it is staying tied to a standard mould. The more you want adapted to the brand, the more developer hours grow. A project that starts cheap swells on hourly rates. The code of dozens of modules you never use sits on the site as dead weight. That weight shows up in both the speed and the maintenance bill. We see a similar balance on <a href="../../corporate-website/">corporate website</a> projects too. In e-commerce website design, the customization bill can reach several times the price of the theme itself.</p>
       <h3>Which Cost Items Are Hidden in a Template?</h3>
-      <p>Once you have settled your visual identity with our graphic design team, here are the items that businesses starting their e-commerce website design on a template most often overlook:</p><ul><li>The annual theme licence and update package</li><li>Paid plugin subscriptions and version upgrades</li><li>Developer hours paid for customization</li><li>Repairing the functions that break after a theme update</li><li>The performance work needed for pages that have slowed down</li></ul><p>Most quotation documents never raise the annual total of those five items at all.</p>
-      <h2>When Is a Custom E-Commerce Website Design a Sensible Investment?</h2>
+      <p>Once you have settled your visual identity with our graphic design team, here are the items that businesses starting their e-commerce website design on a template most often overlook:</p><ul><li>The annual theme licence and update package</li><li>Paid plugin subscriptions and version upgrades</li><li>Developer hours paid for customization</li><li>Repairing the functions that break after a theme update</li><li>The performance work needed for pages that have slowed down</li></ul><p>Most quotation documents never raise the annual total of those five items at all.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 06</span></div><h2 id="when-is-a-custom-e-commerce-website-design-a-sensible-investment">When Is a Custom E-Commerce Website Design a Sensible Investment?</h2>
       <div class="yz-cevap"><p>A custom design is a sensible investment for businesses that are growing, looking for brand distinction and seeing traffic climb. It earns the opening outlay back through a rise in conversion. At small scale, a template may well be enough. As turnover grows, the need for flexibility becomes more decisive than the budget. The decision has to come from scale data, not from taste.</p></div>
       <p>A custom e-commerce website design is a development process in which every component is built around your business model. The scope runs from the interface right through to the admin panel. <a href="https://ticaret.gov.tr/duyurular/turkiyede-e-ticaretin-gorunumu-raporu-yayinlandi-06-05-2025" target="_blank" rel="noopener">The Ministry of Trade's outlook report</a> shows e-commerce volume passed ₺3 trillion in 2024. The sector's share of gross domestic product came to 6.5%. In a growing pie, shops that look like one another get squeezed into competing on price. A bespoke structure, by contrast, sets your brand apart from the crowd. You can develop the specific functions you need during campaign periods without going plugin-hunting. You'll find the whole scope on the <a href="../../ecommerce-website/">e-commerce solutions page</a> of the site.</p>
       <h3>What Determines the Return on the Investment?</h3>
-      <p>Three variables determine the return: conversion rate, basket value and how often people buy again. An e-commerce site whose design has been thought through can produce more orders on the same advertising budget. Visibility in search is part of the equation too. <a href="../../technical-seo/">Our technical SEO service</a> backs an original code structure that turns organic traffic into a lasting cost advantage.</p>
-      <h2>How Do You Calculate Total Cost of Ownership?</h2>
+      <p>Three variables determine the return: conversion rate, basket value and how often people buy again. An e-commerce site whose design has been thought through can produce more orders on the same advertising budget. Visibility in search is part of the equation too. <a href="../../technical-seo/">Our technical SEO service</a> backs an original code structure that turns organic traffic into a lasting cost advantage.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 06</span></div><h2 id="how-do-you-calculate-total-cost-of-ownership">How Do You Calculate Total Cost of Ownership?</h2>
       <div class="yz-cevap"><p>Total cost of ownership is the sum of the setup, licence, maintenance, customization and renewal charges. You build the calculation over a three- to five-year window. Businesses that compare that total rather than the one-off price see the real difference between the two models. SMEs that set their e-commerce website design budget this way take the emotion out of the decision.</p></div>
       <p>Total cost of ownership (TCO) is a financial measure. It covers every cost a system produces from the moment of purchase until it is taken out of service. You can build the calculation in five steps:</p><ol><li>Write down the setup fee: the theme price or the custom project quote.</li><li>Add the recurring costs: licence, plugin subscription, hosting, maintenance contract.</li><li>Forecast the customization hours: multiply the annual developer hours by the hourly rate.</li><li>Allow for the rebuild cycle: decide how many years pass before the current structure is built again from scratch.</li><li>Set the five-year totals of the two scenarios one beneath the other and compare them.</li></ol>
       <h3>Why Are Recurring Costs Decisive?</h3>
       <p>A recurring cost is, unlike a one-off charge, a payment item that comes round every year. Currency movements shake foreign-currency licences and plugin subscriptions directly. For SMEs planning their budget in lira, that volatility is a serious risk. A fixed maintenance contract, by contrast, gives you predictability.</p>
       <h4>The Hidden Item: The Cost of Rebuilding</h4>
       <p>Beyond a certain point, template sites usually stop accepting patches. That is when a rebuild comes onto the agenda. Picture a concrete scenario. One day the theme's developer stops supporting updates. The payment plugin doesn't agree with the new version and the basket step throws an error. The only way out is to move the product data and build the shop again from scratch. That move means data migration, training the team, and lost sales. On a custom structure, by contrast, you can renew the existing code in stages. That difference alone can shift the five-year cost balance.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>Which Thresholds Should You Look at When Deciding?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 06</span></div><h2 id="which-thresholds-should-you-look-at-when-deciding">Which Thresholds Should You Look at When Deciding?</h2>
       <div class="yz-cevap"><p>Take the decision by looking at thresholds: number of products, order volume, campaign intensity and growth target. Starting on a template and moving to a custom structure at a certain scale is a perfectly valid strategy too. What matters is catching the moment of transition with cost data rather than guesswork. If at least two of the signs below apply to you, give the custom solution serious consideration.</p></div>
       <p>By threshold we mean the concrete indicators that lift the choice out of personal taste and tie it to data. <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TurkStat's latest research</a>— TurkStat is Türkiye's statistical institute — indicates that shopping online is continuing to spread through households. As the base of demand widens, your site sits its scale exam sooner. Watch these indicators:</p><ul><li>The product catalogue passes a few hundred lines and managing variants starts to strain the template.</li><li>On campaign days, traffic climbs to several times its usual level.</li><li>As the number of plugins grows, page speed and the maintenance bill deteriorate together.</li><li>Your brand competes in a segment where looking like everyone else costs you sales.</li></ul><p>If your e-commerce site's design sits below those thresholds, carrying on with a template is a defensible choice on budget grounds.</p>
       <h3>How Do You Build the Transition Strategy?</h3>
       <p>You build the transition strategy on the sales data gathered during the template period. Record which categories turn over in the early months and which devices the orders come from. When site design in e-commerce is shaped by that data, the hit rate goes up. The budget set aside for a custom e-commerce website design then rests on measurement rather than guesswork.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/ecommerce-website-design-body-960.webp"
              srcset="./image/ecommerce-website-design-body-640.webp 640w, ./image/ecommerce-website-design-body-960.webp 960w, ./image/ecommerce-website-design-body-1440.webp 1440w, ./image/ecommerce-website-design-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="A layered, abstract 3D cost staircase standing for the five-year total cost of ownership in e-commerce website design" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Total cost of ownership shows the real balance when it is measured over a five-year window, not on the day of installation. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Ready-Made Theme and Custom Design Compared</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 06</span></div><h2 id="ready-made-theme-and-custom-design-compared">Ready-Made Theme and Custom Design Compared</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Criterion</th><th>Ready-Made Theme</th><th>Custom Design</th></tr></thead>
@@ -554,7 +599,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../ecommerce-website/">See the service page</a>
         </aside>
-        <p>The choice between a ready-made theme and a bespoke structure is the balance between today's budget and tomorrow's growth. Built on the right model at the right scale, e-commerce website design stops being a line of spending. It turns into an asset that produces sales. At TasarımMania we work both scenarios out in the same total cost table. We take the decision together, using your data. If you'd like to draw up the five-year cost projection for your e-commerce website design with us, let's assess it alongside our <a href="../../website-maintenance/">maintenance and support</a> plan.</p>
+        <p>The choice between a ready-made theme and a bespoke structure is the balance between today's budget and tomorrow's growth. Built on the right model at the right scale, e-commerce website design stops being a line of spending. It turns into an asset that produces sales. At TasarımMania we work both scenarios out in the same total cost table. We take the decision together, using your data. If you'd like to draw up the five-year cost projection for your e-commerce website design with us, let's assess it alongside our <a href="../../website-maintenance/">maintenance and support</a> plan.</p></section>
       </article>
     </div>
   </section>

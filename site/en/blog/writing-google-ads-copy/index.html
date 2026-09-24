@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -464,79 +511,77 @@
 <!-- AYIRT EDİCİ EKSEN: MEKANİZMA — Başlık-açıklama-CTA formülünün işleyişi ve yazım adımları (mecra-bağımsız); bütçe/maliyet ekseni google-ads-ve-ppc yazısına ayrılmıştır.
      Huni türü: BOFU · Küme: Digital Marketing Performansı · Kardeşler (enjeksiyon turunda): sosyal-medya-stratejileri, sosyal-medya-reklam-yonetimi, influencer-pazarlama -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">How Do You Write Google Ads Copy? A 9-Step Formula</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Digital Marketing</span>
-        <span class="yz-meta">21 October 2026 · 7 min read</span>
+          <h1>How Do You Write Google Ads Copy? A 9-Step Formula</h1>
+          <p class="ozet"><p>In the search results you are represented by a piece of text. Three lines, a few seconds and a single decision. The number of businesses building a digital shop window in Türkiye grows every year; on the number of competitors in the search network auction, however, there is no public data. In that crowd, Google Ads copy is the only visible face of your offer. As an agency we build the same skeleton on every campaign and measure the result in the panel. The method isn't complicated; applying it takes discipline. In this article we open that skeleton up step by step.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/writing-google-ads-copy-cover-1440.webp"
+           srcset="./image/writing-google-ads-copy-cover-640.webp 640w, ./image/writing-google-ads-copy-cover-960.webp 960w, ./image/writing-google-ads-copy-cover-1440.webp 1440w, ./image/writing-google-ads-copy-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Abstract glass panels representing the headline, description and display path components of ad copy"
+           width="1920" height="1080" decoding="async"><figcaption>Headline, description and display path build a single promise together. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Digital Marketing</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>21 October 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>6 sections</b></div>
       </div>
-      <h1>How Do You Write Google Ads Copy? A 9-Step Formula</h1>
-      <p class="ozet"><p>In the search results you are represented by a piece of text. Three lines, a few seconds and a single decision. The number of businesses building a digital shop window in Türkiye grows every year; on the number of competitors in the search network auction, however, there is no public data. In that crowd, Google Ads copy is the only visible face of your offer. As an agency we build the same skeleton on every campaign and measure the result in the panel. The method isn't complicated; applying it takes discipline. In this article we open that skeleton up step by step.</p></p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#which-parts-is-google-ads-copy-made-of"><span>01</span>Which parts is Google Ads copy made of?</a><a href="#in-which-order-should-we-write-the-headlines"><span>02</span>In which order should we write the headlines?</a><a href="#how-are-the-description-line-and-the-call-to-action-line-built"><span>03</span>How are the description line and the call-to-action line built?</a><a href="#how-do-we-know-the-copy-we-wrote-is-working"><span>04</span>How do we know the copy we wrote is working?</a><a href="#which-9-steps-should-we-apply-before-publishing"><span>05</span>Which 9 steps should we apply before publishing?</a><a href="#weak-copy-and-strong-copy-a-component-comparison"><span>06</span>Weak Copy and Strong Copy: A Component Comparison</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/writing-google-ads-copy-cover-1440.webp"
-           srcset="./image/writing-google-ads-copy-cover-640.webp 640w, ./image/writing-google-ads-copy-cover-960.webp 960w, ./image/writing-google-ads-copy-cover-1440.webp 1440w, ./image/writing-google-ads-copy-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Abstract glass panels representing the headline, description and display path components of ad copy"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Headline, description and display path build a single promise together. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Which parts is Google Ads copy made of?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 06</span></div><h2 id="which-parts-is-google-ads-copy-made-of">Which parts is Google Ads copy made of?</h2>
       <div class="yz-cevap"><p>A search advertisement is made of three parts: the headline, the description and the display path. In Google's specification, headlines are limited to 30 characters and descriptions to 90. The system combines those parts according to the query. You write not sentences but building blocks that fit together. The user sees a single whole; the side producing it prepares the parts separately.</p></div>
       <p>According to Google's responsive search ad specification there are 15 headline and 4 description fields. Google builds the best match to the query out of that pool. Every headline has to make sense on its own. Filling the pool with phrases that copy one another narrows the system's field of choice.</p><p>The number of businesses moving to a digital channel is growing: <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">The Ministry of Trade's ETBİS report</a> — ETBİS is Türkiye's central e-commerce information system — puts the number of businesses trading online at 600,800 in 2024 and 634,611 in 2025. There is no public data measuring how that growth feeds through into the auction; the first point of difference on the results page is the copy. Strong Google Ads copy is built from parts that can stand in for one another. <a href="../../google-ads/">In our Google Ads management</a> work, that pool is the first area we audit.</p>
       <h3>What do the headline, description and display path do?</h3>
       <p>The headline stops the eye and proves the match with the query. The description clarifies the content and the terms of the offer. The display path tells the user in advance which page they will land on. Together the three form a single promise. When one is missing, the intent to click breaks.</p>
       <h3>Why doesn't ad copy count as a sentence on the Google Ads side?</h3>
-      <p>The copy pool doesn't work like a fixed paragraph. The system matches headlines in different orders; on some impressions it brings two onto the screen, on others three. Every part has to carry meaning when read out of context too. Build sentences that depend on one another and the combination breaks. On that logic, you write the pool piece by piece.</p>
-      <h2>In which order should we write the headlines?</h2>
+      <p>The copy pool doesn't work like a fixed paragraph. The system matches headlines in different orders; on some impressions it brings two onto the screen, on others three. Every part has to carry meaning when read out of context too. Build sentences that depend on one another and the combination breaks. On that logic, you write the pool piece by piece.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 06</span></div><h2 id="in-which-order-should-we-write-the-headlines">In which order should we write the headlines?</h2>
       <div class="yz-cevap"><p>Write the match first, the benefit second and the differentiator last. The first headline reflects the user's query exactly. The second gives the concrete benefit. The third carries the proof that sets you apart from a competitor. That ordering matches the user's reading behaviour exactly. Google Ads copy built in that arrangement answers the user's questions before they click.</p></div>
       <p>The match headline contains almost exactly the phrase the user typed. That repetition confirms within seconds that the page is in the right place. The benefit headline states the outcome: delivery time, scope or field of expertise. The differentiator headline asks for proof. The order of the layers matches the order of the user's questions: am I in the right place, what do I gain, why you? Give each question its own headline.</p><p>If you can't fit a piece of information into a headline, move it into the description. Abbreviations that strain the character limit lower readability. <a href="../../performance-marketing/">Our performance marketing</a> team tests those layers separately on every campaign.</p>
       <h3>How is the match headline built?</h3>
       <p>Write the target query down on one side. Fit the main phrase into 30 characters without breaking it. Don't squeeze the brand name in here; the brand's place is another field. When users see their own word, they carry on reading. If you have to abbreviate, touch the words around the main phrase, not the phrase itself.</p>
       <h3>Where do the benefit and the differentiator headline diverge?</h3>
-      <p>The benefit describes the outcome the user gains. The differentiator shows why they should get that outcome from you. Combine the two in one line and the message blurs. A number, a duration or a document — look for a concrete footing in the differentiator headline. If you can't find the proof, leaving that field empty is better than writing an empty compliment.</p>
-      <h2>How are the description line and the call-to-action line built?</h2>
+      <p>The benefit describes the outcome the user gains. The differentiator shows why they should get that outcome from you. Combine the two in one line and the message blurs. A number, a duration or a document — look for a concrete footing in the differentiator headline. If you can't find the proof, leaving that field empty is better than writing an empty compliment.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 06</span></div><h2 id="how-are-the-description-line-and-the-call-to-action-line-built">How are the description line and the call-to-action line built?</h2>
       <div class="yz-cevap"><p>A description line that doesn't answer an objection wastes the click. Clear the hesitation in the first half and ask for a single action in the second. A call to action carries one verb; write the action you measure by its name. Vague invitations postpone the decision, because in the ad text that line is the only place the action is described.</p></div>
       <p>Avoid empty adjectives in the description. The phrase "quality service" answers no question; "installed in 48 hours" does. Concrete data builds the threshold of trust within the copy itself. Put the call at the end and leave a single action.</p><p>Fill the second description field too. The system doesn't bring both fields onto the screen on every impression; leave the field empty and the pool of options narrows as well. In Turkish the character limit fills faster, because suffixes lengthen words and the same meaning needs more letters. So rather than shortening the sentence, choose the information; leave the rest to the landing page.</p><p>Google Ads copy doesn't live alone in the panel; the landing page has to repeat the same promise. When the promise and the page contradict each other, the user goes back. <a href="../../corporate-website/">The corporate website</a> headline should match the promise in the advertisement exactly.</p>
       <h3>Which information takes priority in the description line?</h3>
       <p>List the objection you hear most often in sales conversations. Questions of duration, scope and conditions lead the way. Put the most frequent one in the first half of the description. Keep the list short; the remaining questions are the landing page's job anyway.</p>
       <h4>The one-verb rule in a call to action</h4>
-      <p>Copy asking for two different actions postpones the decision. The sentence "Call now and fill in the form" splits the user in two. Choose one verb. Whichever action you are measuring, write that one.</p>
-      <h2>How do we know the copy we wrote is working?</h2>
+      <p>Copy asking for two different actions postpones the decision. The sentence "Call now and fill in the form" splits the user in two. Choose one verb. Whichever action you are measuring, write that one.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 06</span></div><h2 id="how-do-we-know-the-copy-we-wrote-is-working">How do we know the copy we wrote is working?</h2>
       <div class="yz-cevap"><p>You see whether the copy is working in three places. The click-through rate shows the headline's match with the query, the conversion rate shows the promise's consistency with the page, and the search terms report shows which query triggered the copy. Read the signals in that order; fix the match first, then the promise. Measurement is the first step of the next version.</p></div>
       <p>Keep the test cycle fixed. Run one version for the period you have set, then change a single headline only. The search terms report shows which query triggered which copy. That report is the raw material for new match headlines.</p><p>Google Ads copy written without measurement rests on guesswork. The numbers you see in the panel point to the part of the copy the problem sits in. Don't fix the winning version straight away; test the same copy in other ad groups too. User behaviour changes from year to year; measure last season's winning copy again this season.</p>
       <h3>Which signals point to a problem with the copy?</h3>
       <p>If impressions are many and clicks few, the problem is in the headline. If clicks are many and there are no form submissions, the problem sits between the promise and the page. Unrelated search terms tell you the match headline is pulling the wrong word.</p>
       <h3>How do we compare variants?</h3>
       <p>Run the two versions in the same ad group. Keep the variable single: only the benefit headline, or only the call-to-action line. Write the result into a table. The winning version's copy becomes the basis of the next Google Ads experiment. Record the comparison with date and variable columns.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>Which 9 steps should we apply before publishing?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 06</span></div><h2 id="which-9-steps-should-we-apply-before-publishing">Which 9 steps should we apply before publishing?</h2>
       <div class="yz-cevap"><p>A Google Ads copy audit has nine steps: fix the query, build the match headline, state the benefit with a number and add the proof. The order matters; it starts with the match, carries on with the proof and ends with a single call. Skip one step and the output of the next is spoiled too. Apply the list not while you write but before you publish.</p></div>
       <p>Writing ad copy on the Google Ads side isn't a job that finishes in a single sitting. Follow this order:</p><ol><li>Fix the target query on a single line.</li><li>Build the match headline with the main phrase from the query.</li><li>State the outcome in the benefit headline with a number or a duration.</li><li>Put a document, a scope or proof of expertise into the differentiator headline.</li><li>Vary the headline pool and weed out repeating variants.</li><li>Answer the most frequent objection in the first half of the description.</li><li>Leave a one-verb call to action in the second half.</li><li>Align the display path with the landing page's promise.</li><li>Read the search terms report and change a single variable.</li></ol>
       <h3>Who applies the list, and when?</h3>
       <p>Let the person writing the copy and the person checking it be different. The writer goes blind to their own sentences. Ten minutes of reading before publication cuts a wrong match off at the start. Have the checker tick the items off in order.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/writing-google-ads-copy-body-960.webp"
              srcset="./image/writing-google-ads-copy-body-640.webp 640w, ./image/writing-google-ads-copy-body-960.webp 960w, ./image/writing-google-ads-copy-body-1440.webp 1440w, ./image/writing-google-ads-copy-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Rising abstract cubes representing the nine-step ad copy checklist" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>The checklist is the final audit before the copy goes live. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Weak Copy and Strong Copy: A Component Comparison</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 06</span></div><h2 id="weak-copy-and-strong-copy-a-component-comparison">Weak Copy and Strong Copy: A Component Comparison</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Component</th><th>Weak approach</th><th>Strong approach</th><th>Signal to read</th></tr></thead>
@@ -557,7 +602,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../google-ads/">See the service page</a>
         </aside>
-        <p><p>Writing ad copy isn't a creative leap but a repeatable production line. You build the match, you state the benefit with a number, you add the proof and you leave a single call. Measurement corrects you. Once you have built the line, every new campaign starts from the same skeleton. If you'd like to build your own Google Ads copy pool on that skeleton, write to us through <a href="../../get-a-quote/">the quote form</a> and we'll go over your existing copy together.</p></p>
+        <p><p>Writing ad copy isn't a creative leap but a repeatable production line. You build the match, you state the benefit with a number, you add the proof and you leave a single call. Measurement corrects you. Once you have built the line, every new campaign starts from the same skeleton. If you'd like to build your own Google Ads copy pool on that skeleton, write to us through <a href="../../get-a-quote/">the quote form</a> and we'll go over your existing copy together.</p></p></section>
       </article>
     </div>
   </section>

@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -468,45 +515,43 @@
 <!-- AYIRT EDİCİ EKSEN: ÖLÇÜM — Çok dilli desteğin dönüşüm oranı, sepet ve iade metriklerine ölçülebilir etkisi; çiftin diğer yarısı (uluslararasi-seo) hreflang/URL kurulum ROTA'sına ayrıldı, teknik kuruluma burada girilmez.
      Huni türü: TOFU · Küme: Çok Dilli SEO · Kardeşler (enjeksiyon turunda): uluslararasi-seo-nasil-yapilir, e-ticaret-yazilimi, e-ticaret-web-tasarimi -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">How Does Multilingual E-Commerce Change Your Conversion Rate?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">E-Commerce</span>
-        <span class="yz-meta">13 October 2026 · 7 min read</span>
+          <h1>How Does Multilingual E-Commerce Change Your Conversion Rate?</h1>
+          <p class="ozet">As the volume of e-commerce in Türkiye grows, so does the sharpness of the competition. Part of the traffic arriving at your shop now consists of users who prefer a language other than Turkish. But are those visitors actually buying, or are they stopping at the basket? In this article we take the effect of the multilingual e-commerce decision on the conversion rate, the basket abandonment rate and the returns metrics, within a measurable framework. The technical setup is the subject of another article; our focus is the figure itself.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/multilingual-ecommerce-conversion-cover-1440.webp"
+           srcset="./image/multilingual-ecommerce-conversion-cover-640.webp 640w, ./image/multilingual-ecommerce-conversion-cover-960.webp 960w, ./image/multilingual-ecommerce-conversion-cover-1440.webp 1440w, ./image/multilingual-ecommerce-conversion-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="An abstract image of transparent panels converging on a dark ground with a cyan data funnel, showing measurement in multilingual e-commerce"
+           width="1920" height="1080" decoding="async"><figcaption>Traffic arriving in different languages turns into a decision only when it meets in a shared measurement funnel. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> E-Commerce</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>13 October 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>How Does Multilingual E-Commerce Change Your Conversion Rate?</h1>
-      <p class="ozet">As the volume of e-commerce in Türkiye grows, so does the sharpness of the competition. Part of the traffic arriving at your shop now consists of users who prefer a language other than Turkish. But are those visitors actually buying, or are they stopping at the basket? In this article we take the effect of the multilingual e-commerce decision on the conversion rate, the basket abandonment rate and the returns metrics, within a measurable framework. The technical setup is the subject of another article; our focus is the figure itself.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#how-does-multilingual-e-commerce-affect-conversion"><span>01</span>How Does Multilingual E-Commerce Affect Conversion?</a><a href="#which-metrics-show-the-effect-of-language-support"><span>02</span>Which Metrics Show the Effect of Language Support?</a><a href="#how-are-basket-abandonment-and-the-return-rate-linked-to-language-support"><span>03</span>How Are Basket Abandonment and the Return Rate Linked to Language Support?</a><a href="#how-do-you-set-the-measurement-up-step-by-step"><span>04</span>How Do You Set the Measurement Up, Step by Step?</a><a href="#turning-the-measurement-results-into-a-decision-table"><span>05</span>Turning the Measurement Results into a Decision Table</a><a href="#let-s-plan-your-multilingual-e-commerce-infrastructure-together"><span>06</span>Let's Plan Your Multilingual E-Commerce Infrastructure Together</a><a href="#measurement-compared-single-language-and-multilingual-setups"><span>07</span>Measurement compared: single-language and multilingual setups</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/multilingual-ecommerce-conversion-cover-1440.webp"
-           srcset="./image/multilingual-ecommerce-conversion-cover-640.webp 640w, ./image/multilingual-ecommerce-conversion-cover-960.webp 960w, ./image/multilingual-ecommerce-conversion-cover-1440.webp 1440w, ./image/multilingual-ecommerce-conversion-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="An abstract image of transparent panels converging on a dark ground with a cyan data funnel, showing measurement in multilingual e-commerce"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Traffic arriving in different languages turns into a decision only when it meets in a shared measurement funnel. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>How Does Multilingual E-Commerce Affect Conversion?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="how-does-multilingual-e-commerce-affect-conversion">How Does Multilingual E-Commerce Affect Conversion?</h2>
       <div class="yz-cevap"><p>Multilingual e-commerce can lift the conversion rate when a visitor reads about the product in their own language; the direction and the size of that lift are visible only in a report broken down by language. We look for the effect of the language option on hesitation at the moment of decision in the same report. We talk about the effect through measurement, not guesswork. Without a figure there is no claim; once the measurement is done, the picture becomes clear.</p></div>
       <p>When a visitor lands on a product page they are looking for the answer to one question: is this for me? A heading written in their own language closes that question within seconds; a description in a foreign language creates a load of reading and moves the user closer to the back button.</p><p>The number of businesses going digital in Türkiye is rising; <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">the Ministry of Trade's ETBİS report</a> — ETBİS is Türkiye's central e-commerce information system — sets that expansion out. As competition grows, the details that make a difference get smaller; the multilingual e-commerce decision is one of them.</p>
       <h3>Language is the first layer of the trust signal</h3>
       <p>A trust signal is any visual or textual element that lowers the user's sense of risk. A half-translated checkout step creates doubt before the card details are entered. The language of the delivery, warranty and returns text determines the last hesitation at the basket.</p>
       <h3>Without measurement there is no claim about effect</h3>
-      <p>The only way to see the contribution of multilingual support in e-commerce is to compare before-and-after data within the same segment. We hold the traffic source, the device breakdown and the campaign calendar constant; that is how we can name the source of any rise.</p>
-      <h2>Which Metrics Show the Effect of Language Support?</h2>
+      <p>The only way to see the contribution of multilingual support in e-commerce is to compare before-and-after data within the same segment. We hold the traffic source, the device breakdown and the campaign calendar constant; that is how we can name the source of any rise.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="which-metrics-show-the-effect-of-language-support">Which Metrics Show the Effect of Language Support?</h2>
       <div class="yz-cevap"><p>Four metrics show the effect clearly: the conversion rate broken down by language, the basket abandonment rate, the checkout step completion rate and the return rate. When those four sit on the same dashboard, the picture becomes clear. No single metric is strong enough to carry the decision; the four have to be read together. We track them all over the same interval of time.</p></div>
       <p>When we set the measurement up, our first job is defining the segment. In that definition the browser language, the interface language and the country sit in separate fields. We want to see separately the user who browses in a Turkish interface and lands on an English checkout page.</p><p>On a dashboard broken down by language, measurement cannot consist of a single total figure. We read the dashboard in four-week windows; shorter windows carry campaign noise into the metric. <a href="../../ecommerce-seo/">E-commerce SEO</a> session data goes into the same table as that dashboard.</p>
       <h3>Conversion rate by language</h3>
@@ -514,38 +559,38 @@
       <h3>Basket abandonment and checkout step completion</h3>
       <p>The proportion of users who add a product to the basket and then leave the purchase half-finished is where language problems echo fastest. We keep the checkout step completion rate in a separate column. If the delivery, tax or instalment text hasn't been translated, the loss grows exactly there.</p>
       <h4>How do you build a basket abandonment report by language?</h4>
-      <p>We add the interface language parameter to the basket event and define the checkout steps as a funnel. The report tells you at a glance which language is losing people at which step.</p>
-      <h2>How Are Basket Abandonment and the Return Rate Linked to Language Support?</h2>
+      <p>We add the interface language parameter to the basket event and define the checkout steps as a funnel. The report tells you at a glance which language is losing people at which step.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="how-are-basket-abandonment-and-the-return-rate-linked-to-language-support">How Are Basket Abandonment and the Return Rate Linked to Language Support?</h2>
       <div class="yz-cevap"><p>Some requests for returns come not from the product but from a misunderstood product; you can only see the share of those by tagging the reasons for return by language. If the size chart, the materials or the conditions of use aren't in the user's language, the expectation is set wrongly from the start. Basket abandonment and returns are two separate outputs of the same gap in communication. That is why we track the two side by side.</p></div>
       <p>When the customer opens the box they expect what they find to match their expectation; it is the text on the page that sets that expectation. A superficial translation brings disappointment and the cost of a returned parcel together. In multilingual e-commerce setups, a return is usually a problem of communication rather than of logistics.</p><p>The user who gives up at the basket and the user who fills in a returns form usually come out of the same gap: a sentence with nothing behind it. That is why we track the two metrics on a single dashboard, under the same language tag.</p>
       <h3>Reasons for return are often a failure of explanation</h3>
       <p>The free-text field on a returns form is a valuable source of data. When we tag the reasons by language, we see which explanation is missing in which category.</p>
       <h3>Matching the technical information to the product description</h3>
-      <p>The size chart, the voltage information and the length of the warranty are the fields machine translation suits least. Adapting those fields by hand settles the fluctuation in the return rate before long.</p>
-      <h2>How Do You Set the Measurement Up, Step by Step?</h2>
+      <p>The size chart, the voltage information and the length of the warranty are the fields machine translation suits least. Adapting those fields by hand settles the fluctuation in the return rate before long.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="how-do-you-set-the-measurement-up-step-by-step">How Do You Set the Measurement Up, Step by Step?</h2>
       <div class="yz-cevap"><p>The setup is completed in five steps: defining the segment, tagging the events, measuring the baseline period, launching the language and comparing. The output of each step is the input to the next. Without baseline data, interpreting the table that follows is impossible. That is why we never break the order; once the template has settled, we measure every new language with the same flow.</p></div>
       <p>When you set up multilingual e-commerce measurement the order matters; the flow works regardless of the size of the shop.</p><ol><li>Define the interface language, the browser language and the country as separate dimensions in analytics.</li><li>Attach the language parameter to the add-to-basket, begin-checkout and order-complete events.</li><li>Gather at least four weeks of baseline data before you put the new language live.</li><li>Treat the first four weeks after launch as a warm-up; don't comment within that window.</li><li>From the fifth week on, compare against the baseline period and report the difference by language.</li></ol><p>If there are gaps on the infrastructure side, we build the event layer together with our <a href="../../ecommerce-website/">e-commerce development</a> team.</p>
       <h3>Why is a four-week baseline period essential?</h3>
       <p>The baseline period is the measurement window defining what was normal before the change. Without that window you cannot know whether to attribute the subsequent rise to seasonality or to the language.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>Turning the Measurement Results into a Decision Table</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="turning-the-measurement-results-into-a-decision-table">Turning the Measurement Results into a Decision Table</h2>
       <div class="yz-cevap"><p>A raw report doesn't produce a decision on its own; you have to put the contribution, cost and priority columns side by side for each language. Once you can see the net contribution per language, the budget argument gets shorter. Rather than closing down a language that performs weakly, we repair its content first. In the end the budget rests on data, line by line, rather than on instinct.</p></div>
       <p>The decision table shows the revenue each language brings and the translation and operational load allocated to it on the same row. Keeping the columns few speeds the discussion up. We assess the multilingual e-commerce investment language by language; we don't look at the total figure.</p><p>The Ministry's <a href="https://ticaret.gov.tr/duyurular/turkiyede-e-ticaretin-gorunumu-raporu-yayinlandi-06-05-2025" target="_blank" rel="noopener">e-commerce outlook announcement</a>is a regular reference point for the market's annual direction of growth.</p>
       <h3>Contribution per language and the order of priority</h3>
-      <p>The order of priority is a simple ranking directing resources to the highest return. When we build a multilingual experience on your e-commerce site, we don't allocate an equal budget to every language. We put the languages with high demand but weak content at the top of the list.</p>
-      <h2>Let's Plan Your Multilingual E-Commerce Infrastructure Together</h2>
+      <p>The order of priority is a simple ranking directing resources to the highest return. When we build a multilingual experience on your e-commerce site, we don't allocate an equal budget to every language. We put the languages with high demand but weak content at the top of the list.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="let-s-plan-your-multilingual-e-commerce-infrastructure-together">Let's Plan Your Multilingual E-Commerce Infrastructure Together</h2>
       <div class="yz-cevap"><p>The right order is this: measurement first, then the language, and expansion last. We can look at your shop's existing data and see together which language will genuinely earn its keep. At the end of the meeting what you hold is a table, not a guess. That first table usually emerges in a single conversation. We take the decision not on your behalf but with you.</p></div>
       <p>You cannot run a multilingual e-commerce shop without a layer of measurement. Our team builds the dashboard, defines the funnel broken down by language and draws up the content priorities. <a href="../../multilingual-seo/">Our multilingual SEO</a> service covers that flow. If you aren't sure where to start, fill in <a href="../../get-a-quote/">the quote form</a> and let's draw up the first table together.</p>
       <h3>What do you need to begin?</h3>
       <p>Access to your analytics, your current list of languages and the last three months of order data are enough. In the first meeting we settle the scope and set the measurement schedule together.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/multilingual-ecommerce-conversion-body-960.webp"
              srcset="./image/multilingual-ecommerce-conversion-body-640.webp 640w, ./image/multilingual-ecommerce-conversion-body-960.webp 960w, ./image/multilingual-ecommerce-conversion-body-1440.webp 1440w, ./image/multilingual-ecommerce-conversion-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="An abstract decision-table image of five measurement bars at different heights, one picked out in cyan light" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Once the contribution per language becomes visible, the budget discussion moves off instinct and onto data. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Measurement compared: single-language and multilingual setups</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="measurement-compared-single-language-and-multilingual-setups">Measurement compared: single-language and multilingual setups</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Area of measurement</th><th>What a single-language shop sees</th><th>The metric tracked in a multilingual setup</th><th>Method of measurement</th></tr></thead>
@@ -567,7 +612,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../multilingual-seo/">See the service page</a>
         </aside>
-        <p>The decision about language isn't a matter of preference but a measurable line of investment. Set the conversion rate, basket abandonment and returns metrics up properly and which language is earning its keep becomes visible within a few weeks. Shops proceeding on guesswork spend the budget in the wrong place. Those proceeding on data open every new language more cheaply than the last.</p>
+        <p>The decision about language isn't a matter of preference but a measurable line of investment. Set the conversion rate, basket abandonment and returns metrics up properly and which language is earning its keep becomes visible within a few weeks. Shops proceeding on guesswork spend the budget in the wrong place. Those proceeding on data open every new language more cheaply than the last.</p></section>
       </article>
     </div>
   </section>

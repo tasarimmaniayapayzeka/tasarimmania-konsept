@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,72 +477,70 @@
 <!-- AYIRT EDİCİ EKSEN: MALİYET — Fiyatı BELİRLEYEN kalemleri anlatır. Aşama sırası yazı 7'nin, storyboard yazı 9'un, ajans seçimi yazı 10'un işidir. Rakam ya da fiyat aralığı VERİLMEZ.
      Huni türü: TOFU · Küme: video · Kardeşler (enjeksiyon turunda): storyboard-nedir, reklam-filmi-ajansi-secimi -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Reklam Filmi Fiyatı</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Video</span>
-        <span class="yz-meta">8 Ekim 2026 · 7 dakikalık okuma</span>
+          <h1>Reklam Filmi Fiyatını Belirleyen Kalemler Nelerdir?</h1>
+          <p class="ozet">İlk görüşmede gelen soru hep aynıdır: bu film kaça çıkar? Dürüst karşılık, kapsam yazıya dökülmeden bir rakam söylenemeyeceğidir. Aşağıda fiyat listesi yok; bütçeyi hareket ettiren kalemler var. Bu kalemleri tanıdığınızda aldığınız iki teklif arasındaki farkın nereden doğduğunu kendiniz okuyabilirsiniz.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/reklam-filmi-fiyat-kalemleri-kapak-1440.webp"
+           srcset="./gorsel/reklam-filmi-fiyat-kalemleri-kapak-640.webp 640w, ./gorsel/reklam-filmi-fiyat-kalemleri-kapak-960.webp 960w, ./gorsel/reklam-filmi-fiyat-kalemleri-kapak-1440.webp 1440w, ./gorsel/reklam-filmi-fiyat-kalemleri-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Ortak bir tabandan yükselen farklı yükseklikte altı ışıklı sütun; en yüksek olanı en parlak"
+           width="1920" height="1080" decoding="async"><figcaption>Bütçe tek bir rakamdan değil, birbirinden bağımsız altı kalemden çıkar. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Video</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>8 Ekim 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>7 başlık</b></div>
       </div>
-      <h1>Reklam Filmi Fiyatını Belirleyen Kalemler Nelerdir?</h1>
-      <p class="ozet">İlk görüşmede gelen soru hep aynıdır: bu film kaça çıkar? Dürüst karşılık, kapsam yazıya dökülmeden bir rakam söylenemeyeceğidir. Aşağıda fiyat listesi yok; bütçeyi hareket ettiren kalemler var. Bu kalemleri tanıdığınızda aldığınız iki teklif arasındaki farkın nereden doğduğunu kendiniz okuyabilirsiniz.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#reklam-filmi-fiyatini-hangi-kalemler-belirler"><span>01</span>Reklam Filmi Fiyatını Hangi Kalemler Belirler?</a><a href="#cekim-gunu-sayisi-butceyi-nasil-etkiler"><span>02</span>Çekim Günü Sayısı Bütçeyi Nasıl Etkiler?</a><a href="#oyuncu-ve-mek-n-neden-bu-kadar-belirleyici"><span>03</span>Oyuncu ve Mekân Neden Bu Kadar Belirleyici?</a><a href="#kurgu-sonrasi-isler-fiyata-nasil-yansir"><span>04</span>Kurgu Sonrası İşler Fiyata Nasıl Yansır?</a><a href="#butceyi-daraltmaniz-gerekirse-nereden-kisarsiniz"><span>05</span>Bütçeyi Daraltmanız Gerekirse Nereden Kısarsınız?</a><a href="#butcenizi-kapsamla-birlikte-cikaralim"><span>06</span>Bütçenizi Kapsamla Birlikte Çıkaralım</a><a href="#kalemler-butceye-etkisi-ve-kisilabilirligi"><span>07</span>Kalemler, bütçeye etkisi ve kısılabilirliği</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/reklam-filmi-fiyat-kalemleri-kapak-1440.webp"
-           srcset="./gorsel/reklam-filmi-fiyat-kalemleri-kapak-640.webp 640w, ./gorsel/reklam-filmi-fiyat-kalemleri-kapak-960.webp 960w, ./gorsel/reklam-filmi-fiyat-kalemleri-kapak-1440.webp 1440w, ./gorsel/reklam-filmi-fiyat-kalemleri-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Ortak bir tabandan yükselen farklı yükseklikte altı ışıklı sütun; en yüksek olanı en parlak"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Bütçe tek bir rakamdan değil, birbirinden bağımsız altı kalemden çıkar. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Reklam Filmi Fiyatını Hangi Kalemler Belirler?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 07</span></div><h2 id="reklam-filmi-fiyatini-hangi-kalemler-belirler">Reklam Filmi Fiyatını Hangi Kalemler Belirler?</h2>
       <div class="yz-cevap"><p>Altı kalem belirler: çekim günü, ekip, oyuncu, mekân, ekipman ve kurgu sonrası. Bu altısı netleşmeden söylenen rakam tahmindir. Reklam filmi fiyatını asıl büyüten şey plan sayısı değil, o planların kaç ayrı kurulum istediğidir. Aynı mekânda on plan, üç mekânda üç plandan ucuza gelir.</p></div>
       <p>Teklifleri okurken kalem adlarını arayın. Toplam rakam en az bilgilendirici satırdır; hangi kalemin ne kapsadığını göstermez.</p><p>Aşağıdaki altı başlık her projede karşımıza çıkar. Hangisinin ağır bastığı işin cinsine göre değişir.</p><ol><li><strong>Çekim günü sayısı</strong> — kaç plan değil, kaç ayrı kurulum.</li><li><strong>Ekip büyüklüğü</strong> — kaç kişi sette gün geçiriyor.</li><li><strong>Oyuncu</strong> — bedel değil, kullanım süresi ve mecra genişliği.</li><li><strong>Mekân</strong> — kira, izin, kapatma ve taşıma.</li><li><strong>Ekipman</strong> — kamera, ışık, hareket sistemleri.</li><li><strong>Kurgu sonrası</strong> — renk, ses, müzik, altyazı, mecra sürümleri.</li></ol>
       <h3>Neden Hazır Bir Fiyat Listesi Yok?</h3>
-      <p>Çünkü aynı başlık altında çok farklı işler yaşıyor. Tek mekânda çekilen ürün odaklı bir tanıtım filmiyle, üç mekânda oyunculu bir iş aynı kalemleri taşımaz. Hazır liste paylaşan taraf kapsamı sizin adınıza daraltmış olur; fark da sözleşmeden sonra ortaya çıkar.</p>
-      <h2>Çekim Günü Sayısı Bütçeyi Nasıl Etkiler?</h2>
+      <p>Çünkü aynı başlık altında çok farklı işler yaşıyor. Tek mekânda çekilen ürün odaklı bir tanıtım filmiyle, üç mekânda oyunculu bir iş aynı kalemleri taşımaz. Hazır liste paylaşan taraf kapsamı sizin adınıza daraltmış olur; fark da sözleşmeden sonra ortaya çıkar.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 07</span></div><h2 id="cekim-gunu-sayisi-butceyi-nasil-etkiler">Çekim Günü Sayısı Bütçeyi Nasıl Etkiler?</h2>
       <div class="yz-cevap"><p>Gün sayısı doğrudan çarpan etkisi yaratır. Ekip, ekipman kirası ve mekân bedeli günlük hesaplanır; ikinci gün neredeyse birinci kadar tutar. Bu yüzden plan listesini tek güne sığdırmaya çalışırız. Reklam filmi fiyatını en hızlı düşüren karar, kurulum sayısını azaltmaktır. Kurulum azaldıkça gün kısalır, gün kısaldıkça bütçe küçülür.</p></div>
       <p>Bir ışık düzeni kurmak saatler alır. Aynı düzende çekilen beş plan, beş ayrı düzende çekilen beş plandan çok daha ucuza gelir. Bu yüzden çekim listesini hikâye sırasına göre değil, kurulum sırasına göre diziyoruz.</p><p>Aşamaların nasıl işlediğini <a href="../reklam-filmi-cekim-asamalari/">çekim aşamaları</a> yazısında anlatmıştık. Fiyat görüşmesinde reklam fikrinin kaç kurulum istediğini erken bilmek, tahmini gerçeğe yaklaştırır.</p>
       <h3>Yarım Gün Diye Bir Şey Var mı?</h3>
-      <p>Ekipman kirası ve ekip günlüğü çoğu zaman tam gün üzerinden işler. Yarım gün ancak çok dar kapsamlı işlerde anlam kazanır; onda da hazırlık süresi aynı kalır.</p>
-      <h2>Oyuncu ve Mekân Neden Bu Kadar Belirleyici?</h2>
+      <p>Ekipman kirası ve ekip günlüğü çoğu zaman tam gün üzerinden işler. Yarım gün ancak çok dar kapsamlı işlerde anlam kazanır; onda da hazırlık süresi aynı kalır.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 07</span></div><h2 id="oyuncu-ve-mek-n-neden-bu-kadar-belirleyici">Oyuncu ve Mekân Neden Bu Kadar Belirleyici?</h2>
       <div class="yz-cevap"><p>Kadro bedeli tek seferlik değildir; kullanım süresi ve mecra genişliği fiyata girer. Bir yıllık dijital kullanım ile süresiz televizyon kullanımı aynı bedele gelmez. Aradaki fark ciddidir. Mekân tarafında ise izin, kapatma ve taşıma masrafları görünmez kalemlerdir. İkisi de sözleşmede yazılı olmalı.</p></div>
       <p>Oyuncu sözleşmesinde iki satır aranır: hangi mecralarda ve ne kadar süreyle. İki yıl sonra filmi yeniden yayınlamak isterseniz, o satır yoksa yeniden pazarlık masasına oturursunuz.</p><p>Mekân tarafında da benzer bir durum var. Bir kafeyi çekim için kapatmak yalnız kira demek değildir; o gün işletmenin kaybettiği ciro da hesaba girer. Kendi ofisinizde çekim yapmak bu kalemi tümüyle siler.</p><p>Ekipman kalemi de ihtiyaca göre şişer. Kamera ve ışık her işte var. Kaydırma arabası, vinç ve dron ise ancak plan gerektiriyorsa listeye girer. Fiyatı asıl belirleyen reklam fikrinin hangi hareketi zorunlu kıldığıdır, ekipmanın kendisi değil.</p>
       <h3>Ajans Oyuncusu mu, Gerçek Kullanıcı mı?</h3>
-      <p>Ürününüzü gerçekten kullanan biriyle çekim yapmak hem daha ucuz hem daha inandırıcı olabilir. Ancak kamera önünde rahat durmak bir beceridir; her gerçek kullanıcı bunu taşımaz.</p>
-      <h2>Kurgu Sonrası İşler Fiyata Nasıl Yansır?</h2>
+      <p>Ürününüzü gerçekten kullanan biriyle çekim yapmak hem daha ucuz hem daha inandırıcı olabilir. Ancak kamera önünde rahat durmak bir beceridir; her gerçek kullanıcı bunu taşımaz.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 07</span></div><h2 id="kurgu-sonrasi-isler-fiyata-nasil-yansir">Kurgu Sonrası İşler Fiyata Nasıl Yansır?</h2>
       <div class="yz-cevap"><p>Post prodüksiyon kalemleri teklifte en çok atlanan yerdir. Renk düzeltme, seslendirme, müzik lisansı ve altyazı ayrı ayrı iştir. Mecra başına ayrı sürüm de öyle. Animasyon ya da görsel efekt girerse kalem hızla büyür. Reklam filmi fiyatı bu bölümde sessizce iki katına çıkabilir.</p></div>
       <p>Müzik en sık şaşırtan kalemdir. Hazır kütüphaneden alınan bir parça ile özel beste arasında büyük bir fark vardır; lisansın hangi mecraları ve hangi süreyi kapsadığı da ayrı bir başlıktır.</p><p>Mecra sürümleri de sanıldığından uzun sürer. Aynı hikâyenin dikey, kare ve yatay hâlleri ayrı ayrı kurgulanır; altı saniyelik sürüm otuz saniyelikten daha zor çıkar.</p><p>Altyazı da göründüğünden fazla iş çıkarır. Her mecra farklı bir biçim ister; yakılmış altyazı ile ayrı dosya olarak verilen altyazı bambaşka iki işleyiştir. Çok dilli teslimde kalem sayısını dil sayısıyla çarpın. Müzik ve seslendirme telif konusudur; <a href="https://www.telifhaklari.gov.tr/" target="_blank" rel="noopener">Telif Hakları Genel Müdürlüğü</a> kullanım iznini tarif eder.</p>
       <h3>Revizyon Turları Fiyata Dahil mi?</h3>
       <p>Sözleşmede yazılı olmalı. İki tur olağandır; sınırsız revizyon vaadi ya fiyata baştan gömülüdür ya da sonradan tartışma çıkarır. Turu sabitlemek iki tarafı da rahatlatır.</p>
-      <blockquote class="yz-alinti"><p>&#8220;Bütçeyi plan sayısı değil kurulum sayısı belirler. Aynı ışıkta çekilen on kare, farklı ışıkta çekilen üç kareden ucuza gelir.&#8221;</p><cite>— TasarımMania prodüksiyon notu</cite></blockquote>
-      <h2>Bütçeyi Daraltmanız Gerekirse Nereden Kısarsınız?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;Bütçeyi plan sayısı değil kurulum sayısı belirler. Aynı ışıkta çekilen on kare, farklı ışıkta çekilen üç kareden ucuza gelir.&#8221;</p><cite>— TasarımMania prodüksiyon notu</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 07</span></div><h2 id="butceyi-daraltmaniz-gerekirse-nereden-kisarsiniz">Bütçeyi Daraltmanız Gerekirse Nereden Kısarsınız?</h2>
       <div class="yz-cevap"><p>Kısacağınız yer plan sayısı değil, kurulum çeşitliliğidir. Tek mekâna inmek en hızlı yoldur. Oyuncu yerine ürün odaklı anlatıma geçmek ve mecra sayısını daraltmak da işe yarar. Ön hazırlıktan kısmak ise ters teper. Reklam filmi fiyatını düşürmenin en pahalı yolu, hazırlığı atlayıp sette karar vermektir.</p></div>
-      <p>Kısma kararını verirken neyi kaybettiğinizi de yazın. Tek mekâna inmek bütçeyi korur ama hikâyeyi daraltır; ürün odaklı anlatım ucuzdur ama duygusal bağı zayıflatır.</p><p>Görsel üretimi tek elden planlamak da bir tasarruf yoludur. Aynı çekim gününde ürün fotoğrafı da almak mümkündür; yaklaşımı <a href="../e-ticaret-urun-fotograflari/">ürün fotoğrafları</a> yazısında ele aldık. Ekibi neye göre seçeceğinizi <a href="../reklam-filmi-ajansi-secimi/">ajans seçimi</a> yazısında anlattık.</p><p>Kısma turunu ajansla birlikte yapın. Tek başınıza kalem silmek çoğu zaman yanlış kalemi siler. Hangi kesintinin hikâyeyi nerede zayıflattığını, işi yapan ekip daha iyi bilir.</p>
-      <h2>Bütçenizi Kapsamla Birlikte Çıkaralım</h2>
+      <p>Kısma kararını verirken neyi kaybettiğinizi de yazın. Tek mekâna inmek bütçeyi korur ama hikâyeyi daraltır; ürün odaklı anlatım ucuzdur ama duygusal bağı zayıflatır.</p><p>Görsel üretimi tek elden planlamak da bir tasarruf yoludur. Aynı çekim gününde ürün fotoğrafı da almak mümkündür; yaklaşımı <a href="../e-ticaret-urun-fotograflari/">ürün fotoğrafları</a> yazısında ele aldık. Ekibi neye göre seçeceğinizi <a href="../reklam-filmi-ajansi-secimi/">ajans seçimi</a> yazısında anlattık.</p><p>Kısma turunu ajansla birlikte yapın. Tek başınıza kalem silmek çoğu zaman yanlış kalemi siler. Hangi kesintinin hikâyeyi nerede zayıflattığını, işi yapan ekip daha iyi bilir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 07</span></div><h2 id="butcenizi-kapsamla-birlikte-cikaralim">Bütçenizi Kapsamla Birlikte Çıkaralım</h2>
       <div class="yz-cevap"><p>Kapsam netleşmeden söylenen rakam iki tarafı da yanıltır. Kaç plan, kaç mekân ve oyuncu var mı? Hangi mecralara teslim edeceğiz? Bunları birlikte konuşuyoruz. Elinizde bir rakam değil, rakamın gerekçesi kalıyor. Reklam filmi fiyatını hangi kalemin ne kadar hareket ettirdiğini yazılı gösteriyoruz.</p></div>
       <p>Mecra planınız da bu masaya gelmeli; nerede yayınlayacağınız hem süreyi hem oranı belirler. Yayın kanalı seçimini <a href="../sosyal-medya-reklam-yonetimi/">sosyal medya reklam yönetimi</a> yazısında ele almıştık. <a href="../../reklam-filmi/">Reklam filmi hizmetimizi</a> ve <a href="../../video-produksiyon/">video prodüksiyon sayfamızı</a> inceleyebilirsiniz.</p><p>Görüşme sonunda size bıraktığımız belge bir rakam listesi değil. Hangi kalemi kısarsanız neyi kaybedeceğinizi de aynı sayfada görürsünüz. Reklam filmi fiyatını bu tabloyla konuşmak, pazarlığı tercih meselesine çevirir.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/reklam-filmi-fiyat-kalemleri-govde-960.webp"
              srcset="./gorsel/reklam-filmi-fiyat-kalemleri-govde-640.webp 640w, ./gorsel/reklam-filmi-fiyat-kalemleri-govde-960.webp 960w, ./gorsel/reklam-filmi-fiyat-kalemleri-govde-1440.webp 1440w, ./gorsel/reklam-filmi-fiyat-kalemleri-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Aynı sayıda ışıklı küpten oluşan iki grup; soldakiler iç içe geçip tek kütle olmuş, sağdakiler aralıklı ve ayrı ayrı duruyor" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Aynı plan sayısı, farklı kurulum sayısı: bütçeyi ayıran şey budur. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Kalemler, bütçeye etkisi ve kısılabilirliği</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 07</b><span>07 / 07</span></div><h2 id="kalemler-butceye-etkisi-ve-kisilabilirligi">Kalemler, bütçeye etkisi ve kısılabilirliği</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Kalem</th><th>Bütçeye etkisi</th><th>Kısılabilir mi?</th></tr></thead>
@@ -517,7 +562,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../reklam-filmi/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Reklam filmi fiyatı tek bir rakamdan değil, altı kalemin toplamından çıkar. Kapsamı yazıya döktüğünüz an hem teklifleri karşılaştırabilir hem de hangi kalemi kısarsanız neyi kaybedeceğinizi baştan görebilirsiniz.</p>
+        <p>Reklam filmi fiyatı tek bir rakamdan değil, altı kalemin toplamından çıkar. Kapsamı yazıya döktüğünüz an hem teklifleri karşılaştırabilir hem de hangi kalemi kısarsanız neyi kaybedeceğinizi baştan görebilirsiniz.</p></section>
       </article>
     </div>
   </section>

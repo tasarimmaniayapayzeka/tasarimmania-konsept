@@ -175,6 +175,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -465,76 +512,74 @@
 <!-- AYIRT EDİCİ EKSEN: MEKANİZMA — Ürün ve kategori sayfası optimizasyonunun çalışma mantığı; sıralamayı üreten iç mekanizma anlatılır, kurulum adımları veya araç listesi verilmez. Fayda/görünüm anlatımı seo-ve-web-tasarim'ın ekseni.
      Huni türü: TOFU · Küme: SEO Çekirdek · Kardeşler (enjeksiyon turunda): yerel-seo, teknik-seo, off-page-seo -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">E-Ticaret SEO Ürün ve Kategori Sayfalarını Nasıl Sıralatır?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Seo</span>
-        <span class="yz-meta">3 Eylül 2026 · 7 dakikalık okuma</span>
+          <h1>E-Ticaret SEO Ürün ve Kategori Sayfalarını Nasıl Sıralatır?</h1>
+          <p class="ozet">Çevrim içi mağazanız harika ürünler satıyor olabilir. Alıcı sizi arama sonuçlarında bulamıyorsa raflarınız görünmez demektir. E-ticaret SEO hizmeti, ürün ve kategori sayfalarınızın Google'da sıralanmasını sağlayan sistematik bir çalışmadır. Bu yazıda kurulum adımlarını ya da araç listelerini değil, sıralamayı üreten iç mekanizmayı anlatıyoruz. Talep haritası, sayfa hiyerarşisi, anlam eşleşmesi ve bağlantı akışı bu mekanizmanın parçalarıdır. Türkiye'de dijitalleşen işletme sayısı hızla artarken bu mekanizmayı kavrayan mağazalar bulunabilirlik yarışında öne geçiyor.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/e-ticaret-seo-kapak-1440.webp"
+           srcset="./gorsel/e-ticaret-seo-kapak-640.webp 640w, ./gorsel/e-ticaret-seo-kapak-960.webp 960w, ./gorsel/e-ticaret-seo-kapak-1440.webp 1440w, ./gorsel/e-ticaret-seo-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="E-ticaret SEO hizmetiyle ürün ve kategori sayfalarının sıralamada yükselişini simgeleyen soyut karanlık 3D görsel"
+           width="1920" height="1080" decoding="async"><figcaption>Sıralama bir merdiven değil, doğru kurulmuş bir mekanizmadır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> SEO</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>3 Eylül 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>7 başlık</b></div>
       </div>
-      <h1>E-Ticaret SEO Ürün ve Kategori Sayfalarını Nasıl Sıralatır?</h1>
-      <p class="ozet">Çevrim içi mağazanız harika ürünler satıyor olabilir. Alıcı sizi arama sonuçlarında bulamıyorsa raflarınız görünmez demektir. E-ticaret SEO hizmeti, ürün ve kategori sayfalarınızın Google'da sıralanmasını sağlayan sistematik bir çalışmadır. Bu yazıda kurulum adımlarını ya da araç listelerini değil, sıralamayı üreten iç mekanizmayı anlatıyoruz. Talep haritası, sayfa hiyerarşisi, anlam eşleşmesi ve bağlantı akışı bu mekanizmanın parçalarıdır. Türkiye'de dijitalleşen işletme sayısı hızla artarken bu mekanizmayı kavrayan mağazalar bulunabilirlik yarışında öne geçiyor.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#e-ticaret-seo-nedir-siralamayi-ureten-mekanizma-nasil-calisir"><span>01</span>E-Ticaret SEO Nedir, Sıralamayı Üreten Mekanizma Nasıl Çalışır?</a><a href="#kategori-sayfalari-arama-talebini-nasil-yakalar"><span>02</span>Kategori Sayfaları Arama Talebini Nasıl Yakalar?</a><a href="#urun-sayfasinda-siralamayi-hangi-sinyaller-uretir"><span>03</span>Ürün Sayfasında Sıralamayı Hangi Sinyaller Üretir?</a><a href="#site-mimarisi-ve-ic-baglanti-akisi-neden-belirleyicidir"><span>04</span>Site Mimarisi ve İç Bağlantı Akışı Neden Belirleyicidir?</a><a href="#icerik-katmani-satis-sayfalarini-nasil-guclendirir"><span>05</span>İçerik Katmanı Satış Sayfalarını Nasıl Güçlendirir?</a><a href="#magazaniz-icin-profesyonel-e-ticaret-seo-destegi-alin"><span>06</span>Mağazanız İçin Profesyonel E-Ticaret SEO Desteği Alın</a><a href="#kategori-sayfasi-ile-urun-sayfasi-optimizasyonu-karsilastirmasi"><span>07</span>Kategori Sayfası ile Ürün Sayfası Optimizasyonu Karşılaştırması</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/e-ticaret-seo-kapak-1440.webp"
-           srcset="./gorsel/e-ticaret-seo-kapak-640.webp 640w, ./gorsel/e-ticaret-seo-kapak-960.webp 960w, ./gorsel/e-ticaret-seo-kapak-1440.webp 1440w, ./gorsel/e-ticaret-seo-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="E-ticaret SEO hizmetiyle ürün ve kategori sayfalarının sıralamada yükselişini simgeleyen soyut karanlık 3D görsel"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Sıralama bir merdiven değil, doğru kurulmuş bir mekanizmadır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>E-Ticaret SEO Nedir, Sıralamayı Üreten Mekanizma Nasıl Çalışır?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 07</span></div><h2 id="e-ticaret-seo-nedir-siralamayi-ureten-mekanizma-nasil-calisir">E-Ticaret SEO Nedir, Sıralamayı Üreten Mekanizma Nasıl Çalışır?</h2>
       <div class="yz-cevap"><p>E-ticaret SEO, ürün ve kategori sayfalarının arama sonuçlarında üst sıralara çıkmasını sağlayan optimizasyon disiplinidir. Mekanizma üç dişliyle döner. Arama talebi sayfalara dağılır ve her sayfa tek niyete odaklanır. Otorite ise iç bağlantılarla doğru sayfalara akar. Profesyonel bir e-ticaret SEO hizmeti bu üç dişliyi aynı planda buluşturur.</p></div>
       <p>Pazarın ölçeği bu mekanizmayı her yıl daha kritik hâle getiriyor. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">ETBİS'in 2025 raporuna göre</a> Türkiye'de e-ticaret hacmi 4,5 trilyon TL'ye ulaştı; sektör artık GSYH'nin yüzde 6,9'unu oluşturuyor. Rekabet bu boyuttayken görünürlüğü tesadüfe bırakamazsınız. Mekanizma dört aşamalı bir zincir hâlinde işler:</p><ol><li>Talep analizi: ekip her kelimenin aranma hacmini ve niyetini çıkarır.</li><li>Sayfa eşleştirme: plan her arama niyetine tek sayfa atar. Geniş sorguyu kategori, spesifik sorguyu ürün karşılar.</li><li>Sinyal üretimi: başlık, açıklama ve içerik, sayfanın konusunu arama motoruna net biçimde anlatır.</li><li>Otorite dağıtımı: iç bağlantılar kazanılan gücü sıralanması istenen sayfalara taşır.</li></ol><p>Zincirin halkalarından biri koptuğunda diğerleri de güç kaybeder. Bütünlük, mekanizmanın ön koşuludur.</p>
       <h3>Arama Niyeti Katmanları Mekanizmanın Neresinde?</h3>
-      <p>Arama niyeti, kullanıcının sorgusunun arkasında yatan amaçtır. "Deri ceket nasıl temizlenir" bilgi arar. "Kadın deri ceket" ürün keşfeder. "Deri ceket fiyatları" satın almaya yaklaşır. E-ticaret SEO hizmeti her niyet katmanına farklı bir sayfa türü atar. Rehber içerik, kategori sayfası ve ürün sayfası bu üçlünün karşılığıdır.</p>
-      <h2>Kategori Sayfaları Arama Talebini Nasıl Yakalar?</h2>
+      <p>Arama niyeti, kullanıcının sorgusunun arkasında yatan amaçtır. "Deri ceket nasıl temizlenir" bilgi arar. "Kadın deri ceket" ürün keşfeder. "Deri ceket fiyatları" satın almaya yaklaşır. E-ticaret SEO hizmeti her niyet katmanına farklı bir sayfa türü atar. Rehber içerik, kategori sayfası ve ürün sayfası bu üçlünün karşılığıdır.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 07</span></div><h2 id="kategori-sayfalari-arama-talebini-nasil-yakalar">Kategori Sayfaları Arama Talebini Nasıl Yakalar?</h2>
       <div class="yz-cevap"><p>Kategori sayfası, tek bir ürünün karşılayamayacağı geniş aramaları toplayan vitrin sayfasıdır. Yüksek hacimli "spor ayakkabı" sorgusunu kategori üstlenir. Ürün sayfaları bu çatının altında spesifik talepleri karşılar. Doğru kurgulanmış hiyerarşi, arama talebi haritasıyla mağaza yapısını birebir örtüştürür. Bu eşleşme, mekanizmanın talep yakalama ayağını oluşturur.</p></div>
       <p>Talep tarafı Türkiye'de sürekli genişliyor. <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TÜİK'in güncel araştırmaları</a>, internetten alışveriş yapan kullanıcı oranının yıllar içinde istikrarlı biçimde yükseldiğini gösteriyor. Bu talebi yakalamanın yolu bellidir. Her popüler aramaya karşılık gelen bir kategori ya da alt kategori açarsınız. Filtre kombinasyonları da burada devreye girer. "Siyah deri ceket" yeterli aranma hacmine ulaştığında ekip o filtreyi kalıcı açılış sayfasına dönüştürür. Aldığınız SEO hizmeti, hangi kombinasyonun sayfa olmayı hak ettiğine arama verisiyle karar verir.</p>
       <h3>Kategori Açıklaması Hangi İşlevi Görür?</h3>
-      <p>Kategori açıklaması, sayfaya özgün metin katmanı ekleyen kısa içeriktir. Ürün listesi tek başına arama motoruna az sinyal verir. 150-300 kelimelik özgün bir açıklama sayfanın konusunu netleştirir. Optimizasyon ekibi bu metinleri doldurma amaçlı değil, kullanıcı sorularına cevap verecek biçimde yazar.</p>
-      <h2>Ürün Sayfasında Sıralamayı Hangi Sinyaller Üretir?</h2>
+      <p>Kategori açıklaması, sayfaya özgün metin katmanı ekleyen kısa içeriktir. Ürün listesi tek başına arama motoruna az sinyal verir. 150-300 kelimelik özgün bir açıklama sayfanın konusunu netleştirir. Optimizasyon ekibi bu metinleri doldurma amaçlı değil, kullanıcı sorularına cevap verecek biçimde yazar.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 07</span></div><h2 id="urun-sayfasinda-siralamayi-hangi-sinyaller-uretir">Ürün Sayfasında Sıralamayı Hangi Sinyaller Üretir?</h2>
       <div class="yz-cevap"><p>Ürün sayfasını sıralatan üç ana sinyal vardır: özgün açıklama, yapılandırılmış veri ve kullanıcı etkileşimi. Üretici metnini kopyalayan binlerce siteden ayrışmak için açıklamanın size ait olması gerekir. E-ticaret SEO hizmeti bu üç sinyali her ürün şablonuna sistematik biçimde yerleştirir. Sinyaller birleştiğinde sayfa hem makineye hem alıcıya aynı hikâyeyi anlatır.</p></div>
       <p>Özgün açıklamanın gücü kopya içerik filtresinden gelir. Aynı üretici metnini kullanan yüzlerce mağaza arasından arama motoru çoğunlukla en otoriter olanı seçer. Geri kalanlar görünmez kalır. Kendi ölçümleriniz, kullanım senaryolarınız ve gerçek fotoğraflarınızla yazılmış bir açıklama sizi bu filtreden çıkarır. E-ticaret SEO hizmetinin ürün tarafındaki ilk işi bu ayrışmayı kurmaktır. Yorumlar da benzer işlev görür. Her yeni değerlendirme sayfaya taze ve özgün metin ekler.</p>
       <h3>Yapılandırılmış Veri Nasıl Çalışır?</h3>
       <p>Yapılandırılmış veri, ürün bilgilerini arama motorunun okuyabileceği formatta etiketleyen kod katmanıdır. Bu etiketler fiyatı, stok durumunu ve değerlendirme puanını makineye iletir. Sayfanız böylece zengin sonuç gösterimlerine aday olur.</p>
       <h4>Zengin Sonuç ile Tıklama Döngüsü</h4>
-      <p>Zengin sonuç, arama sayfasında yıldız puanı ve fiyat gibi ek bilgiler gösteren listelemedir. Dikkat çeken listeleme daha çok tıklama alır. Artan tıklama oranı sayfanın alaka sinyalini güçlendirir. Hizmet kapsamında kurulan bu döngü, kazanılan pozisyonu kendi kendini besleyen bir sürece çevirir.</p>
-      <h2>Site Mimarisi ve İç Bağlantı Akışı Neden Belirleyicidir?</h2>
+      <p>Zengin sonuç, arama sayfasında yıldız puanı ve fiyat gibi ek bilgiler gösteren listelemedir. Dikkat çeken listeleme daha çok tıklama alır. Artan tıklama oranı sayfanın alaka sinyalini güçlendirir. Hizmet kapsamında kurulan bu döngü, kazanılan pozisyonu kendi kendini besleyen bir sürece çevirir.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 07</span></div><h2 id="site-mimarisi-ve-ic-baglanti-akisi-neden-belirleyicidir">Site Mimarisi ve İç Bağlantı Akışı Neden Belirleyicidir?</h2>
       <div class="yz-cevap"><p>İç bağlantı, sayfalar arasında otorite ve bağlam taşıyan köprüdür; site mimarisi bu köprülerin düzenidir. Ana sayfadan üç tıkla ulaşılamayan ürün, arama motorunun gözünde önemsiz kalır. Doğru hiyerarşide güç ana sayfadan kategorilere, oradan ürünlere kesintisiz akar. Akışı kesen kopuk sayfalar mekanizmanın en sık gözden kaçan zayıf halkasıdır.</p></div>
       <p>Bağlantı gücünün akışını somut bir örnekle düşünelim. Dış dünyadan en çok referans alan sayfa çoğu mağazada ana sayfadır. Menü, oradaki gücü ana kategorilere dağıtır. Kategori sayfası da listelediği ürünlere aktarır. Çapa metni bu aktarıma bağlam ekler. "Buraya tıklayın" yerine "erkek koşu ayakkabısı" yazan bağlantı, hedef sayfanın konusunu da bildirir. E-ticaret SEO hizmeti kapsamında ekibimiz bu akışı haritalar ve satış önceliğine göre yeniden yönlendirir. Tarama bütçesi, indeksleme ve hız denetimi ise ayrı bir <a href="../../teknik-seo/">teknik SEO</a> çalışmasının konusudur.</p>
       <h3>Üç Tık Kuralı Neyi Garanti Etmez?</h3>
       <p>Üç tık kuralı, her ürüne ana sayfadan en fazla üç adımda ulaşılmasını öngören mimari ilkedir. Kural erişilebilirliği sağlar; tek başına sıralama getirmez. Ulaşılabilir sayfanın bir de niyetle eşleşmesi ve özgün sinyal üretmesi gerekir.</p>
-      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      <h2>İçerik Katmanı Satış Sayfalarını Nasıl Güçlendirir?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 07</span></div><h2 id="icerik-katmani-satis-sayfalarini-nasil-guclendirir">İçerik Katmanı Satış Sayfalarını Nasıl Güçlendirir?</h2>
       <div class="yz-cevap"><p>Rehber ve blog içerikleri, bilgi arayan kullanıcıyı yakalayıp otoriteyi satış sayfalarına aktaran destek katmanıdır. "Hangi koşu ayakkabısı alınmalı" rehberi doğrudan satmaz. Kategoriye verdiği bağlantıyla hem ziyaretçi hem güç taşır. E-ticaret SEO hizmeti bu katmanı satış hunisinin üst adımı olarak planlar.</p></div>
       <p>Anlam eşleşmesi bu katmanın görünmeyen motorudur. Arama motorları artık tek kelimeyi değil konu bütünlüğünü değerlendirir. Kategoriye bağlanan taban tipi rehberi, numara seçimi kılavuzu ve bakım yazısı bir bütün oluşturur. Bu bütün, mağazanın koşu ayakkabısı konusundaki uzmanlığını topluca kanıtlar. Konu haritasının kurgusunu <a href="../../seo-icerik/">içerik stratejisi</a> ekibimiz üstlenir. SEO hizmetini e-ticaret tarafında sonuca bağlayan da bu bütünlüktür. Site dışından gelen referansların etkisi ayrı bir yazının konusudur. Buradaki odak, tamamen kendi kontrolünüzdeki iç mekanizmadır.</p>
       <h3>Anlam Eşleşmesi Nedir?</h3>
-      <p>Anlam eşleşmesi, sayfa içeriğinin arama sorgusunun ardındaki konuyla örtüşme derecesidir. Eş anlamlılar, ilgili kavramlar ve doğal sorular metne yayıldığında eşleşme güçlenir. Bu çalışma, örtüşmeyi hem kategori metinlerinde hem rehber içeriklerde bilinçli olarak kurar.</p>
-      <h2>Mağazanız İçin Profesyonel E-Ticaret SEO Desteği Alın</h2>
+      <p>Anlam eşleşmesi, sayfa içeriğinin arama sorgusunun ardındaki konuyla örtüşme derecesidir. Eş anlamlılar, ilgili kavramlar ve doğal sorular metne yayıldığında eşleşme güçlenir. Bu çalışma, örtüşmeyi hem kategori metinlerinde hem rehber içeriklerde bilinçli olarak kurar.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 07</span></div><h2 id="magazaniz-icin-profesyonel-e-ticaret-seo-destegi-alin">Mağazanız İçin Profesyonel E-Ticaret SEO Desteği Alın</h2>
       <div class="yz-cevap"><p>Mekanizmayı bilmek ile onu her gün işletmek arasındaki farkı profesyonel destek kapatır. Talep analizi, sayfa eşleştirme, sinyal üretimi ve otorite dağıtımı sürekli bakım ister. E-ticaret SEO hizmeti veren ekibimiz bu döngüyü sizin adınıza kurar, ölçer ve raporlar. Siz ürüne ve operasyona odaklanırken sıralama tarafı planlı ilerler.</p></div>
       <p>Çevrim içi mağazanızın mevcut yapısını inceleyip talep haritanızı çıkararak başlıyoruz. Kapsamın ayrıntılarını <a href="../../e-ticaret-seo/">e-ticaret SEO hizmeti</a> sayfamızda bulabilirsiniz. Kategori kurgusu, ürün şablonları ve içerik katmanı orada tek planda birleşir. Mağaza altyapınız yenilenecekse <a href="../../web-tasarim/">web tasarım ve yazılım</a> ekibimizle mimariyi en baştan sıralama dostu kuruyoruz. İlk görüşmede mevcut görünürlüğünüzü birlikte değerlendiriyor, önceliği en yüksek fırsatları netleştiriyoruz.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/e-ticaret-seo-govde-960.webp"
              srcset="./gorsel/e-ticaret-seo-govde-640.webp 640w, ./gorsel/e-ticaret-seo-govde-960.webp 960w, ./gorsel/e-ticaret-seo-govde-1440.webp 1440w, ./gorsel/e-ticaret-seo-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Ürün ve kategori sayfası optimizasyonunun iç mekanizmasını simgeleyen birbirine geçmiş çarklı soyut 3D illüstrasyon" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Talep analizi, sayfa eşleştirme, sinyal üretimi ve otorite dağıtımı tek bir çark düzeninde çalışır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Kategori Sayfası ile Ürün Sayfası Optimizasyonu Karşılaştırması</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 07</b><span>07 / 07</span></div><h2 id="kategori-sayfasi-ile-urun-sayfasi-optimizasyonu-karsilastirmasi">Kategori Sayfası ile Ürün Sayfası Optimizasyonu Karşılaştırması</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Boyut</th><th>Kategori Sayfası</th><th>Ürün Sayfası</th></tr></thead>
@@ -555,7 +600,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../e-ticaret-seo/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Sıralama şans değil mekanizma işidir. Talebi haritalayan, her niyete doğru sayfayı atayan ve gücü bilinçli dağıtan mağazalar öne çıkar. Hizmetin e-ticaret ayağında da mesele tek tek taktikler değil, bunları birbirine bağlayan düzendir. Bu düzeni kurmak için e-ticaret SEO hizmetimizle tanışın. Ürün ve kategori sayfalarınız aramalarda hak ettiği pozisyona yürüsün.</p>
+        <p>Sıralama şans değil mekanizma işidir. Talebi haritalayan, her niyete doğru sayfayı atayan ve gücü bilinçli dağıtan mağazalar öne çıkar. Hizmetin e-ticaret ayağında da mesele tek tek taktikler değil, bunları birbirine bağlayan düzendir. Bu düzeni kurmak için e-ticaret SEO hizmetimizle tanışın. Ürün ve kategori sayfalarınız aramalarda hak ettiği pozisyona yürüsün.</p></section>
       </article>
     </div>
   </section>

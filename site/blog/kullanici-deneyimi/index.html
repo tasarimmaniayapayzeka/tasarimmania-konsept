@@ -175,6 +175,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -461,73 +508,71 @@
 <!-- AYIRT EDİCİ EKSEN: ROTA — Ana sayfadan ödemeye kullanıcı yolculuğu rotasının adım adım iyileştirilmesi; UX/kullanıcı yolculuğu anlatımının kanonik yazısı budur — arayüz (UI) ilkeleri ui-tasarim-ilkeleri'nin, görsel sunum ve ödeme araçları diğer kardeşlerin ekseni.
      Huni türü: BOFU · Küme: E-Ticaret Deneyimi · Kardeşler (enjeksiyon turunda): odeme-guvenligi, e-ticaret-urun-fotograflari, ui-tasarim-ilkeleri -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">E-Ticaret Kullanıcı Deneyimi: Sepete Giden Yol Nasıl Kısalır?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">E-Ticaret</span>
-        <span class="yz-meta">17 Eylül 2026 · 7 dakikalık okuma</span>
+          <h1>E-Ticaret Kullanıcı Deneyimi: Sepete Giden Yol Nasıl Kısalır?</h1>
+          <p class="ozet">Türkiye'de çevrim içi mağaza açmak hiç olmadığı kadar kolaylaştı. Farkı yaratan ise artık vitrinin arkasındaki yolculuk. E-ticaret kullanıcı deneyimi, ziyaretçinin ilk tıkından ödeme onayına dek geçen rotanın toplam kalitesidir. Rota uzadıkça sepetler yarıda kalır, kısaldıkça satın alma oranı yükselir. Bu yazıda ana sayfadan ödemeye uzanan güzergâhı durak durak ele alıyoruz. Her adımda uygulanabilir düzeltmeler öneriyoruz. Hedef net: tıklama sayısını azaltmak, kararsızlık anlarını silmek, müşteriyi hedefe kısa yoldan ulaştırmak.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/kullanici-deneyimi-kapak-1440.webp"
+           srcset="./gorsel/kullanici-deneyimi-kapak-640.webp 640w, ./gorsel/kullanici-deneyimi-kapak-960.webp 960w, ./gorsel/kullanici-deneyimi-kapak-1440.webp 1440w, ./gorsel/kullanici-deneyimi-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="E-ticaret kullanıcı deneyimi rotasını temsil eden, kısalan ışıklı yol temalı soyut 3B illüstrasyon"
+           width="1920" height="1080" decoding="async"><figcaption>Sepete giden yol kısaldıkça dönüşüm artar: rotanın sadeleşmesi <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> E-Ticaret</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>17 Eylül 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>6 başlık</b></div>
       </div>
-      <h1>E-Ticaret Kullanıcı Deneyimi: Sepete Giden Yol Nasıl Kısalır?</h1>
-      <p class="ozet">Türkiye'de çevrim içi mağaza açmak hiç olmadığı kadar kolaylaştı. Farkı yaratan ise artık vitrinin arkasındaki yolculuk. E-ticaret kullanıcı deneyimi, ziyaretçinin ilk tıkından ödeme onayına dek geçen rotanın toplam kalitesidir. Rota uzadıkça sepetler yarıda kalır, kısaldıkça satın alma oranı yükselir. Bu yazıda ana sayfadan ödemeye uzanan güzergâhı durak durak ele alıyoruz. Her adımda uygulanabilir düzeltmeler öneriyoruz. Hedef net: tıklama sayısını azaltmak, kararsızlık anlarını silmek, müşteriyi hedefe kısa yoldan ulaştırmak.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#e-ticaret-kullanici-deneyimi-nedir-ve-satisi-nasil-etkiler"><span>01</span>E-Ticaret Kullanıcı Deneyimi Nedir ve Satışı Nasıl Etkiler?</a><a href="#ana-sayfadan-urune-giden-adimlar-nasil-kisalir"><span>02</span>Ana Sayfadan Ürüne Giden Adımlar Nasıl Kısalır?</a><a href="#urun-sayfasindan-sepete-gecis-neden-kopar"><span>03</span>Ürün Sayfasından Sepete Geçiş Neden Kopar?</a><a href="#sepetten-odemeye-rota-nasil-sadelesir"><span>04</span>Sepetten Ödemeye Rota Nasıl Sadeleşir?</a><a href="#e-ticaret-kullanici-deneyimi-icin-10-adimlik-uygulama-listesi"><span>05</span>E-Ticaret Kullanıcı Deneyimi İçin 10 Adımlık Uygulama Listesi</a><a href="#uzun-rota-ile-kisaltilmis-rotanin-karsilastirmasi"><span>06</span>Uzun Rota ile Kısaltılmış Rotanın Karşılaştırması</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/kullanici-deneyimi-kapak-1440.webp"
-           srcset="./gorsel/kullanici-deneyimi-kapak-640.webp 640w, ./gorsel/kullanici-deneyimi-kapak-960.webp 960w, ./gorsel/kullanici-deneyimi-kapak-1440.webp 1440w, ./gorsel/kullanici-deneyimi-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="E-ticaret kullanıcı deneyimi rotasını temsil eden, kısalan ışıklı yol temalı soyut 3B illüstrasyon"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Sepete giden yol kısaldıkça dönüşüm artar: rotanın sadeleşmesi <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>E-Ticaret Kullanıcı Deneyimi Nedir ve Satışı Nasıl Etkiler?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 06</span></div><h2 id="e-ticaret-kullanici-deneyimi-nedir-ve-satisi-nasil-etkiler">E-Ticaret Kullanıcı Deneyimi Nedir ve Satışı Nasıl Etkiler?</h2>
       <div class="yz-cevap"><p>E-ticaret kullanıcı deneyimi, ziyaretçinin siteye girişinden sipariş onayına kadar yaşadığı tüm etkileşimlerin bütünüdür. Akıcı bir deneyim güven oluşturur. Sürtünme ise terk oranını büyütür. Rotadaki her gereksiz adım, satın alma olasılığını ölçülebilir biçimde düşürür. Bu yüzden deneyim yatırımı, reklam bütçesinden önce gelen bir dönüşüm kaldıracıdır.</p></div>
       <p>Pazarın büyüklüğü konuyu stratejik kılıyor. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">Ticaret Bakanlığı'nın Türkiye'de E-Ticaretin Görünümü 2025 raporuna</a> göre e-ticaret hacmimiz 4,5 trilyon TL'ye ulaştı. Bu tutar gayrisafi yurt içi hasılanın yüzde 6,9'una karşılık geliyor. Rekabet 634 binin üzerinde işletme arasında yaşanıyor. Ürünler benzeştikçe e-ticaret kullanıcı deneyimi, mağazaları birbirinden ayıran asıl unsura dönüşüyor. Bu tabloyu fırsata çevirmenin yolu, yolculuğu rakiplerden daha akıcı kurmaktan geçiyor. Alışverişçinin sabrı sınırlı. Aradığını saniyeler içinde bulamayan ziyaretçi rakibe geçiyor. Kullanıcı deneyimi e-ticarette bir estetik tercihi değil, doğrudan ciro kalemidir.</p>
       <h3>Kullanıcı Yolculuğu Rotası Ne Anlama Gelir?</h3>
-      <p>Rota, ziyaretçinin hedefe ulaşana dek geçtiği ekran ve kararların sıralı haritasıdır. Bu haritaya kullanıcı yolculuğu denir. Tipik rota beş duraktan oluşur: ana sayfa, kategori, ürün sayfası, sepet ve ödeme. Her durakta iki soru sorarız: müşteri burada ne yapmak istiyor, onu yavaşlatan ne var? İki sorunun cevabı iyileştirme sırasını kendiliğinden belirler. Rotayı kısaltmak, bu yolculuğun en somut kazanım alanıdır.</p>
-      <h2>Ana Sayfadan Ürüne Giden Adımlar Nasıl Kısalır?</h2>
+      <p>Rota, ziyaretçinin hedefe ulaşana dek geçtiği ekran ve kararların sıralı haritasıdır. Bu haritaya kullanıcı yolculuğu denir. Tipik rota beş duraktan oluşur: ana sayfa, kategori, ürün sayfası, sepet ve ödeme. Her durakta iki soru sorarız: müşteri burada ne yapmak istiyor, onu yavaşlatan ne var? İki sorunun cevabı iyileştirme sırasını kendiliğinden belirler. Rotayı kısaltmak, bu yolculuğun en somut kazanım alanıdır.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 06</span></div><h2 id="ana-sayfadan-urune-giden-adimlar-nasil-kisalir">Ana Sayfadan Ürüne Giden Adımlar Nasıl Kısalır?</h2>
       <div class="yz-cevap"><p>Ana sayfadan ürüne giden yol en fazla üç tıkta biter. Bunun araçları sade menü, güçlü site içi arama ve net vitrin kurgusudur. Ziyaretçilerin önemli bölümü kategori gezinmek yerine doğrudan arama kutusuna yönelir. Menü derinliğini azaltmak ve popüler kategorileri öne çıkarmak, ürün keşfini belirgin biçimde hızlandırır.</p></div>
       <p>Vitrin karmaşası, rotanın ilk metrelerindeki en yaygın kayıptır. Tek kampanyaya odaklanan ana sayfa, yedi banner'ın yarıştığı sayfadan çok daha iyi yönlendirir. <a href="https://www.tuik.gov.tr/" target="_blank" rel="noopener">TÜİK'in güncel araştırmaları</a> internet kullanımının her yaş grubunda yaygınlaştığını gösteriyor. Çevrim içi alışverişte deneyim beklentisi de buna paralel yükseliyor. Bu deneyimi e-ticaret ana sayfasında güçlendirmenin üç pratik yolu var. Kahraman alanında tek mesaj verin ve menüyü en çok üç seviyede tutun. Arama kutusunu her ekranda görünür yapın. <a href="../../kurumsal-web-sitesi/">Kurumsal web sitesi</a> projelerinde uyguladığımız bilgi mimarisi ilkeleri, çevrim içi mağazalarda aynı netlikle çalışır.</p>
       <h3>Site İçi Arama Neden Rotanın Kestirmesidir?</h3>
-      <p>Site içi arama, kategori ağacını atlayıp ziyaretçiyi doğrudan ürüne taşıyan en kısa güzergâhtır. Yazım hatasını tolere eden, önerileri anında listeleyen bir kutu hedefleyin. Bu yapı, üç dört tıklık gezintiyi tek adıma indirir. Boş sonuç dönen sorguları düzenli inceleyin. Bu liste hem eksik ürünleri hem yanlış adlandırmaları ortaya çıkarır. Aramayı kullanan ziyaretçinin dönüşüm oranını ölçmek, yatırımın karşılığını görünür kılar.</p>
-      <h2>Ürün Sayfasından Sepete Geçiş Neden Kopar?</h2>
+      <p>Site içi arama, kategori ağacını atlayıp ziyaretçiyi doğrudan ürüne taşıyan en kısa güzergâhtır. Yazım hatasını tolere eden, önerileri anında listeleyen bir kutu hedefleyin. Bu yapı, üç dört tıklık gezintiyi tek adıma indirir. Boş sonuç dönen sorguları düzenli inceleyin. Bu liste hem eksik ürünleri hem yanlış adlandırmaları ortaya çıkarır. Aramayı kullanan ziyaretçinin dönüşüm oranını ölçmek, yatırımın karşılığını görünür kılar.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 06</span></div><h2 id="urun-sayfasindan-sepete-gecis-neden-kopar">Ürün Sayfasından Sepete Geçiş Neden Kopar?</h2>
       <div class="yz-cevap"><p>Kopuşun ana nedeni eksik bilgidir. Fiyat, stok, kargo süresi ve iade koşulu tek ekranda görünmelidir. Bu bilgileri bulamayan ziyaretçi karar veremez ve sayfayı terk eder. Sepete ekle düğmesinin kaydırma yapmadan görünmesi, geçiş oranını doğrudan etkiler. Belirsizliği azaltan her bilgi parçası, sepete giden adımı biraz daha kısaltır.</p></div>
       <p>Ürün sayfası, e-ticaret kullanıcı deneyiminin karar anıdır; ziyaretçi burada ya sepete yönelir ya sekmeyi kapatır. Kargo ücretini ödeme adımına kadar gizlemek en pahalı hatalardan biridir; stok durumu, teslimat tarihi ve iade süresi düğmenin hemen yakınında durmalı. Beden, renk gibi zorunlu seçimlerde hata mesajını seçim alanının yanında gösterin; sayfanın tepesine fırlatılan uyarı alışverişçiyi yolundan eder.</p>
       <h3>Sepete Ekle Adımını Netleştiren Üç Detay</h3>
       <p>Birincisi, düğme metni eylemi söylemeli: "Sepete Ekle" her zaman "Devam"dan iyidir. İkincisi, düğmeye basıldığında görünür bir onay belirmeli. Ürünün eklendiğinden emin olamayan ziyaretçi aynı ürünü iki kez ekler ya da süreci bırakır. Üçüncüsü, ekleme sonrası müşteriyi zorla sepet sayfasına taşımayın. Alışverişe devam seçeneği ortalama sepet tutarını büyütür.</p>
       <h4>Mobilde Başparmak Bölgesi</h4>
-      <p>Başparmak bölgesi, mobil ekranda tek elle rahatça erişilen alt üçte birlik alandır. Sepete ekle düğmesini bu bölgeye sabitlemek, mobil geçişi iyileştiren düşük maliyetli bir düzenlemedir. <a href="https://www.btk.gov.tr/" target="_blank" rel="noopener">BTK'nın</a> yayımladığı erişim istatistikleri mobil internetin yaygınlığını düzenli olarak ortaya koyuyor. Rotanızı önce mobilde test edin.</p>
-      <h2>Sepetten Ödemeye Rota Nasıl Sadeleşir?</h2>
+      <p>Başparmak bölgesi, mobil ekranda tek elle rahatça erişilen alt üçte birlik alandır. Sepete ekle düğmesini bu bölgeye sabitlemek, mobil geçişi iyileştiren düşük maliyetli bir düzenlemedir. <a href="https://www.btk.gov.tr/" target="_blank" rel="noopener">BTK'nın</a> yayımladığı erişim istatistikleri mobil internetin yaygınlığını düzenli olarak ortaya koyuyor. Rotanızı önce mobilde test edin.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 06</span></div><h2 id="sepetten-odemeye-rota-nasil-sadelesir">Sepetten Ödemeye Rota Nasıl Sadeleşir?</h2>
       <div class="yz-cevap"><p>Sepetten ödemeye rotayı üç araç sadeleştirir. Bunlar misafir alışverişi, tek sayfalık ödeme akışı ve yalnızca zorunlu form alanlarıdır. Zorunlu üyelik duvarı, bu aşamadaki en büyük kayıp noktasıdır. Adım ve alan sayısını azaltan her düzenleme, tamamlanan sipariş oranını yukarı çeker. İlerleme çubuğu da müşteriye yolun ne kadarının kaldığını gösterir.</p></div>
       <p>Sepet sayfası bir ara durak değil, sözleşme masasıdır; toplam tutar, kargo bedeli ve teslim tarihi burada net görünmeli. Üyelik dayatması yerine misafir alışverişi sunun; form tarafında her alanı sorgulayın, faks numarası isteyen bir sayfa rotayı uzatmaktan başka işe yaramaz. Ödeme adımında dikkat dağıtan banner ve kampanya kutularını kaldırın; güven öğeleri görünür olsun ama akışı bölmesin. E-ticaret kullanıcı deneyimine yapılan yatırımın en hızlı geri döndüğü yer bu son iki adımdır.</p>
       <h3>Misafir Alışverişi ve Form Alanları</h3>
       <p>Misafir alışverişi, üyelik oluşturmadan sipariş verme imkânı sunan hızlandırılmış ödeme seçeneğidir. Form alanlarında altın kural şu: her alan bir sipariş gereksinimine karşılık gelmeli. Adres için otomatik tamamlama, telefon için maskeli giriş kullanın. Hatalı girişleri anında, alanın yanında düzelttirin. Ödeme formundaki her fazladan alan, e-ticaret kullanıcı deneyiminde ölçülebilir bir vazgeçme riskidir.</p>
-      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      <h2>E-Ticaret Kullanıcı Deneyimi İçin 10 Adımlık Uygulama Listesi</h2>
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 06</span></div><h2 id="e-ticaret-kullanici-deneyimi-icin-10-adimlik-uygulama-listesi">E-Ticaret Kullanıcı Deneyimi İçin 10 Adımlık Uygulama Listesi</h2>
       <div class="yz-cevap"><p>E-ticaret kullanıcı deneyimini geliştirmek için rotayı beş durakta ele alın. Ardından aşağıdaki on adımı sırayla uygulayın. Liste, en yüksek etkiyi en düşük eforla üretecek biçimde dizildi. Her adımı tamamladıkça dönüşüm hunisindeki değişimi ölçün. Ölçülmeyen iyileştirme varsayımdan öteye geçmez. Ölçüm için ücretsiz analiz araçları yeterlidir.</p></div>
       <p>Listeyi bir sprint planı gibi düşünün. Her madde tek başına uygulanabilir.</p><ol><li>Ana sayfadaki kahraman alanını tek mesaja indirin. İkincil kampanyaları alt bölümlere taşıyın.</li><li>Menü derinliğini en çok üç seviyeye düşürün.</li><li>Arama kutusunu her ekranda görünür kılın. Yazım toleransı ve anlık öneri ekleyin.</li><li>Ürün sayfasında fiyat, stok, kargo süresi ve iade koşulunu tek ekranda toplayın.</li><li>Sepete ekle düğmesini mobilde başparmak bölgesine sabitleyin.</li><li>Ekleme sonrasında görünür onay gösterin. Zorunlu sepet yönlendirmesini kaldırın.</li><li>Kargo ücretini sepette, sürpriz bırakmadan paylaşın.</li><li>Misafir alışverişini açın. Üyeliği sipariş sonrasına erteleyin.</li><li>Ödeme formunu zorunlu alanlara indirin. Otomatik tamamlama ekleyin.</li><li>Ay sonunda huni raporunu inceleyin. En çok kaybın yaşandığı durağı yeniden ele alın.</li></ol><p>On adım, alışveriş deneyimini soyut bir hedeften yönetilebilir bir iş listesine çevirir. Uygulamada teknik destek gerekirse <a href="../../e-ticaret/">e-ticaret sitesi tasarımı ve yazılımı</a> ekibimiz rotanızı birlikte kurgular. Nitelikli trafiği büyütme tarafında <a href="../../seo/">SEO hizmetimiz</a> devreye girer.</p>
       <h3>Sonucu Hangi Metriklerle Takip Etmelisiniz?</h3>
       <p>Dört gösterge yeterli. Bunlar sepete ekleme oranı, sepet terk oranı, ödeme tamamlama oranı, ürüne ulaşma tık sayısıdır. Metrikleri iyileştirme öncesiyle sonrasında karşılaştırın. Dört haftalık pencere mevsimsel gürültüyü azaltır. Bu dörtlü set, mağaza deneyiminin nabzını düzenli olarak tutar.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/kullanici-deneyimi-govde-960.webp"
              srcset="./gorsel/kullanici-deneyimi-govde-640.webp 640w, ./gorsel/kullanici-deneyimi-govde-960.webp 960w, ./gorsel/kullanici-deneyimi-govde-1440.webp 1440w, ./gorsel/kullanici-deneyimi-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Ana sayfadan ödemeye beş duraklı kullanıcı yolculuğunu temsil eden soyut kapı dizisi ve ışık hattı" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Beş durak, tek akıcı hat: ana sayfa, kategori, ürün, sepet ve ödeme <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Uzun Rota ile Kısaltılmış Rotanın Karşılaştırması</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 06</span></div><h2 id="uzun-rota-ile-kisaltilmis-rotanin-karsilastirmasi">Uzun Rota ile Kısaltılmış Rotanın Karşılaştırması</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Yolculuk Adımı</th><th>Tipik Uzun Rota</th><th>Kısaltılmış Rota</th></tr></thead>
@@ -548,7 +593,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../e-ticaret/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Sepete giden yol kısaldıkça satış artar. Formül bu kadar yalın. Rotanızı beş durakta gözden geçirin ve on adımlık listeyi takvime bağlayın. Her değişikliği ölçerek ilerleyin. Kullanıcı deneyimi tek seferlik bir proje değil, süreklilik isteyen bir bakım disiplinidir. Mağazanızın rotasını birlikte kısaltmak isterseniz <a href="../../e-ticaret/">e-ticaret çözümlerimiz</a> sayfasından bize ulaşın. Mevcut sitenizin yolculuk haritasını çıkarıp kayıp noktalarını raporluyoruz.</p>
+        <p>Sepete giden yol kısaldıkça satış artar. Formül bu kadar yalın. Rotanızı beş durakta gözden geçirin ve on adımlık listeyi takvime bağlayın. Her değişikliği ölçerek ilerleyin. Kullanıcı deneyimi tek seferlik bir proje değil, süreklilik isteyen bir bakım disiplinidir. Mağazanızın rotasını birlikte kısaltmak isterseniz <a href="../../e-ticaret/">e-ticaret çözümlerimiz</a> sayfasından bize ulaşın. Mevcut sitenizin yolculuk haritasını çıkarıp kayıp noktalarını raporluyoruz.</p></section>
       </article>
     </div>
   </section>

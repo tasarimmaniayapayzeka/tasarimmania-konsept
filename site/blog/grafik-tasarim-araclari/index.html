@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -468,45 +515,43 @@
 <!-- AYIRT EDİCİ EKSEN: ARAÇ — Photoshop, Illustrator, Figma, Canva gibi programların özellik ve kullanım senaryosu kıyası; süreç aşamaları ve trendler kardeş yazıların ekseni.
      Huni türü: MOFU · Küme: Grafik Tasarım · Kardeşler (enjeksiyon turunda): grafik-tasarim-turleri, grafik-tasarim-sureci, grafik-tasarim-trendleri -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Grafik Tasarım Programları Karşılaştırması: Hangisi Kime Uygun?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Grafik Tasarım</span>
-        <span class="yz-meta">23 Ekim 2026 · 7 dakikalık okuma</span>
+          <h1>Grafik Tasarım Programları Karşılaştırması: Hangisi Kime Uygun?</h1>
+          <p class="ozet"><p>Marka görselinizi kim, hangi araçla üretecek? Bu soru, ajansla çalışan işletmelerin ilk günden netleştirmesi gereken bir konu. Grafik tasarım programları arasında seçim yapmak, aslında bir üretim hattı kurmak demektir. Photoshop, Illustrator, Figma ve Canva aynı işi yapmaz. Biz bu yazıda araçları özellik ve kullanım senaryosu düzeyinde kıyaslıyoruz. Hedefimiz, ekibinizin bütçesine ve iş yüküne oturan seçimi kolaylaştırmak.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/grafik-tasarim-araclari-kapak-1440.webp"
+           srcset="./gorsel/grafik-tasarim-araclari-kapak-640.webp 640w, ./gorsel/grafik-tasarim-araclari-kapak-960.webp 960w, ./gorsel/grafik-tasarim-araclari-kapak-1440.webp 1440w, ./gorsel/grafik-tasarim-araclari-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Grafik tasarım programlarının farklı üretim mantıklarını temsil eden dört soyut 3B araç formu"
+           width="1920" height="1080" decoding="async"><figcaption>Her araç farklı bir üretim mantığına oturur; seçim, işin türünden çıkar. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Grafik Tasarım</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>23 Ekim 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>6 başlık</b></div>
       </div>
-      <h1>Grafik Tasarım Programları Karşılaştırması: Hangisi Kime Uygun?</h1>
-      <p class="ozet"><p>Marka görselinizi kim, hangi araçla üretecek? Bu soru, ajansla çalışan işletmelerin ilk günden netleştirmesi gereken bir konu. Grafik tasarım programları arasında seçim yapmak, aslında bir üretim hattı kurmak demektir. Photoshop, Illustrator, Figma ve Canva aynı işi yapmaz. Biz bu yazıda araçları özellik ve kullanım senaryosu düzeyinde kıyaslıyoruz. Hedefimiz, ekibinizin bütçesine ve iş yüküne oturan seçimi kolaylaştırmak.</p></p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#tasarim-yazilimlari-arasindaki-temel-fark-nedir"><span>01</span>Tasarım Yazılımları Arasındaki Temel Fark Nedir?</a><a href="#photoshop-mu-illustrator-mi-hangi-is-hangi-aracta-dogar"><span>02</span>Photoshop mu Illustrator mı: Hangi İş Hangi Araçta Doğar?</a><a href="#figma-ekip-calismasini-nasil-degistirir"><span>03</span>Figma Ekip Çalışmasını Nasıl Değiştirir?</a><a href="#canva-gibi-sablon-araclari-nerede-yetersiz-kalir"><span>04</span>Canva Gibi Şablon Araçları Nerede Yetersiz Kalır?</a><a href="#kobi-ekipleri-icin-arac-secimi-ve-maliyet-dengesi"><span>05</span>KOBİ Ekipleri İçin Araç Seçimi ve Maliyet Dengesi</a><a href="#populer-grafik-tasarim-programlari-karsilastirma-tablosu"><span>06</span>Popüler Grafik Tasarım Programları Karşılaştırma Tablosu</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/grafik-tasarim-araclari-kapak-1440.webp"
-           srcset="./gorsel/grafik-tasarim-araclari-kapak-640.webp 640w, ./gorsel/grafik-tasarim-araclari-kapak-960.webp 960w, ./gorsel/grafik-tasarim-araclari-kapak-1440.webp 1440w, ./gorsel/grafik-tasarim-araclari-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Grafik tasarım programlarının farklı üretim mantıklarını temsil eden dört soyut 3B araç formu"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Her araç farklı bir üretim mantığına oturur; seçim, işin türünden çıkar. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Tasarım Yazılımları Arasındaki Temel Fark Nedir?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 06</span></div><h2 id="tasarim-yazilimlari-arasindaki-temel-fark-nedir">Tasarım Yazılımları Arasındaki Temel Fark Nedir?</h2>
       <div class="yz-cevap"><p>Grafik tasarım programları dört ayrı işi çözer: piksel düzenleme, vektörel çizim, arayüz kurgusu ve şablon üretimi. Fark menülerde değil, çıktı mantığında saklıdır. Photoshop fotoğrafı işler, Illustrator formu çizer, Figma ekranı kurgular, Canva ise hazır iskeleti dakikalar içinde çoğaltır. Doğru eşleşme, işin türünden çıkar.</p></div>
       <p>Araç kararını özellik listesine bakarak vermek yanıltıcıdır. Biz tercihi çıktı üzerinden yapıyoruz. Katalog sayfası, mobil ekran ve sosyal gönderi farklı üretim hatları ister. <a href="../../grafik-tasarim/">Grafik tasarım hizmetlerimizde</a> her iş için ayrı bir zincir kuruyoruz; dosyanın hangi aşamada hangi biçime dönüşeceği baştan bellidir. Grafik tasarım programları bu zincirin yalnız bir halkasıdır. Ekipler bu programlardan yalnız birinde grafik işini toplamaya çalışıyor. Oysa sağlıklı kurgu, iki üç aracın birbirine dosya devretmesiyle ayakta durur. Baskı ağır basıyorsa vektör aracı, ekran ağır basıyorsa arayüz aracı öne geçer.</p>
       <h3>Raster ve vektör ayrımı ne demektir?</h3>
       <p>Raster, görüntüyü piksel ızgarasında saklayan dosya biçimidir. Vektör ise şekli matematiksel eğrilerle tanımlar. Bu ayrım bütçenizi doğrudan etkiler. Rasterda büyütülen logo kenarlarında kırılır. Vektörde aynı logo tabelaya da kartvizite de gider. Bir aracın yetkinliği, hangi dosya biçimine odaklandığına bağlıdır.</p>
       <h3>Lisans modeli seçimi neden önemli?</h3>
-      <p>Lisans modeli, bir yazılımın aylık maliyetini ve ekip içi erişimini belirleyen ticari çerçevedir. Adobe abonelik kişi başına ilerlerken Figma koltuk sayısını, Canva ücretsiz katmandan başlayan kademeleri esas alıyor. Beş kişilik bir takımda grafik tasarım programları yıllık bütçede ciddi bir kalem oluşturur. Sözleşmeden önce koltuk devri şartını okuyun.</p>
-      <h2>Photoshop mu Illustrator mı: Hangi İş Hangi Araçta Doğar?</h2>
+      <p>Lisans modeli, bir yazılımın aylık maliyetini ve ekip içi erişimini belirleyen ticari çerçevedir. Adobe abonelik kişi başına ilerlerken Figma koltuk sayısını, Canva ücretsiz katmandan başlayan kademeleri esas alıyor. Beş kişilik bir takımda grafik tasarım programları yıllık bütçede ciddi bir kalem oluşturur. Sözleşmeden önce koltuk devri şartını okuyun.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 06</span></div><h2 id="photoshop-mu-illustrator-mi-hangi-is-hangi-aracta-dogar">Photoshop mu Illustrator mı: Hangi İş Hangi Araçta Doğar?</h2>
       <div class="yz-cevap"><p>Photoshop mevcut bir görüntüyü düzenler, Illustrator ise sıfırdan biçim üretir. Fotoğraf rötuşu, banner kurgusu ve doku çalışması Photoshop'ta doğar. Logo, ikon seti, ambalaj ve tabela Illustrator'da doğar. İkisini karıştıran ekipler baskı aşamasında çözünürlük sorunuyla yüzleşir. Grafik tasarım programları içinde bu ikisi kardeş sayılır ama görev alanları ayrıdır.</p></div>
       <p>Sahada en sık gördüğümüz hata şu: logo Photoshop'ta çiziliyor. Dosya ekranda güzel durur. Matbaa üç metrelik afiş istediğinde iş baştan başlar. Vektörel kaynağı olmayan marka, her yeni mecrada yeniden çizim maliyeti öder. Grafik tasarım programları arasındaki en pahalı yanlış eşleşme budur.</p>
       <h3>Fotoğraf ve rötuş senaryosu</h3>
@@ -514,33 +559,33 @@
       <h3>Logo ve marka kimliği senaryosu</h3>
       <p>Marka kimliği işi, ölçekten bağımsız keskinlik ister. Illustrator bu yüzden ajans standardı olmayı sürdürüyor. Pathfinder araçları, ızgara sistemi ve tipografi kontrolü rakiplerinin bir adım önünde. Matbaada renk ayrı bir başlık; kaynak dosyayı CMYK'ya çevirip kurumsal rengi spot renk tanımlamak teslimi garantiye alır. CorelDRAW ise tabela ve tekstil atölyelerinde güçlü duruyor.</p>
       <h4>Teslim dosyası kontrol listesi</h4>
-      <p>Ajansınızdan logo teslim alırken üç dosya isteyin: düzenlenebilir vektör kaynağı, baskı için PDF ve web için SVG. Bu üçlü elinizde yoksa marka varlığınız aracın içinde kilitli kalır.</p>
-      <h2>Figma Ekip Çalışmasını Nasıl Değiştirir?</h2>
+      <p>Ajansınızdan logo teslim alırken üç dosya isteyin: düzenlenebilir vektör kaynağı, baskı için PDF ve web için SVG. Bu üçlü elinizde yoksa marka varlığınız aracın içinde kilitli kalır.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 06</span></div><h2 id="figma-ekip-calismasini-nasil-degistirir">Figma Ekip Çalışmasını Nasıl Değiştirir?</h2>
       <div class="yz-cevap"><p>Figma, tasarımı dosya alışverişinden çıkarıp tarayıcıdaki ortak bir odaya taşır. Tasarımcı, yazılımcı ve pazarlama sorumlusu aynı ekrana aynı anda bakar. Yorumlar dosyanın üstünde birikir, sürüm karmaşası ortadan kalkar. Web ve mobil arayüz projelerinde bu düzen tek başına bir onay turunu ortadan kaldırabilir.</p></div>
       <p>Site ya da uygulama yenilerken en pahalı gecikme onay turlarında çıkar. Bileşen kütüphanesi bu turu kısaltır. Bir düğmenin rengini merkezden değiştirirsiniz, yüz ekran birden güncellenir. Yorum, onay ve revizyon aynı bağlantıda birikir; e-posta trafiği azalır. Geliştirici modu tasarımla kod arasındaki mesafeyi kapatıyor; yazılımcı ölçüyü, rengi ve boşluğu aynı ekranda okuduğu için tasarımcıya daha az soru soruyor. <a href="../../uygulama-arayuz-tasarimi/">Uygulama arayüz projelerimizde</a> ve <a href="../../kurumsal-web-sitesi/">kurumsal web sitesi çalışmalarımızda</a> onay akışını bu yapıyla yürütüyoruz. Ekip büyüdükçe grafik tasarım programları arasında ortak alan sunanlar öne geçer.</p>
       <h3>Tarayıcı tabanlı çalışmanın sınırı nerede?</h3>
-      <p>Figma'nın gücü ekran tasarımında toplanıyor; matbaa tarafında aynı rahatlığı sunmuyor. CMYK renk yönetimi ve taşma payı gibi baskı gereksinimlerini karşılamaz. Yüksek çözünürlüklü fotoğraf düzenlemede de zorlanır. Baskıyı dışarıdan alan ekipler için bu sınır sorun değil. Kendi kataloğunu üreten şirketler ayrı bir vektör aracı ayırmalı: ekranı Figma'da bitirin, matbaa dosyasını orada hazırlayın.</p>
-      <h2>Canva Gibi Şablon Araçları Nerede Yetersiz Kalır?</h2>
+      <p>Figma'nın gücü ekran tasarımında toplanıyor; matbaa tarafında aynı rahatlığı sunmuyor. CMYK renk yönetimi ve taşma payı gibi baskı gereksinimlerini karşılamaz. Yüksek çözünürlüklü fotoğraf düzenlemede de zorlanır. Baskıyı dışarıdan alan ekipler için bu sınır sorun değil. Kendi kataloğunu üreten şirketler ayrı bir vektör aracı ayırmalı: ekranı Figma'da bitirin, matbaa dosyasını orada hazırlayın.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 06</span></div><h2 id="canva-gibi-sablon-araclari-nerede-yetersiz-kalir">Canva Gibi Şablon Araçları Nerede Yetersiz Kalır?</h2>
       <div class="yz-cevap"><p>Canva, hazır şablonlarla hızlı görsel üreten bulut tabanlı bir araçtır. Sosyal medya gönderisi, sunum ve basit afişte işi fazlasıyla görür. Özgün marka dili, karmaşık baskı işleri ve vektörel hassasiyet gerektiğinde duvara toslar. Sınırı bilmek, aracı kötülemekten çok daha faydalıdır. Beklentiyi doğru kurun, sonuç sizi şaşırtmasın.</p></div>
       <p>İnternet üzerinden satış yapan işletme sayısı hızla artıyor. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">ETBİS verilerine göre</a> e-ticaret yapan işletme sayısı 634.611'e ulaştı. Bu yoğunlukta her marka haftada onlarca görsel çıkarıyor. Şablon araçları bu hacmi taşımak için doğdu. Ancak şablon, rakibinizin de eriştiği ortak bir kaynaktır; aynı iskeletle kurulan iki gönderiyi logosuz ayırmakta zorlanırsınız. Programlar arasında şablon araçları grafik üretiminde hızda kazanır, ayrışmada geri kalır. Marka ayrışması ancak özgün tasarımla gelir.</p>
       <h3>Sosyal içerik üretiminde hız avantajı</h3>
       <p>Haftada on beş gönderi çıkaran ekipte şablon mantığı işe yarar. Kurumsal kimliğinizi bir kez yükleyin, renk ve yazı tipi otomatik gelsin. Sosyal medya yönetimi tarafında rutin gönderilerde bu yolu seçiyoruz. Kampanya görselini yine tasarımcı çizer, çünkü şablon marka sesini taşımaz. Rutin ile kampanyayı ayırmak, hem hızı hem de marka tutarlılığını korur.</p>
-      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      <h2>KOBİ Ekipleri İçin Araç Seçimi ve Maliyet Dengesi</h2>
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 06</span></div><h2 id="kobi-ekipleri-icin-arac-secimi-ve-maliyet-dengesi">KOBİ Ekipleri İçin Araç Seçimi ve Maliyet Dengesi</h2>
       <div class="yz-cevap"><p>Seçim, ekip büyüklüğü ile üretim hacminin kesiştiği noktada netleşir. Tek kişilik pazarlama biriminde iki uygulama yeter. Beş kişilik yapıda ortak kütüphane şart olur. Grafik tasarım programları için ödediğiniz yıllık lisans, dış kaynak faturasının altında kalıyorsa iç üretim mantıklıdır. Aksi halde ajansla ilerlemek ucuza gelir.</p></div>
       <p>Bütçeyi konuşurken yalnız abonelik bedeline bakmayın. Öğrenme süresi de bir maliyet kalemidir. Bir aracı ekibe tanıtmak ve eski dosyaları taşımak zaman ister; bu kalem lisans bedelinden görünmez ama takvimi zorlar. Ekran işlerinde Figma, baskı işlerinde Illustrator öne çıkıyor.</p>
       <h3>Ekip büyüklüğüne göre eşleştirme</h3>
       <p>Tek kişilik ekipte Canva ve tek bir vektör aracı yeterlidir. Üç kişilik yapıda Figma ortak alan kazandırır. Beş kişiyi aşan takımlarda Adobe ekosistemi tam paket olarak anlam kazanır. Almadan önce deneme sürümünde gerçek bir işi bitirin; kararı kendi listenize göre verin.</p>
       <h3>Beş adımda araç seçimi</h3>
       <ol><li>Son üç ayın görsellerini türlerine ayırın.</li><li>Baskıya giden iş çoksa vektör aracını listenin başına alın.</li><li>Aynı dosyaya kaç kişinin dokunduğunu sayın.</li><li>Aylık lisans giderini dış kaynak faturasıyla karşılaştırın.</li><li>Seçtiğiniz aracı önce tek kampanyada deneyin, sonra yaygınlaştırın.</li></ol>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/grafik-tasarim-araclari-govde-960.webp"
              srcset="./gorsel/grafik-tasarim-araclari-govde-640.webp 640w, ./gorsel/grafik-tasarim-araclari-govde-960.webp 960w, ./gorsel/grafik-tasarim-araclari-govde-1440.webp 1440w, ./gorsel/grafik-tasarim-araclari-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Piksel küplerinden vektör eğrisine geçişi anlatan soyut 3B görsel" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Piksel tabanlı düzenleme ile vektörel çizim arasındaki geçiş, dosya kalitesinin de sınırını belirler. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Popüler Grafik Tasarım Programları Karşılaştırma Tablosu</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 06</span></div><h2 id="populer-grafik-tasarim-programlari-karsilastirma-tablosu">Popüler Grafik Tasarım Programları Karşılaştırma Tablosu</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Program</th><th>Güçlü olduğu iş</th><th>Öğrenme eşiği</th><th>Ekip çalışması</th><th>Kime uygun</th></tr></thead>
@@ -562,7 +607,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../grafik-tasarim/">Hizmet sayfasını gör</a>
         </aside>
-        <p><p>En doğru araç, ekibinizin her gün açtığı uygulamadır. Photoshop, Illustrator, Figma ve Canva aynı zincirin farklı halkalarıdır. Kıyas tablosunu kendi üretim listenizle yan yana koyun, ardından bütçeyi oturtun. Grafik tasarım kurulumunuzu markanıza göre planlamak için <a href="../../teklif/">teklif formumuzu</a> doldurabilirsiniz.</p></p>
+        <p><p>En doğru araç, ekibinizin her gün açtığı uygulamadır. Photoshop, Illustrator, Figma ve Canva aynı zincirin farklı halkalarıdır. Kıyas tablosunu kendi üretim listenizle yan yana koyun, ardından bütçeyi oturtun. Grafik tasarım kurulumunuzu markanıza göre planlamak için <a href="../../teklif/">teklif formumuzu</a> doldurabilirsiniz.</p></p></section>
       </article>
     </div>
   </section>

@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -468,45 +515,43 @@
 <!-- AYIRT EDİCİ EKSEN: GÖRÜNÜM — Yerleşim, görsel ağırlığı ve mobil kırılım gibi tasarım kararlarının arama görünürlüğüne etkisi; CWV metriklerinin tanımı/eşiği ve denetim tespiti YALNIZ teknik-seo'da — her metrik anışında oraya link verilir, metrik anlatımına girilmez. Backlink süresi off-page yazısında.
      Huni türü: TOFU · Küme: SEO Çekirdek · Kardeşler (enjeksiyon turunda): e-ticaret-seo, yerel-seo, teknik-seo -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">SEO Uyumlu Web Tasarım Arama Görünürlüğünü Nasıl Etkiler?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Web Tasarım</span>
-        <span class="yz-meta">17 Ekim 2026 · 7 dakikalık okuma</span>
+          <h1>SEO Uyumlu Web Tasarım Arama Görünürlüğünü Nasıl Etkiler?</h1>
+          <p class="ozet">Arama sonuçlarında görünmek, yalnızca metinle ilgili bir mesele değil. Ziyaretçi sayfaya girdiği anda bir karar veriyor: kalmak ya da geri dönmek. Bu kararı büyük ölçüde tasarım veriyor. SEO uyumlu web tasarım, arama motorunun anladığı yapıyı insanın anladığı düzenle birleştiren yaklaşımdır. Biz KOBİ projelerinde bu iki tarafı aynı masada kurguluyoruz. Yazının tamamında yerleşim, görsel ağırlığı ve mobil kırılım kararlarını konuşacağız.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/seo-ve-web-tasarim-kapak-1440.webp"
+           srcset="./gorsel/seo-ve-web-tasarim-kapak-640.webp 640w, ./gorsel/seo-ve-web-tasarim-kapak-960.webp 960w, ./gorsel/seo-ve-web-tasarim-kapak-1440.webp 1440w, ./gorsel/seo-ve-web-tasarim-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Karanlık zeminde hiyerarşik düzene geçen soyut cam panellerden oluşan 3D görsel"
+           width="1920" height="1080" decoding="async"><figcaption>Tasarım kararları, içeriğin hangi sırayla görüldüğünü belirler. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Web Tasarım</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>17 Ekim 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>6 başlık</b></div>
       </div>
-      <h1>SEO Uyumlu Web Tasarım Arama Görünürlüğünü Nasıl Etkiler?</h1>
-      <p class="ozet">Arama sonuçlarında görünmek, yalnızca metinle ilgili bir mesele değil. Ziyaretçi sayfaya girdiği anda bir karar veriyor: kalmak ya da geri dönmek. Bu kararı büyük ölçüde tasarım veriyor. SEO uyumlu web tasarım, arama motorunun anladığı yapıyı insanın anladığı düzenle birleştiren yaklaşımdır. Biz KOBİ projelerinde bu iki tarafı aynı masada kurguluyoruz. Yazının tamamında yerleşim, görsel ağırlığı ve mobil kırılım kararlarını konuşacağız.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#hangi-tasarim-kararlari-siralamaya-dokunur"><span>01</span>Hangi Tasarım Kararları Sıralamaya Dokunur?</a><a href="#sayfa-yerlesimi-aramada-ne-anlama-gelir"><span>02</span>Sayfa Yerleşimi Aramada Ne Anlama Gelir?</a><a href="#gorsel-agirligi-siralamayi-etkiler-mi"><span>03</span>Görsel Ağırlığı Sıralamayı Etkiler mi?</a><a href="#mobil-kirilim-noktalarinda-nelere-dikkat-ediyoruz"><span>04</span>Mobil Kırılım Noktalarında Nelere Dikkat Ediyoruz?</a><a href="#seo-uyumlu-web-tasarim-teklifi-alin"><span>05</span>SEO Uyumlu Web Tasarım Teklifi Alın</a><a href="#tasarim-kararlarinin-gorunurluk-ve-deneyim-karsiligi"><span>06</span>Tasarım Kararlarının Görünürlük ve Deneyim Karşılığı</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/seo-ve-web-tasarim-kapak-1440.webp"
-           srcset="./gorsel/seo-ve-web-tasarim-kapak-640.webp 640w, ./gorsel/seo-ve-web-tasarim-kapak-960.webp 960w, ./gorsel/seo-ve-web-tasarim-kapak-1440.webp 1440w, ./gorsel/seo-ve-web-tasarim-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Karanlık zeminde hiyerarşik düzene geçen soyut cam panellerden oluşan 3D görsel"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Tasarım kararları, içeriğin hangi sırayla görüldüğünü belirler. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Hangi Tasarım Kararları Sıralamaya Dokunur?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 06</span></div><h2 id="hangi-tasarim-kararlari-siralamaya-dokunur">Hangi Tasarım Kararları Sıralamaya Dokunur?</h2>
       <div class="yz-cevap"><p>Tasarım kararları arama görünürlüğünü dolaylı yoldan, fakat güçlü biçimde etkiler. Arama motoru içeriği okur; ziyaretçi düzeni okur. İkisi çeliştiğinde sıralama düşer. Yerleşim, başlık sırası ve boşluk kullanımı içeriğin ne kadarının gerçekten görüldüğünü belirler. Tasarım ile içerik kararlarını bu yüzden aynı toplantıda alıyoruz.</p></div>
       <p>Bir sayfanın değeri, arama motoru için metinde; ziyaretçi için ilk bakışta saklıdır. SEO uyumlu web tasarım bu iki değeri tek yapıda buluşturur. Menü sadeleşir, başlıklar sıraya girer, önemli içerik yukarı taşınır. Tasarımın SEO tarafını da bu yüzden ilk taslakta konuşuyoruz.</p><p>Tarama ve indeksleme gibi ölçüm konularını ayrı ele alıyoruz; o taraf <a href="../../teknik-seo/">teknik SEO</a> çalışmamızın kapsamına giriyor.</p><p>SEO uyumlu web tasarım bu gerçekle başlar: ziyaretçi sayfayı okumaz, tarar. Gözü başlıklarda, butonlarda ve kalın ifadelerde durur. Tasarım bu tarama alışkanlığını kolaylaştırdığında içerik hak ettiği ilgiyi görür. Aksi halde iyi yazılmış bir metin bile boşa gider.</p>
       <h3>Tasarımın arama motoruna anlattığı hikâye</h3>
       <p>Arama motoru sayfanın görünümünü doğrudan hissetmez. Yine de başlık düzeni, bağlantı yapısı ve içerik sırası üzerinden bir anlam çıkarır. Düzenli bir arayüz, konuyu net bir hiyerarşiyle sunar. Dağınık arayüz ise sinyali zayıflatır.</p>
       <h3>Kullanıcı davranışı ve tasarım bağı</h3>
-      <p>Ziyaretçi aradığını bulamazsa geri döner. Bu dönüş, sayfanın soruyu karşılamadığını gösteren bir davranıştır. İyi kurgulanmış bir düzen, cevabı ilk ekrana taşır. Kalış süresi uzar, sayfa arama sonuçlarında yerini korur. Cevabın nerede durduğu, cevabın kendisi kadar belirleyici.</p>
-      <h2>Sayfa Yerleşimi Aramada Ne Anlama Gelir?</h2>
+      <p>Ziyaretçi aradığını bulamazsa geri döner. Bu dönüş, sayfanın soruyu karşılamadığını gösteren bir davranıştır. İyi kurgulanmış bir düzen, cevabı ilk ekrana taşır. Kalış süresi uzar, sayfa arama sonuçlarında yerini korur. Cevabın nerede durduğu, cevabın kendisi kadar belirleyici.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 06</span></div><h2 id="sayfa-yerlesimi-aramada-ne-anlama-gelir">Sayfa Yerleşimi Aramada Ne Anlama Gelir?</h2>
       <div class="yz-cevap"><p>Sayfa yerleşimi, içeriğin hangi sırayla ve hangi ağırlıkla sunulduğunu belirleyen düzendir. Arama tarafında bu düzen konunun netliğini artırır. Ziyaretçi tarafında karar süresini kısaltır. Önemli başlığı aşağı iten bir tasarım, güçlü metni bile görünmez kılabilir. Yerleşim çizimi, içerik planı hazır olmadan başlamaz.</p></div>
       <p>Kurumsal sayfalarda en sık gördüğümüz hata, her bölümün eşit ağırlıkta tasarlanmasıdır. Böyle bir sayfada hiçbir mesaj öne çıkmaz. Oysa web tasarımda SEO uyumu, önceliği görünür kılmakla başlar. Öncelik sırasını da müşterinin sorduğu ilk soruya göre kuruyoruz.</p><p>Tek bir ana mesaj seçiyoruz. Onu ilk ekrana koyuyoruz. <a href="../../kurumsal-web-sitesi/">Kurumsal web sitesi</a> projelerinde bu sıralamayı formun hemen üstünde bitiriyoruz; ziyaretçi teklif adımına gelmeden önce sorusunun cevabını almış oluyor.</p>
       <h3>Başlık hiyerarşisi ve okuma sırası</h3>
@@ -514,8 +559,8 @@
       <h4>İlk ekranda ne görünmeli?</h4>
       <p>İlk ekran, sayfa açıldığında kaydırma yapmadan görünen alandır. Buraya üç şey koyuyoruz: ne yaptığımız, kime yaradığı ve bir eylem bağlantısı. Gerisi aşağı iner. Bu sadelik hem okumayı hem dönüşümü hızlandırır.</p>
       <h3>Boşluk neden içeriktir?</h3>
-      <p>Boşluk bir süs değil. İki bölüm arasındaki nefes payı, okuma sırasını belirler. Sıkışık sayfalarda başlıklar birbirine karışır; okuyucu nerede duracağını bilemez. Bölüm aralarını sabit bir ölçüde açıyoruz, böylece her başlık kendi metnine sahip çıkıyor.</p>
-      <h2>Görsel Ağırlığı Sıralamayı Etkiler mi?</h2>
+      <p>Boşluk bir süs değil. İki bölüm arasındaki nefes payı, okuma sırasını belirler. Sıkışık sayfalarda başlıklar birbirine karışır; okuyucu nerede duracağını bilemez. Bölüm aralarını sabit bir ölçüde açıyoruz, böylece her başlık kendi metnine sahip çıkıyor.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 06</span></div><h2 id="gorsel-agirligi-siralamayi-etkiler-mi">Görsel Ağırlığı Sıralamayı Etkiler mi?</h2>
       <div class="yz-cevap"><p>Evet, görsel ağırlığı sıralamayı etkiler. Devasa kapak görselleri metni aşağı iter. Ziyaretçi mesajı geç görür, sabrı erken biter. Görseli süs değil de anlatının parçası olarak konumlandırdığımızda hem okunurluk hem görünürlük kazanır. Görsel, metnin yerini almaz; onu destekler. Bu ayrımı her bölümde tek tek kuruyoruz.</p></div>
       <p>Türkiye'de e-ticaret yapan işletme sayısı bir yılda 600 binin üzerinden 634 bine çıktı. Bu büyümeyi <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">Ticaret Bakanlığı verileri</a> ortaya koyuyor. Rekabet arttıkça görsel dil tek başına yetmiyor.</p><p>Her görsel bir soruya cevap vermeli. Ürünü mü gösteriyor, süreci mi anlatıyor, güven mi veriyor? Cevabı olmayan görseli kaldırıyoruz. SEO uyumlu web tasarım kararlarında boşluk da görsel kadar iş görür; bir kutuyu çıkardığımızda metne yer açıyoruz. Kalan görselleri sayfa hızını düşünerek doğru boyutta yerleştiriyoruz.</p>
       <h3>Görsel yoğunluğu ve içerik dengesi</h3>
@@ -523,28 +568,28 @@
       <h3>Renk ve kontrast kararları</h3>
       <p>Gri üstüne açık gri metin şık görünür, gündüz telefonda okunmaz. SEO uyumlu web tasarım kararlarının ilki okunabilirliktir; renk paleti bu sınırın altına inmez. Marka renklerini koruyoruz, gövde metnini koyu tonda bırakıyoruz.</p>
       <h3>Görsel yerine ne koyuyoruz?</h3>
-      <p>Bir bölüm görselsiz kaldığında yerine dekor aramıyoruz. Çoğu zaman üç maddelik kısa bir liste ya da net bir alt başlık aynı işi görüyor. Bunlar hem okunuyor hem arama motoruna metin olarak ulaşıyor. Kapak görselini yalnızca konuyu tek bakışta anlatabildiği yerde kullanıyoruz.</p>
-      <h2>Mobil Kırılım Noktalarında Nelere Dikkat Ediyoruz?</h2>
+      <p>Bir bölüm görselsiz kaldığında yerine dekor aramıyoruz. Çoğu zaman üç maddelik kısa bir liste ya da net bir alt başlık aynı işi görüyor. Bunlar hem okunuyor hem arama motoruna metin olarak ulaşıyor. Kapak görselini yalnızca konuyu tek bakışta anlatabildiği yerde kullanıyoruz.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 06</span></div><h2 id="mobil-kirilim-noktalarinda-nelere-dikkat-ediyoruz">Mobil Kırılım Noktalarında Nelere Dikkat Ediyoruz?</h2>
       <div class="yz-cevap"><p>Mobil kırılımda ilk kuralımız basittir: içerik kaybolmaz, yalnızca yeniden dizilir. Kırılım noktası, tasarımın ekran genişliğine göre yeniden düzenlendiği eşiktir. Masaüstünde güzel duran bir düzen, dar ekranda okunmaz hale gelebilir. Bu yüzden tasarıma telefon ekranından başlıyoruz. Kırılımları kodlama başlamadan belirliyoruz. Böylece sürprizli düzeltmeler ortadan kalkıyor.</p></div>
       <p>Dar ekranda üç şey bozulur: menü, tablo ve çok sütunlu bölümler. Kontrol listemiz kısa ve sayısaldır.</p><ol><li>Dokunma hedefleri en az 44 piksel yüksekliğinde olsun.</li><li>Gövde metni 16 piksel altına düşmesin.</li><li>Ana çağrı butonu ilk kaydırmada görünsün.</li><li>Yatay kaydırma hiçbir bölümde oluşmasın.</li></ol><p>Mobil kullanımın yaygınlığına dair kamu verilerini <a href="https://www.btk.gov.tr/" target="_blank" rel="noopener">BTK yayınlarından</a> izliyoruz. Taslağı bu yüzden önce dar ekran genişliğinde çiziyoruz, sonra masaüstüne açıyoruz. Sıra tersine döndüğünde menüler taşıyor, tablolar yatay kayıyor.</p><p>Arayüz kararlarının mobil karşılığını <a href="../../uygulama-arayuz-tasarimi/">UI/UX çalışmalarımızda</a> aynı mantıkla ele alıyoruz. Kırılım eşiklerini proje başında yazıya döküyoruz.</p>
       <h3>Dokunma hedefleri ve parmak payı</h3>
       <p>Telefonda tıklama yoktur, dokunma vardır. Küçük bağlantılar yan yana dizildiğinde parmak yanlış hedefi buluyor. Butonları büyütüp aralarına boşluk koyuyoruz. Yanlış dokunma şikâyeti bu ayardan sonra gelmiyor.</p>
       <h3>İçerik eşitliği ilkesi</h3>
       <p>Mobil sürüm masaüstüyle aynı bilgiyi taşımalı. arama dostu tasarım anlayışında bu eşitlik pazarlık konusu değil. Bazı ajanslar dar ekranda bölüm gizler; biz gizlemiyoruz, katlıyoruz. Ziyaretçi isterse açar, istemezse geçer. Sayfanın anlattığı hikâye böylece her cihazda bütün kalır.</p>
-      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote>
-      <h2>SEO Uyumlu Web Tasarım Teklifi Alın</h2>
+      <blockquote class="yz-alinti"><p>&#8220;2024 yılında 600 bin 800 olan e-ticaret yapan işletme sayısı, 2025'te 634 bin 611'e yükseldi.&#8221;</p><cite>— Ticaret Bakanlığı, Türkiye'de E-Ticaretin Görünümü 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 06</span></div><h2 id="seo-uyumlu-web-tasarim-teklifi-alin">SEO Uyumlu Web Tasarım Teklifi Alın</h2>
       <div class="yz-cevap"><p>Teklif sürecini keşif toplantısıyla başlatıyor, yerleşim taslağını onayınıza sunuyoruz. Hedef, içerik envanteri ve rakip sayfalar ilk gün masaya geliyor. Onay geldikten sonra tasarım ve kodlama ilerliyor. Her kararın gerekçesini yazılı paylaşıyoruz. Böylece bütçe tahmine değil plana dayanıyor. Mevcut siteniz varsa onu da inceliyoruz.</p></div>
       <p>Bir tasarım projesinin başarısı, teslim gününde değil üçüncü ayda ölçülür. Bu yüzden yayına aldıktan sonra da yanınızda kalıyoruz. İlk aylarda ziyaretçi davranışını izliyor, yerleşimde küçük düzeltmeler öneriyoruz.</p><p>Sitenizin arama görünürlüğünü büyütmek istiyorsanız <a href="../../teklif/">teklif formunu</a> doldurmanız yeterli. Hedefimiz kısa vadeli sıçrama değil, kalıcı organik görünürlük. Mevcut sayfalarınızı inceleyip yerleşim, görsel ağırlığı ve mobil kırılım başlıklarında somut bir yol haritası çıkarıyoruz.</p>
       <h3>Süreç nasıl işliyor?</h3>
       <p>Çalışma dört adımda ilerliyor: keşif, taslak, tasarım, yayın. Keşifte hedef kitleyi ve rakip sayfaları çıkarıyoruz. Taslakta yerleşimi çiziyoruz. Tasarımda görsel dili kuruyoruz. Yayında ise ölçüm kurulumunu devreye alıyoruz. Her adımın sonunda onayınızı alıyoruz.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/seo-ve-web-tasarim-govde-960.webp"
              srcset="./gorsel/seo-ve-web-tasarim-govde-640.webp 640w, ./gorsel/seo-ve-web-tasarim-govde-960.webp 960w, ./gorsel/seo-ve-web-tasarim-govde-1440.webp 1440w, ./gorsel/seo-ve-web-tasarim-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="Masaüstü düzeninin dar ekranda alt alta dizilişini anlatan soyut 3D kolon görseli" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Mobil kırılımda içerik kaybolmaz; yalnızca yeniden sıralanır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Tasarım Kararlarının Görünürlük ve Deneyim Karşılığı</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 06</span></div><h2 id="tasarim-kararlarinin-gorunurluk-ve-deneyim-karsiligi">Tasarım Kararlarının Görünürlük ve Deneyim Karşılığı</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Tasarım kararı</th><th>Görünürlüğe etkisi</th><th>Kullanıcıya etkisi</th></tr></thead>
@@ -564,7 +609,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../teknik-seo/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Görünürlük, tek bir müdahaleyle gelmiyor. Yerleşim, görsel ağırlığı ve mobil kırılım kararlarını birlikte kurguladığınızda site hem okunur hem bulunur hale geliyor. Küçük ekibiyle büyük işler yapan şirketler için bu düzen önemli bir kazanç kalemi. Ölçümü ilk aydan başlatıyor, bulguları sizinle rakamlarla paylaşıyoruz. Hazır olduğunuzda tasarım masasını birlikte kuralım.</p>
+        <p>Görünürlük, tek bir müdahaleyle gelmiyor. Yerleşim, görsel ağırlığı ve mobil kırılım kararlarını birlikte kurguladığınızda site hem okunur hem bulunur hale geliyor. Küçük ekibiyle büyük işler yapan şirketler için bu düzen önemli bir kazanç kalemi. Ölçümü ilk aydan başlatıyor, bulguları sizinle rakamlarla paylaşıyoruz. Hazır olduğunuzda tasarım masasını birlikte kuralım.</p></section>
       </article>
     </div>
   </section>

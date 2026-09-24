@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,72 +477,70 @@
 <!-- AYIRT EDİCİ EKSEN: FORMAT/ÖLÇÜ — Aspect ratio, süre ve dosya ölçülerini anlatır. Çekim yeri yazı 11'in işidir. Mevcut 'E-Ticaret Ürün Görseli' yazısıyla komşu ama o DURAĞAN GÖRSEL; burada görselin satışa etkisi ANLATILMAZ, yalnız kardeş linki verilir (Madde 7).
      Huni türü: TOFU · Küme: video · Kardeşler (enjeksiyon turunda): kamerasiz-urun-videosu -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Video Formats</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Video</span>
-        <span class="yz-meta">16 October 2026 · 7 min read</span>
+          <h1>E-Commerce Product Video Formats and Sizes</h1>
+          <p class="ozet">Assuming you can upload the same video everywhere is the most expensive assumption there is. A frame that sits perfectly on one channel leaves the product outside the frame on another. In this article we open up ratio, duration and file sizes channel by channel. The aim is to draw up the delivery list before the shoot; every crop made afterwards means another round of editing.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/product-video-formats-cover-1440.webp"
+           srcset="./image/product-video-formats-cover-640.webp 640w, ./image/product-video-formats-cover-960.webp 960w, ./image/product-video-formats-cover-1440.webp 1440w, ./image/product-video-formats-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Lines of light running out from a shared centre to three frames of different aspect ratios"
+           width="1920" height="1080" decoding="async"><figcaption>One shot, three different frames: change the ratio and the composition changes with it. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Video</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>16 October 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>7 sections</b></div>
       </div>
-      <h1>E-Commerce Product Video Formats and Sizes</h1>
-      <p class="ozet">Assuming you can upload the same video everywhere is the most expensive assumption there is. A frame that sits perfectly on one channel leaves the product outside the frame on another. In this article we open up ratio, duration and file sizes channel by channel. The aim is to draw up the delivery list before the shoot; every crop made afterwards means another round of editing.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#what-do-you-choose-a-product-video-format-by"><span>01</span>What Do You Choose a Product Video Format By?</a><a href="#which-aspect-ratio-works-where"><span>02</span>Which Aspect Ratio Works Where?</a><a href="#how-long-should-the-video-be"><span>03</span>How Long Should the Video Be?</a><a href="#how-do-you-balance-file-size-against-quality"><span>04</span>How Do You Balance File Size Against Quality?</a><a href="#what-requirements-do-the-marketplaces-look-for"><span>05</span>What Requirements Do the Marketplaces Look For?</a><a href="#let-s-work-out-your-format-plan-together"><span>06</span>Let's Work Out Your Format Plan Together</a><a href="#ratio-where-it-works-and-what-to-watch"><span>07</span>Ratio, where it works and what to watch</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/product-video-formats-cover-1440.webp"
-           srcset="./image/product-video-formats-cover-640.webp 640w, ./image/product-video-formats-cover-960.webp 960w, ./image/product-video-formats-cover-1440.webp 1440w, ./image/product-video-formats-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Lines of light running out from a shared centre to three frames of different aspect ratios"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>One shot, three different frames: change the ratio and the composition changes with it. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>What Do You Choose a Product Video Format By?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 07</span></div><h2 id="what-do-you-choose-a-product-video-format-by">What Do You Choose a Product Video Format By?</h2>
       <div class="yz-cevap"><p>Three things settle it: where you'll publish, how the viewer watches, and the shape of the product. The product video format emerges at the intersection of those three; it isn't a preference on its own. A tall product sits comfortably in a vertical frame; a wide table asks for landscape. And the place of publication dictates both the ratio and the duration together.</p></div>
       <p>The order of decisions matters. Write the channel list first, then set the ratios, and build the shooting plan last. Go the other way round and you'll be forced to crop the footage you already have.</p><p>The four headings below appear on every delivery list.</p><ol><li><strong>Aspect ratio</strong> — 16:9, 1:1 and 9:16.</li><li><strong>Duration</strong> — seconds or minutes, depending on the channel.</li><li><strong>File size</strong> — the upload limit and the streaming quality.</li><li><strong>Subtitles</strong> — burnt in, or a separate file.</li></ol><p>Write the list into a table and share it with the team. Delivery requests passed on verbally get lost; a written list stands in front of everyone on the day of the shoot.</p>
       <h3>Is One Version Enough?</h3>
-      <p>A square ratio offers a middle way and is accepted in most places. But on vertical channels it leaves most of the screen empty. The format decision is set by what your product page prioritises; looking average everywhere can mean looking good nowhere.</p>
-      <h2>Which Aspect Ratio Works Where?</h2>
+      <p>A square ratio offers a middle way and is accepted in most places. But on vertical channels it leaves most of the screen empty. The format decision is set by what your product page prioritises; looking average everywhere can mean looking good nowhere.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 07</span></div><h2 id="which-aspect-ratio-works-where">Which Aspect Ratio Works Where?</h2>
       <div class="yz-cevap"><p>Three ratios cover the whole job. Landscape 16:9 works for the product page and the web, square 1:1 for feed content, vertical 9:16 for full-screen channels. When you choose the product video format, decide which of them is the main channel. Whichever it is, we build the shoot around it and derive the rest from there.</p></div>
       <p>The vertical frame is the ratio most often misunderstood. Cropping a landscape frame to vertical means throwing away the sides; if the product isn't centred, it falls outside the frame.</p><p>That is why we leave a safe area during the shoot. Placing the product in the centre and keeping space at the edges makes it possible to get three ratios out of a single shoot. We took up the effect of the shooting location on that decision in the <a href="../product-video-studio-or-location/">studio or location</a> article.</p><p>The safe area rule is simple. Leave comfortable space at the edges of the frame; both the vertical crop and the buttons the channel interfaces overlay will eat into that space.</p>
       <h3>Can One Shoot Yield Three Ratios?</h3>
-      <p>It can, if it was planned that way. Shooting wide and cropping works; you just have to allow for the loss of sharpness. On an unplanned shoot, the same job ends with half the product cut off.</p>
-      <h2>How Long Should the Video Be?</h2>
+      <p>It can, if it was planned that way. Shooting wide and cropping works; you just have to allow for the loss of sharpness. On an unplanned shoot, the same job ends with half the product cut off.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 07</span></div><h2 id="how-long-should-the-video-be">How Long Should the Video Be?</h2>
       <div class="yz-cevap"><p>Keep it short on the product page, and shorter still in the feed. On the page the viewer is already interested and can stay a little longer; in the feed, the first few seconds decide everything. The product video format covers duration too, because the short version of the same story is edited separately. Shortening is not the same as speeding up.</p></div>
       <p>Producing a short version is a job of re-editing, not of cutting. The six-second form of a thirty-second piece isn't the same shots played faster; you have to decide which single message survives.</p><p>Work on the first second separately as well. In the feed the viewer sees only that much before scrolling on; showing the product in the very first frame is the safest route.</p>
       <h3>What Does the Short Version Drop?</h3>
-      <p>It drops the context and keeps the product. The build-up and the usage narrative from the long version find no room in the short one; what's left is a single promise. Choosing that promise is what shortening is really about.</p>
-      <h2>How Do You Balance File Size Against Quality?</h2>
+      <p>It drops the context and keeps the product. The build-up and the usage narrative from the long version find no room in the short one; what's left is a single promise. Choosing that promise is what shortening is really about.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 07</span></div><h2 id="how-do-you-balance-file-size-against-quality">How Do You Balance File Size Against Quality?</h2>
       <div class="yz-cevap"><p>Every channel recompresses the file, so the file you upload has to be at source quality. Compress it too hard yourself and, once the platform compresses it again, the product detail disappears. When you write the product video format down, add the sharpness and the frame rate too. A file that exceeds the upload limit gets mangled by the platform's own rules.</p></div>
       <p>Keep the source file archived. If a new channel appears a year later and you have no high-quality source in hand, you'll be forced to produce a new ratio from a narrow version; the result gets markedly worse.</p><p>Colour and brightness vary from channel to channel as well. A tone that looks right on the product page can look flat inside an app with a dark interface; before delivery, it needs checking by eye on every channel.</p><p>File naming is part of the delivery too. Write the channel, the ratio and the duration into the name and nobody picks the wrong file on upload day. On a catalogue of thirty products, that habit saves hours.</p>
       <h3>Does Frame Rate Matter?</h3>
       <p>On most product videos it makes no difference. If there is fast movement or slow motion, you need to shoot at a high frame rate; otherwise the standard rate gives you a smaller file.</p>
-      <blockquote class="yz-alinti"><p>&#8220;Every crop made afterwards is a round of editing. Writing the delivery list before the shoot deletes that round before it starts.&#8221;</p><cite>— TasarımMania production note</cite></blockquote>
-      <h2>What Requirements Do the Marketplaces Look For?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;Every crop made afterwards is a round of editing. Writing the delivery list before the shoot deletes that round before it starts.&#8221;</p><cite>— TasarımMania production note</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 07</span></div><h2 id="what-requirements-do-the-marketplaces-look-for">What Requirements Do the Marketplaces Look For?</h2>
       <div class="yz-cevap"><p>Every selling platform has rules of its own, and they change over time. The common tendency is this: a clean background, the product clearly visible, the brand logo not brought forward, and a short duration. When you choose the product video format, read the current requirements from the platform's own documentation. Sizes picked up second-hand are usually out of date.</p></div>
-      <p>Read the rules while you're building the shooting plan, not on upload day. A requirement you learn about afterwards can render the footage you have useless.</p><p>We take up the relationship with the overall layout of the product page in <a href="../../ecommerce-website/">our e-commerce service</a> section. The rules for still images are a separate subject; we set those out in the <a href="../ecommerce-product-images/">product images</a> article.</p><p>Allow for the rules changing, too. A list you drew up a year ago may be incomplete today; reviewing it once a year is enough. The easiest way to catch a change is to follow the announcements in the seller dashboard. Marketplace rules bind you, and so does the legislation; <a href="https://ticaret.gov.tr/tuketici/ticari-reklamlar" target="_blank" rel="noopener">Türkiye's commercial advertising rules</a> apply to the promise made in the video as well.</p>
-      <h2>Let's Work Out Your Format Plan Together</h2>
+      <p>Read the rules while you're building the shooting plan, not on upload day. A requirement you learn about afterwards can render the footage you have useless.</p><p>We take up the relationship with the overall layout of the product page in <a href="../../ecommerce-website/">our e-commerce service</a> section. The rules for still images are a separate subject; we set those out in the <a href="../ecommerce-product-images/">product images</a> article.</p><p>Allow for the rules changing, too. A list you drew up a year ago may be incomplete today; reviewing it once a year is enough. The easiest way to catch a change is to follow the announcements in the seller dashboard. Marketplace rules bind you, and so does the legislation; <a href="https://ticaret.gov.tr/tuketici/ticari-reklamlar" target="_blank" rel="noopener">Türkiye's commercial advertising rules</a> apply to the promise made in the video as well.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 07</span></div><h2 id="let-s-work-out-your-format-plan-together">Let's Work Out Your Format Plan Together</h2>
       <div class="yz-cevap"><p>We write the delivery list before the shoot. We talk through which channels you'll publish on and gather the ratio, duration and file size for each one onto a single page. What you're left with is not a video but a package of deliverables. When the product video format is settled by that list, no need to crop arises afterwards. And we build the shoot around the same list.</p></div>
       <p>If the list is ready we build the shooting plan around it too: safe area, framing and duration are all settled from the start. <a href="../../product-video-production/">Our product video service</a> is there to look through.</p><p>We separate the formats by product group as well. Using the same list for the whole catalogue sounds practical; yet large and small products ask for different framing and different durations. We gave the route to producing without setting up a camera, step by step, in the <a href="../product-video-without-a-camera/">product video without a camera</a> article.</p><p>While we prepare the list we also look at which channel genuinely brings traffic. Producing a version for every channel sounds thorough; yet the hours spent on a ratio nobody watches should have gone somewhere else.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/product-video-formats-body-960.webp"
              srcset="./image/product-video-formats-body-640.webp 640w, ./image/product-video-formats-body-960.webp 960w, ./image/product-video-formats-body-1440.webp 1440w, ./image/product-video-formats-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="An illuminated cut line marking a narrow vertical area inside a wide frame" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Crop a landscape shot to vertical and the product usually ends up outside the frame. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Ratio, where it works and what to watch</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 07</b><span>07 / 07</span></div><h2 id="ratio-where-it-works-and-what-to-watch">Ratio, where it works and what to watch</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Aspect ratio</th><th>Where it works</th><th>Watch out</th></tr></thead>
@@ -517,7 +562,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../product-video-production/">See the service page</a>
         </aside>
-        <p>A product video format isn't a single file, it's a delivery list. Write the ratio, the duration and the file size down before the shoot and one shoot can reach every channel; leave the list until later and every new channel asks for another round of editing.</p>
+        <p>A product video format isn't a single file, it's a delivery list. Write the ratio, the duration and the file size down before the shoot and one shoot can reach every channel; leave the list until later and every new channel asks for another round of editing.</p></section>
       </article>
     </div>
   </section>

@@ -178,6 +178,53 @@
   text-transform:uppercase;color:rgb(var(--k,0,229,255))}
 .yz-ilgili .bas{font-size:14.4px;line-height:1.4;color:var(--fg);font-weight:600}
 @media(max-width:600px){.yz-ilgili ul{grid-template-columns:1fr}}
+
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Short answer";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
 </style>
 <script type="application/ld+json">
 {
@@ -468,79 +515,77 @@
 <!-- AYIRT EDİCİ EKSEN: ARAÇ — Meta, TikTok, LinkedIn gibi mecraların reklam araç ve format kıyası; organik strateji rotası sosyal-medya-stratejileri'nin, raporlama metrikleri sosyal-medya-raporlama'nın ekseni — girişten organik strateji yazısına çapraz link verilir.
      Huni türü: MOFU · Küme: Digital Marketing Performansı · Kardeşler (enjeksiyon turunda): influencer-pazarlama, sosyal-medya-raporlama, e-posta-pazarlama -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Location">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Location">
         <a href="../../">Home</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span aria-current="page">Social Media Advertising: Which Format Pays Off on Which Channel?</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Social Media</span>
-        <span class="yz-meta">1 October 2026 · 7 min read</span>
+          <h1>Social Media Advertising: Which Format Pays Off on Which Channel?</h1>
+          <p class="ozet">Same budget, same team, same creative. And yet one channel brings in enquiries while the other produces nothing but impressions. What makes the difference is usually not the copy; in social media advertising management it is the match between channel and format. In this article we compare the ad tools on the Meta, TikTok, LinkedIn, YouTube Shorts and Pinterest side through an SME's eyes. We make the comparison along the axes of budget, form and audience. Our aim is clear: to show which form moves the work forward on which panel.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./image/social-media-advertising-formats-cover-1440.webp"
+           srcset="./image/social-media-advertising-formats-cover-640.webp 640w, ./image/social-media-advertising-formats-cover-960.webp 960w, ./image/social-media-advertising-formats-cover-1440.webp 1440w, ./image/social-media-advertising-formats-cover-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="A dark-ground abstract three-dimensional fork-in-the-road image representing channel choice in social media advertising"
+           width="1920" height="1080" decoding="async"><figcaption>Channel choice comes before format; every platform carries a different user intent. <span class="yz-ai">Image generated with AI.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Category</span><b><i aria-hidden="true">●</i> Social Media</b></div>
+        <div class="c-kutu c-m"><span>Published</span><b>1 October 2026</b></div>
+        <div class="c-kutu c-m"><span>Reading</span><b>7 min</b></div>
+        <div class="c-kutu c-m"><span>Section</span><b>6 sections</b></div>
       </div>
-      <h1>Social Media Advertising: Which Format Pays Off on Which Channel?</h1>
-      <p class="ozet">Same budget, same team, same creative. And yet one channel brings in enquiries while the other produces nothing but impressions. What makes the difference is usually not the copy; in social media advertising management it is the match between channel and format. In this article we compare the ad tools on the Meta, TikTok, LinkedIn, YouTube Shorts and Pinterest side through an SME's eyes. We make the comparison along the axes of budget, form and audience. Our aim is clear: to show which form moves the work forward on which panel.</p>
+      <nav class="c-cipler" aria-label="Contents"><a href="#why-does-channel-choice-come-before-the-format-decision"><span>01</span>Why Does Channel Choice Come Before the Format Decision?</a><a href="#how-do-the-meta-tiktok-and-linkedin-ad-tools-differ"><span>02</span>How Do the Meta, TikTok and LinkedIn Ad Tools Differ?</a><a href="#which-ad-format-suits-which-funnel-stage"><span>03</span>Which Ad Format Suits Which Funnel Stage?</a><a href="#campaign-setup-steps-and-budget-thresholds"><span>04</span>Campaign Setup Steps and Budget Thresholds</a><a href="#common-mistakes-and-the-decision-maker-s-checklist"><span>05</span>Common Mistakes and the Decision-Maker's Checklist</a><a href="#channel-and-ad-format-comparison-table"><span>06</span>Channel and Ad Format Comparison Table</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./image/social-media-advertising-formats-cover-1440.webp"
-           srcset="./image/social-media-advertising-formats-cover-640.webp 640w, ./image/social-media-advertising-formats-cover-960.webp 960w, ./image/social-media-advertising-formats-cover-1440.webp 1440w, ./image/social-media-advertising-formats-cover-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="A dark-ground abstract three-dimensional fork-in-the-road image representing channel choice in social media advertising"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Channel choice comes before format; every platform carries a different user intent. <span class="yz-ai">Image generated with AI.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Why Does Channel Choice Come Before the Format Decision?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 01</b><span>01 / 06</span></div><h2 id="why-does-channel-choice-come-before-the-format-decision">Why Does Channel Choice Come Before the Format Decision?</h2>
       <div class="yz-cevap"><p>The format decision comes after the channel choice, because every platform carries a different user intent. Someone in a discovery feed and someone looking for a quotation do not react to the same creative. The same product answers two different questions on two channels. That is why social media advertising management starts not with panel settings but with a map of the audience's intent.</p></div>
       <p>Social media advertising management is the operational discipline that gathers channel choice and format design under a single plan. Opening an account is easy. The hard part is showing the right form to the right audience. The panel interface is open to everyone; what makes the difference is the order of decisions. Advertising management on social media is not simply a matter of one panel's settings.</p><p>The number of businesses going digital in Türkiye is rising fast. <a href="https://etbis.ticaret.gov.tr/tr/Post/postturkiyede-e-ticaretin-gorunumu-2025-raporu-yayimlandi-3" target="_blank" rel="noopener">The ETBİS 2025 report</a> — ETBİS is Türkiye's central e-commerce information system — puts the number of businesses trading online at 634,611. The same study's <a href="https://ticaret.gov.tr/duyurular/turkiyede-e-ticaretin-gorunumu-raporu-yayinlandi-06-05-2025" target="_blank" rel="noopener">ministry announcement</a> summarises the overall picture of the market. As competition grows, the difference between channels sharpens. The same spend can produce very different results on two platforms.</p>
       <h3>The Practical Way to Map Intent</h3>
-      <p>An intent map is a simple ranking showing how close the audience is to buying. We draw three boxes: hasn't heard of you, is comparing, is deciding. Into each box we write one channel and one form. Once the boxes are filled, which platform does which job becomes clear.</p>
-      <h2>How Do the Meta, TikTok and LinkedIn Ad Tools Differ?</h2>
+      <p>An intent map is a simple ranking showing how close the audience is to buying. We draw three boxes: hasn't heard of you, is comparing, is deciding. Into each box we write one channel and one form. Once the boxes are filled, which platform does which job becomes clear.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 02</b><span>02 / 06</span></div><h2 id="how-do-the-meta-tiktok-and-linkedin-ad-tools-differ">How Do the Meta, TikTok and LinkedIn Ad Tools Differ?</h2>
       <div class="yz-cevap"><p>The three panels don't do the same job. The difference shows up most in creative lifespan and in audience size. A video that lasts two weeks on one channel tires far sooner on another. So the choice depends not on a panel's features but on your product's decision time and your weekly production capacity. Cost pressure rises alongside those two variables too.</p></div>
       <p>On the Meta side, automatic placement spreads a single creative across many surfaces; scale is easy here. TikTok doesn't use the same set; watch time and the speed of engagement shape the audience. LinkedIn, with its job title and industry fields, gets you to the right decision-maker and pushes the cost per person up. In social media advertising management the real difference lies not in the panel names but in those differences of behaviour. We choose the audience size not from the panel's estimate but from the sales volume. <a href="../../meta-ads/">In our Meta Ads setup</a> we simplify the campaign architecture and leave the burden of testing on the creative side.</p>
       <h3>When Do the Pinterest and YouTube Shorts Panels Come Into Play?</h3>
       <p>Those two panels work not as a main channel but as a complementary space. YouTube Shorts adds no extra cost for teams already producing vertical video; in a skippable format, if the hook in the first second doesn't hold, views fall away fast. Pinterest leans on searching and planning behaviour; the user is often looking not for today but for a date further ahead. That is why we open Pinterest in categories with a pronounced seasonal calendar, once the main channel has settled.</p>
       <h3>How Much Does the Creative Production Load Change?</h3>
-      <p>A team producing vertical video can use the same asset on the TikTok and Reels side. On LinkedIn, a single image and a clear headline are usually enough. If your weekly production capacity is low, keep the campaign on one channel; only open a second once your archive can feed three creatives. <a href="../../short-form-video/">On the social video production side</a> we reduce that load with templates.</p>
-      <h2>Which Ad Format Suits Which Funnel Stage?</h2>
+      <p>A team producing vertical video can use the same asset on the TikTok and Reels side. On LinkedIn, a single image and a clear headline are usually enough. If your weekly production capacity is low, keep the campaign on one channel; only open a second once your archive can feed three creatives. <a href="../../short-form-video/">On the social video production side</a> we reduce that load with templates.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 03</b><span>03 / 06</span></div><h2 id="which-ad-format-suits-which-funnel-stage">Which Ad Format Suits Which Funnel Stage?</h2>
       <div class="yz-cevap"><p>The choice of format depends on the funnel stage. Short vertical video suits discovery, the carousel suits comparison, and dynamic product and lead form ads suit the decision stage. A form placed at the wrong stage consumes the budget and delays the result. When the form matches the stage, the cost per click falls of its own accord. Matching form to stage is the fastest gain there is that asks for no extra spend.</p></div>
       <p>Short video works when it shows the problem in the first three seconds. The carousel serves to put the product and its alternative side by side. Catalogue ads bring the cost per click down at businesses with product depth. The threshold here isn't the number of products but genuine variety; colour variants don't count as catalogue depth. If the title, the image ratio or the stock field are missing, the feed is read incorrectly; we audit the product feed before opening a catalogue ad. Lead form ads speed up meeting requests on the B2B side. The most practical move for making social media advertising management easier is to fix the form to the funnel stage.</p>
       <h3>When Does a Static Image Beat Video?</h3>
       <p>If you are conveying a clear offer, a date or a campaign condition, a static image is read faster. Video comes ahead when there is a scene of use to show. Avoid text-heavy images; legibility falls. Move the hook into the first frame. Trying both forms in the same campaign shows the winner quickly.</p>
       <h4>Getting Three Formats Out of One Shoot</h4>
-      <p>One shoot can become three assets. The vertical edit goes to the feed ad, the square edit to the carousel, the landscape edit to the website. For small teams this method lowers the cost of production visibly. Keeping the archive in a single folder saves time on the next campaign.</p>
-      <h2>Campaign Setup Steps and Budget Thresholds</h2>
+      <p>One shoot can become three assets. The vertical edit goes to the feed ad, the square edit to the carousel, the landscape edit to the website. For small teams this method lowers the cost of production visibly. Keeping the archive in a single folder saves time on the next campaign.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 04</b><span>04 / 06</span></div><h2 id="campaign-setup-steps-and-budget-thresholds">Campaign Setup Steps and Budget Thresholds</h2>
       <div class="yz-cevap"><p>The order of setup is this: measurement infrastructure, audience definition, creative set, budget threshold, learning phase. Break the order and the data gets contaminated and the decision is delayed. On a small budget, starting with one campaign, two ad sets and three creatives makes the result readable. A complicated setup hides which variable did the work. Social media advertising management draws its strength from that simplicity.</p></div>
       <p>We do the setup in the same order for every client. The thresholds below are working rules we have measured on our own campaigns.</p><ol><li>Verify the conversion events; a faulty event corrupts the whole optimization.</li><li>Choose a single primary objective: message, lead form or purchase.</li><li>Set the daily budget per ad set at a minimum of five times the target cost per acquisition.</li><li>The learning phase depends on the number of optimization events; don't change the creative before the threshold is passed.</li><li>Carry the winning form to a second channel only after a steady result.</li></ol>
       <h3>How Do We Split the Budget in Social Media Advertising Management?</h3>
       <p>We don't move to a second channel before getting a meaningful result on the first. We give the weight to the proven channel and set the remaining share aside for testing. We don't let the test share rise to half of the total budget. <a href="../../performance-marketing/">On the performance marketing side</a> we rebuild this split every month.</p>
       <h3>Three Interventions That Break the Learning Phase</h3>
       <p>Raising the budget during the day is the first. Widening the audience is the second. Changing the objective is the most expensive of all. We tie all three to a weekly rhythm; we don't take decisions on a daily reaction.</p>
-      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote>
-      <h2>Common Mistakes and the Decision-Maker's Checklist</h2>
+      <blockquote class="yz-alinti"><p>&#8220;The number of businesses trading online, 600,800 in 2024, rose to 634,611 in 2025.&#8221;</p><cite>— Ministry of Trade, The Outlook for E-Commerce in Türkiye 2025</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 05</b><span>05 / 06</span></div><h2 id="common-mistakes-and-the-decision-maker-s-checklist">Common Mistakes and the Decision-Maker's Checklist</h2>
       <div class="yz-cevap"><p>The mistake we see most often is running the same creative on every channel. The second is splitting the budget before getting a result. The third is choosing the form by the team's habits rather than by the audience. Those are the first three headings we audit on the social media advertising management side. Put those three right and the result changes even if the budget stays the same.</p></div>
       <p>Automation inside the panel doesn't solve everything. As the audience narrows the cost rises, and when the creative tires the clicks fall. That is why we increase the variety of creatives rather than the number of channels. We treat the comments and the inbox as part of the flow too; recurring questions are carried into the next piece of copy. Copying a competitor's panel doesn't work; catalogue depth and brand awareness aren't the same. We plan the social media leg of advertising management together with the production calendar. When the calendar empties, it isn't the campaign that ends — it's the archive.</p>
       <h3>Where Should You Focus When Starting on a Small Budget?</h3>
       <p>The rule is simple: one channel, one objective, three creatives. Sharpen the message rather than widening the audience. When the result comes, open the second platform. A single-page checklist is enough for most teams. Businesses that break the order gather insufficient data on both panels.</p>
       <h3>The Four Lines We Look at in the Monthly Audit</h3>
       <p>The first line is which creative is still bringing clicks. The second is the funnel stage where the winning form sits. The third is the quality of the enquiries landing in the inbox. The fourth is how the budget is split between the proven channel and the test. We keep the four lines on a single page; the longer the report, the slower the decision.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./image/social-media-advertising-formats-body-960.webp"
              srcset="./image/social-media-advertising-formats-body-640.webp 640w, ./image/social-media-advertising-formats-body-960.webp 960w, ./image/social-media-advertising-formats-body-1440.webp 1440w, ./image/social-media-advertising-formats-body-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="A deep navy abstract scene in which geometric frames representing different ad formats are arranged in the shape of a funnel" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>The format decision depends on the funnel stage: different forms work for discovery, comparison and decision. <span class="yz-ai">Image generated with AI.</span></figcaption>
-      </figure>
-      <h2>Channel and Ad Format Comparison Table</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Section 06</b><span>06 / 06</span></div><h2 id="channel-and-ad-format-comparison-table">Channel and Ad Format Comparison Table</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Channel</th><th>Leading Format</th><th>Strong Funnel Stage</th><th>What to Watch</th></tr></thead>
@@ -561,7 +606,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../meta-ads/">See the service page</a>
         </aside>
-        <p>When the right channel meets the right form, you make progress without raising the budget. Leave the decision to an intent map rather than to instinct. Your team's weekly capacity draws the limit of the plan. On small teams a plain setup works more efficiently than a crowded one. If you'd like to build the channel-and-format match together, let's plan a short conversation through <a href="../../get-a-quote/">our quote page</a> whenever suits you.</p>
+        <p>When the right channel meets the right form, you make progress without raising the budget. Leave the decision to an intent map rather than to instinct. Your team's weekly capacity draws the limit of the plan. On small teams a plain setup works more efficiently than a crowded one. If you'd like to build the channel-and-format match together, let's plan a short conversation through <a href="../../get-a-quote/">our quote page</a> whenever suits you.</p></section>
       </article>
     </div>
   </section>

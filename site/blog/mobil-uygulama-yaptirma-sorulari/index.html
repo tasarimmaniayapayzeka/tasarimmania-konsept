@@ -164,7 +164,54 @@
 .yz-alinti{margin:24px 0;padding:18px 22px;border-left:3px solid var(--acc);
   background:rgba(var(--acc-rgb),.05);border-radius:0 12px 12px 0}
 .yz-alinti p{margin:0 0 8px;font-size:16.5px;line-height:1.65;font-style:italic}
-.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}</style>
+.yz-alinti cite{font-size:12.8px;color:var(--muted);font-style:normal;font-family:var(--mono)}
+/* ===== blog detay: Bento düzeni ===== */
+.ox-hd{position:relative;isolation:isolate;overflow:hidden}
+.ox-hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(900px 430px at 14% -12%,rgba(var(--acc-rgb),.13),transparent 62%)}
+.ox-hd .crumb{margin-bottom:20px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ox-hd .ozet{color:var(--fg-dim);font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;max-width:62ch;margin:0}
+/* görsel dili: küçük, çerçeveli, sabit oran */
+.ox-img{margin:0}
+.ox-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;
+  border:1px solid var(--hair);background:#0d1017}
+.ox-img figcaption{margin-top:10px;font-size:12.6px;line-height:1.55;color:var(--muted)}
+.ox-img .yz-ai{display:block;margin-top:5px;font-size:9.6px;white-space:normal}
+.yz-cevap::before{content:"Kısa cevap";display:block;font-family:var(--mono);font-size:9.6px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.yz-govde h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
+.c-hd{padding:calc(var(--nav-h) + clamp(24px,3.5vw,40px)) 0 clamp(18px,2.5vw,28px)}
+.c-bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c-kutu{border:1px solid var(--hair);border-radius:var(--r-lg);background:var(--panel);position:relative;overflow:hidden}
+.c-t{grid-column:span 3;padding:clamp(22px,3vw,38px);
+  background:radial-gradient(600px 300px at 0% 0%,rgba(var(--acc-rgb),.10),transparent 70%),var(--panel)}
+.c-t h1{font-size:clamp(26px,3.8vw,42px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px;max-width:22ch}
+.c-kapak{padding:10px}
+.c-kapak img{height:100%;aspect-ratio:auto;min-height:220px}
+.c-kapak figcaption{display:none}
+.c-m{padding:16px 18px;display:grid;gap:6px}
+.c-m span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-m b{font-size:18px;letter-spacing:-.02em;font-weight:600}
+.c-m b i{font-style:normal;color:var(--acc)}
+.c-cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.c-cipler a{font-size:12.6px;color:var(--fg-dim);border:1px solid var(--hair-strong);border-radius:99px;
+  padding:7px 13px;transition:.2s}
+.c-cipler a span{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-right:6px}
+.c-cipler a:hover{border-color:var(--acc);color:var(--fg)}
+.c-govde{max-width:840px;margin:0 auto;display:grid;gap:14px}
+.c-bol{padding:clamp(22px,3vw,36px)}
+.c-bol-ust{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:14px;margin-bottom:20px;border-bottom:1px solid var(--hair)}
+.c-bol-ust b{color:var(--acc);font-weight:500}
+.c-govde.yz-govde h2{margin-top:0}
+.c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
+.c-bol .yz-kopru{margin-bottom:10px}
+.ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
+@media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
+  .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
+  .c-bol .yz-gorsel{grid-template-columns:1fr}.c-bol .yz-gorsel img{max-width:360px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -430,74 +477,72 @@
 <!-- AYIRT EDİCİ EKSEN: KARAR — Yaptırma kararının kendisini sorgular. Maliyet kalemleri yazı 1'in, süreç aşamaları yazı 3'ün, mimari seçimi yazı 4'ün işidir. Burada FİYAT ve AŞAMA anlatılmaz.
      Huni türü: TOFU · Küme: mobil · Kardeşler (enjeksiyon turunda): mobil-uygulama-gelistirme-sureci, native-mi-cross-platform-mi, react-native-mi-flutter-mi -->
 <main id="ana">
-
-  <header class="phd">
+  <header class="ox-hd c-hd">
     <div class="wrap">
-      <nav class="crumb" aria-label="Konum">
+      <div class="c-bento">
+        <div class="c-kutu c-t">
+          <nav class="crumb" aria-label="Konum">
         <a href="../../">Ana sayfa</a><span aria-hidden="true">/</span>
         <a href="../">Blog</a><span aria-hidden="true">/</span>
         <span>Yaptırma Soruları</span>
       </nav>
-      <div class="yz-ust">
-        <span class="yz-kat">Mobil</span>
-        <span class="yz-meta">26 Eylül 2026 · 7 dakikalık okuma</span>
+          <h1>Mobil Uygulama Yaptırmadan Önce Hangi Sorular Sorulur?</h1>
+          <p class="ozet">Çoğu proje yanlış soruyla başlar: kaça yapılır? Oysa kapsam netleşmeden fiyat da netleşmez. Doğru sıra, ürünü tarif eden soruları önce yanıtlamaktan geçer. Bu yazıda bir mobil yazılım siparişi vermeden önce masaya koymanız gereken soruları sırayla açıyoruz. Sorular kısa; yanıtları projenizin yönünü belirliyor.</p>
+        </div>
+        <figure class="ox-img c-kutu c-kapak"><img src="./gorsel/mobil-uygulama-yaptirma-sorulari-kapak-1440.webp"
+           srcset="./gorsel/mobil-uygulama-yaptirma-sorulari-kapak-640.webp 640w, ./gorsel/mobil-uygulama-yaptirma-sorulari-kapak-960.webp 960w, ./gorsel/mobil-uygulama-yaptirma-sorulari-kapak-1440.webp 1440w, ./gorsel/mobil-uygulama-yaptirma-sorulari-kapak-1920.webp 1920w"
+           sizes="(max-width: 860px) 100vw, 300px"
+           alt="Karanlık zeminde ışıklı bir yol ayrımı; iki koldan biri seyrek, diğeri sık düğümlerle örülü"
+           width="1920" height="1080" decoding="async"><figcaption>Karar noktası ekran çizmeden önce gelir; sonrası hep bu ayrımın devamıdır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption></figure>
+        <div class="c-kutu c-m"><span>Kategori</span><b><i aria-hidden="true">●</i> Mobil</b></div>
+        <div class="c-kutu c-m"><span>Yayın</span><b>26 Eylül 2026</b></div>
+        <div class="c-kutu c-m"><span>Okuma</span><b>7 dk</b></div>
+        <div class="c-kutu c-m"><span>Bölüm</span><b>7 başlık</b></div>
       </div>
-      <h1>Mobil Uygulama Yaptırmadan Önce Hangi Sorular Sorulur?</h1>
-      <p class="ozet">Çoğu proje yanlış soruyla başlar: kaça yapılır? Oysa kapsam netleşmeden fiyat da netleşmez. Doğru sıra, ürünü tarif eden soruları önce yanıtlamaktan geçer. Bu yazıda bir mobil yazılım siparişi vermeden önce masaya koymanız gereken soruları sırayla açıyoruz. Sorular kısa; yanıtları projenizin yönünü belirliyor.</p>
+      <nav class="c-cipler" aria-label="İçindekiler"><a href="#uygulama-yaptirma-kararindan-once-hangi-soru-gelir"><span>01</span>Uygulama Yaptırma Kararından Önce Hangi Soru Gelir?</a><a href="#kullaniciniz-uygulamayi-ne-siklikla-acacak"><span>02</span>Kullanıcınız Uygulamayı Ne Sıklıkla Açacak?</a><a href="#bu-isi-uygulama-mi-mobil-site-mi-cozer"><span>03</span>Bu İşi Uygulama mı, Mobil Site mi Çözer?</a><a href="#veriler-kimde-duracak-kod-kime-ait-olacak"><span>04</span>Veriler Kimde Duracak, Kod Kime Ait Olacak?</a><a href="#ajansa-hangi-bes-soruyu-sormalisiniz"><span>05</span>Ajansa Hangi Beş Soruyu Sormalısınız?</a><a href="#sorularinizi-birlikte-yanitlayalim"><span>06</span>Sorularınızı Birlikte Yanıtlayalım</a><a href="#uygulama-mi-mobil-site-mi-dort-olcut"><span>07</span>Uygulama mı, mobil site mi? Dört ölçüt</a></nav>
     </div>
   </header>
 
-  <figure class="yz-kapak">
+  <section class="sec" style="padding-top:clamp(20px,3vw,32px)">
     <div class="wrap">
-      <img src="./gorsel/mobil-uygulama-yaptirma-sorulari-kapak-1440.webp"
-           srcset="./gorsel/mobil-uygulama-yaptirma-sorulari-kapak-640.webp 640w, ./gorsel/mobil-uygulama-yaptirma-sorulari-kapak-960.webp 960w, ./gorsel/mobil-uygulama-yaptirma-sorulari-kapak-1440.webp 1440w, ./gorsel/mobil-uygulama-yaptirma-sorulari-kapak-1920.webp 1920w"
-           sizes="(max-width: 1200px) 100vw, 1160px"
-           alt="Karanlık zeminde ışıklı bir yol ayrımı; iki koldan biri seyrek, diğeri sık düğümlerle örülü"
-           width="1920" height="1080" fetchpriority="high" decoding="async">
-      <figcaption>Karar noktası ekran çizmeden önce gelir; sonrası hep bu ayrımın devamıdır. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-    </div>
-  </figure>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <article class="yz-govde">
-      <h2>Uygulama Yaptırma Kararından Önce Hangi Soru Gelir?</h2>
+      <article class="yz-govde c-govde">
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 01</b><span>01 / 07</span></div><h2 id="uygulama-yaptirma-kararindan-once-hangi-soru-gelir">Uygulama Yaptırma Kararından Önce Hangi Soru Gelir?</h2>
       <div class="yz-cevap"><p>Tek soru her şeyin önünde gelir: hangi sorunu çözüyorsunuz? Yanıtı tek cümleye sığmıyorsa kapsam da sığmaz. Ekran listesi, teknoloji ve bütçe bu cümleden sonra gelir. Uygulama yaptırma sürecinde en pahalı hata, sorunu tanımlamadan ekran çizmeye başlamaktır. O ekranlar sonra çöpe gider.</p></div>
       <p>Görüşmelerin çoğu bir ekran listesiyle açılır. Oysa liste bir çözümdür; çözümün hangi soruna ait olduğunu kimse söylemez. Biz ilk oturumda ekran konuşmayız. Şunu sorarız: bugün bu iş nasıl yürüyor ve nerede tıkanıyor?</p><p>Yanıt somutlaştığında kapsam kendiliğinden daralır. Yaptıracağınız uygulamanın çözdüğü sorun tek cümleye sığıyorsa, iş tanımı da bir sayfaya sığar.</p><p>Bu soruyu kimin yanıtladığı da önemlidir. Kararı işi sahada yapan kişi verirse ürün gerçeğe yakın çıkar. Yalnız yönetim masasında tarif edilen uygulamalar, çoğu zaman kimsenin açmadığı ekranlarla dolar. En az bir kullanıcıyı ilk oturuma çağırın.</p>
       <h3>Sorunu Tek Cümleye İndirmenin Pratik Yolu</h3>
-      <p>Cümleyi şu kalıba oturtun: <em>“[kim], [hangi durumda], [neyi] yapamıyor.”</em> Kalıp dolmuyorsa sorun henüz tanımlı değildir. Uygulama yaptırma görüşmesine bu cümleyle gelen ekiplerin kapsamı, gelmeyenlere göre belirgin biçimde dar olur.</p>
-      <h2>Kullanıcınız Uygulamayı Ne Sıklıkla Açacak?</h2>
+      <p>Cümleyi şu kalıba oturtun: <em>“[kim], [hangi durumda], [neyi] yapamıyor.”</em> Kalıp dolmuyorsa sorun henüz tanımlı değildir. Uygulama yaptırma görüşmesine bu cümleyle gelen ekiplerin kapsamı, gelmeyenlere göre belirgin biçimde dar olur.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 02</b><span>02 / 07</span></div><h2 id="kullaniciniz-uygulamayi-ne-siklikla-acacak">Kullanıcınız Uygulamayı Ne Sıklıkla Açacak?</h2>
       <div class="yz-cevap"><p>Sıklık, uygulamanın gerekip gerekmediğini belirleyen en keskin ölçüdür. Haftada birkaç kez açılan bir ürün uygulamayı hak eder. Yılda üç kez açılan bir işlem için mobil uyumlu sayfa yeter. Uygulama yaptırma kararını duygusal değil, bu davranış verisiyle verin. Elinizde veri yoksa önce onu toplayın.</p></div>
       <p>Kullanım aralığı, ürünün ana ekranda kalıp kalmayacağını belirler. Kimse yılda iki kez açacağı bir simgeye yer ayırmaz. Mevcut sitenizin ziyaret sıklığı bu konuda iyi bir göstergedir; oradaki tekrar oranı size gerçek yanıtı verir.</p><p>Ölçüm yoksa tahmin edilir, tahmin de pahalıya patlar. Bir aylık basit bir kayıt bile kararı sağlamlaştırır. Kullanıcı davranışının arayüz kararlarıyla ilişkisini <a href="../kullanici-deneyimi/">kullanıcı deneyimi</a> yazısında ayrıca ele aldık.</p><p>Sıklığı ölçerken tek sayıya bakmayın. Aynı kullanıcının ne kadar aralıkla döndüğü, toplam ziyaretten daha çok şey söyler. Yüz kişinin bir kez geldiği bir ürünle on kişinin onar kez geldiği ürün, tabloda aynı görünür ama uygulama yaptırma gerekçesi bakımından taban tabana zıttır.</p>
       <h3>Sıklık Düşükse Uygulama Fikri Ölür mü?</h3>
-      <p>Hayır, ama sırası değişir. Önce mobil uyumlu akışı kurun, sonra veriyi izleyin. Sıklık yükselirse uygulama yaptırma gerekçeniz artık tahmin değil ölçüm olur.</p>
-      <h2>Bu İşi Uygulama mı, Mobil Site mi Çözer?</h2>
+      <p>Hayır, ama sırası değişir. Önce mobil uyumlu akışı kurun, sonra veriyi izleyin. Sıklık yükselirse uygulama yaptırma gerekçeniz artık tahmin değil ölçüm olur.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 03</b><span>03 / 07</span></div><h2 id="bu-isi-uygulama-mi-mobil-site-mi-cozer">Bu İşi Uygulama mı, Mobil Site mi Çözer?</h2>
       <div class="yz-cevap"><p>Dört ölçüt kararı verir: kullanım sıklığı, bildirim ihtiyacı, çevrimdışı çalışma ve donanım erişimi. Bunlardan biri bile şartsa uygulama anlam kazanır. Hiçbiri yoksa mobil uyumlu bir site aynı işi daha ucuza görür. Uygulama yaptırma isteğini bu dört ölçütle sınayın, moda akımıyla değil.</p></div>
       <p>Tarayıcı son yıllarda çok yol aldı. Kamera, konum ve çevrimdışı önbellek artık web tarafında da çalışıyor. Ama anlık uyarı göndermek, arka planda konum izlemek ve mağaza rafında görünmek hâlâ uygulamanın işidir.</p><p>Bu ayrımı erken yapmak bütçeyi korur. Maliyeti hangi kalemlerin hareket ettirdiğini <a href="../mobil-uygulama-gelistirme-maliyeti/">uygulama maliyeti</a> yazısında kalem kalem açtık. Aşamaları ve takvimi ise <a href="../mobil-uygulama-gelistirme-sureci/">geliştirme süreci</a> yazısında anlattık.</p><p>Dört ölçütü tek tek sınayın, toplu bakmayın. Çoğu ekip “bildirim gönderelim” cümlesinde durur ve gerisini sormaz. Oysa e-posta ya da kısa mesaj aynı işi görüyorsa, tek başına bildirim ihtiyacı uygulama yaptırma gerekçesi sayılmaz.</p>
       <h3>Tek Kod Tabanı Sorusu Ne Zaman Gelir?</h3>
-      <p>Uygulama kararı netleştikten sonra. Mimari seçimi ayrı bir tartışmadır; <a href="../../react-native/">tek kod tabanı yaklaşımını</a> hizmet sayfasında anlattık. Mekanizma farkını <a href="../native-mi-cross-platform-mi/">native mi cross-platform mı</a> yazısında açtık. Karar sırasını bozmayın: önce gerekçe, sonra teknoloji.</p>
-      <h2>Veriler Kimde Duracak, Kod Kime Ait Olacak?</h2>
+      <p>Uygulama kararı netleştikten sonra. Mimari seçimi ayrı bir tartışmadır; <a href="../../react-native/">tek kod tabanı yaklaşımını</a> hizmet sayfasında anlattık. Mekanizma farkını <a href="../native-mi-cross-platform-mi/">native mi cross-platform mı</a> yazısında açtık. Karar sırasını bozmayın: önce gerekçe, sonra teknoloji.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 04</b><span>04 / 07</span></div><h2 id="veriler-kimde-duracak-kod-kime-ait-olacak">Veriler Kimde Duracak, Kod Kime Ait Olacak?</h2>
       <div class="yz-cevap"><p>Sözleşmede iki satır arayın: kaynak kodun mülkiyeti ve verilerin nerede tutulacağı. Bu iki satır yoksa ürün sizin değildir. Mağaza hesapları da kendi adınıza açılmalı, ajansın hesabına değil. Uygulama yaptırma görüşmesinde bunları sormamak, ilerideki en pahalı sessizliktir. Devir şartını baştan yazıya dökün.</p></div>
       <p>Bu başlık teknik değil hukuki görünür, oysa ikisi de aynı kapıya çıkar. Yazılımın kendisi kimin elindeyse, ürünün geleceği de onun elindedir. Ajans değiştirmek istediğinizde bu satırlar sizi kurtarır.</p><p>Üç şeyi kendi adınıza kurun: mağaza geliştirici hesapları, alan adı ve bulut hesabı. Geliştirici ekip bunlara davetli olarak katılsın, sahibi olarak değil.</p><p>Verinin nerede durduğu ayrı bir sorudur. Kişisel veri işliyorsanız sunucunun ülkesi, saklama süresi ve silme yordamı sözleşmede yazılı olmalı. Bu satırları sonradan eklemek, yayına çıkmış bir üründe hem pahalı hem yavaş ilerler. Uygulama kişisel veri topluyorsa <a href="https://www.kvkk.gov.tr/" target="_blank" rel="noopener">KVKK’nın veri sorumlusu yükümlülükleri</a> sözleşmede baştan yazılmalı.</p>
       <h3>Devir Nasıl Sorunsuz Yapılır?</h3>
       <p>Depo erişimi, ortam değişkenleri ve kurulum belgesi ilk günden paylaşılsın. Yaptırma kararı uygulamanın son gününü değil ilk gününü bağlar; devir bittiğinde değil başladığında konuşulur.</p>
-      <blockquote class="yz-alinti"><p>&#8220;Ekran listesi bir çözümdür. Hangi soruna ait olduğunu yazmadan sipariş verirseniz, çözümü satın alır sorunu evde bırakırsınız.&#8221;</p><cite>— TasarımMania kapsam görüşmesi notu</cite></blockquote>
-      <h2>Ajansa Hangi Beş Soruyu Sormalısınız?</h2>
+      <blockquote class="yz-alinti"><p>&#8220;Ekran listesi bir çözümdür. Hangi soruna ait olduğunu yazmadan sipariş verirseniz, çözümü satın alır sorunu evde bırakırsınız.&#8221;</p><cite>— TasarımMania kapsam görüşmesi notu</cite></blockquote></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 05</b><span>05 / 07</span></div><h2 id="ajansa-hangi-bes-soruyu-sormalisiniz">Ajansa Hangi Beş Soruyu Sormalısınız?</h2>
       <div class="yz-cevap"><p>Beş soru ajansın gerçek kapasitesini gösterir. Benzer bir ürünü mağazada yayınladınız mı? Hata hâllerini kim çiziyor? Bakım ve kod devri nasıl işliyor? Yanıtları yazılı isteyin. Uygulama yaptırma görüşmesi bir sınav değil, ortak çalışma provasıdır. Sorularınıza net yanıt gelmiyorsa, sorun sizde değildir.</p></div>
       <p>Bir ekibin ne yapabileceğini portföyünden çok, sorularınıza verdiği yanıt gösterir. Aşağıdaki beşi sırayla sorun ve yanıtları not alın.</p><ol><li><strong>Yayın deneyimi</strong> — benzer bir ürünü hangi mağazalarda yayınladınız?</li><li><strong>Hata hâlleri</strong> — boş liste, kopuk bağlantı ve zaman aşımını kim çiziyor?</li><li><strong>Bakım</strong> — işletim sistemi sürümü çıktığında süreç nasıl işliyor?</li><li><strong>Devir</strong> — kaynak kod ve hesaplar bize nasıl geçiyor?</li><li><strong>İletişim</strong> — haftalık ilerlemeyi kim, hangi biçimde raporluyor?</li></ol><p>Yanıtlar sözlü kalırsa unutulur. Yazılı isteyin; teklif ekine girsin.</p>
       <h3>Portföy Neden Tek Başına Yetmez?</h3>
-      <p>Vitrindeki iş bitmiş hâliyle görünür; nasıl bittiği görünmez. İki yıl önce yayınlanan bir uygulamanın bugün ayakta olup olmadığı daha çok şey anlatır. Mağazada arayın, son güncelleme tarihine bakın. Yorumlara da göz atın: kullanıcıların bildirdiği hataların yanıtlanıp yanıtlanmadığı, ekibin bakım alışkanlığını portföyden daha dürüst anlatır.</p>
-      <h2>Sorularınızı Birlikte Yanıtlayalım</h2>
+      <p>Vitrindeki iş bitmiş hâliyle görünür; nasıl bittiği görünmez. İki yıl önce yayınlanan bir uygulamanın bugün ayakta olup olmadığı daha çok şey anlatır. Mağazada arayın, son güncelleme tarihine bakın. Yorumlara da göz atın: kullanıcıların bildirdiği hataların yanıtlanıp yanıtlanmadığı, ekibin bakım alışkanlığını portföyden daha dürüst anlatır.</p></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 06</b><span>06 / 07</span></div><h2 id="sorularinizi-birlikte-yanitlayalim">Sorularınızı Birlikte Yanıtlayalım</h2>
       <div class="yz-cevap"><p>Bu soruların çoğunu tek başınıza yanıtlamanız gerekmez. Görüşmede sorunu, kullanıcıyı ve kullanım sıklığını birlikte konuşuyoruz. Elinizde ekran listesi değil, karar gerekçesi kalıyor. Uygulama yaptırma kararını o gerekçeyle verirseniz sonradan dönüş yapmazsınız. Yanlış ürüne harcanan ilk üç ay hiçbir bütçeyle geri gelmiyor.</p></div>
       <p>Kapsam oturumundan çıkarken elinizde bir sayfa olur: sorun, kullanıcı, sıklık, dört ölçüt ve devir şartları. <a href="../../mobil-uygulama/">Mobil uygulama hizmetimizi</a> incelemek isterseniz sayfa hep açık. Yaptırmadan önce uygulamanızın gerekçesini yazıya dökmek, sonraki her kararı kolaylaştırır.</p>
-      <figure class="yz-gorsel">
+      <figure class="yz-gorsel ox-img">
         <img src="./gorsel/mobil-uygulama-yaptirma-sorulari-govde-960.webp"
              srcset="./gorsel/mobil-uygulama-yaptirma-sorulari-govde-640.webp 640w, ./gorsel/mobil-uygulama-yaptirma-sorulari-govde-960.webp 960w, ./gorsel/mobil-uygulama-yaptirma-sorulari-govde-1440.webp 1440w, ./gorsel/mobil-uygulama-yaptirma-sorulari-govde-1920.webp 1920w"
-             sizes="(max-width: 760px) 100vw, 760px"
+             sizes="(max-width: 860px) 100vw, 260px"
              alt="İç içe geçmiş ışıklı halkalar; her halka bir öncekinden dar, en içteki en parlak nokta" width="1920" height="1080" loading="lazy" decoding="async">
         <figcaption>Her soru kapsamı biraz daha daraltır; en içteki halka gerçek işin kendisidir. <span class="yz-ai">Görsel yapay zekâ ile üretildi.</span></figcaption>
-      </figure>
-      <h2>Uygulama mı, mobil site mi? Dört ölçüt</h2>
+      </figure></section>
+        <section class="c-kutu c-bol"><div class="c-bol-ust"><b>Bölüm 07</b><span>07 / 07</span></div><h2 id="uygulama-mi-mobil-site-mi-dort-olcut">Uygulama mı, mobil site mi? Dört ölçüt</h2>
       <div class="yz-tablo">
         <table>
           <thead><tr><th>Ölçüt</th><th>Uygulama gerekir</th><th>Mobil site yeter</th></tr></thead>
@@ -518,7 +563,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-g" href="../../mobil-uygulama/">Hizmet sayfasını gör</a>
         </aside>
-        <p>Uygulama yaptırma kararı teknolojiyle değil soruyla başlar. Sorunu, kullanıcıyı, sıklığı ve devir şartlarını yazıya döktüğünüzde geriye kalan her karar kendiliğinden kolaylaşır.</p>
+        <p>Uygulama yaptırma kararı teknolojiyle değil soruyla başlar. Sorunu, kullanıcıyı, sıklığı ve devir şartlarını yazıya döktüğünüzde geriye kalan her karar kendiliğinden kolaylaşır.</p></section>
       </article>
     </div>
   </section>
