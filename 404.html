@@ -2,6 +2,45 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
+<script>
+/* GitHub Pages bu dosyayı bulunamayan HER adreste, o adresin altında gösterir;
+   göreli yollar (./site/…, ./assets/…) o adrese göre çözülür. İç içe adreste
+   stil ve görseller kırılıyordu. Bu yüzden, sayfadaki ilk göreli yoldan ÖNCE:
+   1) 6 Eyl 2026 düz URL taşımasının eski adresleri (/hizmetler/<modül>/<sayfa>/,
+      kaynak: plan/yeni-url-haritasi.json + git 4c94458) yeni karşılığına gider;
+   2) değilse <base> proje köküne sabitlenir, 404 sayfası stiliyle açılır. */
+(function () {
+  var p = location.pathname, seg = p.split('/')[1];
+  var kok = /\.github\.io$/.test(location.hostname) && seg ? '/' + seg + '/' : '/';
+  var eski = {
+    'seo': 'seo', 'seo/teknik-seo': 'teknik-seo', 'seo/icerik-stratejisi': 'seo-icerik',
+    'seo/yerel-seo': 'yerel-seo', 'seo/e-ticaret-seo': 'e-ticaret-seo', 'seo/cok-dilli-seo': 'cok-dilli-seo',
+    'web-tasarim-yazilim': 'web-tasarim', 'web-tasarim-yazilim/kurumsal-web-sitesi': 'kurumsal-web-sitesi',
+    'web-tasarim-yazilim/e-ticaret': 'e-ticaret', 'web-tasarim-yazilim/ozel-yazilim': 'ozel-yazilim',
+    'web-tasarim-yazilim/ai-entegrasyonu': 'yapay-zeka', 'web-tasarim-yazilim/bakim-destek': 'site-bakim',
+    'web-tasarim-yazilim/grafik-tasarim': 'grafik-tasarim',
+    'mobil-uygulama': 'mobil-uygulama', 'mobil-uygulama/ios-android': 'ios-android-uygulama',
+    'mobil-uygulama/react-native': 'react-native', 'mobil-uygulama/uygulama-ui-ux': 'uygulama-arayuz-tasarimi',
+    'mobil-uygulama/aso-uygulama-pazarlamasi': 'aso',
+    'dijital-pazarlama': 'dijital-pazarlama', 'dijital-pazarlama/google-ads': 'google-ads',
+    'dijital-pazarlama/meta-ads': 'meta-reklam', 'dijital-pazarlama/performans-pazarlamasi': 'performans-pazarlama',
+    'dijital-pazarlama/sosyal-medya-yonetimi': 'sosyal-medya',
+    'video-produksiyon': 'video-produksiyon', 'video-produksiyon/reklam-filmi': 'reklam-filmi',
+    'video-produksiyon/urun-videosu': 'urun-videosu', 'video-produksiyon/sosyal-video-reels': 'reels-video',
+    'video-produksiyon/ai-destekli-produksiyon': 'ai-video-produksiyon',
+    'grafik-tasarim': 'grafik-tasarim'
+  };
+  var m = p.slice(kok.length).replace(/index\.html$/, '').match(/^(?:site\/)?hizmetler\/(.+?)\/?$/);
+  if (m && eski.hasOwnProperty(m[1])) {
+    document.documentElement.style.display = 'none';   // kırık sayfa bir an bile görünmesin
+    location.replace(kok + 'site/' + eski[m[1]] + '/' + location.search + location.hash);
+    return;
+  }
+  var b = document.createElement('base');
+  b.href = kok;
+  document.head.appendChild(b);
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- KONSEPT-NOINDEX -->
 <meta name="robots" content="noindex,nofollow">
@@ -87,6 +126,17 @@
 .wa:hover{transform:scale(1.07)}
 .wa svg{width:27px;height:27px;fill:#fff}
 
+/* modül kartları — hizmet sayfalarındaki .hrt-sag/.yk ile aynı görünüm. Bu sayfada
+   tanımsızdı: altı bağlantı kart yerine tek paragraf gibi akıyordu. Tam genişlikte
+   tek sütun uzun kalacağı için ızgara, sığdığı kadar sütun açar. */
+.hrt-sag{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.yk{display:block;border:1px solid var(--hair);border-radius:var(--r-md);padding:15px 16px;
+  background:var(--panel);transition:.3s var(--ease)}
+.yk:hover{border-color:var(--k,var(--acc));transform:translateY(-2px)}
+.yk b{display:flex;align-items:center;gap:9px;font-size:14.2px;margin-bottom:5px;letter-spacing:-.02em}
+.yk b::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--k,var(--acc));flex:none}
+.yk span{font-size:12.4px;color:var(--muted);line-height:1.55}
+
 @media(max-width:960px){.ftr-ust{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){
   .nav-links,.nav-tel{display:none}
@@ -171,7 +221,7 @@
     </div>
   </header>
 
-  <section class="sec" style="padding-top:0">
+  <section class="sec" style="padding-top:clamp(28px,4vw,44px)">
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow"><i></i>Nereye gitmek istiyordunuz</span>
@@ -243,6 +293,10 @@
 <script>
 "use strict";
 document.getElementById('yil').textContent = new Date().getFullYear();
+// <base> proje köküne sabitlendi: "#ana" gibi sayfa içi bağlantılar köke değil bu sayfaya gitmeli
+[].forEach.call(document.querySelectorAll('a[href^="#"]'), function (a) {
+  a.setAttribute('href', location.pathname + location.search + a.getAttribute('href'));
+});
 </script>
 </body>
 </html>
