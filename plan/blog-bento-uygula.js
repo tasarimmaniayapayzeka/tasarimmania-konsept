@@ -30,6 +30,14 @@ const METIN = {
         sure: s => s.replace(' min read', ' min') }
 };
 
+// Liste maddeleri: taban CSS li'yi flex yapıyor; "<strong>Etiket:</strong> metin" iki sütuna bölünüp
+// dar ekranda dağılıyordu. Madde metni tek blokta akar, işaret sola mutlak konumlanır.
+const LISTE_CSS = `/* c-liste */
+.c-govde li{display:block;position:relative;padding-left:20px}
+.c-govde li::before{position:absolute;left:0;top:.72em;margin:0}
+.c-govde ol li{padding-left:28px}
+.c-govde ol li::before{top:.28em;min-width:0}`;
+
 const CSS = dil => `
 /* ===== blog detay: Bento düzeni ===== */
 .ox-hd{position:relative;isolation:isolate;overflow:hidden}
@@ -73,6 +81,7 @@ const CSS = dil => `
 .c-govde.yz-govde h2{margin-top:0}
 .c-bol .yz-gorsel{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:end;margin:26px 0 10px}
 .c-bol .yz-kopru{margin-bottom:10px}
+${LISTE_CSS}
 .ilgili-bolum .yz-ilgili,#sss .sec-head,#sss .yz-sss{max-width:840px;margin-inline:auto}
 @media(max-width:860px){.c-bento{grid-template-columns:repeat(2,minmax(0,1fr))}.c-t,.c-kapak{grid-column:1/-1}
   .c-kapak img{aspect-ratio:16/9;min-height:0;max-height:220px}
@@ -81,7 +90,11 @@ const CSS = dil => `
 
 function donustur(dosya) {
   const src = fs.readFileSync(dosya, 'utf8');
-  if (src.includes('class="c-bento"')) return 'zaten';
+  if (src.includes('class="c-bento"')) {
+    if (src.includes('/* c-liste */')) return 'zaten';
+    fs.writeFileSync(dosya, src.replace('</style>', LISTE_CSS + '\n</style>'));
+    return 'liste düzeltmesi';
+  }
   const header = parca(src, '<header class="phd">', '</header>');
   const kapak = parca(src, '<figure class="yz-kapak">', '</figure>');
   const govdeP = parca(src, '<article class="yz-govde">', '</article>');
